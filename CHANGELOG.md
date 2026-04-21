@@ -1,4 +1,8 @@
 
+### 6.8.2 rev71 (21 April 2026)
+
+* Add [KStatusNotifierItem](https://api.kde.org/kstatusnotifieritem-index.html) (#136)
+
 ### 6.8.2 rev70 (16 April 2026)
 
 * **MAJOR BREAKING CHANGE:** Support more idiomatic allocators, types, and dot-call syntax (#135)
