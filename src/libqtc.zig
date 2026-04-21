@@ -2,8 +2,6 @@
 
 const C = @import("qt6c");
 
-/// These C container structs are exported for use in specific callbacks when needed.
-/// Otherwise, they should not need to be used.
 /// This data structure correlates to QList<>
 pub const libqt_list = C.libqt_list;
 /// This data structure correlates to QHash<>, QMap<>, QMultiHash<>, and QMultiMap<>
@@ -539,6 +537,7 @@ pub const KStartupInfoId = ?*C.KStartupInfoId;
 pub const KStartupInfo__Data = ?*C.KStartupInfo__Data;
 pub const KStatefulBrush = ?*C.KStatefulBrush;
 pub const KStatusBarJobTracker = ?*C.KStatusBarJobTracker;
+pub const KStatusNotifierItem = ?*C.KStatusNotifierItem;
 pub const KStringHandler = ?*C.KStringHandler;
 pub const KStyleExtensions = ?*C.KStyleExtensions;
 pub const KStyleManager = ?*C.KStyleManager;
