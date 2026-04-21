@@ -941,6 +941,7 @@
 #include "extras-sonnet/libdictionarycombobox.h"
 #include "extras-sonnet/libhighlighter.h"
 #include "extras-sonnet/libspellcheckdecorator.h"
+#include "extras-kstatusnotifieritem/libkstatusnotifieritem.h"
 #include "extras-ksvg/libframesvg.h"
 #include "extras-ksvg/libimageset.h"
 #include "extras-ksvg/libsvg.h"
