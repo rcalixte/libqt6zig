@@ -1506,7 +1506,7 @@ pub fn create(allocator: std.mem.Allocator) !*` + uClass + `Ui {
 		for i := 0; i < len(tabStops.TabStops)-1; i++ {
 			current := tabStops.TabStops[i].Name
 			next := tabStops.TabStops[i+1].Name
-			ret.WriteString("ui." + current + ".SetTabOrder(ui." + next + ");\n")
+			ret.WriteString("qt6.QWidget.SetTabOrder(ui." + current + ", ui." + next + ");\n")
 		}
 	}
 
