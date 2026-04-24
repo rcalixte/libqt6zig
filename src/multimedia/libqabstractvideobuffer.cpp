@@ -5,6 +5,10 @@
 #include "libqabstractvideobuffer.h"
 #include "libqabstractvideobuffer.hxx"
 
+QAbstractVideoBuffer__MapData* QAbstractVideoBuffer_Map(QAbstractVideoBuffer* self, int mode) {
+    return new QAbstractVideoBuffer::MapData(self->map(static_cast<QVideoFrame::MapMode>(mode)));
+}
+
 void QAbstractVideoBuffer_Unmap(QAbstractVideoBuffer* self) {
     self->unmap();
 }

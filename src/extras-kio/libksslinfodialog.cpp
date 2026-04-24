@@ -15,6 +15,7 @@
 #include <QHideEvent>
 #include <QInputMethodEvent>
 #include <QKeyEvent>
+#include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QMouseEvent>
@@ -28,6 +29,7 @@
 #include <QResizeEvent>
 #include <QShowEvent>
 #include <QSize>
+#include <QSslCertificate>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -75,12 +77,61 @@ int KSslInfoDialog_Metacall(KSslInfoDialog* self, int param1, int param2, void**
     }
 }
 
+void KSslInfoDialog_SetSslInfo(KSslInfoDialog* self, const libqt_list /* of QSslCertificate* */ certificateChain, const libqt_string ip, const libqt_string host, const libqt_string sslProtocol, const libqt_string cipher, int usedBits, int bits, const libqt_list /* of libqt_list of int */ validationErrors) {
+    QList<QSslCertificate> certificateChain_QList;
+    certificateChain_QList.reserve(certificateChain.len);
+    QSslCertificate** certificateChain_arr = static_cast<QSslCertificate**>(certificateChain.data);
+    for (size_t i = 0; i < certificateChain.len; ++i) {
+        certificateChain_QList.push_back(*(certificateChain_arr[i]));
+    }
+    QString ip_QString = QString::fromUtf8(ip.data, ip.len);
+    QString host_QString = QString::fromUtf8(host.data, host.len);
+    QString sslProtocol_QString = QString::fromUtf8(sslProtocol.data, sslProtocol.len);
+    QString cipher_QString = QString::fromUtf8(cipher.data, cipher.len);
+    QList<QList<QSslError::SslError>> validationErrors_QList;
+    validationErrors_QList.reserve(validationErrors.len);
+    libqt_list /* of int */* validationErrors_arr = static_cast<libqt_list /* of int */*>(validationErrors.data);
+    for (size_t i = 0; i < validationErrors.len; ++i) {
+        QList<QSslError::SslError> validationErrors_arr_i_QList;
+        validationErrors_arr_i_QList.reserve(validationErrors_arr[i].len);
+        int* validationErrors_arr_i_arr = static_cast<int*>(validationErrors_arr[i].data);
+        for (size_t j = 0; j < validationErrors_arr[i].len; ++j) {
+            validationErrors_arr_i_QList.push_back(static_cast<QSslError::SslError>(validationErrors_arr_i_arr[j]));
+        }
+        validationErrors_QList.push_back(validationErrors_arr_i_QList);
+    }
+    self->setSslInfo(certificateChain_QList, ip_QString, host_QString, sslProtocol_QString, cipher_QString, static_cast<int>(usedBits), static_cast<int>(bits), validationErrors_QList);
+}
+
 void KSslInfoDialog_SetMainPartEncrypted(KSslInfoDialog* self, bool mainPartEncrypted) {
     self->setMainPartEncrypted(mainPartEncrypted);
 }
 
 void KSslInfoDialog_SetAuxiliaryPartsEncrypted(KSslInfoDialog* self, bool auxiliaryPartsEncrypted) {
     self->setAuxiliaryPartsEncrypted(auxiliaryPartsEncrypted);
+}
+
+libqt_list /* of libqt_list of int */ KSslInfoDialog_CertificateErrorsFromString(const libqt_string errorsString) {
+    QString errorsString_QString = QString::fromUtf8(errorsString.data, errorsString.len);
+    QList<QList<QSslError::SslError>> _ret = KSslInfoDialog::certificateErrorsFromString(errorsString_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_list /* of int */* _arr = static_cast<libqt_list /* of int */*>(malloc(sizeof(libqt_list /* of int */) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        const QList<QSslError::SslError>& _lv_ret = _ret[i];
+        // Convert QList<> from C++ memory to manually-managed C memory
+        int* _lv_arr = static_cast<int*>(malloc(sizeof(int) * (_lv_ret.size())));
+        for (qsizetype j = 0; j < _lv_ret.size(); ++j) {
+            _lv_arr[j] = static_cast<int>(_lv_ret[j]);
+        }
+        libqt_list _lv_out;
+        _lv_out.len = _lv_ret.size();
+        _lv_out.data = static_cast<void*>(_lv_arr);
+        _arr[i] = _lv_out;
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
