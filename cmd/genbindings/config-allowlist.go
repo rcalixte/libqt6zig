@@ -281,14 +281,14 @@ func AllowVirtual(mm CppMethod) bool {
 
 func AllowVirtualForClass(className string) bool {
 	switch className {
-	case "KAbstractWidgetJobTracker", // Qt 6 KJobWidgets, this vtable cause linker errors
-		"KDialogJobUiDelegate",            // Qt 6 KJobWidgets, this vtable cause linker errors
-		"KJobTrackerInterface",            // Qt 6 KCoreAddons, the vtable causes a linker error
-		"KNotificationJobUiDelegate",      // Qt 6 KJobWidgets, this vtable cause linker errors
-		"KStatusBarJobTracker",            // Qt 6 KJobWidgets, this vtable cause linker errors
-		"KUiServerJobTracker",             // Qt 6 KJobWidgets, this vtable cause linker errors
-		"KUiServerV2JobTracker",           // Qt 6 KJobWidgets, this vtable cause linker errors
-		"KWidgetJobTracker",               // Qt 6 KJobWidgets, this vtable cause linker errors
+	case "KAbstractWidgetJobTracker", // Qt 6 KJobWidgets, this vtable causes linker errors
+		"KDialogJobUiDelegate",            // Qt 6 KJobWidgets, this vtable causes linker errors
+		"KJobTrackerInterface",            // Qt 6 KCoreAddons, this vtable causes linker errors
+		"KNotificationJobUiDelegate",      // Qt 6 KJobWidgets, this vtable causes linker errors
+		"KStatusBarJobTracker",            // Qt 6 KJobWidgets, this vtable causes linker errors
+		"KUiServerJobTracker",             // Qt 6 KJobWidgets, this vtable causes linker errors
+		"KUiServerV2JobTracker",           // Qt 6 KJobWidgets, this vtable causes linker errors
+		"KWidgetJobTracker",               // Qt 6 KJobWidgets, this vtable causes linker errors
 		"QDesignerDnDItemInterface",       // Qt 6 Designer
 		"QDesignerExtraInfoExtension",     // Qt 6 Designer
 		"QDesignerFormWindowInterface",    // Qt 6 Designer
@@ -317,12 +317,12 @@ func AllowDefinitionForClass(className string) bool {
 }
 
 func AllowMethod(className string, mm CppMethod) error {
-	for _, p := range mm.Parameters {
-		if strings.HasSuffix(p.ParameterType, "Private") {
+	for i := range mm.Parameters {
+		if strings.HasSuffix(mm.Parameters[i].ParameterType, "Private") {
 			return ErrTooComplex // Skip private type
 		}
 
-		if p.ParameterType == "..." {
+		if mm.Parameters[i].ParameterType == "..." {
 			return ErrTooComplex // Skip variadic parameter
 		}
 	}
@@ -354,11 +354,6 @@ func AllowMethod(className string, mm CppMethod) error {
 
 	if className == "QDBusPendingReplyTypes" && mm.MethodName == "metaTypeFor" {
 		return ErrTooComplex // Qt 6.8: qdbuspendingreply.h, templated method
-	}
-
-	if className == "QAbstractVideoBuffer" && mm.MethodName == "map" {
-		// Present in Qt 6.8 but the return type is not properly handled yet
-		return ErrTooComplex
 	}
 
 	if className == "QTransform" && mm.MethodName == "asAffineMatrix" {
@@ -443,12 +438,6 @@ func AllowMethod(className string, mm CppMethod) error {
 	}
 	if className == "KProtocolManager" && mm.MethodName == "fileNameUsedForCopying" {
 		// Qt 6 kprotocolmanager.h: this hits an unresolved bug
-		return ErrTooComplex
-	}
-	if className == "KSslInfoDialog" && (mm.MethodName == "setSslInfo" || mm.MethodName == "certificateErrorsFromString") {
-		// Qt 6 ksslinfodialog.h: this has a parameter/return type that is not in the binding yet:
-		// const QList<QList<QSslError::SslError>>
-		// this can be implemented at some point
 		return ErrTooComplex
 	}
 	if className == "KRecentDocument" && mm.MethodName == "clearEntriesOldestEntries" {
