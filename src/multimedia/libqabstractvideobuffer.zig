@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QVideoFrameFormat = @import("libqt6").QVideoFrameFormat;
+const qvideoframe_enums = @import("libqvideoframe.zig").enums;
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html)
 pub const QAbstractVideoBuffer = extern struct {
@@ -11,6 +12,18 @@ pub const QAbstractVideoBuffer = extern struct {
     ptr: QtC.QAbstractVideoBuffer,
 
     pub const _is_QAbstractVideoBuffer = {};
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#map)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractVideoBuffer `
+    ///
+    /// ` mode: qvideoframe_enums.MapMode `
+    ///
+    pub fn Map(self: QAbstractVideoBuffer, mode: i32) QAbstractVideoBuffer__MapData {
+        return .{ .ptr = qtc.QAbstractVideoBuffer_Map(@ptrCast(self.ptr), @bitCast(mode)) };
+    }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractvideobuffer.html#unmap)
     ///

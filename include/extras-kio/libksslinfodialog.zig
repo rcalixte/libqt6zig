@@ -50,6 +50,7 @@ const QScreen = @import("libqt6").QScreen;
 const QShowEvent = @import("libqt6").QShowEvent;
 const QSize = @import("libqt6").QSize;
 const QSizePolicy = @import("libqt6").QSizePolicy;
+const QSslCertificate = @import("libqt6").QSslCertificate;
 const QStyle = @import("libqt6").QStyle;
 const QTabletEvent = @import("libqt6").QTabletEvent;
 const QThread = @import("libqt6").QThread;
@@ -63,6 +64,7 @@ const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
 const qpalette_enums = @import("../libqpalette.zig").enums;
 const qsizepolicy_enums = @import("../libqsizepolicy.zig").enums;
+const qsslerror_enums = @import("../network/libqsslerror.zig").enums;
 const qwidget_enums = @import("../libqwidget.zig").enums;
 const std = @import("std");
 
@@ -240,6 +242,65 @@ pub const KSslInfoDialog = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/ksslinfodialog.html#setSslInfo)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSslInfoDialog `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` certificateChain: []QSslCertificate `
+    ///
+    /// ` ip: []const u8 `
+    ///
+    /// ` host: []const u8 `
+    ///
+    /// ` sslProtocol: []const u8 `
+    ///
+    /// ` cipher: []const u8 `
+    ///
+    /// ` usedBits: i32 `
+    ///
+    /// ` bits: i32 `
+    ///
+    /// ` validationErrors: [][]qsslerror_enums.SslError `
+    ///
+    pub fn SetSslInfo(self: KSslInfoDialog, allocator: std.mem.Allocator, certificateChain: []QSslCertificate, ip: []const u8, host: []const u8, sslProtocol: []const u8, cipher: []const u8, usedBits: i32, bits: i32, validationErrors: [][]i32) void {
+        const certificateChain_list = qtc.libqt_list{
+            .len = certificateChain.len,
+            .data = @ptrCast(certificateChain.ptr),
+        };
+        const ip_str = qtc.libqt_string{
+            .len = ip.len,
+            .data = ip.ptr,
+        };
+        const host_str = qtc.libqt_string{
+            .len = host.len,
+            .data = host.ptr,
+        };
+        const sslProtocol_str = qtc.libqt_string{
+            .len = sslProtocol.len,
+            .data = sslProtocol.ptr,
+        };
+        const cipher_str = qtc.libqt_string{
+            .len = cipher.len,
+            .data = cipher.ptr,
+        };
+        const validationErrors_arr = allocator.alloc(qtc.libqt_list, validationErrors.len) catch @panic("ksslinfodialog.SetSslInfo: Memory allocation failed");
+        defer allocator.free(validationErrors_arr);
+        for (validationErrors, 0..) |validationErrors_inner, i|
+            validationErrors_arr[i] = qtc.libqt_list{
+                .len = validationErrors_inner.len,
+                .data = @ptrCast(validationErrors_inner.ptr),
+            };
+        const validationErrors_list = qtc.libqt_list{
+            .len = validationErrors.len,
+            .data = @ptrCast(validationErrors_arr.ptr),
+        };
+        qtc.KSslInfoDialog_SetSslInfo(@ptrCast(self.ptr), certificateChain_list, ip_str, host_str, sslProtocol_str, cipher_str, @bitCast(usedBits), @bitCast(bits), validationErrors_list);
+    }
+
     /// ### [Upstream resources](https://api.kde.org/ksslinfodialog.html#setMainPartEncrypted)
     ///
     /// ## Parameter(s):
@@ -262,6 +323,40 @@ pub const KSslInfoDialog = extern struct {
     ///
     pub fn SetAuxiliaryPartsEncrypted(self: KSslInfoDialog, auxiliaryPartsEncrypted: bool) void {
         qtc.KSslInfoDialog_SetAuxiliaryPartsEncrypted(@ptrCast(self.ptr), auxiliaryPartsEncrypted);
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/ksslinfodialog.html#certificateErrorsFromString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` errorsString: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` [][]qsslerror_enums.SslError `
+    ///
+    pub fn CertificateErrorsFromString(allocator: std.mem.Allocator, errorsString: []const u8) [][]i32 {
+        const errorsString_str = qtc.libqt_string{
+            .len = errorsString.len,
+            .data = errorsString.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KSslInfoDialog_CertificateErrorsFromString(errorsString_str);
+        const _list: [*]qtc.libqt_list = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i|
+                qtc.libqt_free(_list[i].data);
+            qtc.libqt_free(_list);
+        }
+        const _ret = allocator.alloc([]i32, _arr.len) catch @panic("ksslinfodialog.CertificateErrorsFromString: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data: [*]i32 = @ptrCast(@alignCast(_list[i].data));
+            _ret[i] = allocator.alloc(i32, _list[i].len) catch @panic("ksslinfodialog.CertificateErrorsFromString: Memory allocation failed");
+            for (0.._list[i].len) |j|
+                _ret[i][j] = _data[j];
+        }
+        return _ret;
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)

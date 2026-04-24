@@ -878,9 +878,15 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 		}
 
 	} else if t, _, ok := rt.QListOf(); ok {
-		if _, ok := KnownEnums[t.ParameterType]; ok {
+		if t.IsKnownEnum() {
 			if zigImport, ok := KnownImports[t.ParameterType]; ok {
 				returnComment = "\n///\n/// ## Returns:\n///\n/// ` []" + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType) + " `"
+				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
+				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
+			}
+		} else if l, _, ok := t.QListOf(); ok && l.IsKnownEnum() {
+			if zigImport, ok := KnownImports[l.ParameterType]; ok {
+				returnComment = "\n///\n/// ## Returns:\n///\n/// ` [][]" + zigImport.Filename + "_enums." + cabiEnumName(l.ParameterType) + " `"
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
@@ -1700,6 +1706,23 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(" + p.ParameterType + ", " + namePrefix + `_list[i].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "    for (0.." + namePrefix + "_list[i].len) |j|\n"
 				afterword += "        " + namePrefix + "_ret[i][j] = .{ .ptr = _data[j] };\n"
+				afterword += "}\n"
+
+			} else if p.IsKnownEnum() {
+				arrType = KnownEnums[p.ParameterType].EnumTypeZig
+
+				afterword += "const " + namePrefix + "_list: [*]qtc.libqt_list = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
+				afterword += "defer {\n"
+				afterword += "    for (0.." + namePrefix + "_arr.len) |i|\n"
+				afterword += "        qtc.libqt_free(" + namePrefix + "_list[i].data);\n"
+				afterword += "    qtc.libqt_free(" + namePrefix + "_list);\n"
+				afterword += "}\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc([]" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
+				afterword += "    const _data: [*]" + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_list[i].data));\n"
+				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(" + arrType + ", " + namePrefix + `_list[i].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "    for (0.." + namePrefix + "_list[i].len) |j|\n"
+				afterword += "        " + namePrefix + "_ret[i][j] = _data[j];\n"
 				afterword += "}\n"
 
 			} else {

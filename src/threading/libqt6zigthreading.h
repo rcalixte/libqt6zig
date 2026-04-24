@@ -9,24 +9,24 @@ extern "C" {
 #endif
 
 // Direct
-void Threading_ExecNow(void* self, intptr_t cb);
+void Threading_ExecNow(void* context, intptr_t cb);
 
 // Auto
-void Threading_Exec(void* self, intptr_t cb);
-void Threading_ExecUnique(void* self, intptr_t cb);
-void Threading_ExecOnce(void* self, intptr_t cb);
+void Threading_Exec(void* context, intptr_t cb);
+void Threading_ExecUnique(void* context, intptr_t cb);
+void Threading_ExecOnce(void* context, intptr_t cb);
 
 // Queued
-void Threading_Async(void* self, intptr_t cb);
-void Threading_AsyncUnique(void* self, intptr_t cb);
-void Threading_AsyncOnce(void* self, intptr_t cb);
-void Threading_AsyncUniqueOnce(void* self, intptr_t cb);
+void Threading_Async(void* context, intptr_t cb);
+void Threading_AsyncUnique(void* context, intptr_t cb);
+void Threading_AsyncOnce(void* context, intptr_t cb);
+void Threading_AsyncUniqueOnce(void* context, intptr_t cb);
 
 // Blocking
-void Threading_Sync(void* self, intptr_t cb);
-void Threading_SyncUnique(void* self, intptr_t cb);
-void Threading_SyncOnce(void* self, intptr_t cb);
-void Threading_SyncUniqueOnce(void* self, intptr_t cb);
+void Threading_Sync(void* context, intptr_t cb);
+void Threading_SyncUnique(void* context, intptr_t cb);
+void Threading_SyncOnce(void* context, intptr_t cb);
+void Threading_SyncUniqueOnce(void* context, intptr_t cb);
 
 #ifdef __cplusplus
 }
