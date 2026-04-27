@@ -193,10 +193,7 @@ pub fn build(b: *std.Build) !void {
     const libqt6zig_internal = libqt6zig;
 
     // Add the modules that provide the Qt bindings and typedefs for the internal library
-    const qtc_bindings = b.createModule(.{
-        .root_source_file = translate_c.getOutput(),
-    });
-
+    const qtc_bindings = translate_c.createModule();
     const qtzig_types = b.createModule(.{
         .root_source_file = b.path("include/libqtc.zig"),
     });
@@ -318,6 +315,8 @@ const qt_modules = &.{
     // Qt 6 SVG
     "QtSvg",
     "QtSvgWidgets",
+    // Qt 6 TextToSpeech
+    "QtTextToSpeech",
     // Qt 6 UI Plugin
     "QtUiPlugin",
     // Qt 6 UI Tools
