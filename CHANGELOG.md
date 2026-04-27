@@ -1,4 +1,9 @@
 
+### 6.8.2 rev72 (27 April 2026)
+
+* Add [Qt TextToSpeech](https://doc.qt.io/qt-6/qttexttospeech-index.html) (#138)
+* Unblock some additional methods (#137)
+
 ### 6.8.2 rev71 (21 April 2026)
 
 * Add [KStatusNotifierItem](https://api.kde.org/kstatusnotifieritem-index.html) (#136)
