@@ -233,13 +233,13 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 // emitParametersCpp emits the parameter definitions exactly how Qt C++ defines them.
 func emitParametersCpp(m CppMethod, includeHidden bool) string {
 	tmp := make([]string, 0, len(m.Parameters))
-	for _, p := range m.Parameters {
-		tmp = append(tmp, ifv(p.Const && p.QtClassType(), "const ", "")+p.RenderTypeQtCpp()+" "+p.ParameterName)
+	for i := range m.Parameters {
+		tmp = append(tmp, ifv(m.Parameters[i].Const && m.Parameters[i].QtClassType(), "const ", "")+m.Parameters[i].RenderTypeQtCpp()+" "+m.Parameters[i].ParameterName)
 	}
 
 	if includeHidden {
-		for _, p := range m.HiddenParams {
-			tmp = append(tmp, ifv(p.Const && p.QtClassType(), "const ", "")+p.RenderTypeQtCpp()+" "+p.ParameterName)
+		for i := range m.HiddenParams {
+			tmp = append(tmp, ifv(m.HiddenParams[i].Const && m.HiddenParams[i].QtClassType(), "const ", "")+m.HiddenParams[i].RenderTypeQtCpp()+" "+m.HiddenParams[i].ParameterName)
 		}
 	}
 
@@ -248,13 +248,13 @@ func emitParametersCpp(m CppMethod, includeHidden bool) string {
 
 func emitParameterNames(m CppMethod, includeHidden bool) string {
 	tmp := make([]string, 0, len(m.Parameters))
-	for _, p := range m.Parameters {
-		tmp = append(tmp, p.ParameterName)
+	for i := range m.Parameters {
+		tmp = append(tmp, m.Parameters[i].ParameterName)
 	}
 
 	if includeHidden {
-		for _, p := range m.HiddenParams {
-			tmp = append(tmp, p.ParameterName)
+		for i := range m.HiddenParams {
+			tmp = append(tmp, m.HiddenParams[i].ParameterName)
 		}
 	}
 
@@ -268,10 +268,10 @@ func emitParametersCabi(m CppMethod, selfType string) string {
 		tmp = append(tmp, selfType+" self")
 	}
 
-	for _, p := range m.Parameters {
-		pType := p.RenderTypeCabi(false)
-		maybeConst := ifv(!p.IsFunctionPointer && p.Const && !strings.HasPrefix(pType, "const "), "const ", "")
-		tmp = append(tmp, maybeConst+pType+" "+p.ParameterName)
+	for i := range m.Parameters {
+		pType := m.Parameters[i].RenderTypeCabi(false)
+		maybeConst := ifv(!m.Parameters[i].IsFunctionPointer && m.Parameters[i].Const && !strings.HasPrefix(pType, "const "), "const ", "")
+		tmp = append(tmp, maybeConst+pType+" "+m.Parameters[i].ParameterName)
 	}
 
 	return strings.Join(tmp, ", ")
@@ -284,8 +284,8 @@ func emitCallbackParameterTypesCabi(m CppMethod, selfType string) string {
 		tmp = append(tmp, selfType)
 	}
 
-	for _, p := range m.Parameters {
-		tmp = append(tmp, p.RenderTypeCabi(true))
+	for i := range m.Parameters {
+		tmp = append(tmp, m.Parameters[i].RenderTypeCabi(true))
 	}
 
 	return strings.Join(tmp, ", ")
@@ -294,8 +294,8 @@ func emitCallbackParameterTypesCabi(m CppMethod, selfType string) string {
 func emitParametersCABI2CppForwarding(params []CppParameter, indent, currentVirtualClass string) (preamble, forwarding string) {
 	tmp := make([]string, 0, len(params)+1)
 
-	for _, p := range params {
-		addPre, addFwd := emitCABI2CppForwarding(p, indent, currentVirtualClass, false)
+	for i := range params {
+		addPre, addFwd := emitCABI2CppForwarding(params[i], indent, currentVirtualClass, false)
 		preamble += addPre
 		tmp = append(tmp, addFwd)
 	}
@@ -999,13 +999,29 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
 	} else if p.IntType() && p.ByRef && strings.Contains(rvalue, "->") {
-
 		// return type by reference
 		return indent + shouldReturn + "&(" + rvalue + ");\n" + afterCall, cleanupType
 
 	} else if p.UniquePtr {
 		shouldReturn += rvalue + ".release();\n"
 		return indent + shouldReturn, cleanupType
+
+	} else if p.IsStdOptional {
+		var maybeRet, maybePre, value string
+		if p.ParameterType == "bool" {
+			value = ".value_or(false)"
+		} else if p.IsKnownEnum() {
+			maybePre = "static_cast<" + p.RenderTypeCabi(false) + ">("
+			value = ".value_or(static_cast<" + p.RenderTypeQtCpp() + ">(-1)))"
+		} else if p.IntType() {
+			value = ".value_or(-1)"
+		} else if IsKnownClass(p.ParameterType) {
+			maybeRet = "auto _ret = " + rvalue + ";\n"
+			maybePre = "_ret ? new " + p.ParameterType + "(*_ret) : nullptr"
+			rvalue = ""
+		}
+		shouldReturn += maybePre + rvalue + value + ";\n"
+		return indent + maybeRet + shouldReturn, cleanupType
 
 	} else if p.IsFunctionPointer {
 		return indent + shouldReturn + "reinterpret_cast<intptr_t>(" + rvalue + ");\n" + afterCall, cleanupType
@@ -1328,20 +1344,18 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 			continue
 		}
 
-		cppClassName := c.ClassName
-		methodPrefixName := cabiClassName(cppClassName)
+		methodPrefixName := cabiClassName(c.ClassName)
 		virtualMethods := c.VirtualMethods()
 		protectedMethods := c.ProtectedMethods()
 
 		if len(virtualMethods) > 0 {
-			overriddenClassName := "Virtual" + strings.ReplaceAll(cppClassName, "::", "")
+			overriddenClassName := "Virtual" + strings.ReplaceAll(c.ClassName, "::", "")
 
 			var publicTypes, privateCallbacks, callbackSetters, baseSetters, privateCallbackVars, privateBaseFlags, friendFuncs []string
 
-			className := cppClassName
 			maybeFinal := ifv(c.Abstract, "", " final")
-			ret.WriteString("// This class is a subclass of " + className + " so that we can call protected methods\n")
-			ret.WriteString("class " + overriddenClassName + maybeFinal + " : public " + className + " {\n\n")
+			ret.WriteString("// This class is a subclass of " + c.ClassName + " so that we can call protected methods\n")
+			ret.WriteString("class " + overriddenClassName + maybeFinal + " : public " + c.ClassName + " {\n\n")
 
 			seenProtectedEnums := map[string]struct{}{}
 			allProtectedEnums := getAllProtectedEnums(&c, seenProtectedEnums)
@@ -1398,9 +1412,9 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 
 				// Friend functions
 				if m.IsProtected {
-					cClassName := cabiClassName(className)
-					friendFuncs = append(friendFuncs, "\tfriend "+m.ReturnType.RenderTypeCabi(false)+" "+cClassName+"_"+m.SafeMethodName()+"("+emitParametersCabi(m, maybeConst+cppClassName+"*")+");\n")
-					friendFuncs = append(friendFuncs, "\tfriend "+m.ReturnType.RenderTypeCabi(false)+" "+cClassName+"_Super"+m.SafeMethodName()+"("+emitParametersCabi(m, maybeConst+cppClassName+"*")+");\n")
+					cClassName := cabiClassName(c.ClassName)
+					friendFuncs = append(friendFuncs, "\tfriend "+m.ReturnType.RenderTypeCabi(false)+" "+cClassName+"_"+m.SafeMethodName()+"("+emitParametersCabi(m, maybeConst+c.ClassName+"*")+");\n")
+					friendFuncs = append(friendFuncs, "\tfriend "+m.ReturnType.RenderTypeCabi(false)+" "+cClassName+"_Super"+m.SafeMethodName()+"("+emitParametersCabi(m, maybeConst+c.ClassName+"*")+");\n")
 				}
 
 				seenCallbacks[callbackType] = struct{}{}
@@ -1433,7 +1447,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 				}
 
 				if !slices.Contains(seenCtors, cppParams) {
-					ret.WriteString("\t" + overriddenClassName + "(" + cppParams + "): " + cppClassName + "(" + paramNames + ") {};\n")
+					ret.WriteString("\t" + overriddenClassName + "(" + cppParams + "): " + c.ClassName + "(" + paramNames + ") {};\n")
 					seenCtors = append(seenCtors, cppParams)
 				}
 			}
@@ -1476,7 +1490,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 					maybeReturn2 = m.ReturnType.RenderTypeCabi(true) + " callback_ret = "
 					returnParam := m.ReturnType // copy
 					returnParam.ParameterName = "callback_ret"
-					retTransformP, retTransformF = emitCABI2CppForwarding(returnParam, "\t\t", cppClassName, true)
+					retTransformP, retTransformF = emitCABI2CppForwarding(returnParam, "\t\t", c.ClassName, true)
 				}
 
 				var customCallback, maybeThis, signalCode, sigCleanup string
@@ -1907,7 +1921,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		if strings.Contains(ref, "::") {
 			if AllowInnerClassDef(ref) {
 				ret.WriteString("#include <" + strings.ReplaceAll(ref, "::", "/") + ">\n")
-			} else {
+			} else if !strings.HasPrefix(ref, "std::") {
 				ret.WriteString("#define WORKAROUND_INNER_CLASS_DEFINITION_" + cabiClassName(ref) + "\n")
 			}
 			continue
