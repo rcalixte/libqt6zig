@@ -867,14 +867,15 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 	var returnComment string
 
 	if rt.IsKnownEnum() {
+		maybeDetail := ifv(rt.IsStdOptional, " (Returns -1 for an invalid value)", "")
 		if strings.HasPrefix(rt.ParameterType, "QFlags<") {
 			if zigImport, ok := KnownImports[rt.ParameterType[7:len(rt.ParameterType)-1]]; ok {
-				returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + ifv(rt.Pointer || rt.ByRef, "*", "") + "flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " `"
+				returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + ifv(rt.Pointer || rt.ByRef, "*", "") + "flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " `" + maybeDetail
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 			}
 		} else {
-			returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, false, true) + " `"
+			returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, false, true) + " `" + maybeDetail
 		}
 
 	} else if t, _, ok := rt.QListOf(); ok {
@@ -953,6 +954,9 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 	} else if rt.IsFunctionPointer {
 		returnTypeDecl, _, _ := rt.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
 		returnComment = "\n///\n/// ## Returns:\n///\n/// ` ?*const fn (" + zfs.emitCommentParametersZig(rt.FunctionPointer.Parameters, true) + ") callconv(.c) " + returnTypeDecl + " `"
+
+	} else if rt.IsStdOptional && IsKnownClass(rt.ParameterType) {
+		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, true, true) + " ` (NOTE: The `ptr` field could be `null`.)"
 	}
 
 	return returnComment
@@ -2059,7 +2063,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		return assignExpr + rvalue + ";"
 
-	} else if reflect.TypeOf(rt.ParameterType).Kind() == reflect.String {
+	} else if reflect.TypeFor[string]().Kind() == reflect.String {
 		// Single type conversion from C ABI State to Zig State type
 		return shouldReturn + "@bitCast(" + rvalue + ");"
 
@@ -2486,7 +2490,7 @@ const qtc = @import("qt6c");`)
 				}
 			}
 
-			if m.InheritedInClass != "" {
+			if m.InheritedInClass != "" && m.InheritedInClass != c.ClassName {
 				inheritedFrom = "\n/// Inherited from " + m.InheritedInClass + "\n///"
 			}
 
@@ -2713,7 +2717,7 @@ const qtc = @import("qt6c");`)
 				cmdStructName = cabiClassName(m.InheritedFrom)
 			}
 
-			if m.InheritedInClass != "" {
+			if m.InheritedInClass != "" && m.InheritedInClass != c.ClassName {
 				inheritedFrom = "\n /// Inherited from " + m.InheritedInClass + "\n ///"
 			}
 
@@ -2813,7 +2817,7 @@ const qtc = @import("qt6c");`)
 				cmdStructName = cabiClassName(m.InheritedFrom)
 			}
 
-			if m.InheritedInClass != "" {
+			if m.InheritedInClass != "" && m.InheritedInClass != c.ClassName {
 				inheritedFrom = "\n/// Inherited from " + m.InheritedInClass + "\n///"
 			}
 

@@ -209,9 +209,6 @@ func AllowClass(className string) bool {
 		// supported std:: types
 		return true
 	}
-	if strings.HasPrefix(className, "std::") {
-		return false // Scintilla bindings find some of these
-	}
 
 	switch className {
 	case
@@ -331,8 +328,11 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Skip private type
 	}
 
+	if strings.Contains(mm.ReturnType.ParameterType, "std::optional<T>") {
+		return ErrTooComplex // Skip std::optional<T> type
+	}
 	if strings.Contains(mm.ReturnType.ParameterType, "std::optional") {
-		return ErrTooComplex // Skip std::optional type
+		return nil
 	}
 
 	if strings.Contains(mm.MethodName, "QGADGET") {
@@ -622,9 +622,12 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return AllowType(t, isReturnType)
 	}
 	if strings.HasPrefix(p.ParameterType, "std::pair<") || p.IsChronoSeconds() || p.StdHashMapType() ||
-		((strings.HasPrefix(p.ParameterType, "std::function<") && strings.HasSuffix(p.ParameterType, ">")) && !isReturnType) ||
+		(!isReturnType && (strings.HasPrefix(p.ParameterType, "std::function<") && strings.HasSuffix(p.ParameterType, ">"))) ||
 		strings.HasPrefix(p.ParameterType, "std::vector<") {
 		// supported std:: types
+		return nil
+	}
+	if isReturnType && strings.Contains(p.ParameterType, "std::optional") && !strings.Contains(p.ParameterType, "std::optional<T>") {
 		return nil
 	}
 	if strings.HasPrefix(p.ParameterType, "std::") {
@@ -865,7 +868,7 @@ func AllowStructDef(className string) bool {
 		"Poppler::Version":
 		return false
 	default:
-		return true
+		return !strings.HasPrefix(className, "std::")
 	}
 }
 

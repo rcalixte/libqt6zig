@@ -3992,6 +3992,16 @@ pub const Poppler = extern struct {
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
     ///
+    /// ## Returns:
+    ///
+    /// ` poppler_form_enums.CryptoSignBackend ` (Returns -1 for an invalid value)
+    ///
+    pub fn ActiveCryptoSignBackend() i32 {
+        return qtc.Poppler_ActiveCryptoSignBackend();
+    }
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: poppler_form_enums.CryptoSignBackend `

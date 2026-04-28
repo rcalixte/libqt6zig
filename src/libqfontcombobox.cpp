@@ -148,6 +148,12 @@ void QFontComboBox_SetDisplayFont(QFontComboBox* self, const libqt_string fontFa
     self->setDisplayFont(fontFamily_QString, *font);
 }
 
+QFont* QFontComboBox_DisplayFont(const QFontComboBox* self, const libqt_string fontFamily) {
+    QString fontFamily_QString = QString::fromUtf8(fontFamily.data, fontFamily.len);
+    auto _ret = self->displayFont(fontFamily_QString);
+    return _ret ? new QFont(*_ret) : nullptr;
+}
+
 void QFontComboBox_SetCurrentFont(QFontComboBox* self, const QFont* f) {
     self->setCurrentFont(*f);
 }

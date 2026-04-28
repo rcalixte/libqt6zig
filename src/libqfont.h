@@ -18,6 +18,7 @@ extern "C" {
 typedef QFont::Tag QFont__Tag;
 #endif
 #else
+typedef struct QAnyStringView QAnyStringView;
 typedef struct QFont QFont;
 typedef struct QFont__Tag QFont__Tag;
 typedef struct QPaintDevice QPaintDevice;
@@ -130,6 +131,8 @@ void QFont__Tag_MoveAssign(QFont__Tag* self, QFont__Tag* other);
 bool QFont__Tag_IsValid(const QFont__Tag* self);
 unsigned int QFont__Tag_Value(const QFont__Tag* self);
 libqt_string QFont__Tag_ToString(const QFont__Tag* self);
+QFont__Tag* QFont__Tag_FromValue(unsigned int value);
+QFont__Tag* QFont__Tag_FromString(const char* view);
 void QFont__Tag_Delete(QFont__Tag* self);
 
 #ifdef __cplusplus

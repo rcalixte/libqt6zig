@@ -976,6 +976,22 @@ pub const QWebEnginePage = extern struct {
         return .{ .ptr = qtc.QWebEnginePage_MainFrame(@ptrCast(self.ptr)) };
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#findFrameByName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEnginePage `
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` QWebEngineFrame ` (NOTE: The `ptr` field could be `null`.)
+    ///
+    pub fn FindFrameByName(self: QWebEnginePage, name: []const u8) QWebEngineFrame {
+        return .{ .ptr = qtc.QWebEnginePage_FindFrameByName(@ptrCast(self.ptr), name.ptr) };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginepage.html#acceptAsNewWindow)
     ///
     /// ## Parameter(s):

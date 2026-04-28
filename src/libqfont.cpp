@@ -1,3 +1,4 @@
+#include <QAnyStringView>
 #include <QByteArray>
 #include <QFont>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QFont__Tag
@@ -606,6 +607,16 @@ libqt_string QFont__Tag_ToString(const QFont__Tag* self) {
     _str.data = static_cast<char*>(malloc(_str.len));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     return _str;
+}
+
+QFont__Tag* QFont__Tag_FromValue(unsigned int value) {
+    auto _ret = QFont::Tag::fromValue(static_cast<quint32>(value));
+    return _ret ? new QFont::Tag(*_ret) : nullptr;
+}
+
+QFont__Tag* QFont__Tag_FromString(const char* view) {
+    auto _ret = QFont::Tag::fromString(QAnyStringView(view));
+    return _ret ? new QFont::Tag(*_ret) : nullptr;
 }
 
 void QFont__Tag_Delete(QFont__Tag* self) {

@@ -22,7 +22,7 @@ func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []strin
 
 	clangArgs := []string{"-x", "c++"}
 	clangArgs = append(clangArgs, cflags...)
-	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", inputHeader)
+	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", "-Wno-pragma-once-outside-header", inputHeader)
 
 	cmd := exec.CommandContext(ctx, clangBin, clangArgs...)
 	pr, err := cmd.StdoutPipe()

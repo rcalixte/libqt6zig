@@ -63,6 +63,7 @@ void KService_SetExec(KService* self, const libqt_string exec);
 void KService_SetWorkingDirectory(KService* self, const libqt_string workingDir);
 libqt_string KService_NewServicePath(bool showInMenu, const libqt_string suggestedName);
 libqt_string KService_AliasFor(const KService* self);
+bool KService_StartupNotify(const KService* self);
 void KService_Delete(KService* self);
 
 #ifdef __cplusplus

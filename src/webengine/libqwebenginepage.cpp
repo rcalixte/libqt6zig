@@ -1,4 +1,5 @@
 #include <QAction>
+#include <QAnyStringView>
 #include <QAuthenticator>
 #include <QByteArray>
 #include <QChildEvent>
@@ -383,6 +384,11 @@ void QWebEnginePage_SetVisible(QWebEnginePage* self, bool visible) {
 
 QWebEngineFrame* QWebEnginePage_MainFrame(QWebEnginePage* self) {
     return new QWebEngineFrame(self->mainFrame());
+}
+
+QWebEngineFrame* QWebEnginePage_FindFrameByName(QWebEnginePage* self, const char* name) {
+    auto _ret = self->findFrameByName(QAnyStringView(name));
+    return _ret ? new QWebEngineFrame(*_ret) : nullptr;
 }
 
 void QWebEnginePage_AcceptAsNewWindow(QWebEnginePage* self, QWebEngineNewWindowRequest* request) {
