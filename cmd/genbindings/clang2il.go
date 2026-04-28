@@ -46,9 +46,9 @@ func parseHeader(topLevel []any, addNamePrefix string) (*CppParsedHeader, error)
 	var ret CppParsedHeader
 
 nextTopLevel:
-	for _, node := range topLevel {
+	for i := range topLevel {
 
-		node, ok := node.(map[string]any)
+		node, ok := topLevel[i].(map[string]any)
 		if !ok {
 			return nil, errors.New("inner[] element not an object")
 		}
@@ -114,7 +114,9 @@ nextTopLevel:
 				// A namespace declaration with no inner content means that, for
 				// the rest of this whole file, we are in this namespace
 				// Update our own `addNamePrefix` accordingly
-				addNamePrefix += namespace + "::"
+				if namespace[0] == 'Q' || namespace[0] == 'q' {
+					addNamePrefix += namespace + "::"
+				}
 
 			} else {
 
@@ -318,8 +320,8 @@ func (c *CppClass) IsRequiredProtectedMethod(m *CppMethod) bool {
 
 	// Check if this class has virtual methods - if not, protected methods aren't needed
 	hasVirtual := false
-	for _, method := range c.Methods {
-		if method.IsVirtual || method.IsPureVirtual {
+	for i := range c.Methods {
+		if c.Methods[i].IsVirtual || c.Methods[i].IsPureVirtual {
 			hasVirtual = true
 			break
 		}
@@ -836,8 +838,8 @@ func isExplicitlyDeleted(node map[string]any) bool {
 // isPrivateSignal checks if a method is a private signal by looking for a
 // QPrivateSignal parameter
 func isPrivateSignal(method *CppMethod) (int, bool) {
-	for i, param := range method.Parameters {
-		if strings.HasSuffix(param.ParameterType, "::QPrivateSignal") {
+	for i := range method.Parameters {
+		if strings.HasSuffix(method.Parameters[i].ParameterType, "::QPrivateSignal") {
 			return i, true
 		}
 	}
@@ -1205,13 +1207,13 @@ func parseTypeString(typeString, className string) (CppParameter, []CppParameter
 	params := tokenizeMultipleParameters(inner)
 
 	ret := make([]CppParameter, 0, len(params))
-	for _, p := range params {
-		p = strings.TrimSpace(p)
-		if p == "" {
+	for i := range params {
+		params[i] = strings.TrimSpace(params[i])
+		if params[i] == "" {
 			continue
 		}
 
-		insert := parseSingleTypeString(p, className)
+		insert := parseSingleTypeString(params[i], className)
 
 		if insert.ParameterType != "" {
 			ret = append(ret, insert)
@@ -1434,8 +1436,8 @@ func getClassFromMangledName(mangledName, methodName string) string {
 		}
 
 		var nameLen int
-		for i, c := range rest {
-			if c < '0' || c > '9' {
+		for i := range rest {
+			if rest[i] < '0' || rest[i] > '9' {
 				nameLen, _ = strconv.Atoi(rest[:i])
 				rest = rest[i:]
 				break
@@ -1467,16 +1469,14 @@ func shouldSkipClass(className string) bool {
 // FunctionDecls often do not have the parameter information, so we need to
 // substitute it.
 func (fn *functionInfo) createMethod() CppMethod {
-	params := make([]CppParameter, len(fn.params))
-	for i, param := range fn.params {
-		params[i] = param
-		params[i].ParameterName = "param" + strconv.Itoa(i+1)
+	for i := range fn.params {
+		fn.params[i].ParameterName = "param" + strconv.Itoa(i+1)
 	}
 
 	return CppMethod{
 		MethodName: fn.name,
 		ReturnType: fn.returnType,
-		Parameters: params,
+		Parameters: fn.params,
 		IsConst:    fn.isConst,
 		IsStatic:   true,
 	}
@@ -1485,7 +1485,7 @@ func (fn *functionInfo) createMethod() CppMethod {
 func addMethodToClass(classes *[]CppClass, className string, method CppMethod) error {
 	err := AllowMethod(className, method)
 	if err != nil {
-		return nil
+		return err
 	}
 
 	// Find existing class or create new one
