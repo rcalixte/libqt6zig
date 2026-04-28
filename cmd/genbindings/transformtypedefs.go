@@ -6,6 +6,10 @@ import (
 )
 
 func applyTypedefs(p CppParameter, className string) CppParameter {
+	if strings.HasPrefix(p.ParameterType, "std::optional") {
+		p.ParameterType = p.ParameterType[14 : len(p.ParameterType)-1]
+		p.IsStdOptional = true
+	}
 
 	namespace := "Qt"
 	if strings.Contains(className, "::") {
@@ -192,15 +196,14 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 
 func applyTypedefs_Method(m *CppMethod, className string) {
 
-	for k, p := range m.Parameters {
-		transformed := applyTypedefs(p, className)
-		m.Parameters[k] = transformed
+	for k := range m.Parameters {
+		m.Parameters[k] = applyTypedefs(m.Parameters[k], className)
 
-		if transformed.IsStdFunction {
+		if m.Parameters[k].IsStdFunction {
 			m.HasStdFunctionPointerParam = true
 		}
 
-		if FossCompatCheck(transformed) {
+		if FossCompatCheck(m.Parameters[k]) {
 			m.FossOnly = true
 		}
 	}
@@ -216,36 +219,33 @@ func applyTypedefs_Method(m *CppMethod, className string) {
 // astTransformTypedefs replaces the ParameterType with any known typedef value.
 func astTransformTypedefs(parsed *CppParsedHeader) {
 
-	for i, c := range parsed.Classes {
+	for i := range parsed.Classes {
 
-		methods := make([]CppMethod, 0, len(c.Methods))
-		for _, m := range c.Methods {
+		methods := make([]CppMethod, 0, len(parsed.Classes[i].Methods))
+		for m := range parsed.Classes[i].Methods {
 
-			applyTypedefs_Method(&m, c.ClassName)
-			if m.HasStdFunctionPointerParam && (m.IsProtected || m.IsVirtual) {
+			applyTypedefs_Method(&parsed.Classes[i].Methods[m], parsed.Classes[i].ClassName)
+			if parsed.Classes[i].Methods[m].HasStdFunctionPointerParam && (parsed.Classes[i].Methods[m].IsProtected || parsed.Classes[i].Methods[m].IsVirtual) {
 				continue
 			}
-			methods = append(methods, m)
+			methods = append(methods, parsed.Classes[i].Methods[m])
 		}
-		c.Methods = methods
+		parsed.Classes[i].Methods = methods
 
-		ctors := make([]CppMethod, 0, len(c.Ctors))
-		for _, m := range c.Ctors {
+		ctors := make([]CppMethod, 0, len(parsed.Classes[i].Ctors))
+		for j := range parsed.Classes[i].Ctors {
 
-			applyTypedefs_Method(&m, c.ClassName)
-			if m.HasStdFunctionPointerParam && (m.IsProtected || m.IsVirtual) {
+			applyTypedefs_Method(&parsed.Classes[i].Ctors[j], parsed.Classes[i].ClassName)
+			if parsed.Classes[i].Ctors[j].HasStdFunctionPointerParam && (parsed.Classes[i].Ctors[j].IsProtected || parsed.Classes[i].Ctors[j].IsVirtual) {
 				continue
 			}
-			ctors = append(ctors, m)
+			ctors = append(ctors, parsed.Classes[i].Ctors[j])
 		}
-		c.Ctors = ctors
-
-		parsed.Classes[i] = c
+		parsed.Classes[i].Ctors = ctors
 	}
 
 	// Enum underlying types
-	for i, e := range parsed.Enums {
-		e.UnderlyingType = applyTypedefs(e.UnderlyingType, "")
-		parsed.Enums[i] = e
+	for i := range parsed.Enums {
+		parsed.Enums[i].UnderlyingType = applyTypedefs(parsed.Enums[i].UnderlyingType, "")
 	}
 }
