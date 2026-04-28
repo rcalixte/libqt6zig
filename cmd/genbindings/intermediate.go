@@ -20,6 +20,7 @@ type CppParameter struct {
 
 	IsFunctionPointer bool
 	IsStdFunction     bool
+	IsStdOptional     bool
 	FunctionPointer   *CppMethod
 
 	QtCppOriginalType     *CppParameter // If we rewrote QStringList->QList<String>, this field contains the original QStringList. Otherwise, it's blank
@@ -174,12 +175,12 @@ func IsKnownTypeDef(className string) bool {
 }
 
 func (p CppParameter) QListOf() (CppParameter, string, bool) {
-	for _, qtListType := range qtListTypes {
-		if strings.HasPrefix(p.ParameterType, qtListType+"<") && strings.HasSuffix(p.ParameterType, ">") {
-			ret := parseSingleTypeString(p.ParameterType[len(qtListType)+1:len(p.ParameterType)-1], "")
-			prefix := strings.ToLower(qtListType[1:2])
+	for i := range qtListTypes {
+		if strings.HasPrefix(p.ParameterType, qtListTypes[i]+"<") && strings.HasSuffix(p.ParameterType, ">") {
+			ret := parseSingleTypeString(p.ParameterType[len(qtListTypes[i])+1:len(p.ParameterType)-1], "")
+			prefix := strings.ToLower(qtListTypes[i][1:2])
 			ret.ParameterName = p.ParameterName + "_" + prefix + "v"
-			return ret, qtListType, true
+			return ret, qtListTypes[i], true
 		}
 	}
 
@@ -215,19 +216,19 @@ var (
 
 func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 	// n.b. Need to block QMap<k,v>::const_iterator
-	for _, qtMapType := range qtMapTypes {
-		if strings.HasPrefix(p.ParameterType, qtMapType+"<") && strings.HasSuffix(p.ParameterType, ">") {
-			interior := tokenizeMultipleParameters(p.ParameterType[len(qtMapType)+1 : len(p.ParameterType)-1])
+	for i := range qtMapTypes {
+		if strings.HasPrefix(p.ParameterType, qtMapTypes[i]+"<") && strings.HasSuffix(p.ParameterType, ">") {
+			interior := tokenizeMultipleParameters(p.ParameterType[len(qtMapTypes[i])+1 : len(p.ParameterType)-1])
 			if len(interior) != 2 {
-				panic(qtMapType + "<> has unexpected number of template arguments")
+				panic(qtMapTypes[i] + "<> has unexpected number of template arguments")
 			}
 
-			parameterSuffixPrefix := "_" + strings.ToLower(qtMapType[1:])
+			parameterSuffixPrefix := "_" + strings.ToLower(qtMapTypes[i][1:])
 			first := parseSingleTypeString(interior[0], "")
 			first.ParameterName = p.ParameterName + parameterSuffixPrefix + "key"
 			second := parseSingleTypeString(interior[1], "")
 			second.ParameterName = p.ParameterName + parameterSuffixPrefix + "val"
-			return first, second, qtMapType, true
+			return first, second, qtMapTypes[i], true
 		}
 	}
 
@@ -235,12 +236,12 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 }
 
 func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
-	for _, qtPairType := range qtPairTypes {
-		if strings.HasPrefix(p.ParameterType, qtPairType+"<") && strings.HasSuffix(p.ParameterType, ">") {
-			index := len(qtPairType) + 1
+	for i := range qtPairTypes {
+		if strings.HasPrefix(p.ParameterType, qtPairTypes[i]+"<") && strings.HasSuffix(p.ParameterType, ">") {
+			index := len(qtPairTypes[i]) + 1
 			interior := tokenizeMultipleParameters(p.ParameterType[index : len(p.ParameterType)-1])
 			if len(interior) != 2 {
-				panic(qtPairType + "<> has unexpected number of template arguments")
+				panic(qtPairTypes[i] + "<> has unexpected number of template arguments")
 			}
 
 			first := parseSingleTypeString(interior[0], "")
@@ -593,26 +594,26 @@ func (c *CppClass) VirtualMethods() []CppMethod {
 		return nil
 	}
 
-	for _, m := range c.Methods {
-		if !m.IsVirtual || m.IsSignal || !AllowVirtual(m) {
+	for i := range c.Methods {
+		if !c.Methods[i].IsVirtual || c.Methods[i].IsSignal || !AllowVirtual(c.Methods[i]) {
 			continue
 		}
 
-		ret = append(ret, m)
-		retNames[m.CppCallTarget()] = struct{}{}
+		ret = append(ret, c.Methods[i])
+		retNames[c.Methods[i].CppCallTarget()] = struct{}{}
 	}
 
-	for _, privMethod := range c.PrivateMethods {
-		block[privMethod] = struct{}{}
+	for i := range c.PrivateMethods {
+		block[c.PrivateMethods[i]] = struct{}{}
 	}
 
 	// Only allow virtual overrides for direct inherits, not all inherits
 	for _, cinfo := range c.AllInheritsClassInfo() {
-		for _, m := range cinfo.Class.Methods {
-			if !m.IsVirtual || m.IsSignal || !AllowVirtual(m) {
+		for i := range cinfo.Class.Methods {
+			if !cinfo.Class.Methods[i].IsVirtual || cinfo.Class.Methods[i].IsSignal || !AllowVirtual(cinfo.Class.Methods[i]) {
 				continue
 			}
-			if _, ok := retNames[m.CppCallTarget()]; ok {
+			if _, ok := retNames[cinfo.Class.Methods[i].CppCallTarget()]; ok {
 				continue // Already found in a child class
 			}
 
@@ -620,29 +621,31 @@ func (c *CppClass) VirtualMethods() []CppMethod {
 			// (e.g. Qt 5 QAbstractTableModel marks parent() as private)
 			// But then we find the protected version further down
 			// Use a blocklist to prevent exposing any deeper methods in the call chain
-			if _, ok := block[m.MethodName]; ok {
+			if _, ok := block[cinfo.Class.Methods[i].MethodName]; ok {
 				continue // Marked as private in a child class
 			}
 
 			// The class info we loaded has not had all typedefs applied to it
 			// m is copied by value. Mutate it
-			applyTypedefs_Method(&m, cinfo.Class.ClassName)
+			applyTypedefs_Method(&cinfo.Class.Methods[i], cinfo.Class.ClassName)
 			// Same with astTransformBlocklist
-			if err := blocklist_MethodAllowed(&m); err != nil {
-				log.Printf("Blocking method %q(%v): %s", m.MethodName, m.Parameters, err)
+			if err := blocklist_MethodAllowed(&cinfo.Class.Methods[i]); err != nil {
+				log.Printf("Blocking method %q(%v): %s", cinfo.Class.Methods[i].MethodName, cinfo.Class.Methods[i].Parameters, err)
 				continue
 			}
 
-			m.InheritedInClass = cinfo.Class.ClassName
+			if c.ClassName != cinfo.Class.ClassName {
+				cinfo.Class.Methods[i].InheritedInClass = cinfo.Class.ClassName
+			}
 
-			ret = append(ret, m)
-			retNames[m.CppCallTarget()] = struct{}{}
+			ret = append(ret, cinfo.Class.Methods[i])
+			retNames[cinfo.Class.Methods[i].CppCallTarget()] = struct{}{}
 		}
 
 		// Append this parent's private-virtuals to blocklist so that we
 		// do not consider them for grandparent classes
-		for _, privMethod := range cinfo.Class.PrivateMethods {
-			block[privMethod] = struct{}{}
+		for i := range cinfo.Class.PrivateMethods {
+			block[cinfo.Class.PrivateMethods[i]] = struct{}{}
 		}
 	}
 
@@ -657,7 +660,7 @@ func (c *CppClass) ProtectedMethods() []CppMethod {
 	var retNames = make(map[string]struct{}, 0) // if name is present, a child class found it first
 	var block = slice_to_set(c.PrivateMethods)
 
-	for _, m := range c.Methods {
+	for i := range c.Methods {
 
 		// A public method with the same name blocks-out any protected methods
 		// with the same name (even if the signature is different).
@@ -667,33 +670,27 @@ func (c *CppClass) ProtectedMethods() []CppMethod {
 		// QTextObject::setFormat(const QTextFormat&) [PROTECTED]
 		// FIXME support selecting the parent overload(?)
 
-		if !m.IsProtected || m.IsVirtual || m.IsSignal {
-			block[m.MethodName] = struct{}{}
+		if !c.Methods[i].IsProtected || c.Methods[i].IsVirtual || c.Methods[i].IsSignal {
+			block[c.Methods[i].MethodName] = struct{}{}
 			continue
 		}
 
-		ret = append(ret, m)
-		retNames[m.CppCallTarget()] = struct{}{}
+		ret = append(ret, c.Methods[i])
+		retNames[c.Methods[i].CppCallTarget()] = struct{}{}
 	}
 
-	for _, privMethod := range c.PrivateMethods {
-		block[privMethod] = struct{}{}
+	for i := range c.PrivateMethods {
+		block[c.PrivateMethods[i]] = struct{}{}
 	}
 
 	for _, cinfo := range c.AllInheritsClassInfo() {
 
-		for _, m := range cinfo.Class.Methods {
-			if !m.IsProtected {
-				continue
-			}
-			if m.IsVirtual {
-				continue
-			}
-			if m.IsSignal {
+		for i := range cinfo.Class.Methods {
+			if !cinfo.Class.Methods[i].IsProtected || cinfo.Class.Methods[i].IsVirtual || cinfo.Class.Methods[i].IsSignal {
 				continue
 			}
 
-			if _, ok := retNames[m.CppCallTarget()]; ok {
+			if _, ok := retNames[cinfo.Class.Methods[i].CppCallTarget()]; ok {
 				continue // Already found in a child class
 			}
 
@@ -701,29 +698,31 @@ func (c *CppClass) ProtectedMethods() []CppMethod {
 			// (e.g. Qt 5 QAbstractTableModel marks parent() as private)
 			// But then we find the protected version further down
 			// Use a blocklist to prevent exposing any deeper methods in the call chain
-			if _, ok := block[m.MethodName]; ok {
+			if _, ok := block[cinfo.Class.Methods[i].MethodName]; ok {
 				continue // Marked as private in a child class
 			}
 
 			// The class info we loaded has not had all typedefs applied to it
 			// m is copied by value. Mutate it
-			applyTypedefs_Method(&m, cinfo.Class.ClassName)
+			applyTypedefs_Method(&cinfo.Class.Methods[i], cinfo.Class.ClassName)
 			// Same with astTransformBlocklist
-			if err := blocklist_MethodAllowed(&m); err != nil {
-				log.Printf("Blocking method %q(%v): %s", m.MethodName, m.Parameters, err)
+			if err := blocklist_MethodAllowed(&cinfo.Class.Methods[i]); err != nil {
+				log.Printf("Blocking method %q(%v): %s", cinfo.Class.Methods[i].MethodName, cinfo.Class.Methods[i].Parameters, err)
 				continue
 			}
 
-			m.InheritedInClass = cinfo.Class.ClassName
+			if c.ClassName != cinfo.Class.ClassName {
+				cinfo.Class.Methods[i].InheritedInClass = cinfo.Class.ClassName
+			}
 
-			ret = append(ret, m)
-			retNames[m.CppCallTarget()] = struct{}{}
+			ret = append(ret, cinfo.Class.Methods[i])
+			retNames[cinfo.Class.Methods[i].CppCallTarget()] = struct{}{}
 		}
 
 		// Append this parent's private-virtuals to blocklist so that we
 		// do not consider them for grandparent classes
-		for _, privMethod := range cinfo.Class.PrivateMethods {
-			block[privMethod] = struct{}{}
+		for i := range cinfo.Class.PrivateMethods {
+			block[cinfo.Class.PrivateMethods[i]] = struct{}{}
 		}
 	}
 
@@ -752,27 +751,27 @@ func (c *CppClass) AllInheritsClassInfo() []lookupResultClass {
 func (c *CppClass) DirectInheritClassInfo() []lookupResultClass {
 	var ret []lookupResultClass
 
-	for _, inherit := range c.DirectInherits {
-		cinfo, ok := KnownClassnames[inherit]
+	for i := range c.DirectInherits {
+		cinfo, ok := KnownClassnames[c.DirectInherits[i]]
 		if !ok && AllowClass(c.ClassName) {
-			if strings.HasPrefix(inherit, "QList<") || strings.HasPrefix(inherit, "QMap<") {
+			if strings.HasPrefix(c.DirectInherits[i], "QList<") || strings.HasPrefix(c.DirectInherits[i], "QMap<") {
 				// OK, allow these to slip through
 				// e.g. QItemSelection extends a QList<> and KIO::MetaData extends a QMap<>
 				continue
 			} else {
 				if inheriteds, ok := AllowInheritedClass(c.ClassName); ok {
-					for _, className := range inheriteds {
-						if cppClass, ok := KnownClassnames[className]; ok {
+					for j := range inheriteds {
+						if cppClass, ok := KnownClassnames[inheriteds[j]]; ok {
 							ret = append(ret, cppClass)
 
-							if !slices.Contains(c.DirectInherits, className) {
-								c.DirectInherits = append(c.DirectInherits, className)
+							if !slices.Contains(c.DirectInherits, inheriteds[j]) {
+								c.DirectInherits = append(c.DirectInherits, inheriteds[j])
 							}
 						}
 					}
 					continue
 				} else {
-					panic("Class " + c.ClassName + " inherits from unknown class " + inherit)
+					panic("Class " + c.ClassName + " inherits from unknown class " + c.DirectInherits[i])
 				}
 			}
 		}
