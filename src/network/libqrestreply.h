@@ -15,6 +15,8 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QJsonDocument QJsonDocument;
+typedef struct QJsonParseError QJsonParseError;
 typedef struct QNetworkReply QNetworkReply;
 typedef struct QRestReply QRestReply;
 #endif
@@ -22,6 +24,7 @@ typedef struct QRestReply QRestReply;
 QRestReply* QRestReply_new(QNetworkReply* reply);
 void QRestReply_Swap(QRestReply* self, QRestReply* other);
 QNetworkReply* QRestReply_NetworkReply(const QRestReply* self);
+QJsonDocument* QRestReply_ReadJson(QRestReply* self);
 libqt_string QRestReply_ReadBody(QRestReply* self);
 libqt_string QRestReply_ReadText(QRestReply* self);
 bool QRestReply_IsSuccess(const QRestReply* self);
@@ -30,6 +33,7 @@ bool QRestReply_IsHttpStatusSuccess(const QRestReply* self);
 bool QRestReply_HasError(const QRestReply* self);
 int QRestReply_Error(const QRestReply* self);
 libqt_string QRestReply_ErrorString(const QRestReply* self);
+QJsonDocument* QRestReply_ReadJson1(QRestReply* self, QJsonParseError* errorVal);
 void QRestReply_Delete(QRestReply* self);
 
 #ifdef __cplusplus

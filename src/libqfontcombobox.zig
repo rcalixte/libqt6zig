@@ -452,6 +452,26 @@ pub const QFontComboBox = extern struct {
         qtc.QFontComboBox_SetDisplayFont(@ptrCast(self.ptr), fontFamily_str, @ptrCast(font.ptr));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#displayFont)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFontComboBox `
+    ///
+    /// ` fontFamily: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` QFont ` (NOTE: The `ptr` field could be `null`.)
+    ///
+    pub fn DisplayFont(self: QFontComboBox, fontFamily: []const u8) QFont {
+        const fontFamily_str = qtc.libqt_string{
+            .len = fontFamily.len,
+            .data = fontFamily.ptr,
+        };
+        return .{ .ptr = qtc.QFontComboBox_DisplayFont(@ptrCast(self.ptr), fontFamily_str) };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setCurrentFont)
     ///
     /// ## Parameter(s):

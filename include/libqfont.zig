@@ -1469,6 +1469,34 @@ pub const QFont__Tag = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#fromValue)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` value: u32 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` QFont__Tag ` (NOTE: The `ptr` field could be `null`.)
+    ///
+    pub fn FromValue(value: u32) QFont__Tag {
+        return .{ .ptr = qtc.QFont__Tag_FromValue(@bitCast(value)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#fromString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` view: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` QFont__Tag ` (NOTE: The `ptr` field could be `null`.)
+    ///
+    pub fn FromString(view: []const u8) QFont__Tag {
+        return .{ .ptr = qtc.QFont__Tag_FromString(view.ptr) };
+    }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;

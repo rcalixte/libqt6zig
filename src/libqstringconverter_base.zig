@@ -55,6 +55,20 @@ pub const QStringConverter = extern struct {
         return std.mem.span(_ret);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#encodingForName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
+    ///
+    pub fn EncodingForName(name: []const u8) i32 {
+        return qtc.QStringConverter_EncodingForName(name.ptr);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
     /// ## Parameter(s):
@@ -64,6 +78,42 @@ pub const QStringConverter = extern struct {
     pub fn NameForEncoding(e: i32) [:0]const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@bitCast(e));
         return std.mem.span(_ret);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#encodingForData)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
+    ///
+    pub fn EncodingForData(data: []u8) i32 {
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QStringConverter_EncodingForData(data_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#encodingForHtml)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` data: []u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
+    ///
+    pub fn EncodingForHtml(data: []u8) i32 {
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QStringConverter_EncodingForHtml(data_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)

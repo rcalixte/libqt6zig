@@ -408,6 +408,10 @@ libqt_string KService_AliasFor(const KService* self) {
     return _str;
 }
 
+bool KService_StartupNotify(const KService* self) {
+    return self->startupNotify().value_or(false);
+}
+
 void KService_Delete(KService* self) {
     delete self;
 }

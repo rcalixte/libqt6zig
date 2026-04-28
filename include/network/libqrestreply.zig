@@ -1,5 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const QJsonDocument = @import("libqt6").QJsonDocument;
+const QJsonParseError = @import("libqt6").QJsonParseError;
 const QNetworkReply = @import("libqt6").QNetworkReply;
 const qnetworkreply_enums = @import("libqnetworkreply.zig").enums;
 const std = @import("std");
@@ -46,6 +48,20 @@ pub const QRestReply = extern struct {
     ///
     pub fn NetworkReply(self: QRestReply) QNetworkReply {
         return .{ .ptr = qtc.QRestReply_NetworkReply(@ptrCast(self.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readJson)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRestReply `
+    ///
+    /// ## Returns:
+    ///
+    /// ` QJsonDocument ` (NOTE: The `ptr` field could be `null`.)
+    ///
+    pub fn ReadJson(self: QRestReply) QJsonDocument {
+        return .{ .ptr = qtc.QRestReply_ReadJson(@ptrCast(self.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readBody)
@@ -148,6 +164,23 @@ pub const QRestReply = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestreply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qrestreply.html#readJson)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QRestReply `
+    ///
+    /// ` errorVal: QJsonParseError `
+    ///
+    /// ## Returns:
+    ///
+    /// ` QJsonDocument ` (NOTE: The `ptr` field could be `null`.)
+    ///
+    pub fn ReadJson1(self: QRestReply, errorVal: anytype) QJsonDocument {
+        comptime _ = @TypeOf(errorVal)._is_QJsonParseError;
+        return .{ .ptr = qtc.QRestReply_ReadJson1(@ptrCast(self.ptr), @ptrCast(errorVal.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

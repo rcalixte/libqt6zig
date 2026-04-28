@@ -678,6 +678,16 @@ pub const KService = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kservice.html#startupNotify)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KService `
+    ///
+    pub fn StartupNotify(self: KService) bool {
+        return qtc.KService_StartupNotify(@ptrCast(self.ptr));
+    }
+
     /// Inherited from KSycocaEntry
     ///
     /// ### [Upstream resources](https://api.kde.org/ksycocaentry.html#isType)

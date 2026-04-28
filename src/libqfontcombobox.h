@@ -70,6 +70,7 @@ libqt_string QFontComboBox_SampleTextForSystem(const QFontComboBox* self, int wr
 void QFontComboBox_SetSampleTextForFont(QFontComboBox* self, const libqt_string fontFamily, const libqt_string sampleText);
 libqt_string QFontComboBox_SampleTextForFont(const QFontComboBox* self, const libqt_string fontFamily);
 void QFontComboBox_SetDisplayFont(QFontComboBox* self, const libqt_string fontFamily, const QFont* font);
+QFont* QFontComboBox_DisplayFont(const QFontComboBox* self, const libqt_string fontFamily);
 void QFontComboBox_SetCurrentFont(QFontComboBox* self, const QFont* f);
 void QFontComboBox_CurrentFontChanged(QFontComboBox* self, const QFont* f);
 void QFontComboBox_Connect_CurrentFontChanged(QFontComboBox* self, intptr_t slot);

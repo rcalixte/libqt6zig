@@ -1078,6 +1078,10 @@ libqt_list /* of int */ Poppler_AvailableCryptoSignBackends() {
     return _out;
 }
 
+int Poppler_ActiveCryptoSignBackend() {
+    return static_cast<int>(Poppler::activeCryptoSignBackend().value_or(static_cast<Poppler::CryptoSignBackend>(-1)));
+}
+
 bool Poppler_SetActiveCryptoSignBackend(int param1) {
     return Poppler::setActiveCryptoSignBackend(static_cast<Poppler::CryptoSignBackend>(param1));
 }

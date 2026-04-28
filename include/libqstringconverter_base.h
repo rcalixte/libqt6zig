@@ -15,6 +15,8 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QAnyStringView QAnyStringView;
+typedef struct QByteArrayView QByteArrayView;
 typedef struct QStringConverter QStringConverter;
 #endif
 
@@ -22,7 +24,10 @@ bool QStringConverter_IsValid(const QStringConverter* self);
 void QStringConverter_ResetState(QStringConverter* self);
 bool QStringConverter_HasError(const QStringConverter* self);
 const char* QStringConverter_Name(const QStringConverter* self);
+int QStringConverter_EncodingForName(const char* name);
 const char* QStringConverter_NameForEncoding(int e);
+int QStringConverter_EncodingForData(libqt_string data);
+int QStringConverter_EncodingForHtml(libqt_string data);
 libqt_list /* of libqt_string */ QStringConverter_AvailableCodecs();
 
 #ifdef __cplusplus

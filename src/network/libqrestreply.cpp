@@ -1,4 +1,6 @@
 #include <QByteArray>
+#include <QJsonDocument>
+#include <QJsonParseError>
 #include <QNetworkReply>
 #include <QRestReply>
 #include <QString>
@@ -18,6 +20,11 @@ void QRestReply_Swap(QRestReply* self, QRestReply* other) {
 
 QNetworkReply* QRestReply_NetworkReply(const QRestReply* self) {
     return self->networkReply();
+}
+
+QJsonDocument* QRestReply_ReadJson(QRestReply* self) {
+    auto _ret = self->readJson();
+    return _ret ? new QJsonDocument(*_ret) : nullptr;
 }
 
 libqt_string QRestReply_ReadBody(QRestReply* self) {
@@ -71,6 +78,11 @@ libqt_string QRestReply_ErrorString(const QRestReply* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+QJsonDocument* QRestReply_ReadJson1(QRestReply* self, QJsonParseError* errorVal) {
+    auto _ret = self->readJson(errorVal);
+    return _ret ? new QJsonDocument(*_ret) : nullptr;
 }
 
 void QRestReply_Delete(QRestReply* self) {
