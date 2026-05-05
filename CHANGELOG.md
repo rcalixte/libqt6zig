@@ -1,4 +1,9 @@
 
+### 6.8.2 rev73 (5 May 2026)
+
+* **BREAKING CHANGE:** Extend projected string types (#141)
+* Add initial support for optional values (#139)
+
 ### 6.8.2 rev72 (27 April 2026)
 
 * Add [Qt TextToSpeech](https://doc.qt.io/qt-6/qttexttospeech-index.html) (#138)
