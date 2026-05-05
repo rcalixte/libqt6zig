@@ -2,8 +2,6 @@
 #include <QPainter>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kfontutils.h>
 #include "libkfontutils.h"
 #include "libkfontutils.hxx"

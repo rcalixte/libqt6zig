@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qcandlestickset.h>
 #include "libqcandlestickset.h"

@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__OpenWith
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__OpenWith__AcceptResult
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <openwith.h>
 #include "libopenwith.h"
 #include "libopenwith.hxx"

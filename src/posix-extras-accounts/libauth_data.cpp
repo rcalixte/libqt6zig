@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Accounts__AuthData
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <auth-data.h>
 #include "libauth_data.h"

@@ -2,8 +2,6 @@
 #include <QMediaFormat>
 #include <QMimeType>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qmediaformat.h>
 #include "libqmediaformat.h"
 #include "libqmediaformat.hxx"

@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__Error
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__Identity

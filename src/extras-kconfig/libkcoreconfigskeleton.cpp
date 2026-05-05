@@ -40,8 +40,6 @@
 #include <QSize>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <QVariant>

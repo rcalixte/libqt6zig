@@ -1,7 +1,5 @@
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWebSocketHandshakeOptions>
 #include <qwebsockethandshakeoptions.h>
 #include "libqwebsockethandshakeoptions.h"

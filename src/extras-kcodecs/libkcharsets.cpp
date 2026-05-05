@@ -2,8 +2,6 @@
 #include <QChar>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kcharsets.h>
 #include "libkcharsets.h"
 #include "libkcharsets.hxx"

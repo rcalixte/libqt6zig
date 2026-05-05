@@ -7,8 +7,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <deletejob.h>
 #include "libdeletejob_1.h"

@@ -15,7 +15,6 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QColor QColor;
 typedef struct QRgba64 QRgba64;
 typedef struct QVariant QVariant;
@@ -30,11 +29,12 @@ QColor* QColor_new6(unsigned int rgb);
 QColor* QColor_new7(QRgba64* rgba64);
 QColor* QColor_new8(const libqt_string name);
 QColor* QColor_new9(const char* aname);
-QColor* QColor_new10(int spec);
-QColor* QColor_new11(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4);
-QColor* QColor_new12(const QColor* param1);
-QColor* QColor_new13(int r, int g, int b, int a);
-QColor* QColor_new14(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4, uint16_t a5);
+QColor* QColor_new10(libqt_string name);
+QColor* QColor_new11(int spec);
+QColor* QColor_new12(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4);
+QColor* QColor_new13(const QColor* param1);
+QColor* QColor_new14(int r, int g, int b, int a);
+QColor* QColor_new15(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4, uint16_t a5);
 void QColor_CopyAssign(QColor* self, QColor* other);
 void QColor_MoveAssign(QColor* self, QColor* other);
 QColor* QColor_FromString(const char* name);
@@ -42,6 +42,7 @@ void QColor_OperatorAssign(QColor* self, int color);
 bool QColor_IsValid(const QColor* self);
 libqt_string QColor_Name(const QColor* self);
 void QColor_SetNamedColor(QColor* self, const libqt_string name);
+void QColor_SetNamedColor3(QColor* self, libqt_string name);
 libqt_list /* of libqt_string */ QColor_ColorNames();
 int QColor_Spec(const QColor* self);
 int QColor_Alpha(const QColor* self);

@@ -2,8 +2,6 @@
 #include <QIPv6Address>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qhostaddress.h>
 #include "libqhostaddress.h"
 #include "libqhostaddress.hxx"

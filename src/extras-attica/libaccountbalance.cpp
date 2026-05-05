@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__AccountBalance
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <accountbalance.h>
 #include "libaccountbalance.h"
 #include "libaccountbalance.hxx"

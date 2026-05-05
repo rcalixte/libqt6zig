@@ -302,6 +302,22 @@ pub const QLatin1String = extern struct {
     ///
     /// ` self: QLatin1String `
     ///
+    /// ` other: []const u8 `
+    ///
+    pub fn Compare2(self: QLatin1String, other: []const u8) i32 {
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+        return qtc.QLatin1String_Compare2(@ptrCast(self.ptr), other_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
     /// ` c: QChar `
     ///
     pub fn Compare4(self: QLatin1String, c: anytype) i32 {
@@ -322,6 +338,22 @@ pub const QLatin1String = extern struct {
     pub fn Compare5(self: QLatin1String, c: anytype, cs: i32) i32 {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QLatin1String_Compare5(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#startsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn StartsWith2(self: QLatin1String, s: []const u8) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_StartsWith2(@ptrCast(self.ptr), s_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#startsWith)
@@ -358,6 +390,22 @@ pub const QLatin1String = extern struct {
     ///
     /// ` self: QLatin1String `
     ///
+    /// ` s: []const u8 `
+    ///
+    pub fn EndsWith2(self: QLatin1String, s: []const u8) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_EndsWith2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#endsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
     /// ` c: QChar `
     ///
     pub fn EndsWith3(self: QLatin1String, c: anytype) bool {
@@ -386,6 +434,22 @@ pub const QLatin1String = extern struct {
     ///
     /// ` self: QLatin1String `
     ///
+    /// ` s: []const u8 `
+    ///
+    pub fn IndexOf2(self: QLatin1String, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_IndexOf2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
     /// ` c: QChar `
     ///
     pub fn IndexOf3(self: QLatin1String, c: anytype) isize {
@@ -399,11 +463,61 @@ pub const QLatin1String = extern struct {
     ///
     /// ` self: QLatin1String `
     ///
+    /// ` s: []const u8 `
+    ///
+    pub fn Contains2(self: QLatin1String, s: []const u8) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_Contains2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
     /// ` c: QChar `
     ///
     pub fn Contains3(self: QLatin1String, c: anytype) bool {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QLatin1String_Contains3(@ptrCast(self.ptr), @ptrCast(c.ptr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn LastIndexOf3(self: QLatin1String, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_LastIndexOf3(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    pub fn LastIndexOf4(self: QLatin1String, s: []const u8, from: isize) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_LastIndexOf4(@ptrCast(self.ptr), s_str, @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
@@ -432,6 +546,22 @@ pub const QLatin1String = extern struct {
     pub fn LastIndexOf6(self: QLatin1String, c: anytype, from: isize) isize {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QLatin1String_LastIndexOf6(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(from));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#count)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn Count2(self: QLatin1String, str: []const u8) isize {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return qtc.QLatin1String_Count2(@ptrCast(self.ptr), str_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#count)
@@ -607,6 +737,190 @@ pub const QLatin1String = extern struct {
         return qtc.QLatin1String_MaxSize2();
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#mid)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` pos: isize `
+    ///
+    pub fn Mid(self: QLatin1String, allocator: std.mem.Allocator, pos: isize) []const u8 {
+        var _str = qtc.QLatin1String_Mid(@ptrCast(self.ptr), @bitCast(pos));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Mid: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#left)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Left(self: QLatin1String, allocator: std.mem.Allocator, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Left(@ptrCast(self.ptr), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Left: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#right)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Right(self: QLatin1String, allocator: std.mem.Allocator, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Right(@ptrCast(self.ptr), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Right: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#sliced)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` pos: isize `
+    ///
+    pub fn Sliced(self: QLatin1String, allocator: std.mem.Allocator, pos: isize) []const u8 {
+        var _str = qtc.QLatin1String_Sliced(@ptrCast(self.ptr), @bitCast(pos));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Sliced: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#sliced)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` pos: isize `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Sliced2(self: QLatin1String, allocator: std.mem.Allocator, pos: isize, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Sliced2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Sliced2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#first)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn First2(self: QLatin1String, allocator: std.mem.Allocator, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_First2(@ptrCast(self.ptr), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.First2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#last)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Last2(self: QLatin1String, allocator: std.mem.Allocator, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Last2(@ptrCast(self.ptr), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Last2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#chopped)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Chopped(self: QLatin1String, allocator: std.mem.Allocator, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Chopped(@ptrCast(self.ptr), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Chopped: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#slice)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` pos: isize `
+    ///
+    pub fn Slice(self: QLatin1String, allocator: std.mem.Allocator, pos: isize) []const u8 {
+        var _str = qtc.QLatin1String_Slice(@ptrCast(self.ptr), @bitCast(pos));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Slice: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#slice)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` pos: isize `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Slice2(self: QLatin1String, allocator: std.mem.Allocator, pos: isize, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Slice2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Slice2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#chop)
     ///
     /// ## Parameter(s):
@@ -629,6 +943,114 @@ pub const QLatin1String = extern struct {
     ///
     pub fn Truncate(self: QLatin1String, n: isize) void {
         qtc.QLatin1String_Truncate(@ptrCast(self.ptr), @bitCast(n));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#trimmed)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Trimmed(self: QLatin1String, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QLatin1String_Trimmed(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Trimmed: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` other: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Compare23(self: QLatin1String, other: []const u8, cs: i32) i32 {
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+        return qtc.QLatin1String_Compare23(@ptrCast(self.ptr), other_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#startsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn StartsWith23(self: QLatin1String, s: []const u8, cs: i32) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_StartsWith23(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#endsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn EndsWith23(self: QLatin1String, s: []const u8, cs: i32) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_EndsWith23(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    pub fn IndexOf23(self: QLatin1String, s: []const u8, from: isize) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_IndexOf23(@ptrCast(self.ptr), s_str, @bitCast(from));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn IndexOf33(self: QLatin1String, s: []const u8, from: isize, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_IndexOf33(@ptrCast(self.ptr), s_str, @bitCast(from), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
@@ -669,6 +1091,24 @@ pub const QLatin1String = extern struct {
     ///
     /// ` self: QLatin1String `
     ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Contains23(self: QLatin1String, s: []const u8, cs: i32) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_Contains23(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
     /// ` c: QChar `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
@@ -676,6 +1116,44 @@ pub const QLatin1String = extern struct {
     pub fn Contains24(self: QLatin1String, c: anytype, cs: i32) bool {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QLatin1String_Contains24(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn LastIndexOf23(self: QLatin1String, s: []const u8, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_LastIndexOf23(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn LastIndexOf33(self: QLatin1String, s: []const u8, from: isize, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLatin1String_LastIndexOf33(@ptrCast(self.ptr), s_str, @bitCast(from), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
@@ -708,6 +1186,24 @@ pub const QLatin1String = extern struct {
     pub fn LastIndexOf34(self: QLatin1String, c: anytype, from: isize, cs: i32) isize {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QLatin1String_LastIndexOf34(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(from), @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#count)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Count23(self: QLatin1String, str: []const u8, cs: i32) isize {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return qtc.QLatin1String_Count23(@ptrCast(self.ptr), str_str, @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#count)
@@ -955,6 +1451,26 @@ pub const QLatin1String = extern struct {
     ///
     pub fn ToDouble1(self: QLatin1String, ok: *bool) f64 {
         return qtc.QLatin1String_ToDouble1(@ptrCast(self.ptr), @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlatin1string.html#mid)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLatin1String `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` pos: isize `
+    ///
+    /// ` n: isize `
+    ///
+    pub fn Mid2(self: QLatin1String, allocator: std.mem.Allocator, pos: isize, n: isize) []const u8 {
+        var _str = qtc.QLatin1String_Mid2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlatin1string.Mid2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
     }
 
     /// ### DEPRECATED: Use `Delete` instead

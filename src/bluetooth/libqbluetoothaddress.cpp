@@ -1,7 +1,5 @@
 #include <QBluetoothAddress>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qbluetoothaddress.h>
 #include "libqbluetoothaddress.h"
 #include "libqbluetoothaddress.hxx"

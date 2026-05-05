@@ -9,8 +9,6 @@
 #include <QPen>
 #include <QScatterSeries>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QXYSeries>
 #include <qscatterseries.h>

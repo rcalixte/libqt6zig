@@ -1,4 +1,3 @@
-#include <QAnyStringView>
 #include <QList>
 #include <QSqlDatabase>
 #include <QSqlDriver>
@@ -7,8 +6,6 @@
 #include <QSqlRecord>
 #include <QSqlResult>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qsqlquery.h>
 #include "libqsqlquery.h"

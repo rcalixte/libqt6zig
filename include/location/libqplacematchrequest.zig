@@ -120,6 +120,7 @@ pub const QPlaceMatchRequest = extern struct {
     pub fn Parameters(self: QPlaceMatchRequest, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QPlaceMatchRequest_Parameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qplacematchrequest.Parameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -136,7 +137,7 @@ pub const QPlaceMatchRequest = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qplacematchrequest.Parameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qplacematchrequest.Parameters: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

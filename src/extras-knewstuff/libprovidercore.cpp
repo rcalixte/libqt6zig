@@ -3,8 +3,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <providercore.h>
 #include "libprovidercore.h"

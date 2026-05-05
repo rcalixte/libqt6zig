@@ -2,8 +2,6 @@
 #include <QByteArray>
 #include <QByteArrayView>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kencodingprober.h>
 #include "libkencodingprober.h"
 #include "libkencodingprober.hxx"

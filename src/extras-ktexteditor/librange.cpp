@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__LineRange
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Range
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <range.h>
 #include "librange.h"
 #include "librange.hxx"

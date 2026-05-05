@@ -1,7 +1,5 @@
 #include <KTextEditor/Cursor>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <cursor.h>
 #include "libcursor.h"
 #include "libcursor.hxx"

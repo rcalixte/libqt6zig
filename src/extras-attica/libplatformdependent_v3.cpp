@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <platformdependent_v3.h>
 #include "libplatformdependent_v3.h"
 #include "libplatformdependent_v3.hxx"

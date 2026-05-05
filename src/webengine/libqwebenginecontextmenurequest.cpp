@@ -4,8 +4,6 @@
 #include <QObject>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineContextMenuRequest>
 #include <qwebenginecontextmenurequest.h>

@@ -1,8 +1,6 @@
 #include <KParts/OpenUrlArguments>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <openurlarguments.h>
 #include "libopenurlarguments.h"
 #include "libopenurlarguments.hxx"

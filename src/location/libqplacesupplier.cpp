@@ -1,8 +1,6 @@
 #include <QPlaceIcon>
 #include <QPlaceSupplier>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qplacesupplier.h>
 #include "libqplacesupplier.h"

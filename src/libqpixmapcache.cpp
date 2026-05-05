@@ -2,8 +2,6 @@
 #include <QPixmapCache>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QPixmapCache__Key
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpixmapcache.h>
 #include "libqpixmapcache.h"
 #include "libqpixmapcache.hxx"

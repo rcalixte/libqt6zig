@@ -12,8 +12,6 @@
 #include <QPalette>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyle>
 #include <QTimerEvent>
 #include <QWidget>

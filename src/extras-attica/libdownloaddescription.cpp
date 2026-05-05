@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__DownloadDescription
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <downloaddescription.h>
 #include "libdownloaddescription.h"
 #include "libdownloaddescription.hxx"

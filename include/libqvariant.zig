@@ -548,13 +548,27 @@ pub const QVariant = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` typeVal: qvariant_enums.Type `
+    /// ` stringVal: []const u8 `
     ///
-    pub fn New42(typeVal: i32) QVariant {
-        return .{ .ptr = qtc.QVariant_new42(@bitCast(typeVal)) };
+    pub fn New42(stringVal: []const u8) QVariant {
+        const stringVal_str = qtc.libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+        return .{ .ptr = qtc.QVariant_new42(stringVal_str) };
     }
 
     /// New43 constructs a new QVariant object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qvariant_enums.Type `
+    ///
+    pub fn New43(typeVal: i32) QVariant {
+        return .{ .ptr = qtc.QVariant_new43(@bitCast(typeVal)) };
+    }
+
+    /// New44 constructs a new QVariant object.
     ///
     /// ## Parameter(s):
     ///
@@ -562,9 +576,9 @@ pub const QVariant = extern struct {
     ///
     /// ` copyVal: ?*const anyopaque `
     ///
-    pub fn New43(typeVal: anytype, copyVal: ?*const anyopaque) QVariant {
+    pub fn New44(typeVal: anytype, copyVal: ?*const anyopaque) QVariant {
         comptime _ = @TypeOf(typeVal)._is_QMetaType;
-        return .{ .ptr = qtc.QVariant_new43(@ptrCast(typeVal.ptr), @ptrCast(copyVal)) };
+        return .{ .ptr = qtc.QVariant_new44(@ptrCast(typeVal.ptr), @ptrCast(copyVal)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
@@ -964,6 +978,7 @@ pub const QVariant = extern struct {
     pub fn ToMap(self: QVariant, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qvariant.ToMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -980,7 +995,7 @@ pub const QVariant = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qvariant.ToMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qvariant.ToMap: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -996,6 +1011,7 @@ pub const QVariant = extern struct {
     pub fn ToHash(self: QVariant, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qvariant.ToHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -1012,7 +1028,7 @@ pub const QVariant = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qvariant.ToHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qvariant.ToHash: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

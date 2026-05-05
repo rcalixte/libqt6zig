@@ -8,8 +8,6 @@
 #include <QPluginLoader>
 #include <QStaticPlugin>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpluginloader.h>
 #include "libqpluginloader.h"

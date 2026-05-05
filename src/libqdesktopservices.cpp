@@ -1,8 +1,6 @@
 #include <QDesktopServices>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qdesktopservices.h>
 #include "libqdesktopservices.h"

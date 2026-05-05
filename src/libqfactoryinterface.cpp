@@ -1,8 +1,6 @@
 #include <QFactoryInterface>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qfactoryinterface.h>
 #include "libqfactoryinterface.h"
 #include "libqfactoryinterface.hxx"

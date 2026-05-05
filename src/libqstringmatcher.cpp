@@ -1,7 +1,5 @@
 #include <QChar>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStringMatcher>
 #include <qstringmatcher.h>
 #include "libqstringmatcher.h"

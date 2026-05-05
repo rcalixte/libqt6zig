@@ -7,8 +7,6 @@
 #include <QOpenGLTimeMonitor>
 #include <QOpenGLTimerQuery>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qopengltimerquery.h>
 #include "libqopengltimerquery.h"

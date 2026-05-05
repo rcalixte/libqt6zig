@@ -18,7 +18,6 @@ extern "C" {
 typedef QFont::Tag QFont__Tag;
 #endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QFont QFont;
 typedef struct QFont__Tag QFont__Tag;
 typedef struct QPaintDevice QPaintDevice;

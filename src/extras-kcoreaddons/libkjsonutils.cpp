@@ -2,8 +2,6 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kjsonutils.h>
 #include "libkjsonutils.h"
 #include "libkjsonutils.hxx"

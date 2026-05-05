@@ -1,8 +1,6 @@
 #include <QBluetoothAddress>
 #include <QBluetoothHostInfo>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qbluetoothhostinfo.h>
 #include "libqbluetoothhostinfo.h"
 #include "libqbluetoothhostinfo.hxx"

@@ -5,8 +5,6 @@
 #include <QDialog>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <abstractlanguage.h>
 #include "libabstractlanguage.h"

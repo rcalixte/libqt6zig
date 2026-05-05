@@ -1,7 +1,5 @@
 #include <QSet>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Device
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Predicate

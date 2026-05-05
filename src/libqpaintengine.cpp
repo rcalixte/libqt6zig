@@ -17,8 +17,6 @@
 #include <QRegion>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextItem>
 #include <QTransform>
 #include <qpaintengine.h>

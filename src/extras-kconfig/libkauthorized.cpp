@@ -3,8 +3,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kauthorized.h>
 #include "libkauthorized.h"
 #include "libkauthorized.hxx"

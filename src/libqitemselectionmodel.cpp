@@ -11,8 +11,6 @@
 #include <QObject>
 #include <QPersistentModelIndex>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qitemselectionmodel.h>
 #include "libqitemselectionmodel.h"

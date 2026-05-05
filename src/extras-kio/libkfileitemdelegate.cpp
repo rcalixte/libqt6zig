@@ -18,8 +18,6 @@
 #include <QRegion>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionViewItem>
 #include <QTimerEvent>
 #include <QWidget>

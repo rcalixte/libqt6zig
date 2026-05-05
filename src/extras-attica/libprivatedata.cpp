@@ -2,8 +2,6 @@
 #include <QDateTime>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <privatedata.h>
 #include "libprivatedata.h"
 #include "libprivatedata.hxx"

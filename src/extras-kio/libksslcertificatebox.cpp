@@ -29,8 +29,6 @@
 #include <QSize>
 #include <QSslCertificate>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTabletEvent>
 #include <QTimerEvent>
 #include <QVariant>

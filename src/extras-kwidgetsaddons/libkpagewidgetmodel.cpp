@@ -19,8 +19,6 @@
 #include <QObject>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <QWidget>

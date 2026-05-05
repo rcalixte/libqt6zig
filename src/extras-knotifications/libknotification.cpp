@@ -9,8 +9,6 @@
 #include <QObject>
 #include <QPixmap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <QVariant>

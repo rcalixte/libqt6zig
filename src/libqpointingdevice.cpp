@@ -9,8 +9,6 @@
 #include <QPointingDevice>
 #include <QPointingDeviceUniqueId>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpointingdevice.h>
 #include "libqpointingdevice.h"

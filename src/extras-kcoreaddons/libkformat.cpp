@@ -3,8 +3,6 @@
 #include <QDateTime>
 #include <QLocale>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kformat.h>
 #include "libkformat.h"
 #include "libkformat.hxx"

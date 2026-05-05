@@ -1,7 +1,5 @@
 #include <QBluetoothUuid>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUuid>
 #include <qbluetoothuuid.h>
 #include "libqbluetoothuuid.h"

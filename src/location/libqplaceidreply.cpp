@@ -6,8 +6,6 @@
 #include <QPlaceIdReply>
 #include <QPlaceReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplaceidreply.h>
 #include "libqplaceidreply.h"

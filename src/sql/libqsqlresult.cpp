@@ -4,8 +4,6 @@
 #include <QSqlRecord>
 #include <QSqlResult>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qsqlresult.h>
 #include "libqsqlresult.h"

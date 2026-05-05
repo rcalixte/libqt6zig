@@ -8,8 +8,6 @@
 #include <QPoint>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <kpixmapsequenceoverlaypainter.h>

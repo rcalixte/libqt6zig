@@ -9,8 +9,6 @@
 #include <QMimeData>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <pastejob.h>
 #include "libpastejob.h"

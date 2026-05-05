@@ -7,8 +7,6 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QThread>
 #include <qsqldatabase.h>
 #include "libqsqldatabase.h"

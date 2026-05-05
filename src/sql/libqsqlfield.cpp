@@ -1,8 +1,6 @@
 #include <QMetaType>
 #include <QSqlField>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qsqlfield.h>
 #include "libqsqlfield.h"

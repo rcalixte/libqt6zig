@@ -5,8 +5,6 @@
 #include <QList>
 #include <QSharedData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kservice.h>
 #include "libkservice.h"
 #include "libkservice.hxx"

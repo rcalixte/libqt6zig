@@ -4,8 +4,6 @@
 #include <QFontInfo>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qfontdatabase.h>
 #include "libqfontdatabase.h"
 #include "libqfontdatabase.hxx"

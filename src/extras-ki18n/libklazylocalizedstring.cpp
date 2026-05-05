@@ -3,8 +3,6 @@
 #include <QChar>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <klazylocalizedstring.h>
 #include "libklazylocalizedstring.h"
 #include "libklazylocalizedstring.hxx"

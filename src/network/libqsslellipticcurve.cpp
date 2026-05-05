@@ -1,7 +1,5 @@
 #include <QSslEllipticCurve>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qsslellipticcurve.h>
 #include "libqsslellipticcurve.h"
 #include "libqsslellipticcurve.hxx"

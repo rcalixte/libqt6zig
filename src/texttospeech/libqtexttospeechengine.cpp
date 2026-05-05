@@ -8,8 +8,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextToSpeechEngine>
 #include <QTimerEvent>
 #include <QVariant>

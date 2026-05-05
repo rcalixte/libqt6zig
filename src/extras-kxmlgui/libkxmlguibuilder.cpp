@@ -4,8 +4,6 @@
 #include <QDomElement>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kxmlguibuilder.h>
 #include "libkxmlguibuilder.h"

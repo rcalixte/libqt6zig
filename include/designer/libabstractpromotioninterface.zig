@@ -43,9 +43,10 @@ pub const QDesignerPromotionInterface = extern struct {
     pub fn ReferencedPromotedClassNames(self: QDesignerPromotionInterface, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.QDesignerPromotionInterface_ReferencedPromotedClassNames(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("qdesignerpromotioninterface.ReferencedPromotedClassNames: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("qdesignerpromotioninterface.ReferencedPromotedClassNames: Set insertion failed");
+            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
         return _ret;
     }
 

@@ -1,8 +1,6 @@
 #include <KPlotPoint>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kplotpoint.h>
 #include "libkplotpoint.h"
 #include "libkplotpoint.hxx"

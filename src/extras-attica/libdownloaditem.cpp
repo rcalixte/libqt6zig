@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__DownloadItem
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <downloaditem.h>
 #include "libdownloaditem.h"

@@ -1638,6 +1638,7 @@ pub const KTextEditor__Attribute = extern struct {
     pub fn Properties(self: KTextEditor__Attribute, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("ktexteditor__attribute.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1648,7 +1649,7 @@ pub const KTextEditor__Attribute = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("ktexteditor__attribute.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

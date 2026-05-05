@@ -6,8 +6,6 @@
 #include <QState>
 #include <QStateMachine>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qabstractstate.h>
 #include "libqabstractstate.h"
 #include "libqabstractstate.hxx"

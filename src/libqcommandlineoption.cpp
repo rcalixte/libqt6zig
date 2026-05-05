@@ -1,8 +1,6 @@
 #include <QCommandLineOption>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qcommandlineoption.h>
 #include "libqcommandlineoption.h"
 #include "libqcommandlineoption.hxx"

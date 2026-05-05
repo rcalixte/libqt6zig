@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <Emulation.h>
 #include "libEmulation.h"

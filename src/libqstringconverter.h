@@ -15,7 +15,6 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QByteArrayView QByteArrayView;
 typedef struct QChar QChar;
 typedef struct QStringConverter QStringConverter;

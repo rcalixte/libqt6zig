@@ -9,8 +9,6 @@
 #include <QPlaceMatchRequest>
 #include <QPlaceReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplacematchreply.h>
 #include "libqplacematchreply.h"

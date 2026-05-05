@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <knetworkmounts.h>
 #include "libknetworkmounts.h"
 #include "libknetworkmounts.hxx"

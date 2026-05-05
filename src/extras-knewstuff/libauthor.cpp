@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KNSCore__Author
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <author.h>
 #include "libauthor.h"

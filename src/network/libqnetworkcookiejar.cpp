@@ -7,8 +7,6 @@
 #include <QNetworkCookieJar>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <qnetworkcookiejar.h>

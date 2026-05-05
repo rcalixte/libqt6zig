@@ -1,7 +1,5 @@
 #include <KServiceAction>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <kserviceaction.h>
 #include "libkserviceaction.h"

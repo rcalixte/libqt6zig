@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Folder
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <folder.h>
 #include "libfolder.h"
 #include "libfolder.hxx"

@@ -2,8 +2,6 @@
 #include <QIODevice>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextDocument>
 #include <QTextDocumentFragment>
 #include <QTextDocumentWriter>

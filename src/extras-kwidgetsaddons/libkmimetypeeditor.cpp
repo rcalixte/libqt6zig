@@ -1,7 +1,5 @@
 #include <KMimeTypeEditor>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kmimetypeeditor.h>
 #include "libkmimetypeeditor.h"

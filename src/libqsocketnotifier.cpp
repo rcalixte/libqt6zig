@@ -6,8 +6,6 @@
 #include <QSocketDescriptor>
 #include <QSocketNotifier>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qsocketnotifier.h>
 #include "libqsocketnotifier.h"

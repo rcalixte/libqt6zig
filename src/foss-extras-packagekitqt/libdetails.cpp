@@ -1,8 +1,6 @@
 #include <PackageKit/Details>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <details.h>
 #include "libdetails.h"

@@ -1,8 +1,6 @@
 #include <KIO/UDSEntry>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <udsentry.h>
 #include "libudsentry.h"
 #include "libudsentry.hxx"

@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__AuthInfo
 #include <KPasswdServerClient>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kpasswdserverclient.h>
 #include "libkpasswdserverclient.h"
 #include "libkpasswdserverclient.hxx"

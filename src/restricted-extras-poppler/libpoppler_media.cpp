@@ -2,8 +2,6 @@
 #include <QByteArray>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <poppler-media.h>
 #include "libpoppler_media.h"
 #include "libpoppler_media.hxx"

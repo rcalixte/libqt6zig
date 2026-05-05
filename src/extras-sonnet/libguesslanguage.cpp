@@ -1,7 +1,5 @@
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__GuessLanguage
 #include <guesslanguage.h>
 #include "libguesslanguage.h"

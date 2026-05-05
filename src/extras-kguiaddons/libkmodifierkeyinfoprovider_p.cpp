@@ -6,8 +6,6 @@
 #include <QObject>
 #include <QSharedData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kmodifierkeyinfoprovider_p.h>
 #include "libkmodifierkeyinfoprovider_p.h"

@@ -10,8 +10,6 @@
 #include <QState>
 #include <QStateMachine>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qabstracttransition.h>
 #include "libqabstracttransition.h"

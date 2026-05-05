@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Category
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <category.h>
 #include "libcategory.h"
 #include "libcategory.hxx"

@@ -17,8 +17,6 @@
 #include <QPen>
 #include <QShowEvent>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionGraphicsItem>
 #include <QWidget>
 #include <qlegend.h>

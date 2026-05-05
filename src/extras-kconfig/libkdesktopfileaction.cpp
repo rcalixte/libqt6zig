@@ -1,7 +1,5 @@
 #include <KDesktopFileAction>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kdesktopfileaction.h>
 #include "libkdesktopfileaction.h"
 #include "libkdesktopfileaction.hxx"

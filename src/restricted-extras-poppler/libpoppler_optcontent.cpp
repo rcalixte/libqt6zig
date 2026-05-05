@@ -8,8 +8,6 @@
 #include <QModelIndex>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <poppler-optcontent.h>
 #include "libpoppler_optcontent.h"

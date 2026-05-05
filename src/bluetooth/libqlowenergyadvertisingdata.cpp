@@ -3,8 +3,6 @@
 #include <QList>
 #include <QLowEnergyAdvertisingData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qlowenergyadvertisingdata.h>
 #include "libqlowenergyadvertisingdata.h"
 #include "libqlowenergyadvertisingdata.hxx"

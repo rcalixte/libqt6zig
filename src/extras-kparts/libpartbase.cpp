@@ -6,8 +6,6 @@
 #include <QDomElement>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <partbase.h>
 #include "libpartbase.h"
 #include "libpartbase.hxx"

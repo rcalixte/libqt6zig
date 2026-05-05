@@ -11,8 +11,6 @@
 #include <QSqlRecord>
 #include <QSqlResult>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qsqldriver.h>

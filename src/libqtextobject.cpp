@@ -6,8 +6,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBlock>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QTextBlock__iterator
 #include <QTextBlockFormat>

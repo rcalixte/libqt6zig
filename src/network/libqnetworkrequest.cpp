@@ -1,4 +1,3 @@
-#include <QAnyStringView>
 #include <QByteArray>
 #include <QHttp1Configuration>
 #include <QHttp2Configuration>
@@ -8,8 +7,6 @@
 #include <QObject>
 #include <QSslConfiguration>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QVariant>
 #include <qnetworkrequest.h>

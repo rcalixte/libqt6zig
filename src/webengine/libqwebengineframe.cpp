@@ -1,8 +1,6 @@
 #include <QList>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineFrame>
 #include <qwebengineframe.h>

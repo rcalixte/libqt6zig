@@ -9,8 +9,6 @@
 #include <QPair>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <QWindow>
 #include <qaccessiblewidget.h>

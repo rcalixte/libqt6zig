@@ -586,6 +586,7 @@ pub const KConfig = extern struct {
     pub fn EntryMap(self: KConfig, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kconfig.EntryMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -606,7 +607,7 @@ pub const KConfig = extern struct {
             const _value = _values[i];
             const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kconfig.EntryMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kconfig.EntryMap: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
@@ -987,6 +988,7 @@ pub const KConfig = extern struct {
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self.ptr), aGroup_str);
         var _ret: ArrayMap_constu8_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kconfig.EntryMap1: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -1007,7 +1009,7 @@ pub const KConfig = extern struct {
             const _value = _values[i];
             const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kconfig.EntryMap1: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("kconfig.EntryMap1: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }

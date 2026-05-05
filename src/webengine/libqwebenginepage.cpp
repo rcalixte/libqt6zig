@@ -1,5 +1,4 @@
 #include <QAction>
-#include <QAnyStringView>
 #include <QAuthenticator>
 #include <QByteArray>
 #include <QChildEvent>
@@ -16,8 +15,6 @@
 #include <QRect>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <QWebChannel>

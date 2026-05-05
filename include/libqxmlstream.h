@@ -15,7 +15,6 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QIODevice QIODevice;
 typedef struct QXmlStreamAttribute QXmlStreamAttribute;
 typedef struct QXmlStreamAttributes QXmlStreamAttributes;

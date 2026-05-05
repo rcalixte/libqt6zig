@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QPaintDevice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <abstractnewformwidget.h>
 #include "libabstractnewformwidget.h"

@@ -1,8 +1,6 @@
 #include <KRemoteEncoding>
 #include <QByteArray>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kremoteencoding.h>
 #include "libkremoteencoding.h"

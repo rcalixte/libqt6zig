@@ -6,8 +6,6 @@
 #include <QSctpServer>
 #include <QSctpSocket>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QTimerEvent>

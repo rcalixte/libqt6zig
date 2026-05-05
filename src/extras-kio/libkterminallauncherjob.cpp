@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QProcessEnvironment>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kterminallauncherjob.h>
 #include "libkterminallauncherjob.h"

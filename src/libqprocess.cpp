@@ -11,8 +11,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_QProcess__UnixProcessParameters
 #include <QProcessEnvironment>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qprocess.h>
 #include "libqprocess.h"

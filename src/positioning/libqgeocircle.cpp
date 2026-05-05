@@ -2,8 +2,6 @@
 #include <QGeoCoordinate>
 #include <QGeoShape>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qgeocircle.h>
 #include "libqgeocircle.h"
 #include "libqgeocircle.hxx"

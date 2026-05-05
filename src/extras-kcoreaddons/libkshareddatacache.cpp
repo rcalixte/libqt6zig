@@ -1,8 +1,6 @@
 #include <KSharedDataCache>
 #include <QByteArray>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kshareddatacache.h>
 #include "libkshareddatacache.h"
 #include "libkshareddatacache.hxx"

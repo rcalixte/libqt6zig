@@ -7,8 +7,6 @@
 #include <QScroller>
 #include <QScrollerProperties>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qscroller.h>
 #include "libqscroller.h"
 #include "libqscroller.hxx"

@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__HomePageEntry
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <homepageentry.h>
 #include "libhomepageentry.h"

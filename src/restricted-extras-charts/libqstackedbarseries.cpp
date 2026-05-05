@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QStackedBarSeries>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qstackedbarseries.h>
 #include "libqstackedbarseries.h"

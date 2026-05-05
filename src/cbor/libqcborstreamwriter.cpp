@@ -34,6 +34,11 @@ void QCborStreamWriter_Append4(QCborStreamWriter* self, const libqt_string ba) {
     self->append(ba_QByteArray);
 }
 
+void QCborStreamWriter_Append5(QCborStreamWriter* self, libqt_string str) {
+    QLatin1StringView str_QString = QLatin1StringView(str.data, str.len);
+    self->append(str_QString);
+}
+
 void QCborStreamWriter_Append7(QCborStreamWriter* self, uint64_t tag) {
     self->append(static_cast<QCborTag>(tag));
 }

@@ -13,8 +13,6 @@
 #include <QPalette>
 #include <QPixmap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kiconloader.h>
 #include "libkiconloader.h"

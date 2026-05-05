@@ -33,8 +33,6 @@
 #include <QSize>
 #include <QStatusBar>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTabletEvent>
 #include <QTimerEvent>
 #include <QToolBar>

@@ -6,8 +6,6 @@
 #include <QList>
 #include <QMimeData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kbookmark.h>
 #include "libkbookmark.h"

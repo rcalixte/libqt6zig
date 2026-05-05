@@ -2,8 +2,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Battery
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__DeviceInterface
 #include <battery.h>

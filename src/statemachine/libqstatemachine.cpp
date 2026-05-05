@@ -12,8 +12,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_QStateMachine__SignalEvent
 #define WORKAROUND_INNER_CLASS_DEFINITION_QStateMachine__WrappedEvent
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qstatemachine.h>

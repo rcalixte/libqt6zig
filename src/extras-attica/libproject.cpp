@@ -2,8 +2,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <project.h>
 #include "libproject.h"
 #include "libproject.hxx"

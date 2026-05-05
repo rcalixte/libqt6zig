@@ -9,8 +9,6 @@
 #include <QSize>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTransform>
 #include <qscreen.h>
 #include "libqscreen.h"

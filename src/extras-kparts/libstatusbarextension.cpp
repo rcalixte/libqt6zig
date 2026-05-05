@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QStatusBar>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <statusbarextension.h>

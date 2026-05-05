@@ -3,8 +3,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <ksignalhandler.h>
 #include "libksignalhandler.h"
 #include "libksignalhandler.hxx"

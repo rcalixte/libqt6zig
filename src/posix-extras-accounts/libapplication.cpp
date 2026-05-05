@@ -1,8 +1,6 @@
 #include <Accounts/Application>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Accounts__Service
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <application.h>
 #include "libapplication.h"
 #include "libapplication.hxx"

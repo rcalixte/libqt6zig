@@ -33,8 +33,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTabletEvent>
 #include <QTime>
 #include <QTimeZone>

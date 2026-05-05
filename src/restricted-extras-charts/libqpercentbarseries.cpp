@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QPercentBarSeries>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpercentbarseries.h>
 #include "libqpercentbarseries.h"

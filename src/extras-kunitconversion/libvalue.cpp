@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KUnitConversion__Value
 #include <QChar>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <value.h>
 #include "libvalue.h"

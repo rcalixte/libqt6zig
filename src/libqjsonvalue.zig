@@ -80,54 +80,68 @@ pub const QJsonValue = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
+    /// ` s: []const u8 `
     ///
-    pub fn New7(s: [:0]const u8) QJsonValue {
-        const s_Cstring = s.ptr;
-        return .{ .ptr = qtc.QJsonValue_new7(s_Cstring) };
+    pub fn New7(s: []const u8) QJsonValue {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValue_new7(s_str) };
     }
 
     /// New8 constructs a new QJsonValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` a: QJsonArray `
+    /// ` s: [:0]const u8 `
     ///
-    pub fn New8(a: anytype) QJsonValue {
-        comptime _ = @TypeOf(a)._is_QJsonArray;
-        return .{ .ptr = qtc.QJsonValue_new8(@ptrCast(a.ptr)) };
+    pub fn New8(s: [:0]const u8) QJsonValue {
+        const s_Cstring = s.ptr;
+        return .{ .ptr = qtc.QJsonValue_new8(s_Cstring) };
     }
 
     /// New9 constructs a new QJsonValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` o: QJsonObject `
+    /// ` a: QJsonArray `
     ///
-    pub fn New9(o: anytype) QJsonValue {
-        comptime _ = @TypeOf(o)._is_QJsonObject;
-        return .{ .ptr = qtc.QJsonValue_new9(@ptrCast(o.ptr)) };
+    pub fn New9(a: anytype) QJsonValue {
+        comptime _ = @TypeOf(a)._is_QJsonArray;
+        return .{ .ptr = qtc.QJsonValue_new9(@ptrCast(a.ptr)) };
     }
 
     /// New10 constructs a new QJsonValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QJsonValue `
+    /// ` o: QJsonObject `
     ///
-    pub fn New10(other: anytype) QJsonValue {
-        comptime _ = @TypeOf(other)._is_QJsonValue;
-        return .{ .ptr = qtc.QJsonValue_new10(@ptrCast(other.ptr)) };
+    pub fn New10(o: anytype) QJsonValue {
+        comptime _ = @TypeOf(o)._is_QJsonObject;
+        return .{ .ptr = qtc.QJsonValue_new10(@ptrCast(o.ptr)) };
     }
 
     /// New11 constructs a new QJsonValue object.
     ///
     /// ## Parameter(s):
     ///
+    /// ` other: QJsonValue `
+    ///
+    pub fn New11(other: anytype) QJsonValue {
+        comptime _ = @TypeOf(other)._is_QJsonValue;
+        return .{ .ptr = qtc.QJsonValue_new11(@ptrCast(other.ptr)) };
+    }
+
+    /// New12 constructs a new QJsonValue object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` param1: qjsonvalue_enums.Type `
     ///
-    pub fn New11(param1: i32) QJsonValue {
-        return .{ .ptr = qtc.QJsonValue_new11(@bitCast(param1)) };
+    pub fn New12(param1: i32) QJsonValue {
+        return .{ .ptr = qtc.QJsonValue_new12(@bitCast(param1)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-eq)
@@ -399,6 +413,22 @@ pub const QJsonValue = extern struct {
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonValue_OperatorSubscript(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonValue `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript3(self: QJsonValue, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValue_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
@@ -688,6 +718,22 @@ pub const QJsonValueConstRef = extern struct {
     ///
     pub fn ToObject(self: QJsonValueConstRef) QJsonObject {
         return .{ .ptr = qtc.QJsonValueConstRef_ToObject(@ptrCast(self.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonValueConstRef `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript2(self: QJsonValueConstRef, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValueConstRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
@@ -1052,6 +1098,22 @@ pub const QJsonValueRef = extern struct {
     ///
     pub fn ToObject(self: QJsonValueRef) QJsonObject {
         return .{ .ptr = qtc.QJsonValueRef_ToObject(@ptrCast(self.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonValueRef `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript2(self: QJsonValueRef, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValueRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)

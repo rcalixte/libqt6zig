@@ -11161,6 +11161,7 @@ pub const KHistoryComboBox = extern struct {
     pub fn KeyBindingMap(self: KHistoryComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KHistoryComboBox_KeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("khistorycombobox.KeyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -11179,7 +11180,7 @@ pub const KHistoryComboBox = extern struct {
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
-            _ret.put(allocator, _key, _value_slice) catch @panic("khistorycombobox.KeyBindingMap: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
@@ -11207,6 +11208,7 @@ pub const KHistoryComboBox = extern struct {
     pub fn SuperKeyBindingMap(self: KHistoryComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KHistoryComboBox_SuperKeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("khistorycombobox.KeyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -11225,7 +11227,7 @@ pub const KHistoryComboBox = extern struct {
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
-            _ret.put(allocator, _key, _value_slice) catch @panic("khistorycombobox.KeyBindingMap: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }

@@ -5,8 +5,6 @@
 #include <QImage>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QXmlStreamReader>
 #include <entry.h>

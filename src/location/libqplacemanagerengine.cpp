@@ -23,8 +23,6 @@
 #include <QPlaceSearchSuggestionReply>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <QVariant>

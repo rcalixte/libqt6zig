@@ -20,8 +20,6 @@
 #include <QSqlQueryModel>
 #include <QSqlRecord>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qsqlquerymodel.h>

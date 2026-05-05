@@ -7,8 +7,6 @@
 #include <QDateTime>
 #include <QIODevice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kzipfileentry.h>
 #include "libkzipfileentry.h"
 #include "libkzipfileentry.hxx"

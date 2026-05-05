@@ -6,8 +6,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qabstractbarseries.h>
 #include "libqabstractbarseries.h"
 #include "libqabstractbarseries.hxx"

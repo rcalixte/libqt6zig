@@ -10,8 +10,6 @@
 #include <QPainter>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOption>
 #include <QTimerEvent>
 #include <kcategorydrawer.h>

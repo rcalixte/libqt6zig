@@ -2,8 +2,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__DeviceInterface
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__OpticalDisc
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__StorageVolume

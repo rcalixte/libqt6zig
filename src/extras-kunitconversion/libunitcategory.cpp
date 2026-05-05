@@ -7,8 +7,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <unitcategory.h>
 #include "libunitcategory.h"
 #include "libunitcategory.hxx"

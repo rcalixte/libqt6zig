@@ -2,8 +2,6 @@
 #include <QColor>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kcolorcollection.h>
 #include "libkcolorcollection.h"
 #include "libkcolorcollection.hxx"

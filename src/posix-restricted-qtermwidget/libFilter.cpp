@@ -16,8 +16,6 @@
 #include <QObject>
 #include <QRegularExpression>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <Filter.h>

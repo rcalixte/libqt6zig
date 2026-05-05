@@ -91,6 +91,7 @@ QTextStream* QTextStream_OperatorShiftLeft11(QTextStream* self, unsigned long lo
 QTextStream* QTextStream_OperatorShiftLeft12(QTextStream* self, float f);
 QTextStream* QTextStream_OperatorShiftLeft13(QTextStream* self, double f);
 QTextStream* QTextStream_OperatorShiftLeft14(QTextStream* self, const libqt_string s);
+QTextStream* QTextStream_OperatorShiftLeft16(QTextStream* self, libqt_string s);
 QTextStream* QTextStream_OperatorShiftLeft17(QTextStream* self, const libqt_string array);
 QTextStream* QTextStream_OperatorShiftLeft18(QTextStream* self, const char* c);
 QTextStream* QTextStream_OperatorShiftLeft19(QTextStream* self, const void* ptr);

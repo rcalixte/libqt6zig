@@ -8,8 +8,6 @@
 #include <QPieSeries>
 #include <QPieSlice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpieseries.h>
 #include "libqpieseries.h"

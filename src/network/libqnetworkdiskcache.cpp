@@ -8,8 +8,6 @@
 #include <QNetworkDiskCache>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <qnetworkdiskcache.h>

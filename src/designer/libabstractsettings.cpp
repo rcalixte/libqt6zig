@@ -1,7 +1,5 @@
 #include <QDesignerSettingsInterface>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <abstractsettings.h>
 #include "libabstractsettings.h"

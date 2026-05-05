@@ -8,8 +8,6 @@
 #include <QPair>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWindow>
 #include <qaccessibleobject.h>
 #include "libqaccessibleobject.h"

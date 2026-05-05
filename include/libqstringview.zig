@@ -211,6 +211,22 @@ pub const QStringView = extern struct {
     ///
     /// ` self: QStringView `
     ///
+    /// ` other: []const u8 `
+    ///
+    pub fn Compare2(self: QStringView, other: []const u8) i32 {
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+        return qtc.QStringView_Compare2(@ptrCast(self.ptr), other_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
     /// ` c: QChar `
     ///
     pub fn Compare4(self: QStringView, c: anytype) i32 {
@@ -239,6 +255,22 @@ pub const QStringView = extern struct {
     ///
     /// ` self: QStringView `
     ///
+    /// ` s: []const u8 `
+    ///
+    pub fn StartsWith2(self: QStringView, s: []const u8) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_StartsWith2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#startsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
     /// ` c: QChar `
     ///
     pub fn StartsWith3(self: QStringView, c: anytype) bool {
@@ -259,6 +291,22 @@ pub const QStringView = extern struct {
     pub fn StartsWith4(self: QStringView, c: anytype, cs: i32) bool {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QStringView_StartsWith4(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#endsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn EndsWith2(self: QStringView, s: []const u8) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_EndsWith2(@ptrCast(self.ptr), s_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#endsWith)
@@ -302,6 +350,22 @@ pub const QStringView = extern struct {
         return qtc.QStringView_IndexOf(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn IndexOf3(self: QStringView, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_IndexOf3(@ptrCast(self.ptr), s_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
     ///
     /// ## Parameter(s):
@@ -315,6 +379,22 @@ pub const QStringView = extern struct {
         return qtc.QStringView_Contains(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn Contains3(self: QStringView, s: []const u8) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_Contains3(@ptrCast(self.ptr), s_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#count)
     ///
     /// ## Parameter(s):
@@ -326,6 +406,22 @@ pub const QStringView = extern struct {
     pub fn Count(self: QStringView, c: anytype) isize {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QStringView_Count(@ptrCast(self.ptr), @ptrCast(c.ptr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#count)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn Count3(self: QStringView, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_Count3(@ptrCast(self.ptr), s_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -354,6 +450,40 @@ pub const QStringView = extern struct {
     pub fn LastIndexOf2(self: QStringView, c: anytype, from: isize) isize {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QStringView_LastIndexOf2(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(from));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn LastIndexOf5(self: QStringView, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_LastIndexOf5(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    pub fn LastIndexOf6(self: QStringView, s: []const u8, from: isize) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_LastIndexOf6(@ptrCast(self.ptr), s_str, @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -706,6 +836,60 @@ pub const QStringView = extern struct {
         return qtc.QStringView_MaxSize2();
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` other: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Compare23(self: QStringView, other: []const u8, cs: i32) i32 {
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+        return qtc.QStringView_Compare23(@ptrCast(self.ptr), other_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#startsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn StartsWith23(self: QStringView, s: []const u8, cs: i32) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_StartsWith23(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#endsWith)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn EndsWith23(self: QStringView, s: []const u8, cs: i32) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_EndsWith23(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ## Parameter(s):
@@ -738,6 +922,44 @@ pub const QStringView = extern struct {
         return qtc.QStringView_IndexOf32(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(from), @bitCast(cs));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    pub fn IndexOf24(self: QStringView, s: []const u8, from: isize) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_IndexOf24(@ptrCast(self.ptr), s_str, @bitCast(from));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn IndexOf34(self: QStringView, s: []const u8, from: isize, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_IndexOf34(@ptrCast(self.ptr), s_str, @bitCast(from), @bitCast(cs));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
     ///
     /// ## Parameter(s):
@@ -753,6 +975,24 @@ pub const QStringView = extern struct {
         return qtc.QStringView_Contains22(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(cs));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Contains24(self: QStringView, s: []const u8, cs: i32) bool {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_Contains24(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#count)
     ///
     /// ## Parameter(s):
@@ -766,6 +1006,24 @@ pub const QStringView = extern struct {
     pub fn Count22(self: QStringView, c: anytype, cs: i32) isize {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QStringView_Count22(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#count)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Count24(self: QStringView, s: []const u8, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_Count24(@ptrCast(self.ptr), s_str, @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -798,6 +1056,44 @@ pub const QStringView = extern struct {
     pub fn LastIndexOf32(self: QStringView, c: anytype, from: isize, cs: i32) isize {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.QStringView_LastIndexOf32(@ptrCast(self.ptr), @ptrCast(c.ptr), @bitCast(from), @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn LastIndexOf24(self: QStringView, s: []const u8, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_LastIndexOf24(@ptrCast(self.ptr), s_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringView `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn LastIndexOf34(self: QStringView, s: []const u8, from: isize, cs: i32) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QStringView_LastIndexOf34(@ptrCast(self.ptr), s_str, @bitCast(from), @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringview.html#indexOf)

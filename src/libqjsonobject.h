@@ -46,9 +46,15 @@ bool QJsonObject_IsEmpty(const QJsonObject* self);
 QJsonValue* QJsonObject_Value(const QJsonObject* self, const libqt_string key);
 QJsonValue* QJsonObject_OperatorSubscript(const QJsonObject* self, const libqt_string key);
 QJsonValueRef* QJsonObject_OperatorSubscript2(QJsonObject* self, const libqt_string key);
+QJsonValue* QJsonObject_Value3(const QJsonObject* self, libqt_string key);
+QJsonValue* QJsonObject_OperatorSubscript4(const QJsonObject* self, libqt_string key);
+QJsonValueRef* QJsonObject_OperatorSubscript6(QJsonObject* self, libqt_string key);
 void QJsonObject_Remove(QJsonObject* self, const libqt_string key);
 QJsonValue* QJsonObject_Take(QJsonObject* self, const libqt_string key);
 bool QJsonObject_Contains(const QJsonObject* self, const libqt_string key);
+void QJsonObject_Remove3(QJsonObject* self, libqt_string key);
+QJsonValue* QJsonObject_Take3(QJsonObject* self, libqt_string key);
+bool QJsonObject_Contains3(const QJsonObject* self, libqt_string key);
 QJsonObject__iterator* QJsonObject_Begin(QJsonObject* self);
 QJsonObject__const_iterator* QJsonObject_Begin2(const QJsonObject* self);
 QJsonObject__const_iterator* QJsonObject_ConstBegin(const QJsonObject* self);
@@ -60,6 +66,10 @@ QJsonObject__iterator* QJsonObject_Find(QJsonObject* self, const libqt_string ke
 QJsonObject__const_iterator* QJsonObject_Find2(const QJsonObject* self, const libqt_string key);
 QJsonObject__const_iterator* QJsonObject_ConstFind(const QJsonObject* self, const libqt_string key);
 QJsonObject__iterator* QJsonObject_Insert(QJsonObject* self, const libqt_string key, const QJsonValue* value);
+QJsonObject__iterator* QJsonObject_Find4(QJsonObject* self, libqt_string key);
+QJsonObject__const_iterator* QJsonObject_Find6(const QJsonObject* self, libqt_string key);
+QJsonObject__const_iterator* QJsonObject_ConstFind3(const QJsonObject* self, libqt_string key);
+QJsonObject__iterator* QJsonObject_Insert3(QJsonObject* self, libqt_string key, const QJsonValue* value);
 bool QJsonObject_Empty(const QJsonObject* self);
 void QJsonObject_Delete(QJsonObject* self);
 

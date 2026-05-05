@@ -3,8 +3,6 @@
 #include <QFileInfo>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qdiriterator.h>
 #include "libqdiriterator.h"
 #include "libqdiriterator.hxx"

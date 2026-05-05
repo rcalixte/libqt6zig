@@ -2,8 +2,6 @@
 #include <QGeoManeuver>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qgeomaneuver.h>
 #include "libqgeomaneuver.h"

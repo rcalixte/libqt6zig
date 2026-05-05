@@ -2,8 +2,6 @@
 #include <QList>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kacl.h>
 #include "libkacl.h"
 #include "libkacl.hxx"

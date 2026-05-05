@@ -10,8 +10,6 @@
 #include <QPen>
 #include <QSplineSeries>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QXYSeries>
 #include <qsplineseries.h>

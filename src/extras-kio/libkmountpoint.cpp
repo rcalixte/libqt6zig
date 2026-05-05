@@ -3,8 +3,6 @@
 #include <QList>
 #include <QSharedData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kmountpoint.h>
 #include "libkmountpoint.h"
 #include "libkmountpoint.hxx"

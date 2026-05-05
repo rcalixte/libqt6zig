@@ -1,8 +1,6 @@
 #include <QColorSpace>
 #include <QPdfOutputIntent>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qpdfoutputintent.h>
 #include "libqpdfoutputintent.h"

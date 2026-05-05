@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__License
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <license.h>
 #include "liblicense.h"

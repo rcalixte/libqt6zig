@@ -4,8 +4,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KUnitConversion__Value
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <converter.h>
 #include "libconverter.h"
 #include "libconverter.hxx"

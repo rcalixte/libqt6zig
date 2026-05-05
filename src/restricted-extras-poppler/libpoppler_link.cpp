@@ -18,8 +18,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Poppler__SoundObject
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVector>
 #include <poppler-link.h>
 #include "libpoppler_link.h"

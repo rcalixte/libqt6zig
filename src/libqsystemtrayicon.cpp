@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSystemTrayIcon>
 #include <QTimerEvent>
 #include <qsystemtrayicon.h>

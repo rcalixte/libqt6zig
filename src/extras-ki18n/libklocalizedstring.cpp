@@ -4,8 +4,6 @@
 #include <QList>
 #include <QSet>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <klocalizedstring.h>
 #include "libklocalizedstring.h"
 #include "libklocalizedstring.hxx"

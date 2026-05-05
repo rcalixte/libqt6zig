@@ -7,8 +7,6 @@
 #include <QList>
 #include <QMetaType>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qdbusargument.h>
 #include "libqdbusargument.h"

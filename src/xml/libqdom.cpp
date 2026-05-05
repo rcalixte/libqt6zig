@@ -1,4 +1,3 @@
-#include <QAnyStringView>
 #include <QByteArray>
 #include <QDomAttr>
 #include <QDomCDATASection>
@@ -20,8 +19,6 @@
 #include <QDomText>
 #include <QIODevice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextStream>
 #include <QXmlStreamReader>
 #include <qdom.h>

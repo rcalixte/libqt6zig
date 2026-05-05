@@ -1,7 +1,5 @@
 #include <QLoggingCategory>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qloggingcategory.h>
 #include "libqloggingcategory.h"
 #include "libqloggingcategory.hxx"

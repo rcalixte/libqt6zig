@@ -4,8 +4,6 @@
 #include <QPlaceMatchRequest>
 #include <QPlaceSearchResult>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qplacematchrequest.h>
 #include "libqplacematchrequest.h"

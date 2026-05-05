@@ -4,8 +4,6 @@
 #include <QNetworkRequestFactory>
 #include <QSslConfiguration>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QUrlQuery>
 #include <QVariant>

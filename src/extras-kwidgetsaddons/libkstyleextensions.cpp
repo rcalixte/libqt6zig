@@ -1,7 +1,5 @@
 #include <KStyleExtensions>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kstyleextensions.h>
 #include "libkstyleextensions.h"

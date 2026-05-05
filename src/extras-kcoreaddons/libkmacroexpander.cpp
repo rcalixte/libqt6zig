@@ -3,8 +3,6 @@
 #include <QHash>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kmacroexpander.h>
 #include "libkmacroexpander.h"
 #include "libkmacroexpander.hxx"

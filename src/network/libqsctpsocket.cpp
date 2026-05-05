@@ -10,8 +10,6 @@
 #include <QObject>
 #include <QSctpSocket>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTcpSocket>
 #include <QTimerEvent>
 #include <QVariant>

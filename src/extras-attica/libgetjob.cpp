@@ -6,8 +6,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <getjob.h>
 #include "libgetjob.h"
 #include "libgetjob.hxx"

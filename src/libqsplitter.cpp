@@ -31,8 +31,6 @@
 #include <QSplitter>
 #include <QSplitterHandle>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionFrame>
 #include <QTabletEvent>
 #include <QTimerEvent>

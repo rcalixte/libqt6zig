@@ -2,8 +2,6 @@
 #include <QDate>
 #include <QDateTime>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTime>
 #include <QTimeZone>
 #include <qdatetime.h>

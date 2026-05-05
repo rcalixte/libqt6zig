@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kabstractwidgetjobtracker.h>
 #include "libkabstractwidgetjobtracker.h"

@@ -9,8 +9,6 @@
 #include <QRawFont>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTransform>
 #include <qrawfont.h>
 #include "libqrawfont.h"

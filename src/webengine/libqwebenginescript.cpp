@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineScript>
 #include <qwebenginescript.h>

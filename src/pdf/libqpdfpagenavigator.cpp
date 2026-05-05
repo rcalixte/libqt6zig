@@ -7,8 +7,6 @@
 #include <QPdfPageNavigator>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpdfpagenavigator.h>
 #include "libqpdfpagenavigator.h"

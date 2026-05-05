@@ -3,8 +3,6 @@
 #include <QGeoShape>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qgeoareamonitorinfo.h>
 #include "libqgeoareamonitorinfo.h"

@@ -3,8 +3,6 @@
 #include <QList>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kwindowinfo.h>
 #include "libkwindowinfo.h"
 #include "libkwindowinfo.hxx"

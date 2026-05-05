@@ -516,6 +516,7 @@ pub const QTextFormat = extern struct {
     pub fn Properties(self: QTextFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtextformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -526,7 +527,7 @@ pub const QTextFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtextformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -2075,6 +2076,7 @@ pub const QTextCharFormat = extern struct {
     pub fn Properties(self: QTextCharFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtextcharformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2085,7 +2087,7 @@ pub const QTextCharFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtextcharformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -3164,6 +3166,7 @@ pub const QTextBlockFormat = extern struct {
     pub fn Properties(self: QTextBlockFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtextblockformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3174,7 +3177,7 @@ pub const QTextBlockFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtextblockformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -4051,6 +4054,7 @@ pub const QTextListFormat = extern struct {
     pub fn Properties(self: QTextListFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtextlistformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4061,7 +4065,7 @@ pub const QTextListFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtextlistformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -5934,6 +5938,7 @@ pub const QTextImageFormat = extern struct {
     pub fn Properties(self: QTextImageFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtextimageformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -5944,7 +5949,7 @@ pub const QTextImageFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtextimageformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -7012,6 +7017,7 @@ pub const QTextFrameFormat = extern struct {
     pub fn Properties(self: QTextFrameFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtextframeformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -7022,7 +7028,7 @@ pub const QTextFrameFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtextframeformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -8327,6 +8333,7 @@ pub const QTextTableFormat = extern struct {
     pub fn Properties(self: QTextTableFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtexttableformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -8337,7 +8344,7 @@ pub const QTextTableFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtexttableformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -10500,6 +10507,7 @@ pub const QTextTableCellFormat = extern struct {
     pub fn Properties(self: QTextTableCellFormat, allocator: std.mem.Allocator) ArrayMap_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qtexttablecellformat.Properties: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -10510,7 +10518,7 @@ pub const QTextTableCellFormat = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qtexttablecellformat.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

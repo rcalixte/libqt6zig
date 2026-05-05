@@ -1,7 +1,5 @@
 #include <QLocale>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVoice>
 #include <qvoice.h>
 #include "libqvoice.h"

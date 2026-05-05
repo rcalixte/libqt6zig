@@ -1,8 +1,6 @@
 #include <KProtocolManager>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kprotocolmanager.h>
 #include "libkprotocolmanager.h"

@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kjobtrackerinterface.h>
 #include "libkjobtrackerinterface.h"
 #include "libkjobtrackerinterface.hxx"

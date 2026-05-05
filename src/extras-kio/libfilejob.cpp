@@ -9,8 +9,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <filejob.h>
 #include "libfilejob.h"

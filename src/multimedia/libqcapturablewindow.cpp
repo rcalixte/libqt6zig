@@ -1,7 +1,5 @@
 #include <QCapturableWindow>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qcapturablewindow.h>
 #include "libqcapturablewindow.h"
 #include "libqcapturablewindow.hxx"

@@ -20,8 +20,6 @@
 #include <QPair>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVector>
 #include <poppler-form.h>

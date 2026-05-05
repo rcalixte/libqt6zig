@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QState>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qhistorystate.h>
 #include "libqhistorystate.h"

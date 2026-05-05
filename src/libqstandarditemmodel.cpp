@@ -19,8 +19,6 @@
 #include <QStandardItem>
 #include <QStandardItemModel>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qstandarditemmodel.h>

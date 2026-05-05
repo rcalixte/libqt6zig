@@ -1,7 +1,5 @@
 #include <KBackup>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kbackup.h>
 #include "libkbackup.h"
 #include "libkbackup.hxx"

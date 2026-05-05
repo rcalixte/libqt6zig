@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KFileMetaData__Writer
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <writer.h>
 #include "libwriter.h"
 #include "libwriter.hxx"

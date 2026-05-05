@@ -6,8 +6,6 @@
 #include <QObject>
 #include <QPauseAnimation>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpauseanimation.h>
 #include "libqpauseanimation.h"

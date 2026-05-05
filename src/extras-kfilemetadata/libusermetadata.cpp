@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KFileMetaData__UserMetaData
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <usermetadata.h>
 #include "libusermetadata.h"

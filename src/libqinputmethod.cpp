@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTransform>
 #include <QVariant>
 #include <qinputmethod.h>

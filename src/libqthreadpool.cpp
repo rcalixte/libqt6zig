@@ -6,8 +6,6 @@
 #include <QObject>
 #include <QRunnable>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QThread>
 #include <QThreadPool>
 #include <QTimerEvent>

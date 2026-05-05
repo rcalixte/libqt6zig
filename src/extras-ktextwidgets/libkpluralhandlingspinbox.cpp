@@ -32,8 +32,6 @@
 #include <QSize>
 #include <QSpinBox>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionSpinBox>
 #include <QTabletEvent>
 #include <QTimerEvent>

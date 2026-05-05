@@ -10,8 +10,6 @@
 #include <QPinchGesture>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSwipeGesture>
 #include <QTapAndHoldGesture>
 #include <QTapGesture>

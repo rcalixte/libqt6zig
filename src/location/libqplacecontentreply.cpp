@@ -9,8 +9,6 @@
 #include <QPlaceContentRequest>
 #include <QPlaceReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplacecontentreply.h>
 #include "libqplacecontentreply.h"

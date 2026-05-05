@@ -2,8 +2,6 @@
 #include <KService>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <desktopexecparser.h>
 #include "libdesktopexecparser.h"

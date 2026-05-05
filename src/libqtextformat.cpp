@@ -5,8 +5,6 @@
 #include <QMap>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBlockFormat>
 #include <QTextCharFormat>
 #include <QTextFormat>

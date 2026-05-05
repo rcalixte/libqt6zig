@@ -10,8 +10,6 @@
 #include <QRectF>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qgraphicsanchorlayout.h>
 #include "libqgraphicsanchorlayout.h"
 #include "libqgraphicsanchorlayout.hxx"

@@ -10,8 +10,6 @@
 #include <QObject>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWindow>
 #include <kstatusnotifieritem.h>

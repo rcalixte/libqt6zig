@@ -3,8 +3,6 @@
 #include <QFileDevice>
 #include <QFileInfo>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimeZone>
 #include <qfileinfo.h>
 #include "libqfileinfo.h"

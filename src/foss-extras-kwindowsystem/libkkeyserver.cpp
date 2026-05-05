@@ -1,8 +1,6 @@
 #include <KKeyServer>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kkeyserver.h>
 #include "libkkeyserver.h"
 #include "libkkeyserver.hxx"

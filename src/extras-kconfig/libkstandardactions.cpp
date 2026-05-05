@@ -3,8 +3,6 @@
 #include <QList>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kstandardactions.h>
 #include "libkstandardactions.h"
 #include "libkstandardactions.hxx"

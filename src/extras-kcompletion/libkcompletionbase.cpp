@@ -4,8 +4,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kcompletionbase.h>
 #include "libkcompletionbase.h"
 #include "libkcompletionbase.hxx"

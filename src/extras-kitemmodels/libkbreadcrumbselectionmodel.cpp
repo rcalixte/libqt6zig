@@ -8,8 +8,6 @@
 #include <QModelIndex>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kbreadcrumbselectionmodel.h>
 #include "libkbreadcrumbselectionmodel.h"

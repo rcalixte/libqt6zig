@@ -2,8 +2,6 @@
 #include <QPageRanges>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QPageRanges__Range
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpageranges.h>
 #include "libqpageranges.h"
 #include "libqpageranges.hxx"

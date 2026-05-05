@@ -1,7 +1,5 @@
 #include <QImage>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBlock>
 #include <QTextBlockFormat>
 #include <QTextCharFormat>

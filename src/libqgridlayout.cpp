@@ -10,8 +10,6 @@
 #include <QSize>
 #include <QSpacerItem>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <qgridlayout.h>

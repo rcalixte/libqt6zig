@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QPlainTextEdit>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSyntaxHighlighter>
 #include <QTextBlock>
 #include <QTextBlockUserData>

@@ -1,7 +1,5 @@
 #include <QByteArray>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSysInfo>
 #include <qsysinfo.h>
 #include "libqsysinfo.h"

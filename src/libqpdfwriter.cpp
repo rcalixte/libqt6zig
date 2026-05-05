@@ -17,8 +17,6 @@
 #include <QPdfWriter>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUuid>
 #include <qpdfwriter.h>

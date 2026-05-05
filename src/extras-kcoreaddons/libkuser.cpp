@@ -1,8 +1,6 @@
 #include <KUser>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <kuser.h>
 #include "libkuser.h"

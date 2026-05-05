@@ -3,8 +3,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Target
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <publisher.h>
 #include "libpublisher.h"
 #include "libpublisher.hxx"

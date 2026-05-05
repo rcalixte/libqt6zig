@@ -103,6 +103,7 @@ pub const KIdleTime = extern struct {
     pub fn IdleTimeouts(self: KIdleTime, allocator: std.mem.Allocator) Map_i32_i32 {
         const _map: qtc.libqt_map = qtc.KIdleTime_IdleTimeouts(@ptrCast(self.ptr));
         var _ret: Map_i32_i32 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kidletime.IdleTimeouts: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -113,7 +114,7 @@ pub const KIdleTime = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kidletime.IdleTimeouts: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value);
         }
         return _ret;
     }

@@ -3,8 +3,6 @@
 #include <KTimeZone>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kcountry.h>
 #include "libkcountry.h"
 #include "libkcountry.hxx"

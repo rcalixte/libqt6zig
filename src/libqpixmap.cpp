@@ -14,8 +14,6 @@
 #include <QSize>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTransform>
 #include <QVariant>
 #include <qpixmap.h>

@@ -7,8 +7,6 @@
 #include <QPlaceDetailsReply>
 #include <QPlaceReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplacedetailsreply.h>
 #include "libqplacedetailsreply.h"

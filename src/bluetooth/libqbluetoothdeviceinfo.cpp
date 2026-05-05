@@ -5,8 +5,6 @@
 #include <QList>
 #include <QMultiHash>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qbluetoothdeviceinfo.h>
 #include "libqbluetoothdeviceinfo.h"
 #include "libqbluetoothdeviceinfo.hxx"

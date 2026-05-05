@@ -1,7 +1,5 @@
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWebEngineScript>
 #include <QWebEngineScriptCollection>
 #include <qwebenginescriptcollection.h>

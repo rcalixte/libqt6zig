@@ -251,6 +251,7 @@ pub const QPlace = extern struct {
     pub fn Content(self: QPlace, allocator: std.mem.Allocator, typeVal: i32) ArrayMap_i32_QPlaceContent {
         const _map: qtc.libqt_map = qtc.QPlace_Content(@ptrCast(self.ptr), @bitCast(typeVal));
         var _ret: ArrayMap_i32_QPlaceContent = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qplace.Content: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -261,7 +262,7 @@ pub const QPlace = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("qplace.Content: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

@@ -3,8 +3,6 @@
 #include <QIcon>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kiconutils.h>
 #include "libkiconutils.h"
 #include "libkiconutils.hxx"

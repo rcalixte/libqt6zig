@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QPlainTextEdit>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextEdit>
 #include <QTimerEvent>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__Highlighter

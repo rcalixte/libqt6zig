@@ -1,4 +1,3 @@
-#include <QAnyStringView>
 #include <QCalendar>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QCalendar__SystemId
 #define WORKAROUND_INNER_CLASS_DEFINITION_QCalendar__YearMonthDay
@@ -6,8 +5,6 @@
 #include <QList>
 #include <QLocale>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qcalendar.h>
 #include "libqcalendar.h"
 #include "libqcalendar.hxx"

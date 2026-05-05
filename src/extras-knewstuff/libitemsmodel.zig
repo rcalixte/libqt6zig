@@ -2407,6 +2407,7 @@ pub const KNSCore__ItemsModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.KNSCore__ItemsModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("knscore__itemsmodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2417,7 +2418,7 @@ pub const KNSCore__ItemsModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("knscore__itemsmodel.ItemData: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -2444,6 +2445,7 @@ pub const KNSCore__ItemsModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.KNSCore__ItemsModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("knscore__itemsmodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2454,7 +2456,7 @@ pub const KNSCore__ItemsModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, _key, .{ .ptr = @ptrCast(_value) }) catch @panic("knscore__itemsmodel.ItemData: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -3728,6 +3730,7 @@ pub const KNSCore__ItemsModel = extern struct {
     pub fn RoleNames(self: KNSCore__ItemsModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KNSCore__ItemsModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("knscore__itemsmodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3744,7 +3747,7 @@ pub const KNSCore__ItemsModel = extern struct {
             const _value = _values[i];
             const _value_slice = allocator.alloc(u8, _value.len) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _key, _value_slice) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
@@ -3768,6 +3771,7 @@ pub const KNSCore__ItemsModel = extern struct {
     pub fn SuperRoleNames(self: KNSCore__ItemsModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KNSCore__ItemsModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("knscore__itemsmodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3784,7 +3788,7 @@ pub const KNSCore__ItemsModel = extern struct {
             const _value = _values[i];
             const _value_slice = allocator.alloc(u8, _value.len) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _key, _value_slice) catch @panic("knscore__itemsmodel.RoleNames: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }

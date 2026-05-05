@@ -1,7 +1,5 @@
 #include <QSslCertificateExtension>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qsslcertificateextension.h>
 #include "libqsslcertificateextension.h"

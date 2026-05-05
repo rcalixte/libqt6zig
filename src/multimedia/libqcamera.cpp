@@ -9,8 +9,6 @@
 #include <QObject>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qcamera.h>
 #include "libqcamera.h"

@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__BuildServiceJobOutput
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <buildservicejoboutput.h>
 #include "libbuildservicejoboutput.h"
 #include "libbuildservicejoboutput.hxx"

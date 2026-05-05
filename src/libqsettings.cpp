@@ -1,4 +1,3 @@
-#include <QAnyStringView>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>
@@ -7,8 +6,6 @@
 #include <QObject>
 #include <QSettings>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qsettings.h>

@@ -12,8 +12,6 @@
 #include <QObject>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <dropjob.h>
 #include "libdropjob.h"

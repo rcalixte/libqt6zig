@@ -7,8 +7,6 @@
 #include <QQuaternion>
 #include <QSpatialSound>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <QVector3D>

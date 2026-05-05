@@ -2,8 +2,6 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <mimeutils.h>
 #include "libmimeutils.h"
 #include "libmimeutils.hxx"

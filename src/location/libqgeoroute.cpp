@@ -6,8 +6,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qgeoroute.h>
 #include "libqgeoroute.h"

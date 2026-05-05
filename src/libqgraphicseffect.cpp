@@ -16,8 +16,6 @@
 #include <QPointF>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qgraphicseffect.h>
 #include "libqgraphicseffect.h"

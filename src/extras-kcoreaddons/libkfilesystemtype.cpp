@@ -1,7 +1,5 @@
 #include <KFileSystemType>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kfilesystemtype.h>
 #include "libkfilesystemtype.h"
 #include "libkfilesystemtype.hxx"

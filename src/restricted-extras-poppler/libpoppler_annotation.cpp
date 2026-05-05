@@ -40,8 +40,6 @@
 #include <QPointF>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVector>
 #include <poppler-link.h>
 #include <poppler-annotation.h>

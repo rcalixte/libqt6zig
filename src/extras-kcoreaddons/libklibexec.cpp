@@ -1,8 +1,6 @@
 #include <KLibexec>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <klibexec.h>
 #include "libklibexec.h"
 #include "libklibexec.hxx"

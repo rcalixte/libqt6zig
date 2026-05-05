@@ -18,8 +18,6 @@
 #include <QPersistentModelIndex>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qabstractitemmodel.h>

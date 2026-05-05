@@ -1,7 +1,5 @@
 #include <KSambaShareData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <ksambasharedata.h>
 #include "libksambasharedata.h"
 #include "libksambasharedata.hxx"

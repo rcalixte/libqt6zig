@@ -4,8 +4,6 @@
 #include <QRawFont>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qglyphrun.h>
 #include "libqglyphrun.h"
 #include "libqglyphrun.hxx"

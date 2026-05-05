@@ -2,8 +2,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineNavigationRequest>
 #include <qwebenginenavigationrequest.h>

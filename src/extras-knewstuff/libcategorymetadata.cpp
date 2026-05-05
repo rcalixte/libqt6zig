@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KNSCore__CategoryMetadata
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <categorymetadata.h>
 #include "libcategorymetadata.h"
 #include "libcategorymetadata.hxx"

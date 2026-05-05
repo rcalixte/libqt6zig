@@ -13,8 +13,6 @@
 #include <QRegion>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleHintReturn>
 #include <QStyleHintReturnMask>
 #include <QStyleHintReturnVariant>

@@ -3,8 +3,6 @@
 #include <QPrinter>
 #include <QPrinterInfo>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qprinterinfo.h>
 #include "libqprinterinfo.h"
 #include "libqprinterinfo.hxx"

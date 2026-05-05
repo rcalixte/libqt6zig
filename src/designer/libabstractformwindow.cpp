@@ -10,8 +10,6 @@
 #include <QPaintDevice>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUndoStack>
 #include <QWidget>
 #include <abstractformwindow.h>

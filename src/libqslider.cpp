@@ -29,8 +29,6 @@
 #include <QSize>
 #include <QSlider>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionSlider>
 #include <QTabletEvent>
 #include <QTimerEvent>

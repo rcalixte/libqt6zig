@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QObjectCleanupHandler>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qobjectcleanuphandler.h>
 #include "libqobjectcleanuphandler.h"

@@ -8,8 +8,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <emptytrashjob.h>
 #include "libemptytrashjob.h"
 #include "libemptytrashjob.hxx"

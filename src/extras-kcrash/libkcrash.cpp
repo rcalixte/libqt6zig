@@ -1,8 +1,6 @@
 #include <KCrash>
 #include <QHash>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <kcrash.h>
 #include "libkcrash.h"

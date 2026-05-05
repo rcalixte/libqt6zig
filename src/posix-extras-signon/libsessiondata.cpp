@@ -1,8 +1,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__SessionData
 #include <sessiondata.h>

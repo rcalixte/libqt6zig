@@ -23,8 +23,9 @@ typedef struct QVariant QVariant;
 
 QDBusObjectPath* QDBusObjectPath_new();
 QDBusObjectPath* QDBusObjectPath_new2(const char* path);
-QDBusObjectPath* QDBusObjectPath_new3(const libqt_string path);
-QDBusObjectPath* QDBusObjectPath_new4(const QDBusObjectPath* param1);
+QDBusObjectPath* QDBusObjectPath_new3(libqt_string path);
+QDBusObjectPath* QDBusObjectPath_new4(const libqt_string path);
+QDBusObjectPath* QDBusObjectPath_new5(const QDBusObjectPath* param1);
 void QDBusObjectPath_Swap(QDBusObjectPath* self, QDBusObjectPath* other);
 void QDBusObjectPath_SetPath(QDBusObjectPath* self, const libqt_string path);
 libqt_string QDBusObjectPath_Path(const QDBusObjectPath* self);
@@ -33,8 +34,9 @@ void QDBusObjectPath_Delete(QDBusObjectPath* self);
 
 QDBusSignature* QDBusSignature_new();
 QDBusSignature* QDBusSignature_new2(const char* signature);
-QDBusSignature* QDBusSignature_new3(const libqt_string signature);
-QDBusSignature* QDBusSignature_new4(const QDBusSignature* param1);
+QDBusSignature* QDBusSignature_new3(libqt_string signature);
+QDBusSignature* QDBusSignature_new4(const libqt_string signature);
+QDBusSignature* QDBusSignature_new5(const QDBusSignature* param1);
 void QDBusSignature_Swap(QDBusSignature* self, QDBusSignature* other);
 void QDBusSignature_SetSignature(QDBusSignature* self, const libqt_string signature);
 libqt_string QDBusSignature_Signature(const QDBusSignature* self);

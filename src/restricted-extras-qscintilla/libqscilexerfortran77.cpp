@@ -9,8 +9,6 @@
 #include <QObject>
 #include <QSettings>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qscilexerfortran77.h>
 #include "libqscilexerfortran77.h"

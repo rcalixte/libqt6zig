@@ -11,8 +11,6 @@
 #include <QNetworkInterface>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUdpSocket>
 #include <QVariant>

@@ -20,8 +20,6 @@
 #include <QSslError>
 #include <QSslPreSharedKeyAuthenticator>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qnetworkaccessmanager.h>
 #include "libqnetworkaccessmanager.h"

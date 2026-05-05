@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QSoundEffect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <qsoundeffect.h>

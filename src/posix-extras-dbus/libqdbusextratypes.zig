@@ -48,11 +48,25 @@ pub const QDBusObjectPath = extern struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` path: []const u8 `
+    ///
+    pub fn New4(path: []const u8) QDBusObjectPath {
+        const path_str = qtc.libqt_string{
+            .len = path.len,
+            .data = path.ptr,
+        };
+        return .{ .ptr = qtc.QDBusObjectPath_new4(path_str) };
+    }
+
+    /// New5 constructs a new QDBusObjectPath object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` param1: QDBusObjectPath `
     ///
-    pub fn New4(param1: anytype) QDBusObjectPath {
+    pub fn New5(param1: anytype) QDBusObjectPath {
         comptime _ = @TypeOf(param1)._is_QDBusObjectPath;
-        return .{ .ptr = qtc.QDBusObjectPath_new4(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QDBusObjectPath_new5(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusobjectpath.html#swap)
@@ -172,11 +186,25 @@ pub const QDBusSignature = extern struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` signature: []const u8 `
+    ///
+    pub fn New4(signature: []const u8) QDBusSignature {
+        const signature_str = qtc.libqt_string{
+            .len = signature.len,
+            .data = signature.ptr,
+        };
+        return .{ .ptr = qtc.QDBusSignature_new4(signature_str) };
+    }
+
+    /// New5 constructs a new QDBusSignature object.
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` param1: QDBusSignature `
     ///
-    pub fn New4(param1: anytype) QDBusSignature {
+    pub fn New5(param1: anytype) QDBusSignature {
         comptime _ = @TypeOf(param1)._is_QDBusSignature;
-        return .{ .ptr = qtc.QDBusSignature_new4(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QDBusSignature_new5(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbussignature.html#swap)

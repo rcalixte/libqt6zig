@@ -2,8 +2,6 @@
 #include <QDBusContext>
 #include <QDBusMessage>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qdbuscontext.h>
 #include "libqdbuscontext.h"
 #include "libqdbuscontext.hxx"

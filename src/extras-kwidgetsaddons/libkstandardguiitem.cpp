@@ -3,8 +3,6 @@
 #include <QPair>
 #include <QPushButton>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kstandardguiitem.h>
 #include "libkstandardguiitem.h"
 #include "libkstandardguiitem.hxx"

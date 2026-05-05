@@ -368,6 +368,22 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript3(self: QJsonDocument, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonDocument_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonDocument `
+    ///
     /// ` i: isize `
     ///
     pub fn OperatorSubscript4(self: QJsonDocument, i: isize) QJsonValue {

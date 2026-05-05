@@ -15,7 +15,6 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QSqlField QSqlField;
 typedef struct QSqlRecord QSqlRecord;
 typedef struct QVariant QVariant;

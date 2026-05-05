@@ -11,8 +11,6 @@
 #include <QObject>
 #include <QPlaceManager>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qgeoserviceprovider.h>

@@ -3,8 +3,6 @@
 #include <QMap>
 #include <QMimeData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kurlmimedata.h>
 #include "libkurlmimedata.h"

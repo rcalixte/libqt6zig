@@ -7,8 +7,6 @@
 #include <QOpenGLDebugLogger>
 #include <QOpenGLDebugMessage>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qopengldebug.h>
 #include "libqopengldebug.h"

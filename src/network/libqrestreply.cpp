@@ -4,8 +4,6 @@
 #include <QNetworkReply>
 #include <QRestReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qrestreply.h>
 #include "libqrestreply.h"
 #include "libqrestreply.hxx"

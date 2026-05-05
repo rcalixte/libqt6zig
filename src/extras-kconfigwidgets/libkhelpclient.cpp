@@ -1,7 +1,5 @@
 #include <KHelpClient>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <khelpclient.h>
 #include "libkhelpclient.h"
 #include "libkhelpclient.hxx"

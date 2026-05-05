@@ -20,8 +20,6 @@
 #include <QObject>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimeZone>
 #include <QTimerEvent>
 #include <QVariant>

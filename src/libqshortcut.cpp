@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QShortcut>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qshortcut.h>
 #include "libqshortcut.h"

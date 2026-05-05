@@ -2,8 +2,6 @@
 #include <QByteArray>
 #include <QLowEnergyDescriptor>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qlowenergydescriptor.h>
 #include "libqlowenergydescriptor.h"
 #include "libqlowenergydescriptor.hxx"

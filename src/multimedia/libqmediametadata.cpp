@@ -1,8 +1,6 @@
 #include <QList>
 #include <QMediaMetaData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qmediametadata.h>
 #include "libqmediametadata.h"

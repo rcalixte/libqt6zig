@@ -26,8 +26,6 @@
 #include <QPoint>
 #include <QSet>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QVariant>
 #include <QWidget>

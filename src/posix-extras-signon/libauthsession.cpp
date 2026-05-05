@@ -3,8 +3,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__AuthSession
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__Error
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__SessionData

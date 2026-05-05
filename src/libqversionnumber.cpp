@@ -1,9 +1,6 @@
-#include <QAnyStringView>
 #include <QList>
 #include <QSpan>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVersionNumber>
 #include <qversionnumber.h>
 #include "libqversionnumber.h"

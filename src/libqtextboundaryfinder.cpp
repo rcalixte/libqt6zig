@@ -1,7 +1,5 @@
 #include <QChar>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBoundaryFinder>
 #include <qtextboundaryfinder.h>
 #include "libqtextboundaryfinder.h"

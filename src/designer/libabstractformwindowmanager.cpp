@@ -12,8 +12,6 @@
 #include <QObject>
 #include <QPixmap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <abstractformwindowmanager.h>

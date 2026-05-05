@@ -1,8 +1,6 @@
 #include <QDesignerFormWindowCursorInterface>
 #include <QDesignerFormWindowInterface>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <QWidget>
 #include <abstractformwindowcursor.h>

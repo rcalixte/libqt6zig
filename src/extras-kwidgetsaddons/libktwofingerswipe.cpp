@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <ktwofingerswipe.h>
 #include "libktwofingerswipe.h"

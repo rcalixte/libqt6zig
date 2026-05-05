@@ -28,8 +28,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionProgressBar>
 #include <QTabletEvent>
 #include <QTimerEvent>

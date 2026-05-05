@@ -2,8 +2,6 @@
 #include <QMutex>
 #include <QRunnable>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QThreadPool>
 #include <qfutureinterface.h>
 #include "libqfutureinterface.h"

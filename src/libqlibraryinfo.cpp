@@ -1,8 +1,6 @@
 #include <QLibraryInfo>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVersionNumber>
 #include <qlibraryinfo.h>
 #include "libqlibraryinfo.h"

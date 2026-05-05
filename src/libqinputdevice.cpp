@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qinputdevice.h>
 #include "libqinputdevice.h"

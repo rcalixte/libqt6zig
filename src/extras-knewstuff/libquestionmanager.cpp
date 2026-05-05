@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <questionmanager.h>
 #include "libquestionmanager.h"
 #include "libquestionmanager.hxx"

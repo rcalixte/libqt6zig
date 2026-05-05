@@ -2,8 +2,6 @@
 #include <QList>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qgenericpluginfactory.h>
 #include "libqgenericpluginfactory.h"
 #include "libqgenericpluginfactory.hxx"

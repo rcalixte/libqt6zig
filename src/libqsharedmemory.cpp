@@ -6,8 +6,6 @@
 #include <QObject>
 #include <QSharedMemory>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qsharedmemory.h>
 #include "libqsharedmemory.h"

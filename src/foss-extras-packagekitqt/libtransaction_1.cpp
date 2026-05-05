@@ -9,8 +9,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <transaction.h>
 #include "libtransaction_1.h"

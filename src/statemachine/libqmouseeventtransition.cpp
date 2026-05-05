@@ -9,8 +9,6 @@
 #include <QPainterPath>
 #include <QState>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qmouseeventtransition.h>
 #include "libqmouseeventtransition.h"

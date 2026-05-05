@@ -1,9 +1,6 @@
-#include <QAnyStringView>
 #include <QIODevice>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QXmlStreamAttribute>
 #include <QXmlStreamAttributes>
 #include <QXmlStreamEntityDeclaration>

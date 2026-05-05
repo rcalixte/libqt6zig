@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KProtocolInfo__ExtraField
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kprotocolinfo.h>
 #include "libkprotocolinfo.h"

@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Topic
 #include <QDateTime>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <topic.h>
 #include "libtopic.h"
 #include "libtopic.hxx"

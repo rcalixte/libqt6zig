@@ -4,8 +4,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kconfig.h>
 #include "libkconfig.h"
 #include "libkconfig.hxx"

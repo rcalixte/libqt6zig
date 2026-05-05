@@ -2,8 +2,6 @@
 #include <KSyntaxHighlighting/Theme>
 #include <QColor>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <format.h>
 #include "libformat.h"
 #include "libformat.hxx"

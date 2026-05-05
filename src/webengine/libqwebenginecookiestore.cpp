@@ -3,8 +3,6 @@
 #include <QNetworkCookie>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineCookieStore>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QWebEngineCookieStore__FilterRequest

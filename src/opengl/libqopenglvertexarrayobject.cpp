@@ -6,8 +6,6 @@
 #include <QOpenGLVertexArrayObject>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QOpenGLVertexArrayObject__Binder
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qopenglvertexarrayobject.h>
 #include "libqopenglvertexarrayobject.h"

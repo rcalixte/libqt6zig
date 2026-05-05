@@ -2,8 +2,6 @@
 #include <QDBusMessage>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qdbusmessage.h>
 #include "libqdbusmessage.h"

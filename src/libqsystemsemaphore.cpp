@@ -1,7 +1,5 @@
 #include <QNativeIpcKey>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSystemSemaphore>
 #include <qsystemsemaphore.h>
 #include "libqsystemsemaphore.h"

@@ -451,6 +451,7 @@ pub const QSslCertificate = extern struct {
     pub fn SubjectAlternativeNames(self: QSslCertificate, allocator: std.mem.Allocator) ArrayMap_i32_constconstu8 {
         const _map: qtc.libqt_map = qtc.QSslCertificate_SubjectAlternativeNames(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_constconstu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qsslcertificate.SubjectAlternativeNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -476,7 +477,7 @@ pub const QSslCertificate = extern struct {
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }
-            _ret.put(allocator, _key, _value_slice) catch @panic("qsslcertificate.SubjectAlternativeNames: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }

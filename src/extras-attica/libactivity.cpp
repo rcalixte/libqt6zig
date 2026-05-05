@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Person
 #include <QDateTime>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <activity.h>
 #include "libactivity.h"

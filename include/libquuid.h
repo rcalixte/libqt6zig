@@ -18,7 +18,6 @@ extern "C" {
 typedef QUuid::Id128Bytes QUuid__Id128Bytes;
 #endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QByteArrayView QByteArrayView;
 typedef struct QUuid QUuid;
 typedef struct QUuid__Id128Bytes QUuid__Id128Bytes;

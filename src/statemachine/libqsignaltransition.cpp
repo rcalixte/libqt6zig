@@ -8,8 +8,6 @@
 #include <QSignalTransition>
 #include <QState>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qsignaltransition.h>
 #include "libqsignaltransition.h"

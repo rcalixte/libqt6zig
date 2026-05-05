@@ -36,8 +36,6 @@
 #include <QPointF>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyle>
 #include <QStyleOptionGraphicsItem>
 #include <QTimerEvent>

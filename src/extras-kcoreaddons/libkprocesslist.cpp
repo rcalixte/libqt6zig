@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KProcessList__KProcessInfo
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kprocesslist.h>
 #include "libkprocesslist.h"
 #include "libkprocesslist.hxx"

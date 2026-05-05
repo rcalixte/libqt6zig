@@ -1,7 +1,5 @@
 #include <QGeoCoordinate>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qgeocoordinate.h>
 #include "libqgeocoordinate.h"
 #include "libqgeocoordinate.hxx"

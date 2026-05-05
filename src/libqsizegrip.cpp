@@ -28,8 +28,6 @@
 #include <QSize>
 #include <QSizeGrip>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTabletEvent>
 #include <QTimerEvent>
 #include <QVariant>

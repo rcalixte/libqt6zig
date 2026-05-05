@@ -12,8 +12,6 @@
 #include <QPen>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qareaseries.h>
 #include "libqareaseries.h"

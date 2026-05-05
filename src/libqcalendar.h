@@ -21,7 +21,6 @@ typedef QCalendar::SystemId QCalendar__SystemId;
 typedef QCalendar::YearMonthDay QCalendar__YearMonthDay;
 #endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QCalendar QCalendar;
 typedef struct QCalendar__SystemId QCalendar__SystemId;
 typedef struct QCalendar__YearMonthDay QCalendar__YearMonthDay;

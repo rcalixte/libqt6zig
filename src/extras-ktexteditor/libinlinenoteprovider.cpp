@@ -10,8 +10,6 @@
 #include <QPoint>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <inlinenoteprovider.h>
 #include "libinlinenoteprovider.h"

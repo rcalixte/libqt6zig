@@ -13,8 +13,6 @@
 #include <QPrinterInfo>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qprinter.h>
 #include "libqprinter.h"
 #include "libqprinter.hxx"

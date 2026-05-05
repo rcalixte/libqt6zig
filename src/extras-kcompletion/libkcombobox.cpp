@@ -39,8 +39,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionComboBox>
 #include <QTabletEvent>
 #include <QTimerEvent>

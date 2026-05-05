@@ -6,8 +6,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kstandardshortcutwatcher.h>
 #include "libkstandardshortcutwatcher.h"
 #include "libkstandardshortcutwatcher.hxx"

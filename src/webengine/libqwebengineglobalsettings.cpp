@@ -1,7 +1,5 @@
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWebEngineGlobalSettings>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QWebEngineGlobalSettings__DnsMode
 #include <qwebengineglobalsettings.h>

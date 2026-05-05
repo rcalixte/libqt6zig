@@ -1,8 +1,6 @@
 #include <KFileFilter>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kfilefilter.h>
 #include "libkfilefilter.h"
 #include "libkfilefilter.hxx"

@@ -8,8 +8,6 @@
 #include <QIcon>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kmessagebox.h>
 #include "libkmessagebox.h"
