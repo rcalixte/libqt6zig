@@ -50,7 +50,7 @@ func (e CppEnum) getEnumTypeZig() string {
 	// signed types
 	case "char", "qint8", "signed char":
 		return "i8"
-	case "int", "qint32":
+	case "int", "int32_t", "qint32":
 		return "i32"
 
 	// unsigned types
@@ -70,31 +70,33 @@ func (e CppEnum) getEnumTypeZig() string {
 
 func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	for _, c := range parsed.Classes {
-		KnownClassnames[c.ClassName] = lookupResultClass{packageName, c /* copy */}
+		if !isBindingRemoved(c.ClassName) {
+			KnownClassnames[c.ClassName] = lookupResultClass{packageName, c /* copy */}
 
-		// If it's a nested class, also register its local name
-		if strings.Contains(c.ClassName, "::") {
-			localName := c.ClassName[strings.Index(c.ClassName, "::")+2:]
-			lastName := c.ClassName[strings.LastIndex(c.ClassName, "::")+2:]
-			KnownClassnames[localName] = lookupResultClass{packageName, c}
-			KnownClassnames[lastName] = lookupResultClass{packageName, c}
-		}
-
-		for _, td := range c.ChildTypedefs {
-			// Register typedef with fully qualified name
-			KnownTypedefs[td.Alias] = lookupResultTypedef{packageName, td /* copy */}
-			if strings.Contains(td.Alias, "::") {
-				localName := td.Alias[strings.Index(td.Alias, "::")+2:]
-				lastName := td.Alias[strings.LastIndex(td.Alias, "::")+2:]
-				KnownTypedefs[localName] = lookupResultTypedef{packageName, td}
-				KnownTypedefs[lastName] = lookupResultTypedef{packageName, td}
+			// If it's a nested class, also register its local name
+			if strings.Contains(c.ClassName, "::") {
+				localName := c.ClassName[strings.Index(c.ClassName, "::")+2:]
+				lastName := c.ClassName[strings.LastIndex(c.ClassName, "::")+2:]
+				KnownClassnames[localName] = lookupResultClass{packageName, c}
+				KnownClassnames[lastName] = lookupResultClass{packageName, c}
 			}
-		}
 
-		for _, childClass := range c.ChildClassdefs {
-			// Register class with fully qualified name
-			KnownClassnames[childClass.ClassName] = lookupResultClass{packageName, childClass}
-			registerChildClasses(c, packageName)
+			for _, td := range c.ChildTypedefs {
+				// Register typedef with fully qualified name
+				KnownTypedefs[td.Alias] = lookupResultTypedef{packageName, td /* copy */}
+				if strings.Contains(td.Alias, "::") {
+					localName := td.Alias[strings.Index(td.Alias, "::")+2:]
+					lastName := td.Alias[strings.LastIndex(td.Alias, "::")+2:]
+					KnownTypedefs[localName] = lookupResultTypedef{packageName, td}
+					KnownTypedefs[lastName] = lookupResultTypedef{packageName, td}
+				}
+			}
+
+			for _, childClass := range c.ChildClassdefs {
+				// Register class with fully qualified name
+				KnownClassnames[childClass.ClassName] = lookupResultClass{packageName, childClass}
+				registerChildClasses(c, packageName)
+			}
 		}
 
 		// Handle child enums in classes

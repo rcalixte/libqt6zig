@@ -11,8 +11,6 @@
 #include <QObject>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qcandlestickseries.h>
 #include "libqcandlestickseries.h"

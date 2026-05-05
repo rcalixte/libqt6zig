@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KNSCore__TagsFilterChecker
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <tagsfilterchecker.h>
 #include "libtagsfilterchecker.h"
 #include "libtagsfilterchecker.hxx"

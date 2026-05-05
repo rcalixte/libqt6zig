@@ -2,8 +2,6 @@
 #include <QByteArray>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kemailaddress.h>
 #include "libkemailaddress.h"

@@ -2,8 +2,6 @@
 #include <KUnitConversion/UnitCategory>
 #include <QChar>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <unit.h>
 #include "libunit.h"
 #include "libunit.hxx"

@@ -42,8 +42,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionFrame>
 #include <QStyleOptionViewItem>
 #include <QTabletEvent>

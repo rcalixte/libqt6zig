@@ -1,8 +1,6 @@
 #include <QPdfSelection>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpdfselection.h>
 #include "libqpdfselection.h"
 #include "libqpdfselection.hxx"

@@ -3,8 +3,6 @@
 #include <QList>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qhostinfo.h>
 #include "libqhostinfo.h"
 #include "libqhostinfo.hxx"

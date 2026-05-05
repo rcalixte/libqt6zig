@@ -1,8 +1,6 @@
 #include <KShell>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kshell.h>
 #include "libkshell.h"
 #include "libkshell.hxx"

@@ -8,8 +8,6 @@
 #include <QPauseAnimation>
 #include <QSequentialAnimationGroup>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qsequentialanimationgroup.h>
 #include "libqsequentialanimationgroup.h"

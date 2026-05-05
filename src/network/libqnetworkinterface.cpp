@@ -4,8 +4,6 @@
 #include <QNetworkAddressEntry>
 #include <QNetworkInterface>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qnetworkinterface.h>
 #include "libqnetworkinterface.h"
 #include "libqnetworkinterface.hxx"

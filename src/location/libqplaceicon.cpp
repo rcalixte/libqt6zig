@@ -3,8 +3,6 @@
 #include <QPlaceManager>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QVariant>
 #include <qplaceicon.h>

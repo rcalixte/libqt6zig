@@ -3,8 +3,6 @@
 #include <QPlaceCategory>
 #include <QPlaceSearchRequest>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qplacesearchrequest.h>
 #include "libqplacesearchrequest.h"

@@ -2,8 +2,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__TextHintProvider
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__View
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <texthintinterface.h>
 #include "libtexthintinterface.h"
 #include "libtexthintinterface.hxx"

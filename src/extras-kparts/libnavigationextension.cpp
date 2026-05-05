@@ -14,8 +14,6 @@
 #include <QObject>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <navigationextension.h>

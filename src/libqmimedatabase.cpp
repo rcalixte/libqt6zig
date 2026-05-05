@@ -5,8 +5,6 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qmimedatabase.h>
 #include "libqmimedatabase.h"

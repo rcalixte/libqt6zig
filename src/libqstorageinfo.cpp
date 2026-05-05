@@ -3,8 +3,6 @@
 #include <QList>
 #include <QStorageInfo>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qstorageinfo.h>
 #include "libqstorageinfo.h"
 #include "libqstorageinfo.hxx"

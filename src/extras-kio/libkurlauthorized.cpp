@@ -1,7 +1,5 @@
 #include <KUrlAuthorized>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kurlauthorized.h>
 #include "libkurlauthorized.h"

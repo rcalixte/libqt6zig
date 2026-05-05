@@ -1,8 +1,6 @@
 #include <QList>
 #include <QSslCertificate>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineCertificateError>
 #include <qwebenginecertificateerror.h>

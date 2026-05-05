@@ -12,8 +12,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qlowenergycontroller.h>
 #include "libqlowenergycontroller.h"
 #include "libqlowenergycontroller.hxx"

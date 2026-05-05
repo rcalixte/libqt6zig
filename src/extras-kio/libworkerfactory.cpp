@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <workerfactory.h>
 #include "libworkerfactory.h"
 #include "libworkerfactory.hxx"

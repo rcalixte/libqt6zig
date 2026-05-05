@@ -6,8 +6,6 @@
 #include <QFileInfo>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimeZone>
 #include <qdirlisting.h>
 #include "libqdirlisting.h"

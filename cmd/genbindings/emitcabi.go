@@ -52,7 +52,7 @@ func renderCleanupType(paramName string, cleanupType CleanupType) string {
 }
 
 func (p CppParameter) RenderTypeCabi(isSlot bool) string {
-	if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" {
+	if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
 		if isSlot {
 			return "const char*"
 		} else {
@@ -311,7 +311,7 @@ func makeNamePrefix(in string) string {
 func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot bool) (preamble, forwarding string) {
 	nameprefix := makeNamePrefix(p.ParameterName)
 
-	if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" {
+	if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
 		var maybePointer string
 		if isSlot {
 			if p.Pointer || p.ByRef {
@@ -324,7 +324,11 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			// The CABI received parameter is a libqt_string, passed by C++ needs
 			// it as a QString. Create one on the stack for automatic cleanup
 			// The caller will free the libqt_string
-			preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
+			if p.ParameterType == "QLatin1StringView" {
+				preamble += indent + "QLatin1StringView " + nameprefix + "_QString = QLatin1StringView(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
+			} else {
+				preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
+			}
 		}
 		return preamble, maybePointer + nameprefix + "_QString"
 
@@ -670,7 +674,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = ""
 		return indent + shouldReturn + rvalue + ";\n" + afterCall, cleanupType
 
-	} else if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" {
+	} else if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
 
 		if isSignal {
 			shouldReturn = maybeConst + "QString " + namePrefix + "_ret = "
@@ -1223,18 +1227,27 @@ func cabiClassName(className string) string {
 	return strings.ReplaceAll(className, "::", "__")
 }
 
+func isBindingRemoved(className string) bool {
+	switch className {
+	case "QAnyStringView", "QByteArray", "QLatin1StringView", "QString",
+		"QSet", "QMap", "QMultiMap", "QHash", "QMultiHash",
+		"QPair", "QList", "QVector", "QSpan":
+		return true // These types are reprojected
+	default:
+		return false
+	}
+}
+
 func cabiPreventStructDeclaration(className string) bool {
 	if !AllowStructDef(className) {
 		return true
 	}
 
-	switch className {
-	case "QList", "QString", "QSet", "QMap", "QMultiMap", "QHash", "QMultiHash",
-		"QPair", "QVector", "QByteArray", "QSpan":
-		return true // These types are reprojected
-	default:
-		return false
+	if isBindingRemoved(className) {
+		return true
 	}
+
+	return false
 }
 
 var (
@@ -1782,6 +1795,9 @@ extern "C" {
 			if (m.MethodName == "tr" || m.OverrideMethodName == "tr") && (c.ClassName != "QObject" && c.ClassName != "QMetaObject") {
 				continue
 			}
+			if !m.IsStatic && isBindingRemoved(methodPrefixName) {
+				continue
+			}
 
 			mSafeMethodName := m.SafeMethodName()
 
@@ -1875,7 +1891,7 @@ extern "C" {
 		}
 
 		// delete
-		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
+		if c.CanDelete && !isBindingRemoved(methodPrefixName) && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
 			ret.WriteString(fmt.Sprintf("void %s_Delete(%s* self);\n", methodPrefixName, methodPrefixName))
 		}
 
@@ -1911,10 +1927,8 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 	seenRefs := make([]string, 0, len(referencedTypes))
 
 	for _, ref := range referencedTypes {
-		if ref == "QString" {
-			ret.WriteString("#include <QString>\n")
-			ret.WriteString("#include <QByteArray>\n")
-			ret.WriteString("#include <cstring>\n")
+		if isBindingRemoved(ref) {
+			ret.WriteString("#include <" + ref + ">\n")
 			continue
 		}
 
@@ -2079,6 +2093,9 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				continue
 			}
 			if (m.MethodName == "tr" || m.OverrideMethodName == "tr") && (c.ClassName != "QObject" && c.ClassName != "QMetaObject") {
+				continue
+			}
+			if !m.IsStatic && isBindingRemoved(methodPrefixName) {
 				continue
 			}
 			mSafeMethodName := m.SafeMethodName()
@@ -2457,12 +2474,9 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		}
 
 		// Delete
-		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
-			ret.WriteString(
-				"void " + methodPrefixName + "_Delete(" + methodPrefixName + "* self) {\n" +
-					"\tdelete self;\n" +
-					"}\n\n",
-			)
+		if c.CanDelete && !isBindingRemoved(methodPrefixName) && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
+			ret.WriteString("void " + methodPrefixName + "_Delete(" + methodPrefixName + "* self) {\n" +
+				"\tdelete self;\n" + "}\n\n")
 		}
 	}
 	return ret.String(), nil

@@ -12,8 +12,6 @@
 #include <QScreen>
 #include <QSet>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSurface>
 #include <QSurfaceFormat>
 #include <QTimerEvent>

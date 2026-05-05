@@ -4,8 +4,6 @@
 #include <QList>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <definition.h>
 #include "libdefinition.h"
 #include "libdefinition.hxx"

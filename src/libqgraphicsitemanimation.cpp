@@ -9,8 +9,6 @@
 #include <QPair>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimeLine>
 #include <QTimerEvent>
 #include <QTransform>

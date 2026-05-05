@@ -6,8 +6,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qfiledevice.h>
 #include "libqfiledevice.h"
 #include "libqfiledevice.hxx"

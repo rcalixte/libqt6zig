@@ -124,6 +124,7 @@ pub const QWebEngineLoadingInfo = extern struct {
     pub fn ResponseHeaders(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
         const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self.ptr));
         var _ret: ArrayMap_u8_Sliceu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -153,7 +154,7 @@ pub const QWebEngineLoadingInfo = extern struct {
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }

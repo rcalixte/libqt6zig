@@ -15,8 +15,6 @@
 #include <QObject>
 #include <QSslConfiguration>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qdnslookup.h>
 #include "libqdnslookup.h"

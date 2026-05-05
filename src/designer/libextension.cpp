@@ -2,8 +2,6 @@
 #include <QAbstractExtensionManager>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <extension.h>
 #include "libextension.h"
 #include "libextension.hxx"

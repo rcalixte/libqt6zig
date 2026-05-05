@@ -23,8 +23,6 @@
 #include <QScrollBar>
 #include <QSet>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <QWidget>
 #include <view.h>

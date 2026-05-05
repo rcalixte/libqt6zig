@@ -7,8 +7,6 @@
 #include <QRawFont>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBlock>
 #include <QTextCharFormat>
 #include <QTextFormat>

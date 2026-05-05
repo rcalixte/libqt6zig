@@ -3,8 +3,6 @@
 #include <QImage>
 #include <QPixmap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kiconeffect.h>
 #include "libkiconeffect.h"
 #include "libkiconeffect.hxx"

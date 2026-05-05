@@ -1,8 +1,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__Speller
 #include <speller.h>
 #include "libspeller.h"

@@ -4,8 +4,6 @@
 #include <QIODeviceBase>
 #include <QLocale>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextStream>
 #include <qtextstream.h>
 #include "libqtextstream.h"
@@ -375,6 +373,13 @@ QTextStream* QTextStream_OperatorShiftLeft13(QTextStream* self, double f) {
 
 QTextStream* QTextStream_OperatorShiftLeft14(QTextStream* self, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
+    QTextStream& _ret = self->operator<<(s_QString);
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
+QTextStream* QTextStream_OperatorShiftLeft16(QTextStream* self, libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
     QTextStream& _ret = self->operator<<(s_QString);
     // Cast returned reference into pointer
     return &_ret;

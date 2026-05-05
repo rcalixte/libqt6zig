@@ -1,7 +1,5 @@
 #include <QDesignerOptionsPageInterface>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <abstractoptionspage.h>
 #include "libabstractoptionspage.h"

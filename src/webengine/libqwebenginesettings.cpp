@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWebEngineSettings>
 #include <qwebenginesettings.h>
 #include "libqwebenginesettings.h"

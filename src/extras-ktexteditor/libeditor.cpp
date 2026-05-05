@@ -13,8 +13,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <editor.h>
 #include "libeditor.h"

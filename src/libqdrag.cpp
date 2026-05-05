@@ -8,8 +8,6 @@
 #include <QPixmap>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qdrag.h>
 #include "libqdrag.h"

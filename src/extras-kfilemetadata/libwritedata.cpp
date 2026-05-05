@@ -3,8 +3,6 @@
 #include <QMap>
 #include <QMultiMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <writedata.h>
 #include "libwritedata.h"

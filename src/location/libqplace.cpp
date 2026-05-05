@@ -10,8 +10,6 @@
 #include <QPlaceRatings>
 #include <QPlaceSupplier>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qplace.h>
 #include "libqplace.h"

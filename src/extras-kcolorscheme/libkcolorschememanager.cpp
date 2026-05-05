@@ -7,8 +7,6 @@
 #include <QModelIndex>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kcolorschememanager.h>
 #include "libkcolorschememanager.h"

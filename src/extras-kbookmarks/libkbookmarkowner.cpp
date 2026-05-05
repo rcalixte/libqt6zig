@@ -3,8 +3,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KBookmarkOwner__FutureBookmark
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kbookmarkowner.h>
 #include "libkbookmarkowner.h"

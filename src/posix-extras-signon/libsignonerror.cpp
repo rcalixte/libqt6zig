@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_SignOn__Error
 #include <signonerror.h>
 #include "libsignonerror.h"

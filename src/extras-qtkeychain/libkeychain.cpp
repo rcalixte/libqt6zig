@@ -10,8 +10,6 @@
 #include <QObject>
 #include <QSettings>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <keychain.h>
 #include "libkeychain.h"

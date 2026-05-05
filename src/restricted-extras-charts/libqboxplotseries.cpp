@@ -10,8 +10,6 @@
 #include <QObject>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qboxplotseries.h>
 #include "libqboxplotseries.h"

@@ -8,8 +8,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <filecopyjob.h>
 #include "libfilecopyjob.h"

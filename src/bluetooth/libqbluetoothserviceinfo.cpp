@@ -6,8 +6,6 @@
 #include <QBluetoothUuid>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qbluetoothserviceinfo.h>
 #include "libqbluetoothserviceinfo.h"

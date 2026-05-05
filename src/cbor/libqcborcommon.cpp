@@ -1,7 +1,5 @@
 #include <QCborError>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qcborcommon.h>
 #include "libqcborcommon.h"
 #include "libqcborcommon.hxx"

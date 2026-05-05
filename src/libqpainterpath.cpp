@@ -8,8 +8,6 @@
 #include <QRectF>
 #include <QRegion>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpainterpath.h>
 #include "libqpainterpath.h"
 #include "libqpainterpath.hxx"

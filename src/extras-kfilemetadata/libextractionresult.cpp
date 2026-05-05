@@ -2,8 +2,6 @@
 #include <QByteArray>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <extractionresult.h>
 #include "libextractionresult.h"

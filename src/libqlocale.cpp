@@ -4,8 +4,6 @@
 #include <QList>
 #include <QLocale>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTime>
 #include <qlocale.h>
 #include "libqlocale.h"

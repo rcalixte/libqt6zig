@@ -1,7 +1,5 @@
 #include <QLockFile>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qlockfile.h>
 #include "libqlockfile.h"
 #include "libqlockfile.hxx"

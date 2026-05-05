@@ -14,8 +14,6 @@
 #include <QPainter>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionViewItem>
 #include <QStyledItemDelegate>
 #include <QTimerEvent>

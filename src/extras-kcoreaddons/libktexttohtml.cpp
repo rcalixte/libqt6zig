@@ -1,7 +1,5 @@
 #include <KTextToHTML>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <ktexttohtml.h>
 #include "libktexttohtml.h"
 #include "libktexttohtml.hxx"

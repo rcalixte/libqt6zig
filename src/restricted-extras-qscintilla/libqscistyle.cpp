@@ -1,8 +1,6 @@
 #include <QColor>
 #include <QFont>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qscistyle.h>
 #include "libqscistyle.h"
 #include "libqscistyle.hxx"

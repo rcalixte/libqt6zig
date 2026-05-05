@@ -1,7 +1,5 @@
 #include <QPlaceAttribute>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qplaceattribute.h>
 #include "libqplaceattribute.h"
 #include "libqplaceattribute.hxx"

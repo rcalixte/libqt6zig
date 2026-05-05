@@ -7,8 +7,6 @@
 #include <QIODeviceBase>
 #include <QNoDebug>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qdebug.h>
 #include "libqdebug.h"
 #include "libqdebug.hxx"
@@ -187,6 +185,13 @@ QDebug* QDebug_OperatorShiftLeft17(QDebug* self, const char* t) {
 
 QDebug* QDebug_OperatorShiftLeft19(QDebug* self, const libqt_string t) {
     QString t_QString = QString::fromUtf8(t.data, t.len);
+    QDebug& _ret = self->operator<<(t_QString);
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
+QDebug* QDebug_OperatorShiftLeft22(QDebug* self, libqt_string t) {
+    QLatin1StringView t_QString = QLatin1StringView(t.data, t.len);
     QDebug& _ret = self->operator<<(t_QString);
     // Cast returned reference into pointer
     return &_ret;

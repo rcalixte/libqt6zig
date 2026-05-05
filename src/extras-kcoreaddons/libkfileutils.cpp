@@ -1,8 +1,6 @@
 #include <KFileUtils>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kfileutils.h>
 #include "libkfileutils.h"

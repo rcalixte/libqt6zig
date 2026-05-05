@@ -9,8 +9,6 @@
 #include <QRegularExpression>
 #include <QRegularExpressionValidator>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QValidator>
 #include <qvalidator.h>

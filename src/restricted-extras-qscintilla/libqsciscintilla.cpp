@@ -38,8 +38,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionFrame>
 #include <QTabletEvent>
 #include <QTimerEvent>

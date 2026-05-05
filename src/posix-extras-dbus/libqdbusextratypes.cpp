@@ -2,8 +2,6 @@
 #include <QDBusSignature>
 #include <QDBusVariant>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qdbusextratypes.h>
 #include "libqdbusextratypes.h"
@@ -17,12 +15,17 @@ QDBusObjectPath* QDBusObjectPath_new2(const char* path) {
     return new QDBusObjectPath(path);
 }
 
-QDBusObjectPath* QDBusObjectPath_new3(const libqt_string path) {
+QDBusObjectPath* QDBusObjectPath_new3(libqt_string path) {
+    QLatin1StringView path_QString = QLatin1StringView(path.data, path.len);
+    return new QDBusObjectPath(path_QString);
+}
+
+QDBusObjectPath* QDBusObjectPath_new4(const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return new QDBusObjectPath(path_QString);
 }
 
-QDBusObjectPath* QDBusObjectPath_new4(const QDBusObjectPath* param1) {
+QDBusObjectPath* QDBusObjectPath_new5(const QDBusObjectPath* param1) {
     return new QDBusObjectPath(*param1);
 }
 
@@ -63,12 +66,17 @@ QDBusSignature* QDBusSignature_new2(const char* signature) {
     return new QDBusSignature(signature);
 }
 
-QDBusSignature* QDBusSignature_new3(const libqt_string signature) {
+QDBusSignature* QDBusSignature_new3(libqt_string signature) {
+    QLatin1StringView signature_QString = QLatin1StringView(signature.data, signature.len);
+    return new QDBusSignature(signature_QString);
+}
+
+QDBusSignature* QDBusSignature_new4(const libqt_string signature) {
     QString signature_QString = QString::fromUtf8(signature.data, signature.len);
     return new QDBusSignature(signature_QString);
 }
 
-QDBusSignature* QDBusSignature_new4(const QDBusSignature* param1) {
+QDBusSignature* QDBusSignature_new5(const QDBusSignature* param1) {
     return new QDBusSignature(*param1);
 }
 

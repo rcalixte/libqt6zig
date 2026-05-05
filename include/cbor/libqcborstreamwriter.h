@@ -26,6 +26,7 @@ void QCborStreamWriter_Append(QCborStreamWriter* self, unsigned long long u);
 void QCborStreamWriter_Append2(QCborStreamWriter* self, long long i);
 void QCborStreamWriter_Append3(QCborStreamWriter* self, uint64_t n);
 void QCborStreamWriter_Append4(QCborStreamWriter* self, const libqt_string ba);
+void QCborStreamWriter_Append5(QCborStreamWriter* self, libqt_string str);
 void QCborStreamWriter_Append7(QCborStreamWriter* self, uint64_t tag);
 void QCborStreamWriter_Append8(QCborStreamWriter* self, int tag);
 void QCborStreamWriter_Append9(QCborStreamWriter* self, uint8_t st);

@@ -5,8 +5,6 @@
 #include <QPieModelMapper>
 #include <QPieSeries>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpiemodelmapper.h>
 #include "libqpiemodelmapper.h"
 #include "libqpiemodelmapper.hxx"

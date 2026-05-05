@@ -6,8 +6,6 @@
 #include <QObject>
 #include <QPixmap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qclipboard.h>
 #include "libqclipboard.h"
 #include "libqclipboard.hxx"

@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextCursor>
 #include <QTextDocument>
 #include <QTextDocumentFragment>

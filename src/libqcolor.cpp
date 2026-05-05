@@ -1,10 +1,7 @@
-#include <QAnyStringView>
 #include <QColor>
 #include <QList>
 #include <QRgba64>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qcolor.h>
 #include "libqcolor.h"
@@ -47,23 +44,28 @@ QColor* QColor_new9(const char* aname) {
     return new QColor(aname);
 }
 
-QColor* QColor_new10(int spec) {
+QColor* QColor_new10(libqt_string name) {
+    QLatin1StringView name_QString = QLatin1StringView(name.data, name.len);
+    return new QColor(name_QString);
+}
+
+QColor* QColor_new11(int spec) {
     return new QColor(static_cast<QColor::Spec>(spec));
 }
 
-QColor* QColor_new11(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4) {
+QColor* QColor_new12(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4) {
     return new QColor(static_cast<QColor::Spec>(spec), static_cast<ushort>(a1), static_cast<ushort>(a2), static_cast<ushort>(a3), static_cast<ushort>(a4));
 }
 
-QColor* QColor_new12(const QColor* param1) {
+QColor* QColor_new13(const QColor* param1) {
     return new QColor(*param1);
 }
 
-QColor* QColor_new13(int r, int g, int b, int a) {
+QColor* QColor_new14(int r, int g, int b, int a) {
     return new QColor(static_cast<int>(r), static_cast<int>(g), static_cast<int>(b), static_cast<int>(a));
 }
 
-QColor* QColor_new14(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4, uint16_t a5) {
+QColor* QColor_new15(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4, uint16_t a5) {
     return new QColor(static_cast<QColor::Spec>(spec), static_cast<ushort>(a1), static_cast<ushort>(a2), static_cast<ushort>(a3), static_cast<ushort>(a4), static_cast<ushort>(a5));
 }
 
@@ -101,6 +103,11 @@ libqt_string QColor_Name(const QColor* self) {
 
 void QColor_SetNamedColor(QColor* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
+    self->setNamedColor(name_QString);
+}
+
+void QColor_SetNamedColor3(QColor* self, libqt_string name) {
+    QLatin1StringView name_QString = QLatin1StringView(name.data, name.len);
     self->setNamedColor(name_QString);
 }
 

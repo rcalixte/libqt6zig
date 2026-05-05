@@ -6,8 +6,6 @@
 #include <QMultiMap>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineUrlRequestJob>
 #include <qwebengineurlrequestjob.h>

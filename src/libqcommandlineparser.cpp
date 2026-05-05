@@ -3,8 +3,6 @@
 #include <QCoreApplication>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qcommandlineparser.h>
 #include "libqcommandlineparser.h"
 #include "libqcommandlineparser.hxx"

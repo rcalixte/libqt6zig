@@ -4,8 +4,6 @@
 #include <QDateTime>
 #include <QIODevice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <krcc.h>
 #include "libkrcc.h"
 #include "libkrcc.hxx"

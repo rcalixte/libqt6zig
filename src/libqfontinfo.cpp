@@ -1,8 +1,6 @@
 #include <QFont>
 #include <QFontInfo>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qfontinfo.h>
 #include "libqfontinfo.h"
 #include "libqfontinfo.hxx"

@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Poppler__Version
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <poppler-version.h>
 #include "libpoppler_version.h"
 #include "libpoppler_version.hxx"

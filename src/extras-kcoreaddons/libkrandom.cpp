@@ -1,7 +1,5 @@
 #include <KRandom>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <krandom.h>
 #include "libkrandom.h"
 #include "libkrandom.hxx"

@@ -13,8 +13,6 @@
 #include <QObject>
 #include <QRestAccessManager>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qrestaccessmanager.h>

@@ -141,6 +141,22 @@ pub const QCborMap = extern struct {
     ///
     /// ` key: []const u8 `
     ///
+    pub fn Value2(self: QCborMap, key: []const u8) QCborValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_Value2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn Value3(self: QCborMap, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -172,6 +188,22 @@ pub const QCborMap = extern struct {
     ///
     pub fn OperatorSubscript(self: QCborMap, key: i64) QCborValue {
         return .{ .ptr = qtc.QCborMap_OperatorSubscript(@ptrCast(self.ptr), @bitCast(key)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript2(self: QCborMap, key: []const u8) QCborValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#operator-5b-5d)
@@ -223,6 +255,22 @@ pub const QCborMap = extern struct {
     ///
     /// ` key: []const u8 `
     ///
+    pub fn OperatorSubscript6(self: QCborMap, key: []const u8) QCborValueRef {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_OperatorSubscript6(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn OperatorSubscript7(self: QCborMap, key: []const u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -254,6 +302,22 @@ pub const QCborMap = extern struct {
     ///
     pub fn Take(self: QCborMap, key: i64) QCborValue {
         return .{ .ptr = qtc.QCborMap_Take(@ptrCast(self.ptr), @bitCast(key)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#take)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Take2(self: QCborMap, key: []const u8) QCborValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_Take2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#take)
@@ -305,6 +369,22 @@ pub const QCborMap = extern struct {
     ///
     /// ` key: []const u8 `
     ///
+    pub fn Remove2(self: QCborMap, key: []const u8) void {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QCborMap_Remove2(@ptrCast(self.ptr), key_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#remove)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn Remove3(self: QCborMap, key: []const u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -336,6 +416,22 @@ pub const QCborMap = extern struct {
     ///
     pub fn Contains(self: QCborMap, key: i64) bool {
         return qtc.QCborMap_Contains(@ptrCast(self.ptr), @bitCast(key));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Contains2(self: QCborMap, key: []const u8) bool {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QCborMap_Contains2(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#contains)
@@ -542,6 +638,22 @@ pub const QCborMap = extern struct {
     ///
     /// ` key: []const u8 `
     ///
+    pub fn Find2(self: QCborMap, key: []const u8) QCborMap__Iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_Find2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#find)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn Find3(self: QCborMap, key: []const u8) QCborMap__Iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -573,6 +685,22 @@ pub const QCborMap = extern struct {
     ///
     pub fn ConstFind(self: QCborMap, key: i64) QCborMap__ConstIterator {
         return .{ .ptr = qtc.QCborMap_ConstFind(@ptrCast(self.ptr), @bitCast(key)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#constFind)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn ConstFind2(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_ConstFind2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#constFind)
@@ -624,6 +752,22 @@ pub const QCborMap = extern struct {
     ///
     /// ` key: []const u8 `
     ///
+    pub fn Find6(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborMap_Find6(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#find)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn Find7(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -658,6 +802,25 @@ pub const QCborMap = extern struct {
     pub fn Insert(self: QCborMap, key: i64, value_: anytype) QCborMap__Iterator {
         comptime _ = @TypeOf(value_)._is_QCborValue;
         return .{ .ptr = qtc.QCborMap_Insert(@ptrCast(self.ptr), @bitCast(key), @ptrCast(value_.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#insert)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborMap `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value_: QCborValue `
+    ///
+    pub fn Insert2(self: QCborMap, key: []const u8, value_: anytype) QCborMap__Iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        comptime _ = @TypeOf(value_)._is_QCborValue;
+        return .{ .ptr = qtc.QCborMap_Insert2(@ptrCast(self.ptr), key_str, @ptrCast(value_.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#insert)
@@ -793,6 +956,7 @@ pub const QCborMap = extern struct {
     pub fn ToVariantMap(self: QCborMap, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QCborMap_ToVariantMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qcbormap.ToVariantMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -809,7 +973,7 @@ pub const QCborMap = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -825,6 +989,7 @@ pub const QCborMap = extern struct {
     pub fn ToVariantHash(self: QCborMap, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QCborMap_ToVariantHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qcbormap.ToVariantHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -841,7 +1006,7 @@ pub const QCborMap = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

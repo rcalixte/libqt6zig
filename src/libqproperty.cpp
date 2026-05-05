@@ -6,8 +6,6 @@
 #include <QPropertyObserverBase>
 #include <QScopedPropertyUpdateGroup>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUntypedBindable>
 #include <QUntypedPropertyBinding>
 #include <qproperty.h>

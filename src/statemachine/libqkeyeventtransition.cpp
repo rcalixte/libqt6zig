@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QState>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qkeyeventtransition.h>
 #include "libqkeyeventtransition.h"

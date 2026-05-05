@@ -6,8 +6,6 @@
 #include <QJsonValueRef>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qjsonarray.h>
 #include "libqjsonarray.h"

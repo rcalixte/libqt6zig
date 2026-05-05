@@ -23,8 +23,6 @@
 #include <QSqlRelationalTableModel>
 #include <QSqlTableModel>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qsqlrelationaltablemodel.h>

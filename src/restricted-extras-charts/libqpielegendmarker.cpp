@@ -9,8 +9,6 @@
 #include <QPieSeries>
 #include <QPieSlice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpielegendmarker.h>
 #include "libqpielegendmarker.h"

@@ -3,8 +3,6 @@
 #include <QBrush>
 #include <QSharedData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextCharFormat>
 #include <QTextFormat>
 #include <attribute.h>

@@ -4,8 +4,6 @@
 #include <QMimeData>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <ksystemclipboard.h>
 #include "libksystemclipboard.h"
 #include "libksystemclipboard.hxx"

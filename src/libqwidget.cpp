@@ -49,8 +49,6 @@
 #include <QSize>
 #include <QSizePolicy>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyle>
 #include <QTabletEvent>
 #include <QTimerEvent>

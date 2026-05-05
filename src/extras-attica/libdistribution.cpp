@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Distribution
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <distribution.h>
 #include "libdistribution.h"
 #include "libdistribution.hxx"

@@ -4,8 +4,6 @@
 #include <QList>
 #include <QNetworkCookie>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qnetworkcookie.h>
 #include "libqnetworkcookie.h"

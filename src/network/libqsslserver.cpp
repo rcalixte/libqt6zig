@@ -10,8 +10,6 @@
 #include <QSslServer>
 #include <QSslSocket>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QTimerEvent>

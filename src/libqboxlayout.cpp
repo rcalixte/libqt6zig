@@ -11,8 +11,6 @@
 #include <QSize>
 #include <QSpacerItem>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVBoxLayout>
 #include <QWidget>

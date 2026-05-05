@@ -8,8 +8,6 @@
 #include <QSslError>
 #include <QSslKey>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qsslcertificate.h>
 #include "libqsslcertificate.h"
 #include "libqsslcertificate.hxx"

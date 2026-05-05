@@ -9,8 +9,6 @@
 #include <QPaintDevice>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWidget>
 #include <kencodingfiledialog.h>

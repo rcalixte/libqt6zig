@@ -6,8 +6,6 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <platformdependent.h>
 #include "libplatformdependent.h"

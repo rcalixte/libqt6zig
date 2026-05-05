@@ -1,7 +1,5 @@
 #include <QPlaceUser>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qplaceuser.h>
 #include "libqplaceuser.h"
 #include "libqplaceuser.hxx"

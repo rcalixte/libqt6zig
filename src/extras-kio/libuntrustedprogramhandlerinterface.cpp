@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <untrustedprogramhandlerinterface.h>
 #include "libuntrustedprogramhandlerinterface.h"
 #include "libuntrustedprogramhandlerinterface.hxx"

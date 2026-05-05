@@ -16,7 +16,6 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct QAction QAction;
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QAuthenticator QAuthenticator;
 typedef struct QChildEvent QChildEvent;
 typedef struct QColor QColor;

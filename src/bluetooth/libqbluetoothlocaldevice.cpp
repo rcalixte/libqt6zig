@@ -8,8 +8,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qbluetoothlocaldevice.h>
 #include "libqbluetoothlocaldevice.h"

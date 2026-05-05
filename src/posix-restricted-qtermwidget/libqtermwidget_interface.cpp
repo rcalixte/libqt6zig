@@ -4,8 +4,6 @@
 #include <QList>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qtermwidget_interface.h>
 #include "libqtermwidget_interface.h"
 #include "libqtermwidget_interface.hxx"

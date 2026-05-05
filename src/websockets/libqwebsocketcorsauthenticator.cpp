@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWebSocketCorsAuthenticator>
 #include <qwebsocketcorsauthenticator.h>
 #include "libqwebsocketcorsauthenticator.h"

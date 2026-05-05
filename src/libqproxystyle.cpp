@@ -15,8 +15,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyle>
 #include <QStyleHintReturn>
 #include <QStyleOption>

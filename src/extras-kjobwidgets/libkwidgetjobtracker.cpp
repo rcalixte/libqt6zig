@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kwidgetjobtracker.h>
 #include "libkwidgetjobtracker.h"

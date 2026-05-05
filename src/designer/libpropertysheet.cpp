@@ -1,7 +1,5 @@
 #include <QDesignerPropertySheetExtension>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <propertysheet.h>
 #include "libpropertysheet.h"

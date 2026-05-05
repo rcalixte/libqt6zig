@@ -14,8 +14,6 @@
 #include <QRectF>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBlock>
 #include <QTextCharFormat>
 #include <QTextCursor>

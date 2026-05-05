@@ -3,8 +3,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qdbusabstractadaptor.h>
 #include "libqdbusabstractadaptor.h"
 #include "libqdbusabstractadaptor.hxx"

@@ -1,8 +1,6 @@
 #include <KIconTheme>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kicontheme.h>
 #include "libkicontheme.h"
 #include "libkicontheme.hxx"

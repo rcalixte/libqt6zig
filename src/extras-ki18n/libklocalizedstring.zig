@@ -475,9 +475,10 @@ pub const KLocalizedString = extern struct {
     pub fn AvailableApplicationTranslations(allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.KLocalizedString_AvailableApplicationTranslations();
         var _ret: Set_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("klocalizedstring.AvailableApplicationTranslations: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("klocalizedstring.AvailableApplicationTranslations: Set insertion failed");
+            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
         return _ret;
     }
 
@@ -496,9 +497,10 @@ pub const KLocalizedString = extern struct {
         };
         const _set: qtc.libqt_list = qtc.KLocalizedString_AvailableDomainTranslations(domain_str);
         var _ret: Set_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("klocalizedstring.AvailableDomainTranslations: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.put(allocator, _data[i].data[0.._data[i].len], {}) catch @panic("klocalizedstring.AvailableDomainTranslations: Set insertion failed");
+            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
         return _ret;
     }
 

@@ -15,7 +15,6 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QHttp1Configuration QHttp1Configuration;
 typedef struct QHttp2Configuration QHttp2Configuration;
 typedef struct QHttpHeaders QHttpHeaders;

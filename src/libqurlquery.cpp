@@ -2,8 +2,6 @@
 #include <QList>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QUrlQuery>
 #include <qurlquery.h>

@@ -1,7 +1,5 @@
 #include <KMessageBoxNotifyInterface>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kmessageboxnotifyinterface.h>
 #include "libkmessageboxnotifyinterface.h"

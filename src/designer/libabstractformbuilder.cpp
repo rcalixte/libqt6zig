@@ -7,8 +7,6 @@
 #include <QMetaEnum>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <QWidget>
 #include <abstractformbuilder.h>

@@ -1,12 +1,9 @@
-#include <QAnyStringView>
 #include <QByteArray>
 #include <QFont>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QFont__Tag
 #include <QList>
 #include <QPaintDevice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qfont.h>
 #include "libqfont.h"

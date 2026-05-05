@@ -7,8 +7,6 @@
 #include <QRectF>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSvgGenerator>
 #include <qsvggenerator.h>
 #include "libqsvggenerator.h"

@@ -1,8 +1,6 @@
 #include <KIO/MetaData>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <metadata.h>
 #include "libmetadata_1.h"

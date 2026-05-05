@@ -1,7 +1,5 @@
 #include <KCoreAddons>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kcoreaddons.h>
 #include "libkcoreaddons.h"
 #include "libkcoreaddons.hxx"

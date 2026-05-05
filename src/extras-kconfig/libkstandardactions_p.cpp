@@ -3,8 +3,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KStandardActions__RawStringData
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kstandardactions_p.h>
 #include "libkstandardactions_p.h"
 #include "libkstandardactions_p.hxx"

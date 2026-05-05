@@ -1,8 +1,6 @@
 #include <KEMailSettings>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kemailsettings.h>
 #include "libkemailsettings.h"
 #include "libkemailsettings.hxx"

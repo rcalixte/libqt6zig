@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWindow>
 #include <window.h>
 #include "libwindow.h"

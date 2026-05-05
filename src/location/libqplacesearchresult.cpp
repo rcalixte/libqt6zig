@@ -1,8 +1,6 @@
 #include <QPlaceIcon>
 #include <QPlaceSearchResult>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qplacesearchresult.h>
 #include "libqplacesearchresult.h"
 #include "libqplacesearchresult.hxx"

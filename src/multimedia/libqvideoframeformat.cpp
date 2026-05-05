@@ -1,8 +1,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVideoFrameFormat>
 #include <qvideoframeformat.h>
 #include "libqvideoframeformat.h"

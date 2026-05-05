@@ -9,8 +9,6 @@
 #include <QRect>
 #include <QRegion>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSurface>
 #include <QWindow>
 #include <qpaintdevicewindow.h>

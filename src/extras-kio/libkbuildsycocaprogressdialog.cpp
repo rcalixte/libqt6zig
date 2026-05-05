@@ -6,8 +6,6 @@
 #include <QPaintDevice>
 #include <QProgressDialog>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kbuildsycocaprogressdialog.h>
 #include "libkbuildsycocaprogressdialog.h"

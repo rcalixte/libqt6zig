@@ -21,8 +21,6 @@
 #include <QSqlRecord>
 #include <QSqlTableModel>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qsqltablemodel.h>

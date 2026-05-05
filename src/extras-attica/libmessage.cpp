@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Message
 #include <QDateTime>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <message.h>
 #include "libmessage.h"
 #include "libmessage.hxx"

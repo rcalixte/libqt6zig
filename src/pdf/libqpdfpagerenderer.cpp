@@ -9,8 +9,6 @@
 #include <QPdfPageRenderer>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qpdfpagerenderer.h>
 #include "libqpdfpagerenderer.h"

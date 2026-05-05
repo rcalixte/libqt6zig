@@ -6,8 +6,6 @@
 #include <QNetworkProxy>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTcpServer>
 #include <QTcpSocket>
 #include <QTimerEvent>

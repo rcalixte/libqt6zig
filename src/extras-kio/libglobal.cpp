@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <global.h>
 #include "libglobal.h"

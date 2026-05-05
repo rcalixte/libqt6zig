@@ -4,8 +4,6 @@
 #include <QDateTime>
 #include <QIODevice>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <k7zip.h>
 #include "libk7zip.h"
 #include "libk7zip.hxx"

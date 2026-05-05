@@ -1,9 +1,6 @@
-#include <QAnyStringView>
 #include <QByteArrayView>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStringConverter>
 #include <qstringconverter_base.h>
 #include "libqstringconverter_base.h"

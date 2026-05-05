@@ -4,8 +4,6 @@
 #include <QObject>
 #include <QSessionManager>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qsessionmanager.h>
 #include "libqsessionmanager.h"
 #include "libqsessionmanager.hxx"

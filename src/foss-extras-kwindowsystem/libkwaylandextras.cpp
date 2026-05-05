@@ -3,8 +3,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWindow>
 #include <kwaylandextras.h>
 #include "libkwaylandextras.h"

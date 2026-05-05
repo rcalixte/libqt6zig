@@ -628,6 +628,7 @@ pub const QCalendarWidget = extern struct {
     pub fn DateTextFormat(self: QCalendarWidget, allocator: std.mem.Allocator) ArrayMap_QDate_QTextCharFormat {
         const _map: qtc.libqt_map = qtc.QCalendarWidget_DateTextFormat(@ptrCast(self.ptr));
         var _ret: ArrayMap_QDate_QTextCharFormat = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qcalendarwidget.DateTextFormat: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -638,7 +639,7 @@ pub const QCalendarWidget = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            _ret.put(allocator, .{ .ptr = @ptrCast(_key) }, .{ .ptr = @ptrCast(_value) }) catch @panic("qcalendarwidget.DateTextFormat: Memory allocation failed");
+            _ret.putAssumeCapacity(.{ .ptr = @ptrCast(_key) }, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }

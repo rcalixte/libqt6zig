@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kidletime.h>
 #include "libkidletime.h"
 #include "libkidletime.hxx"

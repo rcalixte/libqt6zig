@@ -12,8 +12,6 @@
 #include <QObject>
 #include <QScreenCapture>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVideoFrameInput>
 #include <QVideoSink>

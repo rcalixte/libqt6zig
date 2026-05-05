@@ -267,111 +267,125 @@ pub const QCborValue = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: [:0]const u8 `
+    /// ` s: []const u8 `
     ///
-    pub fn New11(s: [:0]const u8) QCborValue {
-        const s_Cstring = s.ptr;
-        return .{ .ptr = qtc.QCborValue_new11(s_Cstring) };
+    pub fn New11(s: []const u8) QCborValue {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return .{ .ptr = qtc.QCborValue_new11(s_str) };
     }
 
     /// New12 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` a: QCborArray `
+    /// ` s: [:0]const u8 `
     ///
-    pub fn New12(a: anytype) QCborValue {
-        comptime _ = @TypeOf(a)._is_QCborArray;
-        return .{ .ptr = qtc.QCborValue_new12(@ptrCast(a.ptr)) };
+    pub fn New12(s: [:0]const u8) QCborValue {
+        const s_Cstring = s.ptr;
+        return .{ .ptr = qtc.QCborValue_new12(s_Cstring) };
     }
 
     /// New13 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` m: QCborMap `
+    /// ` a: QCborArray `
     ///
-    pub fn New13(m: anytype) QCborValue {
-        comptime _ = @TypeOf(m)._is_QCborMap;
-        return .{ .ptr = qtc.QCborValue_new13(@ptrCast(m.ptr)) };
+    pub fn New13(a: anytype) QCborValue {
+        comptime _ = @TypeOf(a)._is_QCborArray;
+        return .{ .ptr = qtc.QCborValue_new13(@ptrCast(a.ptr)) };
     }
 
     /// New14 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` tag: qcborcommon_enums.QCborTag `
+    /// ` m: QCborMap `
     ///
-    pub fn New14(tag: u64) QCborValue {
-        return .{ .ptr = qtc.QCborValue_new14(@bitCast(tag)) };
+    pub fn New14(m: anytype) QCborValue {
+        comptime _ = @TypeOf(m)._is_QCborMap;
+        return .{ .ptr = qtc.QCborValue_new14(@ptrCast(m.ptr)) };
     }
 
     /// New15 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` t_: qcborcommon_enums.QCborKnownTags `
+    /// ` tag: qcborcommon_enums.QCborTag `
     ///
-    pub fn New15(t_: i32) QCborValue {
-        return .{ .ptr = qtc.QCborValue_new15(@bitCast(t_)) };
+    pub fn New15(tag: u64) QCborValue {
+        return .{ .ptr = qtc.QCborValue_new15(@bitCast(tag)) };
     }
 
     /// New16 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` dt: QDateTime `
+    /// ` t_: qcborcommon_enums.QCborKnownTags `
     ///
-    pub fn New16(dt: anytype) QCborValue {
-        comptime _ = @TypeOf(dt)._is_QDateTime;
-        return .{ .ptr = qtc.QCborValue_new16(@ptrCast(dt.ptr)) };
+    pub fn New16(t_: i32) QCborValue {
+        return .{ .ptr = qtc.QCborValue_new16(@bitCast(t_)) };
     }
 
     /// New17 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` url: QUrl `
+    /// ` dt: QDateTime `
     ///
-    pub fn New17(url: anytype) QCborValue {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        return .{ .ptr = qtc.QCborValue_new17(@ptrCast(url.ptr)) };
+    pub fn New17(dt: anytype) QCborValue {
+        comptime _ = @TypeOf(dt)._is_QDateTime;
+        return .{ .ptr = qtc.QCborValue_new17(@ptrCast(dt.ptr)) };
     }
 
     /// New18 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` rx: QRegularExpression `
+    /// ` url: QUrl `
     ///
-    pub fn New18(rx: anytype) QCborValue {
-        comptime _ = @TypeOf(rx)._is_QRegularExpression;
-        return .{ .ptr = qtc.QCborValue_new18(@ptrCast(rx.ptr)) };
+    pub fn New18(url: anytype) QCborValue {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.QCborValue_new18(@ptrCast(url.ptr)) };
     }
 
     /// New19 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` uuid: QUuid `
+    /// ` rx: QRegularExpression `
     ///
-    pub fn New19(uuid: anytype) QCborValue {
-        comptime _ = @TypeOf(uuid)._is_QUuid;
-        return .{ .ptr = qtc.QCborValue_new19(@ptrCast(uuid.ptr)) };
+    pub fn New19(rx: anytype) QCborValue {
+        comptime _ = @TypeOf(rx)._is_QRegularExpression;
+        return .{ .ptr = qtc.QCborValue_new19(@ptrCast(rx.ptr)) };
     }
 
     /// New20 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QCborValue `
+    /// ` uuid: QUuid `
     ///
-    pub fn New20(other: anytype) QCborValue {
-        comptime _ = @TypeOf(other)._is_QCborValue;
-        return .{ .ptr = qtc.QCborValue_new20(@ptrCast(other.ptr)) };
+    pub fn New20(uuid: anytype) QCborValue {
+        comptime _ = @TypeOf(uuid)._is_QUuid;
+        return .{ .ptr = qtc.QCborValue_new20(@ptrCast(uuid.ptr)) };
     }
 
     /// New21 constructs a new QCborValue object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QCborValue `
+    ///
+    pub fn New21(other: anytype) QCborValue {
+        comptime _ = @TypeOf(other)._is_QCborValue;
+        return .{ .ptr = qtc.QCborValue_new21(@ptrCast(other.ptr)) };
+    }
+
+    /// New22 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
@@ -379,12 +393,12 @@ pub const QCborValue = extern struct {
     ///
     /// ` taggedValue: QCborValue `
     ///
-    pub fn New21(tag: u64, taggedValue: anytype) QCborValue {
+    pub fn New22(tag: u64, taggedValue: anytype) QCborValue {
         comptime _ = @TypeOf(taggedValue)._is_QCborValue;
-        return .{ .ptr = qtc.QCborValue_new21(@bitCast(tag), @ptrCast(taggedValue.ptr)) };
+        return .{ .ptr = qtc.QCborValue_new22(@bitCast(tag), @ptrCast(taggedValue.ptr)) };
     }
 
-    /// New22 constructs a new QCborValue object.
+    /// New23 constructs a new QCborValue object.
     ///
     /// ## Parameter(s):
     ///
@@ -392,9 +406,9 @@ pub const QCborValue = extern struct {
     ///
     /// ` tv: QCborValue `
     ///
-    pub fn New22(t_: i32, tv: anytype) QCborValue {
+    pub fn New23(t_: i32, tv: anytype) QCborValue {
         comptime _ = @TypeOf(tv)._is_QCborValue;
-        return .{ .ptr = qtc.QCborValue_new22(@bitCast(t_), @ptrCast(tv.ptr)) };
+        return .{ .ptr = qtc.QCborValue_new23(@bitCast(t_), @ptrCast(tv.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-eq)
@@ -847,6 +861,22 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript2(self: QCborValue, key: []const u8) QCborValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborValue_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborValue `
+    ///
     /// ` key: i64 `
     ///
     pub fn OperatorSubscript3(self: QCborValue, key: i64) QCborValue {
@@ -863,6 +893,22 @@ pub const QCborValue = extern struct {
     ///
     pub fn OperatorSubscript4(self: QCborValue, key: i64) QCborValueRef {
         return .{ .ptr = qtc.QCborValue_OperatorSubscript4(@ptrCast(self.ptr), @bitCast(key)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborValue `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript5(self: QCborValue, key: []const u8) QCborValueRef {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborValue_OperatorSubscript5(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
@@ -1790,6 +1836,22 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript2(self: QCborValueConstRef, key: []const u8) QCborValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborValueConstRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborValueConstRef `
+    ///
     /// ` key: i64 `
     ///
     pub fn OperatorSubscript3(self: QCborValueConstRef, key: i64) QCborValue {
@@ -2199,6 +2261,22 @@ pub const QCborValueRef = extern struct {
     ///
     pub fn OperatorSubscript(self: QCborValueRef, key: i64) QCborValueRef {
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript(@ptrCast(self.ptr), @bitCast(key)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborValueRef `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript2(self: QCborValueRef, key: []const u8) QCborValueRef {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborValueRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
@@ -2643,6 +2721,22 @@ pub const QCborValueRef = extern struct {
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript4(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborValueRef `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript5(self: QCborValueRef, key: []const u8) QCborValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCborValueRef_OperatorSubscript5(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)

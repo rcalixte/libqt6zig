@@ -9,8 +9,6 @@
 #include <QObject>
 #include <QProcess>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kprocess.h>
 #include "libkprocess.h"

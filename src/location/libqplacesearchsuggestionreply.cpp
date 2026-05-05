@@ -7,8 +7,6 @@
 #include <QPlaceReply>
 #include <QPlaceSearchSuggestionReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplacesearchsuggestionreply.h>
 #include "libqplacesearchsuggestionreply.h"

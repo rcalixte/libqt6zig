@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qboxset.h>
 #include "libqboxset.h"

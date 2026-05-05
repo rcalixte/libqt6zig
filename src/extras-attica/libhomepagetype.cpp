@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__HomePageType
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <homepagetype.h>
 #include "libhomepagetype.h"
 #include "libhomepagetype.hxx"

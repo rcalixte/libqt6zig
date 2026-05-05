@@ -2,8 +2,6 @@
 #include <QOperatingSystemVersionBase>
 #include <QOperatingSystemVersionUnexported>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVersionNumber>
 #include <qoperatingsystemversion.h>
 #include "libqoperatingsystemversion.h"

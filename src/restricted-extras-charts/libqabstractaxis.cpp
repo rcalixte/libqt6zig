@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qabstractaxis.h>
 #include "libqabstractaxis.h"

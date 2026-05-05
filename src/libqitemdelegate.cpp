@@ -17,8 +17,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionViewItem>
 #include <QTimerEvent>
 #include <QVariant>

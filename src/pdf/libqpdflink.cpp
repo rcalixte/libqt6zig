@@ -3,8 +3,6 @@
 #include <QPointF>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <qpdflink.h>
 #include "libqpdflink.h"

@@ -13,8 +13,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qmovie.h>
 #include "libqmovie.h"

@@ -17,8 +17,6 @@
 #include <QPlaceSearchRequest>
 #include <QPlaceSearchSuggestionReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qplacemanager.h>
 #include "libqplacemanager.h"
 #include "libqplacemanager.hxx"

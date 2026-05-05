@@ -2,8 +2,6 @@
 #include <QDate>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <person.h>
 #include "libperson.h"

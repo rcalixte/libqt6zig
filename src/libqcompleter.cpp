@@ -10,8 +10,6 @@
 #include <QObject>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <qcompleter.h>

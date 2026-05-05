@@ -18,7 +18,6 @@ extern "C" {
 typedef QDomDocument::ParseResult QDomDocument__ParseResult;
 #endif
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QDomAttr QDomAttr;
 typedef struct QDomCDATASection QDomCDATASection;
 typedef struct QDomCharacterData QDomCharacterData;

@@ -9,8 +9,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kiconengine.h>
 #include "libkiconengine.h"
 #include "libkiconengine.hxx"

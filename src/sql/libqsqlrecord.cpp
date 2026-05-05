@@ -1,9 +1,6 @@
-#include <QAnyStringView>
 #include <QSqlField>
 #include <QSqlRecord>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qsqlrecord.h>
 #include "libqsqlrecord.h"

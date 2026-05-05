@@ -1,8 +1,6 @@
 #include <KLanguageName>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <klanguagename.h>
 #include "libklanguagename.h"
 #include "libklanguagename.hxx"

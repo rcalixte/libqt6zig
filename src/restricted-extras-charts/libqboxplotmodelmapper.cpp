@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qboxplotmodelmapper.h>
 #include "libqboxplotmodelmapper.h"
 #include "libqboxplotmodelmapper.hxx"

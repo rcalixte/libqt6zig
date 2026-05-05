@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <ksambashare.h>
 #include "libksambashare.h"
 #include "libksambashare.hxx"

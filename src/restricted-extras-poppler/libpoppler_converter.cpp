@@ -8,8 +8,6 @@
 #include <QList>
 #include <QRectF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <poppler-converter.h>
 #include "libpoppler_converter.h"
 #include "libpoppler_converter.hxx"

@@ -3,8 +3,6 @@
 #include <QByteArray>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kuitsetup.h>
 #include "libkuitsetup.h"
 #include "libkuitsetup.hxx"

@@ -5,8 +5,6 @@
 #include <KDesktopFileAction>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kdesktopfile.h>
 #include "libkdesktopfile.h"
 #include "libkdesktopfile.hxx"

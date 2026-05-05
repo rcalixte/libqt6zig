@@ -26,7 +26,7 @@ func zigReservedWord(s string) bool {
 	switch s {
 	case "default", "const", "fn", "var", "type", "len", "new", "copy", "import",
 		"error", "string", "map", "int", "select", "pub", "ret", "suspend",
-		"opaque", "align", "self", "allocator", "URLs":
+		"opaque", "align", "packed", "self", "allocator", "URLs":
 		return true
 	default:
 		return false
@@ -270,7 +270,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		return strings.Repeat("[]"+maybeConst, p.PointerCount-1) + "[:0]" + maybeConst + "u8"
 	}
 	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" || p.ParameterType == "QStringView" ||
-		p.ParameterType == "SignOn::MethodName" {
+		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
 		return "[]const u8"
 	}
 	if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
@@ -615,7 +615,8 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 func (p CppParameter) parameterTypeZig() string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
 		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "QStringView" || p.ParameterType == "SignOn::MethodName" {
+		p.ParameterType == "QStringView" || p.ParameterType == "SignOn::MethodName" ||
+		p.ParameterType == "QLatin1StringView" {
 		return "qtc.libqt_string"
 	}
 
@@ -991,7 +992,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	lowerClass := strings.ToLower(zfs.currentClassName)
 
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "SignOn::MethodName" {
+		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
 
@@ -1474,7 +1475,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " std.mem.span(" + namePrefix + "_ret);\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if rt.ParameterType == "QString" || rt.ParameterType == "QStringView" || rt.ParameterType == "SignOn::MethodName" {
+	} else if rt.ParameterType == "QString" || rt.ParameterType == "QStringView" ||
+		rt.ParameterType == "SignOn::MethodName" || rt.ParameterType == "QLatin1StringView" {
 		zfs.imports["std"] = struct{}{}
 
 		shouldReturn = "var " + namePrefix + "_str ="
@@ -1746,9 +1748,10 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
 			afterword += "var " + namePrefix + "_ret: Set_" + t.RenderTypeMapZig(zfs, false) + " = .empty;\n"
+			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, " + namePrefix + "_set.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
 			afterword += "const " + namePrefix + "_data: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i| \n"
-			afterword += "    " + namePrefix + "_ret.put(allocator, " + namePrefix + "_data[i].data[0.." + namePrefix + "_data[i].len], {}) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Set insertion failed\");\n"
+			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + namePrefix + "_data[i].data[0.." + namePrefix + "_data[i].len], {});\n"
 
 			afterword += assignExpr + " " + namePrefix + "_ret;"
 			return shouldReturn + " " + rvalue + ";\n" + afterword
@@ -1775,9 +1778,10 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
 			afterword += "var " + namePrefix + "_ret: Set_" + setType + " = .empty;\n"
+			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, " + namePrefix + "_set.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
 			afterword += "const " + namePrefix + "_data: [*]" + setValue + " = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i|\n"
-			afterword += "    " + namePrefix + "_ret.put(allocator, " + maybeDecl + namePrefix + "_data[i]" + maybeDeclClose + ", {}) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Set insertion failed\");\n"
+			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + maybeDecl + namePrefix + "_data[i]" + maybeDeclClose + ", {});\n"
 
 			afterword += assignExpr + " " + namePrefix + "_ret;"
 			return shouldReturn + " " + rvalue + ";\n" + afterword
@@ -1860,6 +1864,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		}
 
 		afterword += "var " + namePrefix + "_ret: " + maybeArray + "Map_" + keyParam + "_" + vParam + "= .empty;\n"
+		afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, " + namePrefix + "_map.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
 
 		afterword += "defer {\n"
 		var deferKey, deferVal string
@@ -1969,7 +1974,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			retVal = namePrefix + "_value_slice"
 		}
 
-		afterword += namePrefix + "_ret.put(allocator, " + maybeKDecl + maybeKeyCast + namePrefix + retKey + maybeKeyCastClose + maybeKDeclClose + ", " + maybeVDecl + maybeValCast + namePrefix + retVal + maybeValCastClose + maybeVDeclClose + `) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+		afterword += namePrefix + "_ret.putAssumeCapacity(" + maybeKDecl + maybeKeyCast + namePrefix + retKey + maybeKeyCastClose + maybeKDeclClose + ", " + maybeVDecl + maybeValCast + namePrefix + retVal + maybeValCastClose + maybeVDeclClose + ");\n"
 
 		afterword += "}\n"
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
@@ -2301,7 +2306,7 @@ const qtc = @import("qt6c");`)
 			ret.WriteString(pageUrl + "\n" +
 				"pub const " + zigStructName + " = extern struct {\n")
 
-			if AllowStructDef(c.ClassName) {
+			if AllowStructDef(c.ClassName) && !isBindingRemoved(c.ClassName) {
 				ret.WriteString(pageUrl + "\n" + ptrFieldDesc +
 					"ptr: QtC." + zigStructName + ",\n\n")
 
@@ -2447,6 +2452,10 @@ const qtc = @import("qt6c");`)
 			}
 
 			if m.IsProtected && !virtualEligible {
+				continue
+			}
+
+			if !m.IsStatic && isBindingRemoved(c.ClassName) {
 				continue
 			}
 
@@ -2855,7 +2864,7 @@ const qtc = @import("qt6c");`)
 				"qtc." + cmdStructName + "_Connect_" + cSafeMethodName + "(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));\n}\n")
 		}
 
-		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
+		if c.CanDelete && !isBindingRemoved(zigStructName) && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 
 			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) ||

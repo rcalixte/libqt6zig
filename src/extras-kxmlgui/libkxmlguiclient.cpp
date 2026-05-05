@@ -8,8 +8,6 @@
 #include <QDomElement>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kxmlguiclient.h>
 #include "libkxmlguiclient.h"

@@ -13,8 +13,6 @@
 #include <QPen>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <QXYSeries>
 #include <qxyseries.h>

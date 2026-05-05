@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTemporaryDir>
 #include <qtemporarydir.h>
 #include "libqtemporarydir.h"

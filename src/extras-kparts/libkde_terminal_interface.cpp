@@ -1,7 +1,5 @@
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <kde_terminal_interface.h>
 #include "libkde_terminal_interface.h"

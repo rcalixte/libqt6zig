@@ -30,8 +30,6 @@
 #include <QSize>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <QVector>
 #include <poppler-form.h>

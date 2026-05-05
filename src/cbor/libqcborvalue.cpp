@@ -12,8 +12,6 @@
 #include <QJsonValue>
 #include <QRegularExpression>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QUuid>
 #include <QVariant>
@@ -111,51 +109,56 @@ QCborValue* QCborValue_new10(const libqt_string s) {
     return new QCborValue(s_QString);
 }
 
-QCborValue* QCborValue_new11(const char* s) {
+QCborValue* QCborValue_new11(libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return new QCborValue(s_QString);
+}
+
+QCborValue* QCborValue_new12(const char* s) {
     return new QCborValue(s);
 }
 
-QCborValue* QCborValue_new12(const QCborArray* a) {
+QCborValue* QCborValue_new13(const QCborArray* a) {
     return new QCborValue(*a);
 }
 
-QCborValue* QCborValue_new13(const QCborMap* m) {
+QCborValue* QCborValue_new14(const QCborMap* m) {
     return new QCborValue(*m);
 }
 
-QCborValue* QCborValue_new14(uint64_t tag) {
+QCborValue* QCborValue_new15(uint64_t tag) {
     return new QCborValue(static_cast<QCborTag>(tag));
 }
 
-QCborValue* QCborValue_new15(int t_) {
+QCborValue* QCborValue_new16(int t_) {
     return new QCborValue(static_cast<QCborKnownTags>(t_));
 }
 
-QCborValue* QCborValue_new16(const QDateTime* dt) {
+QCborValue* QCborValue_new17(const QDateTime* dt) {
     return new QCborValue(*dt);
 }
 
-QCborValue* QCborValue_new17(const QUrl* url) {
+QCborValue* QCborValue_new18(const QUrl* url) {
     return new QCborValue(*url);
 }
 
-QCborValue* QCborValue_new18(const QRegularExpression* rx) {
+QCborValue* QCborValue_new19(const QRegularExpression* rx) {
     return new QCborValue(*rx);
 }
 
-QCborValue* QCborValue_new19(const QUuid* uuid) {
+QCborValue* QCborValue_new20(const QUuid* uuid) {
     return new QCborValue(*uuid);
 }
 
-QCborValue* QCborValue_new20(const QCborValue* other) {
+QCborValue* QCborValue_new21(const QCborValue* other) {
     return new QCborValue(*other);
 }
 
-QCborValue* QCborValue_new21(uint64_t tag, const QCborValue* taggedValue) {
+QCborValue* QCborValue_new22(uint64_t tag, const QCborValue* taggedValue) {
     return new QCborValue(static_cast<QCborTag>(tag), *taggedValue);
 }
 
-QCborValue* QCborValue_new22(int t_, const QCborValue* tv) {
+QCborValue* QCborValue_new23(int t_, const QCborValue* tv) {
     return new QCborValue(static_cast<QCborKnownTags>(t_), *tv);
 }
 
@@ -333,12 +336,22 @@ QCborValue* QCborValue_OperatorSubscript(const QCborValue* self, const libqt_str
     return new QCborValue(self->operator[](key_QString));
 }
 
+QCborValue* QCborValue_OperatorSubscript2(const QCborValue* self, libqt_string key) {
+    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
+    return new QCborValue(self->operator[](key_QString));
+}
+
 QCborValue* QCborValue_OperatorSubscript3(const QCborValue* self, long long key) {
     return new QCborValue(self->operator[](static_cast<qint64>(key)));
 }
 
 QCborValueRef* QCborValue_OperatorSubscript4(QCborValue* self, long long key) {
     return new QCborValueRef(self->operator[](static_cast<qint64>(key)));
+}
+
+QCborValueRef* QCborValue_OperatorSubscript5(QCborValue* self, libqt_string key) {
+    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
+    return new QCborValueRef(self->operator[](key_QString));
 }
 
 QCborValueRef* QCborValue_OperatorSubscript6(QCborValue* self, const libqt_string key) {
@@ -691,6 +704,11 @@ QCborValue* QCborValueConstRef_OperatorSubscript(const QCborValueConstRef* self,
     return new QCborValue(self->operator[](key_QString));
 }
 
+QCborValue* QCborValueConstRef_OperatorSubscript2(const QCborValueConstRef* self, libqt_string key) {
+    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
+    return new QCborValue(self->operator[](key_QString));
+}
+
 QCborValue* QCborValueConstRef_OperatorSubscript3(const QCborValueConstRef* self, long long key) {
     return new QCborValue(self->operator[](static_cast<qint64>(key)));
 }
@@ -846,6 +864,11 @@ void QCborValueRef_OperatorAssign2(QCborValueRef* self, const QCborValueRef* oth
 
 QCborValueRef* QCborValueRef_OperatorSubscript(QCborValueRef* self, long long key) {
     return new QCborValueRef(self->operator[](static_cast<qint64>(key)));
+}
+
+QCborValueRef* QCborValueRef_OperatorSubscript2(QCborValueRef* self, libqt_string key) {
+    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
+    return new QCborValueRef(self->operator[](key_QString));
 }
 
 QCborValueRef* QCborValueRef_OperatorSubscript3(QCborValueRef* self, const libqt_string key) {
@@ -1020,6 +1043,11 @@ QCborMap* QCborValueRef_ToMap2(const QCborValueRef* self, const QCborMap* m) {
 
 QCborValue* QCborValueRef_OperatorSubscript4(const QCborValueRef* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
+    return new QCborValue(self->operator[](key_QString));
+}
+
+QCborValue* QCborValueRef_OperatorSubscript5(const QCborValueRef* self, libqt_string key) {
+    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
     return new QCborValue(self->operator[](key_QString));
 }
 

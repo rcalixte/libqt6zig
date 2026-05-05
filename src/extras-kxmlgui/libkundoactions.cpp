@@ -2,8 +2,6 @@
 #include <KUndoActions>
 #include <QAction>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUndoStack>
 #include <kundoactions.h>
 #include "libkundoactions.h"

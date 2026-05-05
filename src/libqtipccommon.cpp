@@ -1,7 +1,5 @@
 #include <QNativeIpcKey>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qtipccommon.h>
 #include "libqtipccommon.h"
 #include "libqtipccommon.hxx"

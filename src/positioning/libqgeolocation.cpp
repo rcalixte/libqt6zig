@@ -4,8 +4,6 @@
 #include <QGeoShape>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qgeolocation.h>
 #include "libqgeolocation.h"

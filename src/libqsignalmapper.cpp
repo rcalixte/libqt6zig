@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QSignalMapper>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qsignalmapper.h>
 #include "libqsignalmapper.h"

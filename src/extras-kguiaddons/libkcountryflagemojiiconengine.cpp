@@ -8,8 +8,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kcountryflagemojiiconengine.h>
 #include "libkcountryflagemojiiconengine.h"
 #include "libkcountryflagemojiiconengine.hxx"

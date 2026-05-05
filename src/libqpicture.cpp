@@ -6,8 +6,6 @@
 #include <QPoint>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpicture.h>
 #include "libqpicture.h"
 #include "libqpicture.hxx"

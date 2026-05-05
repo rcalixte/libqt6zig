@@ -20,8 +20,6 @@
 #include <QRectF>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionGraphicsItem>
 #include <QSvgRenderer>
 #include <QTimerEvent>

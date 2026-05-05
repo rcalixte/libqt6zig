@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <knotificationjobuidelegate.h>
 #include "libknotificationjobuidelegate.h"
 #include "libknotificationjobuidelegate.hxx"

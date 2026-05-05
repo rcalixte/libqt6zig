@@ -3,8 +3,6 @@
 #include <QObject>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineNewWindowRequest>
 #include <QWebEnginePage>

@@ -23,8 +23,6 @@
 #include <QRegion>
 #include <QStaticText>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextItem>
 #include <QTextOption>
 #include <QTransform>

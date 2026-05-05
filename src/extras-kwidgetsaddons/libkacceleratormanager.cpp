@@ -1,8 +1,6 @@
 #include <KAcceleratorManager>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <kacceleratormanager.h>
 #include "libkacceleratormanager.h"

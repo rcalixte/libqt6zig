@@ -8,8 +8,6 @@
 #include <QJsonObject>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QVariant>
 #include <kaboutdata.h>

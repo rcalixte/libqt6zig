@@ -5,8 +5,6 @@
 #include <QChar>
 #include <QModelIndex>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <codecompletionmodelcontrollerinterface.h>
 #include "libcodecompletionmodelcontrollerinterface.h"
 #include "libcodecompletionmodelcontrollerinterface.hxx"

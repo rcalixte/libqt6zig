@@ -28,8 +28,6 @@
 #include <QRect>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <QWindow>
 #include <qaccessible.h>

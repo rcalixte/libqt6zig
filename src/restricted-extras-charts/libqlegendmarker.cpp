@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QPen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qlegendmarker.h>
 #include "libqlegendmarker.h"
 #include "libqlegendmarker.hxx"

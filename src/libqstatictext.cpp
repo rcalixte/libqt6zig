@@ -2,8 +2,6 @@
 #include <QSizeF>
 #include <QStaticText>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextOption>
 #include <QTransform>
 #include <qstatictext.h>

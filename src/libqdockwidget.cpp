@@ -29,8 +29,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionDockWidget>
 #include <QTabletEvent>
 #include <QTimerEvent>

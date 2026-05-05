@@ -2,8 +2,6 @@
 #include <QIcon>
 #include <QPushButton>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kguiitem.h>
 #include "libkguiitem.h"
 #include "libkguiitem.hxx"

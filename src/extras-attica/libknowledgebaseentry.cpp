@@ -2,8 +2,6 @@
 #include <QDateTime>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <knowledgebaseentry.h>
 #include "libknowledgebaseentry.h"

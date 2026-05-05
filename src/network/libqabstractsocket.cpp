@@ -10,8 +10,6 @@
 #include <QNetworkProxy>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qabstractsocket.h>

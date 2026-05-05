@@ -4,8 +4,6 @@
 #include <QList>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qcameradevice.h>
 #include "libqcameradevice.h"
 #include "libqcameradevice.hxx"

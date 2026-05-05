@@ -3,8 +3,6 @@
 #include <QGeoShape>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qgeopolygon.h>
 #include "libqgeopolygon.h"

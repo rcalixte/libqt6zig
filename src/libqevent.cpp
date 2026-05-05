@@ -54,8 +54,6 @@
 #include <QSizeF>
 #include <QStatusTipEvent>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTabletEvent>
 #include <QToolBarChangeEvent>
 #include <QTouchEvent>

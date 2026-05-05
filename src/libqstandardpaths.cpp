@@ -1,8 +1,6 @@
 #include <QList>
 #include <QStandardPaths>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qstandardpaths.h>
 #include "libqstandardpaths.h"
 #include "libqstandardpaths.hxx"

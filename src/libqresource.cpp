@@ -3,8 +3,6 @@
 #include <QLocale>
 #include <QResource>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qresource.h>
 #include "libqresource.h"
 #include "libqresource.hxx"

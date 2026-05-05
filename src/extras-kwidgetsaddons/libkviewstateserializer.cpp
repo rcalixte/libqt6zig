@@ -11,8 +11,6 @@
 #include <QObject>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <kviewstateserializer.h>
 #include "libkviewstateserializer.h"

@@ -5,8 +5,6 @@
 #include <QObject>
 #include <QPlaceReply>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplacereply.h>
 #include "libqplacereply.h"

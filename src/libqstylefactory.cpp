@@ -1,7 +1,5 @@
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyle>
 #include <QStyleFactory>
 #include <qstylefactory.h>

@@ -4,8 +4,6 @@
 #include <QList>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qcolorspace.h>
 #include "libqcolorspace.h"

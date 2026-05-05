@@ -9,8 +9,6 @@
 #include <QRectF>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSvgRenderer>
 #include <QTimerEvent>
 #include <QTransform>

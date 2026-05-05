@@ -2,8 +2,6 @@
 #include <QList>
 #include <QMetaObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <searchrequest.h>
 #include "libsearchrequest.h"
 #include "libsearchrequest.hxx"

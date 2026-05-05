@@ -5,8 +5,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qbarmodelmapper.h>
 #include "libqbarmodelmapper.h"
 #include "libqbarmodelmapper.hxx"

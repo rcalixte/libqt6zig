@@ -6,8 +6,6 @@
 #include <QSqlDriver>
 #include <QSqlDriverPlugin>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qsqldriverplugin.h>
 #include "libqsqldriverplugin.h"

@@ -15,8 +15,6 @@
 #include <QMethodRawArguments>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qobjectdefs.h>
 #include "libqobjectdefs.h"
 #include "libqobjectdefs.hxx"

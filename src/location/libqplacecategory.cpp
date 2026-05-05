@@ -1,8 +1,6 @@
 #include <QPlaceCategory>
 #include <QPlaceIcon>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qplacecategory.h>
 #include "libqplacecategory.h"
 #include "libqplacecategory.hxx"

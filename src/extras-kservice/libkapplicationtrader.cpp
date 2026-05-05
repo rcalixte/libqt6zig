@@ -1,7 +1,5 @@
 #include <KApplicationTrader>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kapplicationtrader.h>
 #include "libkapplicationtrader.h"
 #include "libkapplicationtrader.hxx"

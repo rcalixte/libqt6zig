@@ -1,8 +1,6 @@
 #include <QDBusError>
 #include <QDBusMessage>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qdbuserror.h>
 #include "libqdbuserror.h"
 #include "libqdbuserror.hxx"

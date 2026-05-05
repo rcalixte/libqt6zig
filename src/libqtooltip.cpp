@@ -3,8 +3,6 @@
 #include <QPoint>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QToolTip>
 #include <QWidget>
 #include <qtooltip.h>

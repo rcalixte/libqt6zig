@@ -8,8 +8,6 @@
 #include <QSize>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextOption>
 #include <qfontmetrics.h>
 #include "libqfontmetrics.h"

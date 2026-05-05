@@ -10,8 +10,6 @@
 #include <QPainter>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOption>
 #include <abstractannotationitemdelegate.h>
 #include "libabstractannotationitemdelegate.h"

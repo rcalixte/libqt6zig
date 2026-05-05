@@ -5,8 +5,6 @@
 #include <QJsonParseError>
 #include <QJsonValue>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qjsondocument.h>
 #include "libqjsondocument.h"
@@ -136,6 +134,11 @@ void QJsonDocument_SetArray(QJsonDocument* self, const QJsonArray* array) {
 
 QJsonValue* QJsonDocument_OperatorSubscript(const QJsonDocument* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
+    return new QJsonValue(self->operator[](key_QString));
+}
+
+QJsonValue* QJsonDocument_OperatorSubscript3(const QJsonDocument* self, libqt_string key) {
+    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
     return new QJsonValue(self->operator[](key_QString));
 }
 

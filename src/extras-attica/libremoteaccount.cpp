@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__RemoteAccount
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <remoteaccount.h>
 #include "libremoteaccount.h"
 #include "libremoteaccount.hxx"

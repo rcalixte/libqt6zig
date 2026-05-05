@@ -7,8 +7,6 @@
 #include <QScreen>
 #include <QScreenCapture>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qscreencapture.h>
 #include "libqscreencapture.h"

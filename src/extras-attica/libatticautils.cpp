@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Utils
 #include <QDateTime>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <atticautils.h>
 #include "libatticautils.h"
 #include "libatticautils.hxx"

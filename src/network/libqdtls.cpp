@@ -14,8 +14,6 @@
 #include <QSslError>
 #include <QSslPreSharedKeyAuthenticator>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUdpSocket>
 #include <qdtls.h>

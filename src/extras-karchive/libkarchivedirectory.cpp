@@ -5,8 +5,6 @@
 #include <QDateTime>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <karchivedirectory.h>
 #include "libkarchivedirectory.h"
 #include "libkarchivedirectory.hxx"

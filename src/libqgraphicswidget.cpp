@@ -33,8 +33,6 @@
 #include <QShowEvent>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyle>
 #include <QStyleOption>
 #include <QStyleOptionGraphicsItem>

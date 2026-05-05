@@ -4,8 +4,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qfuturewatcher.h>
 #include "libqfuturewatcher.h"
 #include "libqfuturewatcher.hxx"

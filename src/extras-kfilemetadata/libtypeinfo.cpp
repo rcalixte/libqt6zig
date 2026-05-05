@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KFileMetaData__TypeInfo
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <typeinfo.h>
 #include "libtypeinfo.h"
 #include "libtypeinfo.hxx"

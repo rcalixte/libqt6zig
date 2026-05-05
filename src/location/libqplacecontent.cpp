@@ -3,8 +3,6 @@
 #include <QPlaceSupplier>
 #include <QPlaceUser>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qplacecontent.h>
 #include "libqplacecontent.h"

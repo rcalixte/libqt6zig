@@ -2,8 +2,6 @@
 #include <QChar>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <kurifilter.h>
 #include "libkurifilter.h"

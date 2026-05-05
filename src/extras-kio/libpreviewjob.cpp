@@ -13,8 +13,6 @@
 #include <QPixmap>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <previewjob.h>

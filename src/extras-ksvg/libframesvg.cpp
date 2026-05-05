@@ -12,8 +12,6 @@
 #include <QRegion>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <framesvg.h>
 #include "libframesvg.h"

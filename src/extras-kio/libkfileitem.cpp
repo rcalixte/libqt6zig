@@ -6,8 +6,6 @@
 #include <QList>
 #include <QMimeType>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QVariant>
 #include <kfileitem.h>

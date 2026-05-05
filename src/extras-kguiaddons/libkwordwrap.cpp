@@ -3,8 +3,6 @@
 #include <QPainter>
 #include <QRect>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kwordwrap.h>
 #include "libkwordwrap.h"
 #include "libkwordwrap.hxx"

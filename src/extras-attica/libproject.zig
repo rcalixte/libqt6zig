@@ -437,6 +437,7 @@ pub const Attica__Project = extern struct {
     pub fn ExtendedAttributes(self: Attica__Project, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.Attica__Project_ExtendedAttributes(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("attica__project.ExtendedAttributes: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -457,7 +458,7 @@ pub const Attica__Project = extern struct {
             const _value = _values[i];
             const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica__project.ExtendedAttributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _entry_slice, _value_slice) catch @panic("attica__project.ExtendedAttributes: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }

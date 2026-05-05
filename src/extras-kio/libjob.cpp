@@ -1,7 +1,5 @@
 #include <QByteArray>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <job.h>
 #include "libjob.h"

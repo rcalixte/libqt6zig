@@ -6,8 +6,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <content.h>
 #include "libcontent.h"

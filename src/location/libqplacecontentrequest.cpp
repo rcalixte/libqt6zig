@@ -1,7 +1,5 @@
 #include <QPlaceContentRequest>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qplacecontentrequest.h>
 #include "libqplacecontentrequest.h"

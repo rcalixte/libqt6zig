@@ -3,8 +3,6 @@
 #include <QList>
 #include <QMultiMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <simpleextractionresult.h>
 #include "libsimpleextractionresult.h"

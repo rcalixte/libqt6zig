@@ -1,8 +1,6 @@
 #include <KFileItem>
 #include <QMimeData>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <paste.h>
 #include "libpaste.h"
 #include "libpaste.hxx"

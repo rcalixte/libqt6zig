@@ -8,8 +8,6 @@
 #include <QSslEllipticCurve>
 #include <QSslKey>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qsslconfiguration.h>
 #include "libqsslconfiguration.h"

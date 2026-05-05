@@ -2,8 +2,6 @@
 #include <QIODevice>
 #include <QSslDiffieHellmanParameters>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qssldiffiehellmanparameters.h>
 #include "libqssldiffiehellmanparameters.h"
 #include "libqssldiffiehellmanparameters.hxx"

@@ -7,8 +7,6 @@
 #include <QPoint>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTransform>
 #include <QVariant>
 #include <qbitmap.h>

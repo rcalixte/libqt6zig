@@ -1,8 +1,6 @@
 #include <QSslCertificate>
 #include <QSslError>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qsslerror.h>
 #include "libqsslerror.h"
 #include "libqsslerror.hxx"

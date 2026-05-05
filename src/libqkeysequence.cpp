@@ -2,8 +2,6 @@
 #include <QKeySequence>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qkeysequence.h>
 #include "libqkeysequence.h"

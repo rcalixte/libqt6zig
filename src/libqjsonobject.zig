@@ -104,6 +104,7 @@ pub const QJsonObject = extern struct {
     pub fn ToVariantMap(self: QJsonObject, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qjsonobject.ToVariantMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -120,7 +121,7 @@ pub const QJsonObject = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qjsonobject.ToVariantMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qjsonobject.ToVariantMap: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -168,6 +169,7 @@ pub const QJsonObject = extern struct {
     pub fn ToVariantHash(self: QJsonObject, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qjsonobject.ToVariantHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -184,7 +186,7 @@ pub const QJsonObject = extern struct {
             const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qjsonobject.ToVariantHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            _ret.put(allocator, _entry_slice, .{ .ptr = @ptrCast(_value) }) catch @panic("qjsonobject.ToVariantHash: Memory allocation failed");
+            _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
@@ -303,6 +305,54 @@ pub const QJsonObject = extern struct {
         return .{ .ptr = qtc.QJsonObject_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Value3(self: QJsonObject, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Value3(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript4(self: QJsonObject, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_OperatorSubscript4(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn OperatorSubscript6(self: QJsonObject, key: []const u8) QJsonValueRef {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_OperatorSubscript6(@ptrCast(self.ptr), key_str) };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#remove)
     ///
     /// ## Parameter(s):
@@ -349,6 +399,54 @@ pub const QJsonObject = extern struct {
             .data = key.ptr,
         };
         return qtc.QJsonObject_Contains(@ptrCast(self.ptr), key_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#remove)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Remove3(self: QJsonObject, key: []const u8) void {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QJsonObject_Remove3(@ptrCast(self.ptr), key_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#take)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Take3(self: QJsonObject, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Take3(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Contains3(self: QJsonObject, key: []const u8) bool {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QJsonObject_Contains3(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#begin)
@@ -489,6 +587,73 @@ pub const QJsonObject = extern struct {
         };
         comptime _ = @TypeOf(value)._is_QJsonValue;
         return .{ .ptr = qtc.QJsonObject_Insert(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Find4(self: QJsonObject, key: []const u8) QJsonObject__iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Find4(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn Find6(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Find6(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constFind)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn ConstFind3(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_ConstFind3(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#insert)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` value: QJsonValue `
+    ///
+    pub fn Insert3(self: QJsonObject, key: []const u8, value: anytype) QJsonObject__iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        comptime _ = @TypeOf(value)._is_QJsonValue;
+        return .{ .ptr = qtc.QJsonObject_Insert3(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#empty)

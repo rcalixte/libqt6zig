@@ -1,8 +1,6 @@
 #include <QByteArray>
 #include <QMultiMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineLoadingInfo>
 #include <qwebengineloadinginfo.h>

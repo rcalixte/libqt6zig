@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QRegularExpressionMatch>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <kfind.h>

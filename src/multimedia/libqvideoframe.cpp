@@ -5,8 +5,6 @@
 #include <QRectF>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVideoFrame>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QVideoFrame__PaintOptions
 #include <QVideoFrameFormat>

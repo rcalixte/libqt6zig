@@ -14,8 +14,6 @@
 #include <QRegularExpression>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTextBlock>
 #include <QTextCursor>
 #include <QTextDocument>

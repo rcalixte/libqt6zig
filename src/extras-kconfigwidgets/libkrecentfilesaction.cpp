@@ -11,8 +11,6 @@
 #include <QMimeType>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QUrl>
 #include <QWidget>

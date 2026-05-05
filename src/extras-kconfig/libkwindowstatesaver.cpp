@@ -6,8 +6,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWindow>
 #include <kwindowstatesaver.h>
 #include "libkwindowstatesaver.h"

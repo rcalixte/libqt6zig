@@ -118,13 +118,27 @@ pub const QColor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` spec: qcolor_enums.Spec `
+    /// ` name: []const u8 `
     ///
-    pub fn New10(spec: i32) QColor {
-        return .{ .ptr = qtc.QColor_new10(@bitCast(spec)) };
+    pub fn New10(name: []const u8) QColor {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QColor_new10(name_str) };
     }
 
     /// New11 constructs a new QColor object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` spec: qcolor_enums.Spec `
+    ///
+    pub fn New11(spec: i32) QColor {
+        return .{ .ptr = qtc.QColor_new11(@bitCast(spec)) };
+    }
+
+    /// New12 constructs a new QColor object.
     ///
     /// ## Parameter(s):
     ///
@@ -138,22 +152,22 @@ pub const QColor = extern struct {
     ///
     /// ` a4: u16 `
     ///
-    pub fn New11(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16) QColor {
-        return .{ .ptr = qtc.QColor_new11(@bitCast(spec), @bitCast(a1), @bitCast(a2), @bitCast(a3), @bitCast(a4)) };
+    pub fn New12(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16) QColor {
+        return .{ .ptr = qtc.QColor_new12(@bitCast(spec), @bitCast(a1), @bitCast(a2), @bitCast(a3), @bitCast(a4)) };
     }
 
-    /// New12 constructs a new QColor object.
+    /// New13 constructs a new QColor object.
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QColor `
     ///
-    pub fn New12(param1: anytype) QColor {
+    pub fn New13(param1: anytype) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
-        return .{ .ptr = qtc.QColor_new12(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QColor_new13(@ptrCast(param1.ptr)) };
     }
 
-    /// New13 constructs a new QColor object.
+    /// New14 constructs a new QColor object.
     ///
     /// ## Parameter(s):
     ///
@@ -165,11 +179,11 @@ pub const QColor = extern struct {
     ///
     /// ` a: i32 `
     ///
-    pub fn New13(r: i32, g: i32, b: i32, a: i32) QColor {
-        return .{ .ptr = qtc.QColor_new13(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a)) };
+    pub fn New14(r: i32, g: i32, b: i32, a: i32) QColor {
+        return .{ .ptr = qtc.QColor_new14(@bitCast(r), @bitCast(g), @bitCast(b), @bitCast(a)) };
     }
 
-    /// New14 constructs a new QColor object.
+    /// New15 constructs a new QColor object.
     ///
     /// ## Parameter(s):
     ///
@@ -185,8 +199,8 @@ pub const QColor = extern struct {
     ///
     /// ` a5: u16 `
     ///
-    pub fn New14(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16, a5: u16) QColor {
-        return .{ .ptr = qtc.QColor_new14(@bitCast(spec), @bitCast(a1), @bitCast(a2), @bitCast(a3), @bitCast(a4), @bitCast(a5)) };
+    pub fn New15(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16, a5: u16) QColor {
+        return .{ .ptr = qtc.QColor_new15(@bitCast(spec), @bitCast(a1), @bitCast(a2), @bitCast(a3), @bitCast(a4), @bitCast(a5)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -275,6 +289,22 @@ pub const QColor = extern struct {
             .data = name.ptr,
         };
         qtc.QColor_SetNamedColor(@ptrCast(self.ptr), name_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#setNamedColor)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColor `
+    ///
+    /// ` name: []const u8 `
+    ///
+    pub fn SetNamedColor3(self: QColor, name: []const u8) void {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QColor_SetNamedColor3(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#colorNames)

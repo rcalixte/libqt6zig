@@ -17,8 +17,6 @@
 #include <QScreen>
 #include <QSessionManager>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleHints>
 #include <QTimerEvent>
 #include <QWindow>

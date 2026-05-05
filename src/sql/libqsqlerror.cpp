@@ -1,7 +1,5 @@
 #include <QSqlError>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qsqlerror.h>
 #include "libqsqlerror.h"
 #include "libqsqlerror.hxx"

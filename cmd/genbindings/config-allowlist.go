@@ -63,8 +63,6 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"qt_windows.h",                    // Clang error
 		"qmaccocoaviewcontainer_mac.h",    // Needs NSView* headers. TODO allow with darwin build tag
 		"qmacnativewidget_mac.h",          // Needs NSView* headers. TODO allow with darwin build tag
-		"qstring.h",                       // QString does not exist in this binding
-		"qbytearray.h",                    // QByteArray does not exist in this binding
 		"qlist.h",                         // QList does not exist in this binding
 		"qspan.h",                         // QSpan does not exist in this binding
 		"qvector.h",                       // QVector does not exist in this binding
@@ -319,8 +317,8 @@ func AllowMethod(className string, mm CppMethod) error {
 			return ErrTooComplex // Skip private type
 		}
 
-		if mm.Parameters[i].ParameterType == "..." {
-			return ErrTooComplex // Skip variadic parameter
+		if mm.Parameters[i].ParameterType == "..." || mm.Parameters[i].ParameterType == "__va_list_tag" {
+			return ErrTooComplex // Skip variadic parameters
 		}
 	}
 
@@ -503,6 +501,10 @@ func AllowCtor(className string) bool {
 
 	// Qt 6 Poppler
 	if className == "Poppler::MediaRendition" {
+		return false
+	}
+
+	if isBindingRemoved(className) {
 		return false
 	}
 
@@ -752,7 +754,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPolygon", "QPolygonF", // QPolygon extends a template type
 		"QGenericMatrix", "QMatrix3x3", // extends a template type
 		"QLatin1String", "QStringView", // e.g. QColor constructors and QColor::SetNamedColor() overloads. These are usually optional alternatives to QString
-		"QLatin1StringView",               // Qt 6 - used in qanystringview
 		"QUtf8StringView",                 // Qt 6 - used in qdebug
 		"QStringRef",                      // e.g. QLocale::toLongLong and similar overloads. As above
 		"qfloat16",                        // e.g. QDataStream - there is no such half-float type in C or Go

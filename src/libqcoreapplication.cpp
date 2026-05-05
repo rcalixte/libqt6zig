@@ -10,8 +10,6 @@
 #include <QObject>
 #include <QPermission>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QTranslator>
 #include <qcoreapplication.h>

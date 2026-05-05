@@ -30,8 +30,6 @@
 #include <QShowEvent>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QStyleOptionToolButton>
 #include <QTabletEvent>
 #include <QTimerEvent>

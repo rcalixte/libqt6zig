@@ -2,8 +2,6 @@
 #include <QObject>
 #include <QPoint>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWhatsThis>
 #include <QWidget>
 #include <qwhatsthis.h>

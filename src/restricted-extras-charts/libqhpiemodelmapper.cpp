@@ -8,8 +8,6 @@
 #include <QPieModelMapper>
 #include <QPieSeries>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qhpiemodelmapper.h>
 #include "libqhpiemodelmapper.h"

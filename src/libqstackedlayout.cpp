@@ -10,8 +10,6 @@
 #include <QSpacerItem>
 #include <QStackedLayout>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <QWidget>
 #include <qstackedlayout.h>

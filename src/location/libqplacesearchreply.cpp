@@ -9,8 +9,6 @@
 #include <QPlaceSearchRequest>
 #include <QPlaceSearchResult>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qplacesearchreply.h>
 #include "libqplacesearchreply.h"

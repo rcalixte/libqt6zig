@@ -4,8 +4,6 @@
 #include <QLatin1Char>
 #include <QLatin1String>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qlatin1stringview.h>
 #include "libqlatin1stringview.h"
 #include "libqlatin1stringview.hxx"
@@ -120,12 +118,22 @@ QLatin1Char* QLatin1String_Back(const QLatin1String* self) {
     return new QLatin1Char(self->back());
 }
 
+int QLatin1String_Compare2(const QLatin1String* self, libqt_string other) {
+    QLatin1StringView other_QString = QLatin1StringView(other.data, other.len);
+    return self->compare(other_QString);
+}
+
 int QLatin1String_Compare4(const QLatin1String* self, QChar* c) {
     return self->compare(*c);
 }
 
 int QLatin1String_Compare5(const QLatin1String* self, QChar* c, int cs) {
     return self->compare(*c, static_cast<Qt::CaseSensitivity>(cs));
+}
+
+bool QLatin1String_StartsWith2(const QLatin1String* self, libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return self->startsWith(s_QString);
 }
 
 bool QLatin1String_StartsWith3(const QLatin1String* self, QChar* c) {
@@ -136,6 +144,11 @@ bool QLatin1String_StartsWith4(const QLatin1String* self, QChar* c, int cs) {
     return self->startsWith(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
+bool QLatin1String_EndsWith2(const QLatin1String* self, libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return self->endsWith(s_QString);
+}
+
 bool QLatin1String_EndsWith3(const QLatin1String* self, QChar* c) {
     return self->endsWith(*c);
 }
@@ -144,12 +157,32 @@ bool QLatin1String_EndsWith4(const QLatin1String* self, QChar* c, int cs) {
     return self->endsWith(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
+ptrdiff_t QLatin1String_IndexOf2(const QLatin1String* self, libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->indexOf(s_QString));
+}
+
 ptrdiff_t QLatin1String_IndexOf3(const QLatin1String* self, QChar* c) {
     return static_cast<ptrdiff_t>(self->indexOf(*c));
 }
 
+bool QLatin1String_Contains2(const QLatin1String* self, libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return self->contains(s_QString);
+}
+
 bool QLatin1String_Contains3(const QLatin1String* self, QChar* c) {
     return self->contains(*c);
+}
+
+ptrdiff_t QLatin1String_LastIndexOf3(const QLatin1String* self, libqt_string s) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->lastIndexOf(s_QString));
+}
+
+ptrdiff_t QLatin1String_LastIndexOf4(const QLatin1String* self, libqt_string s, ptrdiff_t from) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->lastIndexOf(s_QString, (qsizetype)(from)));
 }
 
 ptrdiff_t QLatin1String_LastIndexOf5(const QLatin1String* self, QChar* c) {
@@ -158,6 +191,11 @@ ptrdiff_t QLatin1String_LastIndexOf5(const QLatin1String* self, QChar* c) {
 
 ptrdiff_t QLatin1String_LastIndexOf6(const QLatin1String* self, QChar* c, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c, (qsizetype)(from)));
+}
+
+ptrdiff_t QLatin1String_Count2(const QLatin1String* self, libqt_string str) {
+    QLatin1StringView str_QString = QLatin1StringView(str.data, str.len);
+    return static_cast<ptrdiff_t>(self->count(str_QString));
 }
 
 ptrdiff_t QLatin1String_Count3(const QLatin1String* self, QChar* ch) {
@@ -232,12 +270,169 @@ ptrdiff_t QLatin1String_MaxSize2() {
     return static_cast<ptrdiff_t>(QLatin1String::maxSize());
 }
 
+libqt_string QLatin1String_Mid(const QLatin1String* self, ptrdiff_t pos) {
+    QString _ret = self->mid((qsizetype)(pos));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Left(const QLatin1String* self, ptrdiff_t n) {
+    QString _ret = self->left((qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Right(const QLatin1String* self, ptrdiff_t n) {
+    QString _ret = self->right((qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Sliced(const QLatin1String* self, ptrdiff_t pos) {
+    QString _ret = self->sliced((qsizetype)(pos));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Sliced2(const QLatin1String* self, ptrdiff_t pos, ptrdiff_t n) {
+    QString _ret = self->sliced((qsizetype)(pos), (qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_First2(const QLatin1String* self, ptrdiff_t n) {
+    QString _ret = self->first((qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Last2(const QLatin1String* self, ptrdiff_t n) {
+    QString _ret = self->last((qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Chopped(const QLatin1String* self, ptrdiff_t n) {
+    QString _ret = self->chopped((qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Slice(QLatin1String* self, ptrdiff_t pos) {
+    QString _ret = self->slice((qsizetype)(pos));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QLatin1String_Slice2(QLatin1String* self, ptrdiff_t pos, ptrdiff_t n) {
+    QString _ret = self->slice((qsizetype)(pos), (qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QLatin1String_Chop(QLatin1String* self, ptrdiff_t n) {
     self->chop((qsizetype)(n));
 }
 
 void QLatin1String_Truncate(QLatin1String* self, ptrdiff_t n) {
     self->truncate((qsizetype)(n));
+}
+
+libqt_string QLatin1String_Trimmed(const QLatin1String* self) {
+    QString _ret = self->trimmed();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+int QLatin1String_Compare23(const QLatin1String* self, libqt_string other, int cs) {
+    QLatin1StringView other_QString = QLatin1StringView(other.data, other.len);
+    return self->compare(other_QString, static_cast<Qt::CaseSensitivity>(cs));
+}
+
+bool QLatin1String_StartsWith23(const QLatin1String* self, libqt_string s, int cs) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return self->startsWith(s_QString, static_cast<Qt::CaseSensitivity>(cs));
+}
+
+bool QLatin1String_EndsWith23(const QLatin1String* self, libqt_string s, int cs) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return self->endsWith(s_QString, static_cast<Qt::CaseSensitivity>(cs));
+}
+
+ptrdiff_t QLatin1String_IndexOf23(const QLatin1String* self, libqt_string s, ptrdiff_t from) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->indexOf(s_QString, (qsizetype)(from)));
+}
+
+ptrdiff_t QLatin1String_IndexOf33(const QLatin1String* self, libqt_string s, ptrdiff_t from, int cs) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->indexOf(s_QString, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
 ptrdiff_t QLatin1String_IndexOf24(const QLatin1String* self, QChar* c, ptrdiff_t from) {
@@ -248,8 +443,23 @@ ptrdiff_t QLatin1String_IndexOf34(const QLatin1String* self, QChar* c, ptrdiff_t
     return static_cast<ptrdiff_t>(self->indexOf(*c, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
+bool QLatin1String_Contains23(const QLatin1String* self, libqt_string s, int cs) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return self->contains(s_QString, static_cast<Qt::CaseSensitivity>(cs));
+}
+
 bool QLatin1String_Contains24(const QLatin1String* self, QChar* c, int cs) {
     return self->contains(*c, static_cast<Qt::CaseSensitivity>(cs));
+}
+
+ptrdiff_t QLatin1String_LastIndexOf23(const QLatin1String* self, libqt_string s, int cs) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->lastIndexOf(s_QString, static_cast<Qt::CaseSensitivity>(cs)));
+}
+
+ptrdiff_t QLatin1String_LastIndexOf33(const QLatin1String* self, libqt_string s, ptrdiff_t from, int cs) {
+    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+    return static_cast<ptrdiff_t>(self->lastIndexOf(s_QString, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
 ptrdiff_t QLatin1String_LastIndexOf24(const QLatin1String* self, QChar* c, int cs) {
@@ -258,6 +468,11 @@ ptrdiff_t QLatin1String_LastIndexOf24(const QLatin1String* self, QChar* c, int c
 
 ptrdiff_t QLatin1String_LastIndexOf34(const QLatin1String* self, QChar* c, ptrdiff_t from, int cs) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
+}
+
+ptrdiff_t QLatin1String_Count23(const QLatin1String* self, libqt_string str, int cs) {
+    QLatin1StringView str_QString = QLatin1StringView(str.data, str.len);
+    return static_cast<ptrdiff_t>(self->count(str_QString, static_cast<Qt::CaseSensitivity>(cs)));
 }
 
 ptrdiff_t QLatin1String_Count24(const QLatin1String* self, QChar* ch, int cs) {
@@ -334,6 +549,18 @@ float QLatin1String_ToFloat1(const QLatin1String* self, bool* ok) {
 
 double QLatin1String_ToDouble1(const QLatin1String* self, bool* ok) {
     return self->toDouble(ok);
+}
+
+libqt_string QLatin1String_Mid2(const QLatin1String* self, ptrdiff_t pos, ptrdiff_t n) {
+    QString _ret = self->mid((qsizetype)(pos), (qsizetype)(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QLatin1String_Delete(QLatin1String* self) {

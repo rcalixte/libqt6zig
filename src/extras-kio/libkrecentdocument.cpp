@@ -2,8 +2,6 @@
 #include <QDateTime>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <krecentdocument.h>
 #include "libkrecentdocument.h"

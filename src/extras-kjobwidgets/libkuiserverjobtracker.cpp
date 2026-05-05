@@ -6,8 +6,6 @@
 #include <QObject>
 #include <QPair>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kuiserverjobtracker.h>
 #include "libkuiserverjobtracker.h"
 #include "libkuiserverjobtracker.hxx"

@@ -10,8 +10,6 @@
 #include <QSslError>
 #include <QSslPreSharedKeyAuthenticator>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTcpSocket>
 #include <QTimerEvent>
 #include <QUrl>

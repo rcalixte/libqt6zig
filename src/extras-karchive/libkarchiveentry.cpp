@@ -2,8 +2,6 @@
 #include <KArchiveEntry>
 #include <QDateTime>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <karchiveentry.h>
 #include "libkarchiveentry.h"
 #include "libkarchiveentry.hxx"

@@ -1,7 +1,5 @@
 #include <KNotifyConfig>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <knotifyconfig.h>
 #include "libknotifyconfig.h"
 #include "libknotifyconfig.hxx"

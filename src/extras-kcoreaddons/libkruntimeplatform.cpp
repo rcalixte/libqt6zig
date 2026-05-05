@@ -1,8 +1,6 @@
 #include <KRuntimePlatform>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kruntimeplatform.h>
 #include "libkruntimeplatform.h"
 #include "libkruntimeplatform.hxx"

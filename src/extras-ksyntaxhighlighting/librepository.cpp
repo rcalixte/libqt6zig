@@ -9,8 +9,6 @@
 #include <QObject>
 #include <QPalette>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <repository.h>
 #include "librepository.h"

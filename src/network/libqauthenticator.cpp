@@ -1,8 +1,6 @@
 #include <QAuthenticator>
 #include <QHash>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qauthenticator.h>
 #include "libqauthenticator.h"

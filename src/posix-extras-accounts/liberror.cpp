@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Accounts__Error
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <error.h>
 #include "liberror.h"
 #include "liberror.hxx"

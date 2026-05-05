@@ -4,8 +4,6 @@
 #include <QIcon>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <customwidget.h>
 #include "libcustomwidget.h"

@@ -8,8 +8,6 @@
 #include <QPen>
 #include <QPointF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <kplotobject.h>
 #include "libkplotobject.h"
 #include "libkplotobject.hxx"

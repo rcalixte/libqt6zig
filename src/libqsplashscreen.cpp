@@ -31,8 +31,6 @@
 #include <QSize>
 #include <QSplashScreen>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTabletEvent>
 #include <QTimerEvent>
 #include <QVariant>

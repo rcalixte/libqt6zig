@@ -1,4 +1,3 @@
-#include <QAnyStringView>
 #include <QByteArray>
 #include <QByteArrayView>
 #include <QHttpHeaders>
@@ -16,8 +15,6 @@
 #include <QSslError>
 #include <QSslPreSharedKeyAuthenticator>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QVariant>
 #include <qnetworkreply.h>

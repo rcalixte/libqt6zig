@@ -4,8 +4,6 @@
 #include <QList>
 #include <QLocale>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimeZone>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QTimeZone__OffsetData
 #include <qtimezone.h>

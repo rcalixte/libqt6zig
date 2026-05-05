@@ -1,7 +1,5 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_Attica__PublisherField
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <publisherfield.h>
 #include "libpublisherfield.h"
 #include "libpublisherfield.hxx"

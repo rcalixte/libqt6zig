@@ -4,8 +4,6 @@
 #include <QSize>
 #include <QSizeF>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qpagesize.h>
 #include "libqpagesize.h"
 #include "libqpagesize.hxx"

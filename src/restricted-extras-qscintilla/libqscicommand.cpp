@@ -1,6 +1,4 @@
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qscicommand.h>
 #include "libqscicommand.h"
 #include "libqscicommand.hxx"

@@ -171,6 +171,7 @@ pub const KFileMetaData__WriteData = extern struct {
     pub fn Properties(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_SliceQVariant {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQVariant = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kfilemetadata__writedata.Properties: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -189,7 +190,7 @@ pub const KFileMetaData__WriteData = extern struct {
             const _value_data: [*]QtC.QVariant = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
-            _ret.put(allocator, _key, _value_slice) catch @panic("kfilemetadata__writedata.Properties: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
@@ -209,6 +210,7 @@ pub const KFileMetaData__WriteData = extern struct {
     pub fn ImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_ImageData(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_u8 = .empty;
+        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kfilemetadata__writedata.ImageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -225,7 +227,7 @@ pub const KFileMetaData__WriteData = extern struct {
             const _value = _values[i];
             const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kfilemetadata__writedata.ImageData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
-            _ret.put(allocator, _key, _value_slice) catch @panic("kfilemetadata__writedata.ImageData: Memory allocation failed");
+            _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }

@@ -7,8 +7,6 @@
 #include <QScreen>
 #include <QSize>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QSurface>
 #include <QSurfaceFormat>
 #include <QTimerEvent>

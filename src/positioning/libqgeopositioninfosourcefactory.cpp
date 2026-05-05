@@ -5,8 +5,6 @@
 #include <QMap>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qgeopositioninfosourcefactory.h>
 #include "libqgeopositioninfosourcefactory.h"

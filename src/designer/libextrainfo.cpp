@@ -1,8 +1,6 @@
 #include <QDesignerExtraInfoExtension>
 #include <QDesignerFormEditorInterface>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <extrainfo.h>
 #include "libextrainfo.h"

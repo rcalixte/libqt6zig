@@ -7,8 +7,6 @@
 #include <QList>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QWidget>
 #include <qdesigner_components.h>
 #include "libqdesigner_components.h"

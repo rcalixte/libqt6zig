@@ -7,8 +7,6 @@
 #include <QObject>
 #include <QParallelAnimationGroup>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <qparallelanimationgroup.h>
 #include "libqparallelanimationgroup.h"

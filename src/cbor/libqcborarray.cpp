@@ -7,8 +7,6 @@
 #include <QJsonArray>
 #include <QList>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QVariant>
 #include <qcborarray.h>
 #include "libqcborarray.h"

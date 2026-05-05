@@ -249,9 +249,10 @@ pub const Solid__Predicate = extern struct {
     pub fn UsedTypes(self: Solid__Predicate, allocator: std.mem.Allocator) Set_i32 {
         const _set: qtc.libqt_list = qtc.Solid__Predicate_UsedTypes(@ptrCast(self.ptr));
         var _ret: Set_i32 = .empty;
+        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("solid__predicate.UsedTypes: Total capacity allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.put(allocator, _data[i], {}) catch @panic("solid__predicate.UsedTypes: Set insertion failed");
+            _ret.putAssumeCapacity(_data[i], {});
         return _ret;
     }
 

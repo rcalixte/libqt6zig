@@ -2,8 +2,6 @@
 #include <QList>
 #include <QMap>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <QWebEngineHttpRequest>
 #include <qwebenginehttprequest.h>

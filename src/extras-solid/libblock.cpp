@@ -2,8 +2,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__Block
 #define WORKAROUND_INNER_CLASS_DEFINITION_Solid__DeviceInterface
 #include <block.h>

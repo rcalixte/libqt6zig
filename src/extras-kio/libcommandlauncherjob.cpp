@@ -9,8 +9,6 @@
 #include <QObject>
 #include <QProcessEnvironment>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QTimerEvent>
 #include <commandlauncherjob.h>
 #include "libcommandlauncherjob.h"

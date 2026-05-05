@@ -9,8 +9,6 @@
 #include <QMetaObject>
 #include <QObject>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QUrl>
 #include <mimetypejob.h>
 #include "libmimetypejob.h"

@@ -2,8 +2,6 @@
 #include <QGeoRectangle>
 #include <QGeoShape>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <qgeoshape.h>
 #include "libqgeoshape.h"
 #include "libqgeoshape.hxx"

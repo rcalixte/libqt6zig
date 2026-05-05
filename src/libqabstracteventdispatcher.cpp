@@ -11,8 +11,6 @@
 #include <QObject>
 #include <QSocketNotifier>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <QThread>
 #include <qabstracteventdispatcher.h>
 #include "libqabstracteventdispatcher.h"

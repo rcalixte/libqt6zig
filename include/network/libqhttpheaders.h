@@ -15,7 +15,6 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-typedef struct QAnyStringView QAnyStringView;
 typedef struct QByteArrayView QByteArrayView;
 typedef struct QHttpHeaders QHttpHeaders;
 #endif
@@ -43,6 +42,7 @@ libqt_string QHttpHeaders_Value2(const QHttpHeaders* self, int name);
 libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, const char* name);
 libqt_list /* of libqt_string */ QHttpHeaders_Values2(const QHttpHeaders* self, int name);
 libqt_string QHttpHeaders_ValueAt(const QHttpHeaders* self, ptrdiff_t i);
+libqt_string QHttpHeaders_NameAt(const QHttpHeaders* self, ptrdiff_t i);
 libqt_string QHttpHeaders_CombinedValue(const QHttpHeaders* self, const char* name);
 libqt_string QHttpHeaders_CombinedValue2(const QHttpHeaders* self, int name);
 ptrdiff_t QHttpHeaders_Size(const QHttpHeaders* self);

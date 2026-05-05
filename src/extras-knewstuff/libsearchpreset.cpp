@@ -1,8 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KNSCore__SearchPreset
 #include <KNSCore/SearchRequest>
 #include <QString>
-#include <QByteArray>
-#include <cstring>
 #include <searchpreset.h>
 #include "libsearchpreset.h"
 #include "libsearchpreset.hxx"
