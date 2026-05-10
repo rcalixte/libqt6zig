@@ -10,6 +10,7 @@
         "build.zig",
         "build.zig.zon",
         "include",
+        "modules.zig",
         "src",
     },
 }
