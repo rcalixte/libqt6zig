@@ -886,6 +886,31 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
 		},
+
+		// KTextAddons
+		// Depends on Qt Core, GUI, Widgets, Network, KConfigGui, KSyntaxHighlighting, Sonnet, KWidgetsAddons
+		{
+			path: "restricted-extras-ktextaddons",
+			dirs: []string{
+				"/usr/include/KF6/TextAddonsWidgets/textaddonswidgets",
+				"/usr/include/KF6/TextAutoCorrectionCore/textautocorrectioncore",
+				"/usr/include/KF6/TextAutoCorrectionWidgets/textautocorrectionwidgets",
+				"/usr/include/KF6/TextCustomEditor/textcustomeditor",
+				"/usr/include/KF6/TextEditTextToSpeech/textedittexttospeech",
+				"/usr/include/KF6/TextEmoticonsCore/textemoticonscore",
+				"/usr/include/KF6/TextEmoticonsWidgets/textemoticonswidgets",
+				"/usr/include/KF6/TextGrammarCheck/textgrammarcheck",
+				"/usr/include/KF6/TextTranslator/texttranslator",
+				"/usr/include/KF6/TextUtils/textutils",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags: "--std=c++17 -I/usr/include/KF6 -I/usr/include/KF6/TextAddonsWidgets/textaddonswidgets -I/usr/include/KF6/TextAutoCorrectionCore -I/usr/include/KF6/TextAutoCorrectionCore/textautocorrectioncore" +
+				" -I/usr/include/KF6/TextAutoCorrectionWidgets/textautocorrectionwidgets -I/usr/include/KF6/TextCustomEditor -I/usr/include/KF6/TextCustomEditor/textcustomeditor" +
+				" -I/usr/include/KF6/TextEditTextToSpeech -I/usr/include/KF6/TextEditTextToSpeech/textedittexttospeech -I/usr/include/KF6/TextEmoticonsCore -I/usr/include/KF6/TextEmoticonsCore/textemoticonscore" +
+				" -I/usr/include/KF6/TextEmoticonsWidgets/textemoticonswidgets -I/usr/include/KF6/TextGrammarCheck -I/usr/include/KF6/TextGrammarCheck/textgrammarcheck -I/usr/include/KF6/TextTranslator" +
+				" -I/usr/include/KF6/TextTranslator/texttranslator -I/usr/include/KF6/TextUtils/textutils -I/usr/include/KF6/KConfigGui -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KSyntaxHighlighting" +
+				" -I/usr/include/KF6/SonnetUi -I/usr/include/KF6/Sonnet -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Network"),
+		},
 	}
 
 	startTime := time.Now()
