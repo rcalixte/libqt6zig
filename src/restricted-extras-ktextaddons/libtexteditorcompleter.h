@@ -1,0 +1,87 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTEDITORCOMPLETER_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTEDITORCOMPLETER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextCustomEditor__TextEditorCompleter)
+typedef TextCustomEditor::TextEditorCompleter TextCustomEditor__TextEditorCompleter;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QCompleter QCompleter;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QPlainTextEdit QPlainTextEdit;
+typedef struct QTextEdit QTextEdit;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextCustomEditor__TextEditorCompleter TextCustomEditor__TextEditorCompleter;
+#endif
+
+TextCustomEditor__TextEditorCompleter* TextCustomEditor__TextEditorCompleter_new(QTextEdit* editor, QObject* parent);
+TextCustomEditor__TextEditorCompleter* TextCustomEditor__TextEditorCompleter_new2(QPlainTextEdit* editor, QObject* parent);
+QMetaObject* TextCustomEditor__TextEditorCompleter_MetaObject(const TextCustomEditor__TextEditorCompleter* self);
+void* TextCustomEditor__TextEditorCompleter_Metacast(TextCustomEditor__TextEditorCompleter* self, const char* param1);
+int TextCustomEditor__TextEditorCompleter_Metacall(TextCustomEditor__TextEditorCompleter* self, int param1, int param2, void** param3);
+void TextCustomEditor__TextEditorCompleter_SetCompleterStringList(TextCustomEditor__TextEditorCompleter* self, const libqt_list /* of libqt_string */ list);
+QCompleter* TextCustomEditor__TextEditorCompleter_Completer(const TextCustomEditor__TextEditorCompleter* self);
+void TextCustomEditor__TextEditorCompleter_CompleteText(TextCustomEditor__TextEditorCompleter* self);
+void TextCustomEditor__TextEditorCompleter_SetExcludeOfCharacters(TextCustomEditor__TextEditorCompleter* self, const libqt_string excludes);
+void TextCustomEditor__TextEditorCompleter_OnMetaObject(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+QMetaObject* TextCustomEditor__TextEditorCompleter_SuperMetaObject(const TextCustomEditor__TextEditorCompleter* self);
+void TextCustomEditor__TextEditorCompleter_OnMetacast(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void* TextCustomEditor__TextEditorCompleter_SuperMetacast(TextCustomEditor__TextEditorCompleter* self, const char* param1);
+void TextCustomEditor__TextEditorCompleter_OnMetacall(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+int TextCustomEditor__TextEditorCompleter_SuperMetacall(TextCustomEditor__TextEditorCompleter* self, int param1, int param2, void** param3);
+bool TextCustomEditor__TextEditorCompleter_Event(TextCustomEditor__TextEditorCompleter* self, QEvent* event);
+void TextCustomEditor__TextEditorCompleter_OnEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+bool TextCustomEditor__TextEditorCompleter_SuperEvent(TextCustomEditor__TextEditorCompleter* self, QEvent* event);
+bool TextCustomEditor__TextEditorCompleter_EventFilter(TextCustomEditor__TextEditorCompleter* self, QObject* watched, QEvent* event);
+void TextCustomEditor__TextEditorCompleter_OnEventFilter(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+bool TextCustomEditor__TextEditorCompleter_SuperEventFilter(TextCustomEditor__TextEditorCompleter* self, QObject* watched, QEvent* event);
+void TextCustomEditor__TextEditorCompleter_TimerEvent(TextCustomEditor__TextEditorCompleter* self, QTimerEvent* event);
+void TextCustomEditor__TextEditorCompleter_OnTimerEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void TextCustomEditor__TextEditorCompleter_SuperTimerEvent(TextCustomEditor__TextEditorCompleter* self, QTimerEvent* event);
+void TextCustomEditor__TextEditorCompleter_ChildEvent(TextCustomEditor__TextEditorCompleter* self, QChildEvent* event);
+void TextCustomEditor__TextEditorCompleter_OnChildEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void TextCustomEditor__TextEditorCompleter_SuperChildEvent(TextCustomEditor__TextEditorCompleter* self, QChildEvent* event);
+void TextCustomEditor__TextEditorCompleter_CustomEvent(TextCustomEditor__TextEditorCompleter* self, QEvent* event);
+void TextCustomEditor__TextEditorCompleter_OnCustomEvent(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void TextCustomEditor__TextEditorCompleter_SuperCustomEvent(TextCustomEditor__TextEditorCompleter* self, QEvent* event);
+void TextCustomEditor__TextEditorCompleter_ConnectNotify(TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
+void TextCustomEditor__TextEditorCompleter_OnConnectNotify(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void TextCustomEditor__TextEditorCompleter_SuperConnectNotify(TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
+void TextCustomEditor__TextEditorCompleter_DisconnectNotify(TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
+void TextCustomEditor__TextEditorCompleter_OnDisconnectNotify(TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+void TextCustomEditor__TextEditorCompleter_SuperDisconnectNotify(TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
+QObject* TextCustomEditor__TextEditorCompleter_Sender(const TextCustomEditor__TextEditorCompleter* self);
+void TextCustomEditor__TextEditorCompleter_OnSender(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+QObject* TextCustomEditor__TextEditorCompleter_SuperSender(const TextCustomEditor__TextEditorCompleter* self);
+int TextCustomEditor__TextEditorCompleter_SenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self);
+void TextCustomEditor__TextEditorCompleter_OnSenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+int TextCustomEditor__TextEditorCompleter_SuperSenderSignalIndex(const TextCustomEditor__TextEditorCompleter* self);
+int TextCustomEditor__TextEditorCompleter_Receivers(const TextCustomEditor__TextEditorCompleter* self, const char* signal);
+void TextCustomEditor__TextEditorCompleter_OnReceivers(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+int TextCustomEditor__TextEditorCompleter_SuperReceivers(const TextCustomEditor__TextEditorCompleter* self, const char* signal);
+bool TextCustomEditor__TextEditorCompleter_IsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
+void TextCustomEditor__TextEditorCompleter_OnIsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, intptr_t slot);
+bool TextCustomEditor__TextEditorCompleter_SuperIsSignalConnected(const TextCustomEditor__TextEditorCompleter* self, const QMetaMethod* signal);
+void TextCustomEditor__TextEditorCompleter_Delete(TextCustomEditor__TextEditorCompleter* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

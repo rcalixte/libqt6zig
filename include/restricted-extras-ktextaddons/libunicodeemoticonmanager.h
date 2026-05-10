@@ -1,0 +1,94 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBUNICODEEMOTICONMANAGER_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBUNICODEEMOTICONMANAGER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextEmoticonsCore__EmoticonCategory)
+typedef TextEmoticonsCore::EmoticonCategory TextEmoticonsCore__EmoticonCategory;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextEmoticonsCore__UnicodeEmoticon)
+typedef TextEmoticonsCore::UnicodeEmoticon TextEmoticonsCore__UnicodeEmoticon;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextEmoticonsCore__UnicodeEmoticonManager)
+typedef TextEmoticonsCore::UnicodeEmoticonManager TextEmoticonsCore__UnicodeEmoticonManager;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextEmoticonsCore__EmoticonCategory TextEmoticonsCore__EmoticonCategory;
+typedef struct TextEmoticonsCore__UnicodeEmoticon TextEmoticonsCore__UnicodeEmoticon;
+typedef struct TextEmoticonsCore__UnicodeEmoticonManager TextEmoticonsCore__UnicodeEmoticonManager;
+#endif
+
+TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonManager_new();
+TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonManager_new2(QObject* parent);
+QMetaObject* TextEmoticonsCore__UnicodeEmoticonManager_MetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+void* TextEmoticonsCore__UnicodeEmoticonManager_Metacast(TextEmoticonsCore__UnicodeEmoticonManager* self, const char* param1);
+int TextEmoticonsCore__UnicodeEmoticonManager_Metacall(TextEmoticonsCore__UnicodeEmoticonManager* self, int param1, int param2, void** param3);
+TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonManager_Self();
+libqt_list /* of TextEmoticonsCore__UnicodeEmoticon* */ TextEmoticonsCore__UnicodeEmoticonManager_UnicodeEmojiList(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+libqt_list /* of TextEmoticonsCore__UnicodeEmoticon* */ TextEmoticonsCore__UnicodeEmoticonManager_EmojisForCategory(const TextEmoticonsCore__UnicodeEmoticonManager* self, const libqt_string category);
+libqt_list /* of TextEmoticonsCore__EmoticonCategory* */ TextEmoticonsCore__UnicodeEmoticonManager_Categories(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+TextEmoticonsCore__UnicodeEmoticon* TextEmoticonsCore__UnicodeEmoticonManager_UnicodeEmoticonForEmoji(const TextEmoticonsCore__UnicodeEmoticonManager* self, const libqt_string emojiIdentifier);
+int TextEmoticonsCore__UnicodeEmoticonManager_Count(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnMetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+QMetaObject* TextEmoticonsCore__UnicodeEmoticonManager_SuperMetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnMetacast(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+void* TextEmoticonsCore__UnicodeEmoticonManager_SuperMetacast(TextEmoticonsCore__UnicodeEmoticonManager* self, const char* param1);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnMetacall(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+int TextEmoticonsCore__UnicodeEmoticonManager_SuperMetacall(TextEmoticonsCore__UnicodeEmoticonManager* self, int param1, int param2, void** param3);
+bool TextEmoticonsCore__UnicodeEmoticonManager_Event(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+bool TextEmoticonsCore__UnicodeEmoticonManager_SuperEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event);
+bool TextEmoticonsCore__UnicodeEmoticonManager_EventFilter(TextEmoticonsCore__UnicodeEmoticonManager* self, QObject* watched, QEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnEventFilter(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+bool TextEmoticonsCore__UnicodeEmoticonManager_SuperEventFilter(TextEmoticonsCore__UnicodeEmoticonManager* self, QObject* watched, QEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_TimerEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QTimerEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnTimerEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+void TextEmoticonsCore__UnicodeEmoticonManager_SuperTimerEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QTimerEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_ChildEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QChildEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnChildEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+void TextEmoticonsCore__UnicodeEmoticonManager_SuperChildEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QChildEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_CustomEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnCustomEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+void TextEmoticonsCore__UnicodeEmoticonManager_SuperCustomEvent(TextEmoticonsCore__UnicodeEmoticonManager* self, QEvent* event);
+void TextEmoticonsCore__UnicodeEmoticonManager_ConnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnConnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+void TextEmoticonsCore__UnicodeEmoticonManager_SuperConnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__UnicodeEmoticonManager_DisconnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnDisconnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+void TextEmoticonsCore__UnicodeEmoticonManager_SuperDisconnectNotify(TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal);
+QObject* TextEmoticonsCore__UnicodeEmoticonManager_Sender(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnSender(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+QObject* TextEmoticonsCore__UnicodeEmoticonManager_SuperSender(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+int TextEmoticonsCore__UnicodeEmoticonManager_SenderSignalIndex(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnSenderSignalIndex(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+int TextEmoticonsCore__UnicodeEmoticonManager_SuperSenderSignalIndex(const TextEmoticonsCore__UnicodeEmoticonManager* self);
+int TextEmoticonsCore__UnicodeEmoticonManager_Receivers(const TextEmoticonsCore__UnicodeEmoticonManager* self, const char* signal);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnReceivers(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+int TextEmoticonsCore__UnicodeEmoticonManager_SuperReceivers(const TextEmoticonsCore__UnicodeEmoticonManager* self, const char* signal);
+bool TextEmoticonsCore__UnicodeEmoticonManager_IsSignalConnected(const TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__UnicodeEmoticonManager_OnIsSignalConnected(const TextEmoticonsCore__UnicodeEmoticonManager* self, intptr_t slot);
+bool TextEmoticonsCore__UnicodeEmoticonManager_SuperIsSignalConnected(const TextEmoticonsCore__UnicodeEmoticonManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__UnicodeEmoticonManager_Delete(TextEmoticonsCore__UnicodeEmoticonManager* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,1420 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBVIRTUALEMOTICONTEXTEDITSELECTOR_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBVIRTUALEMOTICONTEXTEDITSELECTOR_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+// This class is a subclass of TextEmoticonsWidgets::EmoticonTextEditSelector so that we can call protected methods
+class VirtualTextEmoticonsWidgetsEmoticonTextEditSelector final : public TextEmoticonsWidgets::EmoticonTextEditSelector {
+
+  public:
+    // Virtual class boolean flag
+    bool isVirtualTextEmoticonsWidgetsEmoticonTextEditSelector = true;
+
+    // Virtual class public types (including callbacks)
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MetaObject_Callback = QMetaObject* (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Metacast_Callback = void* (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, const char*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Metacall_Callback = int (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, int, int, void**);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_DevType_Callback = int (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_SetVisible_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, bool);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_SizeHint_Callback = QSize* (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MinimumSizeHint_Callback = QSize* (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_HeightForWidth_Callback = int (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, int);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_HasHeightForWidth_Callback = bool (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEngine_Callback = QPaintEngine* (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Event_Callback = bool (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MousePressEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMouseEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MouseReleaseEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMouseEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MouseDoubleClickEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMouseEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MouseMoveEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMouseEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_WheelEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QWheelEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_KeyPressEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QKeyEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_KeyReleaseEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QKeyEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_FocusInEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QFocusEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_FocusOutEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QFocusEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_EnterEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QEnterEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_LeaveEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QPaintEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_MoveEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMoveEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ResizeEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QResizeEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_CloseEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QCloseEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ContextMenuEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QContextMenuEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_TabletEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QTabletEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ActionEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QActionEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_DragEnterEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QDragEnterEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_DragMoveEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QDragMoveEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_DragLeaveEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QDragLeaveEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_DropEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QDropEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ShowEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QShowEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_HideEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QHideEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_NativeEvent_Callback = bool (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, libqt_string, void*, intptr_t*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ChangeEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Metric_Callback = int (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, int);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_InitPainter_Callback = void (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, QPainter*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Redirected_Callback = QPaintDevice* (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, QPoint*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_SharedPainter_Callback = QPainter* (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QInputMethodEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodQuery_Callback = QVariant* (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, int);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextPrevChild_Callback = bool (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, bool);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_EventFilter_Callback = bool (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QObject*, QEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_TimerEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QTimerEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ChildEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QChildEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_CustomEvent_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QEvent*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_ConnectNotify_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMetaMethod*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_DisconnectNotify_Callback = void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, QMetaMethod*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_UpdateMicroFocus_Callback = void (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Create_Callback = void (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Destroy_Callback = void (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextChild_Callback = bool (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_FocusPreviousChild_Callback = bool (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Sender_Callback = QObject* (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_SenderSignalIndex_Callback = int (*)();
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_Receivers_Callback = int (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, const char*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_IsSignalConnected_Callback = bool (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, QMetaMethod*);
+    using TextEmoticonsWidgets__EmoticonTextEditSelector_GetDecodedMetricF_Callback = double (*)(const TextEmoticonsWidgets__EmoticonTextEditSelector*, int, int);
+
+  protected:
+    // Instance callback storage
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MetaObject_Callback textemoticonswidgets__emoticontexteditselector_metaobject_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Metacast_Callback textemoticonswidgets__emoticontexteditselector_metacast_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Metacall_Callback textemoticonswidgets__emoticontexteditselector_metacall_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_DevType_Callback textemoticonswidgets__emoticontexteditselector_devtype_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_SetVisible_Callback textemoticonswidgets__emoticontexteditselector_setvisible_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_SizeHint_Callback textemoticonswidgets__emoticontexteditselector_sizehint_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MinimumSizeHint_Callback textemoticonswidgets__emoticontexteditselector_minimumsizehint_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_HeightForWidth_Callback textemoticonswidgets__emoticontexteditselector_heightforwidth_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_HasHeightForWidth_Callback textemoticonswidgets__emoticontexteditselector_hasheightforwidth_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEngine_Callback textemoticonswidgets__emoticontexteditselector_paintengine_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Event_Callback textemoticonswidgets__emoticontexteditselector_event_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MousePressEvent_Callback textemoticonswidgets__emoticontexteditselector_mousepressevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MouseReleaseEvent_Callback textemoticonswidgets__emoticontexteditselector_mousereleaseevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MouseDoubleClickEvent_Callback textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MouseMoveEvent_Callback textemoticonswidgets__emoticontexteditselector_mousemoveevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_WheelEvent_Callback textemoticonswidgets__emoticontexteditselector_wheelevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_KeyPressEvent_Callback textemoticonswidgets__emoticontexteditselector_keypressevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_KeyReleaseEvent_Callback textemoticonswidgets__emoticontexteditselector_keyreleaseevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_FocusInEvent_Callback textemoticonswidgets__emoticontexteditselector_focusinevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_FocusOutEvent_Callback textemoticonswidgets__emoticontexteditselector_focusoutevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_EnterEvent_Callback textemoticonswidgets__emoticontexteditselector_enterevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_LeaveEvent_Callback textemoticonswidgets__emoticontexteditselector_leaveevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEvent_Callback textemoticonswidgets__emoticontexteditselector_paintevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_MoveEvent_Callback textemoticonswidgets__emoticontexteditselector_moveevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ResizeEvent_Callback textemoticonswidgets__emoticontexteditselector_resizeevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_CloseEvent_Callback textemoticonswidgets__emoticontexteditselector_closeevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ContextMenuEvent_Callback textemoticonswidgets__emoticontexteditselector_contextmenuevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_TabletEvent_Callback textemoticonswidgets__emoticontexteditselector_tabletevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ActionEvent_Callback textemoticonswidgets__emoticontexteditselector_actionevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_DragEnterEvent_Callback textemoticonswidgets__emoticontexteditselector_dragenterevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_DragMoveEvent_Callback textemoticonswidgets__emoticontexteditselector_dragmoveevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_DragLeaveEvent_Callback textemoticonswidgets__emoticontexteditselector_dragleaveevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_DropEvent_Callback textemoticonswidgets__emoticontexteditselector_dropevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ShowEvent_Callback textemoticonswidgets__emoticontexteditselector_showevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_HideEvent_Callback textemoticonswidgets__emoticontexteditselector_hideevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_NativeEvent_Callback textemoticonswidgets__emoticontexteditselector_nativeevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ChangeEvent_Callback textemoticonswidgets__emoticontexteditselector_changeevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Metric_Callback textemoticonswidgets__emoticontexteditselector_metric_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_InitPainter_Callback textemoticonswidgets__emoticontexteditselector_initpainter_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Redirected_Callback textemoticonswidgets__emoticontexteditselector_redirected_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_SharedPainter_Callback textemoticonswidgets__emoticontexteditselector_sharedpainter_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodEvent_Callback textemoticonswidgets__emoticontexteditselector_inputmethodevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodQuery_Callback textemoticonswidgets__emoticontexteditselector_inputmethodquery_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextPrevChild_Callback textemoticonswidgets__emoticontexteditselector_focusnextprevchild_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_EventFilter_Callback textemoticonswidgets__emoticontexteditselector_eventfilter_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_TimerEvent_Callback textemoticonswidgets__emoticontexteditselector_timerevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ChildEvent_Callback textemoticonswidgets__emoticontexteditselector_childevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_CustomEvent_Callback textemoticonswidgets__emoticontexteditselector_customevent_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_ConnectNotify_Callback textemoticonswidgets__emoticontexteditselector_connectnotify_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_DisconnectNotify_Callback textemoticonswidgets__emoticontexteditselector_disconnectnotify_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_UpdateMicroFocus_Callback textemoticonswidgets__emoticontexteditselector_updatemicrofocus_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Create_Callback textemoticonswidgets__emoticontexteditselector_create_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Destroy_Callback textemoticonswidgets__emoticontexteditselector_destroy_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextChild_Callback textemoticonswidgets__emoticontexteditselector_focusnextchild_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_FocusPreviousChild_Callback textemoticonswidgets__emoticontexteditselector_focuspreviouschild_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Sender_Callback textemoticonswidgets__emoticontexteditselector_sender_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_SenderSignalIndex_Callback textemoticonswidgets__emoticontexteditselector_sendersignalindex_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_Receivers_Callback textemoticonswidgets__emoticontexteditselector_receivers_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_IsSignalConnected_Callback textemoticonswidgets__emoticontexteditselector_issignalconnected_callback = nullptr;
+    TextEmoticonsWidgets__EmoticonTextEditSelector_GetDecodedMetricF_Callback textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_callback = nullptr;
+
+    // Instance base flags
+    mutable bool textemoticonswidgets__emoticontexteditselector_metaobject_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_metacast_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_metacall_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_devtype_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_setvisible_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_sizehint_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_minimumsizehint_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_heightforwidth_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_hasheightforwidth_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_paintengine_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_event_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_mousepressevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_mousereleaseevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_mousemoveevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_wheelevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_keypressevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_keyreleaseevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_focusinevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_focusoutevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_enterevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_leaveevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_paintevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_moveevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_resizeevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_closeevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_contextmenuevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_tabletevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_actionevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_dragenterevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_dragmoveevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_dragleaveevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_dropevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_showevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_hideevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_nativeevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_changeevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_metric_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_initpainter_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_redirected_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_sharedpainter_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_inputmethodevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_inputmethodquery_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_focusnextprevchild_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_eventfilter_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_timerevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_childevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_customevent_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_connectnotify_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_disconnectnotify_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_updatemicrofocus_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_create_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_destroy_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_focusnextchild_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_focuspreviouschild_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_sender_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_sendersignalindex_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_receivers_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_issignalconnected_isbase = false;
+    mutable bool textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_isbase = false;
+
+  public:
+    VirtualTextEmoticonsWidgetsEmoticonTextEditSelector(QWidget* parent) : TextEmoticonsWidgets::EmoticonTextEditSelector(parent) {};
+    VirtualTextEmoticonsWidgetsEmoticonTextEditSelector() : TextEmoticonsWidgets::EmoticonTextEditSelector() {};
+
+    // Callback setters
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MetaObject_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MetaObject_Callback cb) { textemoticonswidgets__emoticontexteditselector_metaobject_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Metacast_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Metacast_Callback cb) { textemoticonswidgets__emoticontexteditselector_metacast_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Metacall_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Metacall_Callback cb) { textemoticonswidgets__emoticontexteditselector_metacall_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DevType_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_DevType_Callback cb) { textemoticonswidgets__emoticontexteditselector_devtype_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SetVisible_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_SetVisible_Callback cb) { textemoticonswidgets__emoticontexteditselector_setvisible_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SizeHint_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_SizeHint_Callback cb) { textemoticonswidgets__emoticontexteditselector_sizehint_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MinimumSizeHint_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MinimumSizeHint_Callback cb) { textemoticonswidgets__emoticontexteditselector_minimumsizehint_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_HeightForWidth_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_HeightForWidth_Callback cb) { textemoticonswidgets__emoticontexteditselector_heightforwidth_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_HasHeightForWidth_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_HasHeightForWidth_Callback cb) { textemoticonswidgets__emoticontexteditselector_hasheightforwidth_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_PaintEngine_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEngine_Callback cb) { textemoticonswidgets__emoticontexteditselector_paintengine_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Event_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Event_Callback cb) { textemoticonswidgets__emoticontexteditselector_event_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MousePressEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MousePressEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_mousepressevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MouseReleaseEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MouseReleaseEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_mousereleaseevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MouseDoubleClickEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MouseDoubleClickEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MouseMoveEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MouseMoveEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_mousemoveevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_WheelEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_WheelEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_wheelevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_KeyPressEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_KeyPressEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_keypressevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_KeyReleaseEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_KeyReleaseEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_keyreleaseevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusInEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_FocusInEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_focusinevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusOutEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_FocusOutEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_focusoutevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_EnterEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_EnterEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_enterevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_LeaveEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_LeaveEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_leaveevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_PaintEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_paintevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MoveEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_MoveEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_moveevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ResizeEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ResizeEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_resizeevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_CloseEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_CloseEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_closeevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ContextMenuEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ContextMenuEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_contextmenuevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_TabletEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_TabletEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_tabletevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ActionEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ActionEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_actionevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DragEnterEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_DragEnterEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_dragenterevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DragMoveEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_DragMoveEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_dragmoveevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DragLeaveEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_DragLeaveEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_dragleaveevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DropEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_DropEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_dropevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ShowEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ShowEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_showevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_HideEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_HideEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_hideevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_NativeEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_NativeEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_nativeevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ChangeEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ChangeEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_changeevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Metric_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Metric_Callback cb) { textemoticonswidgets__emoticontexteditselector_metric_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_InitPainter_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_InitPainter_Callback cb) { textemoticonswidgets__emoticontexteditselector_initpainter_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Redirected_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Redirected_Callback cb) { textemoticonswidgets__emoticontexteditselector_redirected_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SharedPainter_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_SharedPainter_Callback cb) { textemoticonswidgets__emoticontexteditselector_sharedpainter_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_inputmethodevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodQuery_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodQuery_Callback cb) { textemoticonswidgets__emoticontexteditselector_inputmethodquery_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextPrevChild_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextPrevChild_Callback cb) { textemoticonswidgets__emoticontexteditselector_focusnextprevchild_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_EventFilter_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_EventFilter_Callback cb) { textemoticonswidgets__emoticontexteditselector_eventfilter_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_TimerEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_TimerEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_timerevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ChildEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ChildEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_childevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_CustomEvent_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_CustomEvent_Callback cb) { textemoticonswidgets__emoticontexteditselector_customevent_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ConnectNotify_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_ConnectNotify_Callback cb) { textemoticonswidgets__emoticontexteditselector_connectnotify_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DisconnectNotify_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_DisconnectNotify_Callback cb) { textemoticonswidgets__emoticontexteditselector_disconnectnotify_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_UpdateMicroFocus_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_UpdateMicroFocus_Callback cb) { textemoticonswidgets__emoticontexteditselector_updatemicrofocus_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Create_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Create_Callback cb) { textemoticonswidgets__emoticontexteditselector_create_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Destroy_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Destroy_Callback cb) { textemoticonswidgets__emoticontexteditselector_destroy_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextChild_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextChild_Callback cb) { textemoticonswidgets__emoticontexteditselector_focusnextchild_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusPreviousChild_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_FocusPreviousChild_Callback cb) { textemoticonswidgets__emoticontexteditselector_focuspreviouschild_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Sender_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Sender_Callback cb) { textemoticonswidgets__emoticontexteditselector_sender_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SenderSignalIndex_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_SenderSignalIndex_Callback cb) { textemoticonswidgets__emoticontexteditselector_sendersignalindex_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Receivers_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_Receivers_Callback cb) { textemoticonswidgets__emoticontexteditselector_receivers_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_IsSignalConnected_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_IsSignalConnected_Callback cb) { textemoticonswidgets__emoticontexteditselector_issignalconnected_callback = cb; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_GetDecodedMetricF_Callback(TextEmoticonsWidgets__EmoticonTextEditSelector_GetDecodedMetricF_Callback cb) { textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_callback = cb; }
+
+    // Base flag setters
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MetaObject_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_metaobject_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Metacast_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_metacast_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Metacall_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_metacall_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DevType_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_devtype_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SetVisible_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_setvisible_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SizeHint_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_sizehint_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MinimumSizeHint_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_minimumsizehint_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_HeightForWidth_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_heightforwidth_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_HasHeightForWidth_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_hasheightforwidth_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_PaintEngine_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_paintengine_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Event_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_event_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MousePressEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_mousepressevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MouseReleaseEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_mousereleaseevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MouseDoubleClickEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MouseMoveEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_mousemoveevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_WheelEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_wheelevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_KeyPressEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_keypressevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_KeyReleaseEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_keyreleaseevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusInEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_focusinevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusOutEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_focusoutevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_EnterEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_enterevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_LeaveEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_leaveevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_PaintEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_paintevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_MoveEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_moveevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ResizeEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_resizeevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_CloseEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_closeevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ContextMenuEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_contextmenuevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_TabletEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_tabletevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ActionEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_actionevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DragEnterEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_dragenterevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DragMoveEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_dragmoveevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DragLeaveEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_dragleaveevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DropEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_dropevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ShowEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_showevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_HideEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_hideevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_NativeEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_nativeevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ChangeEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_changeevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Metric_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_metric_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_InitPainter_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_initpainter_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Redirected_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_redirected_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SharedPainter_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_sharedpainter_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_inputmethodevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodQuery_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_inputmethodquery_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextPrevChild_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_focusnextprevchild_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_EventFilter_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_eventfilter_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_TimerEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_timerevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ChildEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_childevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_CustomEvent_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_customevent_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_ConnectNotify_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_connectnotify_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_DisconnectNotify_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_disconnectnotify_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_UpdateMicroFocus_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_updatemicrofocus_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Create_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_create_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Destroy_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_destroy_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextChild_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_focusnextchild_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_FocusPreviousChild_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_focuspreviouschild_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Sender_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_sender_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_SenderSignalIndex_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_sendersignalindex_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_Receivers_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_receivers_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_IsSignalConnected_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_issignalconnected_isbase = value; }
+    inline void setTextEmoticonsWidgets__EmoticonTextEditSelector_GetDecodedMetricF_IsBase(bool value) const { textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual const QMetaObject* metaObject() const override {
+        if (textemoticonswidgets__emoticontexteditselector_metaobject_isbase) {
+            textemoticonswidgets__emoticontexteditselector_metaobject_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::metaObject();
+        }
+        auto metaobject_cb = textemoticonswidgets__emoticontexteditselector_metaobject_callback;
+        if (metaobject_cb) {
+            QMetaObject* callback_ret = metaobject_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::metaObject();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void* qt_metacast(const char* param1) override {
+        if (textemoticonswidgets__emoticontexteditselector_metacast_isbase) {
+            textemoticonswidgets__emoticontexteditselector_metacast_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::qt_metacast(param1);
+        }
+        auto metacast_cb = textemoticonswidgets__emoticontexteditselector_metacast_callback;
+        if (metacast_cb) {
+            const char* cbval1 = (const char*)param1;
+
+            void* callback_ret = metacast_cb(this, cbval1);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::qt_metacast(param1);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
+        if (textemoticonswidgets__emoticontexteditselector_metacall_isbase) {
+            textemoticonswidgets__emoticontexteditselector_metacall_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::qt_metacall(param1, param2, param3);
+        }
+        auto metacall_cb = textemoticonswidgets__emoticontexteditselector_metacall_callback;
+        if (metacall_cb) {
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::qt_metacall(param1, param2, param3);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual int devType() const override {
+        if (textemoticonswidgets__emoticontexteditselector_devtype_isbase) {
+            textemoticonswidgets__emoticontexteditselector_devtype_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::devType();
+        }
+        auto devtype_cb = textemoticonswidgets__emoticontexteditselector_devtype_callback;
+        if (devtype_cb) {
+            int callback_ret = devtype_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::devType();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void setVisible(bool visible) override {
+        if (textemoticonswidgets__emoticontexteditselector_setvisible_isbase) {
+            textemoticonswidgets__emoticontexteditselector_setvisible_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::setVisible(visible);
+            return;
+        }
+        auto setvisible_cb = textemoticonswidgets__emoticontexteditselector_setvisible_callback;
+        if (setvisible_cb) {
+            bool cbval1 = visible;
+
+            setvisible_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::setVisible(visible);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QSize sizeHint() const override {
+        if (textemoticonswidgets__emoticontexteditselector_sizehint_isbase) {
+            textemoticonswidgets__emoticontexteditselector_sizehint_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::sizeHint();
+        }
+        auto sizehint_cb = textemoticonswidgets__emoticontexteditselector_sizehint_callback;
+        if (sizehint_cb) {
+            QSize* callback_ret = sizehint_cb();
+            return *callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::sizeHint();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QSize minimumSizeHint() const override {
+        if (textemoticonswidgets__emoticontexteditselector_minimumsizehint_isbase) {
+            textemoticonswidgets__emoticontexteditselector_minimumsizehint_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::minimumSizeHint();
+        }
+        auto minimumsizehint_cb = textemoticonswidgets__emoticontexteditselector_minimumsizehint_callback;
+        if (minimumsizehint_cb) {
+            QSize* callback_ret = minimumsizehint_cb();
+            return *callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::minimumSizeHint();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual int heightForWidth(int param1) const override {
+        if (textemoticonswidgets__emoticontexteditselector_heightforwidth_isbase) {
+            textemoticonswidgets__emoticontexteditselector_heightforwidth_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::heightForWidth(param1);
+        }
+        auto heightforwidth_cb = textemoticonswidgets__emoticontexteditselector_heightforwidth_callback;
+        if (heightforwidth_cb) {
+            int cbval1 = param1;
+
+            int callback_ret = heightforwidth_cb(this, cbval1);
+            return static_cast<int>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::heightForWidth(param1);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool hasHeightForWidth() const override {
+        if (textemoticonswidgets__emoticontexteditselector_hasheightforwidth_isbase) {
+            textemoticonswidgets__emoticontexteditselector_hasheightforwidth_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::hasHeightForWidth();
+        }
+        auto hasheightforwidth_cb = textemoticonswidgets__emoticontexteditselector_hasheightforwidth_callback;
+        if (hasheightforwidth_cb) {
+            bool callback_ret = hasheightforwidth_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::hasHeightForWidth();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QPaintEngine* paintEngine() const override {
+        if (textemoticonswidgets__emoticontexteditselector_paintengine_isbase) {
+            textemoticonswidgets__emoticontexteditselector_paintengine_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::paintEngine();
+        }
+        auto paintengine_cb = textemoticonswidgets__emoticontexteditselector_paintengine_callback;
+        if (paintengine_cb) {
+            QPaintEngine* callback_ret = paintengine_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::paintEngine();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool event(QEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_event_isbase) {
+            textemoticonswidgets__emoticontexteditselector_event_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::event(event);
+        }
+        auto event_cb = textemoticonswidgets__emoticontexteditselector_event_callback;
+        if (event_cb) {
+            QEvent* cbval1 = event;
+
+            bool callback_ret = event_cb(this, cbval1);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::event(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void mousePressEvent(QMouseEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_mousepressevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_mousepressevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::mousePressEvent(event);
+            return;
+        }
+        auto mousepressevent_cb = textemoticonswidgets__emoticontexteditselector_mousepressevent_callback;
+        if (mousepressevent_cb) {
+            QMouseEvent* cbval1 = event;
+
+            mousepressevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::mousePressEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void mouseReleaseEvent(QMouseEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_mousereleaseevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_mousereleaseevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::mouseReleaseEvent(event);
+            return;
+        }
+        auto mousereleaseevent_cb = textemoticonswidgets__emoticontexteditselector_mousereleaseevent_callback;
+        if (mousereleaseevent_cb) {
+            QMouseEvent* cbval1 = event;
+
+            mousereleaseevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::mouseReleaseEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void mouseDoubleClickEvent(QMouseEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::mouseDoubleClickEvent(event);
+            return;
+        }
+        auto mousedoubleclickevent_cb = textemoticonswidgets__emoticontexteditselector_mousedoubleclickevent_callback;
+        if (mousedoubleclickevent_cb) {
+            QMouseEvent* cbval1 = event;
+
+            mousedoubleclickevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::mouseDoubleClickEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void mouseMoveEvent(QMouseEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_mousemoveevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_mousemoveevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::mouseMoveEvent(event);
+            return;
+        }
+        auto mousemoveevent_cb = textemoticonswidgets__emoticontexteditselector_mousemoveevent_callback;
+        if (mousemoveevent_cb) {
+            QMouseEvent* cbval1 = event;
+
+            mousemoveevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::mouseMoveEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void wheelEvent(QWheelEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_wheelevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_wheelevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::wheelEvent(event);
+            return;
+        }
+        auto wheelevent_cb = textemoticonswidgets__emoticontexteditselector_wheelevent_callback;
+        if (wheelevent_cb) {
+            QWheelEvent* cbval1 = event;
+
+            wheelevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::wheelEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void keyPressEvent(QKeyEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_keypressevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_keypressevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::keyPressEvent(event);
+            return;
+        }
+        auto keypressevent_cb = textemoticonswidgets__emoticontexteditselector_keypressevent_callback;
+        if (keypressevent_cb) {
+            QKeyEvent* cbval1 = event;
+
+            keypressevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::keyPressEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void keyReleaseEvent(QKeyEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_keyreleaseevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_keyreleaseevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::keyReleaseEvent(event);
+            return;
+        }
+        auto keyreleaseevent_cb = textemoticonswidgets__emoticontexteditselector_keyreleaseevent_callback;
+        if (keyreleaseevent_cb) {
+            QKeyEvent* cbval1 = event;
+
+            keyreleaseevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::keyReleaseEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void focusInEvent(QFocusEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_focusinevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_focusinevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::focusInEvent(event);
+            return;
+        }
+        auto focusinevent_cb = textemoticonswidgets__emoticontexteditselector_focusinevent_callback;
+        if (focusinevent_cb) {
+            QFocusEvent* cbval1 = event;
+
+            focusinevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::focusInEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void focusOutEvent(QFocusEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_focusoutevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_focusoutevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::focusOutEvent(event);
+            return;
+        }
+        auto focusoutevent_cb = textemoticonswidgets__emoticontexteditselector_focusoutevent_callback;
+        if (focusoutevent_cb) {
+            QFocusEvent* cbval1 = event;
+
+            focusoutevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::focusOutEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void enterEvent(QEnterEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_enterevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_enterevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::enterEvent(event);
+            return;
+        }
+        auto enterevent_cb = textemoticonswidgets__emoticontexteditselector_enterevent_callback;
+        if (enterevent_cb) {
+            QEnterEvent* cbval1 = event;
+
+            enterevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::enterEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void leaveEvent(QEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_leaveevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_leaveevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::leaveEvent(event);
+            return;
+        }
+        auto leaveevent_cb = textemoticonswidgets__emoticontexteditselector_leaveevent_callback;
+        if (leaveevent_cb) {
+            QEvent* cbval1 = event;
+
+            leaveevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::leaveEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void paintEvent(QPaintEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_paintevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_paintevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::paintEvent(event);
+            return;
+        }
+        auto paintevent_cb = textemoticonswidgets__emoticontexteditselector_paintevent_callback;
+        if (paintevent_cb) {
+            QPaintEvent* cbval1 = event;
+
+            paintevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::paintEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void moveEvent(QMoveEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_moveevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_moveevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::moveEvent(event);
+            return;
+        }
+        auto moveevent_cb = textemoticonswidgets__emoticontexteditselector_moveevent_callback;
+        if (moveevent_cb) {
+            QMoveEvent* cbval1 = event;
+
+            moveevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::moveEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void resizeEvent(QResizeEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_resizeevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_resizeevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::resizeEvent(event);
+            return;
+        }
+        auto resizeevent_cb = textemoticonswidgets__emoticontexteditselector_resizeevent_callback;
+        if (resizeevent_cb) {
+            QResizeEvent* cbval1 = event;
+
+            resizeevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::resizeEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void closeEvent(QCloseEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_closeevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_closeevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::closeEvent(event);
+            return;
+        }
+        auto closeevent_cb = textemoticonswidgets__emoticontexteditselector_closeevent_callback;
+        if (closeevent_cb) {
+            QCloseEvent* cbval1 = event;
+
+            closeevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::closeEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void contextMenuEvent(QContextMenuEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_contextmenuevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_contextmenuevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::contextMenuEvent(event);
+            return;
+        }
+        auto contextmenuevent_cb = textemoticonswidgets__emoticontexteditselector_contextmenuevent_callback;
+        if (contextmenuevent_cb) {
+            QContextMenuEvent* cbval1 = event;
+
+            contextmenuevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::contextMenuEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void tabletEvent(QTabletEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_tabletevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_tabletevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::tabletEvent(event);
+            return;
+        }
+        auto tabletevent_cb = textemoticonswidgets__emoticontexteditselector_tabletevent_callback;
+        if (tabletevent_cb) {
+            QTabletEvent* cbval1 = event;
+
+            tabletevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::tabletEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void actionEvent(QActionEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_actionevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_actionevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::actionEvent(event);
+            return;
+        }
+        auto actionevent_cb = textemoticonswidgets__emoticontexteditselector_actionevent_callback;
+        if (actionevent_cb) {
+            QActionEvent* cbval1 = event;
+
+            actionevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::actionEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void dragEnterEvent(QDragEnterEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_dragenterevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_dragenterevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::dragEnterEvent(event);
+            return;
+        }
+        auto dragenterevent_cb = textemoticonswidgets__emoticontexteditselector_dragenterevent_callback;
+        if (dragenterevent_cb) {
+            QDragEnterEvent* cbval1 = event;
+
+            dragenterevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::dragEnterEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void dragMoveEvent(QDragMoveEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_dragmoveevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_dragmoveevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::dragMoveEvent(event);
+            return;
+        }
+        auto dragmoveevent_cb = textemoticonswidgets__emoticontexteditselector_dragmoveevent_callback;
+        if (dragmoveevent_cb) {
+            QDragMoveEvent* cbval1 = event;
+
+            dragmoveevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::dragMoveEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void dragLeaveEvent(QDragLeaveEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_dragleaveevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_dragleaveevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::dragLeaveEvent(event);
+            return;
+        }
+        auto dragleaveevent_cb = textemoticonswidgets__emoticontexteditselector_dragleaveevent_callback;
+        if (dragleaveevent_cb) {
+            QDragLeaveEvent* cbval1 = event;
+
+            dragleaveevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::dragLeaveEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void dropEvent(QDropEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_dropevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_dropevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::dropEvent(event);
+            return;
+        }
+        auto dropevent_cb = textemoticonswidgets__emoticontexteditselector_dropevent_callback;
+        if (dropevent_cb) {
+            QDropEvent* cbval1 = event;
+
+            dropevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::dropEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void showEvent(QShowEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_showevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_showevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::showEvent(event);
+            return;
+        }
+        auto showevent_cb = textemoticonswidgets__emoticontexteditselector_showevent_callback;
+        if (showevent_cb) {
+            QShowEvent* cbval1 = event;
+
+            showevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::showEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void hideEvent(QHideEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_hideevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_hideevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::hideEvent(event);
+            return;
+        }
+        auto hideevent_cb = textemoticonswidgets__emoticontexteditselector_hideevent_callback;
+        if (hideevent_cb) {
+            QHideEvent* cbval1 = event;
+
+            hideevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::hideEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool nativeEvent(const QByteArray& eventType, void* message, qintptr* result) override {
+        if (textemoticonswidgets__emoticontexteditselector_nativeevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_nativeevent_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::nativeEvent(eventType, message, result);
+        }
+        auto nativeevent_cb = textemoticonswidgets__emoticontexteditselector_nativeevent_callback;
+        if (nativeevent_cb) {
+            const QByteArray eventType_qb = eventType;
+            libqt_string eventType_str;
+            eventType_str.len = eventType_qb.length();
+            eventType_str.data = static_cast<char*>(malloc(eventType_str.len));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            libqt_string cbval1 = eventType_str;
+            void* cbval2 = message;
+            qintptr* result_ret = result;
+            intptr_t* cbval3 = (intptr_t*)(result_ret);
+
+            bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
+            libqt_free(eventType_str.data);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::nativeEvent(eventType, message, result);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void changeEvent(QEvent* param1) override {
+        if (textemoticonswidgets__emoticontexteditselector_changeevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_changeevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::changeEvent(param1);
+            return;
+        }
+        auto changeevent_cb = textemoticonswidgets__emoticontexteditselector_changeevent_callback;
+        if (changeevent_cb) {
+            QEvent* cbval1 = param1;
+
+            changeevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::changeEvent(param1);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual int metric(QPaintDevice::PaintDeviceMetric param1) const override {
+        if (textemoticonswidgets__emoticontexteditselector_metric_isbase) {
+            textemoticonswidgets__emoticontexteditselector_metric_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::metric(param1);
+        }
+        auto metric_cb = textemoticonswidgets__emoticontexteditselector_metric_callback;
+        if (metric_cb) {
+            int cbval1 = static_cast<int>(param1);
+
+            int callback_ret = metric_cb(this, cbval1);
+            return static_cast<int>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::metric(param1);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void initPainter(QPainter* painter) const override {
+        if (textemoticonswidgets__emoticontexteditselector_initpainter_isbase) {
+            textemoticonswidgets__emoticontexteditselector_initpainter_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::initPainter(painter);
+            return;
+        }
+        auto initpainter_cb = textemoticonswidgets__emoticontexteditselector_initpainter_callback;
+        if (initpainter_cb) {
+            QPainter* cbval1 = painter;
+
+            initpainter_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::initPainter(painter);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QPaintDevice* redirected(QPoint* offset) const override {
+        if (textemoticonswidgets__emoticontexteditselector_redirected_isbase) {
+            textemoticonswidgets__emoticontexteditselector_redirected_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::redirected(offset);
+        }
+        auto redirected_cb = textemoticonswidgets__emoticontexteditselector_redirected_callback;
+        if (redirected_cb) {
+            QPoint* cbval1 = offset;
+
+            QPaintDevice* callback_ret = redirected_cb(this, cbval1);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::redirected(offset);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QPainter* sharedPainter() const override {
+        if (textemoticonswidgets__emoticontexteditselector_sharedpainter_isbase) {
+            textemoticonswidgets__emoticontexteditselector_sharedpainter_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::sharedPainter();
+        }
+        auto sharedpainter_cb = textemoticonswidgets__emoticontexteditselector_sharedpainter_callback;
+        if (sharedpainter_cb) {
+            QPainter* callback_ret = sharedpainter_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::sharedPainter();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void inputMethodEvent(QInputMethodEvent* param1) override {
+        if (textemoticonswidgets__emoticontexteditselector_inputmethodevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_inputmethodevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::inputMethodEvent(param1);
+            return;
+        }
+        auto inputmethodevent_cb = textemoticonswidgets__emoticontexteditselector_inputmethodevent_callback;
+        if (inputmethodevent_cb) {
+            QInputMethodEvent* cbval1 = param1;
+
+            inputmethodevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::inputMethodEvent(param1);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
+        if (textemoticonswidgets__emoticontexteditselector_inputmethodquery_isbase) {
+            textemoticonswidgets__emoticontexteditselector_inputmethodquery_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::inputMethodQuery(param1);
+        }
+        auto inputmethodquery_cb = textemoticonswidgets__emoticontexteditselector_inputmethodquery_callback;
+        if (inputmethodquery_cb) {
+            int cbval1 = static_cast<int>(param1);
+
+            QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
+            return *callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::inputMethodQuery(param1);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool focusNextPrevChild(bool next) override {
+        if (textemoticonswidgets__emoticontexteditselector_focusnextprevchild_isbase) {
+            textemoticonswidgets__emoticontexteditselector_focusnextprevchild_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::focusNextPrevChild(next);
+        }
+        auto focusnextprevchild_cb = textemoticonswidgets__emoticontexteditselector_focusnextprevchild_callback;
+        if (focusnextprevchild_cb) {
+            bool cbval1 = next;
+
+            bool callback_ret = focusnextprevchild_cb(this, cbval1);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::focusNextPrevChild(next);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool eventFilter(QObject* watched, QEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_eventfilter_isbase) {
+            textemoticonswidgets__emoticontexteditselector_eventfilter_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::eventFilter(watched, event);
+        }
+        auto eventfilter_cb = textemoticonswidgets__emoticontexteditselector_eventfilter_callback;
+        if (eventfilter_cb) {
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::eventFilter(watched, event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void timerEvent(QTimerEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_timerevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_timerevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::timerEvent(event);
+            return;
+        }
+        auto timerevent_cb = textemoticonswidgets__emoticontexteditselector_timerevent_callback;
+        if (timerevent_cb) {
+            QTimerEvent* cbval1 = event;
+
+            timerevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::timerEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void childEvent(QChildEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_childevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_childevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::childEvent(event);
+            return;
+        }
+        auto childevent_cb = textemoticonswidgets__emoticontexteditselector_childevent_callback;
+        if (childevent_cb) {
+            QChildEvent* cbval1 = event;
+
+            childevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::childEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void customEvent(QEvent* event) override {
+        if (textemoticonswidgets__emoticontexteditselector_customevent_isbase) {
+            textemoticonswidgets__emoticontexteditselector_customevent_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::customEvent(event);
+            return;
+        }
+        auto customevent_cb = textemoticonswidgets__emoticontexteditselector_customevent_callback;
+        if (customevent_cb) {
+            QEvent* cbval1 = event;
+
+            customevent_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::customEvent(event);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void connectNotify(const QMetaMethod& signal) override {
+        if (textemoticonswidgets__emoticontexteditselector_connectnotify_isbase) {
+            textemoticonswidgets__emoticontexteditselector_connectnotify_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::connectNotify(signal);
+            return;
+        }
+        auto connectnotify_cb = textemoticonswidgets__emoticontexteditselector_connectnotify_callback;
+        if (connectnotify_cb) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            connectnotify_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::connectNotify(signal);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void disconnectNotify(const QMetaMethod& signal) override {
+        if (textemoticonswidgets__emoticontexteditselector_disconnectnotify_isbase) {
+            textemoticonswidgets__emoticontexteditselector_disconnectnotify_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::disconnectNotify(signal);
+            return;
+        }
+        auto disconnectnotify_cb = textemoticonswidgets__emoticontexteditselector_disconnectnotify_callback;
+        if (disconnectnotify_cb) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            disconnectnotify_cb(this, cbval1);
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::disconnectNotify(signal);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    void updateMicroFocus() {
+        if (textemoticonswidgets__emoticontexteditselector_updatemicrofocus_isbase) {
+            textemoticonswidgets__emoticontexteditselector_updatemicrofocus_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::updateMicroFocus();
+            return;
+        }
+        auto updatemicrofocus_cb = textemoticonswidgets__emoticontexteditselector_updatemicrofocus_callback;
+        if (updatemicrofocus_cb) {
+            updatemicrofocus_cb();
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::updateMicroFocus();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    void create() {
+        if (textemoticonswidgets__emoticontexteditselector_create_isbase) {
+            textemoticonswidgets__emoticontexteditselector_create_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::create();
+            return;
+        }
+        auto create_cb = textemoticonswidgets__emoticontexteditselector_create_callback;
+        if (create_cb) {
+            create_cb();
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::create();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    void destroy() {
+        if (textemoticonswidgets__emoticontexteditselector_destroy_isbase) {
+            textemoticonswidgets__emoticontexteditselector_destroy_isbase = false;
+            TextEmoticonsWidgets__EmoticonTextEditSelector::destroy();
+            return;
+        }
+        auto destroy_cb = textemoticonswidgets__emoticontexteditselector_destroy_callback;
+        if (destroy_cb) {
+            destroy_cb();
+            return;
+        }
+        TextEmoticonsWidgets__EmoticonTextEditSelector::destroy();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    bool focusNextChild() {
+        if (textemoticonswidgets__emoticontexteditselector_focusnextchild_isbase) {
+            textemoticonswidgets__emoticontexteditselector_focusnextchild_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::focusNextChild();
+        }
+        auto focusnextchild_cb = textemoticonswidgets__emoticontexteditselector_focusnextchild_callback;
+        if (focusnextchild_cb) {
+            bool callback_ret = focusnextchild_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::focusNextChild();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    bool focusPreviousChild() {
+        if (textemoticonswidgets__emoticontexteditselector_focuspreviouschild_isbase) {
+            textemoticonswidgets__emoticontexteditselector_focuspreviouschild_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::focusPreviousChild();
+        }
+        auto focuspreviouschild_cb = textemoticonswidgets__emoticontexteditselector_focuspreviouschild_callback;
+        if (focuspreviouschild_cb) {
+            bool callback_ret = focuspreviouschild_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::focusPreviousChild();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QObject* sender() const {
+        if (textemoticonswidgets__emoticontexteditselector_sender_isbase) {
+            textemoticonswidgets__emoticontexteditselector_sender_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::sender();
+        }
+        auto sender_cb = textemoticonswidgets__emoticontexteditselector_sender_callback;
+        if (sender_cb) {
+            QObject* callback_ret = sender_cb();
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::sender();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    int senderSignalIndex() const {
+        if (textemoticonswidgets__emoticontexteditselector_sendersignalindex_isbase) {
+            textemoticonswidgets__emoticontexteditselector_sendersignalindex_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::senderSignalIndex();
+        }
+        auto sendersignalindex_cb = textemoticonswidgets__emoticontexteditselector_sendersignalindex_callback;
+        if (sendersignalindex_cb) {
+            int callback_ret = sendersignalindex_cb();
+            return static_cast<int>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::senderSignalIndex();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    int receivers(const char* signal) const {
+        if (textemoticonswidgets__emoticontexteditselector_receivers_isbase) {
+            textemoticonswidgets__emoticontexteditselector_receivers_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::receivers(signal);
+        }
+        auto receivers_cb = textemoticonswidgets__emoticontexteditselector_receivers_callback;
+        if (receivers_cb) {
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = receivers_cb(this, cbval1);
+            return static_cast<int>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::receivers(signal);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    bool isSignalConnected(const QMetaMethod& signal) const {
+        if (textemoticonswidgets__emoticontexteditselector_issignalconnected_isbase) {
+            textemoticonswidgets__emoticontexteditselector_issignalconnected_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::isSignalConnected(signal);
+        }
+        auto issignalconnected_cb = textemoticonswidgets__emoticontexteditselector_issignalconnected_callback;
+        if (issignalconnected_cb) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = issignalconnected_cb(this, cbval1);
+            return callback_ret;
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::isSignalConnected(signal);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_isbase) {
+            textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_isbase = false;
+            return TextEmoticonsWidgets__EmoticonTextEditSelector::getDecodedMetricF(metricA, metricB);
+        }
+        auto getdecodedmetricf_cb = textemoticonswidgets__emoticontexteditselector_getdecodedmetricf_callback;
+        if (getdecodedmetricf_cb) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        }
+        return TextEmoticonsWidgets__EmoticonTextEditSelector::getDecodedMetricF(metricA, metricB);
+    }
+
+    // Friend functions
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_Event(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* event);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_SuperEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_MousePressEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperMousePressEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_MouseReleaseEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperMouseReleaseEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_MouseDoubleClickEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperMouseDoubleClickEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_MouseMoveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperMouseMoveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMouseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_WheelEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QWheelEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperWheelEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QWheelEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_KeyPressEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QKeyEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperKeyPressEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QKeyEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_KeyReleaseEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QKeyEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperKeyReleaseEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QKeyEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_FocusInEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QFocusEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperFocusInEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QFocusEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_FocusOutEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QFocusEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperFocusOutEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QFocusEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_EnterEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEnterEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperEnterEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEnterEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_LeaveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperLeaveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_PaintEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QPaintEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperPaintEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QPaintEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_MoveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMoveEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperMoveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QMoveEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ResizeEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QResizeEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperResizeEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QResizeEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_CloseEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QCloseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperCloseEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QCloseEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ContextMenuEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QContextMenuEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperContextMenuEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QContextMenuEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_TabletEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QTabletEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperTabletEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QTabletEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ActionEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QActionEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperActionEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QActionEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_DragEnterEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDragEnterEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperDragEnterEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDragEnterEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_DragMoveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDragMoveEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperDragMoveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDragMoveEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_DragLeaveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDragLeaveEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperDragLeaveEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDragLeaveEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_DropEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDropEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperDropEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QDropEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ShowEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QShowEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperShowEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QShowEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_HideEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QHideEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperHideEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QHideEvent* event);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_NativeEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_SuperNativeEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, const libqt_string eventType, void* message, intptr_t* result);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ChangeEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* param1);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperChangeEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* param1);
+    friend int TextEmoticonsWidgets__EmoticonTextEditSelector_Metric(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, int param1);
+    friend int TextEmoticonsWidgets__EmoticonTextEditSelector_SuperMetric(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, int param1);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_InitPainter(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, QPainter* painter);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperInitPainter(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, QPainter* painter);
+    friend QPaintDevice* TextEmoticonsWidgets__EmoticonTextEditSelector_Redirected(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, QPoint* offset);
+    friend QPaintDevice* TextEmoticonsWidgets__EmoticonTextEditSelector_SuperRedirected(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, QPoint* offset);
+    friend QPainter* TextEmoticonsWidgets__EmoticonTextEditSelector_SharedPainter(const TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend QPainter* TextEmoticonsWidgets__EmoticonTextEditSelector_SuperSharedPainter(const TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_InputMethodEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QInputMethodEvent* param1);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperInputMethodEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QInputMethodEvent* param1);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextPrevChild(TextEmoticonsWidgets::EmoticonTextEditSelector* self, bool next);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_SuperFocusNextPrevChild(TextEmoticonsWidgets::EmoticonTextEditSelector* self, bool next);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_TimerEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QTimerEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperTimerEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QTimerEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ChildEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QChildEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperChildEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QChildEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_CustomEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperCustomEvent(TextEmoticonsWidgets::EmoticonTextEditSelector* self, QEvent* event);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_ConnectNotify(TextEmoticonsWidgets::EmoticonTextEditSelector* self, const QMetaMethod* signal);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperConnectNotify(TextEmoticonsWidgets::EmoticonTextEditSelector* self, const QMetaMethod* signal);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_DisconnectNotify(TextEmoticonsWidgets::EmoticonTextEditSelector* self, const QMetaMethod* signal);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperDisconnectNotify(TextEmoticonsWidgets::EmoticonTextEditSelector* self, const QMetaMethod* signal);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_UpdateMicroFocus(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperUpdateMicroFocus(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_Create(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperCreate(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_Destroy(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend void TextEmoticonsWidgets__EmoticonTextEditSelector_SuperDestroy(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_FocusNextChild(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_SuperFocusNextChild(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_FocusPreviousChild(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_SuperFocusPreviousChild(TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend QObject* TextEmoticonsWidgets__EmoticonTextEditSelector_Sender(const TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend QObject* TextEmoticonsWidgets__EmoticonTextEditSelector_SuperSender(const TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend int TextEmoticonsWidgets__EmoticonTextEditSelector_SenderSignalIndex(const TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend int TextEmoticonsWidgets__EmoticonTextEditSelector_SuperSenderSignalIndex(const TextEmoticonsWidgets::EmoticonTextEditSelector* self);
+    friend int TextEmoticonsWidgets__EmoticonTextEditSelector_Receivers(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, const char* signal);
+    friend int TextEmoticonsWidgets__EmoticonTextEditSelector_SuperReceivers(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, const char* signal);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_IsSignalConnected(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, const QMetaMethod* signal);
+    friend bool TextEmoticonsWidgets__EmoticonTextEditSelector_SuperIsSignalConnected(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, const QMetaMethod* signal);
+    friend double TextEmoticonsWidgets__EmoticonTextEditSelector_GetDecodedMetricF(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, int metricA, int metricB);
+    friend double TextEmoticonsWidgets__EmoticonTextEditSelector_SuperGetDecodedMetricF(const TextEmoticonsWidgets::EmoticonTextEditSelector* self, int metricA, int metricB);
+};
+
+#endif

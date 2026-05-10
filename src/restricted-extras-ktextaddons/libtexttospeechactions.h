@@ -1,0 +1,88 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTTOSPEECHACTIONS_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTTOSPEECHACTIONS_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextEditTextToSpeech__TextToSpeechActions)
+typedef TextEditTextToSpeech::TextToSpeechActions TextEditTextToSpeech__TextToSpeechActions;
+#endif
+#else
+typedef struct QAction QAction;
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextEditTextToSpeech__TextToSpeechActions TextEditTextToSpeech__TextToSpeechActions;
+#endif
+
+TextEditTextToSpeech__TextToSpeechActions* TextEditTextToSpeech__TextToSpeechActions_new();
+TextEditTextToSpeech__TextToSpeechActions* TextEditTextToSpeech__TextToSpeechActions_new2(QObject* parent);
+QMetaObject* TextEditTextToSpeech__TextToSpeechActions_MetaObject(const TextEditTextToSpeech__TextToSpeechActions* self);
+void* TextEditTextToSpeech__TextToSpeechActions_Metacast(TextEditTextToSpeech__TextToSpeechActions* self, const char* param1);
+int TextEditTextToSpeech__TextToSpeechActions_Metacall(TextEditTextToSpeech__TextToSpeechActions* self, int param1, int param2, void** param3);
+QAction* TextEditTextToSpeech__TextToSpeechActions_StopAction(const TextEditTextToSpeech__TextToSpeechActions* self);
+QAction* TextEditTextToSpeech__TextToSpeechActions_PlayPauseAction(const TextEditTextToSpeech__TextToSpeechActions* self);
+int TextEditTextToSpeech__TextToSpeechActions_State(const TextEditTextToSpeech__TextToSpeechActions* self);
+void TextEditTextToSpeech__TextToSpeechActions_SetState(TextEditTextToSpeech__TextToSpeechActions* self, int state);
+void TextEditTextToSpeech__TextToSpeechActions_SlotStop(TextEditTextToSpeech__TextToSpeechActions* self);
+void TextEditTextToSpeech__TextToSpeechActions_StateChanged(TextEditTextToSpeech__TextToSpeechActions* self, int state);
+void TextEditTextToSpeech__TextToSpeechActions_Connect_StateChanged(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void TextEditTextToSpeech__TextToSpeechActions_OnMetaObject(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+QMetaObject* TextEditTextToSpeech__TextToSpeechActions_SuperMetaObject(const TextEditTextToSpeech__TextToSpeechActions* self);
+void TextEditTextToSpeech__TextToSpeechActions_OnMetacast(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void* TextEditTextToSpeech__TextToSpeechActions_SuperMetacast(TextEditTextToSpeech__TextToSpeechActions* self, const char* param1);
+void TextEditTextToSpeech__TextToSpeechActions_OnMetacall(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+int TextEditTextToSpeech__TextToSpeechActions_SuperMetacall(TextEditTextToSpeech__TextToSpeechActions* self, int param1, int param2, void** param3);
+bool TextEditTextToSpeech__TextToSpeechActions_Event(TextEditTextToSpeech__TextToSpeechActions* self, QEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_OnEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+bool TextEditTextToSpeech__TextToSpeechActions_SuperEvent(TextEditTextToSpeech__TextToSpeechActions* self, QEvent* event);
+bool TextEditTextToSpeech__TextToSpeechActions_EventFilter(TextEditTextToSpeech__TextToSpeechActions* self, QObject* watched, QEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_OnEventFilter(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+bool TextEditTextToSpeech__TextToSpeechActions_SuperEventFilter(TextEditTextToSpeech__TextToSpeechActions* self, QObject* watched, QEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_TimerEvent(TextEditTextToSpeech__TextToSpeechActions* self, QTimerEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_OnTimerEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void TextEditTextToSpeech__TextToSpeechActions_SuperTimerEvent(TextEditTextToSpeech__TextToSpeechActions* self, QTimerEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_ChildEvent(TextEditTextToSpeech__TextToSpeechActions* self, QChildEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_OnChildEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void TextEditTextToSpeech__TextToSpeechActions_SuperChildEvent(TextEditTextToSpeech__TextToSpeechActions* self, QChildEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_CustomEvent(TextEditTextToSpeech__TextToSpeechActions* self, QEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_OnCustomEvent(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void TextEditTextToSpeech__TextToSpeechActions_SuperCustomEvent(TextEditTextToSpeech__TextToSpeechActions* self, QEvent* event);
+void TextEditTextToSpeech__TextToSpeechActions_ConnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, const QMetaMethod* signal);
+void TextEditTextToSpeech__TextToSpeechActions_OnConnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void TextEditTextToSpeech__TextToSpeechActions_SuperConnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, const QMetaMethod* signal);
+void TextEditTextToSpeech__TextToSpeechActions_DisconnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, const QMetaMethod* signal);
+void TextEditTextToSpeech__TextToSpeechActions_OnDisconnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+void TextEditTextToSpeech__TextToSpeechActions_SuperDisconnectNotify(TextEditTextToSpeech__TextToSpeechActions* self, const QMetaMethod* signal);
+QObject* TextEditTextToSpeech__TextToSpeechActions_Sender(const TextEditTextToSpeech__TextToSpeechActions* self);
+void TextEditTextToSpeech__TextToSpeechActions_OnSender(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+QObject* TextEditTextToSpeech__TextToSpeechActions_SuperSender(const TextEditTextToSpeech__TextToSpeechActions* self);
+int TextEditTextToSpeech__TextToSpeechActions_SenderSignalIndex(const TextEditTextToSpeech__TextToSpeechActions* self);
+void TextEditTextToSpeech__TextToSpeechActions_OnSenderSignalIndex(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+int TextEditTextToSpeech__TextToSpeechActions_SuperSenderSignalIndex(const TextEditTextToSpeech__TextToSpeechActions* self);
+int TextEditTextToSpeech__TextToSpeechActions_Receivers(const TextEditTextToSpeech__TextToSpeechActions* self, const char* signal);
+void TextEditTextToSpeech__TextToSpeechActions_OnReceivers(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+int TextEditTextToSpeech__TextToSpeechActions_SuperReceivers(const TextEditTextToSpeech__TextToSpeechActions* self, const char* signal);
+bool TextEditTextToSpeech__TextToSpeechActions_IsSignalConnected(const TextEditTextToSpeech__TextToSpeechActions* self, const QMetaMethod* signal);
+void TextEditTextToSpeech__TextToSpeechActions_OnIsSignalConnected(const TextEditTextToSpeech__TextToSpeechActions* self, intptr_t slot);
+bool TextEditTextToSpeech__TextToSpeechActions_SuperIsSignalConnected(const TextEditTextToSpeech__TextToSpeechActions* self, const QMetaMethod* signal);
+void TextEditTextToSpeech__TextToSpeechActions_Delete(TextEditTextToSpeech__TextToSpeechActions* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

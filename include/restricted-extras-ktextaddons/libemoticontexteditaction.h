@@ -1,0 +1,96 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBEMOTICONTEXTEDITACTION_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBEMOTICONTEXTEDITACTION_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextEmoticonsWidgets__EmoticonTextEditAction)
+typedef TextEmoticonsWidgets::EmoticonTextEditAction TextEmoticonsWidgets__EmoticonTextEditAction;
+#endif
+#else
+typedef struct KActionMenu KActionMenu;
+typedef struct QAction QAction;
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QWidget QWidget;
+typedef struct QWidgetAction QWidgetAction;
+typedef struct TextEmoticonsWidgets__EmoticonTextEditAction TextEmoticonsWidgets__EmoticonTextEditAction;
+#endif
+
+TextEmoticonsWidgets__EmoticonTextEditAction* TextEmoticonsWidgets__EmoticonTextEditAction_new(QObject* parent);
+QMetaObject* TextEmoticonsWidgets__EmoticonTextEditAction_MetaObject(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+void* TextEmoticonsWidgets__EmoticonTextEditAction_Metacast(TextEmoticonsWidgets__EmoticonTextEditAction* self, const char* param1);
+int TextEmoticonsWidgets__EmoticonTextEditAction_Metacall(TextEmoticonsWidgets__EmoticonTextEditAction* self, int param1, int param2, void** param3);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SetCustomEmojiSupport(TextEmoticonsWidgets__EmoticonTextEditAction* self, bool b);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_CustomEmojiSupport(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+void TextEmoticonsWidgets__EmoticonTextEditAction_InsertEmoticon(TextEmoticonsWidgets__EmoticonTextEditAction* self, const libqt_string param1);
+void TextEmoticonsWidgets__EmoticonTextEditAction_Connect_InsertEmoticon(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnMetaObject(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+QMetaObject* TextEmoticonsWidgets__EmoticonTextEditAction_SuperMetaObject(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnMetacast(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void* TextEmoticonsWidgets__EmoticonTextEditAction_SuperMetacast(TextEmoticonsWidgets__EmoticonTextEditAction* self, const char* param1);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnMetacall(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+int TextEmoticonsWidgets__EmoticonTextEditAction_SuperMetacall(TextEmoticonsWidgets__EmoticonTextEditAction* self, int param1, int param2, void** param3);
+QWidget* TextEmoticonsWidgets__EmoticonTextEditAction_CreateWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, QWidget* parent);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnCreateWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+QWidget* TextEmoticonsWidgets__EmoticonTextEditAction_SuperCreateWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, QWidget* parent);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_Event(TextEmoticonsWidgets__EmoticonTextEditAction* self, QEvent* param1);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_SuperEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QEvent* param1);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_EventFilter(TextEmoticonsWidgets__EmoticonTextEditAction* self, QObject* param1, QEvent* param2);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnEventFilter(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_SuperEventFilter(TextEmoticonsWidgets__EmoticonTextEditAction* self, QObject* param1, QEvent* param2);
+void TextEmoticonsWidgets__EmoticonTextEditAction_DeleteWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, QWidget* widget);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnDeleteWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SuperDeleteWidget(TextEmoticonsWidgets__EmoticonTextEditAction* self, QWidget* widget);
+void TextEmoticonsWidgets__EmoticonTextEditAction_TimerEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QTimerEvent* event);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnTimerEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SuperTimerEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QTimerEvent* event);
+void TextEmoticonsWidgets__EmoticonTextEditAction_ChildEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QChildEvent* event);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnChildEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SuperChildEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QChildEvent* event);
+void TextEmoticonsWidgets__EmoticonTextEditAction_CustomEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QEvent* event);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnCustomEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SuperCustomEvent(TextEmoticonsWidgets__EmoticonTextEditAction* self, QEvent* event);
+void TextEmoticonsWidgets__EmoticonTextEditAction_ConnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, const QMetaMethod* signal);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnConnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SuperConnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, const QMetaMethod* signal);
+void TextEmoticonsWidgets__EmoticonTextEditAction_DisconnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, const QMetaMethod* signal);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnDisconnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+void TextEmoticonsWidgets__EmoticonTextEditAction_SuperDisconnectNotify(TextEmoticonsWidgets__EmoticonTextEditAction* self, const QMetaMethod* signal);
+libqt_list /* of QWidget* */ TextEmoticonsWidgets__EmoticonTextEditAction_CreatedWidgets(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnCreatedWidgets(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+libqt_list /* of QWidget* */ TextEmoticonsWidgets__EmoticonTextEditAction_SuperCreatedWidgets(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+QObject* TextEmoticonsWidgets__EmoticonTextEditAction_Sender(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnSender(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+QObject* TextEmoticonsWidgets__EmoticonTextEditAction_SuperSender(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+int TextEmoticonsWidgets__EmoticonTextEditAction_SenderSignalIndex(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnSenderSignalIndex(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+int TextEmoticonsWidgets__EmoticonTextEditAction_SuperSenderSignalIndex(const TextEmoticonsWidgets__EmoticonTextEditAction* self);
+int TextEmoticonsWidgets__EmoticonTextEditAction_Receivers(const TextEmoticonsWidgets__EmoticonTextEditAction* self, const char* signal);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnReceivers(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+int TextEmoticonsWidgets__EmoticonTextEditAction_SuperReceivers(const TextEmoticonsWidgets__EmoticonTextEditAction* self, const char* signal);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_IsSignalConnected(const TextEmoticonsWidgets__EmoticonTextEditAction* self, const QMetaMethod* signal);
+void TextEmoticonsWidgets__EmoticonTextEditAction_OnIsSignalConnected(const TextEmoticonsWidgets__EmoticonTextEditAction* self, intptr_t slot);
+bool TextEmoticonsWidgets__EmoticonTextEditAction_SuperIsSignalConnected(const TextEmoticonsWidgets__EmoticonTextEditAction* self, const QMetaMethod* signal);
+void TextEmoticonsWidgets__EmoticonTextEditAction_Delete(TextEmoticonsWidgets__EmoticonTextEditAction* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

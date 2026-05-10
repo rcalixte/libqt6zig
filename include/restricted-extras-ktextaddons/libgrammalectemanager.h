@@ -1,0 +1,89 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBGRAMMALECTEMANAGER_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBGRAMMALECTEMANAGER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextGrammarCheck__GrammalecteManager)
+typedef TextGrammarCheck::GrammalecteManager TextGrammarCheck__GrammalecteManager;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextGrammarCheck__GrammalecteManager TextGrammarCheck__GrammalecteManager;
+#endif
+
+TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_new();
+TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_new2(QObject* parent);
+QMetaObject* TextGrammarCheck__GrammalecteManager_MetaObject(const TextGrammarCheck__GrammalecteManager* self);
+void* TextGrammarCheck__GrammalecteManager_Metacast(TextGrammarCheck__GrammalecteManager* self, const char* param1);
+int TextGrammarCheck__GrammalecteManager_Metacall(TextGrammarCheck__GrammalecteManager* self, int param1, int param2, void** param3);
+TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_Self();
+libqt_string TextGrammarCheck__GrammalecteManager_PythonPath(const TextGrammarCheck__GrammalecteManager* self);
+libqt_string TextGrammarCheck__GrammalecteManager_GrammalectePath(const TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_SetPythonPath(TextGrammarCheck__GrammalecteManager* self, const libqt_string pythonPath);
+void TextGrammarCheck__GrammalecteManager_SetGrammalectePath(TextGrammarCheck__GrammalecteManager* self, const libqt_string grammalectePath);
+libqt_list /* of libqt_string */ TextGrammarCheck__GrammalecteManager_Options(const TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_SetOptions(TextGrammarCheck__GrammalecteManager* self, const libqt_list /* of libqt_string */ saveOptions);
+void TextGrammarCheck__GrammalecteManager_LoadSettings(TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_SaveSettings(TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_OnMetaObject(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+QMetaObject* TextGrammarCheck__GrammalecteManager_SuperMetaObject(const TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_OnMetacast(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+void* TextGrammarCheck__GrammalecteManager_SuperMetacast(TextGrammarCheck__GrammalecteManager* self, const char* param1);
+void TextGrammarCheck__GrammalecteManager_OnMetacall(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+int TextGrammarCheck__GrammalecteManager_SuperMetacall(TextGrammarCheck__GrammalecteManager* self, int param1, int param2, void** param3);
+bool TextGrammarCheck__GrammalecteManager_Event(TextGrammarCheck__GrammalecteManager* self, QEvent* event);
+void TextGrammarCheck__GrammalecteManager_OnEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+bool TextGrammarCheck__GrammalecteManager_SuperEvent(TextGrammarCheck__GrammalecteManager* self, QEvent* event);
+bool TextGrammarCheck__GrammalecteManager_EventFilter(TextGrammarCheck__GrammalecteManager* self, QObject* watched, QEvent* event);
+void TextGrammarCheck__GrammalecteManager_OnEventFilter(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+bool TextGrammarCheck__GrammalecteManager_SuperEventFilter(TextGrammarCheck__GrammalecteManager* self, QObject* watched, QEvent* event);
+void TextGrammarCheck__GrammalecteManager_TimerEvent(TextGrammarCheck__GrammalecteManager* self, QTimerEvent* event);
+void TextGrammarCheck__GrammalecteManager_OnTimerEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteManager_SuperTimerEvent(TextGrammarCheck__GrammalecteManager* self, QTimerEvent* event);
+void TextGrammarCheck__GrammalecteManager_ChildEvent(TextGrammarCheck__GrammalecteManager* self, QChildEvent* event);
+void TextGrammarCheck__GrammalecteManager_OnChildEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteManager_SuperChildEvent(TextGrammarCheck__GrammalecteManager* self, QChildEvent* event);
+void TextGrammarCheck__GrammalecteManager_CustomEvent(TextGrammarCheck__GrammalecteManager* self, QEvent* event);
+void TextGrammarCheck__GrammalecteManager_OnCustomEvent(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteManager_SuperCustomEvent(TextGrammarCheck__GrammalecteManager* self, QEvent* event);
+void TextGrammarCheck__GrammalecteManager_ConnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteManager_OnConnectNotify(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteManager_SuperConnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteManager_DisconnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteManager_OnDisconnectNotify(TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteManager_SuperDisconnectNotify(TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal);
+QObject* TextGrammarCheck__GrammalecteManager_Sender(const TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_OnSender(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+QObject* TextGrammarCheck__GrammalecteManager_SuperSender(const TextGrammarCheck__GrammalecteManager* self);
+int TextGrammarCheck__GrammalecteManager_SenderSignalIndex(const TextGrammarCheck__GrammalecteManager* self);
+void TextGrammarCheck__GrammalecteManager_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+int TextGrammarCheck__GrammalecteManager_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteManager* self);
+int TextGrammarCheck__GrammalecteManager_Receivers(const TextGrammarCheck__GrammalecteManager* self, const char* signal);
+void TextGrammarCheck__GrammalecteManager_OnReceivers(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+int TextGrammarCheck__GrammalecteManager_SuperReceivers(const TextGrammarCheck__GrammalecteManager* self, const char* signal);
+bool TextGrammarCheck__GrammalecteManager_IsSignalConnected(const TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteManager_OnIsSignalConnected(const TextGrammarCheck__GrammalecteManager* self, intptr_t slot);
+bool TextGrammarCheck__GrammalecteManager_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteManager_Delete(TextGrammarCheck__GrammalecteManager* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

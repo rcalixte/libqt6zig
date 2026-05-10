@@ -1,0 +1,43 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTAUTOCORRECTIONSETTINGS_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTAUTOCORRECTIONSETTINGS_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__TextAutoCorrectionSettings)
+typedef TextAutoCorrectionCore::TextAutoCorrectionSettings TextAutoCorrectionCore__TextAutoCorrectionSettings;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__TextAutoCorrectionSettingsBase)
+typedef TextAutoCorrectionCore::TextAutoCorrectionSettingsBase TextAutoCorrectionCore__TextAutoCorrectionSettingsBase;
+#endif
+#else
+typedef struct KConfigSkeleton KConfigSkeleton;
+typedef struct KCoreConfigSkeleton KCoreConfigSkeleton;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct TextAutoCorrectionCore__TextAutoCorrectionSettings TextAutoCorrectionCore__TextAutoCorrectionSettings;
+typedef struct TextAutoCorrectionCore__TextAutoCorrectionSettingsBase TextAutoCorrectionCore__TextAutoCorrectionSettingsBase;
+#endif
+
+QMetaObject* TextAutoCorrectionCore__TextAutoCorrectionSettings_MetaObject(const TextAutoCorrectionCore__TextAutoCorrectionSettings* self);
+void* TextAutoCorrectionCore__TextAutoCorrectionSettings_Metacast(TextAutoCorrectionCore__TextAutoCorrectionSettings* self, const char* param1);
+int TextAutoCorrectionCore__TextAutoCorrectionSettings_Metacall(TextAutoCorrectionCore__TextAutoCorrectionSettings* self, int param1, int param2, void** param3);
+TextAutoCorrectionCore__TextAutoCorrectionSettings* TextAutoCorrectionCore__TextAutoCorrectionSettings_Self();
+void TextAutoCorrectionCore__TextAutoCorrectionSettings_RequestSync(TextAutoCorrectionCore__TextAutoCorrectionSettings* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

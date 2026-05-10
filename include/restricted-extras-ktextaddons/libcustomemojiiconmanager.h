@@ -1,0 +1,87 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBCUSTOMEMOJIICONMANAGER_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBCUSTOMEMOJIICONMANAGER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextEmoticonsCore__CustomEmojiIconManager)
+typedef TextEmoticonsCore::CustomEmojiIconManager TextEmoticonsCore__CustomEmojiIconManager;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QIcon QIcon;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextEmoticonsCore__CustomEmojiIconManager TextEmoticonsCore__CustomEmojiIconManager;
+#endif
+
+TextEmoticonsCore__CustomEmojiIconManager* TextEmoticonsCore__CustomEmojiIconManager_new();
+TextEmoticonsCore__CustomEmojiIconManager* TextEmoticonsCore__CustomEmojiIconManager_new2(QObject* parent);
+QIcon* TextEmoticonsCore__CustomEmojiIconManager_GenerateIcon(TextEmoticonsCore__CustomEmojiIconManager* self, const libqt_string customIdentifier);
+libqt_string TextEmoticonsCore__CustomEmojiIconManager_FileName(TextEmoticonsCore__CustomEmojiIconManager* self, const libqt_string customIdentifier);
+void TextEmoticonsCore__CustomEmojiIconManager_OnGenerateIcon(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+QIcon* TextEmoticonsCore__CustomEmojiIconManager_SuperGenerateIcon(TextEmoticonsCore__CustomEmojiIconManager* self, const libqt_string customIdentifier);
+void TextEmoticonsCore__CustomEmojiIconManager_OnFileName(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+libqt_string TextEmoticonsCore__CustomEmojiIconManager_SuperFileName(TextEmoticonsCore__CustomEmojiIconManager* self, const libqt_string customIdentifier);
+QMetaObject* TextEmoticonsCore__CustomEmojiIconManager_MetaObject(const TextEmoticonsCore__CustomEmojiIconManager* self);
+void TextEmoticonsCore__CustomEmojiIconManager_OnMetaObject(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+QMetaObject* TextEmoticonsCore__CustomEmojiIconManager_SuperMetaObject(const TextEmoticonsCore__CustomEmojiIconManager* self);
+void* TextEmoticonsCore__CustomEmojiIconManager_Metacast(TextEmoticonsCore__CustomEmojiIconManager* self, const char* param1);
+void TextEmoticonsCore__CustomEmojiIconManager_OnMetacast(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+void* TextEmoticonsCore__CustomEmojiIconManager_SuperMetacast(TextEmoticonsCore__CustomEmojiIconManager* self, const char* param1);
+int TextEmoticonsCore__CustomEmojiIconManager_Metacall(TextEmoticonsCore__CustomEmojiIconManager* self, int param1, int param2, void** param3);
+void TextEmoticonsCore__CustomEmojiIconManager_OnMetacall(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+int TextEmoticonsCore__CustomEmojiIconManager_SuperMetacall(TextEmoticonsCore__CustomEmojiIconManager* self, int param1, int param2, void** param3);
+bool TextEmoticonsCore__CustomEmojiIconManager_Event(TextEmoticonsCore__CustomEmojiIconManager* self, QEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_OnEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+bool TextEmoticonsCore__CustomEmojiIconManager_SuperEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QEvent* event);
+bool TextEmoticonsCore__CustomEmojiIconManager_EventFilter(TextEmoticonsCore__CustomEmojiIconManager* self, QObject* watched, QEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_OnEventFilter(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+bool TextEmoticonsCore__CustomEmojiIconManager_SuperEventFilter(TextEmoticonsCore__CustomEmojiIconManager* self, QObject* watched, QEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_TimerEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QTimerEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_OnTimerEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+void TextEmoticonsCore__CustomEmojiIconManager_SuperTimerEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QTimerEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_ChildEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QChildEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_OnChildEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+void TextEmoticonsCore__CustomEmojiIconManager_SuperChildEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QChildEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_CustomEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_OnCustomEvent(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+void TextEmoticonsCore__CustomEmojiIconManager_SuperCustomEvent(TextEmoticonsCore__CustomEmojiIconManager* self, QEvent* event);
+void TextEmoticonsCore__CustomEmojiIconManager_ConnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__CustomEmojiIconManager_OnConnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+void TextEmoticonsCore__CustomEmojiIconManager_SuperConnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__CustomEmojiIconManager_DisconnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__CustomEmojiIconManager_OnDisconnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+void TextEmoticonsCore__CustomEmojiIconManager_SuperDisconnectNotify(TextEmoticonsCore__CustomEmojiIconManager* self, const QMetaMethod* signal);
+QObject* TextEmoticonsCore__CustomEmojiIconManager_Sender(const TextEmoticonsCore__CustomEmojiIconManager* self);
+void TextEmoticonsCore__CustomEmojiIconManager_OnSender(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+QObject* TextEmoticonsCore__CustomEmojiIconManager_SuperSender(const TextEmoticonsCore__CustomEmojiIconManager* self);
+int TextEmoticonsCore__CustomEmojiIconManager_SenderSignalIndex(const TextEmoticonsCore__CustomEmojiIconManager* self);
+void TextEmoticonsCore__CustomEmojiIconManager_OnSenderSignalIndex(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+int TextEmoticonsCore__CustomEmojiIconManager_SuperSenderSignalIndex(const TextEmoticonsCore__CustomEmojiIconManager* self);
+int TextEmoticonsCore__CustomEmojiIconManager_Receivers(const TextEmoticonsCore__CustomEmojiIconManager* self, const char* signal);
+void TextEmoticonsCore__CustomEmojiIconManager_OnReceivers(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+int TextEmoticonsCore__CustomEmojiIconManager_SuperReceivers(const TextEmoticonsCore__CustomEmojiIconManager* self, const char* signal);
+bool TextEmoticonsCore__CustomEmojiIconManager_IsSignalConnected(const TextEmoticonsCore__CustomEmojiIconManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__CustomEmojiIconManager_OnIsSignalConnected(const TextEmoticonsCore__CustomEmojiIconManager* self, intptr_t slot);
+bool TextEmoticonsCore__CustomEmojiIconManager_SuperIsSignalConnected(const TextEmoticonsCore__CustomEmojiIconManager* self, const QMetaMethod* signal);
+void TextEmoticonsCore__CustomEmojiIconManager_Delete(TextEmoticonsCore__CustomEmojiIconManager* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,40 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBIMPORTKMAILAUTOCORRECTION_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBIMPORTKMAILAUTOCORRECTION_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__ImportAbstractAutocorrection)
+typedef TextAutoCorrectionCore::ImportAbstractAutocorrection TextAutoCorrectionCore__ImportAbstractAutocorrection;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__ImportKMailAutocorrection)
+typedef TextAutoCorrectionCore::ImportKMailAutocorrection TextAutoCorrectionCore__ImportKMailAutocorrection;
+#endif
+#else
+typedef struct TextAutoCorrectionCore__ImportAbstractAutocorrection TextAutoCorrectionCore__ImportAbstractAutocorrection;
+typedef struct TextAutoCorrectionCore__ImportKMailAutocorrection TextAutoCorrectionCore__ImportKMailAutocorrection;
+#endif
+
+TextAutoCorrectionCore__ImportKMailAutocorrection* TextAutoCorrectionCore__ImportKMailAutocorrection_new();
+TextAutoCorrectionCore__ImportKMailAutocorrection* TextAutoCorrectionCore__ImportKMailAutocorrection_new2(const TextAutoCorrectionCore__ImportKMailAutocorrection* param1);
+bool TextAutoCorrectionCore__ImportKMailAutocorrection_Import(TextAutoCorrectionCore__ImportKMailAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute);
+void TextAutoCorrectionCore__ImportKMailAutocorrection_OperatorAssign(TextAutoCorrectionCore__ImportKMailAutocorrection* self, const TextAutoCorrectionCore__ImportKMailAutocorrection* param1);
+void TextAutoCorrectionCore__ImportKMailAutocorrection_OnImport(TextAutoCorrectionCore__ImportKMailAutocorrection* self, intptr_t slot);
+bool TextAutoCorrectionCore__ImportKMailAutocorrection_SuperImport(TextAutoCorrectionCore__ImportKMailAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute);
+void TextAutoCorrectionCore__ImportKMailAutocorrection_Delete(TextAutoCorrectionCore__ImportKMailAutocorrection* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

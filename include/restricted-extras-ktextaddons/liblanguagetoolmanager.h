@@ -1,0 +1,97 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBLANGUAGETOOLMANAGER_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBLANGUAGETOOLMANAGER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextGrammarCheck__LanguageToolManager)
+typedef TextGrammarCheck::LanguageToolManager TextGrammarCheck__LanguageToolManager;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QColor QColor;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QNetworkAccessManager QNetworkAccessManager;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextGrammarCheck__LanguageToolManager TextGrammarCheck__LanguageToolManager;
+#endif
+
+TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_new();
+TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_new2(QObject* parent);
+QMetaObject* TextGrammarCheck__LanguageToolManager_MetaObject(const TextGrammarCheck__LanguageToolManager* self);
+void* TextGrammarCheck__LanguageToolManager_Metacast(TextGrammarCheck__LanguageToolManager* self, const char* param1);
+int TextGrammarCheck__LanguageToolManager_Metacall(TextGrammarCheck__LanguageToolManager* self, int param1, int param2, void** param3);
+TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_Self();
+QNetworkAccessManager* TextGrammarCheck__LanguageToolManager_NetworkAccessManager(const TextGrammarCheck__LanguageToolManager* self);
+libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolPath(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_SetLanguageToolPath(TextGrammarCheck__LanguageToolManager* self, const libqt_string path);
+void TextGrammarCheck__LanguageToolManager_LoadSettings(TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_SaveSettings(TextGrammarCheck__LanguageToolManager* self);
+libqt_string TextGrammarCheck__LanguageToolManager_Language(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_SetLanguage(TextGrammarCheck__LanguageToolManager* self, const libqt_string language);
+bool TextGrammarCheck__LanguageToolManager_UseLocalInstance(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_SetUseLocalInstance(TextGrammarCheck__LanguageToolManager* self, bool useLocalInstance);
+libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolCheckPath(const TextGrammarCheck__LanguageToolManager* self);
+libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolLanguagesPath(const TextGrammarCheck__LanguageToolManager* self);
+libqt_string TextGrammarCheck__LanguageToolManager_ConvertToLanguagePath(const libqt_string path);
+QColor* TextGrammarCheck__LanguageToolManager_GrammarColorForError(TextGrammarCheck__LanguageToolManager* self, const libqt_string errorVal);
+bool TextGrammarCheck__LanguageToolManager_AllowToGetListOfLanguages(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_OnMetaObject(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+QMetaObject* TextGrammarCheck__LanguageToolManager_SuperMetaObject(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_OnMetacast(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void* TextGrammarCheck__LanguageToolManager_SuperMetacast(TextGrammarCheck__LanguageToolManager* self, const char* param1);
+void TextGrammarCheck__LanguageToolManager_OnMetacall(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+int TextGrammarCheck__LanguageToolManager_SuperMetacall(TextGrammarCheck__LanguageToolManager* self, int param1, int param2, void** param3);
+bool TextGrammarCheck__LanguageToolManager_Event(TextGrammarCheck__LanguageToolManager* self, QEvent* event);
+void TextGrammarCheck__LanguageToolManager_OnEvent(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+bool TextGrammarCheck__LanguageToolManager_SuperEvent(TextGrammarCheck__LanguageToolManager* self, QEvent* event);
+bool TextGrammarCheck__LanguageToolManager_EventFilter(TextGrammarCheck__LanguageToolManager* self, QObject* watched, QEvent* event);
+void TextGrammarCheck__LanguageToolManager_OnEventFilter(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+bool TextGrammarCheck__LanguageToolManager_SuperEventFilter(TextGrammarCheck__LanguageToolManager* self, QObject* watched, QEvent* event);
+void TextGrammarCheck__LanguageToolManager_TimerEvent(TextGrammarCheck__LanguageToolManager* self, QTimerEvent* event);
+void TextGrammarCheck__LanguageToolManager_OnTimerEvent(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void TextGrammarCheck__LanguageToolManager_SuperTimerEvent(TextGrammarCheck__LanguageToolManager* self, QTimerEvent* event);
+void TextGrammarCheck__LanguageToolManager_ChildEvent(TextGrammarCheck__LanguageToolManager* self, QChildEvent* event);
+void TextGrammarCheck__LanguageToolManager_OnChildEvent(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void TextGrammarCheck__LanguageToolManager_SuperChildEvent(TextGrammarCheck__LanguageToolManager* self, QChildEvent* event);
+void TextGrammarCheck__LanguageToolManager_CustomEvent(TextGrammarCheck__LanguageToolManager* self, QEvent* event);
+void TextGrammarCheck__LanguageToolManager_OnCustomEvent(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void TextGrammarCheck__LanguageToolManager_SuperCustomEvent(TextGrammarCheck__LanguageToolManager* self, QEvent* event);
+void TextGrammarCheck__LanguageToolManager_ConnectNotify(TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__LanguageToolManager_OnConnectNotify(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void TextGrammarCheck__LanguageToolManager_SuperConnectNotify(TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__LanguageToolManager_DisconnectNotify(TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__LanguageToolManager_OnDisconnectNotify(TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+void TextGrammarCheck__LanguageToolManager_SuperDisconnectNotify(TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
+QObject* TextGrammarCheck__LanguageToolManager_Sender(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_OnSender(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+QObject* TextGrammarCheck__LanguageToolManager_SuperSender(const TextGrammarCheck__LanguageToolManager* self);
+int TextGrammarCheck__LanguageToolManager_SenderSignalIndex(const TextGrammarCheck__LanguageToolManager* self);
+void TextGrammarCheck__LanguageToolManager_OnSenderSignalIndex(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+int TextGrammarCheck__LanguageToolManager_SuperSenderSignalIndex(const TextGrammarCheck__LanguageToolManager* self);
+int TextGrammarCheck__LanguageToolManager_Receivers(const TextGrammarCheck__LanguageToolManager* self, const char* signal);
+void TextGrammarCheck__LanguageToolManager_OnReceivers(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+int TextGrammarCheck__LanguageToolManager_SuperReceivers(const TextGrammarCheck__LanguageToolManager* self, const char* signal);
+bool TextGrammarCheck__LanguageToolManager_IsSignalConnected(const TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__LanguageToolManager_OnIsSignalConnected(const TextGrammarCheck__LanguageToolManager* self, intptr_t slot);
+bool TextGrammarCheck__LanguageToolManager_SuperIsSignalConnected(const TextGrammarCheck__LanguageToolManager* self, const QMetaMethod* signal);
+void TextGrammarCheck__LanguageToolManager_Delete(TextGrammarCheck__LanguageToolManager* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
