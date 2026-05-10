@@ -144,6 +144,21 @@ func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, classNa
 		return preUrl + "https://accounts-sso.gitlab.io/signond/classSignOn_1_1" + strings.ToUpper(classUrl[0:1]) + classUrl[1:] + ".html" + postUrl
 	}
 
+	if zfs.currentPackageName == "restricted-extras-ktextaddons" && className[0] != 'K' && className[0] != 'Q' && !strings.HasPrefix(className, "Sonnet") {
+		if pageType == EnumPage {
+			return ""
+		}
+		classUrl := strings.Split(className, "__")
+		switch len(classUrl) {
+		case 1:
+			return preUrl + "https://api.kde.org/legacy/ktextaddons/html/class" + classUrl[0] + ".html" + postUrl
+		case 2:
+			return preUrl + "https://api.kde.org/legacy/ktextaddons/html/class" + classUrl[0] + "_1_1" + classUrl[1] + ".html" + postUrl
+		default:
+			return ""
+		}
+	}
+
 	if pageType == DtorPage && strings.Contains(className, "__") {
 		return ""
 	}
@@ -404,7 +419,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "i32"
 	case "qint64", "time_t", "GLint64":
 		ret += "i64"
-	case "quint64", "dev_t", "GLuint64":
+	case "quint64", "uint64_t", "dev_t", "GLuint64":
 		ret += "u64"
 	case "float", "GLclampf", "GLfloat":
 		ret += "f32"
@@ -949,8 +964,9 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 		}
 
 	} else if rt.IsChronoSeconds() {
+		maybeDetail := ifv(rt.IsStdOptional, " (Returns -1 for an invalid duration)", "")
 		secType := strings.Split(rt.ParameterType, "::")[2]
-		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, true, true) + " of " + secType + " `"
+		returnComment = "\n///\n/// ## Returns:\n///\n/// ` " + rt.RenderTypeZig(zfs, true, true) + " of " + secType + " `" + maybeDetail
 
 	} else if rt.IsFunctionPointer {
 		returnTypeDecl, _, _ := rt.FunctionPointer.ReturnType.renderReturnTypeZig(zfs, true)
@@ -2918,8 +2934,9 @@ const qtc = @import("qt6c");`)
 		seenEnums = append(seenEnums, zigEnumName)
 
 		enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
+		enumTag := ifv(enumType == "bool", "", "("+enumType+")")
 
-		ret.WriteString("pub const " + zigEnumName + " = enum(" + enumType + ") {\n")
+		ret.WriteString("pub const " + zigEnumName + " = enum" + enumTag + " {\n")
 
 		for _, ee := range e.Entries {
 			entry := ee.EntryValue
