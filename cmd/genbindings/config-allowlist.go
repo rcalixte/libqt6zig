@@ -41,6 +41,10 @@ func InsertTypedefs() {
 	KnownTypedefs["FormWidgetChoice"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetChoice", parseSingleTypeString("Poppler::FormWidgetChoice", "")}}
 	KnownTypedefs["FormWidgetSignature"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetSignature", parseSingleTypeString("Poppler::FormWidgetSignature", "")}}
 	KnownTypedefs["FormWidgetText"] = lookupResultTypedef{pp, CppTypedef{"Poppler::FormWidgetText", parseSingleTypeString("Poppler::FormWidgetText", "")}}
+
+	// Qt 6 KTextAddons
+	KnownTypedefs["TranslatorUtil::Language"] = lookupResultTypedef{pp, CppTypedef{"TextTranslator::TranslatorUtil::Language", parseSingleTypeString("TextTranslator::TranslatorUtil::Language", "")}}
+	KnownTypedefs["TranslatorUtilLanguage"] = lookupResultTypedef{pp, CppTypedef{"TextTranslator::TranslatorUtil::Language", parseSingleTypeString("TextTranslator::TranslatorUtil::Language", "")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -768,6 +772,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QXmlStreamNamespaceDeclarations", // e.g. qxmlstream.h. As above
 		"QXmlStreamNotationDeclarations",  // e.g. qxmlstream.h. As above
 		"void QMetaObject::Connection::",  // qobjectdefs.h operator void* overload
+		"void Connection::",               // qobjectdefs.h operator void* overload
 		"QtMsgType",                       // e.g. qdebug.h TODO Defined in qlogging.h, but omitted because it's predefined in qglobal.h, and our clangexec is too aggressive
 		"QFactoryInterface",               // qfactoryinterface.h
 		"QTextEngine",                     // used by qtextlayout.h, also blocked in ImportHeaderForClass above
@@ -832,6 +837,8 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"PageTransitionParams",            // Qt 6 poppler-page-transition.h
 		"Ref",                             // Qt 6 poppler-link.h
 		"Sound",                           // Qt 6 poppler-qt6.h
+		"LanguageInfo",                    // Qt 6 KTextAddons, languagetoolcombobox.h, an incomplete forward declaration
+		"TextToSpeechConfigInterface",     // Qt 6 KTextAddons, texttospeechconfigwidget.h, an incomplete forward declaration
 		"SignOn::AuthService::IdentityFilterCriteria", // Qt 6 authservice.h, this results in an infinite loop for some reason
 		"____last____":
 		return ErrTooComplex
@@ -866,7 +873,10 @@ func AllowStructDef(className string) bool {
 		"KNSCore::ErrorCode",
 		"KParts::PartLoader",
 		"KSyntaxHighlighting::WildcardMatcher",
-		"Poppler::Version":
+		"Poppler::Version",
+		"TextAutoCorrectionCore::AutoCorrectionUtils",
+		"TextEmoticonsCore::EmoticonUnicodeUtils",
+		"TextUtils::ConvertText":
 		return false
 	default:
 		return !strings.HasPrefix(className, "std::")
