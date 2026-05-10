@@ -1,0 +1,61 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTRANSLATORUTIL_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTRANSLATORUTIL_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextTranslator__TranslatorUtil)
+typedef TextTranslator::TranslatorUtil TextTranslator__TranslatorUtil;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextTranslator__TranslatorUtil__TranslatorSettings)
+typedef TextTranslator::TranslatorUtil::TranslatorSettings TextTranslator__TranslatorUtil__TranslatorSettings;
+#endif
+#else
+typedef struct QComboBox QComboBox;
+typedef struct TextTranslator__TranslatorUtil TextTranslator__TranslatorUtil;
+typedef struct TextTranslator__TranslatorUtil__TranslatorSettings TextTranslator__TranslatorUtil__TranslatorSettings;
+#endif
+
+TextTranslator__TranslatorUtil* TextTranslator__TranslatorUtil_new(const TextTranslator__TranslatorUtil* other);
+TextTranslator__TranslatorUtil* TextTranslator__TranslatorUtil_new2(TextTranslator__TranslatorUtil* other);
+TextTranslator__TranslatorUtil* TextTranslator__TranslatorUtil_new3();
+void TextTranslator__TranslatorUtil_CopyAssign(TextTranslator__TranslatorUtil* self, TextTranslator__TranslatorUtil* other);
+void TextTranslator__TranslatorUtil_MoveAssign(TextTranslator__TranslatorUtil* self, TextTranslator__TranslatorUtil* other);
+void TextTranslator__TranslatorUtil_AddItemToFromComboBox(TextTranslator__TranslatorUtil* self, QComboBox* combo, const libqt_string languageCode, const libqt_string translatedStr);
+libqt_map /* of int to libqt_string */ TextTranslator__TranslatorUtil_TranslatedLanguages();
+libqt_string TextTranslator__TranslatorUtil_LoadEngine();
+void TextTranslator__TranslatorUtil_SaveEngineSettings(const libqt_string engineName);
+libqt_string TextTranslator__TranslatorUtil_GroupTranslateName();
+libqt_string TextTranslator__TranslatorUtil_EngineTranslateName();
+libqt_string TextTranslator__TranslatorUtil_DefaultEngineName();
+libqt_string TextTranslator__TranslatorUtil_TranslatedLanguage(int lang);
+libqt_string TextTranslator__TranslatorUtil_LanguageCode(int lang);
+libqt_string TextTranslator__TranslatorUtil_SearchI18nFromLanguage(const libqt_string langCode);
+int TextTranslator__TranslatorUtil_StringToLanguage(const libqt_string str);
+void TextTranslator__TranslatorUtil_Delete(TextTranslator__TranslatorUtil* self);
+
+TextTranslator__TranslatorUtil__TranslatorSettings* TextTranslator__TranslatorUtil__TranslatorSettings_new(const TextTranslator__TranslatorUtil__TranslatorSettings* param1);
+libqt_string TextTranslator__TranslatorUtil__TranslatorSettings_Engine(const TextTranslator__TranslatorUtil__TranslatorSettings* self);
+void TextTranslator__TranslatorUtil__TranslatorSettings_SetEngine(TextTranslator__TranslatorUtil__TranslatorSettings* self, libqt_string engine);
+libqt_string TextTranslator__TranslatorUtil__TranslatorSettings_From(const TextTranslator__TranslatorUtil__TranslatorSettings* self);
+void TextTranslator__TranslatorUtil__TranslatorSettings_SetFrom(TextTranslator__TranslatorUtil__TranslatorSettings* self, libqt_string from);
+libqt_string TextTranslator__TranslatorUtil__TranslatorSettings_To(const TextTranslator__TranslatorUtil__TranslatorSettings* self);
+void TextTranslator__TranslatorUtil__TranslatorSettings_SetTo(TextTranslator__TranslatorUtil__TranslatorSettings* self, libqt_string to);
+void TextTranslator__TranslatorUtil__TranslatorSettings_OperatorAssign(TextTranslator__TranslatorUtil__TranslatorSettings* self, const TextTranslator__TranslatorUtil__TranslatorSettings* param1);
+void TextTranslator__TranslatorUtil__TranslatorSettings_Delete(TextTranslator__TranslatorUtil__TranslatorSettings* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

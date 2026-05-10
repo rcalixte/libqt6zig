@@ -33,6 +33,12 @@ Pass 2
 
 This library is tested to work on Debian 13 with the system's available packages (Qt 6.8 / Clang 19).
 
+In order to successfully build the library, all of the packages in the main README are required in addition to:
+
+```text
+clang clang-format libutf8proc-dev
+```
+
 You should check the following configuration:
 
 - `config-libraries.go`: Input directories containing Qt headers

@@ -226,6 +226,9 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 	if cppType == "Transaction::TransactionFlags" {
 		return "PackageKit::Transaction::TransactionFlag"
 	}
+	if cppType == "TextEditFindBarBase::FindFlags" {
+		return "TextCustomEditor::TextEditFindBarBase::FindFlags"
+	}
 
 	return cppType
 }
@@ -578,7 +581,10 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		return preamble, "std::unique_ptr<" + p.ParameterType + ">(" + p.ParameterName + ")"
 
 	} else if p.IsFunctionPointer {
-		pType := ifv(p.QtCppOriginalType != nil, p.QtCppOriginalType.ParameterType, p.ParameterType)
+		pType := p.ParameterType
+		if p.QtCppOriginalType != nil {
+			pType = p.QtCppOriginalType.ParameterType
+		}
 		if strings.Contains(pType, "(*)") {
 			pType = ifv(p.Const, "const ", "") + strings.Replace(pType, "(*)", "*(*)", max(p.PointerCount-1, 0))
 		}
@@ -1017,6 +1023,8 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		} else if p.IsKnownEnum() {
 			maybePre = "static_cast<" + p.RenderTypeCabi(false) + ">("
 			value = ".value_or(static_cast<" + p.RenderTypeQtCpp() + ">(-1)))"
+		} else if p.IsChronoSeconds() {
+			value = ".value_or(static_cast<" + p.RenderTypeQtCpp() + ">(-1)).count()"
 		} else if p.IntType() {
 			value = ".value_or(-1)"
 		} else if IsKnownClass(p.ParameterType) {
@@ -1587,6 +1595,11 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 				ret.WriteString("\n\t// Virtual method for C ABI access and custom callback\n" +
 					"\t" + maybeVirtual + returnDecl + " " + cppMethodName + "(" + maybeFunc + ") " +
 					maybeConst + maybeOverride + "{\n" + customCallback + "\t}\n")
+			}
+
+			// temporary hack
+			if c.ClassName == "TextCustomEditor::TextEditFindBarBase" {
+				ret.WriteString("\nvoid slotReplaceText() override {}\nvoid slotReplaceAllText() override {}\n")
 			}
 
 			if len(friendFuncs) > 0 {

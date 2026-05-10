@@ -1,0 +1,251 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTGOTOLINEWIDGET_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTEXTGOTOLINEWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextCustomEditor__TextGoToLineWidget)
+typedef TextCustomEditor::TextGoToLineWidget TextCustomEditor__TextGoToLineWidget;
+#endif
+#else
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+typedef struct TextCustomEditor__TextGoToLineWidget TextCustomEditor__TextGoToLineWidget;
+#endif
+
+TextCustomEditor__TextGoToLineWidget* TextCustomEditor__TextGoToLineWidget_new(QWidget* parent);
+TextCustomEditor__TextGoToLineWidget* TextCustomEditor__TextGoToLineWidget_new2();
+QMetaObject* TextCustomEditor__TextGoToLineWidget_MetaObject(const TextCustomEditor__TextGoToLineWidget* self);
+void* TextCustomEditor__TextGoToLineWidget_Metacast(TextCustomEditor__TextGoToLineWidget* self, const char* param1);
+int TextCustomEditor__TextGoToLineWidget_Metacall(TextCustomEditor__TextGoToLineWidget* self, int param1, int param2, void** param3);
+void TextCustomEditor__TextGoToLineWidget_GoToLine(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_SetMaximumLineCount(TextCustomEditor__TextGoToLineWidget* self, int max);
+void TextCustomEditor__TextGoToLineWidget_MoveToLine(TextCustomEditor__TextGoToLineWidget* self, int param1);
+void TextCustomEditor__TextGoToLineWidget_Connect_MoveToLine(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_HideGotoLine(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_Connect_HideGotoLine(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_Event(TextCustomEditor__TextGoToLineWidget* self, QEvent* e);
+void TextCustomEditor__TextGoToLineWidget_ShowEvent(TextCustomEditor__TextGoToLineWidget* self, QShowEvent* e);
+bool TextCustomEditor__TextGoToLineWidget_EventFilter(TextCustomEditor__TextGoToLineWidget* self, QObject* obj, QEvent* event);
+void TextCustomEditor__TextGoToLineWidget_SlotBlockCountChanged(TextCustomEditor__TextGoToLineWidget* self, int numberBlockCount);
+void TextCustomEditor__TextGoToLineWidget_OnMetaObject(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QMetaObject* TextCustomEditor__TextGoToLineWidget_SuperMetaObject(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnMetacast(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void* TextCustomEditor__TextGoToLineWidget_SuperMetacast(TextCustomEditor__TextGoToLineWidget* self, const char* param1);
+void TextCustomEditor__TextGoToLineWidget_OnMetacall(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+int TextCustomEditor__TextGoToLineWidget_SuperMetacall(TextCustomEditor__TextGoToLineWidget* self, int param1, int param2, void** param3);
+void TextCustomEditor__TextGoToLineWidget_OnEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* e);
+void TextCustomEditor__TextGoToLineWidget_OnShowEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperShowEvent(TextCustomEditor__TextGoToLineWidget* self, QShowEvent* e);
+void TextCustomEditor__TextGoToLineWidget_OnEventFilter(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperEventFilter(TextCustomEditor__TextGoToLineWidget* self, QObject* obj, QEvent* event);
+int TextCustomEditor__TextGoToLineWidget_DevType(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnDevType(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+int TextCustomEditor__TextGoToLineWidget_SuperDevType(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_SetVisible(TextCustomEditor__TextGoToLineWidget* self, bool visible);
+void TextCustomEditor__TextGoToLineWidget_OnSetVisible(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperSetVisible(TextCustomEditor__TextGoToLineWidget* self, bool visible);
+QSize* TextCustomEditor__TextGoToLineWidget_SizeHint(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnSizeHint(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QSize* TextCustomEditor__TextGoToLineWidget_SuperSizeHint(const TextCustomEditor__TextGoToLineWidget* self);
+QSize* TextCustomEditor__TextGoToLineWidget_MinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnMinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QSize* TextCustomEditor__TextGoToLineWidget_SuperMinimumSizeHint(const TextCustomEditor__TextGoToLineWidget* self);
+int TextCustomEditor__TextGoToLineWidget_HeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, int param1);
+void TextCustomEditor__TextGoToLineWidget_OnHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+int TextCustomEditor__TextGoToLineWidget_SuperHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, int param1);
+bool TextCustomEditor__TextGoToLineWidget_HasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnHasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperHasHeightForWidth(const TextCustomEditor__TextGoToLineWidget* self);
+QPaintEngine* TextCustomEditor__TextGoToLineWidget_PaintEngine(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnPaintEngine(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QPaintEngine* TextCustomEditor__TextGoToLineWidget_SuperPaintEngine(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_MousePressEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnMousePressEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperMousePressEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_MouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnMouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperMouseReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_MouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnMouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperMouseDoubleClickEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_MouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnMouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperMouseMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMouseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_WheelEvent(TextCustomEditor__TextGoToLineWidget* self, QWheelEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnWheelEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperWheelEvent(TextCustomEditor__TextGoToLineWidget* self, QWheelEvent* event);
+void TextCustomEditor__TextGoToLineWidget_KeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnKeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperKeyPressEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event);
+void TextCustomEditor__TextGoToLineWidget_KeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnKeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperKeyReleaseEvent(TextCustomEditor__TextGoToLineWidget* self, QKeyEvent* event);
+void TextCustomEditor__TextGoToLineWidget_FocusInEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnFocusInEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperFocusInEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event);
+void TextCustomEditor__TextGoToLineWidget_FocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnFocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperFocusOutEvent(TextCustomEditor__TextGoToLineWidget* self, QFocusEvent* event);
+void TextCustomEditor__TextGoToLineWidget_EnterEvent(TextCustomEditor__TextGoToLineWidget* self, QEnterEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnEnterEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperEnterEvent(TextCustomEditor__TextGoToLineWidget* self, QEnterEvent* event);
+void TextCustomEditor__TextGoToLineWidget_LeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event);
+void TextCustomEditor__TextGoToLineWidget_PaintEvent(TextCustomEditor__TextGoToLineWidget* self, QPaintEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnPaintEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperPaintEvent(TextCustomEditor__TextGoToLineWidget* self, QPaintEvent* event);
+void TextCustomEditor__TextGoToLineWidget_MoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMoveEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QMoveEvent* event);
+void TextCustomEditor__TextGoToLineWidget_ResizeEvent(TextCustomEditor__TextGoToLineWidget* self, QResizeEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnResizeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperResizeEvent(TextCustomEditor__TextGoToLineWidget* self, QResizeEvent* event);
+void TextCustomEditor__TextGoToLineWidget_CloseEvent(TextCustomEditor__TextGoToLineWidget* self, QCloseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnCloseEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperCloseEvent(TextCustomEditor__TextGoToLineWidget* self, QCloseEvent* event);
+void TextCustomEditor__TextGoToLineWidget_ContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, QContextMenuEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperContextMenuEvent(TextCustomEditor__TextGoToLineWidget* self, QContextMenuEvent* event);
+void TextCustomEditor__TextGoToLineWidget_TabletEvent(TextCustomEditor__TextGoToLineWidget* self, QTabletEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnTabletEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperTabletEvent(TextCustomEditor__TextGoToLineWidget* self, QTabletEvent* event);
+void TextCustomEditor__TextGoToLineWidget_ActionEvent(TextCustomEditor__TextGoToLineWidget* self, QActionEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnActionEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperActionEvent(TextCustomEditor__TextGoToLineWidget* self, QActionEvent* event);
+void TextCustomEditor__TextGoToLineWidget_DragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, QDragEnterEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnDragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperDragEnterEvent(TextCustomEditor__TextGoToLineWidget* self, QDragEnterEvent* event);
+void TextCustomEditor__TextGoToLineWidget_DragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragMoveEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnDragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperDragMoveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragMoveEvent* event);
+void TextCustomEditor__TextGoToLineWidget_DragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragLeaveEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnDragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperDragLeaveEvent(TextCustomEditor__TextGoToLineWidget* self, QDragLeaveEvent* event);
+void TextCustomEditor__TextGoToLineWidget_DropEvent(TextCustomEditor__TextGoToLineWidget* self, QDropEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnDropEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperDropEvent(TextCustomEditor__TextGoToLineWidget* self, QDropEvent* event);
+void TextCustomEditor__TextGoToLineWidget_HideEvent(TextCustomEditor__TextGoToLineWidget* self, QHideEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnHideEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperHideEvent(TextCustomEditor__TextGoToLineWidget* self, QHideEvent* event);
+bool TextCustomEditor__TextGoToLineWidget_NativeEvent(TextCustomEditor__TextGoToLineWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void TextCustomEditor__TextGoToLineWidget_OnNativeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperNativeEvent(TextCustomEditor__TextGoToLineWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void TextCustomEditor__TextGoToLineWidget_ChangeEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* param1);
+void TextCustomEditor__TextGoToLineWidget_OnChangeEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperChangeEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* param1);
+int TextCustomEditor__TextGoToLineWidget_Metric(const TextCustomEditor__TextGoToLineWidget* self, int param1);
+void TextCustomEditor__TextGoToLineWidget_OnMetric(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+int TextCustomEditor__TextGoToLineWidget_SuperMetric(const TextCustomEditor__TextGoToLineWidget* self, int param1);
+void TextCustomEditor__TextGoToLineWidget_InitPainter(const TextCustomEditor__TextGoToLineWidget* self, QPainter* painter);
+void TextCustomEditor__TextGoToLineWidget_OnInitPainter(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperInitPainter(const TextCustomEditor__TextGoToLineWidget* self, QPainter* painter);
+QPaintDevice* TextCustomEditor__TextGoToLineWidget_Redirected(const TextCustomEditor__TextGoToLineWidget* self, QPoint* offset);
+void TextCustomEditor__TextGoToLineWidget_OnRedirected(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QPaintDevice* TextCustomEditor__TextGoToLineWidget_SuperRedirected(const TextCustomEditor__TextGoToLineWidget* self, QPoint* offset);
+QPainter* TextCustomEditor__TextGoToLineWidget_SharedPainter(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnSharedPainter(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QPainter* TextCustomEditor__TextGoToLineWidget_SuperSharedPainter(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_InputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, QInputMethodEvent* param1);
+void TextCustomEditor__TextGoToLineWidget_OnInputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperInputMethodEvent(TextCustomEditor__TextGoToLineWidget* self, QInputMethodEvent* param1);
+QVariant* TextCustomEditor__TextGoToLineWidget_InputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, int param1);
+void TextCustomEditor__TextGoToLineWidget_OnInputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QVariant* TextCustomEditor__TextGoToLineWidget_SuperInputMethodQuery(const TextCustomEditor__TextGoToLineWidget* self, int param1);
+bool TextCustomEditor__TextGoToLineWidget_FocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, bool next);
+void TextCustomEditor__TextGoToLineWidget_OnFocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperFocusNextPrevChild(TextCustomEditor__TextGoToLineWidget* self, bool next);
+void TextCustomEditor__TextGoToLineWidget_TimerEvent(TextCustomEditor__TextGoToLineWidget* self, QTimerEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnTimerEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperTimerEvent(TextCustomEditor__TextGoToLineWidget* self, QTimerEvent* event);
+void TextCustomEditor__TextGoToLineWidget_ChildEvent(TextCustomEditor__TextGoToLineWidget* self, QChildEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnChildEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperChildEvent(TextCustomEditor__TextGoToLineWidget* self, QChildEvent* event);
+void TextCustomEditor__TextGoToLineWidget_CustomEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event);
+void TextCustomEditor__TextGoToLineWidget_OnCustomEvent(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperCustomEvent(TextCustomEditor__TextGoToLineWidget* self, QEvent* event);
+void TextCustomEditor__TextGoToLineWidget_ConnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal);
+void TextCustomEditor__TextGoToLineWidget_OnConnectNotify(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperConnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal);
+void TextCustomEditor__TextGoToLineWidget_DisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal);
+void TextCustomEditor__TextGoToLineWidget_OnDisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperDisconnectNotify(TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal);
+void TextCustomEditor__TextGoToLineWidget_UpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnUpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperUpdateMicroFocus(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_Create(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnCreate(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperCreate(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_Destroy(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnDestroy(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+void TextCustomEditor__TextGoToLineWidget_SuperDestroy(TextCustomEditor__TextGoToLineWidget* self);
+bool TextCustomEditor__TextGoToLineWidget_FocusNextChild(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnFocusNextChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperFocusNextChild(TextCustomEditor__TextGoToLineWidget* self);
+bool TextCustomEditor__TextGoToLineWidget_FocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnFocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperFocusPreviousChild(TextCustomEditor__TextGoToLineWidget* self);
+QObject* TextCustomEditor__TextGoToLineWidget_Sender(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnSender(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+QObject* TextCustomEditor__TextGoToLineWidget_SuperSender(const TextCustomEditor__TextGoToLineWidget* self);
+int TextCustomEditor__TextGoToLineWidget_SenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self);
+void TextCustomEditor__TextGoToLineWidget_OnSenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+int TextCustomEditor__TextGoToLineWidget_SuperSenderSignalIndex(const TextCustomEditor__TextGoToLineWidget* self);
+int TextCustomEditor__TextGoToLineWidget_Receivers(const TextCustomEditor__TextGoToLineWidget* self, const char* signal);
+void TextCustomEditor__TextGoToLineWidget_OnReceivers(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+int TextCustomEditor__TextGoToLineWidget_SuperReceivers(const TextCustomEditor__TextGoToLineWidget* self, const char* signal);
+bool TextCustomEditor__TextGoToLineWidget_IsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal);
+void TextCustomEditor__TextGoToLineWidget_OnIsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+bool TextCustomEditor__TextGoToLineWidget_SuperIsSignalConnected(const TextCustomEditor__TextGoToLineWidget* self, const QMetaMethod* signal);
+double TextCustomEditor__TextGoToLineWidget_GetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, int metricA, int metricB);
+void TextCustomEditor__TextGoToLineWidget_OnGetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, intptr_t slot);
+double TextCustomEditor__TextGoToLineWidget_SuperGetDecodedMetricF(const TextCustomEditor__TextGoToLineWidget* self, int metricA, int metricB);
+void TextCustomEditor__TextGoToLineWidget_Delete(TextCustomEditor__TextGoToLineWidget* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

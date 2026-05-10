@@ -1,0 +1,96 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTRANSLATORENGINELOADER_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBTRANSLATORENGINELOADER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextTranslator__TranslatorEngineClient)
+typedef TextTranslator::TranslatorEngineClient TextTranslator__TranslatorEngineClient;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextTranslator__TranslatorEngineLoader)
+typedef TextTranslator::TranslatorEngineLoader TextTranslator__TranslatorEngineLoader;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QWidget QWidget;
+typedef struct TextTranslator__TranslatorEngineClient TextTranslator__TranslatorEngineClient;
+typedef struct TextTranslator__TranslatorEngineLoader TextTranslator__TranslatorEngineLoader;
+#endif
+
+TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_new();
+TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_new2(QObject* parent);
+QMetaObject* TextTranslator__TranslatorEngineLoader_MetaObject(const TextTranslator__TranslatorEngineLoader* self);
+void* TextTranslator__TranslatorEngineLoader_Metacast(TextTranslator__TranslatorEngineLoader* self, const char* param1);
+int TextTranslator__TranslatorEngineLoader_Metacall(TextTranslator__TranslatorEngineLoader* self, int param1, int param2, void** param3);
+TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_Self();
+TextTranslator__TranslatorEngineClient* TextTranslator__TranslatorEngineLoader_CreateTranslatorClient(TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName);
+libqt_map /* of libqt_string to libqt_string */ TextTranslator__TranslatorEngineLoader_TranslatorEngineInfos(const TextTranslator__TranslatorEngineLoader* self);
+libqt_string TextTranslator__TranslatorEngineLoader_CurrentPluginName(const TextTranslator__TranslatorEngineLoader* self, const libqt_string key);
+libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineLoader_SupportedFromLanguages(const TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName);
+libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineLoader_SupportedToLanguages(const TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName);
+bool TextTranslator__TranslatorEngineLoader_HasConfigurationDialog(const TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName);
+libqt_string TextTranslator__TranslatorEngineLoader_FallbackFirstEngine(const TextTranslator__TranslatorEngineLoader* self);
+bool TextTranslator__TranslatorEngineLoader_ShowConfigureDialog(TextTranslator__TranslatorEngineLoader* self, const libqt_string clientName, QWidget* parentWidget);
+void TextTranslator__TranslatorEngineLoader_LoadingTranslatorFailed(TextTranslator__TranslatorEngineLoader* self);
+void TextTranslator__TranslatorEngineLoader_Connect_LoadingTranslatorFailed(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_OnMetaObject(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+QMetaObject* TextTranslator__TranslatorEngineLoader_SuperMetaObject(const TextTranslator__TranslatorEngineLoader* self);
+void TextTranslator__TranslatorEngineLoader_OnMetacast(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void* TextTranslator__TranslatorEngineLoader_SuperMetacast(TextTranslator__TranslatorEngineLoader* self, const char* param1);
+void TextTranslator__TranslatorEngineLoader_OnMetacall(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+int TextTranslator__TranslatorEngineLoader_SuperMetacall(TextTranslator__TranslatorEngineLoader* self, int param1, int param2, void** param3);
+bool TextTranslator__TranslatorEngineLoader_Event(TextTranslator__TranslatorEngineLoader* self, QEvent* event);
+void TextTranslator__TranslatorEngineLoader_OnEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+bool TextTranslator__TranslatorEngineLoader_SuperEvent(TextTranslator__TranslatorEngineLoader* self, QEvent* event);
+bool TextTranslator__TranslatorEngineLoader_EventFilter(TextTranslator__TranslatorEngineLoader* self, QObject* watched, QEvent* event);
+void TextTranslator__TranslatorEngineLoader_OnEventFilter(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+bool TextTranslator__TranslatorEngineLoader_SuperEventFilter(TextTranslator__TranslatorEngineLoader* self, QObject* watched, QEvent* event);
+void TextTranslator__TranslatorEngineLoader_TimerEvent(TextTranslator__TranslatorEngineLoader* self, QTimerEvent* event);
+void TextTranslator__TranslatorEngineLoader_OnTimerEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_SuperTimerEvent(TextTranslator__TranslatorEngineLoader* self, QTimerEvent* event);
+void TextTranslator__TranslatorEngineLoader_ChildEvent(TextTranslator__TranslatorEngineLoader* self, QChildEvent* event);
+void TextTranslator__TranslatorEngineLoader_OnChildEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_SuperChildEvent(TextTranslator__TranslatorEngineLoader* self, QChildEvent* event);
+void TextTranslator__TranslatorEngineLoader_CustomEvent(TextTranslator__TranslatorEngineLoader* self, QEvent* event);
+void TextTranslator__TranslatorEngineLoader_OnCustomEvent(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_SuperCustomEvent(TextTranslator__TranslatorEngineLoader* self, QEvent* event);
+void TextTranslator__TranslatorEngineLoader_ConnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
+void TextTranslator__TranslatorEngineLoader_OnConnectNotify(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_SuperConnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
+void TextTranslator__TranslatorEngineLoader_DisconnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
+void TextTranslator__TranslatorEngineLoader_OnDisconnectNotify(TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+void TextTranslator__TranslatorEngineLoader_SuperDisconnectNotify(TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
+QObject* TextTranslator__TranslatorEngineLoader_Sender(const TextTranslator__TranslatorEngineLoader* self);
+void TextTranslator__TranslatorEngineLoader_OnSender(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+QObject* TextTranslator__TranslatorEngineLoader_SuperSender(const TextTranslator__TranslatorEngineLoader* self);
+int TextTranslator__TranslatorEngineLoader_SenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self);
+void TextTranslator__TranslatorEngineLoader_OnSenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+int TextTranslator__TranslatorEngineLoader_SuperSenderSignalIndex(const TextTranslator__TranslatorEngineLoader* self);
+int TextTranslator__TranslatorEngineLoader_Receivers(const TextTranslator__TranslatorEngineLoader* self, const char* signal);
+void TextTranslator__TranslatorEngineLoader_OnReceivers(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+int TextTranslator__TranslatorEngineLoader_SuperReceivers(const TextTranslator__TranslatorEngineLoader* self, const char* signal);
+bool TextTranslator__TranslatorEngineLoader_IsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
+void TextTranslator__TranslatorEngineLoader_OnIsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, intptr_t slot);
+bool TextTranslator__TranslatorEngineLoader_SuperIsSignalConnected(const TextTranslator__TranslatorEngineLoader* self, const QMetaMethod* signal);
+void TextTranslator__TranslatorEngineLoader_Delete(TextTranslator__TranslatorEngineLoader* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

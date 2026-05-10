@@ -1,0 +1,39 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBIMPORTLIBREOFFICEAUTOCORRECTION_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBIMPORTLIBREOFFICEAUTOCORRECTION_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__ImportAbstractAutocorrection)
+typedef TextAutoCorrectionCore::ImportAbstractAutocorrection TextAutoCorrectionCore__ImportAbstractAutocorrection;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__ImportLibreOfficeAutocorrection)
+typedef TextAutoCorrectionCore::ImportLibreOfficeAutocorrection TextAutoCorrectionCore__ImportLibreOfficeAutocorrection;
+#endif
+#else
+typedef struct TextAutoCorrectionCore__ImportAbstractAutocorrection TextAutoCorrectionCore__ImportAbstractAutocorrection;
+typedef struct TextAutoCorrectionCore__ImportLibreOfficeAutocorrection TextAutoCorrectionCore__ImportLibreOfficeAutocorrection;
+#endif
+
+TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_new();
+TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_new2(const TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* param1);
+bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute);
+void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_OnImport(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, intptr_t slot);
+bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_SuperImport(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute);
+void TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Delete(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

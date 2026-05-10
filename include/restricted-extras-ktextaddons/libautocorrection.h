@@ -1,0 +1,43 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBAUTOCORRECTION_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBAUTOCORRECTION_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__AutoCorrection)
+typedef TextAutoCorrectionCore::AutoCorrection TextAutoCorrectionCore__AutoCorrection;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextAutoCorrectionCore__AutoCorrectionSettings)
+typedef TextAutoCorrectionCore::AutoCorrectionSettings TextAutoCorrectionCore__AutoCorrectionSettings;
+#endif
+#else
+typedef struct QTextDocument QTextDocument;
+typedef struct TextAutoCorrectionCore__AutoCorrection TextAutoCorrectionCore__AutoCorrection;
+typedef struct TextAutoCorrectionCore__AutoCorrectionSettings TextAutoCorrectionCore__AutoCorrectionSettings;
+#endif
+
+TextAutoCorrectionCore__AutoCorrection* TextAutoCorrectionCore__AutoCorrection_new();
+void TextAutoCorrectionCore__AutoCorrection_WriteConfig(TextAutoCorrectionCore__AutoCorrection* self);
+void TextAutoCorrectionCore__AutoCorrection_ReadConfig(TextAutoCorrectionCore__AutoCorrection* self);
+bool TextAutoCorrectionCore__AutoCorrection_Autocorrect(TextAutoCorrectionCore__AutoCorrection* self, bool htmlMode, QTextDocument* document, int* position);
+void TextAutoCorrectionCore__AutoCorrection_LoadGlobalFileName(TextAutoCorrectionCore__AutoCorrection* self, const libqt_string fname);
+TextAutoCorrectionCore__AutoCorrectionSettings* TextAutoCorrectionCore__AutoCorrection_AutoCorrectionSettings(const TextAutoCorrectionCore__AutoCorrection* self);
+void TextAutoCorrectionCore__AutoCorrection_SetAutoCorrectionSettings(TextAutoCorrectionCore__AutoCorrection* self, TextAutoCorrectionCore__AutoCorrectionSettings* newAutoCorrectionSettings);
+void TextAutoCorrectionCore__AutoCorrection_WriteAutoCorrectionXmlFile(TextAutoCorrectionCore__AutoCorrection* self, const libqt_string filename);
+void TextAutoCorrectionCore__AutoCorrection_Delete(TextAutoCorrectionCore__AutoCorrection* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

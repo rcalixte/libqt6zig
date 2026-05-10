@@ -1,0 +1,94 @@
+#pragma once
+#ifndef SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBGRAMMALECTERESULTJOB_H
+#define SRC_RESTRICTED_EXTRAS_KTEXTADDONSC_LIBGRAMMALECTERESULTJOB_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_TextGrammarCheck__GrammalecteResultJob)
+typedef TextGrammarCheck::GrammalecteResultJob TextGrammarCheck__GrammalecteResultJob;
+#endif
+#else
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct TextGrammarCheck__GrammalecteResultJob TextGrammarCheck__GrammalecteResultJob;
+#endif
+
+TextGrammarCheck__GrammalecteResultJob* TextGrammarCheck__GrammalecteResultJob_new();
+TextGrammarCheck__GrammalecteResultJob* TextGrammarCheck__GrammalecteResultJob_new2(QObject* parent);
+QMetaObject* TextGrammarCheck__GrammalecteResultJob_MetaObject(const TextGrammarCheck__GrammalecteResultJob* self);
+void* TextGrammarCheck__GrammalecteResultJob_Metacast(TextGrammarCheck__GrammalecteResultJob* self, const char* param1);
+int TextGrammarCheck__GrammalecteResultJob_Metacall(TextGrammarCheck__GrammalecteResultJob* self, int param1, int param2, void** param3);
+void TextGrammarCheck__GrammalecteResultJob_Start(TextGrammarCheck__GrammalecteResultJob* self);
+bool TextGrammarCheck__GrammalecteResultJob_CanStart(TextGrammarCheck__GrammalecteResultJob* self);
+libqt_string TextGrammarCheck__GrammalecteResultJob_Text(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_SetText(TextGrammarCheck__GrammalecteResultJob* self, const libqt_string text);
+libqt_string TextGrammarCheck__GrammalecteResultJob_PythonPath(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_SetPythonPath(TextGrammarCheck__GrammalecteResultJob* self, const libqt_string pythonPath);
+libqt_string TextGrammarCheck__GrammalecteResultJob_GrammarlecteCliPath(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_SetGrammarlecteCliPath(TextGrammarCheck__GrammalecteResultJob* self, const libqt_string grammarlecteCliPath);
+libqt_list /* of libqt_string */ TextGrammarCheck__GrammalecteResultJob_Arguments(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_SetArguments(TextGrammarCheck__GrammalecteResultJob* self, const libqt_list /* of libqt_string */ arguments);
+void TextGrammarCheck__GrammalecteResultJob_Finished(TextGrammarCheck__GrammalecteResultJob* self, const libqt_string result);
+void TextGrammarCheck__GrammalecteResultJob_Connect_Finished(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_Error(TextGrammarCheck__GrammalecteResultJob* self, int typeVal);
+void TextGrammarCheck__GrammalecteResultJob_Connect_Error(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_OnMetaObject(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+QMetaObject* TextGrammarCheck__GrammalecteResultJob_SuperMetaObject(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_OnMetacast(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void* TextGrammarCheck__GrammalecteResultJob_SuperMetacast(TextGrammarCheck__GrammalecteResultJob* self, const char* param1);
+void TextGrammarCheck__GrammalecteResultJob_OnMetacall(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+int TextGrammarCheck__GrammalecteResultJob_SuperMetacall(TextGrammarCheck__GrammalecteResultJob* self, int param1, int param2, void** param3);
+bool TextGrammarCheck__GrammalecteResultJob_Event(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_OnEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+bool TextGrammarCheck__GrammalecteResultJob_SuperEvent(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event);
+bool TextGrammarCheck__GrammalecteResultJob_EventFilter(TextGrammarCheck__GrammalecteResultJob* self, QObject* watched, QEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_OnEventFilter(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+bool TextGrammarCheck__GrammalecteResultJob_SuperEventFilter(TextGrammarCheck__GrammalecteResultJob* self, QObject* watched, QEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_TimerEvent(TextGrammarCheck__GrammalecteResultJob* self, QTimerEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_OnTimerEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_SuperTimerEvent(TextGrammarCheck__GrammalecteResultJob* self, QTimerEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_ChildEvent(TextGrammarCheck__GrammalecteResultJob* self, QChildEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_OnChildEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_SuperChildEvent(TextGrammarCheck__GrammalecteResultJob* self, QChildEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_CustomEvent(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_OnCustomEvent(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_SuperCustomEvent(TextGrammarCheck__GrammalecteResultJob* self, QEvent* event);
+void TextGrammarCheck__GrammalecteResultJob_ConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteResultJob_OnConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_SuperConnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteResultJob_DisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteResultJob_OnDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+void TextGrammarCheck__GrammalecteResultJob_SuperDisconnectNotify(TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
+QObject* TextGrammarCheck__GrammalecteResultJob_Sender(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_OnSender(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+QObject* TextGrammarCheck__GrammalecteResultJob_SuperSender(const TextGrammarCheck__GrammalecteResultJob* self);
+int TextGrammarCheck__GrammalecteResultJob_SenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self);
+void TextGrammarCheck__GrammalecteResultJob_OnSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+int TextGrammarCheck__GrammalecteResultJob_SuperSenderSignalIndex(const TextGrammarCheck__GrammalecteResultJob* self);
+int TextGrammarCheck__GrammalecteResultJob_Receivers(const TextGrammarCheck__GrammalecteResultJob* self, const char* signal);
+void TextGrammarCheck__GrammalecteResultJob_OnReceivers(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+int TextGrammarCheck__GrammalecteResultJob_SuperReceivers(const TextGrammarCheck__GrammalecteResultJob* self, const char* signal);
+bool TextGrammarCheck__GrammalecteResultJob_IsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteResultJob_OnIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot);
+bool TextGrammarCheck__GrammalecteResultJob_SuperIsSignalConnected(const TextGrammarCheck__GrammalecteResultJob* self, const QMetaMethod* signal);
+void TextGrammarCheck__GrammalecteResultJob_Delete(TextGrammarCheck__GrammalecteResultJob* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
