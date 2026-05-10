@@ -1,4 +1,8 @@
 
+### 6.8.2 rev74 (10 May 2026)
+
+* Add [KTextAddons](https://api.kde.org/legacy/ktextaddons/html/) (#142)
+
 ### 6.8.2 rev73 (5 May 2026)
 
 * **BREAKING CHANGE:** Extend projected string types (#141)
