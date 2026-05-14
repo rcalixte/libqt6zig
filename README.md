@@ -169,7 +169,7 @@ sudo zig build --prefix-lib-dir /usr/local/lib/libqt6zig # creates /usr/local/li
 Prefixed libraries have per-library options that can be used to enable or disable them (where supported):
 
 ```bash
-zig build -Denable-charts=true -Denable-qscintilla=false
+zig build -Denable-charts -Denable-qscintilla=false
 ```
 
 In the event that one or more extra library include paths are needed e.g. a locally compiled extra library in a non-standard path, the `extra-paths` option supports this use case:
@@ -425,7 +425,7 @@ Usage
 - Import the library into your project:
 
 ```bash
-zig fetch --save https://github.com/rcalixte/libqt6zig
+zig fetch --save git+https://github.com/rcalixte/libqt6zig
 ```
 
 - Alternatively, use a commit hash to import the library into your project:
@@ -452,7 +452,8 @@ const qt6zig = b.dependency("libqt6zig", .{
 exe.root_module.addImport("libqt6zig", qt6zig.module("libqt6zig"));
 
 // Link the compiled libqt6zing libraries to the executable
-// qt_lib_name is the name of the library file containing the class definition minus the "lib" prefix and file extension suffix, e.g. qapplication, qwidget, etc.
+// qt_lib_name is the name of the library file containing the class definition
+// minus the "lib" prefix and file extension suffix, e.g. qapplication, qwidget, etc.
 exe.root_module.linkLibrary(qt6zig.artifact(qt_lib_name));
 ```
 
@@ -469,7 +470,8 @@ const C = qt6.C;
 const QApplication = qt6.QApplication;
 const QWidget = qt6.QWidget;
 const qnamespace_enums = qt6.qnamespace_enums;
-// qnamespace_enums projects the `Qt::` namespace for enums so a more familiar alternative import name could be used
+// qnamespace_enums projects the `Qt::` namespace for enums so a more familiar
+// alternative import name could be used
 const qt = qnamespace_enums;
 ```
 
@@ -572,7 +574,7 @@ Qt::AlignmentFlag alignment = Qt::AlignmentFlag::AlignLeft | Qt::AlignmentFlag::
 
 ```zig
 // libqt6zig API
-const alignment = qnamespace_enums.AlignmentFlag.AlignLeft | qnamespace_enums.AlignmentFlag.AlignTop;
+const alignment = qnamespace_enums.AlignmentFlag.AlignLeft | qt.AlignmentFlag.AlignTop;
 ```
 
 > [!IMPORTANT]
