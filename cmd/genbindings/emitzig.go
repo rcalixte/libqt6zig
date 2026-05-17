@@ -2526,6 +2526,10 @@ const qtc = @import("qt6c");`)
 					"    .linux, .freebsd => {},\n" +
 					`    else => @compileError("Unsupported operating system"),` +
 					"\n}\n"
+			} else if mSafeMethodName == "SetAsDockMenu" {
+				// hack for QMenu::setAsDockMenu
+				zfs.imports["builtin"] = struct{}{}
+				maybePlatformCompileError = `if (builtin.os.tag != .macos) @compileError("Unsupported operating system");`
 			}
 
 			ret.WriteString(inheritedFrom)
