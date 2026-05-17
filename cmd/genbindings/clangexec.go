@@ -9,6 +9,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"sync"
 )
 
@@ -23,6 +24,10 @@ func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []strin
 	clangArgs := []string{"-x", "c++"}
 	clangArgs = append(clangArgs, cflags...)
 	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", "-Wno-pragma-once-outside-header", inputHeader)
+	// hack for QMenu::setAsDockMenu
+	if filepath.Base(inputHeader) == "qmenu.h" {
+		clangArgs = append(clangArgs, "-DQ_OS_MACOS")
+	}
 
 	cmd := exec.CommandContext(ctx, clangBin, clangArgs...)
 	pr, err := cmd.StdoutPipe()
