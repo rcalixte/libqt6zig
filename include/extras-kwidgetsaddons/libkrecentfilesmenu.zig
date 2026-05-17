@@ -61,6 +61,7 @@ const QVariant = @import("libqt6").QVariant;
 const QWheelEvent = @import("libqt6").QWheelEvent;
 const QWidget = @import("libqt6").QWidget;
 const QWindow = @import("libqt6").QWindow;
+const builtin = @import("builtin");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
@@ -1020,6 +1021,19 @@ pub const KRecentFilesMenu = extern struct {
     pub fn SetNoReplayFor(self: KRecentFilesMenu, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QMenu_SetNoReplayFor(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    }
+
+    /// Inherited from QMenu
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#setAsDockMenu)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KRecentFilesMenu `
+    ///
+    pub fn SetAsDockMenu(self: KRecentFilesMenu) void {
+        if (builtin.os.tag != .macos) @compileError("Unsupported operating system");
+        qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMenu
