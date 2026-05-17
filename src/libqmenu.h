@@ -97,6 +97,9 @@ void QMenu_SetTitle(QMenu* self, const libqt_string title);
 QIcon* QMenu_Icon(const QMenu* self);
 void QMenu_SetIcon(QMenu* self, const QIcon* icon);
 void QMenu_SetNoReplayFor(QMenu* self, QWidget* widget);
+#ifdef __APPLE__
+void QMenu_SetAsDockMenu(QMenu* self);
+#endif
 bool QMenu_SeparatorsCollapsible(const QMenu* self);
 void QMenu_SetSeparatorsCollapsible(QMenu* self, bool collapse);
 bool QMenu_ToolTipsVisible(const QMenu* self);

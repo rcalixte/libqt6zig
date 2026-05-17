@@ -62,6 +62,7 @@ const QVariant = @import("libqt6").QVariant;
 const QWheelEvent = @import("libqt6").QWheelEvent;
 const QWidget = @import("libqt6").QWidget;
 const QWindow = @import("libqt6").QWindow;
+const builtin = @import("builtin");
 const kdatepickerpopup_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1004,6 +1005,19 @@ pub const KDatePickerPopup = extern struct {
     pub fn SetNoReplayFor(self: KDatePickerPopup, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QMenu_SetNoReplayFor(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    }
+
+    /// Inherited from QMenu
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qmenu.html#setAsDockMenu)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDatePickerPopup `
+    ///
+    pub fn SetAsDockMenu(self: KDatePickerPopup) void {
+        if (builtin.os.tag != .macos) @compileError("Unsupported operating system");
+        qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }
 
     /// Inherited from QMenu

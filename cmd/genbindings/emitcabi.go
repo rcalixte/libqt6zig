@@ -1831,6 +1831,7 @@ extern "C" {
 
 			returnCabi := m.ReturnType.RenderTypeCabi(false)
 
+			var maybeMacro, maybeEndMacro string
 			maybeConst := ifv(m.IsConst, "const ", "")
 
 			if m.ReturnType.BecomesConstInVersion != nil {
@@ -1841,8 +1842,13 @@ extern "C" {
 					fmt.Sprintf("%s %s_%s(%s);\n", returnCabi, methodPrefixName, mSafeMethodName, emitParametersCabi(m, maybeConst+methodPrefixName+"*")) +
 					"#endif\n")
 			} else {
+				if mSafeMethodName == "SetAsDockMenu" {
+					// hack for QMenu::setAsDockMenu
+					maybeMacro = "#ifdef __APPLE__\n"
+					maybeEndMacro = "#endif\n"
+				}
 
-				ret.WriteString(returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ");\n")
+				ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ");\n" + maybeEndMacro)
 			}
 
 			if m.IsSignal {
@@ -2161,7 +2167,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				seenClassMethods[methodPrefixName+"_"+mSafeMethodName] = false
 			}
 
-			var retExpr string
+			var maybeMacro, maybeEndMacro, retExpr string
 			maybeConst := ifv(m.IsConst, "const ", "")
 
 			if m.FossOnly {
@@ -2262,9 +2268,15 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 				retExpr, _ = emitAssignCppToCabi("\treturn ", m.ReturnType, returnCallTarget)
 
-				ret.WriteString(returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n" +
+				if mSafeMethodName == "SetAsDockMenu" {
+					// hack for QMenu::setAsDockMenu
+					maybeMacro = "#ifdef __APPLE__\n"
+					maybeEndMacro = "#endif\n"
+				}
+
+				ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n" +
 					preamble + virtualStart + retExpr +
-					virtualClose + emptyReturn + "}\n\n")
+					virtualClose + emptyReturn + "}\n" + maybeEndMacro + "\n\n")
 			}
 
 			if m.IsSignal {
