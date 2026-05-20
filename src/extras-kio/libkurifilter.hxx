@@ -88,7 +88,6 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             memcpy((void*)desktopEntryName_str, desktopEntryName_b.data(), desktopEntryName_str_len);
             ((char*)desktopEntryName_str)[desktopEntryName_str_len] = '\0';
             const char* cbval1 = desktopEntryName_str;
-
             setdesktopentryname_cb(this, cbval1);
             libqt_free(desktopEntryName_str);
             return;
@@ -113,7 +112,6 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             memcpy((void*)iconName_str, iconName_b.data(), iconName_str_len);
             ((char*)iconName_str)[iconName_str_len] = '\0';
             const char* cbval1 = iconName_str;
-
             seticonname_cb(this, cbval1);
             libqt_free(iconName_str);
             return;
@@ -144,7 +142,6 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             // Append sentinel null terminator to the list
             keys_arr[keys_ret.size()] = nullptr;
             const char** cbval1 = keys_arr;
-
             setkeys_cb(this, cbval1);
             libqt_free(keys_arr);
             return;
@@ -169,7 +166,6 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             setname_cb(this, cbval1);
             libqt_free(name_str);
             return;

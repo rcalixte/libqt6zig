@@ -391,7 +391,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto metacast_cb = qmessagebox_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -409,7 +408,6 @@ class VirtualQMessageBox final : public QMessageBox {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -425,7 +423,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto event_cb = qmessagebox_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -442,7 +439,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto resizeevent_cb = qmessagebox_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -459,7 +455,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto showevent_cb = qmessagebox_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -476,7 +471,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto closeevent_cb = qmessagebox_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -493,7 +487,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto keypressevent_cb = qmessagebox_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -510,7 +503,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto changeevent_cb = qmessagebox_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -527,7 +519,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto setvisible_cb = qmessagebox_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -543,7 +534,9 @@ class VirtualQMessageBox final : public QMessageBox {
         auto sizehint_cb = qmessagebox_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QMessageBox::sizeHint();
     }
@@ -557,7 +550,9 @@ class VirtualQMessageBox final : public QMessageBox {
         auto minimumsizehint_cb = qmessagebox_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QMessageBox::minimumSizeHint();
     }
@@ -601,7 +596,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto done_cb = qmessagebox_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -648,7 +642,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto contextmenuevent_cb = qmessagebox_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -665,7 +658,6 @@ class VirtualQMessageBox final : public QMessageBox {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -695,7 +687,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto heightforwidth_cb = qmessagebox_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -740,7 +731,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto mousepressevent_cb = qmessagebox_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -757,7 +747,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto mousereleaseevent_cb = qmessagebox_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -774,7 +763,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto mousedoubleclickevent_cb = qmessagebox_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -791,7 +779,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto mousemoveevent_cb = qmessagebox_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -808,7 +795,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto wheelevent_cb = qmessagebox_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -825,7 +811,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto keyreleaseevent_cb = qmessagebox_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -842,7 +827,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto focusinevent_cb = qmessagebox_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -859,7 +843,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto focusoutevent_cb = qmessagebox_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -876,7 +859,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto enterevent_cb = qmessagebox_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -893,7 +875,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto leaveevent_cb = qmessagebox_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -910,7 +891,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto paintevent_cb = qmessagebox_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -927,7 +907,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto moveevent_cb = qmessagebox_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -944,7 +923,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto tabletevent_cb = qmessagebox_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -961,7 +939,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto actionevent_cb = qmessagebox_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -978,7 +955,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto dragenterevent_cb = qmessagebox_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -995,7 +971,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto dragmoveevent_cb = qmessagebox_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1012,7 +987,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto dragleaveevent_cb = qmessagebox_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1029,7 +1003,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto dropevent_cb = qmessagebox_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1046,7 +1019,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto hideevent_cb = qmessagebox_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1070,7 +1042,6 @@ class VirtualQMessageBox final : public QMessageBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1087,7 +1058,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto metric_cb = qmessagebox_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1104,7 +1074,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto initpainter_cb = qmessagebox_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1120,7 +1089,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto redirected_cb = qmessagebox_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1151,7 +1119,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto inputmethodevent_cb = qmessagebox_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1167,9 +1134,10 @@ class VirtualQMessageBox final : public QMessageBox {
         auto inputmethodquery_cb = qmessagebox_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QMessageBox::inputMethodQuery(param1);
     }
@@ -1183,7 +1151,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto focusnextprevchild_cb = qmessagebox_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1200,7 +1167,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto timerevent_cb = qmessagebox_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1217,7 +1183,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto childevent_cb = qmessagebox_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1234,7 +1199,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto customevent_cb = qmessagebox_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1253,7 +1217,6 @@ class VirtualQMessageBox final : public QMessageBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1272,7 +1235,6 @@ class VirtualQMessageBox final : public QMessageBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1289,7 +1251,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto adjustposition_cb = qmessagebox_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1406,7 +1367,6 @@ class VirtualQMessageBox final : public QMessageBox {
         auto receivers_cb = qmessagebox_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1424,7 +1384,6 @@ class VirtualQMessageBox final : public QMessageBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1441,7 +1400,6 @@ class VirtualQMessageBox final : public QMessageBox {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -164,7 +164,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto metacast_cb = qplacesearchreply_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -182,7 +181,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -227,7 +225,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto event_cb = qplacesearchreply_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -244,7 +241,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -261,7 +257,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto timerevent_cb = qplacesearchreply_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -278,7 +273,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto childevent_cb = qplacesearchreply_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -295,7 +289,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto customevent_cb = qplacesearchreply_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -314,7 +307,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -333,7 +325,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -359,7 +350,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             results_out.len = results_ret.size();
             results_out.data = static_cast<void*>(results_arr);
             libqt_list /* of QPlaceSearchResult* */ cbval1 = results_out;
-
             setresults_cb(this, cbval1);
             free(results_arr);
             return;
@@ -379,7 +369,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             const QPlaceSearchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&request_ret);
-
             setrequest_cb(this, cbval1);
             return;
         }
@@ -398,7 +387,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             const QPlaceSearchRequest& previous_ret = previous;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&previous_ret);
-
             setpreviouspagerequest_cb(this, cbval1);
             return;
         }
@@ -417,7 +405,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             const QPlaceSearchRequest& next_ret = next;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&next_ret);
-
             setnextpagerequest_cb(this, cbval1);
             return;
         }
@@ -434,7 +421,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto setfinished_cb = qplacesearchreply_setfinished_callback;
         if (setfinished_cb) {
             bool cbval1 = finished;
-
             setfinished_cb(this, cbval1);
             return;
         }
@@ -459,7 +445,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval2 = errorString_str;
-
             seterror_cb(this, cbval1, cbval2);
             libqt_free(errorString_str);
             return;
@@ -504,7 +489,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
         auto receivers_cb = qplacesearchreply_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -522,7 +506,6 @@ class VirtualQPlaceSearchReply final : public QPlaceSearchReply {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -90,7 +90,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
         auto widget_cb = qdesignercontainerextension_widget_callback;
         if (widget_cb) {
             int cbval1 = index;
-
             QWidget* callback_ret = widget_cb(this, cbval1);
             return callback_ret;
         }
@@ -112,7 +111,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
         auto setcurrentindex_cb = qdesignercontainerextension_setcurrentindex_callback;
         if (setcurrentindex_cb) {
             int cbval1 = index;
-
             setcurrentindex_cb(this, cbval1);
         }
     }
@@ -132,7 +130,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
         auto addwidget_cb = qdesignercontainerextension_addwidget_callback;
         if (addwidget_cb) {
             QWidget* cbval1 = widget;
-
             addwidget_cb(this, cbval1);
         }
     }
@@ -143,7 +140,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
         if (insertwidget_cb) {
             int cbval1 = index;
             QWidget* cbval2 = widget;
-
             insertwidget_cb(this, cbval1, cbval2);
         }
     }
@@ -153,7 +149,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
         auto canremove_cb = qdesignercontainerextension_canremove_callback;
         if (canremove_cb) {
             int cbval1 = index;
-
             bool callback_ret = canremove_cb(this, cbval1);
             return callback_ret;
         }
@@ -165,7 +160,6 @@ class VirtualQDesignerContainerExtension : public QDesignerContainerExtension {
         auto remove_cb = qdesignercontainerextension_remove_callback;
         if (remove_cb) {
             int cbval1 = index;
-
             remove_cb(this, cbval1);
         }
     }

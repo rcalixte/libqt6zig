@@ -671,7 +671,6 @@ class VirtualQUndoView final : public QUndoView {
         auto metacast_cb = qundoview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -689,7 +688,6 @@ class VirtualQUndoView final : public QUndoView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -707,9 +705,10 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::visualRect(index);
     }
@@ -727,7 +726,6 @@ class VirtualQUndoView final : public QUndoView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
             return;
         }
@@ -745,9 +743,10 @@ class VirtualQUndoView final : public QUndoView {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::indexAt(p);
     }
@@ -794,7 +793,6 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -810,7 +808,6 @@ class VirtualQUndoView final : public QUndoView {
         auto event_cb = qundoview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -828,7 +825,6 @@ class VirtualQUndoView final : public QUndoView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -860,7 +856,6 @@ class VirtualQUndoView final : public QUndoView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -882,7 +877,6 @@ class VirtualQUndoView final : public QUndoView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -903,7 +897,6 @@ class VirtualQUndoView final : public QUndoView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -920,7 +913,6 @@ class VirtualQUndoView final : public QUndoView {
         auto mousemoveevent_cb = qundoview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -937,7 +929,6 @@ class VirtualQUndoView final : public QUndoView {
         auto mousereleaseevent_cb = qundoview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -954,7 +945,6 @@ class VirtualQUndoView final : public QUndoView {
         auto wheelevent_cb = qundoview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -971,7 +961,6 @@ class VirtualQUndoView final : public QUndoView {
         auto timerevent_cb = qundoview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -988,7 +977,6 @@ class VirtualQUndoView final : public QUndoView {
         auto resizeevent_cb = qundoview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1005,7 +993,6 @@ class VirtualQUndoView final : public QUndoView {
         auto dragmoveevent_cb = qundoview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1022,7 +1009,6 @@ class VirtualQUndoView final : public QUndoView {
         auto dragleaveevent_cb = qundoview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1039,7 +1025,6 @@ class VirtualQUndoView final : public QUndoView {
         auto dropevent_cb = qundoview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = e;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1056,7 +1041,6 @@ class VirtualQUndoView final : public QUndoView {
         auto startdrag_cb = qundoview_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -1073,7 +1057,6 @@ class VirtualQUndoView final : public QUndoView {
         auto initviewitemoption_cb = qundoview_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1090,7 +1073,6 @@ class VirtualQUndoView final : public QUndoView {
         auto paintevent_cb = qundoview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1135,9 +1117,10 @@ class VirtualQUndoView final : public QUndoView {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::moveCursor(cursorAction, modifiers);
     }
@@ -1155,7 +1138,6 @@ class VirtualQUndoView final : public QUndoView {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
-
             setselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -1173,9 +1155,10 @@ class VirtualQUndoView final : public QUndoView {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::visualRegionForSelection(selection);
     }
@@ -1227,7 +1210,6 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1249,7 +1231,6 @@ class VirtualQUndoView final : public QUndoView {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1271,7 +1252,6 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& previous_ret = previous;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1287,7 +1267,9 @@ class VirtualQUndoView final : public QUndoView {
         auto viewportsizehint_cb = qundoview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::viewportSizeHint();
     }
@@ -1302,7 +1284,6 @@ class VirtualQUndoView final : public QUndoView {
         auto setmodel_cb = qundoview_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -1319,7 +1300,6 @@ class VirtualQUndoView final : public QUndoView {
         auto setselectionmodel_cb = qundoview_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -1343,7 +1323,6 @@ class VirtualQUndoView final : public QUndoView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -1360,7 +1339,6 @@ class VirtualQUndoView final : public QUndoView {
         auto sizehintforrow_cb = qundoview_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1376,7 +1354,6 @@ class VirtualQUndoView final : public QUndoView {
         auto sizehintforcolumn_cb = qundoview_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1394,7 +1371,6 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -1410,9 +1386,10 @@ class VirtualQUndoView final : public QUndoView {
         auto inputmethodquery_cb = qundoview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::inputMethodQuery(query);
     }
@@ -1472,7 +1449,6 @@ class VirtualQUndoView final : public QUndoView {
         auto verticalscrollbaraction_cb = qundoview_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1489,7 +1465,6 @@ class VirtualQUndoView final : public QUndoView {
         auto horizontalscrollbaraction_cb = qundoview_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1506,7 +1481,6 @@ class VirtualQUndoView final : public QUndoView {
         auto verticalscrollbarvaluechanged_cb = qundoview_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1523,7 +1497,6 @@ class VirtualQUndoView final : public QUndoView {
         auto horizontalscrollbarvaluechanged_cb = qundoview_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1541,7 +1514,6 @@ class VirtualQUndoView final : public QUndoView {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1558,7 +1530,6 @@ class VirtualQUndoView final : public QUndoView {
         auto commitdata_cb = qundoview_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1575,7 +1546,6 @@ class VirtualQUndoView final : public QUndoView {
         auto editordestroyed_cb = qundoview_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1595,7 +1565,6 @@ class VirtualQUndoView final : public QUndoView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1614,7 +1583,6 @@ class VirtualQUndoView final : public QUndoView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1630,7 +1598,6 @@ class VirtualQUndoView final : public QUndoView {
         auto focusnextprevchild_cb = qundoview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1646,7 +1613,6 @@ class VirtualQUndoView final : public QUndoView {
         auto viewportevent_cb = qundoview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1663,7 +1629,6 @@ class VirtualQUndoView final : public QUndoView {
         auto mousepressevent_cb = qundoview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1680,7 +1645,6 @@ class VirtualQUndoView final : public QUndoView {
         auto mousedoubleclickevent_cb = qundoview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1697,7 +1661,6 @@ class VirtualQUndoView final : public QUndoView {
         auto dragenterevent_cb = qundoview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1714,7 +1677,6 @@ class VirtualQUndoView final : public QUndoView {
         auto focusinevent_cb = qundoview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1731,7 +1693,6 @@ class VirtualQUndoView final : public QUndoView {
         auto focusoutevent_cb = qundoview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1748,7 +1709,6 @@ class VirtualQUndoView final : public QUndoView {
         auto keypressevent_cb = qundoview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1765,7 +1725,6 @@ class VirtualQUndoView final : public QUndoView {
         auto inputmethodevent_cb = qundoview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1782,7 +1741,6 @@ class VirtualQUndoView final : public QUndoView {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1798,7 +1756,9 @@ class VirtualQUndoView final : public QUndoView {
         auto minimumsizehint_cb = qundoview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::minimumSizeHint();
     }
@@ -1812,7 +1772,9 @@ class VirtualQUndoView final : public QUndoView {
         auto sizehint_cb = qundoview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::sizeHint();
     }
@@ -1827,7 +1789,6 @@ class VirtualQUndoView final : public QUndoView {
         auto setupviewport_cb = qundoview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1844,7 +1805,6 @@ class VirtualQUndoView final : public QUndoView {
         auto contextmenuevent_cb = qundoview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1861,7 +1821,6 @@ class VirtualQUndoView final : public QUndoView {
         auto changeevent_cb = qundoview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1878,7 +1837,6 @@ class VirtualQUndoView final : public QUndoView {
         auto initstyleoption_cb = qundoview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1909,7 +1867,6 @@ class VirtualQUndoView final : public QUndoView {
         auto setvisible_cb = qundoview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1925,7 +1882,6 @@ class VirtualQUndoView final : public QUndoView {
         auto heightforwidth_cb = qundoview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1970,7 +1926,6 @@ class VirtualQUndoView final : public QUndoView {
         auto keyreleaseevent_cb = qundoview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1987,7 +1942,6 @@ class VirtualQUndoView final : public QUndoView {
         auto enterevent_cb = qundoview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2004,7 +1958,6 @@ class VirtualQUndoView final : public QUndoView {
         auto leaveevent_cb = qundoview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2021,7 +1974,6 @@ class VirtualQUndoView final : public QUndoView {
         auto moveevent_cb = qundoview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2038,7 +1990,6 @@ class VirtualQUndoView final : public QUndoView {
         auto closeevent_cb = qundoview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2055,7 +2006,6 @@ class VirtualQUndoView final : public QUndoView {
         auto tabletevent_cb = qundoview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2072,7 +2022,6 @@ class VirtualQUndoView final : public QUndoView {
         auto actionevent_cb = qundoview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2089,7 +2038,6 @@ class VirtualQUndoView final : public QUndoView {
         auto showevent_cb = qundoview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2106,7 +2054,6 @@ class VirtualQUndoView final : public QUndoView {
         auto hideevent_cb = qundoview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2130,7 +2077,6 @@ class VirtualQUndoView final : public QUndoView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2147,7 +2093,6 @@ class VirtualQUndoView final : public QUndoView {
         auto metric_cb = qundoview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2164,7 +2109,6 @@ class VirtualQUndoView final : public QUndoView {
         auto initpainter_cb = qundoview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2180,7 +2124,6 @@ class VirtualQUndoView final : public QUndoView {
         auto redirected_cb = qundoview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2211,7 +2154,6 @@ class VirtualQUndoView final : public QUndoView {
         auto childevent_cb = qundoview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2228,7 +2170,6 @@ class VirtualQUndoView final : public QUndoView {
         auto customevent_cb = qundoview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2247,7 +2188,6 @@ class VirtualQUndoView final : public QUndoView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2266,7 +2206,6 @@ class VirtualQUndoView final : public QUndoView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2284,7 +2223,6 @@ class VirtualQUndoView final : public QUndoView {
         if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
-
             resizecontents_cb(this, cbval1, cbval2);
             return;
         }
@@ -2300,7 +2238,9 @@ class VirtualQUndoView final : public QUndoView {
         auto contentssize_cb = qundoview_contentssize_callback;
         if (contentssize_cb) {
             QSize* callback_ret = contentssize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::contentsSize();
     }
@@ -2316,9 +2256,10 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = rectforindex_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::rectForIndex(index);
     }
@@ -2338,7 +2279,6 @@ class VirtualQUndoView final : public QUndoView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             setpositionforindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -2369,7 +2309,6 @@ class VirtualQUndoView final : public QUndoView {
         auto setstate_cb = qundoview_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2418,7 +2357,6 @@ class VirtualQUndoView final : public QUndoView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2436,7 +2374,6 @@ class VirtualQUndoView final : public QUndoView {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2452,7 +2389,9 @@ class VirtualQUndoView final : public QUndoView {
         auto dirtyregionoffset_cb = qundoview_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::dirtyRegionOffset();
     }
@@ -2529,7 +2468,6 @@ class VirtualQUndoView final : public QUndoView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2545,7 +2483,9 @@ class VirtualQUndoView final : public QUndoView {
         auto viewportmargins_cb = qundoview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUndoView::viewportMargins();
     }
@@ -2560,7 +2500,6 @@ class VirtualQUndoView final : public QUndoView {
         auto drawframe_cb = qundoview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2677,7 +2616,6 @@ class VirtualQUndoView final : public QUndoView {
         auto receivers_cb = qundoview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2695,7 +2633,6 @@ class VirtualQUndoView final : public QUndoView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2712,7 +2649,6 @@ class VirtualQUndoView final : public QUndoView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

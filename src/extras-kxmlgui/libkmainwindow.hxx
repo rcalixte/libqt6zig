@@ -425,7 +425,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto metacast_cb = kmainwindow_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -443,7 +442,6 @@ class VirtualKMainWindow final : public KMainWindow {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -462,7 +460,6 @@ class VirtualKMainWindow final : public KMainWindow {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
-
             applymainwindowsettings_cb(this, cbval1);
             return;
         }
@@ -486,7 +483,6 @@ class VirtualKMainWindow final : public KMainWindow {
             memcpy((void*)caption_str, caption_b.data(), caption_str_len);
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
-
             setcaption_cb(this, cbval1);
             libqt_free(caption_str);
             return;
@@ -512,7 +508,6 @@ class VirtualKMainWindow final : public KMainWindow {
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
             bool cbval2 = modified;
-
             setcaption2_cb(this, cbval1, cbval2);
             libqt_free(caption_str);
             return;
@@ -537,7 +532,6 @@ class VirtualKMainWindow final : public KMainWindow {
             memcpy((void*)caption_str, caption_b.data(), caption_str_len);
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
-
             setplaincaption_cb(this, cbval1);
             libqt_free(caption_str);
             return;
@@ -554,7 +548,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto event_cb = kmainwindow_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -571,7 +564,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto keypressevent_cb = kmainwindow_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = keyEvent;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -588,7 +580,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto closeevent_cb = kmainwindow_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -621,7 +612,6 @@ class VirtualKMainWindow final : public KMainWindow {
             KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &param1_ret;
-
             saveproperties_cb(this, cbval1);
             return;
         }
@@ -640,7 +630,6 @@ class VirtualKMainWindow final : public KMainWindow {
             const KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&param1_ret);
-
             readproperties_cb(this, cbval1);
             return;
         }
@@ -657,7 +646,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto saveglobalproperties_cb = kmainwindow_saveglobalproperties_callback;
         if (saveglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
-
             saveglobalproperties_cb(this, cbval1);
             return;
         }
@@ -674,7 +662,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto readglobalproperties_cb = kmainwindow_readglobalproperties_callback;
         if (readglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
-
             readglobalproperties_cb(this, cbval1);
             return;
         }
@@ -705,7 +692,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto contextmenuevent_cb = kmainwindow_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -736,7 +722,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto setvisible_cb = kmainwindow_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -752,7 +737,9 @@ class VirtualKMainWindow final : public KMainWindow {
         auto sizehint_cb = kmainwindow_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMainWindow::sizeHint();
     }
@@ -766,7 +753,9 @@ class VirtualKMainWindow final : public KMainWindow {
         auto minimumsizehint_cb = kmainwindow_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMainWindow::minimumSizeHint();
     }
@@ -780,7 +769,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto heightforwidth_cb = kmainwindow_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -825,7 +813,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto mousepressevent_cb = kmainwindow_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -842,7 +829,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto mousereleaseevent_cb = kmainwindow_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -859,7 +845,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto mousedoubleclickevent_cb = kmainwindow_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -876,7 +861,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto mousemoveevent_cb = kmainwindow_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -893,7 +877,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto wheelevent_cb = kmainwindow_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -910,7 +893,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto keyreleaseevent_cb = kmainwindow_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -927,7 +909,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto focusinevent_cb = kmainwindow_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -944,7 +925,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto focusoutevent_cb = kmainwindow_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -961,7 +941,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto enterevent_cb = kmainwindow_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -978,7 +957,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto leaveevent_cb = kmainwindow_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -995,7 +973,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto paintevent_cb = kmainwindow_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1012,7 +989,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto moveevent_cb = kmainwindow_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1029,7 +1005,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto resizeevent_cb = kmainwindow_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1046,7 +1021,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto tabletevent_cb = kmainwindow_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1063,7 +1037,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto actionevent_cb = kmainwindow_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1080,7 +1053,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto dragenterevent_cb = kmainwindow_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1097,7 +1069,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto dragmoveevent_cb = kmainwindow_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1114,7 +1085,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto dragleaveevent_cb = kmainwindow_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1131,7 +1101,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto dropevent_cb = kmainwindow_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1148,7 +1117,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto showevent_cb = kmainwindow_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1165,7 +1133,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto hideevent_cb = kmainwindow_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1189,7 +1156,6 @@ class VirtualKMainWindow final : public KMainWindow {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1207,7 +1173,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto changeevent_cb = kmainwindow_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1223,7 +1188,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto metric_cb = kmainwindow_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1240,7 +1204,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto initpainter_cb = kmainwindow_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1256,7 +1219,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto redirected_cb = kmainwindow_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1287,7 +1249,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto inputmethodevent_cb = kmainwindow_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1303,9 +1264,10 @@ class VirtualKMainWindow final : public KMainWindow {
         auto inputmethodquery_cb = kmainwindow_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMainWindow::inputMethodQuery(param1);
     }
@@ -1319,7 +1281,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto focusnextprevchild_cb = kmainwindow_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1336,7 +1297,6 @@ class VirtualKMainWindow final : public KMainWindow {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1353,7 +1313,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto timerevent_cb = kmainwindow_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1370,7 +1329,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto childevent_cb = kmainwindow_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1387,7 +1345,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto customevent_cb = kmainwindow_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1406,7 +1363,6 @@ class VirtualKMainWindow final : public KMainWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1425,7 +1381,6 @@ class VirtualKMainWindow final : public KMainWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1443,7 +1398,6 @@ class VirtualKMainWindow final : public KMainWindow {
         if (savepropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
-
             savepropertiesinternal_cb(this, cbval1, cbval2);
             return;
         }
@@ -1460,7 +1414,6 @@ class VirtualKMainWindow final : public KMainWindow {
         if (readpropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
-
             bool callback_ret = readpropertiesinternal_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1606,7 +1559,6 @@ class VirtualKMainWindow final : public KMainWindow {
         auto receivers_cb = kmainwindow_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1624,7 +1576,6 @@ class VirtualKMainWindow final : public KMainWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1641,7 +1592,6 @@ class VirtualKMainWindow final : public KMainWindow {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

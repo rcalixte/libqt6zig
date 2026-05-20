@@ -377,7 +377,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto metacast_cb = qscrollbar_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -395,7 +394,6 @@ class VirtualQScrollBar final : public QScrollBar {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -411,7 +409,9 @@ class VirtualQScrollBar final : public QScrollBar {
         auto sizehint_cb = qscrollbar_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QScrollBar::sizeHint();
     }
@@ -425,7 +425,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto event_cb = qscrollbar_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -442,7 +441,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto wheelevent_cb = qscrollbar_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -459,7 +457,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto paintevent_cb = qscrollbar_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -476,7 +473,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto mousepressevent_cb = qscrollbar_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -493,7 +489,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto mousereleaseevent_cb = qscrollbar_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -510,7 +505,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto mousemoveevent_cb = qscrollbar_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -527,7 +521,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto hideevent_cb = qscrollbar_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -544,7 +537,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto sliderchange_cb = qscrollbar_sliderchange_callback;
         if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
-
             sliderchange_cb(this, cbval1);
             return;
         }
@@ -561,7 +553,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto contextmenuevent_cb = qscrollbar_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -578,7 +569,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto initstyleoption_cb = qscrollbar_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionSlider* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -595,7 +585,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto keypressevent_cb = qscrollbar_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -612,7 +601,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto timerevent_cb = qscrollbar_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -629,7 +617,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto changeevent_cb = qscrollbar_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -660,7 +647,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto setvisible_cb = qscrollbar_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -676,7 +662,9 @@ class VirtualQScrollBar final : public QScrollBar {
         auto minimumsizehint_cb = qscrollbar_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QScrollBar::minimumSizeHint();
     }
@@ -690,7 +678,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto heightforwidth_cb = qscrollbar_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -735,7 +722,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto mousedoubleclickevent_cb = qscrollbar_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -752,7 +738,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto keyreleaseevent_cb = qscrollbar_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -769,7 +754,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto focusinevent_cb = qscrollbar_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -786,7 +770,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto focusoutevent_cb = qscrollbar_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -803,7 +786,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto enterevent_cb = qscrollbar_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -820,7 +802,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto leaveevent_cb = qscrollbar_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -837,7 +818,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto moveevent_cb = qscrollbar_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -854,7 +834,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto resizeevent_cb = qscrollbar_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -871,7 +850,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto closeevent_cb = qscrollbar_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -888,7 +866,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto tabletevent_cb = qscrollbar_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -905,7 +882,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto actionevent_cb = qscrollbar_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -922,7 +898,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto dragenterevent_cb = qscrollbar_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -939,7 +914,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto dragmoveevent_cb = qscrollbar_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -956,7 +930,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto dragleaveevent_cb = qscrollbar_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -973,7 +946,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto dropevent_cb = qscrollbar_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -990,7 +962,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto showevent_cb = qscrollbar_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1014,7 +985,6 @@ class VirtualQScrollBar final : public QScrollBar {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1031,7 +1001,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto metric_cb = qscrollbar_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1048,7 +1017,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto initpainter_cb = qscrollbar_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1064,7 +1032,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto redirected_cb = qscrollbar_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1095,7 +1062,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto inputmethodevent_cb = qscrollbar_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1111,9 +1077,10 @@ class VirtualQScrollBar final : public QScrollBar {
         auto inputmethodquery_cb = qscrollbar_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QScrollBar::inputMethodQuery(param1);
     }
@@ -1127,7 +1094,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto focusnextprevchild_cb = qscrollbar_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1144,7 +1110,6 @@ class VirtualQScrollBar final : public QScrollBar {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1161,7 +1126,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto childevent_cb = qscrollbar_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1178,7 +1142,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto customevent_cb = qscrollbar_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1197,7 +1160,6 @@ class VirtualQScrollBar final : public QScrollBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1216,7 +1178,6 @@ class VirtualQScrollBar final : public QScrollBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1233,7 +1194,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto setrepeataction_cb = qscrollbar_setrepeataction_callback;
         if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
-
             setrepeataction_cb(this, cbval1);
             return;
         }
@@ -1364,7 +1324,6 @@ class VirtualQScrollBar final : public QScrollBar {
         auto receivers_cb = qscrollbar_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1382,7 +1341,6 @@ class VirtualQScrollBar final : public QScrollBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1399,7 +1357,6 @@ class VirtualQScrollBar final : public QScrollBar {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

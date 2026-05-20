@@ -97,7 +97,6 @@ class VirtualQPicture final : public QPicture {
         if (setdata_cb) {
             const char* cbval1 = (const char*)data;
             unsigned int cbval2 = static_cast<unsigned int>(size);
-
             setdata_cb(this, cbval1, cbval2);
             return;
         }
@@ -127,7 +126,6 @@ class VirtualQPicture final : public QPicture {
         auto metric_cb = qpicture_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(m);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -144,7 +142,6 @@ class VirtualQPicture final : public QPicture {
         auto initpainter_cb = qpicture_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -160,7 +157,6 @@ class VirtualQPicture final : public QPicture {
         auto redirected_cb = qpicture_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -191,7 +187,6 @@ class VirtualQPicture final : public QPicture {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

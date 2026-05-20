@@ -173,7 +173,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto metacast_cb = kconfigdialogmanager_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -191,7 +190,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -207,7 +205,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto event_cb = kconfigdialogmanager_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -224,7 +221,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -241,7 +237,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto timerevent_cb = kconfigdialogmanager_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -258,7 +253,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto childevent_cb = kconfigdialogmanager_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -275,7 +269,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto customevent_cb = kconfigdialogmanager_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -294,7 +287,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -313,7 +305,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -330,7 +321,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto init_cb = kconfigdialogmanager_init_callback;
         if (init_cb) {
             bool cbval1 = trackChanges;
-
             init_cb(this, cbval1);
             return;
         }
@@ -347,7 +337,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (parsechildren_cb) {
             QWidget* cbval1 = (QWidget*)widget;
             bool cbval2 = trackChanges;
-
             bool callback_ret = parsechildren_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -363,7 +352,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto getuserproperty_cb = kconfigdialogmanager_getuserproperty_callback;
         if (getuserproperty_cb) {
             QWidget* cbval1 = (QWidget*)widget;
-
             libqt_string callback_ret = getuserproperty_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
@@ -380,7 +368,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto getcustomproperty_cb = kconfigdialogmanager_getcustomproperty_callback;
         if (getcustomproperty_cb) {
             QWidget* cbval1 = (QWidget*)widget;
-
             libqt_string callback_ret = getcustomproperty_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
@@ -397,7 +384,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto getuserpropertychangedsignal_cb = kconfigdialogmanager_getuserpropertychangedsignal_callback;
         if (getuserpropertychangedsignal_cb) {
             QWidget* cbval1 = (QWidget*)widget;
-
             libqt_string callback_ret = getuserpropertychangedsignal_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
@@ -414,7 +400,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto getcustompropertychangedsignal_cb = kconfigdialogmanager_getcustompropertychangedsignal_callback;
         if (getcustompropertychangedsignal_cb) {
             QWidget* cbval1 = (QWidget*)widget;
-
             libqt_string callback_ret = getcustompropertychangedsignal_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
@@ -435,7 +420,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
             const QVariant& v_ret = v;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&v_ret);
-
             setproperty_cb(this, cbval1, cbval2);
             return;
         }
@@ -451,9 +435,10 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto property_cb = kconfigdialogmanager_property_callback;
         if (property_cb) {
             QWidget* cbval1 = w;
-
             QVariant* callback_ret = property_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigDialogManager::property(w);
     }
@@ -469,7 +454,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         if (setupwidget_cb) {
             QWidget* cbval1 = widget;
             KConfigSkeletonItem* cbval2 = item;
-
             setupwidget_cb(this, cbval1, cbval2);
             return;
         }
@@ -528,7 +512,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
         auto receivers_cb = kconfigdialogmanager_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -546,7 +529,6 @@ class VirtualKConfigDialogManager final : public KConfigDialogManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

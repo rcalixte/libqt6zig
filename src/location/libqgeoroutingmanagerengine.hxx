@@ -164,7 +164,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto metacast_cb = qgeoroutingmanagerengine_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -182,7 +181,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -196,7 +194,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             const QGeoRouteRequest& request_ret = request;
             // Cast returned reference into pointer
             QGeoRouteRequest* cbval1 = const_cast<QGeoRouteRequest*>(&request_ret);
-
             QGeoRouteReply* callback_ret = calculateroute_cb(this, cbval1);
             return callback_ret;
         }
@@ -217,7 +214,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             const QGeoCoordinate& position_ret = position;
             // Cast returned reference into pointer
             QGeoCoordinate* cbval2 = const_cast<QGeoCoordinate*>(&position_ret);
-
             QGeoRouteReply* callback_ret = updateroute_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -233,7 +229,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto event_cb = qgeoroutingmanagerengine_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -250,7 +245,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -267,7 +261,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto timerevent_cb = qgeoroutingmanagerengine_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -284,7 +277,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto childevent_cb = qgeoroutingmanagerengine_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -301,7 +293,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto customevent_cb = qgeoroutingmanagerengine_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -320,7 +311,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -339,7 +329,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -356,7 +345,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto setsupportedtravelmodes_cb = qgeoroutingmanagerengine_setsupportedtravelmodes_callback;
         if (setsupportedtravelmodes_cb) {
             int cbval1 = static_cast<int>(travelModes);
-
             setsupportedtravelmodes_cb(this, cbval1);
             return;
         }
@@ -373,7 +361,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto setsupportedfeaturetypes_cb = qgeoroutingmanagerengine_setsupportedfeaturetypes_callback;
         if (setsupportedfeaturetypes_cb) {
             int cbval1 = static_cast<int>(featureTypes);
-
             setsupportedfeaturetypes_cb(this, cbval1);
             return;
         }
@@ -390,7 +377,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto setsupportedfeatureweights_cb = qgeoroutingmanagerengine_setsupportedfeatureweights_callback;
         if (setsupportedfeatureweights_cb) {
             int cbval1 = static_cast<int>(featureWeights);
-
             setsupportedfeatureweights_cb(this, cbval1);
             return;
         }
@@ -407,7 +393,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto setsupportedrouteoptimizations_cb = qgeoroutingmanagerengine_setsupportedrouteoptimizations_callback;
         if (setsupportedrouteoptimizations_cb) {
             int cbval1 = static_cast<int>(optimizations);
-
             setsupportedrouteoptimizations_cb(this, cbval1);
             return;
         }
@@ -424,7 +409,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto setsupportedsegmentdetails_cb = qgeoroutingmanagerengine_setsupportedsegmentdetails_callback;
         if (setsupportedsegmentdetails_cb) {
             int cbval1 = static_cast<int>(segmentDetails);
-
             setsupportedsegmentdetails_cb(this, cbval1);
             return;
         }
@@ -441,7 +425,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto setsupportedmaneuverdetails_cb = qgeoroutingmanagerengine_setsupportedmaneuverdetails_callback;
         if (setsupportedmaneuverdetails_cb) {
             int cbval1 = static_cast<int>(maneuverDetails);
-
             setsupportedmaneuverdetails_cb(this, cbval1);
             return;
         }
@@ -485,7 +468,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
         auto receivers_cb = qgeoroutingmanagerengine_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -503,7 +485,6 @@ class VirtualQGeoRoutingManagerEngine : public QGeoRoutingManagerEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

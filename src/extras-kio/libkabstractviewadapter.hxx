@@ -145,7 +145,9 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto iconsize_cb = kabstractviewadapter_iconsize_callback;
         if (iconsize_cb) {
             QSize* callback_ret = iconsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -155,7 +157,9 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto palette_cb = kabstractviewadapter_palette_callback;
         if (palette_cb) {
             QPalette* callback_ret = palette_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -165,7 +169,9 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto visiblearea_cb = kabstractviewadapter_visiblearea_callback;
         if (visiblearea_cb) {
             QRect* callback_ret = visiblearea_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -177,9 +183,10 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -191,7 +198,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             int cbval1 = static_cast<int>(signal);
             QObject* cbval2 = receiver;
             const char* cbval3 = (const char*)slot;
-
             connect_cb(this, cbval1, cbval2, cbval3);
         }
     }
@@ -219,7 +225,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto metacast_cb = kabstractviewadapter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -237,7 +242,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -253,7 +257,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto event_cb = kabstractviewadapter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -270,7 +273,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -287,7 +289,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto timerevent_cb = kabstractviewadapter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -304,7 +305,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto childevent_cb = kabstractviewadapter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -321,7 +321,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto customevent_cb = kabstractviewadapter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -340,7 +339,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -359,7 +357,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -403,7 +400,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
         auto receivers_cb = kabstractviewadapter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -421,7 +417,6 @@ class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

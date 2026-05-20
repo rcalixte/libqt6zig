@@ -122,7 +122,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             int callback_ret = indexof_cb(this, cbval1);
             libqt_free(name_str);
             return static_cast<int>(callback_ret);
@@ -135,7 +134,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto membername_cb = qdesignermembersheetextension_membername_callback;
         if (membername_cb) {
             int cbval1 = index;
-
             const char* callback_ret = membername_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -148,7 +146,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto membergroup_cb = qdesignermembersheetextension_membergroup_callback;
         if (membergroup_cb) {
             int cbval1 = index;
-
             const char* callback_ret = membergroup_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -169,7 +166,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
             memcpy((void*)group_str, group_b.data(), group_str_len);
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval2 = group_str;
-
             setmembergroup_cb(this, cbval1, cbval2);
             libqt_free(group_str);
         }
@@ -180,7 +176,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto isvisible_cb = qdesignermembersheetextension_isvisible_callback;
         if (isvisible_cb) {
             int cbval1 = index;
-
             bool callback_ret = isvisible_cb(this, cbval1);
             return callback_ret;
         }
@@ -193,7 +188,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         if (setvisible_cb) {
             int cbval1 = index;
             bool cbval2 = b;
-
             setvisible_cb(this, cbval1, cbval2);
         }
     }
@@ -203,7 +197,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto issignal_cb = qdesignermembersheetextension_issignal_callback;
         if (issignal_cb) {
             int cbval1 = index;
-
             bool callback_ret = issignal_cb(this, cbval1);
             return callback_ret;
         }
@@ -215,7 +208,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto isslot_cb = qdesignermembersheetextension_isslot_callback;
         if (isslot_cb) {
             int cbval1 = index;
-
             bool callback_ret = isslot_cb(this, cbval1);
             return callback_ret;
         }
@@ -227,7 +219,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto inheritedfromwidget_cb = qdesignermembersheetextension_inheritedfromwidget_callback;
         if (inheritedfromwidget_cb) {
             int cbval1 = index;
-
             bool callback_ret = inheritedfromwidget_cb(this, cbval1);
             return callback_ret;
         }
@@ -239,7 +230,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto declaredinclass_cb = qdesignermembersheetextension_declaredinclass_callback;
         if (declaredinclass_cb) {
             int cbval1 = index;
-
             const char* callback_ret = declaredinclass_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -252,7 +242,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto signature_cb = qdesignermembersheetextension_signature_callback;
         if (signature_cb) {
             int cbval1 = index;
-
             const char* callback_ret = signature_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -265,7 +254,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto parametertypes_cb = qdesignermembersheetextension_parametertypes_callback;
         if (parametertypes_cb) {
             int cbval1 = index;
-
             const char** callback_ret = parametertypes_cb(this, cbval1);
             QList<QByteArray> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -286,7 +274,6 @@ class VirtualQDesignerMemberSheetExtension : public QDesignerMemberSheetExtensio
         auto parameternames_cb = qdesignermembersheetextension_parameternames_callback;
         if (parameternames_cb) {
             int cbval1 = index;
-
             const char** callback_ret = parameternames_cb(this, cbval1);
             QList<QByteArray> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);

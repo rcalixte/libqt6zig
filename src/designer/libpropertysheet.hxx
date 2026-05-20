@@ -132,7 +132,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             int callback_ret = indexof_cb(this, cbval1);
             libqt_free(name_str);
             return static_cast<int>(callback_ret);
@@ -145,7 +144,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto propertyname_cb = qdesignerpropertysheetextension_propertyname_callback;
         if (propertyname_cb) {
             int cbval1 = index;
-
             const char* callback_ret = propertyname_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -158,7 +156,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto propertygroup_cb = qdesignerpropertysheetextension_propertygroup_callback;
         if (propertygroup_cb) {
             int cbval1 = index;
-
             const char* callback_ret = propertygroup_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -179,7 +176,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
             memcpy((void*)group_str, group_b.data(), group_str_len);
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval2 = group_str;
-
             setpropertygroup_cb(this, cbval1, cbval2);
             libqt_free(group_str);
         }
@@ -190,7 +186,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto hasreset_cb = qdesignerpropertysheetextension_hasreset_callback;
         if (hasreset_cb) {
             int cbval1 = index;
-
             bool callback_ret = hasreset_cb(this, cbval1);
             return callback_ret;
         }
@@ -202,7 +197,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto reset_cb = qdesignerpropertysheetextension_reset_callback;
         if (reset_cb) {
             int cbval1 = index;
-
             bool callback_ret = reset_cb(this, cbval1);
             return callback_ret;
         }
@@ -214,7 +208,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto isvisible_cb = qdesignerpropertysheetextension_isvisible_callback;
         if (isvisible_cb) {
             int cbval1 = index;
-
             bool callback_ret = isvisible_cb(this, cbval1);
             return callback_ret;
         }
@@ -227,7 +220,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         if (setvisible_cb) {
             int cbval1 = index;
             bool cbval2 = b;
-
             setvisible_cb(this, cbval1, cbval2);
         }
     }
@@ -237,7 +229,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto isattribute_cb = qdesignerpropertysheetextension_isattribute_callback;
         if (isattribute_cb) {
             int cbval1 = index;
-
             bool callback_ret = isattribute_cb(this, cbval1);
             return callback_ret;
         }
@@ -250,7 +241,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         if (setattribute_cb) {
             int cbval1 = index;
             bool cbval2 = b;
-
             setattribute_cb(this, cbval1, cbval2);
         }
     }
@@ -260,9 +250,10 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto property_cb = qdesignerpropertysheetextension_property_callback;
         if (property_cb) {
             int cbval1 = index;
-
             QVariant* callback_ret = property_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -275,7 +266,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setproperty_cb(this, cbval1, cbval2);
         }
     }
@@ -285,7 +275,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto ischanged_cb = qdesignerpropertysheetextension_ischanged_callback;
         if (ischanged_cb) {
             int cbval1 = index;
-
             bool callback_ret = ischanged_cb(this, cbval1);
             return callback_ret;
         }
@@ -298,7 +287,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         if (setchanged_cb) {
             int cbval1 = index;
             bool cbval2 = changed;
-
             setchanged_cb(this, cbval1, cbval2);
         }
     }
@@ -308,7 +296,6 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto isenabled_cb = qdesignerpropertysheetextension_isenabled_callback;
         if (isenabled_cb) {
             int cbval1 = index;
-
             bool callback_ret = isenabled_cb(this, cbval1);
             return callback_ret;
         }

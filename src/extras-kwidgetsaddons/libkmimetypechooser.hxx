@@ -359,7 +359,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto metacast_cb = kmimetypechooser_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -377,7 +376,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -408,7 +406,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto setvisible_cb = kmimetypechooser_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -424,7 +421,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto sizehint_cb = kmimetypechooser_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMimeTypeChooser::sizeHint();
     }
@@ -438,7 +437,9 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto minimumsizehint_cb = kmimetypechooser_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMimeTypeChooser::minimumSizeHint();
     }
@@ -452,7 +453,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto heightforwidth_cb = kmimetypechooser_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -496,7 +496,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto event_cb = kmimetypechooser_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -513,7 +512,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto mousepressevent_cb = kmimetypechooser_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -530,7 +528,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto mousereleaseevent_cb = kmimetypechooser_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -547,7 +544,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto mousedoubleclickevent_cb = kmimetypechooser_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -564,7 +560,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto mousemoveevent_cb = kmimetypechooser_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -581,7 +576,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto wheelevent_cb = kmimetypechooser_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -598,7 +592,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto keypressevent_cb = kmimetypechooser_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -615,7 +608,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto keyreleaseevent_cb = kmimetypechooser_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -632,7 +624,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto focusinevent_cb = kmimetypechooser_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -649,7 +640,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto focusoutevent_cb = kmimetypechooser_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -666,7 +656,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto enterevent_cb = kmimetypechooser_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -683,7 +672,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto leaveevent_cb = kmimetypechooser_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -700,7 +688,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto paintevent_cb = kmimetypechooser_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -717,7 +704,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto moveevent_cb = kmimetypechooser_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -734,7 +720,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto resizeevent_cb = kmimetypechooser_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -751,7 +736,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto closeevent_cb = kmimetypechooser_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -768,7 +752,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto contextmenuevent_cb = kmimetypechooser_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -785,7 +768,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto tabletevent_cb = kmimetypechooser_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -802,7 +784,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto actionevent_cb = kmimetypechooser_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -819,7 +800,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto dragenterevent_cb = kmimetypechooser_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -836,7 +816,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto dragmoveevent_cb = kmimetypechooser_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -853,7 +832,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto dragleaveevent_cb = kmimetypechooser_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -870,7 +848,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto dropevent_cb = kmimetypechooser_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -887,7 +864,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto showevent_cb = kmimetypechooser_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -904,7 +880,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto hideevent_cb = kmimetypechooser_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -928,7 +903,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -946,7 +920,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto changeevent_cb = kmimetypechooser_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -962,7 +935,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto metric_cb = kmimetypechooser_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -979,7 +951,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto initpainter_cb = kmimetypechooser_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -995,7 +966,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto redirected_cb = kmimetypechooser_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1026,7 +996,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto inputmethodevent_cb = kmimetypechooser_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1042,9 +1011,10 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto inputmethodquery_cb = kmimetypechooser_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMimeTypeChooser::inputMethodQuery(param1);
     }
@@ -1058,7 +1028,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto focusnextprevchild_cb = kmimetypechooser_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1075,7 +1044,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1092,7 +1060,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto timerevent_cb = kmimetypechooser_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1109,7 +1076,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto childevent_cb = kmimetypechooser_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1126,7 +1092,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto customevent_cb = kmimetypechooser_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1145,7 +1110,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1164,7 +1128,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1281,7 +1244,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         auto receivers_cb = kmimetypechooser_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1299,7 +1261,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1316,7 +1277,6 @@ class VirtualKMimeTypeChooser final : public KMimeTypeChooser {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -1804,7 +1764,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto metacast_cb = kmimetypechooserdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1822,7 +1781,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1838,7 +1796,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto sizehint_cb = kmimetypechooserdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMimeTypeChooserDialog::sizeHint();
     }
@@ -1853,7 +1813,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto setvisible_cb = kmimetypechooserdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1869,7 +1828,9 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto minimumsizehint_cb = kmimetypechooserdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMimeTypeChooserDialog::minimumSizeHint();
     }
@@ -1913,7 +1874,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto done_cb = kmimetypechooserdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -1960,7 +1920,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto keypressevent_cb = kmimetypechooserdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1977,7 +1936,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto closeevent_cb = kmimetypechooserdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1994,7 +1952,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto showevent_cb = kmimetypechooserdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2011,7 +1968,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto resizeevent_cb = kmimetypechooserdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2028,7 +1984,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto contextmenuevent_cb = kmimetypechooserdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2045,7 +2000,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2075,7 +2029,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto heightforwidth_cb = kmimetypechooserdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2119,7 +2072,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto event_cb = kmimetypechooserdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2136,7 +2088,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto mousepressevent_cb = kmimetypechooserdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2153,7 +2104,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto mousereleaseevent_cb = kmimetypechooserdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2170,7 +2120,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto mousedoubleclickevent_cb = kmimetypechooserdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2187,7 +2136,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto mousemoveevent_cb = kmimetypechooserdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2204,7 +2152,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto wheelevent_cb = kmimetypechooserdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2221,7 +2168,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto keyreleaseevent_cb = kmimetypechooserdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2238,7 +2184,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto focusinevent_cb = kmimetypechooserdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2255,7 +2200,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto focusoutevent_cb = kmimetypechooserdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2272,7 +2216,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto enterevent_cb = kmimetypechooserdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2289,7 +2232,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto leaveevent_cb = kmimetypechooserdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2306,7 +2248,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto paintevent_cb = kmimetypechooserdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2323,7 +2264,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto moveevent_cb = kmimetypechooserdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2340,7 +2280,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto tabletevent_cb = kmimetypechooserdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2357,7 +2296,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto actionevent_cb = kmimetypechooserdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2374,7 +2312,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto dragenterevent_cb = kmimetypechooserdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2391,7 +2328,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto dragmoveevent_cb = kmimetypechooserdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2408,7 +2344,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto dragleaveevent_cb = kmimetypechooserdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2425,7 +2360,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto dropevent_cb = kmimetypechooserdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2442,7 +2376,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto hideevent_cb = kmimetypechooserdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2466,7 +2399,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2484,7 +2416,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto changeevent_cb = kmimetypechooserdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2500,7 +2431,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto metric_cb = kmimetypechooserdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2517,7 +2447,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto initpainter_cb = kmimetypechooserdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2533,7 +2462,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto redirected_cb = kmimetypechooserdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2564,7 +2492,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto inputmethodevent_cb = kmimetypechooserdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2580,9 +2507,10 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto inputmethodquery_cb = kmimetypechooserdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KMimeTypeChooserDialog::inputMethodQuery(param1);
     }
@@ -2596,7 +2524,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto focusnextprevchild_cb = kmimetypechooserdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2613,7 +2540,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto timerevent_cb = kmimetypechooserdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2630,7 +2556,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto childevent_cb = kmimetypechooserdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2647,7 +2572,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto customevent_cb = kmimetypechooserdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2666,7 +2590,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2685,7 +2608,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2702,7 +2624,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto adjustposition_cb = kmimetypechooserdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -2819,7 +2740,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         auto receivers_cb = kmimetypechooserdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2837,7 +2757,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2854,7 +2773,6 @@ class VirtualKMimeTypeChooserDialog final : public KMimeTypeChooserDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

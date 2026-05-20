@@ -363,7 +363,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto metacast_cb = qwebengineview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -381,7 +380,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -397,7 +395,9 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto sizehint_cb = qwebengineview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWebEngineView::sizeHint();
     }
@@ -411,7 +411,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto createwindow_cb = qwebengineview_createwindow_callback;
         if (createwindow_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             QWebEngineView* callback_ret = createwindow_cb(this, cbval1);
             return callback_ret;
         }
@@ -428,7 +427,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto contextmenuevent_cb = qwebengineview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -444,7 +442,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto event_cb = qwebengineview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -461,7 +458,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto showevent_cb = qwebengineview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -478,7 +474,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto hideevent_cb = qwebengineview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -495,7 +490,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto closeevent_cb = qwebengineview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -512,7 +506,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto dragenterevent_cb = qwebengineview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -529,7 +522,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto dragleaveevent_cb = qwebengineview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -546,7 +538,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto dragmoveevent_cb = qwebengineview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -563,7 +554,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto dropevent_cb = qwebengineview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = e;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -594,7 +584,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto setvisible_cb = qwebengineview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -610,7 +599,9 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto minimumsizehint_cb = qwebengineview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWebEngineView::minimumSizeHint();
     }
@@ -624,7 +615,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto heightforwidth_cb = qwebengineview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -669,7 +659,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto mousepressevent_cb = qwebengineview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -686,7 +675,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto mousereleaseevent_cb = qwebengineview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -703,7 +691,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto mousedoubleclickevent_cb = qwebengineview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -720,7 +707,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto mousemoveevent_cb = qwebengineview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -737,7 +723,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto wheelevent_cb = qwebengineview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -754,7 +739,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto keypressevent_cb = qwebengineview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -771,7 +755,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto keyreleaseevent_cb = qwebengineview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -788,7 +771,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto focusinevent_cb = qwebengineview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -805,7 +787,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto focusoutevent_cb = qwebengineview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -822,7 +803,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto enterevent_cb = qwebengineview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -839,7 +819,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto leaveevent_cb = qwebengineview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -856,7 +835,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto paintevent_cb = qwebengineview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -873,7 +851,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto moveevent_cb = qwebengineview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -890,7 +867,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto resizeevent_cb = qwebengineview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -907,7 +883,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto tabletevent_cb = qwebengineview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -924,7 +899,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto actionevent_cb = qwebengineview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -948,7 +922,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -966,7 +939,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto changeevent_cb = qwebengineview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -982,7 +954,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto metric_cb = qwebengineview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -999,7 +970,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto initpainter_cb = qwebengineview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1015,7 +985,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto redirected_cb = qwebengineview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1046,7 +1015,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto inputmethodevent_cb = qwebengineview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1062,9 +1030,10 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto inputmethodquery_cb = qwebengineview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWebEngineView::inputMethodQuery(param1);
     }
@@ -1078,7 +1047,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto focusnextprevchild_cb = qwebengineview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1095,7 +1063,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1112,7 +1079,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto timerevent_cb = qwebengineview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1129,7 +1095,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto childevent_cb = qwebengineview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1146,7 +1111,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto customevent_cb = qwebengineview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1165,7 +1129,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1184,7 +1147,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1301,7 +1263,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         auto receivers_cb = qwebengineview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1319,7 +1280,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1336,7 +1296,6 @@ class VirtualQWebEngineView final : public QWebEngineView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

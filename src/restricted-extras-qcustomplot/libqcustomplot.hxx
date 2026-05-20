@@ -91,7 +91,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
         auto draw_cb = qcpabstractpaintbuffer_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
         }
     }
@@ -103,7 +102,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
             const QColor& color_ret = color;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&color_ret);
-
             clear_cb(this, cbval1);
         }
     }
@@ -128,7 +126,6 @@ class VirtualQCPAbstractPaintBuffer : public QCPAbstractPaintBuffer {
             const QCPAbstractPaintBuffer& param1_ret = param1;
             // Cast returned reference into pointer
             QCPAbstractPaintBuffer* cbval1 = const_cast<QCPAbstractPaintBuffer*>(&param1_ret);
-
             operatorassign_cb(this, cbval1);
             return;
         }
@@ -218,7 +215,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
         auto draw_cb = qcppaintbufferpixmap_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -237,7 +233,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
             const QColor& color_ret = color;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&color_ret);
-
             clear_cb(this, cbval1);
             return;
         }
@@ -286,7 +281,6 @@ class VirtualQCPPaintBufferPixmap final : public QCPPaintBufferPixmap {
             const QCPPaintBufferPixmap& param1_ret = param1;
             // Cast returned reference into pointer
             QCPPaintBufferPixmap* cbval1 = const_cast<QCPPaintBufferPixmap*>(&param1_ret);
-
             operatorassign_cb(this, cbval1);
             return;
         }
@@ -434,7 +428,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto metacast_cb = qcplayer_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -452,7 +445,6 @@ class VirtualQCPLayer final : public QCPLayer {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -468,7 +460,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto event_cb = qcplayer_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -485,7 +476,6 @@ class VirtualQCPLayer final : public QCPLayer {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -502,7 +492,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto timerevent_cb = qcplayer_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -519,7 +508,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto childevent_cb = qcplayer_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -536,7 +524,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto customevent_cb = qcplayer_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -555,7 +542,6 @@ class VirtualQCPLayer final : public QCPLayer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -574,7 +560,6 @@ class VirtualQCPLayer final : public QCPLayer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -591,7 +576,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto draw_cb = qcplayer_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -624,7 +608,6 @@ class VirtualQCPLayer final : public QCPLayer {
         if (addchild_cb) {
             QCPLayerable* cbval1 = layerable;
             bool cbval2 = prepend;
-
             addchild_cb(this, cbval1, cbval2);
             return;
         }
@@ -641,7 +624,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto removechild_cb = qcplayer_removechild_callback;
         if (removechild_cb) {
             QCPLayerable* cbval1 = layerable;
-
             removechild_cb(this, cbval1);
             return;
         }
@@ -685,7 +667,6 @@ class VirtualQCPLayer final : public QCPLayer {
         auto receivers_cb = qcplayer_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -703,7 +684,6 @@ class VirtualQCPLayer final : public QCPLayer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -940,7 +920,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto metacast_cb = qcplayerable_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -958,7 +937,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -978,7 +956,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -995,7 +972,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto parentplotinitialized_cb = qcplayerable_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -1025,7 +1001,9 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto cliprect_cb = qcplayerable_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayerable::clipRect();
     }
@@ -1035,7 +1013,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto applydefaultantialiasinghint_cb = qcplayerable_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
         }
     }
@@ -1045,7 +1022,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto draw_cb = qcplayerable_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
         }
     }
@@ -1065,7 +1041,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1082,7 +1057,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto deselectevent_cb = qcplayerable_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -1102,7 +1076,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -1122,7 +1095,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -1142,7 +1114,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -1162,7 +1133,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -1179,7 +1149,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto wheelevent_cb = qcplayerable_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1195,7 +1164,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto event_cb = qcplayerable_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1212,7 +1180,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1229,7 +1196,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto timerevent_cb = qcplayerable_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1246,7 +1212,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto childevent_cb = qcplayerable_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1263,7 +1228,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto customevent_cb = qcplayerable_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1282,7 +1246,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1301,7 +1264,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1318,7 +1280,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto initializeparentplot_cb = qcplayerable_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -1335,7 +1296,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto setparentlayerable_cb = qcplayerable_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -1352,7 +1312,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1371,7 +1330,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1415,7 +1373,6 @@ class VirtualQCPLayerable : public QCPLayerable {
         auto receivers_cb = qcplayerable_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1433,7 +1390,6 @@ class VirtualQCPLayerable : public QCPLayerable {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1712,7 +1668,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto metacast_cb = qcpselectionrect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1730,7 +1685,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1747,7 +1701,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto startselection_cb = qcpselectionrect_startselection_callback;
         if (startselection_cb) {
             QMouseEvent* cbval1 = event;
-
             startselection_cb(this, cbval1);
             return;
         }
@@ -1764,7 +1717,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto moveselection_cb = qcpselectionrect_moveselection_callback;
         if (moveselection_cb) {
             QMouseEvent* cbval1 = event;
-
             moveselection_cb(this, cbval1);
             return;
         }
@@ -1781,7 +1733,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto endselection_cb = qcpselectionrect_endselection_callback;
         if (endselection_cb) {
             QMouseEvent* cbval1 = event;
-
             endselection_cb(this, cbval1);
             return;
         }
@@ -1798,7 +1749,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto keypressevent_cb = qcpselectionrect_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1815,7 +1765,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto applydefaultantialiasinghint_cb = qcpselectionrect_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -1832,7 +1781,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto draw_cb = qcpselectionrect_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -1852,7 +1800,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -1869,7 +1816,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto parentplotinitialized_cb = qcpselectionrect_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -1899,7 +1845,9 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto cliprect_cb = qcpselectionrect_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPSelectionRect::clipRect();
     }
@@ -1919,7 +1867,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1936,7 +1883,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto deselectevent_cb = qcpselectionrect_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -1956,7 +1902,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -1976,7 +1921,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -1996,7 +1940,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -2016,7 +1959,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -2033,7 +1975,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto wheelevent_cb = qcpselectionrect_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2049,7 +1990,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto event_cb = qcpselectionrect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2066,7 +2006,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2083,7 +2022,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto timerevent_cb = qcpselectionrect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2100,7 +2038,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto childevent_cb = qcpselectionrect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2117,7 +2054,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto customevent_cb = qcpselectionrect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2136,7 +2072,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2155,7 +2090,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2172,7 +2106,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto initializeparentplot_cb = qcpselectionrect_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -2189,7 +2122,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto setparentlayerable_cb = qcpselectionrect_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -2206,7 +2138,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2225,7 +2156,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2269,7 +2199,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
         auto receivers_cb = qcpselectionrect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2287,7 +2216,6 @@ class VirtualQCPSelectionRect final : public QCPSelectionRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2484,7 +2412,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto metacast_cb = qcpmargingroup_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -2502,7 +2429,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -2518,7 +2444,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto commonmargin_cb = qcpmargingroup_commonmargin_callback;
         if (commonmargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = commonmargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2534,7 +2459,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto event_cb = qcpmargingroup_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2551,7 +2475,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2568,7 +2491,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto timerevent_cb = qcpmargingroup_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2585,7 +2507,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto childevent_cb = qcpmargingroup_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2602,7 +2523,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto customevent_cb = qcpmargingroup_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2621,7 +2541,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2640,7 +2559,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2658,7 +2576,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         if (addchild_cb) {
             int cbval1 = static_cast<int>(side);
             QCPLayoutElement* cbval2 = element;
-
             addchild_cb(this, cbval1, cbval2);
             return;
         }
@@ -2676,7 +2593,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         if (removechild_cb) {
             int cbval1 = static_cast<int>(side);
             QCPLayoutElement* cbval2 = element;
-
             removechild_cb(this, cbval1, cbval2);
             return;
         }
@@ -2720,7 +2636,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
         auto receivers_cb = qcpmargingroup_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2738,7 +2653,6 @@ class VirtualQCPMarginGroup final : public QCPMarginGroup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3002,7 +2916,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto metacast_cb = qcplayoutelement_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -3020,7 +2933,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -3037,7 +2949,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto update_cb = qcplayoutelement_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -3053,7 +2964,9 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto minimumoutersizehint_cb = qcplayoutelement_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutElement::minimumOuterSizeHint();
     }
@@ -3067,7 +2980,9 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto maximumoutersizehint_cb = qcplayoutelement_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutElement::maximumOuterSizeHint();
     }
@@ -3081,7 +2996,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto elements_cb = qcplayoutelement_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -3108,7 +3022,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -3124,7 +3037,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto calculateautomargin_cb = qcplayoutelement_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3156,7 +3068,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto applydefaultantialiasinghint_cb = qcplayoutelement_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -3173,7 +3084,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto draw_cb = qcplayoutelement_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -3190,7 +3100,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto parentplotinitialized_cb = qcplayoutelement_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -3220,7 +3129,9 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto cliprect_cb = qcplayoutelement_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutElement::clipRect();
     }
@@ -3240,7 +3151,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -3257,7 +3167,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto deselectevent_cb = qcplayoutelement_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -3277,7 +3186,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -3297,7 +3205,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -3317,7 +3224,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -3337,7 +3243,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -3354,7 +3259,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto wheelevent_cb = qcplayoutelement_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -3370,7 +3274,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto event_cb = qcplayoutelement_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -3387,7 +3290,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -3404,7 +3306,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto timerevent_cb = qcplayoutelement_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -3421,7 +3322,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto childevent_cb = qcplayoutelement_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -3438,7 +3338,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto customevent_cb = qcplayoutelement_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -3457,7 +3356,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -3476,7 +3374,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -3493,7 +3390,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto initializeparentplot_cb = qcplayoutelement_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -3510,7 +3406,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto setparentlayerable_cb = qcplayoutelement_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -3527,7 +3422,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -3546,7 +3440,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -3590,7 +3483,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
         auto receivers_cb = qcplayoutelement_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3608,7 +3500,6 @@ class VirtualQCPLayoutElement final : public QCPLayoutElement {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3951,7 +3842,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto metacast_cb = qcplayout_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -3969,7 +3859,6 @@ class VirtualQCPLayout : public QCPLayout {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -3986,7 +3875,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto update_cb = qcplayout_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -4002,7 +3890,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto elements_cb = qcplayout_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -4031,7 +3918,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto elementat_cb = qcplayout_elementat_callback;
         if (elementat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = elementat_cb(this, cbval1);
             return callback_ret;
         }
@@ -4043,7 +3929,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto takeat_cb = qcplayout_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -4055,7 +3940,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto take_cb = qcplayout_take_callback;
         if (take_cb) {
             QCPLayoutElement* cbval1 = element;
-
             bool callback_ret = take_cb(this, cbval1);
             return callback_ret;
         }
@@ -4101,7 +3985,9 @@ class VirtualQCPLayout : public QCPLayout {
         auto minimumoutersizehint_cb = qcplayout_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayout::minimumOuterSizeHint();
     }
@@ -4115,7 +4001,9 @@ class VirtualQCPLayout : public QCPLayout {
         auto maximumoutersizehint_cb = qcplayout_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayout::maximumOuterSizeHint();
     }
@@ -4133,7 +4021,6 @@ class VirtualQCPLayout : public QCPLayout {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -4149,7 +4036,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto calculateautomargin_cb = qcplayout_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -4181,7 +4067,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto applydefaultantialiasinghint_cb = qcplayout_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -4198,7 +4083,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto draw_cb = qcplayout_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -4215,7 +4099,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto parentplotinitialized_cb = qcplayout_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -4245,7 +4128,9 @@ class VirtualQCPLayout : public QCPLayout {
         auto cliprect_cb = qcplayout_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayout::clipRect();
     }
@@ -4265,7 +4150,6 @@ class VirtualQCPLayout : public QCPLayout {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -4282,7 +4166,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto deselectevent_cb = qcplayout_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -4302,7 +4185,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -4322,7 +4204,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -4342,7 +4223,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -4362,7 +4242,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -4379,7 +4258,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto wheelevent_cb = qcplayout_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -4395,7 +4273,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto event_cb = qcplayout_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -4412,7 +4289,6 @@ class VirtualQCPLayout : public QCPLayout {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -4429,7 +4305,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto timerevent_cb = qcplayout_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -4446,7 +4321,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto childevent_cb = qcplayout_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -4463,7 +4337,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto customevent_cb = qcplayout_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -4482,7 +4355,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -4501,7 +4373,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -4533,7 +4404,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto adoptelement_cb = qcplayout_adoptelement_callback;
         if (adoptelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             adoptelement_cb(this, cbval1);
             return;
         }
@@ -4550,7 +4420,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto releaseelement_cb = qcplayout_releaseelement_callback;
         if (releaseelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             releaseelement_cb(this, cbval1);
             return;
         }
@@ -4596,7 +4465,6 @@ class VirtualQCPLayout : public QCPLayout {
             stretchFactors_out.data = static_cast<void*>(stretchFactors_arr);
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
-
             libqt_list /* of int */ callback_ret = getsectionsizes_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -4623,7 +4491,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto initializeparentplot_cb = qcplayout_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -4640,7 +4507,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto setparentlayerable_cb = qcplayout_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -4657,7 +4523,6 @@ class VirtualQCPLayout : public QCPLayout {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -4676,7 +4541,6 @@ class VirtualQCPLayout : public QCPLayout {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -4720,7 +4584,6 @@ class VirtualQCPLayout : public QCPLayout {
         auto receivers_cb = qcplayout_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -4738,7 +4601,6 @@ class VirtualQCPLayout : public QCPLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -5101,7 +4963,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto metacast_cb = qcplayoutgrid_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -5119,7 +4980,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -5164,7 +5024,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto elementat_cb = qcplayoutgrid_elementat_callback;
         if (elementat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = elementat_cb(this, cbval1);
             return callback_ret;
         }
@@ -5180,7 +5039,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto takeat_cb = qcplayoutgrid_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -5196,7 +5054,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto take_cb = qcplayoutgrid_take_callback;
         if (take_cb) {
             QCPLayoutElement* cbval1 = element;
-
             bool callback_ret = take_cb(this, cbval1);
             return callback_ret;
         }
@@ -5212,7 +5069,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto elements_cb = qcplayoutgrid_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -5250,7 +5106,9 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto minimumoutersizehint_cb = qcplayoutgrid_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutGrid::minimumOuterSizeHint();
     }
@@ -5264,7 +5122,9 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto maximumoutersizehint_cb = qcplayoutgrid_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutGrid::maximumOuterSizeHint();
     }
@@ -5279,7 +5139,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto update_cb = qcplayoutgrid_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -5299,7 +5158,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -5315,7 +5173,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto calculateautomargin_cb = qcplayoutgrid_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -5347,7 +5204,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto applydefaultantialiasinghint_cb = qcplayoutgrid_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -5364,7 +5220,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto draw_cb = qcplayoutgrid_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -5381,7 +5236,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto parentplotinitialized_cb = qcplayoutgrid_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -5411,7 +5265,9 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto cliprect_cb = qcplayoutgrid_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutGrid::clipRect();
     }
@@ -5431,7 +5287,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -5448,7 +5303,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto deselectevent_cb = qcplayoutgrid_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -5468,7 +5322,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -5488,7 +5341,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -5508,7 +5360,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -5528,7 +5379,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -5545,7 +5395,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto wheelevent_cb = qcplayoutgrid_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -5561,7 +5410,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto event_cb = qcplayoutgrid_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -5578,7 +5426,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -5595,7 +5442,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto timerevent_cb = qcplayoutgrid_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -5612,7 +5458,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto childevent_cb = qcplayoutgrid_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -5629,7 +5474,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto customevent_cb = qcplayoutgrid_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -5648,7 +5492,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -5667,7 +5510,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -5703,7 +5545,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             minRowHeights_out.len = minRowHeights_ret->size();
             minRowHeights_out.data = static_cast<void*>(minRowHeights_arr);
             libqt_list /* of int */ cbval2 = minRowHeights_out;
-
             getminimumrowcolsizes_cb(this, cbval1, cbval2);
             free(minColWidths_arr);
             free(minRowHeights_arr);
@@ -5741,7 +5582,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             maxRowHeights_out.len = maxRowHeights_ret->size();
             maxRowHeights_out.data = static_cast<void*>(maxRowHeights_arr);
             libqt_list /* of int */ cbval2 = maxRowHeights_out;
-
             getmaximumrowcolsizes_cb(this, cbval1, cbval2);
             free(maxColWidths_arr);
             free(maxRowHeights_arr);
@@ -5775,7 +5615,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto adoptelement_cb = qcplayoutgrid_adoptelement_callback;
         if (adoptelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             adoptelement_cb(this, cbval1);
             return;
         }
@@ -5792,7 +5631,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto releaseelement_cb = qcplayoutgrid_releaseelement_callback;
         if (releaseelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             releaseelement_cb(this, cbval1);
             return;
         }
@@ -5838,7 +5676,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             stretchFactors_out.data = static_cast<void*>(stretchFactors_arr);
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
-
             libqt_list /* of int */ callback_ret = getsectionsizes_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -5865,7 +5702,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto initializeparentplot_cb = qcplayoutgrid_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -5882,7 +5718,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto setparentlayerable_cb = qcplayoutgrid_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -5899,7 +5734,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -5918,7 +5752,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -5962,7 +5795,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
         auto receivers_cb = qcplayoutgrid_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -5980,7 +5812,6 @@ class VirtualQCPLayoutGrid final : public QCPLayoutGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -6335,7 +6166,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto metacast_cb = qcplayoutinset_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -6353,7 +6183,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -6398,7 +6227,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto elementat_cb = qcplayoutinset_elementat_callback;
         if (elementat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = elementat_cb(this, cbval1);
             return callback_ret;
         }
@@ -6414,7 +6242,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto takeat_cb = qcplayoutinset_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -6430,7 +6257,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto take_cb = qcplayoutinset_take_callback;
         if (take_cb) {
             QCPLayoutElement* cbval1 = element;
-
             bool callback_ret = take_cb(this, cbval1);
             return callback_ret;
         }
@@ -6465,7 +6291,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -6482,7 +6307,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto update_cb = qcplayoutinset_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -6498,7 +6322,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto elements_cb = qcplayoutinset_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -6521,7 +6344,9 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto minimumoutersizehint_cb = qcplayoutinset_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutInset::minimumOuterSizeHint();
     }
@@ -6535,7 +6360,9 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto maximumoutersizehint_cb = qcplayoutinset_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutInset::maximumOuterSizeHint();
     }
@@ -6549,7 +6376,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto calculateautomargin_cb = qcplayoutinset_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -6581,7 +6407,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto applydefaultantialiasinghint_cb = qcplayoutinset_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -6598,7 +6423,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto draw_cb = qcplayoutinset_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -6615,7 +6439,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto parentplotinitialized_cb = qcplayoutinset_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -6645,7 +6468,9 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto cliprect_cb = qcplayoutinset_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLayoutInset::clipRect();
     }
@@ -6665,7 +6490,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -6682,7 +6506,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto deselectevent_cb = qcplayoutinset_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -6702,7 +6525,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -6722,7 +6544,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -6742,7 +6563,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -6762,7 +6582,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -6779,7 +6598,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto wheelevent_cb = qcplayoutinset_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -6795,7 +6613,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto event_cb = qcplayoutinset_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -6812,7 +6629,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -6829,7 +6645,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto timerevent_cb = qcplayoutinset_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -6846,7 +6661,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto childevent_cb = qcplayoutinset_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -6863,7 +6677,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto customevent_cb = qcplayoutinset_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -6882,7 +6695,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -6901,7 +6713,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -6933,7 +6744,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto adoptelement_cb = qcplayoutinset_adoptelement_callback;
         if (adoptelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             adoptelement_cb(this, cbval1);
             return;
         }
@@ -6950,7 +6760,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto releaseelement_cb = qcplayoutinset_releaseelement_callback;
         if (releaseelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             releaseelement_cb(this, cbval1);
             return;
         }
@@ -6996,7 +6805,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             stretchFactors_out.data = static_cast<void*>(stretchFactors_arr);
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
-
             libqt_list /* of int */ callback_ret = getsectionsizes_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -7023,7 +6831,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto initializeparentplot_cb = qcplayoutinset_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -7040,7 +6847,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto setparentlayerable_cb = qcplayoutinset_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -7057,7 +6863,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -7076,7 +6881,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -7120,7 +6924,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
         auto receivers_cb = qcplayoutinset_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -7138,7 +6941,6 @@ class VirtualQCPLayoutInset final : public QCPLayoutInset {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -7342,7 +7144,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -7363,7 +7164,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -7379,7 +7179,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
         auto getsubtickcount_cb = qcpaxisticker_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -7400,7 +7199,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -7420,7 +7218,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -7453,7 +7250,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -7491,7 +7287,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -7531,7 +7326,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -7558,7 +7352,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -7575,7 +7368,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
         auto getmantissa_cb = qcpaxisticker_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -7591,7 +7383,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
         auto cleanmantissa_cb = qcpaxisticker_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -7608,7 +7399,6 @@ class VirtualQCPAxisTicker final : public QCPAxisTicker {
         if (getmantissa2_cb) {
             double cbval1 = input;
             double* cbval2 = magnitude;
-
             double callback_ret = getmantissa2_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -7728,7 +7518,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -7744,7 +7533,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
         auto getsubtickcount_cb = qcpaxistickerdatetime_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -7765,7 +7553,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -7785,7 +7572,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -7850,7 +7636,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -7879,7 +7664,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -7917,7 +7701,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -7957,7 +7740,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -7984,7 +7766,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -8001,7 +7782,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
         auto getmantissa_cb = qcpaxistickerdatetime_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8017,7 +7797,6 @@ class VirtualQCPAxisTickerDateTime final : public QCPAxisTickerDateTime {
         auto cleanmantissa_cb = qcpaxistickerdatetime_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8139,7 +7918,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8155,7 +7933,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
         auto getsubtickcount_cb = qcpaxistickertime_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -8176,7 +7953,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -8235,7 +8011,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -8257,7 +8032,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -8290,7 +8064,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -8328,7 +8101,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -8364,7 +8136,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             const char* cbval1 = text_str;
             int cbval2 = static_cast<int>(unit);
             int cbval3 = value;
-
             replaceunit_cb(this, cbval1, cbval2, cbval3);
             libqt_free(text_str);
             return;
@@ -8395,7 +8166,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -8422,7 +8192,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -8439,7 +8208,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
         auto getmantissa_cb = qcpaxistickertime_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8455,7 +8223,6 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
         auto cleanmantissa_cb = qcpaxistickertime_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8574,7 +8341,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8632,7 +8398,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -8651,7 +8416,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
         auto getsubtickcount_cb = qcpaxistickerfixed_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -8672,7 +8436,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -8692,7 +8455,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -8725,7 +8487,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -8763,7 +8524,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -8803,7 +8563,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -8830,7 +8589,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -8847,7 +8605,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
         auto getmantissa_cb = qcpaxistickerfixed_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8863,7 +8620,6 @@ class VirtualQCPAxisTickerFixed final : public QCPAxisTickerFixed {
         auto cleanmantissa_cb = qcpaxistickerfixed_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8980,7 +8736,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -8996,7 +8751,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
         auto getsubtickcount_cb = qcpaxistickertext_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -9017,7 +8771,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -9037,7 +8790,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -9102,7 +8854,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -9131,7 +8882,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -9169,7 +8919,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -9209,7 +8958,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -9236,7 +8984,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -9253,7 +9000,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
         auto getmantissa_cb = qcpaxistickertext_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -9269,7 +9015,6 @@ class VirtualQCPAxisTickerText final : public QCPAxisTickerText {
         auto cleanmantissa_cb = qcpaxistickertext_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -9411,7 +9156,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -9427,7 +9171,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         auto getsubtickcount_cb = qcpaxistickerpi_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -9448,7 +9191,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -9507,7 +9249,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -9529,7 +9270,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -9562,7 +9302,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -9600,7 +9339,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -9628,7 +9366,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         if (simplifyfraction_cb) {
             int* cbval1 = &numerator;
             int* cbval2 = &denominator;
-
             simplifyfraction_cb(this, cbval1, cbval2);
             return;
         }
@@ -9645,7 +9382,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         if (fractiontostring_cb) {
             int cbval1 = numerator;
             int cbval2 = denominator;
-
             const char* callback_ret = fractiontostring_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -9663,7 +9399,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         if (unicodefraction_cb) {
             int cbval1 = numerator;
             int cbval2 = denominator;
-
             const char* callback_ret = unicodefraction_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -9680,7 +9415,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         auto unicodesuperscript_cb = qcpaxistickerpi_unicodesuperscript_callback;
         if (unicodesuperscript_cb) {
             int cbval1 = number;
-
             const char* callback_ret = unicodesuperscript_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -9697,7 +9431,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         auto unicodesubscript_cb = qcpaxistickerpi_unicodesubscript_callback;
         if (unicodesubscript_cb) {
             int cbval1 = number;
-
             const char* callback_ret = unicodesubscript_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -9728,7 +9461,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -9755,7 +9487,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -9772,7 +9503,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         auto getmantissa_cb = qcpaxistickerpi_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -9788,7 +9518,6 @@ class VirtualQCPAxisTickerPi final : public QCPAxisTickerPi {
         auto cleanmantissa_cb = qcpaxistickerpi_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -9913,7 +9642,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
         auto getsubtickcount_cb = qcpaxistickerlog_getsubtickcount_callback;
         if (getsubtickcount_cb) {
             double cbval1 = tickStep;
-
             int callback_ret = getsubtickcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -9932,7 +9660,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval2 = const_cast<QCPRange*>(&range_ret);
-
             libqt_list /* of double */ callback_ret = createtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -9997,7 +9724,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             // Append sentinel null terminator to the list
             tickLabels_arr[tickLabels_ret->size()] = nullptr;
             const char** cbval7 = tickLabels_arr;
-
             generate_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             free(ticks_arr);
             free(subTicks_arr);
@@ -10018,7 +9744,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             const QCPRange& range_ret = range;
             // Cast returned reference into pointer
             QCPRange* cbval1 = const_cast<QCPRange*>(&range_ret);
-
             double callback_ret = gettickstep_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -10039,7 +9764,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char* callback_ret = getticklabel_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -10066,7 +9790,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             ticks_out.len = ticks_ret.size();
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
-
             libqt_list /* of double */ callback_ret = createsubtickvector_cb(this, cbval1, cbval2);
             QVector<double> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -10104,7 +9827,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
             QChar* cbval3 = new QChar(formatChar);
             int cbval4 = precision;
-
             const char** callback_ret = createlabelvector_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QString> callback_ret_QVector;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -10144,7 +9866,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             ticks_out.data = static_cast<void*>(ticks_arr);
             libqt_list /* of double */ cbval2 = ticks_out;
             bool cbval3 = keepOneOutlier;
-
             trimticks_cb(this, cbval1, cbval2, cbval3);
             free(ticks_arr);
             return;
@@ -10171,7 +9892,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
             candidates_out.len = candidates_ret.size();
             candidates_out.data = static_cast<void*>(candidates_arr);
             libqt_list /* of double */ cbval2 = candidates_out;
-
             double callback_ret = pickclosest_cb(this, cbval1, cbval2);
             free(candidates_arr);
             return static_cast<double>(callback_ret);
@@ -10188,7 +9908,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
         auto getmantissa_cb = qcpaxistickerlog_getmantissa_callback;
         if (getmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = getmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -10204,7 +9923,6 @@ class VirtualQCPAxisTickerLog final : public QCPAxisTickerLog {
         auto cleanmantissa_cb = qcpaxistickerlog_cleanmantissa_callback;
         if (cleanmantissa_cb) {
             double cbval1 = input;
-
             double callback_ret = cleanmantissa_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -10443,7 +10161,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto metacast_cb = qcpgrid_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -10461,7 +10178,6 @@ class VirtualQCPGrid final : public QCPGrid {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -10478,7 +10194,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto applydefaultantialiasinghint_cb = qcpgrid_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -10495,7 +10210,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto draw_cb = qcpgrid_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -10515,7 +10229,6 @@ class VirtualQCPGrid final : public QCPGrid {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -10532,7 +10245,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto parentplotinitialized_cb = qcpgrid_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -10562,7 +10274,9 @@ class VirtualQCPGrid final : public QCPGrid {
         auto cliprect_cb = qcpgrid_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPGrid::clipRect();
     }
@@ -10582,7 +10296,6 @@ class VirtualQCPGrid final : public QCPGrid {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -10599,7 +10312,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto deselectevent_cb = qcpgrid_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -10619,7 +10331,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -10639,7 +10350,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -10659,7 +10369,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -10679,7 +10388,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -10696,7 +10404,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto wheelevent_cb = qcpgrid_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -10712,7 +10419,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto event_cb = qcpgrid_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -10729,7 +10435,6 @@ class VirtualQCPGrid final : public QCPGrid {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -10746,7 +10451,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto timerevent_cb = qcpgrid_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -10763,7 +10467,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto childevent_cb = qcpgrid_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -10780,7 +10483,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto customevent_cb = qcpgrid_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -10799,7 +10501,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -10818,7 +10519,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -10835,7 +10535,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto drawgridlines_cb = qcpgrid_drawgridlines_callback;
         if (drawgridlines_cb) {
             QCPPainter* cbval1 = painter;
-
             drawgridlines_cb(this, cbval1);
             return;
         }
@@ -10852,7 +10551,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto drawsubgridlines_cb = qcpgrid_drawsubgridlines_callback;
         if (drawsubgridlines_cb) {
             QCPPainter* cbval1 = painter;
-
             drawsubgridlines_cb(this, cbval1);
             return;
         }
@@ -10869,7 +10567,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto initializeparentplot_cb = qcpgrid_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -10886,7 +10583,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto setparentlayerable_cb = qcpgrid_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -10903,7 +10599,6 @@ class VirtualQCPGrid final : public QCPGrid {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -10922,7 +10617,6 @@ class VirtualQCPGrid final : public QCPGrid {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -10966,7 +10660,6 @@ class VirtualQCPGrid final : public QCPGrid {
         auto receivers_cb = qcpgrid_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -10984,7 +10677,6 @@ class VirtualQCPGrid final : public QCPGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -11292,7 +10984,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto metacast_cb = qcpaxis_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -11310,7 +11001,6 @@ class VirtualQCPAxis final : public QCPAxis {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -11330,7 +11020,6 @@ class VirtualQCPAxis final : public QCPAxis {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -11361,7 +11050,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto applydefaultantialiasinghint_cb = qcpaxis_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -11378,7 +11066,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto draw_cb = qcpaxis_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -11414,7 +11101,6 @@ class VirtualQCPAxis final : public QCPAxis {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -11431,7 +11117,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto deselectevent_cb = qcpaxis_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -11451,7 +11136,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -11471,7 +11155,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -11491,7 +11174,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -11508,7 +11190,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto wheelevent_cb = qcpaxis_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -11525,7 +11206,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto parentplotinitialized_cb = qcpaxis_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -11541,7 +11221,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto cliprect_cb = qcpaxis_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::clipRect();
     }
@@ -11559,7 +11241,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -11575,7 +11256,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto event_cb = qcpaxis_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -11592,7 +11272,6 @@ class VirtualQCPAxis final : public QCPAxis {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -11609,7 +11288,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto timerevent_cb = qcpaxis_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -11626,7 +11304,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto childevent_cb = qcpaxis_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -11643,7 +11320,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto customevent_cb = qcpaxis_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -11662,7 +11338,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -11681,7 +11356,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -11712,7 +11386,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto getbasepen_cb = qcpaxis_getbasepen_callback;
         if (getbasepen_cb) {
             QPen* callback_ret = getbasepen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getBasePen();
     }
@@ -11726,7 +11402,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto gettickpen_cb = qcpaxis_gettickpen_callback;
         if (gettickpen_cb) {
             QPen* callback_ret = gettickpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getTickPen();
     }
@@ -11740,7 +11418,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto getsubtickpen_cb = qcpaxis_getsubtickpen_callback;
         if (getsubtickpen_cb) {
             QPen* callback_ret = getsubtickpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getSubTickPen();
     }
@@ -11754,7 +11434,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto getticklabelfont_cb = qcpaxis_getticklabelfont_callback;
         if (getticklabelfont_cb) {
             QFont* callback_ret = getticklabelfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getTickLabelFont();
     }
@@ -11768,7 +11450,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto getlabelfont_cb = qcpaxis_getlabelfont_callback;
         if (getlabelfont_cb) {
             QFont* callback_ret = getlabelfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getLabelFont();
     }
@@ -11782,7 +11466,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto getticklabelcolor_cb = qcpaxis_getticklabelcolor_callback;
         if (getticklabelcolor_cb) {
             QColor* callback_ret = getticklabelcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getTickLabelColor();
     }
@@ -11796,7 +11482,9 @@ class VirtualQCPAxis final : public QCPAxis {
         auto getlabelcolor_cb = qcpaxis_getlabelcolor_callback;
         if (getlabelcolor_cb) {
             QColor* callback_ret = getlabelcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxis::getLabelColor();
     }
@@ -11811,7 +11499,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto initializeparentplot_cb = qcpaxis_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -11828,7 +11515,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto setparentlayerable_cb = qcpaxis_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -11845,7 +11531,6 @@ class VirtualQCPAxis final : public QCPAxis {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -11864,7 +11549,6 @@ class VirtualQCPAxis final : public QCPAxis {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -11908,7 +11592,6 @@ class VirtualQCPAxis final : public QCPAxis {
         auto receivers_cb = qcpaxis_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -11926,7 +11609,6 @@ class VirtualQCPAxis final : public QCPAxis {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -12050,7 +11732,6 @@ class VirtualQCPSelectionDecorator final : public QCPSelectionDecorator {
         auto copyfrom_cb = qcpselectiondecorator_copyfrom_callback;
         if (copyfrom_cb) {
             QCPSelectionDecorator* cbval1 = (QCPSelectionDecorator*)other;
-
             copyfrom_cb(this, cbval1);
             return;
         }
@@ -12068,7 +11749,6 @@ class VirtualQCPSelectionDecorator final : public QCPSelectionDecorator {
         if (drawdecoration_cb) {
             QCPPainter* cbval1 = painter;
             QCPDataSelection* cbval2 = new QCPDataSelection(selection);
-
             drawdecoration_cb(this, cbval1, cbval2);
             return;
         }
@@ -12084,7 +11764,6 @@ class VirtualQCPSelectionDecorator final : public QCPSelectionDecorator {
         auto registerwithplottable_cb = qcpselectiondecorator_registerwithplottable_callback;
         if (registerwithplottable_cb) {
             QCPAbstractPlottable* cbval1 = plottable;
-
             bool callback_ret = registerwithplottable_cb(this, cbval1);
             return callback_ret;
         }
@@ -12325,7 +12004,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto metacast_cb = qcpabstractplottable_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -12343,7 +12021,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -12359,7 +12036,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -12386,9 +12062,10 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -12402,9 +12079,10 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -12418,7 +12096,9 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto cliprect_cb = qcpabstractplottable_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAbstractPlottable::clipRect();
     }
@@ -12428,7 +12108,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto draw_cb = qcpabstractplottable_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
         }
     }
@@ -12457,7 +12136,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto applydefaultantialiasinghint_cb = qcpabstractplottable_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -12479,7 +12157,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -12496,7 +12173,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto deselectevent_cb = qcpabstractplottable_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -12511,7 +12187,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
         }
     }
@@ -12526,7 +12201,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto parentplotinitialized_cb = qcpabstractplottable_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -12546,7 +12220,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -12566,7 +12239,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -12586,7 +12258,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -12606,7 +12277,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -12623,7 +12293,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto wheelevent_cb = qcpabstractplottable_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -12639,7 +12308,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto event_cb = qcpabstractplottable_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -12656,7 +12324,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -12673,7 +12340,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto timerevent_cb = qcpabstractplottable_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -12690,7 +12356,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto childevent_cb = qcpabstractplottable_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -12707,7 +12372,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto customevent_cb = qcpabstractplottable_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -12726,7 +12390,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -12745,7 +12408,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -12762,7 +12424,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto applyfillantialiasinghint_cb = qcpabstractplottable_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -12779,7 +12440,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto applyscattersantialiasinghint_cb = qcpabstractplottable_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -12796,7 +12456,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto initializeparentplot_cb = qcpabstractplottable_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -12813,7 +12472,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto setparentlayerable_cb = qcpabstractplottable_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -12830,7 +12488,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -12849,7 +12506,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -12893,7 +12549,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
         auto receivers_cb = qcpabstractplottable_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -12911,7 +12566,6 @@ class VirtualQCPAbstractPlottable : public QCPAbstractPlottable {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -13038,7 +12692,9 @@ class VirtualQCPItemAnchor final : public QCPItemAnchor {
         auto pixelposition_cb = qcpitemanchor_pixelposition_callback;
         if (pixelposition_cb) {
             QPointF* callback_ret = pixelposition_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemAnchor::pixelPosition();
     }
@@ -13067,7 +12723,6 @@ class VirtualQCPItemAnchor final : public QCPItemAnchor {
         auto addchildx_cb = qcpitemanchor_addchildx_callback;
         if (addchildx_cb) {
             QCPItemPosition* cbval1 = pos;
-
             addchildx_cb(this, cbval1);
             return;
         }
@@ -13084,7 +12739,6 @@ class VirtualQCPItemAnchor final : public QCPItemAnchor {
         auto removechildx_cb = qcpitemanchor_removechildx_callback;
         if (removechildx_cb) {
             QCPItemPosition* cbval1 = pos;
-
             removechildx_cb(this, cbval1);
             return;
         }
@@ -13101,7 +12755,6 @@ class VirtualQCPItemAnchor final : public QCPItemAnchor {
         auto addchildy_cb = qcpitemanchor_addchildy_callback;
         if (addchildy_cb) {
             QCPItemPosition* cbval1 = pos;
-
             addchildy_cb(this, cbval1);
             return;
         }
@@ -13118,7 +12771,6 @@ class VirtualQCPItemAnchor final : public QCPItemAnchor {
         auto removechildy_cb = qcpitemanchor_removechildy_callback;
         if (removechildy_cb) {
             QCPItemPosition* cbval1 = pos;
-
             removechildy_cb(this, cbval1);
             return;
         }
@@ -13198,7 +12850,9 @@ class VirtualQCPItemPosition final : public QCPItemPosition {
         auto pixelposition_cb = qcpitemposition_pixelposition_callback;
         if (pixelposition_cb) {
             QPointF* callback_ret = pixelposition_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPosition::pixelPosition();
     }
@@ -13227,7 +12881,6 @@ class VirtualQCPItemPosition final : public QCPItemPosition {
         auto addchildx_cb = qcpitemposition_addchildx_callback;
         if (addchildx_cb) {
             QCPItemPosition* cbval1 = pos;
-
             addchildx_cb(this, cbval1);
             return;
         }
@@ -13244,7 +12897,6 @@ class VirtualQCPItemPosition final : public QCPItemPosition {
         auto removechildx_cb = qcpitemposition_removechildx_callback;
         if (removechildx_cb) {
             QCPItemPosition* cbval1 = pos;
-
             removechildx_cb(this, cbval1);
             return;
         }
@@ -13261,7 +12913,6 @@ class VirtualQCPItemPosition final : public QCPItemPosition {
         auto addchildy_cb = qcpitemposition_addchildy_callback;
         if (addchildy_cb) {
             QCPItemPosition* cbval1 = pos;
-
             addchildy_cb(this, cbval1);
             return;
         }
@@ -13278,7 +12929,6 @@ class VirtualQCPItemPosition final : public QCPItemPosition {
         auto removechildy_cb = qcpitemposition_removechildy_callback;
         if (removechildy_cb) {
             QCPItemPosition* cbval1 = pos;
-
             removechildy_cb(this, cbval1);
             return;
         }
@@ -13517,7 +13167,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto metacast_cb = qcpabstractitem_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -13535,7 +13184,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -13551,7 +13199,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -13581,7 +13228,9 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto cliprect_cb = qcpabstractitem_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAbstractItem::clipRect();
     }
@@ -13596,7 +13245,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto applydefaultantialiasinghint_cb = qcpabstractitem_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -13608,7 +13256,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto draw_cb = qcpabstractitem_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
         }
     }
@@ -13628,7 +13275,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -13645,7 +13291,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto deselectevent_cb = qcpabstractitem_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -13661,9 +13306,10 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto anchorpixelposition_cb = qcpabstractitem_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAbstractItem::anchorPixelPosition(anchorId);
     }
@@ -13678,7 +13324,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto parentplotinitialized_cb = qcpabstractitem_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -13698,7 +13343,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -13718,7 +13362,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -13738,7 +13381,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -13758,7 +13400,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -13775,7 +13416,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto wheelevent_cb = qcpabstractitem_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -13791,7 +13431,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto event_cb = qcpabstractitem_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -13808,7 +13447,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -13825,7 +13463,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto timerevent_cb = qcpabstractitem_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -13842,7 +13479,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto childevent_cb = qcpabstractitem_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -13859,7 +13495,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto customevent_cb = qcpabstractitem_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -13878,7 +13513,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -13897,7 +13531,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -13919,7 +13552,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -13942,7 +13574,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -13967,7 +13598,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -13985,7 +13615,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto initializeparentplot_cb = qcpabstractitem_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -14002,7 +13631,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto setparentlayerable_cb = qcpabstractitem_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -14019,7 +13647,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -14038,7 +13665,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -14082,7 +13708,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         auto receivers_cb = qcpabstractitem_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -14100,7 +13725,6 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -14618,7 +14242,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto metacast_cb = qcustomplot_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -14636,7 +14259,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -14652,7 +14274,9 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto minimumsizehint_cb = qcustomplot_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCustomPlot::minimumSizeHint();
     }
@@ -14666,7 +14290,9 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto sizehint_cb = qcustomplot_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCustomPlot::sizeHint();
     }
@@ -14681,7 +14307,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto paintevent_cb = qcustomplot_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -14698,7 +14323,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto resizeevent_cb = qcustomplot_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -14715,7 +14339,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto mousedoubleclickevent_cb = qcustomplot_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -14732,7 +14355,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto mousepressevent_cb = qcustomplot_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -14749,7 +14371,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto mousemoveevent_cb = qcustomplot_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -14766,7 +14387,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto mousereleaseevent_cb = qcustomplot_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -14783,7 +14403,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto wheelevent_cb = qcustomplot_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -14800,7 +14419,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto draw_cb = qcustomplot_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -14832,7 +14450,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto axisremoved_cb = qcustomplot_axisremoved_callback;
         if (axisremoved_cb) {
             QCPAxis* cbval1 = axis;
-
             axisremoved_cb(this, cbval1);
             return;
         }
@@ -14849,7 +14466,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto legendremoved_cb = qcustomplot_legendremoved_callback;
         if (legendremoved_cb) {
             QCPLegend* cbval1 = legend;
-
             legendremoved_cb(this, cbval1);
             return;
         }
@@ -14867,7 +14483,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         if (processrectselection_cb) {
             QRect* cbval1 = new QRect(rect);
             QMouseEvent* cbval2 = event;
-
             processrectselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -14885,7 +14500,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         if (processrectzoom_cb) {
             QRect* cbval1 = new QRect(rect);
             QMouseEvent* cbval2 = event;
-
             processrectzoom_cb(this, cbval1, cbval2);
             return;
         }
@@ -14902,7 +14516,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto processpointselection_cb = qcustomplot_processpointselection_callback;
         if (processpointselection_cb) {
             QMouseEvent* cbval1 = event;
-
             processpointselection_cb(this, cbval1);
             return;
         }
@@ -14933,7 +14546,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto setvisible_cb = qcustomplot_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -14949,7 +14561,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto heightforwidth_cb = qcustomplot_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -14993,7 +14604,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto event_cb = qcustomplot_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -15010,7 +14620,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto keypressevent_cb = qcustomplot_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -15027,7 +14636,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto keyreleaseevent_cb = qcustomplot_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -15044,7 +14652,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto focusinevent_cb = qcustomplot_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -15061,7 +14668,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto focusoutevent_cb = qcustomplot_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -15078,7 +14684,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto enterevent_cb = qcustomplot_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -15095,7 +14700,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto leaveevent_cb = qcustomplot_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -15112,7 +14716,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto moveevent_cb = qcustomplot_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -15129,7 +14732,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto closeevent_cb = qcustomplot_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -15146,7 +14748,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto contextmenuevent_cb = qcustomplot_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -15163,7 +14764,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto tabletevent_cb = qcustomplot_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -15180,7 +14780,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto actionevent_cb = qcustomplot_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -15197,7 +14796,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto dragenterevent_cb = qcustomplot_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -15214,7 +14812,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto dragmoveevent_cb = qcustomplot_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -15231,7 +14828,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto dragleaveevent_cb = qcustomplot_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -15248,7 +14844,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto dropevent_cb = qcustomplot_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -15265,7 +14860,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto showevent_cb = qcustomplot_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -15282,7 +14876,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto hideevent_cb = qcustomplot_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -15306,7 +14899,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -15324,7 +14916,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto changeevent_cb = qcustomplot_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -15340,7 +14931,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto metric_cb = qcustomplot_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -15357,7 +14947,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto initpainter_cb = qcustomplot_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -15373,7 +14962,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto redirected_cb = qcustomplot_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -15404,7 +14992,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto inputmethodevent_cb = qcustomplot_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -15420,9 +15007,10 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto inputmethodquery_cb = qcustomplot_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCustomPlot::inputMethodQuery(param1);
     }
@@ -15436,7 +15024,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto focusnextprevchild_cb = qcustomplot_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -15453,7 +15040,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -15470,7 +15056,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto timerevent_cb = qcustomplot_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -15487,7 +15072,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto childevent_cb = qcustomplot_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -15504,7 +15088,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto customevent_cb = qcustomplot_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -15523,7 +15106,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -15542,7 +15124,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -15558,7 +15139,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto registerplottable_cb = qcustomplot_registerplottable_callback;
         if (registerplottable_cb) {
             QCPAbstractPlottable* cbval1 = plottable;
-
             bool callback_ret = registerplottable_cb(this, cbval1);
             return callback_ret;
         }
@@ -15574,7 +15154,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto registergraph_cb = qcustomplot_registergraph_callback;
         if (registergraph_cb) {
             QCPGraph* cbval1 = graph;
-
             bool callback_ret = registergraph_cb(this, cbval1);
             return callback_ret;
         }
@@ -15590,7 +15169,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto registeritem_cb = qcustomplot_registeritem_callback;
         if (registeritem_cb) {
             QCPAbstractItem* cbval1 = item;
-
             bool callback_ret = registeritem_cb(this, cbval1);
             return callback_ret;
         }
@@ -15624,7 +15202,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
-
             QCPLayerable* callback_ret = layerableat_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -15643,7 +15220,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
-
             libqt_list /* of QCPLayerable* */ callback_ret = layerablelistat_cb(this, cbval1, cbval2);
             QList<QCPLayerable*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -15667,7 +15243,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto drawbackground_cb = qcustomplot_drawbackground_callback;
         if (drawbackground_cb) {
             QCPPainter* cbval1 = painter;
-
             drawbackground_cb(this, cbval1);
             return;
         }
@@ -15759,7 +15334,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = selectionDetails;
-
             QCPLayerable* callback_ret = layerableat3_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -15788,7 +15362,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             selectionDetails_out.len = selectionDetails_ret->size();
             selectionDetails_out.data = static_cast<void*>(selectionDetails_arr);
             libqt_list /* of QVariant* */ cbval3 = selectionDetails_out;
-
             libqt_list /* of QCPLayerable* */ callback_ret = layerablelistat3_cb(this, cbval1, cbval2, cbval3);
             QList<QCPLayerable*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -15913,7 +15486,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         auto receivers_cb = qcustomplot_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -15931,7 +15503,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -15948,7 +15519,6 @@ class VirtualQCustomPlot final : public QCustomPlot {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -16162,7 +15732,6 @@ class VirtualQCPSelectionDecoratorBracket final : public QCPSelectionDecoratorBr
         if (drawbracket_cb) {
             QCPPainter* cbval1 = painter;
             int cbval2 = direction;
-
             drawbracket_cb(this, cbval1, cbval2);
             return;
         }
@@ -16180,7 +15749,6 @@ class VirtualQCPSelectionDecoratorBracket final : public QCPSelectionDecoratorBr
         if (drawdecoration_cb) {
             QCPPainter* cbval1 = painter;
             QCPDataSelection* cbval2 = new QCPDataSelection(selection);
-
             drawdecoration_cb(this, cbval1, cbval2);
             return;
         }
@@ -16197,7 +15765,6 @@ class VirtualQCPSelectionDecoratorBracket final : public QCPSelectionDecoratorBr
         auto copyfrom_cb = qcpselectiondecoratorbracket_copyfrom_callback;
         if (copyfrom_cb) {
             QCPSelectionDecorator* cbval1 = (QCPSelectionDecorator*)other;
-
             copyfrom_cb(this, cbval1);
             return;
         }
@@ -16213,7 +15780,6 @@ class VirtualQCPSelectionDecoratorBracket final : public QCPSelectionDecoratorBr
         auto registerwithplottable_cb = qcpselectiondecoratorbracket_registerwithplottable_callback;
         if (registerwithplottable_cb) {
             QCPAbstractPlottable* cbval1 = plottable;
-
             bool callback_ret = registerwithplottable_cb(this, cbval1);
             return callback_ret;
         }
@@ -16231,7 +15797,6 @@ class VirtualQCPSelectionDecoratorBracket final : public QCPSelectionDecoratorBr
             QCPPlottableInterface1D* cbval1 = (QCPPlottableInterface1D*)interface1d;
             int cbval2 = dataIndex;
             int cbval3 = direction;
-
             double callback_ret = gettangentangle_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -16248,9 +15813,10 @@ class VirtualQCPSelectionDecoratorBracket final : public QCPSelectionDecoratorBr
         if (getpixelcoordinates_cb) {
             QCPPlottableInterface1D* cbval1 = (QCPPlottableInterface1D*)interface1d;
             int cbval2 = dataIndex;
-
             QPointF* callback_ret = getpixelcoordinates_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPSelectionDecoratorBracket::getPixelCoordinates(interface1d, dataIndex);
     }
@@ -16504,7 +16070,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto metacast_cb = qcpaxisrect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -16522,7 +16087,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -16539,7 +16103,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto update_cb = qcpaxisrect_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -16555,7 +16118,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto elements_cb = qcpaxisrect_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -16579,7 +16141,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto applydefaultantialiasinghint_cb = qcpaxisrect_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -16596,7 +16157,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto draw_cb = qcpaxisrect_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -16612,7 +16172,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto calculateautomargin_cb = qcpaxisrect_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -16647,7 +16206,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -16667,7 +16225,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -16687,7 +16244,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -16704,7 +16260,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto wheelevent_cb = qcpaxisrect_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -16720,7 +16275,9 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto minimumoutersizehint_cb = qcpaxisrect_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxisRect::minimumOuterSizeHint();
     }
@@ -16734,7 +16291,9 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto maximumoutersizehint_cb = qcpaxisrect_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxisRect::maximumOuterSizeHint();
     }
@@ -16752,7 +16311,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -16769,7 +16327,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto parentplotinitialized_cb = qcpaxisrect_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -16799,7 +16356,9 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto cliprect_cb = qcpaxisrect_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAxisRect::clipRect();
     }
@@ -16819,7 +16378,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -16836,7 +16394,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto deselectevent_cb = qcpaxisrect_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -16856,7 +16413,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -16872,7 +16428,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto event_cb = qcpaxisrect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -16889,7 +16444,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -16906,7 +16460,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto timerevent_cb = qcpaxisrect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -16923,7 +16476,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto childevent_cb = qcpaxisrect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -16940,7 +16492,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto customevent_cb = qcpaxisrect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -16959,7 +16510,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -16978,7 +16528,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -16995,7 +16544,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto drawbackground_cb = qcpaxisrect_drawbackground_callback;
         if (drawbackground_cb) {
             QCPPainter* cbval1 = painter;
-
             drawbackground_cb(this, cbval1);
             return;
         }
@@ -17012,7 +16560,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto updateaxesoffset_cb = qcpaxisrect_updateaxesoffset_callback;
         if (updateaxesoffset_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             updateaxesoffset_cb(this, cbval1);
             return;
         }
@@ -17029,7 +16576,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto initializeparentplot_cb = qcpaxisrect_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -17046,7 +16592,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto setparentlayerable_cb = qcpaxisrect_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -17063,7 +16608,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -17082,7 +16626,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -17126,7 +16669,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
         auto receivers_cb = qcpaxisrect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -17144,7 +16686,6 @@ class VirtualQCPAxisRect final : public QCPAxisRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -17441,7 +16982,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto metacast_cb = qcpabstractlegenditem_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -17459,7 +16999,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -17479,7 +17018,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -17510,7 +17048,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto applydefaultantialiasinghint_cb = qcpabstractlegenditem_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -17526,7 +17063,9 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto cliprect_cb = qcpabstractlegenditem_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAbstractLegendItem::clipRect();
     }
@@ -17536,7 +17075,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto draw_cb = qcpabstractlegenditem_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
         }
     }
@@ -17556,7 +17094,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -17573,7 +17110,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto deselectevent_cb = qcpabstractlegenditem_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -17590,7 +17126,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto update_cb = qcpabstractlegenditem_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -17606,7 +17141,9 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto minimumoutersizehint_cb = qcpabstractlegenditem_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAbstractLegendItem::minimumOuterSizeHint();
     }
@@ -17620,7 +17157,9 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto maximumoutersizehint_cb = qcpabstractlegenditem_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPAbstractLegendItem::maximumOuterSizeHint();
     }
@@ -17634,7 +17173,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto elements_cb = qcpabstractlegenditem_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -17657,7 +17195,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto calculateautomargin_cb = qcpabstractlegenditem_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -17689,7 +17226,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto parentplotinitialized_cb = qcpabstractlegenditem_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -17709,7 +17245,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -17729,7 +17264,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -17749,7 +17283,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -17769,7 +17302,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -17786,7 +17318,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto wheelevent_cb = qcpabstractlegenditem_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -17802,7 +17333,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto event_cb = qcpabstractlegenditem_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -17819,7 +17349,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -17836,7 +17365,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto timerevent_cb = qcpabstractlegenditem_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -17853,7 +17381,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto childevent_cb = qcpabstractlegenditem_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -17870,7 +17397,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto customevent_cb = qcpabstractlegenditem_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -17889,7 +17415,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -17908,7 +17433,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -17925,7 +17449,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto initializeparentplot_cb = qcpabstractlegenditem_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -17942,7 +17465,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto setparentlayerable_cb = qcpabstractlegenditem_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -17959,7 +17481,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -17978,7 +17499,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -18022,7 +17542,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
         auto receivers_cb = qcpabstractlegenditem_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -18040,7 +17559,6 @@ class VirtualQCPAbstractLegendItem : public QCPAbstractLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -18348,7 +17866,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto metacast_cb = qcpplottablelegenditem_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -18366,7 +17883,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -18383,7 +17899,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto draw_cb = qcpplottablelegenditem_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -18399,7 +17914,9 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto minimumoutersizehint_cb = qcpplottablelegenditem_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPlottableLegendItem::minimumOuterSizeHint();
     }
@@ -18417,7 +17934,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -18448,7 +17964,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto applydefaultantialiasinghint_cb = qcpplottablelegenditem_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -18464,7 +17979,9 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto cliprect_cb = qcpplottablelegenditem_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPlottableLegendItem::clipRect();
     }
@@ -18484,7 +18001,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -18501,7 +18017,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto deselectevent_cb = qcpplottablelegenditem_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -18518,7 +18033,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto update_cb = qcpplottablelegenditem_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -18534,7 +18048,9 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto maximumoutersizehint_cb = qcpplottablelegenditem_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPlottableLegendItem::maximumOuterSizeHint();
     }
@@ -18548,7 +18064,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto elements_cb = qcpplottablelegenditem_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -18571,7 +18086,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto calculateautomargin_cb = qcpplottablelegenditem_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -18603,7 +18117,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto parentplotinitialized_cb = qcpplottablelegenditem_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -18623,7 +18136,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -18643,7 +18155,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -18663,7 +18174,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -18683,7 +18193,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -18700,7 +18209,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto wheelevent_cb = qcpplottablelegenditem_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -18716,7 +18224,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto event_cb = qcpplottablelegenditem_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -18733,7 +18240,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -18750,7 +18256,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto timerevent_cb = qcpplottablelegenditem_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -18767,7 +18272,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto childevent_cb = qcpplottablelegenditem_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -18784,7 +18288,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto customevent_cb = qcpplottablelegenditem_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -18803,7 +18306,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -18822,7 +18324,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -18838,7 +18339,9 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto geticonborderpen_cb = qcpplottablelegenditem_geticonborderpen_callback;
         if (geticonborderpen_cb) {
             QPen* callback_ret = geticonborderpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPlottableLegendItem::getIconBorderPen();
     }
@@ -18852,7 +18355,9 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto gettextcolor_cb = qcpplottablelegenditem_gettextcolor_callback;
         if (gettextcolor_cb) {
             QColor* callback_ret = gettextcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPlottableLegendItem::getTextColor();
     }
@@ -18866,7 +18371,9 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto getfont_cb = qcpplottablelegenditem_getfont_callback;
         if (getfont_cb) {
             QFont* callback_ret = getfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPlottableLegendItem::getFont();
     }
@@ -18881,7 +18388,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto initializeparentplot_cb = qcpplottablelegenditem_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -18898,7 +18404,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto setparentlayerable_cb = qcpplottablelegenditem_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -18915,7 +18420,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -18934,7 +18438,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -18978,7 +18481,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
         auto receivers_cb = qcpplottablelegenditem_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -18996,7 +18498,6 @@ class VirtualQCPPlottableLegendItem final : public QCPPlottableLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -19367,7 +18868,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto metacast_cb = qcplegend_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -19385,7 +18885,6 @@ class VirtualQCPLegend final : public QCPLegend {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -19405,7 +18904,6 @@ class VirtualQCPLegend final : public QCPLegend {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -19422,7 +18920,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto parentplotinitialized_cb = qcplegend_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -19453,7 +18950,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto applydefaultantialiasinghint_cb = qcplegend_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -19470,7 +18966,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto draw_cb = qcplegend_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -19492,7 +18987,6 @@ class VirtualQCPLegend final : public QCPLegend {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -19509,7 +19003,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto deselectevent_cb = qcplegend_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -19554,7 +19047,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto elementat_cb = qcplegend_elementat_callback;
         if (elementat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = elementat_cb(this, cbval1);
             return callback_ret;
         }
@@ -19570,7 +19062,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto takeat_cb = qcplegend_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QCPLayoutElement* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -19586,7 +19077,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto take_cb = qcplegend_take_callback;
         if (take_cb) {
             QCPLayoutElement* cbval1 = element;
-
             bool callback_ret = take_cb(this, cbval1);
             return callback_ret;
         }
@@ -19602,7 +19092,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto elements_cb = qcplegend_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -19640,7 +19129,9 @@ class VirtualQCPLegend final : public QCPLegend {
         auto minimumoutersizehint_cb = qcplegend_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLegend::minimumOuterSizeHint();
     }
@@ -19654,7 +19145,9 @@ class VirtualQCPLegend final : public QCPLegend {
         auto maximumoutersizehint_cb = qcplegend_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLegend::maximumOuterSizeHint();
     }
@@ -19669,7 +19162,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto update_cb = qcplegend_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -19685,7 +19177,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto calculateautomargin_cb = qcplegend_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -19716,7 +19207,9 @@ class VirtualQCPLegend final : public QCPLegend {
         auto cliprect_cb = qcplegend_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLegend::clipRect();
     }
@@ -19734,7 +19227,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -19754,7 +19246,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -19774,7 +19265,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -19794,7 +19284,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -19811,7 +19300,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto wheelevent_cb = qcplegend_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -19827,7 +19315,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto event_cb = qcplegend_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -19844,7 +19331,6 @@ class VirtualQCPLegend final : public QCPLegend {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -19861,7 +19347,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto timerevent_cb = qcplegend_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -19878,7 +19363,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto childevent_cb = qcplegend_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -19895,7 +19379,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto customevent_cb = qcplegend_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -19914,7 +19397,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -19933,7 +19415,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -19949,7 +19430,9 @@ class VirtualQCPLegend final : public QCPLegend {
         auto getborderpen_cb = qcplegend_getborderpen_callback;
         if (getborderpen_cb) {
             QPen* callback_ret = getborderpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLegend::getBorderPen();
     }
@@ -19963,7 +19446,9 @@ class VirtualQCPLegend final : public QCPLegend {
         auto getbrush_cb = qcplegend_getbrush_callback;
         if (getbrush_cb) {
             QBrush* callback_ret = getbrush_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPLegend::getBrush();
     }
@@ -19997,7 +19482,6 @@ class VirtualQCPLegend final : public QCPLegend {
             minRowHeights_out.len = minRowHeights_ret->size();
             minRowHeights_out.data = static_cast<void*>(minRowHeights_arr);
             libqt_list /* of int */ cbval2 = minRowHeights_out;
-
             getminimumrowcolsizes_cb(this, cbval1, cbval2);
             free(minColWidths_arr);
             free(minRowHeights_arr);
@@ -20035,7 +19519,6 @@ class VirtualQCPLegend final : public QCPLegend {
             maxRowHeights_out.len = maxRowHeights_ret->size();
             maxRowHeights_out.data = static_cast<void*>(maxRowHeights_arr);
             libqt_list /* of int */ cbval2 = maxRowHeights_out;
-
             getmaximumrowcolsizes_cb(this, cbval1, cbval2);
             free(maxColWidths_arr);
             free(maxRowHeights_arr);
@@ -20069,7 +19552,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto adoptelement_cb = qcplegend_adoptelement_callback;
         if (adoptelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             adoptelement_cb(this, cbval1);
             return;
         }
@@ -20086,7 +19568,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto releaseelement_cb = qcplegend_releaseelement_callback;
         if (releaseelement_cb) {
             QCPLayoutElement* cbval1 = el;
-
             releaseelement_cb(this, cbval1);
             return;
         }
@@ -20132,7 +19613,6 @@ class VirtualQCPLegend final : public QCPLegend {
             stretchFactors_out.data = static_cast<void*>(stretchFactors_arr);
             libqt_list /* of double */ cbval3 = stretchFactors_out;
             int cbval4 = totalSize;
-
             libqt_list /* of int */ callback_ret = getsectionsizes_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<int> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -20159,7 +19639,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto initializeparentplot_cb = qcplegend_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -20176,7 +19655,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto setparentlayerable_cb = qcplegend_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -20193,7 +19671,6 @@ class VirtualQCPLegend final : public QCPLegend {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -20212,7 +19689,6 @@ class VirtualQCPLegend final : public QCPLegend {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -20256,7 +19732,6 @@ class VirtualQCPLegend final : public QCPLegend {
         auto receivers_cb = qcplegend_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -20274,7 +19749,6 @@ class VirtualQCPLegend final : public QCPLegend {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -20597,7 +20071,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto metacast_cb = qcptextelement_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -20615,7 +20088,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -20635,7 +20107,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -20655,7 +20126,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -20675,7 +20145,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -20695,7 +20164,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -20712,7 +20180,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto applydefaultantialiasinghint_cb = qcptextelement_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -20729,7 +20196,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto draw_cb = qcptextelement_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -20745,7 +20211,9 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto minimumoutersizehint_cb = qcptextelement_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPTextElement::minimumOuterSizeHint();
     }
@@ -20759,7 +20227,9 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto maximumoutersizehint_cb = qcptextelement_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPTextElement::maximumOuterSizeHint();
     }
@@ -20779,7 +20249,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -20796,7 +20265,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto deselectevent_cb = qcptextelement_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -20813,7 +20281,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto update_cb = qcptextelement_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -20829,7 +20296,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto elements_cb = qcptextelement_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -20852,7 +20318,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto calculateautomargin_cb = qcptextelement_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -20884,7 +20349,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto parentplotinitialized_cb = qcptextelement_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -20914,7 +20378,9 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto cliprect_cb = qcptextelement_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPTextElement::clipRect();
     }
@@ -20932,7 +20398,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -20949,7 +20414,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto wheelevent_cb = qcptextelement_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -20965,7 +20429,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto event_cb = qcptextelement_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -20982,7 +20445,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -20999,7 +20461,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto timerevent_cb = qcptextelement_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -21016,7 +20477,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto childevent_cb = qcptextelement_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -21033,7 +20493,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto customevent_cb = qcptextelement_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -21052,7 +20511,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -21071,7 +20529,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -21087,7 +20544,9 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto mainfont_cb = qcptextelement_mainfont_callback;
         if (mainfont_cb) {
             QFont* callback_ret = mainfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPTextElement::mainFont();
     }
@@ -21101,7 +20560,9 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto maintextcolor_cb = qcptextelement_maintextcolor_callback;
         if (maintextcolor_cb) {
             QColor* callback_ret = maintextcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPTextElement::mainTextColor();
     }
@@ -21116,7 +20577,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto initializeparentplot_cb = qcptextelement_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -21133,7 +20593,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto setparentlayerable_cb = qcptextelement_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -21150,7 +20609,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -21169,7 +20627,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -21213,7 +20670,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
         auto receivers_cb = qcptextelement_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -21231,7 +20687,6 @@ class VirtualQCPTextElement final : public QCPTextElement {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -21526,7 +20981,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto metacast_cb = qcpcolorscale_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -21544,7 +20998,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -21561,7 +21014,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto update_cb = qcpcolorscale_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -21578,7 +21030,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto applydefaultantialiasinghint_cb = qcpcolorscale_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -21598,7 +21049,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -21618,7 +21068,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -21638,7 +21087,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -21655,7 +21103,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto wheelevent_cb = qcpcolorscale_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -21671,7 +21118,9 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto minimumoutersizehint_cb = qcpcolorscale_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPColorScale::minimumOuterSizeHint();
     }
@@ -21685,7 +21134,9 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto maximumoutersizehint_cb = qcpcolorscale_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPColorScale::maximumOuterSizeHint();
     }
@@ -21699,7 +21150,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto elements_cb = qcpcolorscale_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -21726,7 +21176,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -21742,7 +21191,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto calculateautomargin_cb = qcpcolorscale_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -21774,7 +21222,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto draw_cb = qcpcolorscale_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -21791,7 +21238,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto parentplotinitialized_cb = qcpcolorscale_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -21821,7 +21267,9 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto cliprect_cb = qcpcolorscale_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPColorScale::clipRect();
     }
@@ -21841,7 +21289,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -21858,7 +21305,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto deselectevent_cb = qcpcolorscale_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -21878,7 +21324,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -21894,7 +21339,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto event_cb = qcpcolorscale_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -21911,7 +21355,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -21928,7 +21371,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto timerevent_cb = qcpcolorscale_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -21945,7 +21387,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto childevent_cb = qcpcolorscale_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -21962,7 +21403,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto customevent_cb = qcpcolorscale_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -21981,7 +21421,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -22000,7 +21439,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -22017,7 +21455,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto initializeparentplot_cb = qcpcolorscale_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -22034,7 +21471,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto setparentlayerable_cb = qcpcolorscale_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -22051,7 +21487,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -22070,7 +21505,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -22114,7 +21548,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
         auto receivers_cb = qcpcolorscale_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -22132,7 +21565,6 @@ class VirtualQCPColorScale final : public QCPColorScale {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -22570,7 +22002,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto metacast_cb = qcpgraph_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -22588,7 +22019,6 @@ class VirtualQCPGraph final : public QCPGraph {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -22608,7 +22038,6 @@ class VirtualQCPGraph final : public QCPGraph {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -22625,9 +22054,10 @@ class VirtualQCPGraph final : public QCPGraph {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPGraph::getKeyRange(foundRange, inSignDomain);
     }
@@ -22645,9 +22075,10 @@ class VirtualQCPGraph final : public QCPGraph {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPGraph::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -22662,7 +22093,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto draw_cb = qcpgraph_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -22682,7 +22112,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -22709,7 +22138,6 @@ class VirtualQCPGraph final : public QCPGraph {
             lines_out.len = lines_ret->size();
             lines_out.data = static_cast<void*>(lines_arr);
             libqt_list /* of QPointF* */ cbval2 = lines_out;
-
             drawfill_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -22740,7 +22168,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QCPScatterStyle& style_ret = style;
             // Cast returned reference into pointer
             QCPScatterStyle* cbval3 = const_cast<QCPScatterStyle*>(&style_ret);
-
             drawscatterplot_cb(this, cbval1, cbval2, cbval3);
             free(scatters_arr);
             return;
@@ -22768,7 +22195,6 @@ class VirtualQCPGraph final : public QCPGraph {
             lines_out.len = lines_ret.size();
             lines_out.data = static_cast<void*>(lines_arr);
             libqt_list /* of QPointF* */ cbval2 = lines_out;
-
             drawlineplot_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -22796,7 +22222,6 @@ class VirtualQCPGraph final : public QCPGraph {
             lines_out.len = lines_ret.size();
             lines_out.data = static_cast<void*>(lines_arr);
             libqt_list /* of QPointF* */ cbval2 = lines_out;
-
             drawimpulseplot_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -22819,7 +22244,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto datamainkey_cb = qcpgraph_datamainkey_callback;
         if (datamainkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -22831,7 +22255,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto datasortkey_cb = qcpgraph_datasortkey_callback;
         if (datasortkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datasortkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -22843,7 +22266,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto datamainvalue_cb = qcpgraph_datamainvalue_callback;
         if (datamainvalue_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainvalue_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -22855,9 +22277,10 @@ class VirtualQCPGraph final : public QCPGraph {
         auto datavaluerange_cb = qcpgraph_datavaluerange_callback;
         if (datavaluerange_cb) {
             int cbval1 = index;
-
             QCPRange* callback_ret = datavaluerange_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -22867,9 +22290,10 @@ class VirtualQCPGraph final : public QCPGraph {
         auto datapixelposition_cb = qcpgraph_datapixelposition_callback;
         if (datapixelposition_cb) {
             int cbval1 = index;
-
             QPointF* callback_ret = datapixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -22892,9 +22316,10 @@ class VirtualQCPGraph final : public QCPGraph {
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
             bool cbval2 = onlySelectable;
-
             QCPDataSelection* callback_ret = selecttestrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPDataSelection();
     }
@@ -22905,7 +22330,6 @@ class VirtualQCPGraph final : public QCPGraph {
         if (findbegin_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findbegin_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -22918,7 +22342,6 @@ class VirtualQCPGraph final : public QCPGraph {
         if (findend_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findend_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -22948,7 +22371,9 @@ class VirtualQCPGraph final : public QCPGraph {
         auto cliprect_cb = qcpgraph_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPGraph::clipRect();
     }
@@ -22977,7 +22402,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto applydefaultantialiasinghint_cb = qcpgraph_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -22999,7 +22423,6 @@ class VirtualQCPGraph final : public QCPGraph {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -23016,7 +22439,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto deselectevent_cb = qcpgraph_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -23033,7 +22455,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto parentplotinitialized_cb = qcpgraph_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -23053,7 +22474,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -23073,7 +22493,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -23093,7 +22512,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -23113,7 +22531,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -23130,7 +22547,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto wheelevent_cb = qcpgraph_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -23146,7 +22562,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto event_cb = qcpgraph_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -23163,7 +22578,6 @@ class VirtualQCPGraph final : public QCPGraph {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -23180,7 +22594,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto timerevent_cb = qcpgraph_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -23197,7 +22610,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto childevent_cb = qcpgraph_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -23214,7 +22626,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto customevent_cb = qcpgraph_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -23233,7 +22644,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -23252,7 +22662,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -23281,7 +22690,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QCPDataRange& dataRange_ret = dataRange;
             // Cast returned reference into pointer
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
-
             getlines_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -23311,7 +22719,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QCPDataRange& dataRange_ret = dataRange;
             // Cast returned reference into pointer
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
-
             getscatters_cb(this, cbval1, cbval2);
             free(scatters_arr);
             return;
@@ -23337,7 +22744,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.len = data_ret.size();
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
-
             libqt_list /* of QPointF* */ callback_ret = datatolines_cb(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23370,7 +22776,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.len = data_ret.size();
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
-
             libqt_list /* of QPointF* */ callback_ret = datatostepleftlines_cb(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23403,7 +22808,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.len = data_ret.size();
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
-
             libqt_list /* of QPointF* */ callback_ret = datatosteprightlines_cb(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23436,7 +22840,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.len = data_ret.size();
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
-
             libqt_list /* of QPointF* */ callback_ret = datatostepcenterlines_cb(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23469,7 +22872,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.len = data_ret.size();
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
-
             libqt_list /* of QPointF* */ callback_ret = datatoimpulselines_cb(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23503,7 +22905,6 @@ class VirtualQCPGraph final : public QCPGraph {
             lineData_out.data = static_cast<void*>(lineData_arr);
             libqt_list /* of QPointF* */ cbval1 = lineData_out;
             int cbval2 = static_cast<int>(keyOrientation);
-
             libqt_list /* of QCPDataRange* */ callback_ret = getnonnansegments_cb(this, cbval1, cbval2);
             QVector<QCPDataRange> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23566,7 +22967,6 @@ class VirtualQCPGraph final : public QCPGraph {
             otherData_out.len = otherData_ret->size();
             otherData_out.data = static_cast<void*>(otherData_arr);
             libqt_list /* of QPointF* */ cbval4 = otherData_out;
-
             libqt_list /* of pair_qcpdatarange_qcpdatarange tuple of QCPDataRange* and QCPDataRange* */ callback_ret = getoverlappingsegments_cb(this, cbval1, cbval2, cbval3, cbval4);
             QVector<QPair<QCPDataRange, QCPDataRange>> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -23600,7 +23000,6 @@ class VirtualQCPGraph final : public QCPGraph {
             double cbval3 = bLower;
             double cbval4 = bUpper;
             int* cbval5 = &bPrecedence;
-
             bool callback_ret = segmentsintersect_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -23616,9 +23015,10 @@ class VirtualQCPGraph final : public QCPGraph {
         auto getfillbasepoint_cb = qcpgraph_getfillbasepoint_callback;
         if (getfillbasepoint_cb) {
             QPointF* cbval1 = new QPointF(matchingDataPoint);
-
             QPointF* callback_ret = getfillbasepoint_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPGraph::getFillBasePoint(matchingDataPoint);
     }
@@ -23642,7 +23042,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QPointF* */ cbval1 = data_out;
             double cbval2 = x;
-
             int callback_ret = findindexbelowx_cb(this, cbval1, cbval2);
             free(data_arr);
             return static_cast<int>(callback_ret);
@@ -23669,7 +23068,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QPointF* */ cbval1 = data_out;
             double cbval2 = x;
-
             int callback_ret = findindexabovex_cb(this, cbval1, cbval2);
             free(data_arr);
             return static_cast<int>(callback_ret);
@@ -23696,7 +23094,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QPointF* */ cbval1 = data_out;
             double cbval2 = y;
-
             int callback_ret = findindexbelowy_cb(this, cbval1, cbval2);
             free(data_arr);
             return static_cast<int>(callback_ret);
@@ -23723,7 +23120,6 @@ class VirtualQCPGraph final : public QCPGraph {
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QPointF* */ cbval1 = data_out;
             double cbval2 = y;
-
             int callback_ret = findindexabovey_cb(this, cbval1, cbval2);
             free(data_arr);
             return static_cast<int>(callback_ret);
@@ -23741,7 +23137,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto applyfillantialiasinghint_cb = qcpgraph_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -23758,7 +23153,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto applyscattersantialiasinghint_cb = qcpgraph_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -23775,7 +23169,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto initializeparentplot_cb = qcpgraph_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -23792,7 +23185,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto setparentlayerable_cb = qcpgraph_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -23809,7 +23201,6 @@ class VirtualQCPGraph final : public QCPGraph {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -23828,7 +23219,6 @@ class VirtualQCPGraph final : public QCPGraph {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -23872,7 +23262,6 @@ class VirtualQCPGraph final : public QCPGraph {
         auto receivers_cb = qcpgraph_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -23890,7 +23279,6 @@ class VirtualQCPGraph final : public QCPGraph {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -24323,7 +23711,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto metacast_cb = qcpcurve_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -24341,7 +23728,6 @@ class VirtualQCPCurve final : public QCPCurve {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -24361,7 +23747,6 @@ class VirtualQCPCurve final : public QCPCurve {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -24378,9 +23763,10 @@ class VirtualQCPCurve final : public QCPCurve {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPCurve::getKeyRange(foundRange, inSignDomain);
     }
@@ -24398,9 +23784,10 @@ class VirtualQCPCurve final : public QCPCurve {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPCurve::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -24415,7 +23802,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto draw_cb = qcpcurve_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -24435,7 +23821,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -24462,7 +23847,6 @@ class VirtualQCPCurve final : public QCPCurve {
             lines_out.len = lines_ret.size();
             lines_out.data = static_cast<void*>(lines_arr);
             libqt_list /* of QPointF* */ cbval2 = lines_out;
-
             drawcurveline_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -24493,7 +23877,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QCPScatterStyle& style_ret = style;
             // Cast returned reference into pointer
             QCPScatterStyle* cbval3 = const_cast<QCPScatterStyle*>(&style_ret);
-
             drawscatterplot_cb(this, cbval1, cbval2, cbval3);
             free(points_arr);
             return;
@@ -24516,7 +23899,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto datamainkey_cb = qcpcurve_datamainkey_callback;
         if (datamainkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -24528,7 +23910,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto datasortkey_cb = qcpcurve_datasortkey_callback;
         if (datasortkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datasortkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -24540,7 +23921,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto datamainvalue_cb = qcpcurve_datamainvalue_callback;
         if (datamainvalue_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainvalue_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -24552,9 +23932,10 @@ class VirtualQCPCurve final : public QCPCurve {
         auto datavaluerange_cb = qcpcurve_datavaluerange_callback;
         if (datavaluerange_cb) {
             int cbval1 = index;
-
             QCPRange* callback_ret = datavaluerange_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -24564,9 +23945,10 @@ class VirtualQCPCurve final : public QCPCurve {
         auto datapixelposition_cb = qcpcurve_datapixelposition_callback;
         if (datapixelposition_cb) {
             int cbval1 = index;
-
             QPointF* callback_ret = datapixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -24589,9 +23971,10 @@ class VirtualQCPCurve final : public QCPCurve {
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
             bool cbval2 = onlySelectable;
-
             QCPDataSelection* callback_ret = selecttestrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPDataSelection();
     }
@@ -24602,7 +23985,6 @@ class VirtualQCPCurve final : public QCPCurve {
         if (findbegin_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findbegin_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -24615,7 +23997,6 @@ class VirtualQCPCurve final : public QCPCurve {
         if (findend_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findend_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -24645,7 +24026,9 @@ class VirtualQCPCurve final : public QCPCurve {
         auto cliprect_cb = qcpcurve_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPCurve::clipRect();
     }
@@ -24674,7 +24057,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto applydefaultantialiasinghint_cb = qcpcurve_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -24696,7 +24078,6 @@ class VirtualQCPCurve final : public QCPCurve {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -24713,7 +24094,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto deselectevent_cb = qcpcurve_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -24730,7 +24110,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto parentplotinitialized_cb = qcpcurve_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -24750,7 +24129,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -24770,7 +24148,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -24790,7 +24167,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -24810,7 +24186,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -24827,7 +24202,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto wheelevent_cb = qcpcurve_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -24843,7 +24217,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto event_cb = qcpcurve_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -24860,7 +24233,6 @@ class VirtualQCPCurve final : public QCPCurve {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -24877,7 +24249,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto timerevent_cb = qcpcurve_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -24894,7 +24265,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto childevent_cb = qcpcurve_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -24911,7 +24281,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto customevent_cb = qcpcurve_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -24930,7 +24299,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -24949,7 +24317,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -24979,7 +24346,6 @@ class VirtualQCPCurve final : public QCPCurve {
             // Cast returned reference into pointer
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
             double cbval3 = penWidth;
-
             getcurvelines_cb(this, cbval1, cbval2, cbval3);
             free(lines_arr);
             return;
@@ -25010,7 +24376,6 @@ class VirtualQCPCurve final : public QCPCurve {
             // Cast returned reference into pointer
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
             double cbval3 = scatterWidth;
-
             getscatters_cb(this, cbval1, cbval2, cbval3);
             free(scatters_arr);
             return;
@@ -25032,7 +24397,6 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval4 = valueMax;
             double cbval5 = keyMax;
             double cbval6 = valueMin;
-
             int callback_ret = getregion_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6);
             return static_cast<int>(callback_ret);
         }
@@ -25056,9 +24420,10 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval7 = valueMax;
             double cbval8 = keyMax;
             double cbval9 = valueMin;
-
             QPointF* callback_ret = getoptimizedpoint_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPCurve::getOptimizedPoint(otherRegion, otherKey, otherValue, key, value, keyMin, valueMax, keyMax, valueMin);
     }
@@ -25081,7 +24446,6 @@ class VirtualQCPCurve final : public QCPCurve {
             double cbval8 = valueMax;
             double cbval9 = keyMax;
             double cbval10 = valueMin;
-
             libqt_list /* of QPointF* */ callback_ret = getoptimizedcornerpoints_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9, cbval10);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -25105,7 +24469,6 @@ class VirtualQCPCurve final : public QCPCurve {
         if (maytraverse_cb) {
             int cbval1 = prevRegion;
             int cbval2 = currentRegion;
-
             bool callback_ret = maytraverse_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -25134,7 +24497,6 @@ class VirtualQCPCurve final : public QCPCurve {
             QPointF& crossB_ret = crossB;
             // Cast returned reference into pointer
             QPointF* cbval10 = &crossB_ret;
-
             bool callback_ret = gettraverse_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9, cbval10);
             return callback_ret;
         }
@@ -25176,7 +24538,6 @@ class VirtualQCPCurve final : public QCPCurve {
             afterTraverse_out.len = afterTraverse_ret.size();
             afterTraverse_out.data = static_cast<void*>(afterTraverse_arr);
             libqt_list /* of QPointF* */ cbval8 = afterTraverse_out;
-
             gettraversecornerpoints_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             free(beforeTraverse_arr);
             free(afterTraverse_arr);
@@ -25195,7 +24556,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto applyfillantialiasinghint_cb = qcpcurve_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -25212,7 +24572,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto applyscattersantialiasinghint_cb = qcpcurve_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -25229,7 +24588,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto initializeparentplot_cb = qcpcurve_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -25246,7 +24604,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto setparentlayerable_cb = qcpcurve_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -25263,7 +24620,6 @@ class VirtualQCPCurve final : public QCPCurve {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -25282,7 +24638,6 @@ class VirtualQCPCurve final : public QCPCurve {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -25326,7 +24681,6 @@ class VirtualQCPCurve final : public QCPCurve {
         auto receivers_cb = qcpcurve_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -25344,7 +24698,6 @@ class VirtualQCPCurve final : public QCPCurve {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -25564,7 +24917,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto metacast_cb = qcpbarsgroup_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -25582,7 +24934,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -25598,7 +24949,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto event_cb = qcpbarsgroup_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -25615,7 +24965,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -25632,7 +24981,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto timerevent_cb = qcpbarsgroup_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -25649,7 +24997,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto childevent_cb = qcpbarsgroup_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -25666,7 +25013,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto customevent_cb = qcpbarsgroup_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -25685,7 +25031,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -25704,7 +25049,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -25721,7 +25065,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto registerbars_cb = qcpbarsgroup_registerbars_callback;
         if (registerbars_cb) {
             QCPBars* cbval1 = bars;
-
             registerbars_cb(this, cbval1);
             return;
         }
@@ -25738,7 +25081,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto unregisterbars_cb = qcpbarsgroup_unregisterbars_callback;
         if (unregisterbars_cb) {
             QCPBars* cbval1 = bars;
-
             unregisterbars_cb(this, cbval1);
             return;
         }
@@ -25755,7 +25097,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         if (keypixeloffset_cb) {
             QCPBars* cbval1 = (QCPBars*)bars;
             double cbval2 = keyCoord;
-
             double callback_ret = keypixeloffset_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -25772,7 +25113,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         if (getpixelspacing_cb) {
             QCPBars* cbval1 = (QCPBars*)bars;
             double cbval2 = keyCoord;
-
             double callback_ret = getpixelspacing_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -25816,7 +25156,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
         auto receivers_cb = qcpbarsgroup_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -25834,7 +25173,6 @@ class VirtualQCPBarsGroup final : public QCPBarsGroup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -26169,7 +25507,6 @@ class VirtualQCPBars final : public QCPBars {
         auto metacast_cb = qcpbars_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -26187,7 +25524,6 @@ class VirtualQCPBars final : public QCPBars {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -26206,9 +25542,10 @@ class VirtualQCPBars final : public QCPBars {
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
             bool cbval2 = onlySelectable;
-
             QCPDataSelection* callback_ret = selecttestrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPBars::selectTestRect(rect, onlySelectable);
     }
@@ -26226,7 +25563,6 @@ class VirtualQCPBars final : public QCPBars {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -26243,9 +25579,10 @@ class VirtualQCPBars final : public QCPBars {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPBars::getKeyRange(foundRange, inSignDomain);
     }
@@ -26263,9 +25600,10 @@ class VirtualQCPBars final : public QCPBars {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPBars::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -26279,9 +25617,10 @@ class VirtualQCPBars final : public QCPBars {
         auto datapixelposition_cb = qcpbars_datapixelposition_callback;
         if (datapixelposition_cb) {
             int cbval1 = index;
-
             QPointF* callback_ret = datapixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPBars::dataPixelPosition(index);
     }
@@ -26296,7 +25635,6 @@ class VirtualQCPBars final : public QCPBars {
         auto draw_cb = qcpbars_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -26316,7 +25654,6 @@ class VirtualQCPBars final : public QCPBars {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -26338,7 +25675,6 @@ class VirtualQCPBars final : public QCPBars {
         auto datamainkey_cb = qcpbars_datamainkey_callback;
         if (datamainkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -26350,7 +25686,6 @@ class VirtualQCPBars final : public QCPBars {
         auto datasortkey_cb = qcpbars_datasortkey_callback;
         if (datasortkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datasortkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -26362,7 +25697,6 @@ class VirtualQCPBars final : public QCPBars {
         auto datamainvalue_cb = qcpbars_datamainvalue_callback;
         if (datamainvalue_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainvalue_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -26374,9 +25708,10 @@ class VirtualQCPBars final : public QCPBars {
         auto datavaluerange_cb = qcpbars_datavaluerange_callback;
         if (datavaluerange_cb) {
             int cbval1 = index;
-
             QCPRange* callback_ret = datavaluerange_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -26397,7 +25732,6 @@ class VirtualQCPBars final : public QCPBars {
         if (findbegin_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findbegin_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -26410,7 +25744,6 @@ class VirtualQCPBars final : public QCPBars {
         if (findend_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findend_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -26440,7 +25773,9 @@ class VirtualQCPBars final : public QCPBars {
         auto cliprect_cb = qcpbars_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPBars::clipRect();
     }
@@ -26469,7 +25804,6 @@ class VirtualQCPBars final : public QCPBars {
         auto applydefaultantialiasinghint_cb = qcpbars_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -26491,7 +25825,6 @@ class VirtualQCPBars final : public QCPBars {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -26508,7 +25841,6 @@ class VirtualQCPBars final : public QCPBars {
         auto deselectevent_cb = qcpbars_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -26525,7 +25857,6 @@ class VirtualQCPBars final : public QCPBars {
         auto parentplotinitialized_cb = qcpbars_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -26545,7 +25876,6 @@ class VirtualQCPBars final : public QCPBars {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -26565,7 +25895,6 @@ class VirtualQCPBars final : public QCPBars {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -26585,7 +25914,6 @@ class VirtualQCPBars final : public QCPBars {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -26605,7 +25933,6 @@ class VirtualQCPBars final : public QCPBars {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -26622,7 +25949,6 @@ class VirtualQCPBars final : public QCPBars {
         auto wheelevent_cb = qcpbars_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -26638,7 +25964,6 @@ class VirtualQCPBars final : public QCPBars {
         auto event_cb = qcpbars_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -26655,7 +25980,6 @@ class VirtualQCPBars final : public QCPBars {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -26672,7 +25996,6 @@ class VirtualQCPBars final : public QCPBars {
         auto timerevent_cb = qcpbars_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -26689,7 +26012,6 @@ class VirtualQCPBars final : public QCPBars {
         auto childevent_cb = qcpbars_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -26706,7 +26028,6 @@ class VirtualQCPBars final : public QCPBars {
         auto customevent_cb = qcpbars_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -26725,7 +26046,6 @@ class VirtualQCPBars final : public QCPBars {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -26744,7 +26064,6 @@ class VirtualQCPBars final : public QCPBars {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -26761,9 +26080,10 @@ class VirtualQCPBars final : public QCPBars {
         if (getbarrect_cb) {
             double cbval1 = key;
             double cbval2 = value;
-
             QRectF* callback_ret = getbarrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPBars::getBarRect(key, value);
     }
@@ -26780,7 +26100,6 @@ class VirtualQCPBars final : public QCPBars {
             double cbval1 = key;
             double* cbval2 = &lower;
             double* cbval3 = &upper;
-
             getpixelwidth_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -26797,7 +26116,6 @@ class VirtualQCPBars final : public QCPBars {
         if (getstackedbasevalue_cb) {
             double cbval1 = key;
             bool cbval2 = positive;
-
             double callback_ret = getstackedbasevalue_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -26815,7 +26133,6 @@ class VirtualQCPBars final : public QCPBars {
         if (connectbars_cb) {
             QCPBars* cbval1 = lower;
             QCPBars* cbval2 = upper;
-
             connectbars_cb(this, cbval1, cbval2);
             return;
         }
@@ -26832,7 +26149,6 @@ class VirtualQCPBars final : public QCPBars {
         auto applyfillantialiasinghint_cb = qcpbars_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -26849,7 +26165,6 @@ class VirtualQCPBars final : public QCPBars {
         auto applyscattersantialiasinghint_cb = qcpbars_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -26866,7 +26181,6 @@ class VirtualQCPBars final : public QCPBars {
         auto initializeparentplot_cb = qcpbars_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -26883,7 +26197,6 @@ class VirtualQCPBars final : public QCPBars {
         auto setparentlayerable_cb = qcpbars_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -26900,7 +26213,6 @@ class VirtualQCPBars final : public QCPBars {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -26919,7 +26231,6 @@ class VirtualQCPBars final : public QCPBars {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -26963,7 +26274,6 @@ class VirtualQCPBars final : public QCPBars {
         auto receivers_cb = qcpbars_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -26981,7 +26291,6 @@ class VirtualQCPBars final : public QCPBars {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -27334,7 +26643,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto metacast_cb = qcpstatisticalbox_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -27352,7 +26660,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -27371,9 +26678,10 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
             bool cbval2 = onlySelectable;
-
             QCPDataSelection* callback_ret = selecttestrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPStatisticalBox::selectTestRect(rect, onlySelectable);
     }
@@ -27391,7 +26699,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -27408,9 +26715,10 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPStatisticalBox::getKeyRange(foundRange, inSignDomain);
     }
@@ -27428,9 +26736,10 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPStatisticalBox::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -27445,7 +26754,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto draw_cb = qcpstatisticalbox_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -27465,7 +26773,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -27487,7 +26794,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto datamainkey_cb = qcpstatisticalbox_datamainkey_callback;
         if (datamainkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -27499,7 +26805,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto datasortkey_cb = qcpstatisticalbox_datasortkey_callback;
         if (datasortkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datasortkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -27511,7 +26816,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto datamainvalue_cb = qcpstatisticalbox_datamainvalue_callback;
         if (datamainvalue_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainvalue_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -27523,9 +26827,10 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto datavaluerange_cb = qcpstatisticalbox_datavaluerange_callback;
         if (datavaluerange_cb) {
             int cbval1 = index;
-
             QCPRange* callback_ret = datavaluerange_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -27535,9 +26840,10 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto datapixelposition_cb = qcpstatisticalbox_datapixelposition_callback;
         if (datapixelposition_cb) {
             int cbval1 = index;
-
             QPointF* callback_ret = datapixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -27558,7 +26864,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         if (findbegin_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findbegin_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -27571,7 +26876,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         if (findend_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findend_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -27601,7 +26905,9 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto cliprect_cb = qcpstatisticalbox_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPStatisticalBox::clipRect();
     }
@@ -27630,7 +26936,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto applydefaultantialiasinghint_cb = qcpstatisticalbox_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -27652,7 +26957,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -27669,7 +26973,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto deselectevent_cb = qcpstatisticalbox_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -27686,7 +26989,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto parentplotinitialized_cb = qcpstatisticalbox_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -27706,7 +27008,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -27726,7 +27027,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -27746,7 +27046,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -27766,7 +27065,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -27783,7 +27081,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto wheelevent_cb = qcpstatisticalbox_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -27799,7 +27096,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto event_cb = qcpstatisticalbox_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -27816,7 +27112,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -27833,7 +27128,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto timerevent_cb = qcpstatisticalbox_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -27850,7 +27144,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto childevent_cb = qcpstatisticalbox_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -27867,7 +27160,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto customevent_cb = qcpstatisticalbox_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -27886,7 +27178,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -27905,7 +27196,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -27922,7 +27212,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto applyfillantialiasinghint_cb = qcpstatisticalbox_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -27939,7 +27228,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto applyscattersantialiasinghint_cb = qcpstatisticalbox_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -27956,7 +27244,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto initializeparentplot_cb = qcpstatisticalbox_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -27973,7 +27260,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto setparentlayerable_cb = qcpstatisticalbox_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -27990,7 +27276,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -28009,7 +27294,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -28053,7 +27337,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
         auto receivers_cb = qcpstatisticalbox_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -28071,7 +27354,6 @@ class VirtualQCPStatisticalBox final : public QCPStatisticalBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -28371,7 +27653,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto metacast_cb = qcpcolormap_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -28389,7 +27670,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -28409,7 +27689,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -28426,9 +27705,10 @@ class VirtualQCPColorMap final : public QCPColorMap {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPColorMap::getKeyRange(foundRange, inSignDomain);
     }
@@ -28446,9 +27726,10 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPColorMap::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -28478,7 +27759,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto draw_cb = qcpcolormap_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -28498,7 +27778,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -28528,7 +27807,9 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto cliprect_cb = qcpcolormap_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPColorMap::clipRect();
     }
@@ -28557,7 +27838,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto applydefaultantialiasinghint_cb = qcpcolormap_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -28579,7 +27859,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -28596,7 +27875,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto deselectevent_cb = qcpcolormap_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -28613,7 +27891,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto parentplotinitialized_cb = qcpcolormap_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -28633,7 +27910,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -28653,7 +27929,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -28673,7 +27948,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -28693,7 +27967,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -28710,7 +27983,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto wheelevent_cb = qcpcolormap_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -28726,7 +27998,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto event_cb = qcpcolormap_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -28743,7 +28014,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -28760,7 +28030,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto timerevent_cb = qcpcolormap_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -28777,7 +28046,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto childevent_cb = qcpcolormap_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -28794,7 +28062,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto customevent_cb = qcpcolormap_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -28813,7 +28080,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -28832,7 +28098,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -28849,7 +28114,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto applyfillantialiasinghint_cb = qcpcolormap_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -28866,7 +28130,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto applyscattersantialiasinghint_cb = qcpcolormap_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -28883,7 +28146,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto initializeparentplot_cb = qcpcolormap_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -28900,7 +28162,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto setparentlayerable_cb = qcpcolormap_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -28917,7 +28178,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -28936,7 +28196,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -28980,7 +28239,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
         auto receivers_cb = qcpcolormap_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -28998,7 +28256,6 @@ class VirtualQCPColorMap final : public QCPColorMap {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -29350,7 +28607,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto metacast_cb = qcpfinancial_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -29368,7 +28624,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -29387,9 +28642,10 @@ class VirtualQCPFinancial final : public QCPFinancial {
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
             bool cbval2 = onlySelectable;
-
             QCPDataSelection* callback_ret = selecttestrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPFinancial::selectTestRect(rect, onlySelectable);
     }
@@ -29407,7 +28663,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -29424,9 +28679,10 @@ class VirtualQCPFinancial final : public QCPFinancial {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPFinancial::getKeyRange(foundRange, inSignDomain);
     }
@@ -29444,9 +28700,10 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPFinancial::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -29461,7 +28718,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto draw_cb = qcpfinancial_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -29481,7 +28737,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -29503,7 +28758,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto datamainkey_cb = qcpfinancial_datamainkey_callback;
         if (datamainkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -29515,7 +28769,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto datasortkey_cb = qcpfinancial_datasortkey_callback;
         if (datasortkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datasortkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -29527,7 +28780,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto datamainvalue_cb = qcpfinancial_datamainvalue_callback;
         if (datamainvalue_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainvalue_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -29539,9 +28791,10 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto datavaluerange_cb = qcpfinancial_datavaluerange_callback;
         if (datavaluerange_cb) {
             int cbval1 = index;
-
             QCPRange* callback_ret = datavaluerange_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -29551,9 +28804,10 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto datapixelposition_cb = qcpfinancial_datapixelposition_callback;
         if (datapixelposition_cb) {
             int cbval1 = index;
-
             QPointF* callback_ret = datapixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -29574,7 +28828,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         if (findbegin_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findbegin_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -29587,7 +28840,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         if (findend_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findend_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -29617,7 +28869,9 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto cliprect_cb = qcpfinancial_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPFinancial::clipRect();
     }
@@ -29646,7 +28900,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto applydefaultantialiasinghint_cb = qcpfinancial_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -29668,7 +28921,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -29685,7 +28937,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto deselectevent_cb = qcpfinancial_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -29702,7 +28953,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto parentplotinitialized_cb = qcpfinancial_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -29722,7 +28972,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -29742,7 +28991,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -29762,7 +29010,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -29782,7 +29029,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -29799,7 +29045,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto wheelevent_cb = qcpfinancial_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -29815,7 +29060,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto event_cb = qcpfinancial_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -29832,7 +29076,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -29849,7 +29092,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto timerevent_cb = qcpfinancial_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -29866,7 +29108,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto childevent_cb = qcpfinancial_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -29883,7 +29124,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto customevent_cb = qcpfinancial_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -29902,7 +29142,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -29921,7 +29160,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -29938,7 +29176,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         if (getpixelwidth_cb) {
             double cbval1 = key;
             double cbval2 = keyPixel;
-
             double callback_ret = getpixelwidth_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -29955,7 +29192,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto applyfillantialiasinghint_cb = qcpfinancial_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -29972,7 +29208,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto applyscattersantialiasinghint_cb = qcpfinancial_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -29989,7 +29224,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto initializeparentplot_cb = qcpfinancial_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -30006,7 +29240,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto setparentlayerable_cb = qcpfinancial_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -30023,7 +29256,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -30042,7 +29274,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -30086,7 +29317,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
         auto receivers_cb = qcpfinancial_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -30104,7 +29334,6 @@ class VirtualQCPFinancial final : public QCPFinancial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -30466,7 +29695,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto metacast_cb = qcperrorbars_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -30484,7 +29712,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -30514,7 +29741,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto datamainkey_cb = qcperrorbars_datamainkey_callback;
         if (datamainkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -30530,7 +29756,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto datasortkey_cb = qcperrorbars_datasortkey_callback;
         if (datasortkey_cb) {
             int cbval1 = index;
-
             double callback_ret = datasortkey_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -30546,7 +29771,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto datamainvalue_cb = qcperrorbars_datamainvalue_callback;
         if (datamainvalue_cb) {
             int cbval1 = index;
-
             double callback_ret = datamainvalue_cb(this, cbval1);
             return static_cast<double>(callback_ret);
         }
@@ -30562,9 +29786,10 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto datavaluerange_cb = qcperrorbars_datavaluerange_callback;
         if (datavaluerange_cb) {
             int cbval1 = index;
-
             QCPRange* callback_ret = datavaluerange_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPErrorBars::dataValueRange(index);
     }
@@ -30578,9 +29803,10 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto datapixelposition_cb = qcperrorbars_datapixelposition_callback;
         if (datapixelposition_cb) {
             int cbval1 = index;
-
             QPointF* callback_ret = datapixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPErrorBars::dataPixelPosition(index);
     }
@@ -30611,9 +29837,10 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
             bool cbval2 = onlySelectable;
-
             QCPDataSelection* callback_ret = selecttestrect_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPErrorBars::selectTestRect(rect, onlySelectable);
     }
@@ -30628,7 +29855,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         if (findbegin_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findbegin_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -30645,7 +29871,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         if (findend_cb) {
             double cbval1 = sortKey;
             bool cbval2 = expandedRange;
-
             int callback_ret = findend_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -30665,7 +29890,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -30696,7 +29920,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto draw_cb = qcperrorbars_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -30716,7 +29939,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -30733,9 +29955,10 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPErrorBars::getKeyRange(foundRange, inSignDomain);
     }
@@ -30753,9 +29976,10 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPErrorBars::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -30769,7 +29993,9 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto cliprect_cb = qcperrorbars_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPErrorBars::clipRect();
     }
@@ -30798,7 +30024,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto applydefaultantialiasinghint_cb = qcperrorbars_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -30820,7 +30045,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -30837,7 +30061,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto deselectevent_cb = qcperrorbars_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -30854,7 +30077,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto parentplotinitialized_cb = qcperrorbars_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -30874,7 +30096,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -30894,7 +30115,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -30914,7 +30134,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -30934,7 +30153,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -30951,7 +30169,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto wheelevent_cb = qcperrorbars_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -30967,7 +30184,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto event_cb = qcperrorbars_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -30984,7 +30200,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -31001,7 +30216,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto timerevent_cb = qcperrorbars_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -31018,7 +30232,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto childevent_cb = qcperrorbars_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -31035,7 +30248,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto customevent_cb = qcperrorbars_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -31054,7 +30266,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -31073,7 +30284,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -31109,7 +30319,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             unselectedSegments_out.len = unselectedSegments_ret.size();
             unselectedSegments_out.data = static_cast<void*>(unselectedSegments_arr);
             libqt_list /* of QCPDataRange* */ cbval2 = unselectedSegments_out;
-
             getdatasegments_cb(this, cbval1, cbval2);
             free(selectedSegments_arr);
             free(unselectedSegments_arr);
@@ -31127,7 +30336,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto errorbarvisible_cb = qcperrorbars_errorbarvisible_callback;
         if (errorbarvisible_cb) {
             int cbval1 = index;
-
             bool callback_ret = errorbarvisible_cb(this, cbval1);
             return callback_ret;
         }
@@ -31148,7 +30356,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QLineF& line_ret = line;
             // Cast returned reference into pointer
             QLineF* cbval2 = const_cast<QLineF*>(&line_ret);
-
             bool callback_ret = rectintersectsline_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -31165,7 +30372,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto applyfillantialiasinghint_cb = qcperrorbars_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -31182,7 +30388,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto applyscattersantialiasinghint_cb = qcperrorbars_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -31199,7 +30404,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto initializeparentplot_cb = qcperrorbars_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -31216,7 +30420,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto setparentlayerable_cb = qcperrorbars_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -31233,7 +30436,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -31252,7 +30454,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -31296,7 +30497,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
         auto receivers_cb = qcperrorbars_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -31314,7 +30514,6 @@ class VirtualQCPErrorBars final : public QCPErrorBars {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -31619,7 +30818,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto metacast_cb = qcpitemstraightline_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -31637,7 +30835,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -31657,7 +30854,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -31674,7 +30870,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto draw_cb = qcpitemstraightline_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -31704,7 +30899,9 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto cliprect_cb = qcpitemstraightline_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemStraightLine::clipRect();
     }
@@ -31719,7 +30916,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto applydefaultantialiasinghint_cb = qcpitemstraightline_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -31741,7 +30937,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -31758,7 +30953,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto deselectevent_cb = qcpitemstraightline_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -31774,9 +30968,10 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto anchorpixelposition_cb = qcpitemstraightline_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemStraightLine::anchorPixelPosition(anchorId);
     }
@@ -31791,7 +30986,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto parentplotinitialized_cb = qcpitemstraightline_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -31811,7 +31005,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -31831,7 +31024,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -31851,7 +31043,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -31871,7 +31062,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -31888,7 +31078,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto wheelevent_cb = qcpitemstraightline_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -31904,7 +31093,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto event_cb = qcpitemstraightline_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -31921,7 +31109,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -31938,7 +31125,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto timerevent_cb = qcpitemstraightline_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -31955,7 +31141,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto childevent_cb = qcpitemstraightline_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -31972,7 +31157,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto customevent_cb = qcpitemstraightline_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -31991,7 +31175,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -32010,7 +31193,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -32034,9 +31216,10 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval3 = const_cast<QRect*>(&rect_ret);
-
             QLineF* callback_ret = getrectclippedstraightline_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemStraightLine::getRectClippedStraightLine(base, vec, rect);
     }
@@ -32050,7 +31233,9 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto mainpen_cb = qcpitemstraightline_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemStraightLine::mainPen();
     }
@@ -32070,7 +31255,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -32093,7 +31277,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -32118,7 +31301,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -32136,7 +31318,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto initializeparentplot_cb = qcpitemstraightline_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -32153,7 +31334,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto setparentlayerable_cb = qcpitemstraightline_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -32170,7 +31350,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -32189,7 +31368,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -32233,7 +31411,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         auto receivers_cb = qcpitemstraightline_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -32251,7 +31428,6 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -32552,7 +31728,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto metacast_cb = qcpitemline_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -32570,7 +31745,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -32590,7 +31764,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -32607,7 +31780,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto draw_cb = qcpitemline_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -32637,7 +31809,9 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto cliprect_cb = qcpitemline_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemLine::clipRect();
     }
@@ -32652,7 +31826,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto applydefaultantialiasinghint_cb = qcpitemline_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -32674,7 +31847,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -32691,7 +31863,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto deselectevent_cb = qcpitemline_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -32707,9 +31878,10 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto anchorpixelposition_cb = qcpitemline_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemLine::anchorPixelPosition(anchorId);
     }
@@ -32724,7 +31896,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto parentplotinitialized_cb = qcpitemline_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -32744,7 +31915,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -32764,7 +31934,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -32784,7 +31953,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -32804,7 +31972,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -32821,7 +31988,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto wheelevent_cb = qcpitemline_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -32837,7 +32003,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto event_cb = qcpitemline_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -32854,7 +32019,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -32871,7 +32035,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto timerevent_cb = qcpitemline_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -32888,7 +32051,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto childevent_cb = qcpitemline_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -32905,7 +32067,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto customevent_cb = qcpitemline_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -32924,7 +32085,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -32943,7 +32103,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -32967,9 +32126,10 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval3 = const_cast<QRect*>(&rect_ret);
-
             QLineF* callback_ret = getrectclippedline_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemLine::getRectClippedLine(start, end, rect);
     }
@@ -32983,7 +32143,9 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto mainpen_cb = qcpitemline_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemLine::mainPen();
     }
@@ -33003,7 +32165,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -33026,7 +32187,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -33051,7 +32211,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -33069,7 +32228,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto initializeparentplot_cb = qcpitemline_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -33086,7 +32244,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto setparentlayerable_cb = qcpitemline_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -33103,7 +32260,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -33122,7 +32278,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -33166,7 +32321,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
         auto receivers_cb = qcpitemline_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -33184,7 +32338,6 @@ class VirtualQCPItemLine final : public QCPItemLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -33480,7 +32633,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto metacast_cb = qcpitemcurve_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -33498,7 +32650,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -33518,7 +32669,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -33535,7 +32685,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto draw_cb = qcpitemcurve_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -33565,7 +32714,9 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto cliprect_cb = qcpitemcurve_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemCurve::clipRect();
     }
@@ -33580,7 +32731,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto applydefaultantialiasinghint_cb = qcpitemcurve_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -33602,7 +32752,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -33619,7 +32768,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto deselectevent_cb = qcpitemcurve_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -33635,9 +32783,10 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto anchorpixelposition_cb = qcpitemcurve_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemCurve::anchorPixelPosition(anchorId);
     }
@@ -33652,7 +32801,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto parentplotinitialized_cb = qcpitemcurve_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -33672,7 +32820,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -33692,7 +32839,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -33712,7 +32858,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -33732,7 +32877,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -33749,7 +32893,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto wheelevent_cb = qcpitemcurve_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -33765,7 +32908,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto event_cb = qcpitemcurve_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -33782,7 +32924,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -33799,7 +32940,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto timerevent_cb = qcpitemcurve_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -33816,7 +32956,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto childevent_cb = qcpitemcurve_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -33833,7 +32972,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto customevent_cb = qcpitemcurve_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -33852,7 +32990,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -33871,7 +33008,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -33887,7 +33023,9 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto mainpen_cb = qcpitemcurve_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemCurve::mainPen();
     }
@@ -33907,7 +33045,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -33930,7 +33067,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -33955,7 +33091,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -33973,7 +33108,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto initializeparentplot_cb = qcpitemcurve_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -33990,7 +33124,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto setparentlayerable_cb = qcpitemcurve_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -34007,7 +33140,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -34026,7 +33158,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -34070,7 +33201,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         auto receivers_cb = qcpitemcurve_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -34088,7 +33218,6 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -34388,7 +33517,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto metacast_cb = qcpitemrect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -34406,7 +33534,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -34426,7 +33553,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -34443,7 +33569,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto draw_cb = qcpitemrect_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -34459,9 +33584,10 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto anchorpixelposition_cb = qcpitemrect_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemRect::anchorPixelPosition(anchorId);
     }
@@ -34489,7 +33615,9 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto cliprect_cb = qcpitemrect_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemRect::clipRect();
     }
@@ -34504,7 +33632,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto applydefaultantialiasinghint_cb = qcpitemrect_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -34526,7 +33653,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -34543,7 +33669,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto deselectevent_cb = qcpitemrect_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -34560,7 +33685,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto parentplotinitialized_cb = qcpitemrect_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -34580,7 +33704,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -34600,7 +33723,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -34620,7 +33742,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -34640,7 +33761,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -34657,7 +33777,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto wheelevent_cb = qcpitemrect_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -34673,7 +33792,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto event_cb = qcpitemrect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -34690,7 +33808,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -34707,7 +33824,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto timerevent_cb = qcpitemrect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -34724,7 +33840,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto childevent_cb = qcpitemrect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -34741,7 +33856,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto customevent_cb = qcpitemrect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -34760,7 +33874,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -34779,7 +33892,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -34795,7 +33907,9 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto mainpen_cb = qcpitemrect_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemRect::mainPen();
     }
@@ -34809,7 +33923,9 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto mainbrush_cb = qcpitemrect_mainbrush_callback;
         if (mainbrush_cb) {
             QBrush* callback_ret = mainbrush_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemRect::mainBrush();
     }
@@ -34829,7 +33945,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -34852,7 +33967,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -34877,7 +33991,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -34895,7 +34008,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto initializeparentplot_cb = qcpitemrect_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -34912,7 +34024,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto setparentlayerable_cb = qcpitemrect_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -34929,7 +34040,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -34948,7 +34058,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -34992,7 +34101,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
         auto receivers_cb = qcpitemrect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -35010,7 +34118,6 @@ class VirtualQCPItemRect final : public QCPItemRect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -35327,7 +34434,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto metacast_cb = qcpitemtext_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -35345,7 +34451,6 @@ class VirtualQCPItemText final : public QCPItemText {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -35365,7 +34470,6 @@ class VirtualQCPItemText final : public QCPItemText {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -35382,7 +34486,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto draw_cb = qcpitemtext_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -35398,9 +34501,10 @@ class VirtualQCPItemText final : public QCPItemText {
         auto anchorpixelposition_cb = qcpitemtext_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::anchorPixelPosition(anchorId);
     }
@@ -35428,7 +34532,9 @@ class VirtualQCPItemText final : public QCPItemText {
         auto cliprect_cb = qcpitemtext_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::clipRect();
     }
@@ -35443,7 +34549,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto applydefaultantialiasinghint_cb = qcpitemtext_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -35465,7 +34570,6 @@ class VirtualQCPItemText final : public QCPItemText {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -35482,7 +34586,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto deselectevent_cb = qcpitemtext_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -35499,7 +34602,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto parentplotinitialized_cb = qcpitemtext_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -35519,7 +34621,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -35539,7 +34640,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -35559,7 +34659,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -35579,7 +34678,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -35596,7 +34694,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto wheelevent_cb = qcpitemtext_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -35612,7 +34709,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto event_cb = qcpitemtext_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -35629,7 +34725,6 @@ class VirtualQCPItemText final : public QCPItemText {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -35646,7 +34741,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto timerevent_cb = qcpitemtext_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -35663,7 +34757,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto childevent_cb = qcpitemtext_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -35680,7 +34773,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto customevent_cb = qcpitemtext_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -35699,7 +34791,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -35718,7 +34809,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -35740,9 +34830,10 @@ class VirtualQCPItemText final : public QCPItemText {
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
             int cbval3 = static_cast<int>(positionAlignment);
-
             QPointF* callback_ret = gettextdrawpoint_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::getTextDrawPoint(pos, rect, positionAlignment);
     }
@@ -35756,7 +34847,9 @@ class VirtualQCPItemText final : public QCPItemText {
         auto mainfont_cb = qcpitemtext_mainfont_callback;
         if (mainfont_cb) {
             QFont* callback_ret = mainfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::mainFont();
     }
@@ -35770,7 +34863,9 @@ class VirtualQCPItemText final : public QCPItemText {
         auto maincolor_cb = qcpitemtext_maincolor_callback;
         if (maincolor_cb) {
             QColor* callback_ret = maincolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::mainColor();
     }
@@ -35784,7 +34879,9 @@ class VirtualQCPItemText final : public QCPItemText {
         auto mainpen_cb = qcpitemtext_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::mainPen();
     }
@@ -35798,7 +34895,9 @@ class VirtualQCPItemText final : public QCPItemText {
         auto mainbrush_cb = qcpitemtext_mainbrush_callback;
         if (mainbrush_cb) {
             QBrush* callback_ret = mainbrush_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemText::mainBrush();
     }
@@ -35818,7 +34917,6 @@ class VirtualQCPItemText final : public QCPItemText {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -35841,7 +34939,6 @@ class VirtualQCPItemText final : public QCPItemText {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -35866,7 +34963,6 @@ class VirtualQCPItemText final : public QCPItemText {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -35884,7 +34980,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto initializeparentplot_cb = qcpitemtext_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -35901,7 +34996,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto setparentlayerable_cb = qcpitemtext_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -35918,7 +35012,6 @@ class VirtualQCPItemText final : public QCPItemText {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -35937,7 +35030,6 @@ class VirtualQCPItemText final : public QCPItemText {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -35981,7 +35073,6 @@ class VirtualQCPItemText final : public QCPItemText {
         auto receivers_cb = qcpitemtext_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -35999,7 +35090,6 @@ class VirtualQCPItemText final : public QCPItemText {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -36307,7 +35397,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto metacast_cb = qcpitemellipse_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -36325,7 +35414,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -36345,7 +35433,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -36362,7 +35449,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto draw_cb = qcpitemellipse_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -36378,9 +35464,10 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto anchorpixelposition_cb = qcpitemellipse_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemEllipse::anchorPixelPosition(anchorId);
     }
@@ -36408,7 +35495,9 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto cliprect_cb = qcpitemellipse_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemEllipse::clipRect();
     }
@@ -36423,7 +35512,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto applydefaultantialiasinghint_cb = qcpitemellipse_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -36445,7 +35533,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -36462,7 +35549,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto deselectevent_cb = qcpitemellipse_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -36479,7 +35565,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto parentplotinitialized_cb = qcpitemellipse_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -36499,7 +35584,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -36519,7 +35603,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -36539,7 +35622,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -36559,7 +35641,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -36576,7 +35657,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto wheelevent_cb = qcpitemellipse_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -36592,7 +35672,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto event_cb = qcpitemellipse_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -36609,7 +35688,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -36626,7 +35704,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto timerevent_cb = qcpitemellipse_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -36643,7 +35720,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto childevent_cb = qcpitemellipse_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -36660,7 +35736,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto customevent_cb = qcpitemellipse_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -36679,7 +35754,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -36698,7 +35772,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -36714,7 +35787,9 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto mainpen_cb = qcpitemellipse_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemEllipse::mainPen();
     }
@@ -36728,7 +35803,9 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto mainbrush_cb = qcpitemellipse_mainbrush_callback;
         if (mainbrush_cb) {
             QBrush* callback_ret = mainbrush_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemEllipse::mainBrush();
     }
@@ -36748,7 +35825,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -36771,7 +35847,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -36796,7 +35871,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -36814,7 +35888,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto initializeparentplot_cb = qcpitemellipse_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -36831,7 +35904,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto setparentlayerable_cb = qcpitemellipse_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -36848,7 +35920,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -36867,7 +35938,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -36911,7 +35981,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         auto receivers_cb = qcpitemellipse_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -36929,7 +35998,6 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -37261,7 +36329,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto metacast_cb = qcpitempixmap_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -37279,7 +36346,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -37299,7 +36365,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -37316,7 +36381,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto draw_cb = qcpitempixmap_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -37332,9 +36396,10 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto anchorpixelposition_cb = qcpitempixmap_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPixmap::anchorPixelPosition(anchorId);
     }
@@ -37362,7 +36427,9 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto cliprect_cb = qcpitempixmap_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPixmap::clipRect();
     }
@@ -37377,7 +36444,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto applydefaultantialiasinghint_cb = qcpitempixmap_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -37399,7 +36465,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -37416,7 +36481,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto deselectevent_cb = qcpitempixmap_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -37433,7 +36497,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto parentplotinitialized_cb = qcpitempixmap_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -37453,7 +36516,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -37473,7 +36535,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -37493,7 +36554,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -37513,7 +36573,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -37530,7 +36589,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto wheelevent_cb = qcpitempixmap_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -37546,7 +36604,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto event_cb = qcpitempixmap_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -37563,7 +36620,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -37580,7 +36636,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto timerevent_cb = qcpitempixmap_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -37597,7 +36652,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto childevent_cb = qcpitempixmap_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -37614,7 +36668,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto customevent_cb = qcpitempixmap_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -37633,7 +36686,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -37652,7 +36704,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -37683,7 +36734,9 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto getfinalrect_cb = qcpitempixmap_getfinalrect_callback;
         if (getfinalrect_cb) {
             QRect* callback_ret = getfinalrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPixmap::getFinalRect();
     }
@@ -37697,7 +36750,9 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto mainpen_cb = qcpitempixmap_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPixmap::mainPen();
     }
@@ -37712,7 +36767,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto updatescaledpixmap1_cb = qcpitempixmap_updatescaledpixmap1_callback;
         if (updatescaledpixmap1_cb) {
             QRect* cbval1 = new QRect(finalRect);
-
             updatescaledpixmap1_cb(this, cbval1);
             return;
         }
@@ -37730,7 +36784,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         if (updatescaledpixmap2_cb) {
             QRect* cbval1 = new QRect(finalRect);
             bool cbval2 = flipHorz;
-
             updatescaledpixmap2_cb(this, cbval1, cbval2);
             return;
         }
@@ -37749,7 +36802,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             QRect* cbval1 = new QRect(finalRect);
             bool cbval2 = flipHorz;
             bool cbval3 = flipVert;
-
             updatescaledpixmap3_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -37765,9 +36817,10 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto getfinalrect1_cb = qcpitempixmap_getfinalrect1_callback;
         if (getfinalrect1_cb) {
             bool* cbval1 = flippedHorz;
-
             QRect* callback_ret = getfinalrect1_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPixmap::getFinalRect(flippedHorz);
     }
@@ -37782,9 +36835,10 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         if (getfinalrect2_cb) {
             bool* cbval1 = flippedHorz;
             bool* cbval2 = flippedVert;
-
             QRect* callback_ret = getfinalrect2_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemPixmap::getFinalRect(flippedHorz, flippedVert);
     }
@@ -37804,7 +36858,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -37827,7 +36880,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -37852,7 +36904,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -37870,7 +36921,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto initializeparentplot_cb = qcpitempixmap_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -37887,7 +36937,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto setparentlayerable_cb = qcpitempixmap_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -37904,7 +36953,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -37923,7 +36971,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -37967,7 +37014,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         auto receivers_cb = qcpitempixmap_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -37985,7 +37031,6 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -38298,7 +37343,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto metacast_cb = qcpitemtracer_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -38316,7 +37360,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -38336,7 +37379,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -38353,7 +37395,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto draw_cb = qcpitemtracer_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -38383,7 +37424,9 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto cliprect_cb = qcpitemtracer_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemTracer::clipRect();
     }
@@ -38398,7 +37441,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto applydefaultantialiasinghint_cb = qcpitemtracer_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -38420,7 +37462,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -38437,7 +37478,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto deselectevent_cb = qcpitemtracer_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -38453,9 +37493,10 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto anchorpixelposition_cb = qcpitemtracer_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemTracer::anchorPixelPosition(anchorId);
     }
@@ -38470,7 +37511,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto parentplotinitialized_cb = qcpitemtracer_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -38490,7 +37530,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -38510,7 +37549,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -38530,7 +37568,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -38550,7 +37587,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -38567,7 +37603,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto wheelevent_cb = qcpitemtracer_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -38583,7 +37618,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto event_cb = qcpitemtracer_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -38600,7 +37634,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -38617,7 +37650,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto timerevent_cb = qcpitemtracer_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -38634,7 +37666,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto childevent_cb = qcpitemtracer_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -38651,7 +37682,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto customevent_cb = qcpitemtracer_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -38670,7 +37700,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -38689,7 +37718,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -38705,7 +37733,9 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto mainpen_cb = qcpitemtracer_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemTracer::mainPen();
     }
@@ -38719,7 +37749,9 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto mainbrush_cb = qcpitemtracer_mainbrush_callback;
         if (mainbrush_cb) {
             QBrush* callback_ret = mainbrush_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemTracer::mainBrush();
     }
@@ -38739,7 +37771,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -38762,7 +37793,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -38787,7 +37817,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -38805,7 +37834,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto initializeparentplot_cb = qcpitemtracer_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -38822,7 +37850,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto setparentlayerable_cb = qcpitemtracer_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -38839,7 +37866,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -38858,7 +37884,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -38902,7 +37927,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         auto receivers_cb = qcpitemtracer_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -38920,7 +37944,6 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -39217,7 +38240,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto metacast_cb = qcpitembracket_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -39235,7 +38257,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -39255,7 +38276,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -39272,7 +38292,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto draw_cb = qcpitembracket_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -39288,9 +38307,10 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto anchorpixelposition_cb = qcpitembracket_anchorpixelposition_callback;
         if (anchorpixelposition_cb) {
             int cbval1 = anchorId;
-
             QPointF* callback_ret = anchorpixelposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemBracket::anchorPixelPosition(anchorId);
     }
@@ -39318,7 +38338,9 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto cliprect_cb = qcpitembracket_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemBracket::clipRect();
     }
@@ -39333,7 +38355,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto applydefaultantialiasinghint_cb = qcpitembracket_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -39355,7 +38376,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -39372,7 +38392,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto deselectevent_cb = qcpitembracket_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -39389,7 +38408,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto parentplotinitialized_cb = qcpitembracket_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -39409,7 +38427,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -39429,7 +38446,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -39449,7 +38465,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -39469,7 +38484,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -39486,7 +38500,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto wheelevent_cb = qcpitembracket_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -39502,7 +38515,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto event_cb = qcpitembracket_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -39519,7 +38531,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -39536,7 +38547,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto timerevent_cb = qcpitembracket_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -39553,7 +38563,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto childevent_cb = qcpitembracket_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -39570,7 +38579,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto customevent_cb = qcpitembracket_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -39589,7 +38597,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -39608,7 +38615,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -39624,7 +38630,9 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto mainpen_cb = qcpitembracket_mainpen_callback;
         if (mainpen_cb) {
             QPen* callback_ret = mainpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPItemBracket::mainPen();
     }
@@ -39644,7 +38652,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&pos_ret);
             bool cbval3 = filledRect;
-
             double callback_ret = rectdistance_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -39667,7 +38674,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QCPItemPosition* callback_ret = createposition_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -39692,7 +38698,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             int cbval2 = anchorId;
-
             QCPItemAnchor* callback_ret = createanchor_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -39710,7 +38715,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto initializeparentplot_cb = qcpitembracket_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -39727,7 +38731,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto setparentlayerable_cb = qcpitembracket_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -39744,7 +38747,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -39763,7 +38765,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -39807,7 +38808,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         auto receivers_cb = qcpitembracket_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -39825,7 +38825,6 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -40139,7 +39138,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto metacast_cb = qcppolaraxisradial_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -40157,7 +39155,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -40177,7 +39174,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -40194,7 +39190,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto applydefaultantialiasinghint_cb = qcppolaraxisradial_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -40211,7 +39206,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto draw_cb = qcppolaraxisradial_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -40247,7 +39241,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -40264,7 +39257,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto deselectevent_cb = qcppolaraxisradial_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -40284,7 +39276,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -40304,7 +39295,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -40324,7 +39314,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -40341,7 +39330,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto wheelevent_cb = qcppolaraxisradial_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -40358,7 +39346,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto parentplotinitialized_cb = qcppolaraxisradial_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -40374,7 +39361,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto cliprect_cb = qcppolaraxisradial_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::clipRect();
     }
@@ -40392,7 +39381,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -40408,7 +39396,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto event_cb = qcppolaraxisradial_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -40425,7 +39412,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -40442,7 +39428,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto timerevent_cb = qcppolaraxisradial_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -40459,7 +39444,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto childevent_cb = qcppolaraxisradial_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -40476,7 +39460,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto customevent_cb = qcppolaraxisradial_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -40495,7 +39478,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -40514,7 +39496,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -40534,7 +39515,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&center_ret);
             double cbval2 = radius;
-
             updategeometry_cb(this, cbval1, cbval2);
             return;
         }
@@ -40565,7 +39545,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto getbasepen_cb = qcppolaraxisradial_getbasepen_callback;
         if (getbasepen_cb) {
             QPen* callback_ret = getbasepen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getBasePen();
     }
@@ -40579,7 +39561,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto gettickpen_cb = qcppolaraxisradial_gettickpen_callback;
         if (gettickpen_cb) {
             QPen* callback_ret = gettickpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getTickPen();
     }
@@ -40593,7 +39577,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto getsubtickpen_cb = qcppolaraxisradial_getsubtickpen_callback;
         if (getsubtickpen_cb) {
             QPen* callback_ret = getsubtickpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getSubTickPen();
     }
@@ -40607,7 +39593,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto getticklabelfont_cb = qcppolaraxisradial_getticklabelfont_callback;
         if (getticklabelfont_cb) {
             QFont* callback_ret = getticklabelfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getTickLabelFont();
     }
@@ -40621,7 +39609,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto getlabelfont_cb = qcppolaraxisradial_getlabelfont_callback;
         if (getlabelfont_cb) {
             QFont* callback_ret = getlabelfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getLabelFont();
     }
@@ -40635,7 +39625,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto getticklabelcolor_cb = qcppolaraxisradial_getticklabelcolor_callback;
         if (getticklabelcolor_cb) {
             QColor* callback_ret = getticklabelcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getTickLabelColor();
     }
@@ -40649,7 +39641,9 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto getlabelcolor_cb = qcppolaraxisradial_getlabelcolor_callback;
         if (getlabelcolor_cb) {
             QColor* callback_ret = getlabelcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisRadial::getLabelColor();
     }
@@ -40664,7 +39658,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto initializeparentplot_cb = qcppolaraxisradial_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -40681,7 +39674,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto setparentlayerable_cb = qcppolaraxisradial_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -40698,7 +39690,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -40717,7 +39708,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -40761,7 +39751,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
         auto receivers_cb = qcppolaraxisradial_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -40779,7 +39768,6 @@ class VirtualQCPPolarAxisRadial final : public QCPPolarAxisRadial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -41136,7 +40124,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto metacast_cb = qcppolaraxisangular_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -41154,7 +40141,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -41174,7 +40160,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -41191,7 +40176,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto update_cb = qcppolaraxisangular_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -41207,7 +40191,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto elements_cb = qcppolaraxisangular_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -41231,7 +40214,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto applydefaultantialiasinghint_cb = qcppolaraxisangular_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -41248,7 +40230,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto draw_cb = qcppolaraxisangular_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -41282,7 +40263,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -41302,7 +40282,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -41322,7 +40301,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -41339,7 +40317,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto wheelevent_cb = qcppolaraxisangular_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -41355,7 +40332,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto minimumoutersizehint_cb = qcppolaraxisangular_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::minimumOuterSizeHint();
     }
@@ -41369,7 +40348,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto maximumoutersizehint_cb = qcppolaraxisangular_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::maximumOuterSizeHint();
     }
@@ -41383,7 +40364,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto calculateautomargin_cb = qcppolaraxisangular_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -41415,7 +40395,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto parentplotinitialized_cb = qcppolaraxisangular_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -41431,7 +40410,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto cliprect_cb = qcppolaraxisangular_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::clipRect();
     }
@@ -41451,7 +40432,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -41468,7 +40448,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto deselectevent_cb = qcppolaraxisangular_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -41488,7 +40467,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -41504,7 +40482,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto event_cb = qcppolaraxisangular_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -41521,7 +40498,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -41538,7 +40514,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto timerevent_cb = qcppolaraxisangular_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -41555,7 +40530,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto childevent_cb = qcppolaraxisangular_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -41572,7 +40546,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto customevent_cb = qcppolaraxisangular_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -41591,7 +40564,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -41610,7 +40582,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -41626,7 +40597,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto registerpolargraph_cb = qcppolaraxisangular_registerpolargraph_callback;
         if (registerpolargraph_cb) {
             QCPPolarGraph* cbval1 = graph;
-
             bool callback_ret = registerpolargraph_cb(this, cbval1);
             return callback_ret;
         }
@@ -41647,7 +40617,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&center_ret);
             double cbval3 = radius;
-
             drawbackground_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -41678,7 +40647,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto getbasepen_cb = qcppolaraxisangular_getbasepen_callback;
         if (getbasepen_cb) {
             QPen* callback_ret = getbasepen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getBasePen();
     }
@@ -41692,7 +40663,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto gettickpen_cb = qcppolaraxisangular_gettickpen_callback;
         if (gettickpen_cb) {
             QPen* callback_ret = gettickpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getTickPen();
     }
@@ -41706,7 +40679,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto getsubtickpen_cb = qcppolaraxisangular_getsubtickpen_callback;
         if (getsubtickpen_cb) {
             QPen* callback_ret = getsubtickpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getSubTickPen();
     }
@@ -41720,7 +40695,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto getticklabelfont_cb = qcppolaraxisangular_getticklabelfont_callback;
         if (getticklabelfont_cb) {
             QFont* callback_ret = getticklabelfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getTickLabelFont();
     }
@@ -41734,7 +40711,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto getlabelfont_cb = qcppolaraxisangular_getlabelfont_callback;
         if (getlabelfont_cb) {
             QFont* callback_ret = getlabelfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getLabelFont();
     }
@@ -41748,7 +40727,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto getticklabelcolor_cb = qcppolaraxisangular_getticklabelcolor_callback;
         if (getticklabelcolor_cb) {
             QColor* callback_ret = getticklabelcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getTickLabelColor();
     }
@@ -41762,7 +40743,9 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto getlabelcolor_cb = qcppolaraxisangular_getlabelcolor_callback;
         if (getlabelcolor_cb) {
             QColor* callback_ret = getlabelcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarAxisAngular::getLabelColor();
     }
@@ -41777,7 +40760,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto initializeparentplot_cb = qcppolaraxisangular_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -41794,7 +40776,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto setparentlayerable_cb = qcppolaraxisangular_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -41811,7 +40792,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -41830,7 +40810,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -41874,7 +40853,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
         auto receivers_cb = qcppolaraxisangular_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -41892,7 +40870,6 @@ class VirtualQCPPolarAxisAngular final : public QCPPolarAxisAngular {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -42190,7 +41167,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto metacast_cb = qcppolargrid_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -42208,7 +41184,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -42225,7 +41200,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto applydefaultantialiasinghint_cb = qcppolargrid_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -42242,7 +41216,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto draw_cb = qcppolargrid_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -42262,7 +41235,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -42279,7 +41251,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto parentplotinitialized_cb = qcppolargrid_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -42309,7 +41280,9 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto cliprect_cb = qcppolargrid_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarGrid::clipRect();
     }
@@ -42329,7 +41302,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -42346,7 +41318,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto deselectevent_cb = qcppolargrid_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -42366,7 +41337,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -42386,7 +41356,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -42406,7 +41375,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -42426,7 +41394,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -42443,7 +41410,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto wheelevent_cb = qcppolargrid_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -42459,7 +41425,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto event_cb = qcppolargrid_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -42476,7 +41441,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -42493,7 +41457,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto timerevent_cb = qcppolargrid_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -42510,7 +41473,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto childevent_cb = qcppolargrid_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -42527,7 +41489,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto customevent_cb = qcppolargrid_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -42546,7 +41507,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -42565,7 +41525,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -42598,7 +41557,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QPen& pen_ret = pen;
             // Cast returned reference into pointer
             QPen* cbval4 = const_cast<QPen*>(&pen_ret);
-
             drawradialgrid_cb(this, cbval1, cbval2, cbval3, cbval4);
             free(coords_arr);
             return;
@@ -42633,7 +41591,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QPen& pen_ret = pen;
             // Cast returned reference into pointer
             QPen* cbval5 = const_cast<QPen*>(&pen_ret);
-
             drawangulargrid_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             free(ticksCosSin_arr);
             return;
@@ -42670,7 +41627,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QPen& zeroPen_ret = zeroPen;
             // Cast returned reference into pointer
             QPen* cbval5 = const_cast<QPen*>(&zeroPen_ret);
-
             drawradialgrid5_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             free(coords_arr);
             return;
@@ -42688,7 +41644,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto initializeparentplot_cb = qcppolargrid_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -42705,7 +41660,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto setparentlayerable_cb = qcppolargrid_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -42722,7 +41676,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -42741,7 +41694,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -42785,7 +41737,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
         auto receivers_cb = qcppolargrid_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -42803,7 +41754,6 @@ class VirtualQCPPolarGrid final : public QCPPolarGrid {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -43113,7 +42063,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto metacast_cb = qcppolarlegenditem_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -43131,7 +42080,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -43148,7 +42096,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto draw_cb = qcppolarlegenditem_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -43164,7 +42111,9 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto minimumoutersizehint_cb = qcppolarlegenditem_minimumoutersizehint_callback;
         if (minimumoutersizehint_cb) {
             QSize* callback_ret = minimumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarLegendItem::minimumOuterSizeHint();
     }
@@ -43182,7 +42131,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -43213,7 +42161,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto applydefaultantialiasinghint_cb = qcppolarlegenditem_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -43229,7 +42176,9 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto cliprect_cb = qcppolarlegenditem_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarLegendItem::clipRect();
     }
@@ -43249,7 +42198,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -43266,7 +42214,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto deselectevent_cb = qcppolarlegenditem_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -43283,7 +42230,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto update_cb = qcppolarlegenditem_update_callback;
         if (update_cb) {
             int cbval1 = static_cast<int>(phase);
-
             update_cb(this, cbval1);
             return;
         }
@@ -43299,7 +42245,9 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto maximumoutersizehint_cb = qcppolarlegenditem_maximumoutersizehint_callback;
         if (maximumoutersizehint_cb) {
             QSize* callback_ret = maximumoutersizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarLegendItem::maximumOuterSizeHint();
     }
@@ -43313,7 +42261,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto elements_cb = qcppolarlegenditem_elements_callback;
         if (elements_cb) {
             bool cbval1 = recursive;
-
             libqt_list /* of QCPLayoutElement* */ callback_ret = elements_cb(this, cbval1);
             QList<QCPLayoutElement*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -43336,7 +42283,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto calculateautomargin_cb = qcppolarlegenditem_calculateautomargin_callback;
         if (calculateautomargin_cb) {
             int cbval1 = static_cast<int>(side);
-
             int callback_ret = calculateautomargin_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -43368,7 +42314,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto parentplotinitialized_cb = qcppolarlegenditem_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -43388,7 +42333,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -43408,7 +42352,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -43428,7 +42371,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -43448,7 +42390,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -43465,7 +42406,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto wheelevent_cb = qcppolarlegenditem_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -43481,7 +42421,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto event_cb = qcppolarlegenditem_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -43498,7 +42437,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -43515,7 +42453,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto timerevent_cb = qcppolarlegenditem_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -43532,7 +42469,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto childevent_cb = qcppolarlegenditem_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -43549,7 +42485,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto customevent_cb = qcppolarlegenditem_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -43568,7 +42503,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -43587,7 +42521,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -43603,7 +42536,9 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto geticonborderpen_cb = qcppolarlegenditem_geticonborderpen_callback;
         if (geticonborderpen_cb) {
             QPen* callback_ret = geticonborderpen_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarLegendItem::getIconBorderPen();
     }
@@ -43617,7 +42552,9 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto gettextcolor_cb = qcppolarlegenditem_gettextcolor_callback;
         if (gettextcolor_cb) {
             QColor* callback_ret = gettextcolor_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarLegendItem::getTextColor();
     }
@@ -43631,7 +42568,9 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto getfont_cb = qcppolarlegenditem_getfont_callback;
         if (getfont_cb) {
             QFont* callback_ret = getfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarLegendItem::getFont();
     }
@@ -43646,7 +42585,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto initializeparentplot_cb = qcppolarlegenditem_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -43663,7 +42601,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto setparentlayerable_cb = qcppolarlegenditem_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -43680,7 +42617,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -43699,7 +42635,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -43743,7 +42678,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
         auto receivers_cb = qcppolarlegenditem_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -43761,7 +42695,6 @@ class VirtualQCPPolarLegendItem final : public QCPPolarLegendItem {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -44107,7 +43040,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto metacast_cb = qcppolargraph_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -44125,7 +43057,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -44145,7 +43076,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
             bool cbval2 = onlySelectable;
             QVariant* cbval3 = details;
-
             double callback_ret = selecttest_cb(this, cbval1, cbval2, cbval3);
             return static_cast<double>(callback_ret);
         }
@@ -44176,9 +43106,10 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         if (getkeyrange_cb) {
             bool* cbval1 = &foundRange;
             int cbval2 = static_cast<int>(inSignDomain);
-
             QCPRange* callback_ret = getkeyrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarGraph::getKeyRange(foundRange, inSignDomain);
     }
@@ -44196,9 +43127,10 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QCPRange& inKeyRange_ret = inKeyRange;
             // Cast returned reference into pointer
             QCPRange* cbval3 = const_cast<QCPRange*>(&inKeyRange_ret);
-
             QCPRange* callback_ret = getvaluerange_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarGraph::getValueRange(foundRange, inSignDomain, inKeyRange);
     }
@@ -44212,7 +43144,9 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto cliprect_cb = qcppolargraph_cliprect_callback;
         if (cliprect_cb) {
             QRect* callback_ret = cliprect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QCPPolarGraph::clipRect();
     }
@@ -44227,7 +43161,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto draw_cb = qcppolargraph_draw_callback;
         if (draw_cb) {
             QCPPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -44263,7 +43196,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&details_ret);
             bool* cbval4 = selectionStateChanged;
-
             selectevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -44280,7 +43212,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto deselectevent_cb = qcppolargraph_deselectevent_callback;
         if (deselectevent_cb) {
             bool* cbval1 = selectionStateChanged;
-
             deselectevent_cb(this, cbval1);
             return;
         }
@@ -44307,7 +43238,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             lines_out.len = lines_ret.size();
             lines_out.data = static_cast<void*>(lines_arr);
             libqt_list /* of QPointF* */ cbval2 = lines_out;
-
             drawlineplot_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -44335,7 +43265,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             lines_out.len = lines_ret->size();
             lines_out.data = static_cast<void*>(lines_arr);
             libqt_list /* of QPointF* */ cbval2 = lines_out;
-
             drawfill_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -44366,7 +43295,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QCPScatterStyle& style_ret = style;
             // Cast returned reference into pointer
             QCPScatterStyle* cbval3 = const_cast<QCPScatterStyle*>(&style_ret);
-
             drawscatterplot_cb(this, cbval1, cbval2, cbval3);
             free(scatters_arr);
             return;
@@ -44387,7 +43315,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawlegendicon_cb(this, cbval1, cbval2);
             return;
         }
@@ -44418,7 +43345,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto parentplotinitialized_cb = qcppolargraph_parentplotinitialized_callback;
         if (parentplotinitialized_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             parentplotinitialized_cb(this, cbval1);
             return;
         }
@@ -44430,7 +43356,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto applydefaultantialiasinghint_cb = qcppolargraph_applydefaultantialiasinghint_callback;
         if (applydefaultantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applydefaultantialiasinghint_cb(this, cbval1);
         }
     }
@@ -44448,7 +43373,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousepressevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -44468,7 +43392,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -44488,7 +43411,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QPointF& startPos_ret = startPos;
             // Cast returned reference into pointer
             QPointF* cbval2 = const_cast<QPointF*>(&startPos_ret);
-
             mousereleaseevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -44508,7 +43430,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QVariant& details_ret = details;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&details_ret);
-
             mousedoubleclickevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -44525,7 +43446,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto wheelevent_cb = qcppolargraph_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -44541,7 +43461,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto event_cb = qcppolargraph_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -44558,7 +43477,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -44575,7 +43493,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto timerevent_cb = qcppolargraph_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -44592,7 +43509,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto childevent_cb = qcppolargraph_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -44609,7 +43525,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto customevent_cb = qcppolargraph_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -44628,7 +43543,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -44647,7 +43561,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -44664,7 +43577,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto applyfillantialiasinghint_cb = qcppolargraph_applyfillantialiasinghint_callback;
         if (applyfillantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyfillantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -44681,7 +43593,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto applyscattersantialiasinghint_cb = qcppolargraph_applyscattersantialiasinghint_callback;
         if (applyscattersantialiasinghint_cb) {
             QCPPainter* cbval1 = painter;
-
             applyscattersantialiasinghint_cb(this, cbval1);
             return;
         }
@@ -44717,7 +43628,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             unselectedSegments_out.len = unselectedSegments_ret.size();
             unselectedSegments_out.data = static_cast<void*>(unselectedSegments_arr);
             libqt_list /* of QCPDataRange* */ cbval2 = unselectedSegments_out;
-
             getdatasegments_cb(this, cbval1, cbval2);
             free(selectedSegments_arr);
             free(unselectedSegments_arr);
@@ -44746,7 +43656,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             lineData_out.len = lineData_ret.size();
             lineData_out.data = static_cast<void*>(lineData_arr);
             libqt_list /* of QPointF* */ cbval2 = lineData_out;
-
             drawpolyline_cb(this, cbval1, cbval2);
             free(lineData_arr);
             return;
@@ -44776,7 +43685,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QCPDataRange& dataRange_ret = dataRange;
             // Cast returned reference into pointer
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
-
             getlines_cb(this, cbval1, cbval2);
             free(lines_arr);
             return;
@@ -44806,7 +43714,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QCPDataRange& dataRange_ret = dataRange;
             // Cast returned reference into pointer
             QCPDataRange* cbval2 = const_cast<QCPDataRange*>(&dataRange_ret);
-
             getscatters_cb(this, cbval1, cbval2);
             free(scatters_arr);
             return;
@@ -44832,7 +43739,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             data_out.len = data_ret.size();
             data_out.data = static_cast<void*>(data_arr);
             libqt_list /* of QCPGraphData* */ cbval1 = data_out;
-
             libqt_list /* of QPointF* */ callback_ret = datatolines_cb(this, cbval1);
             QVector<QPointF> callback_ret_QVector;
             callback_ret_QVector.reserve(callback_ret.len);
@@ -44857,7 +43763,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto initializeparentplot_cb = qcppolargraph_initializeparentplot_callback;
         if (initializeparentplot_cb) {
             QCustomPlot* cbval1 = parentPlot;
-
             initializeparentplot_cb(this, cbval1);
             return;
         }
@@ -44874,7 +43779,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto setparentlayerable_cb = qcppolargraph_setparentlayerable_callback;
         if (setparentlayerable_cb) {
             QCPLayerable* cbval1 = parentLayerable;
-
             setparentlayerable_cb(this, cbval1);
             return;
         }
@@ -44891,7 +43795,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         if (movetolayer_cb) {
             QCPLayer* cbval1 = layer;
             bool cbval2 = prepend;
-
             bool callback_ret = movetolayer_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -44910,7 +43813,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             QCPPainter* cbval1 = painter;
             bool cbval2 = localAntialiased;
             int cbval3 = static_cast<int>(overrideElement);
-
             applyantialiasinghint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -44954,7 +43856,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
         auto receivers_cb = qcppolargraph_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -44972,7 +43873,6 @@ class VirtualQCPPolarGraph final : public QCPPolarGraph {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

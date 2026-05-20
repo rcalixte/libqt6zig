@@ -165,7 +165,6 @@ class VirtualQImage final : public QImage {
         auto metric_cb = qimage_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -182,7 +181,6 @@ class VirtualQImage final : public QImage {
         auto initpainter_cb = qimage_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -198,7 +196,6 @@ class VirtualQImage final : public QImage {
         auto redirected_cb = qimage_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -229,9 +226,10 @@ class VirtualQImage final : public QImage {
         if (mirroredhelper_cb) {
             bool cbval1 = horizontal;
             bool cbval2 = vertical;
-
             QImage* callback_ret = mirroredhelper_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QImage::mirrored_helper(horizontal, vertical);
     }
@@ -245,7 +243,9 @@ class VirtualQImage final : public QImage {
         auto rgbswappedhelper_cb = qimage_rgbswappedhelper_callback;
         if (rgbswappedhelper_cb) {
             QImage* callback_ret = rgbswappedhelper_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QImage::rgbSwapped_helper();
     }
@@ -261,7 +261,6 @@ class VirtualQImage final : public QImage {
         if (mirroredinplace_cb) {
             bool cbval1 = horizontal;
             bool cbval2 = vertical;
-
             mirroredinplace_cb(this, cbval1, cbval2);
             return;
         }
@@ -293,9 +292,10 @@ class VirtualQImage final : public QImage {
         if (converttoformathelper_cb) {
             int cbval1 = static_cast<int>(format);
             int cbval2 = static_cast<int>(flags);
-
             QImage* callback_ret = converttoformathelper_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QImage::convertToFormat_helper(format, flags);
     }
@@ -310,7 +310,6 @@ class VirtualQImage final : public QImage {
         if (converttoformatinplace_cb) {
             int cbval1 = static_cast<int>(format);
             int cbval2 = static_cast<int>(flags);
-
             bool callback_ret = converttoformatinplace_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -327,9 +326,10 @@ class VirtualQImage final : public QImage {
         if (smoothscaled_cb) {
             int cbval1 = w;
             int cbval2 = h;
-
             QImage* callback_ret = smoothscaled_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QImage::smoothScaled(w, h);
     }
@@ -359,7 +359,6 @@ class VirtualQImage final : public QImage {
         auto detachmetadata1_cb = qimage_detachmetadata1_callback;
         if (detachmetadata1_cb) {
             bool cbval1 = invalidateCache;
-
             detachmetadata1_cb(this, cbval1);
             return;
         }
@@ -376,7 +375,6 @@ class VirtualQImage final : public QImage {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

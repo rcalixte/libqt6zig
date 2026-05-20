@@ -50,7 +50,6 @@ class VirtualQEvent final : public QEvent {
         auto setaccepted_cb = qevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -128,7 +127,6 @@ class VirtualQTimerEvent final : public QTimerEvent {
         auto setaccepted_cb = qtimerevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -191,7 +189,6 @@ class VirtualQChildEvent final : public QChildEvent {
         auto setaccepted_cb = qchildevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -254,7 +251,6 @@ class VirtualQDynamicPropertyChangeEvent final : public QDynamicPropertyChangeEv
         auto setaccepted_cb = qdynamicpropertychangeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

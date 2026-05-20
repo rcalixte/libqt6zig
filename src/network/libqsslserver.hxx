@@ -144,7 +144,6 @@ class VirtualQSslServer final : public QSslServer {
         auto metacast_cb = qsslserver_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -162,7 +161,6 @@ class VirtualQSslServer final : public QSslServer {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -180,7 +178,6 @@ class VirtualQSslServer final : public QSslServer {
         if (incomingconnection_cb) {
             qintptr socket_ret = socket;
             intptr_t cbval1 = (intptr_t)(socket_ret);
-
             incomingconnection_cb(this, cbval1);
             return;
         }
@@ -224,7 +221,6 @@ class VirtualQSslServer final : public QSslServer {
         auto event_cb = qsslserver_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -241,7 +237,6 @@ class VirtualQSslServer final : public QSslServer {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -258,7 +253,6 @@ class VirtualQSslServer final : public QSslServer {
         auto timerevent_cb = qsslserver_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -275,7 +269,6 @@ class VirtualQSslServer final : public QSslServer {
         auto childevent_cb = qsslserver_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -292,7 +285,6 @@ class VirtualQSslServer final : public QSslServer {
         auto customevent_cb = qsslserver_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -311,7 +303,6 @@ class VirtualQSslServer final : public QSslServer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -330,7 +321,6 @@ class VirtualQSslServer final : public QSslServer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -347,7 +337,6 @@ class VirtualQSslServer final : public QSslServer {
         auto addpendingconnection_cb = qsslserver_addpendingconnection_callback;
         if (addpendingconnection_cb) {
             QTcpSocket* cbval1 = socket;
-
             addpendingconnection_cb(this, cbval1);
             return;
         }
@@ -391,7 +380,6 @@ class VirtualQSslServer final : public QSslServer {
         auto receivers_cb = qsslserver_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -409,7 +397,6 @@ class VirtualQSslServer final : public QSslServer {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

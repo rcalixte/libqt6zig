@@ -64,9 +64,10 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         auto icon_cb = qfileiconprovider_icon_callback;
         if (icon_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             QIcon* callback_ret = icon_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFileIconProvider::icon(typeVal);
     }
@@ -82,9 +83,10 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
             const QFileInfo& info_ret = info;
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&info_ret);
-
             QIcon* callback_ret = icon2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFileIconProvider::icon(info);
     }
@@ -100,7 +102,6 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
             const QFileInfo& param1_ret = param1;
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&param1_ret);
-
             const char* callback_ret = type_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -118,7 +119,6 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
         auto setoptions_cb = qfileiconprovider_setoptions_callback;
         if (setoptions_cb) {
             int cbval1 = static_cast<int>(options);
-
             setoptions_cb(this, cbval1);
             return;
         }

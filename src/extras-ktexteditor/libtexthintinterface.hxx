@@ -43,7 +43,6 @@ class VirtualKTextEditorTextHintProvider : public KTextEditor::TextHintProvider 
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval2 = const_cast<KTextEditor::Cursor*>(&position_ret);
-
             const char* callback_ret = texthint_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;

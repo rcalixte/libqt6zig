@@ -500,7 +500,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto metacast_cb = qsqlrelationaltablemodel_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -518,7 +517,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -537,9 +535,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
             int cbval2 = role;
-
             QVariant* callback_ret = data_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::data(item, role);
     }
@@ -559,7 +558,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-
             bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -579,7 +577,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -632,7 +629,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
             ((char*)tableName_str)[tableName_str_len] = '\0';
             const char* cbval1 = tableName_str;
-
             settable_cb(this, cbval1);
             libqt_free(tableName_str);
             return;
@@ -653,7 +649,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QSqlRelation& relation_ret = relation;
             // Cast returned reference into pointer
             QSqlRelation* cbval2 = const_cast<QSqlRelation*>(&relation_ret);
-
             setrelation_cb(this, cbval1, cbval2);
             return;
         }
@@ -669,7 +664,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto relationmodel_cb = qsqlrelationaltablemodel_relationmodel_callback;
         if (relationmodel_cb) {
             int cbval1 = column;
-
             QSqlTableModel* callback_ret = relationmodel_cb(this, cbval1);
             return callback_ret;
         }
@@ -686,7 +680,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto revertrow_cb = qsqlrelationaltablemodel_revertrow_callback;
         if (revertrow_cb) {
             int cbval1 = row;
-
             revertrow_cb(this, cbval1);
             return;
         }
@@ -720,7 +713,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QSqlRecord& values_ret = values;
             // Cast returned reference into pointer
             QSqlRecord* cbval2 = const_cast<QSqlRecord*>(&values_ret);
-
             bool callback_ret = updaterowintable_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -738,7 +730,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QSqlRecord& values_ret = values;
             // Cast returned reference into pointer
             QSqlRecord* cbval1 = const_cast<QSqlRecord*>(&values_ret);
-
             bool callback_ret = insertrowintotable_cb(this, cbval1);
             return callback_ret;
         }
@@ -771,7 +762,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
@@ -789,7 +779,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
         }
@@ -807,9 +796,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-
             QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::headerData(section, orientation, role);
     }
@@ -824,7 +814,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto seteditstrategy_cb = qsqlrelationaltablemodel_seteditstrategy_callback;
         if (seteditstrategy_cb) {
             int cbval1 = static_cast<int>(strategy);
-
             seteditstrategy_cb(this, cbval1);
             return;
         }
@@ -842,7 +831,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-
             sort_cb(this, cbval1, cbval2);
             return;
         }
@@ -860,7 +848,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (setsort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-
             setsort_cb(this, cbval1, cbval2);
             return;
         }
@@ -884,7 +871,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             memcpy((void*)filter_str, filter_b.data(), filter_str_len);
             ((char*)filter_str)[filter_str_len] = '\0';
             const char* cbval1 = filter_str;
-
             setfilter_cb(this, cbval1);
             libqt_free(filter_str);
             return;
@@ -903,7 +889,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -923,7 +908,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -943,7 +927,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -959,7 +942,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto selectrow_cb = qsqlrelationaltablemodel_selectrow_callback;
         if (selectrow_cb) {
             int cbval1 = row;
-
             bool callback_ret = selectrow_cb(this, cbval1);
             return callback_ret;
         }
@@ -1004,7 +986,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto deleterowfromtable_cb = qsqlrelationaltablemodel_deleterowfromtable_callback;
         if (deleterowfromtable_cb) {
             int cbval1 = row;
-
             bool callback_ret = deleterowfromtable_cb(this, cbval1);
             return callback_ret;
         }
@@ -1022,9 +1003,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& item_ret = item;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&item_ret);
-
             QModelIndex* callback_ret = indexinquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::indexInQuery(item);
     }
@@ -1040,7 +1022,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1061,7 +1042,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-
             bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -1081,7 +1061,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1100,7 +1079,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             fetchmore_cb(this, cbval1);
             return;
         }
@@ -1118,7 +1096,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
         }
@@ -1175,9 +1152,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::index(row, column, parent);
     }
@@ -1195,9 +1173,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-
             QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::sibling(row, column, idx);
     }
@@ -1217,7 +1196,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1235,7 +1213,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1274,7 +1251,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-
             bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1322,7 +1298,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-
             QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
@@ -1345,7 +1320,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1397,7 +1371,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1421,7 +1394,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1439,9 +1411,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QModelIndex* callback_ret = buddy_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::buddy(index);
     }
@@ -1463,7 +1436,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-
             libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -1488,9 +1460,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = span_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::span(index);
     }
@@ -1508,7 +1481,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-
             multidata_cb(this, cbval1, cbval2);
             return;
         }
@@ -1539,7 +1511,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto event_cb = qsqlrelationaltablemodel_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1556,7 +1527,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1573,7 +1543,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto timerevent_cb = qsqlrelationaltablemodel_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1590,7 +1559,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto childevent_cb = qsqlrelationaltablemodel_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1607,7 +1575,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto customevent_cb = qsqlrelationaltablemodel_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1626,7 +1593,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1645,7 +1611,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1664,7 +1629,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QSqlIndex& key_ret = key;
             // Cast returned reference into pointer
             QSqlIndex* cbval1 = const_cast<QSqlIndex*>(&key_ret);
-
             setprimarykey_cb(this, cbval1);
             return;
         }
@@ -1680,9 +1644,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto primaryvalues_cb = qsqlrelationaltablemodel_primaryvalues_callback;
         if (primaryvalues_cb) {
             int cbval1 = row;
-
             QSqlRecord* callback_ret = primaryvalues_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::primaryValues(row);
     }
@@ -1701,7 +1666,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertrows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1737,7 +1701,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremoverows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1773,7 +1736,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1809,7 +1771,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1873,7 +1834,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QSqlError& errorVal_ret = errorVal;
             // Cast returned reference into pointer
             QSqlError* cbval1 = const_cast<QSqlError*>(&errorVal_ret);
-
             setlasterror_cb(this, cbval1);
             return;
         }
@@ -1890,9 +1850,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlRelationalTableModel::createIndex(row, column);
     }
@@ -1919,7 +1880,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
-
             encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
             return;
@@ -1943,7 +1903,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
-
             bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -1967,7 +1926,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
-
             bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -2006,7 +1964,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
-
             bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -2043,7 +2000,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QModelIndex& to_ret = to;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-
             changepersistentindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -2079,7 +2035,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             to_out.len = to_ret.size();
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
-
             changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
@@ -2146,7 +2101,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         auto receivers_cb = qsqlrelationaltablemodel_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2164,7 +2118,6 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

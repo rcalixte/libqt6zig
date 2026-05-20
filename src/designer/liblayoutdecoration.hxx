@@ -110,7 +110,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto widgets_cb = qdesignerlayoutdecorationextension_widgets_callback;
         if (widgets_cb) {
             QLayout* cbval1 = layout;
-
             libqt_list /* of QWidget* */ callback_ret = widgets_cb(this, cbval1);
             QList<QWidget*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -129,9 +128,10 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto iteminfo_cb = qdesignerlayoutdecorationextension_iteminfo_callback;
         if (iteminfo_cb) {
             int cbval1 = index;
-
             QRect* callback_ret = iteminfo_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -141,7 +141,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto indexof_cb = qdesignerlayoutdecorationextension_indexof_callback;
         if (indexof_cb) {
             QWidget* cbval1 = widget;
-
             int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -153,7 +152,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto indexof2_cb = qdesignerlayoutdecorationextension_indexof2_callback;
         if (indexof2_cb) {
             QLayoutItem* cbval1 = item;
-
             int callback_ret = indexof2_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -204,7 +202,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
             cell_out.first = cell_ret.first;
             cell_out.second = cell_ret.second;
             pair_int_int /* tuple of int and int */ cbval2 = cell_out;
-
             insertwidget_cb(this, cbval1, cbval2);
         }
     }
@@ -214,7 +211,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto removewidget_cb = qdesignerlayoutdecorationextension_removewidget_callback;
         if (removewidget_cb) {
             QWidget* cbval1 = widget;
-
             removewidget_cb(this, cbval1);
         }
     }
@@ -224,7 +220,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto insertrow_cb = qdesignerlayoutdecorationextension_insertrow_callback;
         if (insertrow_cb) {
             int cbval1 = row;
-
             insertrow_cb(this, cbval1);
         }
     }
@@ -234,7 +229,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         auto insertcolumn_cb = qdesignerlayoutdecorationextension_insertcolumn_callback;
         if (insertcolumn_cb) {
             int cbval1 = column;
-
             insertcolumn_cb(this, cbval1);
         }
     }
@@ -254,7 +248,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
-
             int callback_ret = finditemat_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -267,7 +260,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
         if (finditemat2_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             int callback_ret = finditemat2_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -282,7 +274,6 @@ class VirtualQDesignerLayoutDecorationExtension : public QDesignerLayoutDecorati
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
             int cbval2 = index;
-
             adjustindicator_cb(this, cbval1, cbval2);
         }
     }

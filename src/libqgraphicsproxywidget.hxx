@@ -446,7 +446,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto metacast_cb = qgraphicsproxywidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -464,7 +463,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -483,7 +481,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -502,7 +499,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
-
             paint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -535,9 +531,10 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::itemChange(change, value);
     }
@@ -551,7 +548,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto event_cb = qgraphicsproxywidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -568,7 +564,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -585,7 +580,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto showevent_cb = qgraphicsproxywidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -602,7 +596,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto hideevent_cb = qgraphicsproxywidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -619,7 +612,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto contextmenuevent_cb = qgraphicsproxywidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -636,7 +628,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto dragenterevent_cb = qgraphicsproxywidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -653,7 +644,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto dragleaveevent_cb = qgraphicsproxywidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -670,7 +660,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto dragmoveevent_cb = qgraphicsproxywidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -687,7 +676,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto dropevent_cb = qgraphicsproxywidget_dropevent_callback;
         if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -704,7 +692,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto hoverenterevent_cb = qgraphicsproxywidget_hoverenterevent_callback;
         if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-
             hoverenterevent_cb(this, cbval1);
             return;
         }
@@ -721,7 +708,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto hoverleaveevent_cb = qgraphicsproxywidget_hoverleaveevent_callback;
         if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-
             hoverleaveevent_cb(this, cbval1);
             return;
         }
@@ -738,7 +724,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto hovermoveevent_cb = qgraphicsproxywidget_hovermoveevent_callback;
         if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-
             hovermoveevent_cb(this, cbval1);
             return;
         }
@@ -755,7 +740,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto grabmouseevent_cb = qgraphicsproxywidget_grabmouseevent_callback;
         if (grabmouseevent_cb) {
             QEvent* cbval1 = event;
-
             grabmouseevent_cb(this, cbval1);
             return;
         }
@@ -772,7 +756,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto ungrabmouseevent_cb = qgraphicsproxywidget_ungrabmouseevent_callback;
         if (ungrabmouseevent_cb) {
             QEvent* cbval1 = event;
-
             ungrabmouseevent_cb(this, cbval1);
             return;
         }
@@ -789,7 +772,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto mousemoveevent_cb = qgraphicsproxywidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -806,7 +788,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto mousepressevent_cb = qgraphicsproxywidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -823,7 +804,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto mousereleaseevent_cb = qgraphicsproxywidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -840,7 +820,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto mousedoubleclickevent_cb = qgraphicsproxywidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -857,7 +836,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto wheelevent_cb = qgraphicsproxywidget_wheelevent_callback;
         if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -874,7 +852,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto keypressevent_cb = qgraphicsproxywidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -891,7 +868,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto keyreleaseevent_cb = qgraphicsproxywidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -908,7 +884,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto focusinevent_cb = qgraphicsproxywidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -925,7 +900,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto focusoutevent_cb = qgraphicsproxywidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -941,7 +915,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto focusnextprevchild_cb = qgraphicsproxywidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -957,9 +930,10 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto inputmethodquery_cb = qgraphicsproxywidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::inputMethodQuery(query);
     }
@@ -974,7 +948,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto inputmethodevent_cb = qgraphicsproxywidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -993,9 +966,10 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
-
             QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::sizeHint(which, constraint);
     }
@@ -1010,7 +984,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto resizeevent_cb = qgraphicsproxywidget_resizeevent_callback;
         if (resizeevent_cb) {
             QGraphicsSceneResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1030,7 +1003,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
-
             getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1049,7 +1021,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
-
             paintwindowframe_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1065,7 +1036,9 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto boundingrect_cb = qgraphicsproxywidget_boundingrect_callback;
         if (boundingrect_cb) {
             QRectF* callback_ret = boundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::boundingRect();
     }
@@ -1079,7 +1052,9 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto shape_cb = qgraphicsproxywidget_shape_callback;
         if (shape_cb) {
             QPainterPath* callback_ret = shape_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::shape();
     }
@@ -1094,7 +1069,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto initstyleoption_cb = qgraphicsproxywidget_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOption* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1135,10 +1109,11 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             QVariant* callback_ret = propertychange_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(propertyName_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::propertyChange(propertyName, value);
     }
@@ -1152,7 +1127,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto sceneevent_cb = qgraphicsproxywidget_sceneevent_callback;
         if (sceneevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1168,7 +1142,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto windowframeevent_cb = qgraphicsproxywidget_windowframeevent_callback;
         if (windowframeevent_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = windowframeevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1186,7 +1159,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QPointF& pos_ret = pos;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
-
             int callback_ret = windowframesectionat_cb(this, cbval1);
             return static_cast<Qt::WindowFrameSection>(callback_ret);
         }
@@ -1203,7 +1175,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto changeevent_cb = qgraphicsproxywidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1220,7 +1191,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto closeevent_cb = qgraphicsproxywidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1237,7 +1207,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto moveevent_cb = qgraphicsproxywidget_moveevent_callback;
         if (moveevent_cb) {
             QGraphicsSceneMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1269,7 +1238,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto grabkeyboardevent_cb = qgraphicsproxywidget_grabkeyboardevent_callback;
         if (grabkeyboardevent_cb) {
             QEvent* cbval1 = event;
-
             grabkeyboardevent_cb(this, cbval1);
             return;
         }
@@ -1286,7 +1254,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto ungrabkeyboardevent_cb = qgraphicsproxywidget_ungrabkeyboardevent_callback;
         if (ungrabkeyboardevent_cb) {
             QEvent* cbval1 = event;
-
             ungrabkeyboardevent_cb(this, cbval1);
             return;
         }
@@ -1303,7 +1270,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto timerevent_cb = qgraphicsproxywidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1320,7 +1286,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto childevent_cb = qgraphicsproxywidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1337,7 +1302,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto customevent_cb = qgraphicsproxywidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1356,7 +1320,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1375,7 +1338,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1392,7 +1354,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto advance_cb = qgraphicsproxywidget_advance_callback;
         if (advance_cb) {
             int cbval1 = phase;
-
             advance_cb(this, cbval1);
             return;
         }
@@ -1410,7 +1371,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
-
             bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
         }
@@ -1427,7 +1387,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
-
             bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1446,7 +1405,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
-
             bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1462,7 +1420,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto isobscuredby_cb = qgraphicsproxywidget_isobscuredby_callback;
         if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
-
             bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
         }
@@ -1478,7 +1435,9 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto opaquearea_cb = qgraphicsproxywidget_opaquearea_callback;
         if (opaquearea_cb) {
             QPainterPath* callback_ret = opaquearea_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::opaqueArea();
     }
@@ -1493,7 +1452,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1509,7 +1467,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto supportsextension_cb = qgraphicsproxywidget_supportsextension_callback;
         if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
-
             bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
         }
@@ -1529,7 +1486,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
-
             setextension_cb(this, cbval1, cbval2);
             return;
         }
@@ -1547,9 +1503,10 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
-
             QVariant* callback_ret = extension_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsProxyWidget::extension(variant);
     }
@@ -1577,7 +1534,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto newproxywidget_cb = qgraphicsproxywidget_newproxywidget_callback;
         if (newproxywidget_cb) {
             QWidget* cbval1 = (QWidget*)param1;
-
             QGraphicsProxyWidget* callback_ret = newproxywidget_cb(this, cbval1);
             return callback_ret;
         }
@@ -1636,7 +1592,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto receivers_cb = qgraphicsproxywidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1654,7 +1609,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1716,7 +1670,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto setgraphicsitem_cb = qgraphicsproxywidget_setgraphicsitem_callback;
         if (setgraphicsitem_cb) {
             QGraphicsItem* cbval1 = item;
-
             setgraphicsitem_cb(this, cbval1);
             return;
         }
@@ -1733,7 +1686,6 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
         auto setownedbylayout_cb = qgraphicsproxywidget_setownedbylayout_callback;
         if (setownedbylayout_cb) {
             bool cbval1 = ownedByLayout;
-
             setownedbylayout_cb(this, cbval1);
             return;
         }

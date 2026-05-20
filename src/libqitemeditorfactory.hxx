@@ -51,7 +51,6 @@ class VirtualQItemEditorFactory final : public QItemEditorFactory {
         if (createeditor_cb) {
             int cbval1 = userType;
             QWidget* cbval2 = parent;
-
             QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -67,7 +66,6 @@ class VirtualQItemEditorFactory final : public QItemEditorFactory {
         auto valuepropertyname_cb = qitemeditorfactory_valuepropertyname_callback;
         if (valuepropertyname_cb) {
             int cbval1 = userType;
-
             libqt_string callback_ret = valuepropertyname_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;

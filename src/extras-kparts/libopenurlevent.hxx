@@ -51,7 +51,6 @@ class VirtualKPartsOpenUrlEvent final : public KParts::OpenUrlEvent {
         auto setaccepted_cb = kparts__openurlevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

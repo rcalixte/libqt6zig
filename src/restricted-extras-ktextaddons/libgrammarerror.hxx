@@ -54,7 +54,6 @@ class VirtualTextGrammarCheckGrammarError final : public TextGrammarCheck::Gramm
             // Cast returned reference into pointer
             QJsonObject* cbval1 = const_cast<QJsonObject*>(&obj_ret);
             int cbval2 = blockindex;
-
             parse_cb(this, cbval1, cbval2);
             return;
         }
@@ -73,7 +72,6 @@ class VirtualTextGrammarCheckGrammarError final : public TextGrammarCheck::Gramm
             const TextGrammarCheck::GrammarError& param1_ret = param1;
             // Cast returned reference into pointer
             TextGrammarCheck__GrammarError* cbval1 = const_cast<TextGrammarCheck::GrammarError*>(&param1_ret);
-
             operatorassign_cb(this, cbval1);
             return;
         }

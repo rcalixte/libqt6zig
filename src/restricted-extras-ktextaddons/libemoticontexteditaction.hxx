@@ -138,7 +138,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto metacast_cb = textemoticonswidgets__emoticontexteditaction_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -156,7 +155,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -172,7 +170,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto createwidget_cb = textemoticonswidgets__emoticontexteditaction_createwidget_callback;
         if (createwidget_cb) {
             QWidget* cbval1 = parent;
-
             QWidget* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
         }
@@ -188,7 +185,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto event_cb = textemoticonswidgets__emoticontexteditaction_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -205,7 +201,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -222,7 +217,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto deletewidget_cb = textemoticonswidgets__emoticontexteditaction_deletewidget_callback;
         if (deletewidget_cb) {
             QWidget* cbval1 = widget;
-
             deletewidget_cb(this, cbval1);
             return;
         }
@@ -239,7 +233,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto timerevent_cb = textemoticonswidgets__emoticontexteditaction_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -256,7 +249,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto childevent_cb = textemoticonswidgets__emoticontexteditaction_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -273,7 +265,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto customevent_cb = textemoticonswidgets__emoticontexteditaction_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -292,7 +283,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -311,7 +301,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -376,7 +365,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
         auto receivers_cb = textemoticonswidgets__emoticontexteditaction_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -394,7 +382,6 @@ class VirtualTextEmoticonsWidgetsEmoticonTextEditAction final : public TextEmoti
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

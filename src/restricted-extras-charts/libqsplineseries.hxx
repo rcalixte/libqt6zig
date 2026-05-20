@@ -149,7 +149,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto metacast_cb = qsplineseries_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -167,7 +166,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -200,7 +198,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             const QPen& pen_ret = pen;
             // Cast returned reference into pointer
             QPen* cbval1 = const_cast<QPen*>(&pen_ret);
-
             setpen_cb(this, cbval1);
             return;
         }
@@ -219,7 +216,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             const QBrush& brush_ret = brush;
             // Cast returned reference into pointer
             QBrush* cbval1 = const_cast<QBrush*>(&brush_ret);
-
             setbrush_cb(this, cbval1);
             return;
         }
@@ -238,7 +234,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             const QColor& color_ret = color;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&color_ret);
-
             setcolor_cb(this, cbval1);
             return;
         }
@@ -254,7 +249,9 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto color_cb = qsplineseries_color_callback;
         if (color_cb) {
             QColor* callback_ret = color_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplineSeries::color();
     }
@@ -268,7 +265,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto event_cb = qsplineseries_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -285,7 +281,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -302,7 +297,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto timerevent_cb = qsplineseries_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -319,7 +313,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto childevent_cb = qsplineseries_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -336,7 +329,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto customevent_cb = qsplineseries_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -355,7 +347,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -374,7 +365,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -418,7 +408,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
         auto receivers_cb = qsplineseries_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -436,7 +425,6 @@ class VirtualQSplineSeries final : public QSplineSeries {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

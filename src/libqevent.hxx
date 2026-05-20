@@ -70,7 +70,6 @@ class VirtualQInputEvent final : public QInputEvent {
         auto settimestamp_cb = qinputevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -87,7 +86,6 @@ class VirtualQInputEvent final : public QInputEvent {
         auto setaccepted_cb = qinputevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -172,7 +170,6 @@ class VirtualQPointerEvent final : public QPointerEvent {
         auto settimestamp_cb = qpointerevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -231,7 +228,6 @@ class VirtualQPointerEvent final : public QPointerEvent {
         auto setaccepted_cb = qpointerevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -357,7 +353,6 @@ class VirtualQEnterEvent final : public QEnterEvent {
         auto settimestamp_cb = qenterevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -374,7 +369,6 @@ class VirtualQEnterEvent final : public QEnterEvent {
         auto setaccepted_cb = qenterevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -506,7 +500,6 @@ class VirtualQMouseEvent final : public QMouseEvent {
         auto settimestamp_cb = qmouseevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -523,7 +516,6 @@ class VirtualQMouseEvent final : public QMouseEvent {
         auto setaccepted_cb = qmouseevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -653,7 +645,6 @@ class VirtualQHoverEvent final : public QHoverEvent {
         auto settimestamp_cb = qhoverevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -670,7 +661,6 @@ class VirtualQHoverEvent final : public QHoverEvent {
         auto setaccepted_cb = qhoverevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -797,7 +787,6 @@ class VirtualQWheelEvent final : public QWheelEvent {
         auto settimestamp_cb = qwheelevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -814,7 +803,6 @@ class VirtualQWheelEvent final : public QWheelEvent {
         auto setaccepted_cb = qwheelevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -939,7 +927,6 @@ class VirtualQTabletEvent final : public QTabletEvent {
         auto settimestamp_cb = qtabletevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -956,7 +943,6 @@ class VirtualQTabletEvent final : public QTabletEvent {
         auto setaccepted_cb = qtabletevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1083,7 +1069,6 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         auto settimestamp_cb = qnativegestureevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -1100,7 +1085,6 @@ class VirtualQNativeGestureEvent final : public QNativeGestureEvent {
         auto setaccepted_cb = qnativegestureevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1176,7 +1160,6 @@ class VirtualQKeyEvent final : public QKeyEvent {
         auto settimestamp_cb = qkeyevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -1193,7 +1176,6 @@ class VirtualQKeyEvent final : public QKeyEvent {
         auto setaccepted_cb = qkeyevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1257,7 +1239,6 @@ class VirtualQFocusEvent final : public QFocusEvent {
         auto setaccepted_cb = qfocusevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1321,7 +1302,6 @@ class VirtualQPaintEvent final : public QPaintEvent {
         auto setaccepted_cb = qpaintevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1384,7 +1364,6 @@ class VirtualQMoveEvent final : public QMoveEvent {
         auto setaccepted_cb = qmoveevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1447,7 +1426,6 @@ class VirtualQExposeEvent final : public QExposeEvent {
         auto setaccepted_cb = qexposeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1510,7 +1488,6 @@ class VirtualQPlatformSurfaceEvent final : public QPlatformSurfaceEvent {
         auto setaccepted_cb = qplatformsurfaceevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1573,7 +1550,6 @@ class VirtualQResizeEvent final : public QResizeEvent {
         auto setaccepted_cb = qresizeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1636,7 +1612,6 @@ class VirtualQCloseEvent final : public QCloseEvent {
         auto setaccepted_cb = qcloseevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1699,7 +1674,6 @@ class VirtualQIconDragEvent final : public QIconDragEvent {
         auto setaccepted_cb = qicondragevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1762,7 +1736,6 @@ class VirtualQShowEvent final : public QShowEvent {
         auto setaccepted_cb = qshowevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1825,7 +1798,6 @@ class VirtualQHideEvent final : public QHideEvent {
         auto setaccepted_cb = qhideevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1895,7 +1867,6 @@ class VirtualQContextMenuEvent final : public QContextMenuEvent {
         auto settimestamp_cb = qcontextmenuevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -1912,7 +1883,6 @@ class VirtualQContextMenuEvent final : public QContextMenuEvent {
         auto setaccepted_cb = qcontextmenuevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -1976,7 +1946,6 @@ class VirtualQInputMethodEvent final : public QInputMethodEvent {
         auto setaccepted_cb = qinputmethodevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2039,7 +2008,6 @@ class VirtualQInputMethodQueryEvent final : public QInputMethodQueryEvent {
         auto setaccepted_cb = qinputmethodqueryevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2103,7 +2071,6 @@ class VirtualQDropEvent final : public QDropEvent {
         auto setaccepted_cb = qdropevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2167,7 +2134,6 @@ class VirtualQDragMoveEvent final : public QDragMoveEvent {
         auto setaccepted_cb = qdragmoveevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2230,7 +2196,6 @@ class VirtualQDragEnterEvent final : public QDragEnterEvent {
         auto setaccepted_cb = qdragenterevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2293,7 +2258,6 @@ class VirtualQDragLeaveEvent final : public QDragLeaveEvent {
         auto setaccepted_cb = qdragleaveevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2356,7 +2320,6 @@ class VirtualQHelpEvent final : public QHelpEvent {
         auto setaccepted_cb = qhelpevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2419,7 +2382,6 @@ class VirtualQStatusTipEvent final : public QStatusTipEvent {
         auto setaccepted_cb = qstatustipevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2482,7 +2444,6 @@ class VirtualQWhatsThisClickedEvent final : public QWhatsThisClickedEvent {
         auto setaccepted_cb = qwhatsthisclickedevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2546,7 +2507,6 @@ class VirtualQActionEvent final : public QActionEvent {
         auto setaccepted_cb = qactionevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2610,7 +2570,6 @@ class VirtualQFileOpenEvent final : public QFileOpenEvent {
         auto setaccepted_cb = qfileopenevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2673,7 +2632,6 @@ class VirtualQToolBarChangeEvent final : public QToolBarChangeEvent {
         auto setaccepted_cb = qtoolbarchangeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2740,7 +2698,6 @@ class VirtualQShortcutEvent final : public QShortcutEvent {
         auto setaccepted_cb = qshortcutevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2804,7 +2761,6 @@ class VirtualQWindowStateChangeEvent final : public QWindowStateChangeEvent {
         auto setaccepted_cb = qwindowstatechangeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -2934,7 +2890,6 @@ class VirtualQTouchEvent final : public QTouchEvent {
         auto settimestamp_cb = qtouchevent_settimestamp_callback;
         if (settimestamp_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(timestamp);
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -2951,7 +2906,6 @@ class VirtualQTouchEvent final : public QTouchEvent {
         auto setaccepted_cb = qtouchevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -3014,7 +2968,6 @@ class VirtualQScrollPrepareEvent final : public QScrollPrepareEvent {
         auto setaccepted_cb = qscrollprepareevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -3077,7 +3030,6 @@ class VirtualQScrollEvent final : public QScrollEvent {
         auto setaccepted_cb = qscrollevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -3140,7 +3092,6 @@ class VirtualQScreenOrientationChangeEvent final : public QScreenOrientationChan
         auto setaccepted_cb = qscreenorientationchangeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -3203,7 +3154,6 @@ class VirtualQApplicationStateChangeEvent final : public QApplicationStateChange
         auto setaccepted_cb = qapplicationstatechangeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -3266,7 +3216,6 @@ class VirtualQChildWindowEvent final : public QChildWindowEvent {
         auto setaccepted_cb = qchildwindowevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

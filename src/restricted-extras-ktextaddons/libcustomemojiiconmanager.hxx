@@ -127,10 +127,11 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
             memcpy((void*)customIdentifier_str, customIdentifier_b.data(), customIdentifier_str_len);
             ((char*)customIdentifier_str)[customIdentifier_str_len] = '\0';
             const char* cbval1 = customIdentifier_str;
-
             QIcon* callback_ret = generateicon_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(customIdentifier_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return TextEmoticonsCore__CustomEmojiIconManager::generateIcon(customIdentifier);
     }
@@ -151,7 +152,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
             memcpy((void*)customIdentifier_str, customIdentifier_b.data(), customIdentifier_str_len);
             ((char*)customIdentifier_str)[customIdentifier_str_len] = '\0';
             const char* cbval1 = customIdentifier_str;
-
             const char* callback_ret = filename_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(customIdentifier_str);
@@ -183,7 +183,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         auto metacast_cb = textemoticonscore__customemojiiconmanager_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -201,7 +200,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -217,7 +215,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         auto event_cb = textemoticonscore__customemojiiconmanager_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -234,7 +231,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -251,7 +247,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         auto timerevent_cb = textemoticonscore__customemojiiconmanager_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -268,7 +263,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         auto childevent_cb = textemoticonscore__customemojiiconmanager_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -285,7 +279,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         auto customevent_cb = textemoticonscore__customemojiiconmanager_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -304,7 +297,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -323,7 +315,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -367,7 +358,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         auto receivers_cb = textemoticonscore__customemojiiconmanager_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -385,7 +375,6 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

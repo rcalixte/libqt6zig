@@ -149,7 +149,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto metacast_cb = qplacedetailsreply_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -167,7 +166,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -212,7 +210,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto event_cb = qplacedetailsreply_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -229,7 +226,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -246,7 +242,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto timerevent_cb = qplacedetailsreply_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -263,7 +258,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto childevent_cb = qplacedetailsreply_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -280,7 +274,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto customevent_cb = qplacedetailsreply_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -299,7 +292,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -318,7 +310,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -337,7 +328,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
             const QPlace& place_ret = place;
             // Cast returned reference into pointer
             QPlace* cbval1 = const_cast<QPlace*>(&place_ret);
-
             setplace_cb(this, cbval1);
             return;
         }
@@ -354,7 +344,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto setfinished_cb = qplacedetailsreply_setfinished_callback;
         if (setfinished_cb) {
             bool cbval1 = finished;
-
             setfinished_cb(this, cbval1);
             return;
         }
@@ -379,7 +368,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval2 = errorString_str;
-
             seterror_cb(this, cbval1, cbval2);
             libqt_free(errorString_str);
             return;
@@ -424,7 +412,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
         auto receivers_cb = qplacedetailsreply_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -442,7 +429,6 @@ class VirtualQPlaceDetailsReply final : public QPlaceDetailsReply {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

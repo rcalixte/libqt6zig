@@ -184,7 +184,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         auto metacast_cb = qstyleditemdelegate_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -202,7 +201,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -225,7 +223,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             paint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -246,9 +243,10 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = sizehint_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QStyledItemDelegate::sizeHint(option, index);
     }
@@ -268,7 +266,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -288,7 +285,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             seteditordata_cb(this, cbval1, cbval2);
             return;
         }
@@ -309,7 +305,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             setmodeldata_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -332,7 +327,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             updateeditorgeometry_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -353,7 +347,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QLocale& locale_ret = locale;
             // Cast returned reference into pointer
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
-
             const char* callback_ret = displaytext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -374,7 +367,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             initstyleoption_cb(this, cbval1, cbval2);
             return;
         }
@@ -391,7 +383,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -414,7 +405,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = editorevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -434,7 +424,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             destroyeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -457,7 +446,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = helpevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -494,7 +482,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         auto event_cb = qstyleditemdelegate_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -511,7 +498,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         auto timerevent_cb = qstyleditemdelegate_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -528,7 +514,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         auto childevent_cb = qstyleditemdelegate_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -545,7 +530,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         auto customevent_cb = qstyleditemdelegate_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -564,7 +548,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -583,7 +566,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -627,7 +609,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
         auto receivers_cb = qstyleditemdelegate_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -645,7 +626,6 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

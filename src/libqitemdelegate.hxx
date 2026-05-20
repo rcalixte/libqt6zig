@@ -229,7 +229,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         auto metacast_cb = qitemdelegate_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -247,7 +246,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -270,7 +268,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             paint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -291,9 +288,10 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = sizehint_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QItemDelegate::sizeHint(option, index);
     }
@@ -313,7 +311,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             QWidget* callback_ret = createeditor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -333,7 +330,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             seteditordata_cb(this, cbval1, cbval2);
             return;
         }
@@ -354,7 +350,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             setmodeldata_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -377,7 +372,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             updateeditorgeometry_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -408,7 +402,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval4 = text_str;
-
             drawdisplay_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(text_str);
             return;
@@ -435,7 +428,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval4 = const_cast<QPixmap*>(&pixmap_ret);
-
             drawdecoration_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -458,7 +450,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval3 = const_cast<QRect*>(&rect_ret);
-
             drawfocus_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -482,7 +473,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             // Cast returned reference into pointer
             QRect* cbval3 = const_cast<QRect*>(&rect_ret);
             int cbval4 = static_cast<int>(state);
-
             drawcheck_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -499,7 +489,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -522,7 +511,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = editorevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -542,7 +530,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             destroyeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -565,7 +552,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = helpevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -602,7 +588,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         auto event_cb = qitemdelegate_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -619,7 +604,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         auto timerevent_cb = qitemdelegate_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -636,7 +620,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         auto childevent_cb = qitemdelegate_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -653,7 +636,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         auto customevent_cb = qitemdelegate_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -672,7 +654,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -691,7 +672,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -714,7 +694,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             drawbackground_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -737,7 +716,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             QRect* cbval3 = iconRect;
             QRect* cbval4 = textRect;
             bool cbval5 = hint;
-
             dolayout_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return;
         }
@@ -759,9 +737,10 @@ class VirtualQItemDelegate final : public QItemDelegate {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
             int cbval3 = role;
-
             QRect* callback_ret = rect_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QItemDelegate::rect(option, index, role);
     }
@@ -780,9 +759,10 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QStyleOptionViewItem& option_ret = option;
             // Cast returned reference into pointer
             QStyleOptionViewItem* cbval2 = const_cast<QStyleOptionViewItem*>(&option_ret);
-
             QStyleOptionViewItem* callback_ret = setoptions_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QItemDelegate::setOptions(index, option);
     }
@@ -801,9 +781,10 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
-
             QPixmap* callback_ret = decoration_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QItemDelegate::decoration(option, variant);
     }
@@ -825,9 +806,10 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&variant_ret);
-
             QRect* callback_ret = docheck_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QItemDelegate::doCheck(option, bounding, variant);
     }
@@ -855,10 +837,11 @@ class VirtualQItemDelegate final : public QItemDelegate {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval4 = text_str;
-
             QRect* callback_ret = textrectangle_cb(this, cbval1, cbval2, cbval3, cbval4);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(text_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QItemDelegate::textRectangle(painter, rect, font, text);
     }
@@ -900,7 +883,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
         auto receivers_cb = qitemdelegate_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -918,7 +900,6 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

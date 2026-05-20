@@ -329,7 +329,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto metacast_cb = qscilexervhdl_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -347,7 +346,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -364,7 +362,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto setfoldcomments_cb = qscilexervhdl_setfoldcomments_callback;
         if (setfoldcomments_cb) {
             bool cbval1 = fold;
-
             setfoldcomments_cb(this, cbval1);
             return;
         }
@@ -381,7 +378,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto setfoldcompact_cb = qscilexervhdl_setfoldcompact_callback;
         if (setfoldcompact_cb) {
             bool cbval1 = fold;
-
             setfoldcompact_cb(this, cbval1);
             return;
         }
@@ -398,7 +394,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto setfoldatelse_cb = qscilexervhdl_setfoldatelse_callback;
         if (setfoldatelse_cb) {
             bool cbval1 = fold;
-
             setfoldatelse_cb(this, cbval1);
             return;
         }
@@ -415,7 +410,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto setfoldatbegin_cb = qscilexervhdl_setfoldatbegin_callback;
         if (setfoldatbegin_cb) {
             bool cbval1 = fold;
-
             setfoldatbegin_cb(this, cbval1);
             return;
         }
@@ -432,7 +426,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto setfoldatparenthesis_cb = qscilexervhdl_setfoldatparenthesis_callback;
         if (setfoldatparenthesis_cb) {
             bool cbval1 = fold;
-
             setfoldatparenthesis_cb(this, cbval1);
             return;
         }
@@ -523,7 +516,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto blockend_cb = qscilexervhdl_blockend_callback;
         if (blockend_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockend_cb(this, cbval1);
             return callback_ret;
         }
@@ -553,7 +545,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto blockstart_cb = qscilexervhdl_blockstart_callback;
         if (blockstart_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockstart_cb(this, cbval1);
             return callback_ret;
         }
@@ -569,7 +560,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto blockstartkeyword_cb = qscilexervhdl_blockstartkeyword_callback;
         if (blockstartkeyword_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockstartkeyword_cb(this, cbval1);
             return callback_ret;
         }
@@ -613,9 +603,10 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto color_cb = qscilexervhdl_color_callback;
         if (color_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = color_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerVHDL::color(style);
     }
@@ -629,7 +620,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto eolfill_cb = qscilexervhdl_eolfill_callback;
         if (eolfill_cb) {
             int cbval1 = style;
-
             bool callback_ret = eolfill_cb(this, cbval1);
             return callback_ret;
         }
@@ -645,9 +635,10 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto font_cb = qscilexervhdl_font_callback;
         if (font_cb) {
             int cbval1 = style;
-
             QFont* callback_ret = font_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerVHDL::font(style);
     }
@@ -675,7 +666,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto keywords_cb = qscilexervhdl_keywords_callback;
         if (keywords_cb) {
             int cbval1 = set;
-
             const char* callback_ret = keywords_cb(this, cbval1);
             return callback_ret;
         }
@@ -701,7 +691,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto description_cb = qscilexervhdl_description_callback;
         if (description_cb) {
             int cbval1 = style;
-
             const char* callback_ret = description_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -718,9 +707,10 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto paper_cb = qscilexervhdl_paper_callback;
         if (paper_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = paper_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerVHDL::paper(style);
     }
@@ -734,9 +724,10 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto defaultcolor2_cb = qscilexervhdl_defaultcolor2_callback;
         if (defaultcolor2_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = defaultcolor2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerVHDL::defaultColor(style);
     }
@@ -750,7 +741,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto defaulteolfill_cb = qscilexervhdl_defaulteolfill_callback;
         if (defaulteolfill_cb) {
             int cbval1 = style;
-
             bool callback_ret = defaulteolfill_cb(this, cbval1);
             return callback_ret;
         }
@@ -766,9 +756,10 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto defaultfont2_cb = qscilexervhdl_defaultfont2_callback;
         if (defaultfont2_cb) {
             int cbval1 = style;
-
             QFont* callback_ret = defaultfont2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerVHDL::defaultFont(style);
     }
@@ -782,9 +773,10 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto defaultpaper2_cb = qscilexervhdl_defaultpaper2_callback;
         if (defaultpaper2_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = defaultpaper2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerVHDL::defaultPaper(style);
     }
@@ -799,7 +791,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto seteditor_cb = qscilexervhdl_seteditor_callback;
         if (seteditor_cb) {
             QsciScintilla* cbval1 = editor;
-
             seteditor_cb(this, cbval1);
             return;
         }
@@ -859,7 +850,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto setautoindentstyle_cb = qscilexervhdl_setautoindentstyle_callback;
         if (setautoindentstyle_cb) {
             int cbval1 = autoindentstyle;
-
             setautoindentstyle_cb(this, cbval1);
             return;
         }
@@ -879,7 +869,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
-
             setcolor_cb(this, cbval1, cbval2);
             return;
         }
@@ -897,7 +886,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         if (seteolfill_cb) {
             bool cbval1 = eoffill;
             int cbval2 = style;
-
             seteolfill_cb(this, cbval1, cbval2);
             return;
         }
@@ -917,7 +905,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&f_ret);
             int cbval2 = style;
-
             setfont_cb(this, cbval1, cbval2);
             return;
         }
@@ -937,7 +924,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
-
             setpaper_cb(this, cbval1, cbval2);
             return;
         }
@@ -963,7 +949,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
-
             bool callback_ret = readproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
@@ -990,7 +975,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
-
             bool callback_ret = writeproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
@@ -1007,7 +991,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto event_cb = qscilexervhdl_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1024,7 +1007,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1041,7 +1023,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto timerevent_cb = qscilexervhdl_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1058,7 +1039,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto childevent_cb = qscilexervhdl_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1075,7 +1055,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto customevent_cb = qscilexervhdl_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1094,7 +1073,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1113,7 +1091,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1136,7 +1113,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             libqt_string callback_ret = textasbytes_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             libqt_free(text_str);
@@ -1155,7 +1131,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         if (bytesastext_cb) {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
-
             const char* callback_ret = bytesastext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -1200,7 +1175,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
         auto receivers_cb = qscilexervhdl_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1218,7 +1192,6 @@ class VirtualQsciLexerVHDL final : public QsciLexerVHDL {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

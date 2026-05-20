@@ -358,7 +358,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto metacast_cb = qprintpreviewwidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -376,7 +375,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -393,7 +391,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto setvisible_cb = qprintpreviewwidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -423,7 +420,9 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto sizehint_cb = qprintpreviewwidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPrintPreviewWidget::sizeHint();
     }
@@ -437,7 +436,9 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto minimumsizehint_cb = qprintpreviewwidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPrintPreviewWidget::minimumSizeHint();
     }
@@ -451,7 +452,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto heightforwidth_cb = qprintpreviewwidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -495,7 +495,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto event_cb = qprintpreviewwidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -512,7 +511,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto mousepressevent_cb = qprintpreviewwidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -529,7 +527,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto mousereleaseevent_cb = qprintpreviewwidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -546,7 +543,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto mousedoubleclickevent_cb = qprintpreviewwidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -563,7 +559,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto mousemoveevent_cb = qprintpreviewwidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -580,7 +575,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto wheelevent_cb = qprintpreviewwidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -597,7 +591,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto keypressevent_cb = qprintpreviewwidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -614,7 +607,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto keyreleaseevent_cb = qprintpreviewwidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -631,7 +623,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto focusinevent_cb = qprintpreviewwidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -648,7 +639,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto focusoutevent_cb = qprintpreviewwidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -665,7 +655,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto enterevent_cb = qprintpreviewwidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -682,7 +671,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto leaveevent_cb = qprintpreviewwidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -699,7 +687,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto paintevent_cb = qprintpreviewwidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -716,7 +703,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto moveevent_cb = qprintpreviewwidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -733,7 +719,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto resizeevent_cb = qprintpreviewwidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -750,7 +735,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto closeevent_cb = qprintpreviewwidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -767,7 +751,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto contextmenuevent_cb = qprintpreviewwidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -784,7 +767,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto tabletevent_cb = qprintpreviewwidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -801,7 +783,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto actionevent_cb = qprintpreviewwidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -818,7 +799,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto dragenterevent_cb = qprintpreviewwidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -835,7 +815,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto dragmoveevent_cb = qprintpreviewwidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -852,7 +831,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto dragleaveevent_cb = qprintpreviewwidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -869,7 +847,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto dropevent_cb = qprintpreviewwidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -886,7 +863,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto showevent_cb = qprintpreviewwidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -903,7 +879,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto hideevent_cb = qprintpreviewwidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -927,7 +902,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -945,7 +919,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto changeevent_cb = qprintpreviewwidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -961,7 +934,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto metric_cb = qprintpreviewwidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -978,7 +950,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto initpainter_cb = qprintpreviewwidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -994,7 +965,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto redirected_cb = qprintpreviewwidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1025,7 +995,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto inputmethodevent_cb = qprintpreviewwidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1041,9 +1010,10 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto inputmethodquery_cb = qprintpreviewwidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPrintPreviewWidget::inputMethodQuery(param1);
     }
@@ -1057,7 +1027,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto focusnextprevchild_cb = qprintpreviewwidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1074,7 +1043,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1091,7 +1059,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto timerevent_cb = qprintpreviewwidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1108,7 +1075,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto childevent_cb = qprintpreviewwidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1125,7 +1091,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto customevent_cb = qprintpreviewwidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1144,7 +1109,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1163,7 +1127,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1280,7 +1243,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         auto receivers_cb = qprintpreviewwidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1298,7 +1260,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1315,7 +1276,6 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

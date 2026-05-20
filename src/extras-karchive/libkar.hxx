@@ -155,7 +155,6 @@ class VirtualKAr final : public KAr {
             const QDateTime& ctime_ret = ctime;
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
-
             bool callback_ret = dopreparewriting_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(user_str);
@@ -174,7 +173,6 @@ class VirtualKAr final : public KAr {
         auto dofinishwriting_cb = kar_dofinishwriting_callback;
         if (dofinishwriting_cb) {
             long long cbval1 = static_cast<long long>(size);
-
             bool callback_ret = dofinishwriting_cb(this, cbval1);
             return callback_ret;
         }
@@ -223,7 +221,6 @@ class VirtualKAr final : public KAr {
             const QDateTime& ctime_ret = ctime;
             // Cast returned reference into pointer
             QDateTime* cbval7 = const_cast<QDateTime*>(&ctime_ret);
-
             bool callback_ret = dowritedir_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(name_str);
             libqt_free(user_str);
@@ -283,7 +280,6 @@ class VirtualKAr final : public KAr {
             const QDateTime& ctime_ret = ctime;
             // Cast returned reference into pointer
             QDateTime* cbval8 = const_cast<QDateTime*>(&ctime_ret);
-
             bool callback_ret = dowritesymlink_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(name_str);
             libqt_free(target_str);
@@ -303,7 +299,6 @@ class VirtualKAr final : public KAr {
         auto openarchive_cb = kar_openarchive_callback;
         if (openarchive_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = openarchive_cb(this, cbval1);
             return callback_ret;
         }
@@ -335,7 +330,6 @@ class VirtualKAr final : public KAr {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }
@@ -351,7 +345,6 @@ class VirtualKAr final : public KAr {
         auto open_cb = kar_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -396,7 +389,6 @@ class VirtualKAr final : public KAr {
         if (dowritedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(size);
-
             bool callback_ret = dowritedata_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -412,7 +404,6 @@ class VirtualKAr final : public KAr {
         auto createdevice_cb = kar_createdevice_callback;
         if (createdevice_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = createdevice_cb(this, cbval1);
             return callback_ret;
         }
@@ -436,7 +427,6 @@ class VirtualKAr final : public KAr {
             memcpy((void*)errorStr_str, errorStr_b.data(), errorStr_str_len);
             ((char*)errorStr_str)[errorStr_str_len] = '\0';
             const char* cbval1 = errorStr_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorStr_str);
             return;
@@ -460,7 +450,6 @@ class VirtualKAr final : public KAr {
             memcpy((void*)path_str, path_b.data(), path_str_len);
             ((char*)path_str)[path_str_len] = '\0';
             const char* cbval1 = path_str;
-
             KArchiveDirectory* callback_ret = findorcreate_cb(this, cbval1);
             libqt_free(path_str);
             return callback_ret;
@@ -478,7 +467,6 @@ class VirtualKAr final : public KAr {
         auto setdevice_cb = kar_setdevice_callback;
         if (setdevice_cb) {
             QIODevice* cbval1 = dev;
-
             setdevice_cb(this, cbval1);
             return;
         }
@@ -495,7 +483,6 @@ class VirtualKAr final : public KAr {
         auto setrootdir_cb = kar_setrootdir_callback;
         if (setrootdir_cb) {
             KArchiveDirectory* cbval1 = rootDir;
-
             setrootdir_cb(this, cbval1);
             return;
         }

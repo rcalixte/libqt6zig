@@ -178,7 +178,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto metacast_cb = qgeoareamonitorsource_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -196,7 +195,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -213,7 +211,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto setpositioninfosource_cb = qgeoareamonitorsource_setpositioninfosource_callback;
         if (setpositioninfosource_cb) {
             QGeoPositionInfoSource* cbval1 = source;
-
             setpositioninfosource_cb(this, cbval1);
             return;
         }
@@ -261,7 +258,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QGeoAreaMonitorInfo& monitor_ret = monitor;
             // Cast returned reference into pointer
             QGeoAreaMonitorInfo* cbval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
-
             bool callback_ret = startmonitoring_cb(this, cbval1);
             return callback_ret;
         }
@@ -275,7 +271,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QGeoAreaMonitorInfo& monitor_ret = monitor;
             // Cast returned reference into pointer
             QGeoAreaMonitorInfo* cbval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
-
             bool callback_ret = stopmonitoring_cb(this, cbval1);
             return callback_ret;
         }
@@ -290,7 +285,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             // Cast returned reference into pointer
             QGeoAreaMonitorInfo* cbval1 = const_cast<QGeoAreaMonitorInfo*>(&monitor_ret);
             const char* cbval2 = (const char*)signal;
-
             bool callback_ret = requestupdate_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -321,7 +315,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QGeoShape& lookupArea_ret = lookupArea;
             // Cast returned reference into pointer
             QGeoShape* cbval1 = const_cast<QGeoShape*>(&lookupArea_ret);
-
             libqt_list /* of QGeoAreaMonitorInfo* */ callback_ret = activemonitors2_cb(this, cbval1);
             QList<QGeoAreaMonitorInfo> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -354,7 +347,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -378,10 +370,11 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QVariant* callback_ret = backendproperty_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(name_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QGeoAreaMonitorSource::backendProperty(name);
     }
@@ -395,7 +388,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto event_cb = qgeoareamonitorsource_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -412,7 +404,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -429,7 +420,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto timerevent_cb = qgeoareamonitorsource_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -446,7 +436,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto childevent_cb = qgeoareamonitorsource_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -463,7 +452,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto customevent_cb = qgeoareamonitorsource_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -482,7 +470,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -501,7 +488,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -545,7 +531,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
         auto receivers_cb = qgeoareamonitorsource_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -563,7 +548,6 @@ class VirtualQGeoAreaMonitorSource : public QGeoAreaMonitorSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

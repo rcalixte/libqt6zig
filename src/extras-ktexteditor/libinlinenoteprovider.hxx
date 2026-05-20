@@ -158,7 +158,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto metacast_cb = ktexteditor__inlinenoteprovider_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -176,7 +175,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -188,7 +186,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto inlinenotes_cb = ktexteditor__inlinenoteprovider_inlinenotes_callback;
         if (inlinenotes_cb) {
             int cbval1 = line;
-
             libqt_list /* of int */ callback_ret = inlinenotes_cb(this, cbval1);
             QList<int> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -209,9 +206,10 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
-
             QSize* callback_ret = inlinenotesize_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -227,7 +225,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             // Cast returned reference into pointer
             QPainter* cbval2 = &painter_ret;
             int cbval3 = static_cast<int>(direction);
-
             paintinlinenote_cb(this, cbval1, cbval2, cbval3);
         }
     }
@@ -248,7 +245,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const QPoint& globalPos_ret = globalPos;
             // Cast returned reference into pointer
             QPoint* cbval3 = const_cast<QPoint*>(&globalPos_ret);
-
             inlinenoteactivated_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -270,7 +266,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const QPoint& globalPos_ret = globalPos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&globalPos_ret);
-
             inlinenotefocusinevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -289,7 +284,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const KTextEditor::InlineNote& note_ret = note;
             // Cast returned reference into pointer
             KTextEditor__InlineNote* cbval1 = const_cast<KTextEditor::InlineNote*>(&note_ret);
-
             inlinenotefocusoutevent_cb(this, cbval1);
             return;
         }
@@ -311,7 +305,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const QPoint& globalPos_ret = globalPos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&globalPos_ret);
-
             inlinenotemousemoveevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -327,7 +320,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto event_cb = ktexteditor__inlinenoteprovider_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -344,7 +336,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -361,7 +352,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto timerevent_cb = ktexteditor__inlinenoteprovider_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -378,7 +368,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto childevent_cb = ktexteditor__inlinenoteprovider_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -395,7 +384,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto customevent_cb = ktexteditor__inlinenoteprovider_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -414,7 +402,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -433,7 +420,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -477,7 +463,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
         auto receivers_cb = ktexteditor__inlinenoteprovider_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -495,7 +480,6 @@ class VirtualKTextEditorInlineNoteProvider : public KTextEditor::InlineNoteProvi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

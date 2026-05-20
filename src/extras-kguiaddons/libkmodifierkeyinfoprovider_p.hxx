@@ -138,7 +138,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         auto metacast_cb = kmodifierkeyinfoprovider_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -156,7 +155,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -173,7 +171,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         if (setkeylatched_cb) {
             int cbval1 = static_cast<int>(key);
             bool cbval2 = latched;
-
             bool callback_ret = setkeylatched_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -190,7 +187,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         if (setkeylocked_cb) {
             int cbval1 = static_cast<int>(key);
             bool cbval2 = locked;
-
             bool callback_ret = setkeylocked_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -206,7 +202,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         auto event_cb = kmodifierkeyinfoprovider_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -223,7 +218,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -240,7 +234,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         auto timerevent_cb = kmodifierkeyinfoprovider_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -257,7 +250,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         auto childevent_cb = kmodifierkeyinfoprovider_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -274,7 +266,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         auto customevent_cb = kmodifierkeyinfoprovider_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -293,7 +284,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -312,7 +302,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -330,7 +319,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         if (stateupdated_cb) {
             int cbval1 = static_cast<int>(key);
             int cbval2 = static_cast<int>(state);
-
             stateupdated_cb(this, cbval1, cbval2);
             return;
         }
@@ -374,7 +362,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
         auto receivers_cb = kmodifierkeyinfoprovider_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -392,7 +379,6 @@ class VirtualKModifierKeyInfoProvider final : public KModifierKeyInfoProvider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

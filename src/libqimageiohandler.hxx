@@ -110,7 +110,6 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         auto read_cb = qimageiohandler_read_callback;
         if (read_cb) {
             QImage* cbval1 = image;
-
             bool callback_ret = read_cb(this, cbval1);
             return callback_ret;
         }
@@ -128,7 +127,6 @@ class VirtualQImageIOHandler : public QImageIOHandler {
             const QImage& image_ret = image;
             // Cast returned reference into pointer
             QImage* cbval1 = const_cast<QImage*>(&image_ret);
-
             bool callback_ret = write_cb(this, cbval1);
             return callback_ret;
         }
@@ -144,9 +142,10 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         auto option_cb = qimageiohandler_option_callback;
         if (option_cb) {
             int cbval1 = static_cast<int>(option);
-
             QVariant* callback_ret = option_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QImageIOHandler::option(option);
     }
@@ -164,7 +163,6 @@ class VirtualQImageIOHandler : public QImageIOHandler {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setoption_cb(this, cbval1, cbval2);
             return;
         }
@@ -180,7 +178,6 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         auto supportsoption_cb = qimageiohandler_supportsoption_callback;
         if (supportsoption_cb) {
             int cbval1 = static_cast<int>(option);
-
             bool callback_ret = supportsoption_cb(this, cbval1);
             return callback_ret;
         }
@@ -210,7 +207,6 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         auto jumptoimage_cb = qimageiohandler_jumptoimage_callback;
         if (jumptoimage_cb) {
             int cbval1 = imageNumber;
-
             bool callback_ret = jumptoimage_cb(this, cbval1);
             return callback_ret;
         }
@@ -282,7 +278,9 @@ class VirtualQImageIOHandler : public QImageIOHandler {
         auto currentimagerect_cb = qimageiohandler_currentimagerect_callback;
         if (currentimagerect_cb) {
             QRect* callback_ret = currentimagerect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QImageIOHandler::currentImageRect();
     }
@@ -413,7 +411,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         auto metacast_cb = qimageioplugin_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -431,7 +428,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -449,7 +445,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             format_str.data = static_cast<char*>(malloc(format_str.len));
             memcpy((void*)format_str.data, format_qb.data(), format_str.len);
             libqt_string cbval2 = format_str;
-
             int callback_ret = capabilities_cb(this, cbval1, cbval2);
             libqt_free(format_str.data);
             return static_cast<QImageIOPlugin::Capabilities>(callback_ret);
@@ -468,7 +463,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             format_str.data = static_cast<char*>(malloc(format_str.len));
             memcpy((void*)format_str.data, format_qb.data(), format_str.len);
             libqt_string cbval2 = format_str;
-
             QImageIOHandler* callback_ret = create_cb(this, cbval1, cbval2);
             libqt_free(format_str.data);
             return callback_ret;
@@ -485,7 +479,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         auto event_cb = qimageioplugin_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -502,7 +495,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -519,7 +511,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         auto timerevent_cb = qimageioplugin_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -536,7 +527,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         auto childevent_cb = qimageioplugin_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -553,7 +543,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         auto customevent_cb = qimageioplugin_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -572,7 +561,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -591,7 +579,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -635,7 +622,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
         auto receivers_cb = qimageioplugin_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -653,7 +639,6 @@ class VirtualQImageIOPlugin : public QImageIOPlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -174,7 +174,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto metacast_cb = qvpiemodelmapper_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -192,7 +191,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -208,7 +206,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto event_cb = qvpiemodelmapper_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -225,7 +222,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -242,7 +238,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto timerevent_cb = qvpiemodelmapper_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -259,7 +254,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto childevent_cb = qvpiemodelmapper_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -276,7 +270,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto customevent_cb = qvpiemodelmapper_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -295,7 +288,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -314,7 +306,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -345,7 +336,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto setfirst_cb = qvpiemodelmapper_setfirst_callback;
         if (setfirst_cb) {
             int cbval1 = first;
-
             setfirst_cb(this, cbval1);
             return;
         }
@@ -376,7 +366,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto setcount_cb = qvpiemodelmapper_setcount_callback;
         if (setcount_cb) {
             int cbval1 = count;
-
             setcount_cb(this, cbval1);
             return;
         }
@@ -407,7 +396,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto setvaluessection_cb = qvpiemodelmapper_setvaluessection_callback;
         if (setvaluessection_cb) {
             int cbval1 = valuesSection;
-
             setvaluessection_cb(this, cbval1);
             return;
         }
@@ -438,7 +426,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto setlabelssection_cb = qvpiemodelmapper_setlabelssection_callback;
         if (setlabelssection_cb) {
             int cbval1 = labelsSection;
-
             setlabelssection_cb(this, cbval1);
             return;
         }
@@ -469,7 +456,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto setorientation_cb = qvpiemodelmapper_setorientation_callback;
         if (setorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
-
             setorientation_cb(this, cbval1);
             return;
         }
@@ -513,7 +499,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
         auto receivers_cb = qvpiemodelmapper_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -531,7 +516,6 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

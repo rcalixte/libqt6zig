@@ -354,7 +354,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto metacast_cb = knewpasswordwidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -372,7 +371,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -403,7 +401,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto setvisible_cb = knewpasswordwidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -419,7 +416,9 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto sizehint_cb = knewpasswordwidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KNewPasswordWidget::sizeHint();
     }
@@ -433,7 +432,9 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto minimumsizehint_cb = knewpasswordwidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KNewPasswordWidget::minimumSizeHint();
     }
@@ -447,7 +448,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto heightforwidth_cb = knewpasswordwidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -491,7 +491,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto event_cb = knewpasswordwidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -508,7 +507,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto mousepressevent_cb = knewpasswordwidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -525,7 +523,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto mousereleaseevent_cb = knewpasswordwidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -542,7 +539,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto mousedoubleclickevent_cb = knewpasswordwidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -559,7 +555,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto mousemoveevent_cb = knewpasswordwidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -576,7 +571,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto wheelevent_cb = knewpasswordwidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -593,7 +587,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto keypressevent_cb = knewpasswordwidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -610,7 +603,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto keyreleaseevent_cb = knewpasswordwidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -627,7 +619,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto focusinevent_cb = knewpasswordwidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -644,7 +635,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto focusoutevent_cb = knewpasswordwidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -661,7 +651,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto enterevent_cb = knewpasswordwidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -678,7 +667,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto leaveevent_cb = knewpasswordwidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -695,7 +683,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto paintevent_cb = knewpasswordwidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -712,7 +699,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto moveevent_cb = knewpasswordwidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -729,7 +715,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto resizeevent_cb = knewpasswordwidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -746,7 +731,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto closeevent_cb = knewpasswordwidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -763,7 +747,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto contextmenuevent_cb = knewpasswordwidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -780,7 +763,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto tabletevent_cb = knewpasswordwidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -797,7 +779,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto actionevent_cb = knewpasswordwidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -814,7 +795,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto dragenterevent_cb = knewpasswordwidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -831,7 +811,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto dragmoveevent_cb = knewpasswordwidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -848,7 +827,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto dragleaveevent_cb = knewpasswordwidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -865,7 +843,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto dropevent_cb = knewpasswordwidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -882,7 +859,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto showevent_cb = knewpasswordwidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -899,7 +875,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto hideevent_cb = knewpasswordwidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -923,7 +898,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -941,7 +915,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto changeevent_cb = knewpasswordwidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -957,7 +930,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto metric_cb = knewpasswordwidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -974,7 +946,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto initpainter_cb = knewpasswordwidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -990,7 +961,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto redirected_cb = knewpasswordwidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1021,7 +991,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto inputmethodevent_cb = knewpasswordwidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1037,9 +1006,10 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto inputmethodquery_cb = knewpasswordwidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KNewPasswordWidget::inputMethodQuery(param1);
     }
@@ -1053,7 +1023,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto focusnextprevchild_cb = knewpasswordwidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1070,7 +1039,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1087,7 +1055,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto timerevent_cb = knewpasswordwidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1104,7 +1071,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto childevent_cb = knewpasswordwidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1121,7 +1087,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto customevent_cb = knewpasswordwidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1140,7 +1105,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1159,7 +1123,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1276,7 +1239,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         auto receivers_cb = knewpasswordwidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1294,7 +1256,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1311,7 +1272,6 @@ class VirtualKNewPasswordWidget final : public KNewPasswordWidget {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

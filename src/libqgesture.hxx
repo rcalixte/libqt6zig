@@ -124,7 +124,6 @@ class VirtualQGesture final : public QGesture {
         auto metacast_cb = qgesture_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -142,7 +141,6 @@ class VirtualQGesture final : public QGesture {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -158,7 +156,6 @@ class VirtualQGesture final : public QGesture {
         auto event_cb = qgesture_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -175,7 +172,6 @@ class VirtualQGesture final : public QGesture {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -192,7 +188,6 @@ class VirtualQGesture final : public QGesture {
         auto timerevent_cb = qgesture_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -209,7 +204,6 @@ class VirtualQGesture final : public QGesture {
         auto childevent_cb = qgesture_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -226,7 +220,6 @@ class VirtualQGesture final : public QGesture {
         auto customevent_cb = qgesture_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -245,7 +238,6 @@ class VirtualQGesture final : public QGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -264,7 +256,6 @@ class VirtualQGesture final : public QGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -308,7 +299,6 @@ class VirtualQGesture final : public QGesture {
         auto receivers_cb = qgesture_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -326,7 +316,6 @@ class VirtualQGesture final : public QGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -469,7 +458,6 @@ class VirtualQPanGesture final : public QPanGesture {
         auto metacast_cb = qpangesture_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -487,7 +475,6 @@ class VirtualQPanGesture final : public QPanGesture {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -503,7 +490,6 @@ class VirtualQPanGesture final : public QPanGesture {
         auto event_cb = qpangesture_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -520,7 +506,6 @@ class VirtualQPanGesture final : public QPanGesture {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -537,7 +522,6 @@ class VirtualQPanGesture final : public QPanGesture {
         auto timerevent_cb = qpangesture_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -554,7 +538,6 @@ class VirtualQPanGesture final : public QPanGesture {
         auto childevent_cb = qpangesture_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -571,7 +554,6 @@ class VirtualQPanGesture final : public QPanGesture {
         auto customevent_cb = qpangesture_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +572,6 @@ class VirtualQPanGesture final : public QPanGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -609,7 +590,6 @@ class VirtualQPanGesture final : public QPanGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -653,7 +633,6 @@ class VirtualQPanGesture final : public QPanGesture {
         auto receivers_cb = qpangesture_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -671,7 +650,6 @@ class VirtualQPanGesture final : public QPanGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -814,7 +792,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         auto metacast_cb = qpinchgesture_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -832,7 +809,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -848,7 +824,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         auto event_cb = qpinchgesture_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -865,7 +840,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -882,7 +856,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         auto timerevent_cb = qpinchgesture_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -899,7 +872,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         auto childevent_cb = qpinchgesture_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -916,7 +888,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         auto customevent_cb = qpinchgesture_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -935,7 +906,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -954,7 +924,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -998,7 +967,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
         auto receivers_cb = qpinchgesture_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1016,7 +984,6 @@ class VirtualQPinchGesture final : public QPinchGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1159,7 +1126,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         auto metacast_cb = qswipegesture_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1177,7 +1143,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1193,7 +1158,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         auto event_cb = qswipegesture_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1210,7 +1174,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1227,7 +1190,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         auto timerevent_cb = qswipegesture_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1244,7 +1206,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         auto childevent_cb = qswipegesture_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1261,7 +1222,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         auto customevent_cb = qswipegesture_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1280,7 +1240,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1299,7 +1258,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1343,7 +1301,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
         auto receivers_cb = qswipegesture_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1361,7 +1318,6 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1504,7 +1460,6 @@ class VirtualQTapGesture final : public QTapGesture {
         auto metacast_cb = qtapgesture_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1522,7 +1477,6 @@ class VirtualQTapGesture final : public QTapGesture {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1538,7 +1492,6 @@ class VirtualQTapGesture final : public QTapGesture {
         auto event_cb = qtapgesture_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1555,7 +1508,6 @@ class VirtualQTapGesture final : public QTapGesture {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1572,7 +1524,6 @@ class VirtualQTapGesture final : public QTapGesture {
         auto timerevent_cb = qtapgesture_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1589,7 +1540,6 @@ class VirtualQTapGesture final : public QTapGesture {
         auto childevent_cb = qtapgesture_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1606,7 +1556,6 @@ class VirtualQTapGesture final : public QTapGesture {
         auto customevent_cb = qtapgesture_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1625,7 +1574,6 @@ class VirtualQTapGesture final : public QTapGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1644,7 +1592,6 @@ class VirtualQTapGesture final : public QTapGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1688,7 +1635,6 @@ class VirtualQTapGesture final : public QTapGesture {
         auto receivers_cb = qtapgesture_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1706,7 +1652,6 @@ class VirtualQTapGesture final : public QTapGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1849,7 +1794,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         auto metacast_cb = qtapandholdgesture_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1867,7 +1811,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1883,7 +1826,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         auto event_cb = qtapandholdgesture_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1900,7 +1842,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1917,7 +1858,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         auto timerevent_cb = qtapandholdgesture_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1934,7 +1874,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         auto childevent_cb = qtapandholdgesture_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1951,7 +1890,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         auto customevent_cb = qtapandholdgesture_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1970,7 +1908,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1989,7 +1926,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2033,7 +1969,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
         auto receivers_cb = qtapandholdgesture_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2051,7 +1986,6 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2121,7 +2055,6 @@ class VirtualQGestureEvent final : public QGestureEvent {
         auto setaccepted_cb = qgestureevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

@@ -415,7 +415,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto metacast_cb = kassistantdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -433,7 +432,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -480,7 +478,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto showevent_cb = kassistantdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -497,7 +494,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto setvisible_cb = kassistantdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -513,7 +509,9 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto sizehint_cb = kassistantdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KAssistantDialog::sizeHint();
     }
@@ -527,7 +525,9 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto minimumsizehint_cb = kassistantdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KAssistantDialog::minimumSizeHint();
     }
@@ -571,7 +571,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto done_cb = kassistantdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -618,7 +617,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto keypressevent_cb = kassistantdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -635,7 +633,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto closeevent_cb = kassistantdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -652,7 +649,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto resizeevent_cb = kassistantdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -669,7 +665,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto contextmenuevent_cb = kassistantdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -686,7 +681,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -716,7 +710,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto heightforwidth_cb = kassistantdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -760,7 +753,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto event_cb = kassistantdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -777,7 +769,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto mousepressevent_cb = kassistantdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -794,7 +785,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto mousereleaseevent_cb = kassistantdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -811,7 +801,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto mousedoubleclickevent_cb = kassistantdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -828,7 +817,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto mousemoveevent_cb = kassistantdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -845,7 +833,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto wheelevent_cb = kassistantdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -862,7 +849,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto keyreleaseevent_cb = kassistantdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -879,7 +865,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto focusinevent_cb = kassistantdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -896,7 +881,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto focusoutevent_cb = kassistantdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -913,7 +897,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto enterevent_cb = kassistantdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -930,7 +913,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto leaveevent_cb = kassistantdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -947,7 +929,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto paintevent_cb = kassistantdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -964,7 +945,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto moveevent_cb = kassistantdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -981,7 +961,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto tabletevent_cb = kassistantdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -998,7 +977,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto actionevent_cb = kassistantdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1015,7 +993,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto dragenterevent_cb = kassistantdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1032,7 +1009,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto dragmoveevent_cb = kassistantdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1049,7 +1025,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto dragleaveevent_cb = kassistantdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1066,7 +1041,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto dropevent_cb = kassistantdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1083,7 +1057,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto hideevent_cb = kassistantdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1107,7 +1080,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1125,7 +1097,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto changeevent_cb = kassistantdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1141,7 +1112,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto metric_cb = kassistantdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1158,7 +1128,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto initpainter_cb = kassistantdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1174,7 +1143,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto redirected_cb = kassistantdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1205,7 +1173,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto inputmethodevent_cb = kassistantdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1221,9 +1188,10 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto inputmethodquery_cb = kassistantdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KAssistantDialog::inputMethodQuery(param1);
     }
@@ -1237,7 +1205,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto focusnextprevchild_cb = kassistantdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1254,7 +1221,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto timerevent_cb = kassistantdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1271,7 +1237,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto childevent_cb = kassistantdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1288,7 +1253,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto customevent_cb = kassistantdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1307,7 +1271,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1326,7 +1289,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1357,7 +1319,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto setpagewidget_cb = kassistantdialog_setpagewidget_callback;
         if (setpagewidget_cb) {
             KPageWidget* cbval1 = widget;
-
             setpagewidget_cb(this, cbval1);
             return;
         }
@@ -1388,7 +1349,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto setbuttonbox_cb = kassistantdialog_setbuttonbox_callback;
         if (setbuttonbox_cb) {
             QDialogButtonBox* cbval1 = box;
-
             setbuttonbox_cb(this, cbval1);
             return;
         }
@@ -1405,7 +1365,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto adjustposition_cb = kassistantdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1522,7 +1481,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         auto receivers_cb = kassistantdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1540,7 +1498,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1557,7 +1514,6 @@ class VirtualKAssistantDialog final : public KAssistantDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

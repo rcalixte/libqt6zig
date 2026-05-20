@@ -134,7 +134,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto metacast_cb = qgraphicstransform_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -152,7 +151,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -164,7 +162,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto applyto_cb = qgraphicstransform_applyto_callback;
         if (applyto_cb) {
             QMatrix4x4* cbval1 = matrix;
-
             applyto_cb(this, cbval1);
         }
     }
@@ -178,7 +175,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto event_cb = qgraphicstransform_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -195,7 +191,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -212,7 +207,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto timerevent_cb = qgraphicstransform_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -229,7 +223,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto childevent_cb = qgraphicstransform_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -246,7 +239,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto customevent_cb = qgraphicstransform_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -265,7 +257,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -284,7 +275,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -343,7 +333,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
         auto receivers_cb = qgraphicstransform_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -361,7 +350,6 @@ class VirtualQGraphicsTransform : public QGraphicsTransform {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -516,7 +504,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto metacast_cb = qgraphicsscale_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -534,7 +521,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -551,7 +537,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto applyto_cb = qgraphicsscale_applyto_callback;
         if (applyto_cb) {
             QMatrix4x4* cbval1 = matrix;
-
             applyto_cb(this, cbval1);
             return;
         }
@@ -567,7 +552,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto event_cb = qgraphicsscale_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -584,7 +568,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -601,7 +584,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto timerevent_cb = qgraphicsscale_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -618,7 +600,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto childevent_cb = qgraphicsscale_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -635,7 +616,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto customevent_cb = qgraphicsscale_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -654,7 +634,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -673,7 +652,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -732,7 +710,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
         auto receivers_cb = qgraphicsscale_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -750,7 +727,6 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -905,7 +881,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto metacast_cb = qgraphicsrotation_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -923,7 +898,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -940,7 +914,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto applyto_cb = qgraphicsrotation_applyto_callback;
         if (applyto_cb) {
             QMatrix4x4* cbval1 = matrix;
-
             applyto_cb(this, cbval1);
             return;
         }
@@ -956,7 +929,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto event_cb = qgraphicsrotation_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -973,7 +945,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -990,7 +961,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto timerevent_cb = qgraphicsrotation_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1007,7 +977,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto childevent_cb = qgraphicsrotation_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1024,7 +993,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto customevent_cb = qgraphicsrotation_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1043,7 +1011,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1062,7 +1029,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1121,7 +1087,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
         auto receivers_cb = qgraphicsrotation_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1139,7 +1104,6 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

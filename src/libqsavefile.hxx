@@ -236,7 +236,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto metacast_cb = qsavefile_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -254,7 +253,6 @@ class VirtualQSaveFile final : public QSaveFile {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -285,7 +283,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto open_cb = qsavefile_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(flags);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -302,7 +299,6 @@ class VirtualQSaveFile final : public QSaveFile {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -346,7 +342,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto seek_cb = qsavefile_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(offset);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -390,7 +385,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto resize_cb = qsavefile_resize_callback;
         if (resize_cb) {
             long long cbval1 = static_cast<long long>(sz);
-
             bool callback_ret = resize_cb(this, cbval1);
             return callback_ret;
         }
@@ -420,7 +414,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto setpermissions_cb = qsavefile_setpermissions_callback;
         if (setpermissions_cb) {
             int cbval1 = static_cast<int>(permissionSpec);
-
             bool callback_ret = setpermissions_cb(this, cbval1);
             return callback_ret;
         }
@@ -437,7 +430,6 @@ class VirtualQSaveFile final : public QSaveFile {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -454,7 +446,6 @@ class VirtualQSaveFile final : public QSaveFile {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -526,7 +517,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto waitforreadyread_cb = qsavefile_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -542,7 +532,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto waitforbyteswritten_cb = qsavefile_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -558,7 +547,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto skipdata_cb = qsavefile_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -574,7 +562,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto event_cb = qsavefile_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -591,7 +578,6 @@ class VirtualQSaveFile final : public QSaveFile {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -608,7 +594,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto timerevent_cb = qsavefile_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -625,7 +610,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto childevent_cb = qsavefile_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -642,7 +626,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto customevent_cb = qsavefile_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -661,7 +644,6 @@ class VirtualQSaveFile final : public QSaveFile {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -680,7 +662,6 @@ class VirtualQSaveFile final : public QSaveFile {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -697,7 +678,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto setopenmode_cb = qsavefile_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -721,7 +701,6 @@ class VirtualQSaveFile final : public QSaveFile {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -766,7 +745,6 @@ class VirtualQSaveFile final : public QSaveFile {
         auto receivers_cb = qsavefile_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -784,7 +762,6 @@ class VirtualQSaveFile final : public QSaveFile {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

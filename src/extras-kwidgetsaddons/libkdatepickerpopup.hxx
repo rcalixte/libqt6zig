@@ -366,7 +366,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto metacast_cb = kdatepickerpopup_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -384,7 +383,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -400,7 +398,9 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto sizehint_cb = kdatepickerpopup_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KDatePickerPopup::sizeHint();
     }
@@ -415,7 +415,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto changeevent_cb = kdatepickerpopup_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -432,7 +431,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto keypressevent_cb = kdatepickerpopup_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -449,7 +447,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto mousereleaseevent_cb = kdatepickerpopup_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -466,7 +463,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto mousepressevent_cb = kdatepickerpopup_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -483,7 +479,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto mousemoveevent_cb = kdatepickerpopup_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -500,7 +495,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto wheelevent_cb = kdatepickerpopup_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -517,7 +511,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto enterevent_cb = kdatepickerpopup_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -534,7 +527,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto leaveevent_cb = kdatepickerpopup_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = param1;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -551,7 +543,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto hideevent_cb = kdatepickerpopup_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -568,7 +559,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto paintevent_cb = kdatepickerpopup_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -585,7 +575,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto actionevent_cb = kdatepickerpopup_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -602,7 +591,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto timerevent_cb = kdatepickerpopup_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -618,7 +606,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto event_cb = kdatepickerpopup_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -634,7 +621,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto focusnextprevchild_cb = kdatepickerpopup_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -652,7 +638,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (initstyleoption_cb) {
             QStyleOptionMenuItem* cbval1 = option;
             QAction* cbval2 = (QAction*)action;
-
             initstyleoption_cb(this, cbval1, cbval2);
             return;
         }
@@ -683,7 +668,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto setvisible_cb = kdatepickerpopup_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -699,7 +683,9 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto minimumsizehint_cb = kdatepickerpopup_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KDatePickerPopup::minimumSizeHint();
     }
@@ -713,7 +699,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto heightforwidth_cb = kdatepickerpopup_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -758,7 +743,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto mousedoubleclickevent_cb = kdatepickerpopup_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -775,7 +759,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto keyreleaseevent_cb = kdatepickerpopup_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -792,7 +775,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto focusinevent_cb = kdatepickerpopup_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -809,7 +791,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto focusoutevent_cb = kdatepickerpopup_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -826,7 +807,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto moveevent_cb = kdatepickerpopup_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -843,7 +823,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto resizeevent_cb = kdatepickerpopup_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -860,7 +839,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto closeevent_cb = kdatepickerpopup_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -877,7 +855,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto contextmenuevent_cb = kdatepickerpopup_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -894,7 +871,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto tabletevent_cb = kdatepickerpopup_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -911,7 +887,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto dragenterevent_cb = kdatepickerpopup_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -928,7 +903,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto dragmoveevent_cb = kdatepickerpopup_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -945,7 +919,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto dragleaveevent_cb = kdatepickerpopup_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -962,7 +935,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto dropevent_cb = kdatepickerpopup_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -979,7 +951,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto showevent_cb = kdatepickerpopup_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1003,7 +974,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1020,7 +990,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto metric_cb = kdatepickerpopup_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1037,7 +1006,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto initpainter_cb = kdatepickerpopup_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1053,7 +1021,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto redirected_cb = kdatepickerpopup_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1084,7 +1051,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto inputmethodevent_cb = kdatepickerpopup_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1100,9 +1066,10 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto inputmethodquery_cb = kdatepickerpopup_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KDatePickerPopup::inputMethodQuery(param1);
     }
@@ -1117,7 +1084,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1134,7 +1100,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto childevent_cb = kdatepickerpopup_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1151,7 +1116,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto customevent_cb = kdatepickerpopup_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1170,7 +1134,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1189,7 +1152,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1320,7 +1282,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         auto receivers_cb = kdatepickerpopup_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1338,7 +1299,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1355,7 +1315,6 @@ class VirtualKDatePickerPopup final : public KDatePickerPopup {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

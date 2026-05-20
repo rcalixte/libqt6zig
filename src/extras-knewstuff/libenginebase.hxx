@@ -134,7 +134,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         auto metacast_cb = knscore__enginebase_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -152,7 +151,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -175,7 +173,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
             memcpy((void*)configfile_str, configfile_b.data(), configfile_str_len);
             ((char*)configfile_str)[configfile_str_len] = '\0';
             const char* cbval1 = configfile_str;
-
             bool callback_ret = init_cb(this, cbval1);
             libqt_free(configfile_str);
             return callback_ret;
@@ -207,7 +204,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         auto event_cb = knscore__enginebase_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -224,7 +220,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -241,7 +236,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         auto timerevent_cb = knscore__enginebase_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -258,7 +252,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         auto childevent_cb = knscore__enginebase_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -275,7 +268,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         auto customevent_cb = knscore__enginebase_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -294,7 +286,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -313,7 +304,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -357,7 +347,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         auto receivers_cb = knscore__enginebase_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -375,7 +364,6 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -449,7 +449,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto metacast_cb = texttranslator__translatortextedit_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -467,7 +466,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -484,7 +482,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto dropevent_cb = texttranslator__translatortextedit_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -503,9 +500,10 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
-
             QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::loadResource(typeVal, name);
     }
@@ -519,9 +517,10 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto inputmethodquery_cb = texttranslator__translatortextedit_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(property);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::inputMethodQuery(property);
     }
@@ -535,7 +534,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto event_cb = texttranslator__translatortextedit_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -552,7 +550,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto timerevent_cb = texttranslator__translatortextedit_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -569,7 +566,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto keypressevent_cb = texttranslator__translatortextedit_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -586,7 +582,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto keyreleaseevent_cb = texttranslator__translatortextedit_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -603,7 +598,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto resizeevent_cb = texttranslator__translatortextedit_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -620,7 +614,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto paintevent_cb = texttranslator__translatortextedit_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -637,7 +630,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto mousepressevent_cb = texttranslator__translatortextedit_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -654,7 +646,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto mousemoveevent_cb = texttranslator__translatortextedit_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -671,7 +662,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto mousereleaseevent_cb = texttranslator__translatortextedit_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -688,7 +678,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto mousedoubleclickevent_cb = texttranslator__translatortextedit_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -704,7 +693,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto focusnextprevchild_cb = texttranslator__translatortextedit_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -721,7 +709,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto contextmenuevent_cb = texttranslator__translatortextedit_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -738,7 +725,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto dragenterevent_cb = texttranslator__translatortextedit_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -755,7 +741,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto dragleaveevent_cb = texttranslator__translatortextedit_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -772,7 +757,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto dragmoveevent_cb = texttranslator__translatortextedit_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -789,7 +773,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto focusinevent_cb = texttranslator__translatortextedit_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -806,7 +789,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto focusoutevent_cb = texttranslator__translatortextedit_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -823,7 +805,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto showevent_cb = texttranslator__translatortextedit_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -840,7 +821,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto changeevent_cb = texttranslator__translatortextedit_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -857,7 +837,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto wheelevent_cb = texttranslator__translatortextedit_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -887,7 +866,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto caninsertfrommimedata_cb = texttranslator__translatortextedit_caninsertfrommimedata_callback;
         if (caninsertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
-
             bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
             return callback_ret;
         }
@@ -904,7 +882,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto insertfrommimedata_cb = texttranslator__translatortextedit_insertfrommimedata_callback;
         if (insertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
-
             insertfrommimedata_cb(this, cbval1);
             return;
         }
@@ -921,7 +898,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto inputmethodevent_cb = texttranslator__translatortextedit_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -939,7 +915,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -958,7 +933,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
-
             dosettextcursor_cb(this, cbval1);
             return;
         }
@@ -974,7 +948,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto minimumsizehint_cb = texttranslator__translatortextedit_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::minimumSizeHint();
     }
@@ -988,7 +964,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto sizehint_cb = texttranslator__translatortextedit_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::sizeHint();
     }
@@ -1003,7 +981,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto setupviewport_cb = texttranslator__translatortextedit_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1020,7 +997,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1036,7 +1012,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto viewportevent_cb = texttranslator__translatortextedit_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1052,7 +1027,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto viewportsizehint_cb = texttranslator__translatortextedit_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::viewportSizeHint();
     }
@@ -1067,7 +1044,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto initstyleoption_cb = texttranslator__translatortextedit_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1098,7 +1074,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto setvisible_cb = texttranslator__translatortextedit_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1114,7 +1089,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto heightforwidth_cb = texttranslator__translatortextedit_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1159,7 +1133,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto enterevent_cb = texttranslator__translatortextedit_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1176,7 +1149,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto leaveevent_cb = texttranslator__translatortextedit_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1193,7 +1165,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto moveevent_cb = texttranslator__translatortextedit_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1210,7 +1181,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto closeevent_cb = texttranslator__translatortextedit_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1227,7 +1197,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto tabletevent_cb = texttranslator__translatortextedit_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1244,7 +1213,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto actionevent_cb = texttranslator__translatortextedit_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1261,7 +1229,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto hideevent_cb = texttranslator__translatortextedit_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1285,7 +1252,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1302,7 +1268,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto metric_cb = texttranslator__translatortextedit_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1319,7 +1284,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto initpainter_cb = texttranslator__translatortextedit_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1335,7 +1299,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto redirected_cb = texttranslator__translatortextedit_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1366,7 +1329,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto childevent_cb = texttranslator__translatortextedit_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1383,7 +1345,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto customevent_cb = texttranslator__translatortextedit_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1402,7 +1363,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1421,7 +1381,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1437,7 +1396,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto firstvisibleblock_cb = texttranslator__translatortextedit_firstvisibleblock_callback;
         if (firstvisibleblock_cb) {
             QTextBlock* callback_ret = firstvisibleblock_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::firstVisibleBlock();
     }
@@ -1451,7 +1412,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto contentoffset_cb = texttranslator__translatortextedit_contentoffset_callback;
         if (contentoffset_cb) {
             QPointF* callback_ret = contentoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::contentOffset();
     }
@@ -1467,9 +1430,10 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
-
             QRectF* callback_ret = blockboundingrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::blockBoundingRect(block);
     }
@@ -1485,9 +1449,10 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
-
             QRectF* callback_ret = blockboundinggeometry_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::blockBoundingGeometry(block);
     }
@@ -1501,7 +1466,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto getpaintcontext_cb = texttranslator__translatortextedit_getpaintcontext_callback;
         if (getpaintcontext_cb) {
             QAbstractTextDocumentLayout__PaintContext* callback_ret = getpaintcontext_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::getPaintContext();
     }
@@ -1516,7 +1483,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto zoominf_cb = texttranslator__translatortextedit_zoominf_callback;
         if (zoominf_cb) {
             float cbval1 = range;
-
             zoominf_cb(this, cbval1);
             return;
         }
@@ -1536,7 +1502,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1552,7 +1517,9 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto viewportmargins_cb = texttranslator__translatortextedit_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorTextEdit::viewportMargins();
     }
@@ -1567,7 +1534,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto drawframe_cb = texttranslator__translatortextedit_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1684,7 +1650,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         auto receivers_cb = texttranslator__translatortextedit_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1702,7 +1667,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1719,7 +1683,6 @@ class VirtualTextTranslatorTranslatorTextEdit final : public TextTranslator::Tra
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -2208,7 +2171,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto metacast_cb = texttranslator__translatorwidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -2226,7 +2188,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -2242,7 +2203,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto event_cb = texttranslator__translatorwidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2273,7 +2233,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto setvisible_cb = texttranslator__translatorwidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2289,7 +2248,9 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto sizehint_cb = texttranslator__translatorwidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorWidget::sizeHint();
     }
@@ -2303,7 +2264,9 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto minimumsizehint_cb = texttranslator__translatorwidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorWidget::minimumSizeHint();
     }
@@ -2317,7 +2280,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto heightforwidth_cb = texttranslator__translatorwidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2362,7 +2324,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto mousepressevent_cb = texttranslator__translatorwidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2379,7 +2340,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto mousereleaseevent_cb = texttranslator__translatorwidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2396,7 +2356,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto mousedoubleclickevent_cb = texttranslator__translatorwidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2413,7 +2372,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto mousemoveevent_cb = texttranslator__translatorwidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2430,7 +2388,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto wheelevent_cb = texttranslator__translatorwidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2447,7 +2404,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto keypressevent_cb = texttranslator__translatorwidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2464,7 +2420,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto keyreleaseevent_cb = texttranslator__translatorwidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2481,7 +2436,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto focusinevent_cb = texttranslator__translatorwidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2498,7 +2452,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto focusoutevent_cb = texttranslator__translatorwidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2515,7 +2468,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto enterevent_cb = texttranslator__translatorwidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2532,7 +2484,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto leaveevent_cb = texttranslator__translatorwidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2549,7 +2500,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto paintevent_cb = texttranslator__translatorwidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2566,7 +2516,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto moveevent_cb = texttranslator__translatorwidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2583,7 +2532,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto resizeevent_cb = texttranslator__translatorwidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2600,7 +2548,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto closeevent_cb = texttranslator__translatorwidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2617,7 +2564,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto contextmenuevent_cb = texttranslator__translatorwidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2634,7 +2580,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto tabletevent_cb = texttranslator__translatorwidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2651,7 +2596,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto actionevent_cb = texttranslator__translatorwidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2668,7 +2612,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto dragenterevent_cb = texttranslator__translatorwidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2685,7 +2628,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto dragmoveevent_cb = texttranslator__translatorwidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2702,7 +2644,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto dragleaveevent_cb = texttranslator__translatorwidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2719,7 +2660,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto dropevent_cb = texttranslator__translatorwidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2736,7 +2676,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto showevent_cb = texttranslator__translatorwidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2753,7 +2692,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto hideevent_cb = texttranslator__translatorwidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2777,7 +2715,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2795,7 +2732,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto changeevent_cb = texttranslator__translatorwidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2811,7 +2747,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto metric_cb = texttranslator__translatorwidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2828,7 +2763,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto initpainter_cb = texttranslator__translatorwidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2844,7 +2778,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto redirected_cb = texttranslator__translatorwidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2875,7 +2808,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto inputmethodevent_cb = texttranslator__translatorwidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2891,9 +2823,10 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto inputmethodquery_cb = texttranslator__translatorwidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextTranslator__TranslatorWidget::inputMethodQuery(param1);
     }
@@ -2907,7 +2840,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto focusnextprevchild_cb = texttranslator__translatorwidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2924,7 +2856,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2941,7 +2872,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto timerevent_cb = texttranslator__translatorwidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2958,7 +2888,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto childevent_cb = texttranslator__translatorwidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2975,7 +2904,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto customevent_cb = texttranslator__translatorwidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2994,7 +2922,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -3013,7 +2940,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -3130,7 +3056,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         auto receivers_cb = texttranslator__translatorwidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3148,7 +3073,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3165,7 +3089,6 @@ class VirtualTextTranslatorTranslatorWidget final : public TextTranslator::Trans
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

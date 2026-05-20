@@ -697,7 +697,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto metacast_cb = qheaderview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -715,7 +714,6 @@ class VirtualQHeaderView final : public QHeaderView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -732,7 +730,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto setmodel_cb = qheaderview_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -748,7 +745,9 @@ class VirtualQHeaderView final : public QHeaderView {
         auto sizehint_cb = qheaderview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::sizeHint();
     }
@@ -763,7 +762,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto setvisible_cb = qheaderview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = v;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -815,7 +813,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QModelIndex& old_ret = old;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&old_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -831,7 +828,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto event_cb = qheaderview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -848,7 +844,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto paintevent_cb = qheaderview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -865,7 +860,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto mousepressevent_cb = qheaderview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -882,7 +876,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto mousemoveevent_cb = qheaderview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -899,7 +892,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto mousereleaseevent_cb = qheaderview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -916,7 +908,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto mousedoubleclickevent_cb = qheaderview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -932,7 +923,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto viewportevent_cb = qheaderview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -953,7 +943,6 @@ class VirtualQHeaderView final : public QHeaderView {
             // Cast returned reference into pointer
             QRect* cbval2 = const_cast<QRect*>(&rect_ret);
             int cbval3 = logicalIndex;
-
             paintsection_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -969,9 +958,10 @@ class VirtualQHeaderView final : public QHeaderView {
         auto sectionsizefromcontents_cb = qheaderview_sectionsizefromcontents_callback;
         if (sectionsizefromcontents_cb) {
             int cbval1 = logicalIndex;
-
             QSize* callback_ret = sectionsizefromcontents_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::sectionSizeFromContents(logicalIndex);
     }
@@ -1030,7 +1020,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -1062,7 +1051,6 @@ class VirtualQHeaderView final : public QHeaderView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -1084,7 +1072,6 @@ class VirtualQHeaderView final : public QHeaderView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1102,9 +1089,10 @@ class VirtualQHeaderView final : public QHeaderView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::visualRect(index);
     }
@@ -1122,7 +1110,6 @@ class VirtualQHeaderView final : public QHeaderView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
             return;
         }
@@ -1140,9 +1127,10 @@ class VirtualQHeaderView final : public QHeaderView {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::indexAt(p);
     }
@@ -1158,7 +1146,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1175,9 +1162,10 @@ class VirtualQHeaderView final : public QHeaderView {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = static_cast<int>(param2);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::moveCursor(param1, param2);
     }
@@ -1195,7 +1183,6 @@ class VirtualQHeaderView final : public QHeaderView {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(flags);
-
             setselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -1213,9 +1200,10 @@ class VirtualQHeaderView final : public QHeaderView {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::visualRegionForSelection(selection);
     }
@@ -1231,7 +1219,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (initstyleoptionforindex_cb) {
             QStyleOptionHeader* cbval1 = option;
             int cbval2 = logicalIndex;
-
             initstyleoptionforindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -1248,7 +1235,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto initstyleoption_cb = qheaderview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionHeader* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1265,7 +1251,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto setselectionmodel_cb = qheaderview_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -1289,7 +1274,6 @@ class VirtualQHeaderView final : public QHeaderView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -1306,7 +1290,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto sizehintforrow_cb = qheaderview_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1322,7 +1305,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto sizehintforcolumn_cb = qheaderview_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1340,7 +1322,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -1356,9 +1337,10 @@ class VirtualQHeaderView final : public QHeaderView {
         auto inputmethodquery_cb = qheaderview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::inputMethodQuery(query);
     }
@@ -1375,7 +1357,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -1411,7 +1392,6 @@ class VirtualQHeaderView final : public QHeaderView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1433,7 +1413,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1480,7 +1459,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto verticalscrollbaraction_cb = qheaderview_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1497,7 +1475,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto horizontalscrollbaraction_cb = qheaderview_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1514,7 +1491,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto verticalscrollbarvaluechanged_cb = qheaderview_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1531,7 +1507,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto horizontalscrollbarvaluechanged_cb = qheaderview_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1549,7 +1524,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1566,7 +1540,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto commitdata_cb = qheaderview_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1583,7 +1556,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto editordestroyed_cb = qheaderview_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1624,7 +1596,6 @@ class VirtualQHeaderView final : public QHeaderView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1643,7 +1614,6 @@ class VirtualQHeaderView final : public QHeaderView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1660,7 +1630,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto startdrag_cb = qheaderview_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -1677,7 +1646,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto initviewitemoption_cb = qheaderview_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1693,7 +1661,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto focusnextprevchild_cb = qheaderview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1710,7 +1677,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto dragenterevent_cb = qheaderview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1727,7 +1693,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto dragmoveevent_cb = qheaderview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1744,7 +1709,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto dragleaveevent_cb = qheaderview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1761,7 +1725,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto dropevent_cb = qheaderview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1778,7 +1741,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto focusinevent_cb = qheaderview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1795,7 +1757,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto focusoutevent_cb = qheaderview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1812,7 +1773,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto keypressevent_cb = qheaderview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1829,7 +1789,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto resizeevent_cb = qheaderview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1846,7 +1805,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto timerevent_cb = qheaderview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1863,7 +1821,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto inputmethodevent_cb = qheaderview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1880,7 +1837,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1896,7 +1852,9 @@ class VirtualQHeaderView final : public QHeaderView {
         auto viewportsizehint_cb = qheaderview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::viewportSizeHint();
     }
@@ -1910,7 +1868,9 @@ class VirtualQHeaderView final : public QHeaderView {
         auto minimumsizehint_cb = qheaderview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::minimumSizeHint();
     }
@@ -1925,7 +1885,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto setupviewport_cb = qheaderview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1942,7 +1901,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto wheelevent_cb = qheaderview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1959,7 +1917,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto contextmenuevent_cb = qheaderview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1976,7 +1933,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto changeevent_cb = qheaderview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2006,7 +1962,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto heightforwidth_cb = qheaderview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2051,7 +2006,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto keyreleaseevent_cb = qheaderview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2068,7 +2022,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto enterevent_cb = qheaderview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2085,7 +2038,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto leaveevent_cb = qheaderview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2102,7 +2054,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto moveevent_cb = qheaderview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2119,7 +2070,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto closeevent_cb = qheaderview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2136,7 +2086,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto tabletevent_cb = qheaderview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2153,7 +2102,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto actionevent_cb = qheaderview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2170,7 +2118,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto showevent_cb = qheaderview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2187,7 +2134,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto hideevent_cb = qheaderview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2211,7 +2157,6 @@ class VirtualQHeaderView final : public QHeaderView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2228,7 +2173,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto metric_cb = qheaderview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2245,7 +2189,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto initpainter_cb = qheaderview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2261,7 +2204,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto redirected_cb = qheaderview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2292,7 +2234,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto childevent_cb = qheaderview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2309,7 +2250,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto customevent_cb = qheaderview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2328,7 +2268,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2347,7 +2286,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2364,7 +2302,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto updatesection_cb = qheaderview_updatesection_callback;
         if (updatesection_cb) {
             int cbval1 = logicalIndex;
-
             updatesection_cb(this, cbval1);
             return;
         }
@@ -2400,7 +2337,6 @@ class VirtualQHeaderView final : public QHeaderView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = logicalFirst;
             int cbval3 = logicalLast;
-
             sectionsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2421,7 +2357,6 @@ class VirtualQHeaderView final : public QHeaderView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = logicalFirst;
             int cbval3 = logicalLast;
-
             sectionsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2469,7 +2404,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (initializesections2_cb) {
             int cbval1 = start;
             int cbval2 = end;
-
             initializesections2_cb(this, cbval1, cbval2);
             return;
         }
@@ -2500,7 +2434,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto setstate_cb = qheaderview_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2549,7 +2482,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2567,7 +2499,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2583,7 +2514,9 @@ class VirtualQHeaderView final : public QHeaderView {
         auto dirtyregionoffset_cb = qheaderview_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::dirtyRegionOffset();
     }
@@ -2660,7 +2593,6 @@ class VirtualQHeaderView final : public QHeaderView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2676,7 +2608,9 @@ class VirtualQHeaderView final : public QHeaderView {
         auto viewportmargins_cb = qheaderview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QHeaderView::viewportMargins();
     }
@@ -2691,7 +2625,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto drawframe_cb = qheaderview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2808,7 +2741,6 @@ class VirtualQHeaderView final : public QHeaderView {
         auto receivers_cb = qheaderview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2826,7 +2758,6 @@ class VirtualQHeaderView final : public QHeaderView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2843,7 +2774,6 @@ class VirtualQHeaderView final : public QHeaderView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

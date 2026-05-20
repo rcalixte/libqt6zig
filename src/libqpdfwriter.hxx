@@ -189,7 +189,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto metacast_cb = qpdfwriter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -207,7 +206,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -251,7 +249,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto metric_cb = qpdfwriter_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(id);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -267,7 +264,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto event_cb = qpdfwriter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -284,7 +280,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -301,7 +296,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto timerevent_cb = qpdfwriter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -318,7 +312,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto childevent_cb = qpdfwriter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -335,7 +328,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto customevent_cb = qpdfwriter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -354,7 +346,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -373,7 +364,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -391,7 +381,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             const QPageLayout& pageLayout_ret = pageLayout;
             // Cast returned reference into pointer
             QPageLayout* cbval1 = const_cast<QPageLayout*>(&pageLayout_ret);
-
             bool callback_ret = setpagelayout_cb(this, cbval1);
             return callback_ret;
         }
@@ -409,7 +398,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             const QPageSize& pageSize_ret = pageSize;
             // Cast returned reference into pointer
             QPageSize* cbval1 = const_cast<QPageSize*>(&pageSize_ret);
-
             bool callback_ret = setpagesize_cb(this, cbval1);
             return callback_ret;
         }
@@ -425,7 +413,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto setpageorientation_cb = qpdfwriter_setpageorientation_callback;
         if (setpageorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
-
             bool callback_ret = setpageorientation_cb(this, cbval1);
             return callback_ret;
         }
@@ -444,7 +431,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             // Cast returned reference into pointer
             QMarginsF* cbval1 = const_cast<QMarginsF*>(&margins_ret);
             int cbval2 = static_cast<int>(units);
-
             bool callback_ret = setpagemargins_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -463,7 +449,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             const QPageRanges& ranges_ret = ranges;
             // Cast returned reference into pointer
             QPageRanges* cbval1 = const_cast<QPageRanges*>(&ranges_ret);
-
             setpageranges_cb(this, cbval1);
             return;
         }
@@ -494,7 +479,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto initpainter_cb = qpdfwriter_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -510,7 +494,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto redirected_cb = qpdfwriter_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -568,7 +551,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         auto receivers_cb = qpdfwriter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -586,7 +568,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -603,7 +584,6 @@ class VirtualQPdfWriter final : public QPdfWriter {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

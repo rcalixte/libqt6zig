@@ -389,7 +389,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto metacast_cb = kbookmarkdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -407,7 +406,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -439,7 +437,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto setvisible_cb = kbookmarkdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -455,7 +452,9 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto sizehint_cb = kbookmarkdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KBookmarkDialog::sizeHint();
     }
@@ -469,7 +468,9 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto minimumsizehint_cb = kbookmarkdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KBookmarkDialog::minimumSizeHint();
     }
@@ -513,7 +514,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto done_cb = kbookmarkdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -545,7 +545,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto keypressevent_cb = kbookmarkdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -562,7 +561,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto closeevent_cb = kbookmarkdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -579,7 +577,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto showevent_cb = kbookmarkdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -596,7 +593,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto resizeevent_cb = kbookmarkdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -613,7 +609,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto contextmenuevent_cb = kbookmarkdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -630,7 +625,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -660,7 +654,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto heightforwidth_cb = kbookmarkdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -704,7 +697,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto event_cb = kbookmarkdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -721,7 +713,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto mousepressevent_cb = kbookmarkdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -738,7 +729,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto mousereleaseevent_cb = kbookmarkdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -755,7 +745,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto mousedoubleclickevent_cb = kbookmarkdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -772,7 +761,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto mousemoveevent_cb = kbookmarkdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -789,7 +777,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto wheelevent_cb = kbookmarkdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -806,7 +793,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto keyreleaseevent_cb = kbookmarkdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -823,7 +809,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto focusinevent_cb = kbookmarkdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -840,7 +825,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto focusoutevent_cb = kbookmarkdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -857,7 +841,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto enterevent_cb = kbookmarkdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -874,7 +857,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto leaveevent_cb = kbookmarkdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -891,7 +873,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto paintevent_cb = kbookmarkdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -908,7 +889,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto moveevent_cb = kbookmarkdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -925,7 +905,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto tabletevent_cb = kbookmarkdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -942,7 +921,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto actionevent_cb = kbookmarkdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -959,7 +937,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto dragenterevent_cb = kbookmarkdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -976,7 +953,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto dragmoveevent_cb = kbookmarkdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -993,7 +969,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto dragleaveevent_cb = kbookmarkdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1010,7 +985,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto dropevent_cb = kbookmarkdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1027,7 +1001,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto hideevent_cb = kbookmarkdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1051,7 +1024,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1069,7 +1041,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto changeevent_cb = kbookmarkdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1085,7 +1056,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto metric_cb = kbookmarkdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1102,7 +1072,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto initpainter_cb = kbookmarkdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1118,7 +1087,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto redirected_cb = kbookmarkdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1149,7 +1117,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto inputmethodevent_cb = kbookmarkdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1165,9 +1132,10 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto inputmethodquery_cb = kbookmarkdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KBookmarkDialog::inputMethodQuery(param1);
     }
@@ -1181,7 +1149,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto focusnextprevchild_cb = kbookmarkdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1198,7 +1165,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto timerevent_cb = kbookmarkdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1215,7 +1181,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto childevent_cb = kbookmarkdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1232,7 +1197,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto customevent_cb = kbookmarkdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1251,7 +1215,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1270,7 +1233,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1302,7 +1264,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto adjustposition_cb = kbookmarkdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1419,7 +1380,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         auto receivers_cb = kbookmarkdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1437,7 +1397,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1454,7 +1413,6 @@ class VirtualKBookmarkDialog final : public KBookmarkDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

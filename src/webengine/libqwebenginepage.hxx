@@ -161,7 +161,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto metacast_cb = qwebenginepage_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -179,7 +178,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -197,7 +195,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (triggeraction_cb) {
             int cbval1 = static_cast<int>(action);
             bool cbval2 = checked;
-
             triggeraction_cb(this, cbval1, cbval2);
             return;
         }
@@ -213,7 +210,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto event_cb = qwebenginepage_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -229,7 +225,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto createwindow_cb = qwebenginepage_createwindow_callback;
         if (createwindow_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             QWebEnginePage* callback_ret = createwindow_cb(this, cbval1);
             return callback_ret;
         }
@@ -273,7 +268,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             // Append sentinel null terminator to the list
             acceptedMimeTypes_arr[acceptedMimeTypes_ret.size()] = nullptr;
             const char** cbval3 = acceptedMimeTypes_arr;
-
             const char** callback_ret = choosefiles_cb(this, cbval1, cbval2, cbval3);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -311,7 +305,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             memcpy((void*)msg_str, msg_b.data(), msg_str_len);
             ((char*)msg_str)[msg_str_len] = '\0';
             const char* cbval2 = msg_str;
-
             javascriptalert_cb(this, cbval1, cbval2);
             libqt_free(msg_str);
             return;
@@ -338,7 +331,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             memcpy((void*)msg_str, msg_b.data(), msg_str_len);
             ((char*)msg_str)[msg_str_len] = '\0';
             const char* cbval2 = msg_str;
-
             bool callback_ret = javascriptconfirm_cb(this, cbval1, cbval2);
             libqt_free(msg_str);
             return callback_ret;
@@ -373,7 +365,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             memcpy((void*)sourceID_str, sourceID_b.data(), sourceID_str_len);
             ((char*)sourceID_str)[sourceID_str_len] = '\0';
             const char* cbval4 = sourceID_str;
-
             javascriptconsolemessage_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(message_str);
             libqt_free(sourceID_str);
@@ -395,7 +386,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = static_cast<int>(typeVal);
             bool cbval3 = isMainFrame;
-
             bool callback_ret = acceptnavigationrequest_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -412,7 +402,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -429,7 +418,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto timerevent_cb = qwebenginepage_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -446,7 +434,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto childevent_cb = qwebenginepage_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -463,7 +450,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto customevent_cb = qwebenginepage_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -482,7 +468,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -501,7 +486,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -545,7 +529,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto receivers_cb = qwebenginepage_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -563,7 +546,6 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

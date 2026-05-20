@@ -55,7 +55,6 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
         auto joberror_cb = kio__fileundomanager__uiinterface_joberror_callback;
         if (joberror_cb) {
             KIO__Job* cbval1 = job;
-
             joberror_cb(this, cbval1);
             return;
         }
@@ -82,7 +81,6 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
             const QDateTime& destTime_ret = destTime;
             // Cast returned reference into pointer
             QDateTime* cbval4 = const_cast<QDateTime*>(&destTime_ret);
-
             bool callback_ret = copiedfilewasmodified_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -100,7 +98,6 @@ class VirtualKIOFileUndoManagerUiInterface final : public KIO::FileUndoManager::
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }

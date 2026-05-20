@@ -264,7 +264,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto metacast_cb = qgridlayout_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -282,7 +281,6 @@ class VirtualQGridLayout final : public QGridLayout {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -298,7 +296,9 @@ class VirtualQGridLayout final : public QGridLayout {
         auto sizehint_cb = qgridlayout_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGridLayout::sizeHint();
     }
@@ -312,7 +312,9 @@ class VirtualQGridLayout final : public QGridLayout {
         auto minimumsize_cb = qgridlayout_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGridLayout::minimumSize();
     }
@@ -326,7 +328,9 @@ class VirtualQGridLayout final : public QGridLayout {
         auto maximumsize_cb = qgridlayout_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGridLayout::maximumSize();
     }
@@ -341,7 +345,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto setspacing_cb = qgridlayout_setspacing_callback;
         if (setspacing_cb) {
             int cbval1 = spacing;
-
             setspacing_cb(this, cbval1);
             return;
         }
@@ -385,7 +388,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto heightforwidth_cb = qgridlayout_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -401,7 +403,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto minimumheightforwidth_cb = qgridlayout_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -446,7 +447,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto itemat_cb = qgridlayout_itemat_callback;
         if (itemat_cb) {
             int cbval1 = index;
-
             QLayoutItem* callback_ret = itemat_cb(this, cbval1);
             return callback_ret;
         }
@@ -462,7 +462,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto takeat_cb = qgridlayout_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QLayoutItem* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -495,7 +494,6 @@ class VirtualQGridLayout final : public QGridLayout {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -512,7 +510,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto additem2_cb = qgridlayout_additem2_callback;
         if (additem2_cb) {
             QLayoutItem* cbval1 = param1;
-
             additem2_cb(this, cbval1);
             return;
         }
@@ -528,7 +525,9 @@ class VirtualQGridLayout final : public QGridLayout {
         auto geometry_cb = qgridlayout_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGridLayout::geometry();
     }
@@ -542,7 +541,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto indexof_cb = qgridlayout_indexof_callback;
         if (indexof_cb) {
             QWidget* cbval1 = (QWidget*)param1;
-
             int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -588,7 +586,6 @@ class VirtualQGridLayout final : public QGridLayout {
             QWidget* cbval1 = from;
             QWidget* cbval2 = to;
             int cbval3 = static_cast<int>(options);
-
             QLayoutItem* callback_ret = replacewidget_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -619,7 +616,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto childevent_cb = qgridlayout_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = e;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -635,7 +631,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto event_cb = qgridlayout_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -652,7 +647,6 @@ class VirtualQGridLayout final : public QGridLayout {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -669,7 +663,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto timerevent_cb = qgridlayout_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -686,7 +679,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto customevent_cb = qgridlayout_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -705,7 +697,6 @@ class VirtualQGridLayout final : public QGridLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -724,7 +715,6 @@ class VirtualQGridLayout final : public QGridLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -769,7 +759,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto widgetevent_cb = qgridlayout_widgetevent_callback;
         if (widgetevent_cb) {
             QEvent* cbval1 = param1;
-
             widgetevent_cb(this, cbval1);
             return;
         }
@@ -786,7 +775,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto addchildlayout_cb = qgridlayout_addchildlayout_callback;
         if (addchildlayout_cb) {
             QLayout* cbval1 = l;
-
             addchildlayout_cb(this, cbval1);
             return;
         }
@@ -803,7 +791,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto addchildwidget_cb = qgridlayout_addchildwidget_callback;
         if (addchildwidget_cb) {
             QWidget* cbval1 = w;
-
             addchildwidget_cb(this, cbval1);
             return;
         }
@@ -819,7 +806,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto adoptlayout_cb = qgridlayout_adoptlayout_callback;
         if (adoptlayout_cb) {
             QLayout* cbval1 = layout;
-
             bool callback_ret = adoptlayout_cb(this, cbval1);
             return callback_ret;
         }
@@ -837,9 +823,10 @@ class VirtualQGridLayout final : public QGridLayout {
             const QRect& param1_ret = param1;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&param1_ret);
-
             QRect* callback_ret = alignmentrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGridLayout::alignmentRect(param1);
     }
@@ -881,7 +868,6 @@ class VirtualQGridLayout final : public QGridLayout {
         auto receivers_cb = qgridlayout_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -899,7 +885,6 @@ class VirtualQGridLayout final : public QGridLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

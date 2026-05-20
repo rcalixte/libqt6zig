@@ -156,7 +156,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto metacast_cb = qstatemachine_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -174,7 +173,6 @@ class VirtualQStateMachine final : public QStateMachine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -191,7 +189,6 @@ class VirtualQStateMachine final : public QStateMachine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -208,7 +205,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto onentry_cb = qstatemachine_onentry_callback;
         if (onentry_cb) {
             QEvent* cbval1 = event;
-
             onentry_cb(this, cbval1);
             return;
         }
@@ -225,7 +221,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto onexit_cb = qstatemachine_onexit_callback;
         if (onexit_cb) {
             QEvent* cbval1 = event;
-
             onexit_cb(this, cbval1);
             return;
         }
@@ -242,7 +237,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto beginselecttransitions_cb = qstatemachine_beginselecttransitions_callback;
         if (beginselecttransitions_cb) {
             QEvent* cbval1 = event;
-
             beginselecttransitions_cb(this, cbval1);
             return;
         }
@@ -259,7 +253,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto endselecttransitions_cb = qstatemachine_endselecttransitions_callback;
         if (endselecttransitions_cb) {
             QEvent* cbval1 = event;
-
             endselecttransitions_cb(this, cbval1);
             return;
         }
@@ -276,7 +269,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto beginmicrostep_cb = qstatemachine_beginmicrostep_callback;
         if (beginmicrostep_cb) {
             QEvent* cbval1 = event;
-
             beginmicrostep_cb(this, cbval1);
             return;
         }
@@ -293,7 +285,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto endmicrostep_cb = qstatemachine_endmicrostep_callback;
         if (endmicrostep_cb) {
             QEvent* cbval1 = event;
-
             endmicrostep_cb(this, cbval1);
             return;
         }
@@ -309,7 +300,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto event_cb = qstatemachine_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -326,7 +316,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto timerevent_cb = qstatemachine_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -343,7 +332,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto childevent_cb = qstatemachine_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -360,7 +348,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto customevent_cb = qstatemachine_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -379,7 +366,6 @@ class VirtualQStateMachine final : public QStateMachine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -398,7 +384,6 @@ class VirtualQStateMachine final : public QStateMachine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -442,7 +427,6 @@ class VirtualQStateMachine final : public QStateMachine {
         auto receivers_cb = qstatemachine_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -460,7 +444,6 @@ class VirtualQStateMachine final : public QStateMachine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -544,7 +527,6 @@ class VirtualQStateMachineSignalEvent final : public QStateMachine::SignalEvent 
         auto setaccepted_cb = qstatemachine__signalevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -608,7 +590,6 @@ class VirtualQStateMachineWrappedEvent final : public QStateMachine::WrappedEven
         auto setaccepted_cb = qstatemachine__wrappedevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

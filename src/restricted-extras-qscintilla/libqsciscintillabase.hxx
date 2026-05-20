@@ -419,7 +419,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto metacast_cb = qsciscintillabase_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -437,7 +436,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -453,7 +451,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto caninsertfrommimedata_cb = qsciscintillabase_caninsertfrommimedata_callback;
         if (caninsertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
-
             bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
             return callback_ret;
         }
@@ -470,7 +467,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         if (frommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
             bool* cbval2 = &rectangular;
-
             libqt_string callback_ret = frommimedata_cb(this, cbval1, cbval2);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
@@ -493,7 +489,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             memcpy((void*)text_str.data, text_qb.data(), text_str.len);
             libqt_string cbval1 = text_str;
             bool cbval2 = rectangular;
-
             QMimeData* callback_ret = tomimedata_cb(this, cbval1, cbval2);
             libqt_free(text_str.data);
             return callback_ret;
@@ -511,7 +506,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto changeevent_cb = qsciscintillabase_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -528,7 +522,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto contextmenuevent_cb = qsciscintillabase_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -545,7 +538,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto dragenterevent_cb = qsciscintillabase_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -562,7 +554,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto dragleaveevent_cb = qsciscintillabase_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -579,7 +570,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto dragmoveevent_cb = qsciscintillabase_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -596,7 +586,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto dropevent_cb = qsciscintillabase_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = e;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -613,7 +602,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto focusinevent_cb = qsciscintillabase_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -630,7 +618,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto focusoutevent_cb = qsciscintillabase_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -646,7 +633,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto focusnextprevchild_cb = qsciscintillabase_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -663,7 +649,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto keypressevent_cb = qsciscintillabase_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -680,7 +665,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto inputmethodevent_cb = qsciscintillabase_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -696,9 +680,10 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto inputmethodquery_cb = qsciscintillabase_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintillaBase::inputMethodQuery(query);
     }
@@ -713,7 +698,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto mousedoubleclickevent_cb = qsciscintillabase_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -730,7 +714,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto mousemoveevent_cb = qsciscintillabase_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -747,7 +730,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto mousepressevent_cb = qsciscintillabase_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -764,7 +746,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto mousereleaseevent_cb = qsciscintillabase_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -781,7 +762,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto paintevent_cb = qsciscintillabase_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -798,7 +778,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto resizeevent_cb = qsciscintillabase_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -816,7 +795,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -832,7 +810,9 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto minimumsizehint_cb = qsciscintillabase_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintillaBase::minimumSizeHint();
     }
@@ -846,7 +826,9 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto sizehint_cb = qsciscintillabase_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintillaBase::sizeHint();
     }
@@ -861,7 +843,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto setupviewport_cb = qsciscintillabase_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -878,7 +859,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -894,7 +874,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto event_cb = qsciscintillabase_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -910,7 +889,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto viewportevent_cb = qsciscintillabase_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -927,7 +905,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto wheelevent_cb = qsciscintillabase_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -943,7 +920,9 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto viewportsizehint_cb = qsciscintillabase_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintillaBase::viewportSizeHint();
     }
@@ -958,7 +937,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto initstyleoption_cb = qsciscintillabase_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -989,7 +967,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto setvisible_cb = qsciscintillabase_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1005,7 +982,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto heightforwidth_cb = qsciscintillabase_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1050,7 +1026,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto keyreleaseevent_cb = qsciscintillabase_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1067,7 +1042,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto enterevent_cb = qsciscintillabase_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1084,7 +1058,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto leaveevent_cb = qsciscintillabase_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1101,7 +1074,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto moveevent_cb = qsciscintillabase_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1118,7 +1090,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto closeevent_cb = qsciscintillabase_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1135,7 +1106,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto tabletevent_cb = qsciscintillabase_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1152,7 +1122,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto actionevent_cb = qsciscintillabase_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1169,7 +1138,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto showevent_cb = qsciscintillabase_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1186,7 +1154,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto hideevent_cb = qsciscintillabase_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1210,7 +1177,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1227,7 +1193,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto metric_cb = qsciscintillabase_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1244,7 +1209,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto initpainter_cb = qsciscintillabase_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1260,7 +1224,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto redirected_cb = qsciscintillabase_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1291,7 +1254,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto timerevent_cb = qsciscintillabase_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1308,7 +1270,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto childevent_cb = qsciscintillabase_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1325,7 +1286,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto customevent_cb = qsciscintillabase_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1344,7 +1304,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1363,7 +1322,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1395,7 +1353,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         if (contextmenuneeded_cb) {
             int cbval1 = x;
             int cbval2 = y;
-
             bool callback_ret = contextmenuneeded_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1415,7 +1372,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1431,7 +1387,9 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto viewportmargins_cb = qsciscintillabase_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintillaBase::viewportMargins();
     }
@@ -1446,7 +1404,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto drawframe_cb = qsciscintillabase_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1563,7 +1520,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         auto receivers_cb = qsciscintillabase_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1581,7 +1537,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1598,7 +1553,6 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

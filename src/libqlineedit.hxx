@@ -366,7 +366,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto metacast_cb = qlineedit_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -384,7 +383,6 @@ class VirtualQLineEdit final : public QLineEdit {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -400,7 +398,9 @@ class VirtualQLineEdit final : public QLineEdit {
         auto sizehint_cb = qlineedit_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLineEdit::sizeHint();
     }
@@ -414,7 +414,9 @@ class VirtualQLineEdit final : public QLineEdit {
         auto minimumsizehint_cb = qlineedit_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLineEdit::minimumSizeHint();
     }
@@ -429,7 +431,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto mousepressevent_cb = qlineedit_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -446,7 +447,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto mousemoveevent_cb = qlineedit_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -463,7 +463,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto mousereleaseevent_cb = qlineedit_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -480,7 +479,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto mousedoubleclickevent_cb = qlineedit_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -497,7 +495,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto keypressevent_cb = qlineedit_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -514,7 +511,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto keyreleaseevent_cb = qlineedit_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -531,7 +527,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto focusinevent_cb = qlineedit_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -548,7 +543,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto focusoutevent_cb = qlineedit_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -565,7 +559,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto paintevent_cb = qlineedit_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -582,7 +575,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto dragenterevent_cb = qlineedit_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -599,7 +591,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto dragmoveevent_cb = qlineedit_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -616,7 +607,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto dragleaveevent_cb = qlineedit_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -633,7 +623,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto dropevent_cb = qlineedit_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -650,7 +639,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto changeevent_cb = qlineedit_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -667,7 +655,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto contextmenuevent_cb = qlineedit_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -684,7 +671,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto inputmethodevent_cb = qlineedit_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -701,7 +687,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto initstyleoption_cb = qlineedit_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -717,9 +702,10 @@ class VirtualQLineEdit final : public QLineEdit {
         auto inputmethodquery_cb = qlineedit_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLineEdit::inputMethodQuery(param1);
     }
@@ -734,7 +720,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto timerevent_cb = qlineedit_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -750,7 +735,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto event_cb = qlineedit_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -781,7 +765,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto setvisible_cb = qlineedit_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -797,7 +780,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto heightforwidth_cb = qlineedit_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -842,7 +824,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto wheelevent_cb = qlineedit_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -859,7 +840,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto enterevent_cb = qlineedit_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -876,7 +856,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto leaveevent_cb = qlineedit_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -893,7 +872,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto moveevent_cb = qlineedit_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -910,7 +888,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto resizeevent_cb = qlineedit_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -927,7 +904,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto closeevent_cb = qlineedit_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -944,7 +920,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto tabletevent_cb = qlineedit_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -961,7 +936,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto actionevent_cb = qlineedit_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -978,7 +952,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto showevent_cb = qlineedit_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -995,7 +968,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto hideevent_cb = qlineedit_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1019,7 +991,6 @@ class VirtualQLineEdit final : public QLineEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1036,7 +1007,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto metric_cb = qlineedit_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1053,7 +1023,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto initpainter_cb = qlineedit_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1069,7 +1038,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto redirected_cb = qlineedit_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1099,7 +1067,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto focusnextprevchild_cb = qlineedit_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1116,7 +1083,6 @@ class VirtualQLineEdit final : public QLineEdit {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1133,7 +1099,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto childevent_cb = qlineedit_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1150,7 +1115,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto customevent_cb = qlineedit_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1169,7 +1133,6 @@ class VirtualQLineEdit final : public QLineEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1188,7 +1151,6 @@ class VirtualQLineEdit final : public QLineEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1204,7 +1166,9 @@ class VirtualQLineEdit final : public QLineEdit {
         auto cursorrect_cb = qlineedit_cursorrect_callback;
         if (cursorrect_cb) {
             QRect* callback_ret = cursorrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLineEdit::cursorRect();
     }
@@ -1319,7 +1283,6 @@ class VirtualQLineEdit final : public QLineEdit {
         auto receivers_cb = qlineedit_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1337,7 +1300,6 @@ class VirtualQLineEdit final : public QLineEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1354,7 +1316,6 @@ class VirtualQLineEdit final : public QLineEdit {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

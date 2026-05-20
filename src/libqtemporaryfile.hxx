@@ -241,7 +241,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto metacast_cb = qtemporaryfile_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -259,7 +258,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -290,7 +288,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto open2_cb = qtemporaryfile_open2_callback;
         if (open2_cb) {
             int cbval1 = static_cast<int>(flags);
-
             bool callback_ret = open2_cb(this, cbval1);
             return callback_ret;
         }
@@ -320,7 +317,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto resize_cb = qtemporaryfile_resize_callback;
         if (resize_cb) {
             long long cbval1 = static_cast<long long>(sz);
-
             bool callback_ret = resize_cb(this, cbval1);
             return callback_ret;
         }
@@ -350,7 +346,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto setpermissions_cb = qtemporaryfile_setpermissions_callback;
         if (setpermissions_cb) {
             int cbval1 = static_cast<int>(permissionSpec);
-
             bool callback_ret = setpermissions_cb(this, cbval1);
             return callback_ret;
         }
@@ -409,7 +404,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto seek_cb = qtemporaryfile_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(offset);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -440,7 +434,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -457,7 +450,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -474,7 +466,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -546,7 +537,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto waitforreadyread_cb = qtemporaryfile_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -562,7 +552,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto waitforbyteswritten_cb = qtemporaryfile_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -578,7 +567,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto skipdata_cb = qtemporaryfile_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -594,7 +582,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto event_cb = qtemporaryfile_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -611,7 +598,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -628,7 +614,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto timerevent_cb = qtemporaryfile_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -645,7 +630,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto childevent_cb = qtemporaryfile_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -662,7 +646,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto customevent_cb = qtemporaryfile_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -681,7 +664,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -700,7 +682,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -717,7 +698,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto setopenmode_cb = qtemporaryfile_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -741,7 +721,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -786,7 +765,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
         auto receivers_cb = qtemporaryfile_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -804,7 +782,6 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

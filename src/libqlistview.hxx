@@ -667,7 +667,6 @@ class VirtualQListView final : public QListView {
         auto metacast_cb = qlistview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -685,7 +684,6 @@ class VirtualQListView final : public QListView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -703,9 +701,10 @@ class VirtualQListView final : public QListView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::visualRect(index);
     }
@@ -723,7 +722,6 @@ class VirtualQListView final : public QListView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
             return;
         }
@@ -741,9 +739,10 @@ class VirtualQListView final : public QListView {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::indexAt(p);
     }
@@ -790,7 +789,6 @@ class VirtualQListView final : public QListView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -806,7 +804,6 @@ class VirtualQListView final : public QListView {
         auto event_cb = qlistview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -824,7 +821,6 @@ class VirtualQListView final : public QListView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -856,7 +852,6 @@ class VirtualQListView final : public QListView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -878,7 +873,6 @@ class VirtualQListView final : public QListView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -899,7 +893,6 @@ class VirtualQListView final : public QListView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -916,7 +909,6 @@ class VirtualQListView final : public QListView {
         auto mousemoveevent_cb = qlistview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -933,7 +925,6 @@ class VirtualQListView final : public QListView {
         auto mousereleaseevent_cb = qlistview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -950,7 +941,6 @@ class VirtualQListView final : public QListView {
         auto wheelevent_cb = qlistview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -967,7 +957,6 @@ class VirtualQListView final : public QListView {
         auto timerevent_cb = qlistview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -984,7 +973,6 @@ class VirtualQListView final : public QListView {
         auto resizeevent_cb = qlistview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1001,7 +989,6 @@ class VirtualQListView final : public QListView {
         auto dragmoveevent_cb = qlistview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1018,7 +1005,6 @@ class VirtualQListView final : public QListView {
         auto dragleaveevent_cb = qlistview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1035,7 +1021,6 @@ class VirtualQListView final : public QListView {
         auto dropevent_cb = qlistview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = e;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1052,7 +1037,6 @@ class VirtualQListView final : public QListView {
         auto startdrag_cb = qlistview_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -1069,7 +1053,6 @@ class VirtualQListView final : public QListView {
         auto initviewitemoption_cb = qlistview_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1086,7 +1069,6 @@ class VirtualQListView final : public QListView {
         auto paintevent_cb = qlistview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1131,9 +1113,10 @@ class VirtualQListView final : public QListView {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::moveCursor(cursorAction, modifiers);
     }
@@ -1151,7 +1134,6 @@ class VirtualQListView final : public QListView {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
-
             setselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -1169,9 +1151,10 @@ class VirtualQListView final : public QListView {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::visualRegionForSelection(selection);
     }
@@ -1223,7 +1206,6 @@ class VirtualQListView final : public QListView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1245,7 +1227,6 @@ class VirtualQListView final : public QListView {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1267,7 +1248,6 @@ class VirtualQListView final : public QListView {
             const QModelIndex& previous_ret = previous;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1283,7 +1263,9 @@ class VirtualQListView final : public QListView {
         auto viewportsizehint_cb = qlistview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::viewportSizeHint();
     }
@@ -1298,7 +1280,6 @@ class VirtualQListView final : public QListView {
         auto setmodel_cb = qlistview_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -1315,7 +1296,6 @@ class VirtualQListView final : public QListView {
         auto setselectionmodel_cb = qlistview_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -1339,7 +1319,6 @@ class VirtualQListView final : public QListView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -1356,7 +1335,6 @@ class VirtualQListView final : public QListView {
         auto sizehintforrow_cb = qlistview_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1372,7 +1350,6 @@ class VirtualQListView final : public QListView {
         auto sizehintforcolumn_cb = qlistview_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1390,7 +1367,6 @@ class VirtualQListView final : public QListView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -1406,9 +1382,10 @@ class VirtualQListView final : public QListView {
         auto inputmethodquery_cb = qlistview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::inputMethodQuery(query);
     }
@@ -1468,7 +1445,6 @@ class VirtualQListView final : public QListView {
         auto verticalscrollbaraction_cb = qlistview_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1485,7 +1461,6 @@ class VirtualQListView final : public QListView {
         auto horizontalscrollbaraction_cb = qlistview_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1502,7 +1477,6 @@ class VirtualQListView final : public QListView {
         auto verticalscrollbarvaluechanged_cb = qlistview_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1519,7 +1493,6 @@ class VirtualQListView final : public QListView {
         auto horizontalscrollbarvaluechanged_cb = qlistview_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1537,7 +1510,6 @@ class VirtualQListView final : public QListView {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1554,7 +1526,6 @@ class VirtualQListView final : public QListView {
         auto commitdata_cb = qlistview_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1571,7 +1542,6 @@ class VirtualQListView final : public QListView {
         auto editordestroyed_cb = qlistview_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1591,7 +1561,6 @@ class VirtualQListView final : public QListView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1610,7 +1579,6 @@ class VirtualQListView final : public QListView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1626,7 +1594,6 @@ class VirtualQListView final : public QListView {
         auto focusnextprevchild_cb = qlistview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1642,7 +1609,6 @@ class VirtualQListView final : public QListView {
         auto viewportevent_cb = qlistview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1659,7 +1625,6 @@ class VirtualQListView final : public QListView {
         auto mousepressevent_cb = qlistview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1676,7 +1641,6 @@ class VirtualQListView final : public QListView {
         auto mousedoubleclickevent_cb = qlistview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1693,7 +1657,6 @@ class VirtualQListView final : public QListView {
         auto dragenterevent_cb = qlistview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1710,7 +1673,6 @@ class VirtualQListView final : public QListView {
         auto focusinevent_cb = qlistview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1727,7 +1689,6 @@ class VirtualQListView final : public QListView {
         auto focusoutevent_cb = qlistview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1744,7 +1705,6 @@ class VirtualQListView final : public QListView {
         auto keypressevent_cb = qlistview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1761,7 +1721,6 @@ class VirtualQListView final : public QListView {
         auto inputmethodevent_cb = qlistview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1778,7 +1737,6 @@ class VirtualQListView final : public QListView {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1794,7 +1752,9 @@ class VirtualQListView final : public QListView {
         auto minimumsizehint_cb = qlistview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::minimumSizeHint();
     }
@@ -1808,7 +1768,9 @@ class VirtualQListView final : public QListView {
         auto sizehint_cb = qlistview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::sizeHint();
     }
@@ -1823,7 +1785,6 @@ class VirtualQListView final : public QListView {
         auto setupviewport_cb = qlistview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1840,7 +1801,6 @@ class VirtualQListView final : public QListView {
         auto contextmenuevent_cb = qlistview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1857,7 +1817,6 @@ class VirtualQListView final : public QListView {
         auto changeevent_cb = qlistview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1874,7 +1833,6 @@ class VirtualQListView final : public QListView {
         auto initstyleoption_cb = qlistview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1905,7 +1863,6 @@ class VirtualQListView final : public QListView {
         auto setvisible_cb = qlistview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1921,7 +1878,6 @@ class VirtualQListView final : public QListView {
         auto heightforwidth_cb = qlistview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1966,7 +1922,6 @@ class VirtualQListView final : public QListView {
         auto keyreleaseevent_cb = qlistview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1983,7 +1938,6 @@ class VirtualQListView final : public QListView {
         auto enterevent_cb = qlistview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2000,7 +1954,6 @@ class VirtualQListView final : public QListView {
         auto leaveevent_cb = qlistview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2017,7 +1970,6 @@ class VirtualQListView final : public QListView {
         auto moveevent_cb = qlistview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2034,7 +1986,6 @@ class VirtualQListView final : public QListView {
         auto closeevent_cb = qlistview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2051,7 +2002,6 @@ class VirtualQListView final : public QListView {
         auto tabletevent_cb = qlistview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2068,7 +2018,6 @@ class VirtualQListView final : public QListView {
         auto actionevent_cb = qlistview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2085,7 +2034,6 @@ class VirtualQListView final : public QListView {
         auto showevent_cb = qlistview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2102,7 +2050,6 @@ class VirtualQListView final : public QListView {
         auto hideevent_cb = qlistview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2126,7 +2073,6 @@ class VirtualQListView final : public QListView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2143,7 +2089,6 @@ class VirtualQListView final : public QListView {
         auto metric_cb = qlistview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2160,7 +2105,6 @@ class VirtualQListView final : public QListView {
         auto initpainter_cb = qlistview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2176,7 +2120,6 @@ class VirtualQListView final : public QListView {
         auto redirected_cb = qlistview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2207,7 +2150,6 @@ class VirtualQListView final : public QListView {
         auto childevent_cb = qlistview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2224,7 +2166,6 @@ class VirtualQListView final : public QListView {
         auto customevent_cb = qlistview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2243,7 +2184,6 @@ class VirtualQListView final : public QListView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2262,7 +2202,6 @@ class VirtualQListView final : public QListView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2280,7 +2219,6 @@ class VirtualQListView final : public QListView {
         if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
-
             resizecontents_cb(this, cbval1, cbval2);
             return;
         }
@@ -2296,7 +2234,9 @@ class VirtualQListView final : public QListView {
         auto contentssize_cb = qlistview_contentssize_callback;
         if (contentssize_cb) {
             QSize* callback_ret = contentssize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::contentsSize();
     }
@@ -2312,9 +2252,10 @@ class VirtualQListView final : public QListView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = rectforindex_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::rectForIndex(index);
     }
@@ -2334,7 +2275,6 @@ class VirtualQListView final : public QListView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             setpositionforindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -2365,7 +2305,6 @@ class VirtualQListView final : public QListView {
         auto setstate_cb = qlistview_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2414,7 +2353,6 @@ class VirtualQListView final : public QListView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2432,7 +2370,6 @@ class VirtualQListView final : public QListView {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2448,7 +2385,9 @@ class VirtualQListView final : public QListView {
         auto dirtyregionoffset_cb = qlistview_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::dirtyRegionOffset();
     }
@@ -2525,7 +2464,6 @@ class VirtualQListView final : public QListView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2541,7 +2479,9 @@ class VirtualQListView final : public QListView {
         auto viewportmargins_cb = qlistview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QListView::viewportMargins();
     }
@@ -2556,7 +2496,6 @@ class VirtualQListView final : public QListView {
         auto drawframe_cb = qlistview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2673,7 +2612,6 @@ class VirtualQListView final : public QListView {
         auto receivers_cb = qlistview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2691,7 +2629,6 @@ class VirtualQListView final : public QListView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2708,7 +2645,6 @@ class VirtualQListView final : public QListView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -284,7 +284,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto metacast_cb = kio__specialjob_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -302,7 +301,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -335,7 +333,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             slotredirection_cb(this, cbval1);
             return;
         }
@@ -372,7 +369,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
-
             slotdata_cb(this, cbval1);
             libqt_free(data_str.data);
             return;
@@ -412,7 +408,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
             ((char*)mimetype_str)[mimetype_str_len] = '\0';
             const char* cbval1 = mimetype_str;
-
             slotmimetype_cb(this, cbval1);
             libqt_free(mimetype_str);
             return;
@@ -480,7 +475,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             slotwarning_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -500,7 +494,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             const KIO::MetaData& _metaData_ret = _metaData;
             // Cast returned reference into pointer
             KIO__MetaData* cbval1 = const_cast<KIO::MetaData*>(&_metaData_ret);
-
             slotmetadata_cb(this, cbval1);
             return;
         }
@@ -546,7 +539,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto addsubjob_cb = kio__specialjob_addsubjob_callback;
         if (addsubjob_cb) {
             KJob* cbval1 = job;
-
             bool callback_ret = addsubjob_cb(this, cbval1);
             return callback_ret;
         }
@@ -562,7 +554,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto removesubjob_cb = kio__specialjob_removesubjob_callback;
         if (removesubjob_cb) {
             KJob* cbval1 = job;
-
             bool callback_ret = removesubjob_cb(this, cbval1);
             return callback_ret;
         }
@@ -579,7 +570,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto slotresult_cb = kio__specialjob_slotresult_callback;
         if (slotresult_cb) {
             KJob* cbval1 = job;
-
             slotresult_cb(this, cbval1);
             return;
         }
@@ -604,7 +594,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             memcpy((void*)message_str, message_b.data(), message_str_len);
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
-
             slotinfomessage_cb(this, cbval1, cbval2);
             libqt_free(message_str);
             return;
@@ -621,7 +610,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto event_cb = kio__specialjob_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -638,7 +626,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -655,7 +642,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto timerevent_cb = kio__specialjob_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -672,7 +658,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto childevent_cb = kio__specialjob_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -689,7 +674,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto customevent_cb = kio__specialjob_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -708,7 +692,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -727,7 +710,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -794,7 +776,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto setcapabilities_cb = kio__specialjob_setcapabilities_callback;
         if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
-
             setcapabilities_cb(this, cbval1);
             return;
         }
@@ -825,7 +806,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto seterror_cb = kio__specialjob_seterror_callback;
         if (seterror_cb) {
             int cbval1 = errorCode;
-
             seterror_cb(this, cbval1);
             return;
         }
@@ -849,7 +829,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
-
             seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
             return;
@@ -868,7 +847,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
-
             setprocessedamount_cb(this, cbval1, cbval2);
             return;
         }
@@ -886,7 +864,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
-
             settotalamount_cb(this, cbval1, cbval2);
             return;
         }
@@ -903,7 +880,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto setprogressunit_cb = kio__specialjob_setprogressunit_callback;
         if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
-
             setprogressunit_cb(this, cbval1);
             return;
         }
@@ -920,7 +896,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto setpercent_cb = kio__specialjob_setpercent_callback;
         if (setpercent_cb) {
             unsigned long cbval1 = percentage;
-
             setpercent_cb(this, cbval1);
             return;
         }
@@ -953,7 +928,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
-
             emitpercent_cb(this, cbval1, cbval2);
             return;
         }
@@ -970,7 +944,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto emitspeed_cb = kio__specialjob_emitspeed_callback;
         if (emitspeed_cb) {
             unsigned long cbval1 = speed;
-
             emitspeed_cb(this, cbval1);
             return;
         }
@@ -1029,7 +1002,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto receivers_cb = kio__specialjob_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1047,7 +1019,6 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

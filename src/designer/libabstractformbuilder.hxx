@@ -95,7 +95,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         if (load_cb) {
             QIODevice* cbval1 = dev;
             QWidget* cbval2 = parentWidget;
-
             QWidget* callback_ret = load_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -113,7 +112,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         if (save_cb) {
             QIODevice* cbval1 = dev;
             QWidget* cbval2 = widget;
-
             save_cb(this, cbval1, cbval2);
             return;
         }
@@ -130,7 +128,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         auto addmenuaction_cb = qabstractformbuilder_addmenuaction_callback;
         if (addmenuaction_cb) {
             QAction* cbval1 = action;
-
             addmenuaction_cb(this, cbval1);
             return;
         }
@@ -162,7 +159,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-
             QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2, cbval3);
             libqt_free(widgetName_str);
             libqt_free(name_str);
@@ -196,7 +192,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-
             QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
             libqt_free(layoutName_str);
             libqt_free(name_str);
@@ -222,7 +217,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-
             QAction* callback_ret = createaction_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -247,7 +241,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-
             QActionGroup* callback_ret = createactiongroup_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -272,7 +265,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             memcpy((void*)prop_str, prop_b.data(), prop_str_len);
             ((char*)prop_str)[prop_str_len] = '\0';
             const char* cbval2 = prop_str;
-
             bool callback_ret = checkproperty_cb(this, cbval1, cbval2);
             libqt_free(prop_str);
             return callback_ret;
@@ -300,7 +292,6 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
-
             bool callback_ret = applypropertyinternally_cb(this, cbval1, cbval2, cbval3);
             libqt_free(propertyName_str);
             return callback_ret;
@@ -332,7 +323,9 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         auto toolbarareametaenum_cb = qabstractformbuilder_toolbarareametaenum_callback;
         if (toolbarareametaenum_cb) {
             QMetaEnum* callback_ret = toolbarareametaenum_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractFormBuilder::toolBarAreaMetaEnum();
     }

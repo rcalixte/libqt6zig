@@ -329,7 +329,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto metacast_cb = qscilexercsharp_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -347,7 +346,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -364,7 +362,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto setfoldatelse_cb = qscilexercsharp_setfoldatelse_callback;
         if (setfoldatelse_cb) {
             bool cbval1 = fold;
-
             setfoldatelse_cb(this, cbval1);
             return;
         }
@@ -381,7 +378,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto setfoldcomments_cb = qscilexercsharp_setfoldcomments_callback;
         if (setfoldcomments_cb) {
             bool cbval1 = fold;
-
             setfoldcomments_cb(this, cbval1);
             return;
         }
@@ -398,7 +394,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto setfoldcompact_cb = qscilexercsharp_setfoldcompact_callback;
         if (setfoldcompact_cb) {
             bool cbval1 = fold;
-
             setfoldcompact_cb(this, cbval1);
             return;
         }
@@ -415,7 +410,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto setfoldpreprocessor_cb = qscilexercsharp_setfoldpreprocessor_callback;
         if (setfoldpreprocessor_cb) {
             bool cbval1 = fold;
-
             setfoldpreprocessor_cb(this, cbval1);
             return;
         }
@@ -432,7 +426,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto setstylepreprocessor_cb = qscilexercsharp_setstylepreprocessor_callback;
         if (setstylepreprocessor_cb) {
             bool cbval1 = style;
-
             setstylepreprocessor_cb(this, cbval1);
             return;
         }
@@ -523,7 +516,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto blockend_cb = qscilexercsharp_blockend_callback;
         if (blockend_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockend_cb(this, cbval1);
             return callback_ret;
         }
@@ -553,7 +545,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto blockstart_cb = qscilexercsharp_blockstart_callback;
         if (blockstart_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockstart_cb(this, cbval1);
             return callback_ret;
         }
@@ -569,7 +560,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto blockstartkeyword_cb = qscilexercsharp_blockstartkeyword_callback;
         if (blockstartkeyword_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockstartkeyword_cb(this, cbval1);
             return callback_ret;
         }
@@ -613,9 +603,10 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto color_cb = qscilexercsharp_color_callback;
         if (color_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = color_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerCSharp::color(style);
     }
@@ -629,7 +620,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto eolfill_cb = qscilexercsharp_eolfill_callback;
         if (eolfill_cb) {
             int cbval1 = style;
-
             bool callback_ret = eolfill_cb(this, cbval1);
             return callback_ret;
         }
@@ -645,9 +635,10 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto font_cb = qscilexercsharp_font_callback;
         if (font_cb) {
             int cbval1 = style;
-
             QFont* callback_ret = font_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerCSharp::font(style);
     }
@@ -675,7 +666,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto keywords_cb = qscilexercsharp_keywords_callback;
         if (keywords_cb) {
             int cbval1 = set;
-
             const char* callback_ret = keywords_cb(this, cbval1);
             return callback_ret;
         }
@@ -701,7 +691,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto description_cb = qscilexercsharp_description_callback;
         if (description_cb) {
             int cbval1 = style;
-
             const char* callback_ret = description_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -718,9 +707,10 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto paper_cb = qscilexercsharp_paper_callback;
         if (paper_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = paper_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerCSharp::paper(style);
     }
@@ -734,9 +724,10 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto defaultcolor2_cb = qscilexercsharp_defaultcolor2_callback;
         if (defaultcolor2_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = defaultcolor2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerCSharp::defaultColor(style);
     }
@@ -750,7 +741,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto defaulteolfill_cb = qscilexercsharp_defaulteolfill_callback;
         if (defaulteolfill_cb) {
             int cbval1 = style;
-
             bool callback_ret = defaulteolfill_cb(this, cbval1);
             return callback_ret;
         }
@@ -766,9 +756,10 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto defaultfont2_cb = qscilexercsharp_defaultfont2_callback;
         if (defaultfont2_cb) {
             int cbval1 = style;
-
             QFont* callback_ret = defaultfont2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerCSharp::defaultFont(style);
     }
@@ -782,9 +773,10 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto defaultpaper2_cb = qscilexercsharp_defaultpaper2_callback;
         if (defaultpaper2_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = defaultpaper2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerCSharp::defaultPaper(style);
     }
@@ -799,7 +791,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto seteditor_cb = qscilexercsharp_seteditor_callback;
         if (seteditor_cb) {
             QsciScintilla* cbval1 = editor;
-
             seteditor_cb(this, cbval1);
             return;
         }
@@ -859,7 +850,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto setautoindentstyle_cb = qscilexercsharp_setautoindentstyle_callback;
         if (setautoindentstyle_cb) {
             int cbval1 = autoindentstyle;
-
             setautoindentstyle_cb(this, cbval1);
             return;
         }
@@ -879,7 +869,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
-
             setcolor_cb(this, cbval1, cbval2);
             return;
         }
@@ -897,7 +886,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         if (seteolfill_cb) {
             bool cbval1 = eoffill;
             int cbval2 = style;
-
             seteolfill_cb(this, cbval1, cbval2);
             return;
         }
@@ -917,7 +905,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&f_ret);
             int cbval2 = style;
-
             setfont_cb(this, cbval1, cbval2);
             return;
         }
@@ -937,7 +924,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
-
             setpaper_cb(this, cbval1, cbval2);
             return;
         }
@@ -963,7 +949,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
-
             bool callback_ret = readproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
@@ -990,7 +975,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
-
             bool callback_ret = writeproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
@@ -1007,7 +991,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto event_cb = qscilexercsharp_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1024,7 +1007,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1041,7 +1023,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto timerevent_cb = qscilexercsharp_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1058,7 +1039,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto childevent_cb = qscilexercsharp_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1075,7 +1055,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto customevent_cb = qscilexercsharp_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1094,7 +1073,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1113,7 +1091,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1136,7 +1113,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             libqt_string callback_ret = textasbytes_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             libqt_free(text_str);
@@ -1155,7 +1131,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         if (bytesastext_cb) {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
-
             const char* callback_ret = bytesastext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -1200,7 +1175,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
         auto receivers_cb = qscilexercsharp_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1218,7 +1192,6 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

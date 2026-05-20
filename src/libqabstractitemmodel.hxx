@@ -419,7 +419,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         auto metacast_cb = qabstractitemmodel_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -437,7 +436,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -453,9 +451,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -467,9 +466,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
-
             QModelIndex* callback_ret = parent_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -487,9 +487,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-
             QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::sibling(row, column, idx);
     }
@@ -501,7 +502,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -515,7 +515,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -533,7 +532,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
         }
@@ -548,9 +546,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
-
             QVariant* callback_ret = data_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -570,7 +569,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-
             bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -588,9 +586,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-
             QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::headerData(section, orientation, role);
     }
@@ -609,7 +608,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-
             bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -627,7 +625,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -666,7 +663,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-
             bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -684,7 +680,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
         }
@@ -732,7 +727,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-
             QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
@@ -755,7 +749,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -777,7 +770,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -825,7 +817,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -845,7 +836,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -865,7 +855,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -885,7 +874,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -909,7 +897,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -933,7 +920,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -952,7 +938,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             fetchmore_cb(this, cbval1);
             return;
         }
@@ -970,7 +955,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
         }
@@ -988,7 +972,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
@@ -1006,7 +989,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-
             sort_cb(this, cbval1, cbval2);
             return;
         }
@@ -1024,9 +1006,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QModelIndex* callback_ret = buddy_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::buddy(index);
     }
@@ -1048,7 +1031,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-
             libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -1073,9 +1055,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = span_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::span(index);
     }
@@ -1115,7 +1098,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-
             multidata_cb(this, cbval1, cbval2);
             return;
         }
@@ -1175,7 +1157,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         auto event_cb = qabstractitemmodel_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1192,7 +1173,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1209,7 +1189,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         auto timerevent_cb = qabstractitemmodel_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1226,7 +1205,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         auto childevent_cb = qabstractitemmodel_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1243,7 +1221,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         auto customevent_cb = qabstractitemmodel_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1262,7 +1239,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1281,7 +1257,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1298,9 +1273,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::createIndex(row, column);
     }
@@ -1316,9 +1292,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             int cbval1 = row;
             int cbval2 = column;
             uintptr_t cbval3 = static_cast<uintptr_t>(id);
-
             QModelIndex* callback_ret = createindex2_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::createIndex(row, column, id);
     }
@@ -1345,7 +1322,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
-
             encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
             return;
@@ -1369,7 +1345,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
-
             bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -1390,7 +1365,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertrows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1426,7 +1400,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremoverows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1465,7 +1438,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
-
             bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1501,7 +1473,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1537,7 +1508,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1576,7 +1546,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
-
             bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1643,7 +1612,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QModelIndex& to_ret = to;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-
             changepersistentindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -1679,7 +1647,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             to_out.len = to_ret.size();
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
-
             changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
@@ -1720,9 +1687,10 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             int cbval1 = row;
             int cbval2 = column;
             const void* cbval3 = (const void*)data;
-
             QModelIndex* callback_ret = createindex3_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemModel::createIndex(row, column, data);
     }
@@ -1764,7 +1732,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
         auto receivers_cb = qabstractitemmodel_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1782,7 +1749,6 @@ class VirtualQAbstractItemModel : public QAbstractItemModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2246,7 +2212,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         auto metacast_cb = qabstracttablemodel_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -2264,7 +2229,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -2284,9 +2248,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTableModel::index(row, column, parent);
     }
@@ -2304,9 +2269,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-
             QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTableModel::sibling(row, column, idx);
     }
@@ -2326,7 +2292,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -2344,7 +2309,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
@@ -2358,7 +2322,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2372,7 +2335,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2387,9 +2349,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
-
             QVariant* callback_ret = data_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -2409,7 +2372,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-
             bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -2427,9 +2389,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-
             QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTableModel::headerData(section, orientation, role);
     }
@@ -2448,7 +2411,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-
             bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -2466,7 +2428,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -2505,7 +2466,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-
             bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2523,7 +2483,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
         }
@@ -2571,7 +2530,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-
             QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
@@ -2594,7 +2552,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -2642,7 +2599,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -2662,7 +2618,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -2682,7 +2637,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -2702,7 +2656,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -2726,7 +2679,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -2750,7 +2702,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -2769,7 +2720,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             fetchmore_cb(this, cbval1);
             return;
         }
@@ -2787,7 +2737,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
         }
@@ -2805,7 +2754,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-
             sort_cb(this, cbval1, cbval2);
             return;
         }
@@ -2823,9 +2771,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QModelIndex* callback_ret = buddy_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTableModel::buddy(index);
     }
@@ -2847,7 +2796,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-
             libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -2872,9 +2820,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = span_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTableModel::span(index);
     }
@@ -2914,7 +2863,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-
             multidata_cb(this, cbval1, cbval2);
             return;
         }
@@ -2974,7 +2922,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         auto event_cb = qabstracttablemodel_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2991,7 +2938,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -3008,7 +2954,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         auto timerevent_cb = qabstracttablemodel_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -3025,7 +2970,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         auto childevent_cb = qabstracttablemodel_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -3042,7 +2986,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         auto customevent_cb = qabstracttablemodel_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -3061,7 +3004,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -3080,7 +3022,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -3097,9 +3038,10 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTableModel::createIndex(row, column);
     }
@@ -3126,7 +3068,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
-
             encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
             return;
@@ -3150,7 +3091,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
-
             bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -3171,7 +3111,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertrows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -3207,7 +3146,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremoverows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -3246,7 +3184,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
-
             bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -3282,7 +3219,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -3318,7 +3254,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -3357,7 +3292,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
-
             bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -3424,7 +3358,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QModelIndex& to_ret = to;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-
             changepersistentindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -3460,7 +3393,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             to_out.len = to_ret.size();
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
-
             changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
@@ -3527,7 +3459,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
         auto receivers_cb = qabstracttablemodel_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3545,7 +3476,6 @@ class VirtualQAbstractTableModel : public QAbstractTableModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -4000,7 +3930,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         auto metacast_cb = qabstractlistmodel_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -4018,7 +3947,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -4038,9 +3966,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractListModel::index(row, column, parent);
     }
@@ -4058,9 +3987,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-
             QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractListModel::sibling(row, column, idx);
     }
@@ -4080,7 +4010,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -4098,7 +4027,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
@@ -4112,7 +4040,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -4127,9 +4054,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
-
             QVariant* callback_ret = data_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -4149,7 +4077,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-
             bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -4167,9 +4094,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-
             QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractListModel::headerData(section, orientation, role);
     }
@@ -4188,7 +4116,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-
             bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -4206,7 +4133,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -4245,7 +4171,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-
             bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -4263,7 +4188,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
         }
@@ -4311,7 +4235,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-
             QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
@@ -4334,7 +4257,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -4382,7 +4304,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -4402,7 +4323,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -4422,7 +4342,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -4442,7 +4361,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -4466,7 +4384,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -4490,7 +4407,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -4509,7 +4425,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             fetchmore_cb(this, cbval1);
             return;
         }
@@ -4527,7 +4442,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
         }
@@ -4545,7 +4459,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-
             sort_cb(this, cbval1, cbval2);
             return;
         }
@@ -4563,9 +4476,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QModelIndex* callback_ret = buddy_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractListModel::buddy(index);
     }
@@ -4587,7 +4501,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-
             libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -4612,9 +4525,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = span_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractListModel::span(index);
     }
@@ -4654,7 +4568,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-
             multidata_cb(this, cbval1, cbval2);
             return;
         }
@@ -4714,7 +4627,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         auto event_cb = qabstractlistmodel_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -4731,7 +4643,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -4748,7 +4659,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         auto timerevent_cb = qabstractlistmodel_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -4765,7 +4675,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         auto childevent_cb = qabstractlistmodel_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -4782,7 +4691,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         auto customevent_cb = qabstractlistmodel_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -4801,7 +4709,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -4820,7 +4727,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -4837,9 +4743,10 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractListModel::createIndex(row, column);
     }
@@ -4866,7 +4773,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
-
             encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
             return;
@@ -4890,7 +4796,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
-
             bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -4911,7 +4816,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertrows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -4947,7 +4851,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremoverows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -4986,7 +4889,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
-
             bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -5022,7 +4924,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -5058,7 +4959,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -5097,7 +4997,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
-
             bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -5164,7 +5063,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QModelIndex& to_ret = to;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-
             changepersistentindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -5200,7 +5098,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             to_out.len = to_ret.size();
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
-
             changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
@@ -5267,7 +5164,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
         auto receivers_cb = qabstractlistmodel_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -5285,7 +5181,6 @@ class VirtualQAbstractListModel : public QAbstractListModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

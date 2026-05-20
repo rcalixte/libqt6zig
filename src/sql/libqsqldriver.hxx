@@ -249,7 +249,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto metacast_cb = qsqldriver_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -267,7 +266,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -339,7 +337,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto tables_cb = qsqldriver_tables_callback;
         if (tables_cb) {
             int cbval1 = static_cast<int>(tableType);
-
             const char** callback_ret = tables_cb(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -371,10 +368,11 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
             ((char*)tableName_str)[tableName_str_len] = '\0';
             const char* cbval1 = tableName_str;
-
             QSqlIndex* callback_ret = primaryindex_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(tableName_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QSqlDriver::primaryIndex(tableName);
     }
@@ -395,10 +393,11 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)tableName_str, tableName_b.data(), tableName_str_len);
             ((char*)tableName_str)[tableName_str_len] = '\0';
             const char* cbval1 = tableName_str;
-
             QSqlRecord* callback_ret = record_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(tableName_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QSqlDriver::record(tableName);
     }
@@ -415,7 +414,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             // Cast returned reference into pointer
             QSqlField* cbval1 = const_cast<QSqlField*>(&field_ret);
             bool cbval2 = trimStrings;
-
             const char* callback_ret = formatvalue_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -440,7 +438,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)identifier_str)[identifier_str_len] = '\0';
             const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
-
             const char* callback_ret = escapeidentifier_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(identifier_str);
@@ -470,7 +467,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             // Cast returned reference into pointer
             QSqlRecord* cbval3 = const_cast<QSqlRecord*>(&rec_ret);
             bool cbval4 = preparedStatement;
-
             const char* callback_ret = sqlstatement_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(tableName_str);
@@ -488,7 +484,9 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto handle_cb = qsqldriver_handle_callback;
         if (handle_cb) {
             QVariant* callback_ret = handle_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSqlDriver::handle();
     }
@@ -498,7 +496,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto hasfeature_cb = qsqldriver_hasfeature_callback;
         if (hasfeature_cb) {
             int cbval1 = static_cast<int>(f);
-
             bool callback_ret = hasfeature_cb(this, cbval1);
             return callback_ret;
         }
@@ -568,7 +565,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)connOpts_str, connOpts_b.data(), connOpts_str_len);
             ((char*)connOpts_str)[connOpts_str_len] = '\0';
             const char* cbval6 = connOpts_str;
-
             bool callback_ret = open_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6);
             libqt_free(db_str);
             libqt_free(user_str);
@@ -596,7 +592,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             bool callback_ret = subscribetonotification_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -620,7 +615,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             bool callback_ret = unsubscribefromnotification_cb(this, cbval1);
             libqt_free(name_str);
             return callback_ret;
@@ -668,7 +662,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)identifier_str)[identifier_str_len] = '\0';
             const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
-
             bool callback_ret = isidentifierescaped_cb(this, cbval1, cbval2);
             libqt_free(identifier_str);
             return callback_ret;
@@ -693,7 +686,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)identifier_str)[identifier_str_len] = '\0';
             const char* cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
-
             const char* callback_ret = stripdelimiters_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(identifier_str);
@@ -711,7 +703,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto maximumidentifierlength_cb = qsqldriver_maximumidentifierlength_callback;
         if (maximumidentifierlength_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             int callback_ret = maximumidentifierlength_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -742,7 +733,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto setopen_cb = qsqldriver_setopen_callback;
         if (setopen_cb) {
             bool cbval1 = o;
-
             setopen_cb(this, cbval1);
             return;
         }
@@ -759,7 +749,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto setopenerror_cb = qsqldriver_setopenerror_callback;
         if (setopenerror_cb) {
             bool cbval1 = e;
-
             setopenerror_cb(this, cbval1);
             return;
         }
@@ -778,7 +767,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             const QSqlError& e_ret = e;
             // Cast returned reference into pointer
             QSqlError* cbval1 = const_cast<QSqlError*>(&e_ret);
-
             setlasterror_cb(this, cbval1);
             return;
         }
@@ -794,7 +782,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto event_cb = qsqldriver_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -811,7 +798,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -828,7 +814,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto timerevent_cb = qsqldriver_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -845,7 +830,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto childevent_cb = qsqldriver_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -862,7 +846,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto customevent_cb = qsqldriver_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -881,7 +864,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -900,7 +882,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -944,7 +925,6 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto receivers_cb = qsqldriver_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -962,7 +942,6 @@ class VirtualQSqlDriver : public QSqlDriver {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -42,7 +42,6 @@ class VirtualQNetworkProxyFactory : public QNetworkProxyFactory {
             const QNetworkProxyQuery& query_ret = query;
             // Cast returned reference into pointer
             QNetworkProxyQuery* cbval1 = const_cast<QNetworkProxyQuery*>(&query_ret);
-
             libqt_list /* of QNetworkProxy* */ callback_ret = queryproxy_cb(this, cbval1);
             QList<QNetworkProxy> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);

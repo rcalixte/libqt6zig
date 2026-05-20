@@ -309,7 +309,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto metacast_cb = qudpsocket_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -327,7 +326,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -362,7 +360,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
-
             bool callback_ret = bind_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -389,7 +386,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(protocol);
-
             connecttohost_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(hostName_str);
             return;
@@ -450,7 +446,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto setreadbuffersize_cb = qudpsocket_setreadbuffersize_callback;
         if (setreadbuffersize_cb) {
             long long cbval1 = static_cast<long long>(size);
-
             setreadbuffersize_cb(this, cbval1);
             return;
         }
@@ -483,7 +478,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             intptr_t cbval1 = (intptr_t)(socketDescriptor_ret);
             int cbval2 = static_cast<int>(state);
             int cbval3 = static_cast<int>(openMode);
-
             bool callback_ret = setsocketdescriptor_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -503,7 +497,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setsocketoption_cb(this, cbval1, cbval2);
             return;
         }
@@ -519,9 +512,10 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto socketoption_cb = qudpsocket_socketoption_callback;
         if (socketoption_cb) {
             int cbval1 = static_cast<int>(option);
-
             QVariant* callback_ret = socketoption_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QUdpSocket::socketOption(option);
     }
@@ -564,7 +558,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto waitforconnected_cb = qudpsocket_waitforconnected_callback;
         if (waitforconnected_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -580,7 +573,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto waitforreadyread_cb = qudpsocket_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -596,7 +588,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto waitforbyteswritten_cb = qudpsocket_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -612,7 +603,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto waitfordisconnected_cb = qudpsocket_waitfordisconnected_callback;
         if (waitfordisconnected_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitfordisconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -629,7 +619,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -646,7 +635,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -662,7 +650,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto skipdata_cb = qudpsocket_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -679,7 +666,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -695,7 +681,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto open_cb = qudpsocket_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -739,7 +724,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto seek_cb = qudpsocket_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -797,7 +781,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto event_cb = qudpsocket_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -814,7 +797,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -831,7 +813,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto timerevent_cb = qudpsocket_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -848,7 +829,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto childevent_cb = qudpsocket_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -865,7 +845,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto customevent_cb = qudpsocket_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -884,7 +863,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -903,7 +881,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -920,7 +897,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto setsocketstate_cb = qudpsocket_setsocketstate_callback;
         if (setsocketstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setsocketstate_cb(this, cbval1);
             return;
         }
@@ -937,7 +913,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto setsocketerror_cb = qudpsocket_setsocketerror_callback;
         if (setsocketerror_cb) {
             int cbval1 = static_cast<int>(socketError);
-
             setsocketerror_cb(this, cbval1);
             return;
         }
@@ -954,7 +929,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto setlocalport_cb = qudpsocket_setlocalport_callback;
         if (setlocalport_cb) {
             uint16_t cbval1 = static_cast<uint16_t>(port);
-
             setlocalport_cb(this, cbval1);
             return;
         }
@@ -973,7 +947,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
-
             setlocaladdress_cb(this, cbval1);
             return;
         }
@@ -990,7 +963,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto setpeerport_cb = qudpsocket_setpeerport_callback;
         if (setpeerport_cb) {
             uint16_t cbval1 = static_cast<uint16_t>(port);
-
             setpeerport_cb(this, cbval1);
             return;
         }
@@ -1009,7 +981,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             const QHostAddress& address_ret = address;
             // Cast returned reference into pointer
             QHostAddress* cbval1 = const_cast<QHostAddress*>(&address_ret);
-
             setpeeraddress_cb(this, cbval1);
             return;
         }
@@ -1033,7 +1004,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             setpeername_cb(this, cbval1);
             libqt_free(name_str);
             return;
@@ -1051,7 +1021,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto setopenmode_cb = qudpsocket_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -1075,7 +1044,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -1120,7 +1088,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
         auto receivers_cb = qudpsocket_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1138,7 +1105,6 @@ class VirtualQUdpSocket final : public QUdpSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

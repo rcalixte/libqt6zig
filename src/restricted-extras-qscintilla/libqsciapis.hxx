@@ -138,7 +138,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         auto metacast_cb = qsciapis_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -156,7 +155,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -200,7 +198,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             // Append sentinel null terminator to the list
             list_arr[list_ret.size()] = nullptr;
             const char** cbval2 = list_arr;
-
             updateautocompletionlist_cb(this, cbval1, cbval2);
             libqt_free(context_arr);
             libqt_free(list_arr);
@@ -226,7 +223,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             memcpy((void*)sel_str, sel_b.data(), sel_str_len);
             ((char*)sel_str)[sel_str_len] = '\0';
             const char* cbval1 = sel_str;
-
             autocompletionselected_cb(this, cbval1);
             libqt_free(sel_str);
             return;
@@ -268,7 +264,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             shifts_out.len = shifts_ret.size();
             shifts_out.data = static_cast<void*>(shifts_arr);
             libqt_list /* of int */ cbval4 = shifts_out;
-
             const char** callback_ret = calltips_cb(this, cbval1, cbval2, cbval3, cbval4);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -295,7 +290,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         auto event_cb = qsciapis_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -312,7 +306,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -329,7 +322,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         auto timerevent_cb = qsciapis_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -346,7 +338,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         auto childevent_cb = qsciapis_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -363,7 +354,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         auto customevent_cb = qsciapis_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -382,7 +372,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -401,7 +390,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -445,7 +433,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
         auto receivers_cb = qsciapis_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -463,7 +450,6 @@ class VirtualQsciAPIs final : public QsciAPIs {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

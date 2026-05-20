@@ -240,7 +240,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto metacast_cb = kio__faviconrequestjob_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -258,7 +257,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -289,7 +287,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto addsubjob_cb = kio__faviconrequestjob_addsubjob_callback;
         if (addsubjob_cb) {
             KJob* cbval1 = job;
-
             bool callback_ret = addsubjob_cb(this, cbval1);
             return callback_ret;
         }
@@ -305,7 +302,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto removesubjob_cb = kio__faviconrequestjob_removesubjob_callback;
         if (removesubjob_cb) {
             KJob* cbval1 = job;
-
             bool callback_ret = removesubjob_cb(this, cbval1);
             return callback_ret;
         }
@@ -330,7 +326,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             memcpy((void*)message_str, message_b.data(), message_str_len);
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
-
             slotinfomessage_cb(this, cbval1, cbval2);
             libqt_free(message_str);
             return;
@@ -404,7 +399,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto event_cb = kio__faviconrequestjob_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -421,7 +415,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -438,7 +431,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto timerevent_cb = kio__faviconrequestjob_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -455,7 +447,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto childevent_cb = kio__faviconrequestjob_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -472,7 +463,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto customevent_cb = kio__faviconrequestjob_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -491,7 +481,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -510,7 +499,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -577,7 +565,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto setcapabilities_cb = kio__faviconrequestjob_setcapabilities_callback;
         if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
-
             setcapabilities_cb(this, cbval1);
             return;
         }
@@ -608,7 +595,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto seterror_cb = kio__faviconrequestjob_seterror_callback;
         if (seterror_cb) {
             int cbval1 = errorCode;
-
             seterror_cb(this, cbval1);
             return;
         }
@@ -632,7 +618,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
-
             seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
             return;
@@ -651,7 +636,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
-
             setprocessedamount_cb(this, cbval1, cbval2);
             return;
         }
@@ -669,7 +653,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
-
             settotalamount_cb(this, cbval1, cbval2);
             return;
         }
@@ -686,7 +669,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto setprogressunit_cb = kio__faviconrequestjob_setprogressunit_callback;
         if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
-
             setprogressunit_cb(this, cbval1);
             return;
         }
@@ -703,7 +685,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto setpercent_cb = kio__faviconrequestjob_setpercent_callback;
         if (setpercent_cb) {
             unsigned long cbval1 = percentage;
-
             setpercent_cb(this, cbval1);
             return;
         }
@@ -736,7 +717,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
-
             emitpercent_cb(this, cbval1, cbval2);
             return;
         }
@@ -753,7 +733,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto emitspeed_cb = kio__faviconrequestjob_emitspeed_callback;
         if (emitspeed_cb) {
             unsigned long cbval1 = speed;
-
             emitspeed_cb(this, cbval1);
             return;
         }
@@ -812,7 +791,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto receivers_cb = kio__faviconrequestjob_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -830,7 +808,6 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

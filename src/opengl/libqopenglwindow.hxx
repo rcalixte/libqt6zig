@@ -308,7 +308,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto metacast_cb = qopenglwindow_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -326,7 +325,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -359,7 +357,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (resizegl_cb) {
             int cbval1 = w;
             int cbval2 = h;
-
             resizegl_cb(this, cbval1, cbval2);
             return;
         }
@@ -421,7 +418,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto paintevent_cb = qopenglwindow_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -438,7 +434,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto resizeevent_cb = qopenglwindow_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -454,7 +449,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto metric_cb = qopenglwindow_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -470,7 +464,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto redirected_cb = qopenglwindow_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = param1;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -487,7 +480,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto exposeevent_cb = qopenglwindow_exposeevent_callback;
         if (exposeevent_cb) {
             QExposeEvent* cbval1 = param1;
-
             exposeevent_cb(this, cbval1);
             return;
         }
@@ -503,7 +495,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto event_cb = qopenglwindow_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -533,7 +524,9 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto format_cb = qopenglwindow_format_callback;
         if (format_cb) {
             QSurfaceFormat* callback_ret = format_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QOpenGLWindow::format();
     }
@@ -547,7 +540,9 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto size_cb = qopenglwindow_size_callback;
         if (size_cb) {
             QSize* callback_ret = size_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QOpenGLWindow::size();
     }
@@ -590,7 +585,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto moveevent_cb = qopenglwindow_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = param1;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -607,7 +601,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto focusinevent_cb = qopenglwindow_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -624,7 +617,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto focusoutevent_cb = qopenglwindow_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -641,7 +633,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto showevent_cb = qopenglwindow_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -658,7 +649,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto hideevent_cb = qopenglwindow_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -675,7 +665,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto closeevent_cb = qopenglwindow_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -692,7 +681,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto keypressevent_cb = qopenglwindow_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -709,7 +697,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto keyreleaseevent_cb = qopenglwindow_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -726,7 +713,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto mousepressevent_cb = qopenglwindow_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -743,7 +729,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto mousereleaseevent_cb = qopenglwindow_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -760,7 +745,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto mousedoubleclickevent_cb = qopenglwindow_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -777,7 +761,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto mousemoveevent_cb = qopenglwindow_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -794,7 +777,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto wheelevent_cb = qopenglwindow_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -811,7 +793,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto touchevent_cb = qopenglwindow_touchevent_callback;
         if (touchevent_cb) {
             QTouchEvent* cbval1 = param1;
-
             touchevent_cb(this, cbval1);
             return;
         }
@@ -828,7 +809,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto tabletevent_cb = qopenglwindow_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = param1;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -852,7 +832,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -870,7 +849,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -887,7 +865,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto timerevent_cb = qopenglwindow_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -904,7 +881,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto childevent_cb = qopenglwindow_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -921,7 +897,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto customevent_cb = qopenglwindow_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -940,7 +915,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -959,7 +933,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -990,7 +963,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto initpainter_cb = qopenglwindow_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1021,7 +993,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
-
             void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1065,7 +1036,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         auto receivers_cb = qopenglwindow_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1083,7 +1053,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1100,7 +1069,6 @@ class VirtualQOpenGLWindow final : public QOpenGLWindow {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

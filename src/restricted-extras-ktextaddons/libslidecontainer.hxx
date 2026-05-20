@@ -364,7 +364,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto metacast_cb = textaddonswidgets__slidecontainer_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -382,7 +381,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -398,7 +396,9 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto sizehint_cb = textaddonswidgets__slidecontainer_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextAddonsWidgets__SlideContainer::sizeHint();
     }
@@ -412,7 +412,9 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto minimumsizehint_cb = textaddonswidgets__slidecontainer_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextAddonsWidgets__SlideContainer::minimumSizeHint();
     }
@@ -427,7 +429,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto resizeevent_cb = textaddonswidgets__slidecontainer_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -444,7 +445,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -460,7 +460,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto event_cb = textaddonswidgets__slidecontainer_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -477,7 +476,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto paintevent_cb = textaddonswidgets__slidecontainer_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -494,7 +492,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto changeevent_cb = textaddonswidgets__slidecontainer_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -511,7 +508,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto initstyleoption_cb = textaddonswidgets__slidecontainer_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -542,7 +538,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto setvisible_cb = textaddonswidgets__slidecontainer_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -558,7 +553,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto heightforwidth_cb = textaddonswidgets__slidecontainer_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -603,7 +597,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto mousepressevent_cb = textaddonswidgets__slidecontainer_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -620,7 +613,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto mousereleaseevent_cb = textaddonswidgets__slidecontainer_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -637,7 +629,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto mousedoubleclickevent_cb = textaddonswidgets__slidecontainer_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -654,7 +645,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto mousemoveevent_cb = textaddonswidgets__slidecontainer_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -671,7 +661,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto wheelevent_cb = textaddonswidgets__slidecontainer_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -688,7 +677,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto keypressevent_cb = textaddonswidgets__slidecontainer_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -705,7 +693,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto keyreleaseevent_cb = textaddonswidgets__slidecontainer_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -722,7 +709,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto focusinevent_cb = textaddonswidgets__slidecontainer_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -739,7 +725,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto focusoutevent_cb = textaddonswidgets__slidecontainer_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -756,7 +741,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto enterevent_cb = textaddonswidgets__slidecontainer_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -773,7 +757,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto leaveevent_cb = textaddonswidgets__slidecontainer_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -790,7 +773,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto moveevent_cb = textaddonswidgets__slidecontainer_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -807,7 +789,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto closeevent_cb = textaddonswidgets__slidecontainer_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -824,7 +805,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto contextmenuevent_cb = textaddonswidgets__slidecontainer_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -841,7 +821,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto tabletevent_cb = textaddonswidgets__slidecontainer_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -858,7 +837,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto actionevent_cb = textaddonswidgets__slidecontainer_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -875,7 +853,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto dragenterevent_cb = textaddonswidgets__slidecontainer_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -892,7 +869,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto dragmoveevent_cb = textaddonswidgets__slidecontainer_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -909,7 +885,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto dragleaveevent_cb = textaddonswidgets__slidecontainer_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -926,7 +901,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto dropevent_cb = textaddonswidgets__slidecontainer_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -943,7 +917,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto showevent_cb = textaddonswidgets__slidecontainer_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -960,7 +933,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto hideevent_cb = textaddonswidgets__slidecontainer_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -984,7 +956,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1001,7 +972,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto metric_cb = textaddonswidgets__slidecontainer_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1018,7 +988,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto initpainter_cb = textaddonswidgets__slidecontainer_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1034,7 +1003,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto redirected_cb = textaddonswidgets__slidecontainer_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1065,7 +1033,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto inputmethodevent_cb = textaddonswidgets__slidecontainer_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1081,9 +1048,10 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto inputmethodquery_cb = textaddonswidgets__slidecontainer_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextAddonsWidgets__SlideContainer::inputMethodQuery(param1);
     }
@@ -1097,7 +1065,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto focusnextprevchild_cb = textaddonswidgets__slidecontainer_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1114,7 +1081,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto timerevent_cb = textaddonswidgets__slidecontainer_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1131,7 +1097,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto childevent_cb = textaddonswidgets__slidecontainer_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1148,7 +1113,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto customevent_cb = textaddonswidgets__slidecontainer_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1167,7 +1131,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1186,7 +1149,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1203,7 +1165,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto drawframe_cb = textaddonswidgets__slidecontainer_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1320,7 +1281,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         auto receivers_cb = textaddonswidgets__slidecontainer_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1338,7 +1298,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1355,7 +1314,6 @@ class VirtualTextAddonsWidgetsSlideContainer final : public TextAddonsWidgets::S
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -236,7 +236,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto metacast_cb = qbluetoothsocket_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -254,7 +253,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -342,7 +340,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxSize);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -359,7 +356,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(maxSize);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -375,7 +371,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto open_cb = qbluetoothsocket_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -419,7 +414,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto seek_cb = qbluetoothsocket_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -463,7 +457,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto waitforreadyread_cb = qbluetoothsocket_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -479,7 +472,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto waitforbyteswritten_cb = qbluetoothsocket_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -496,7 +488,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -512,7 +503,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto skipdata_cb = qbluetoothsocket_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -528,7 +518,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto event_cb = qbluetoothsocket_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -545,7 +534,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -562,7 +550,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto timerevent_cb = qbluetoothsocket_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -579,7 +566,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto childevent_cb = qbluetoothsocket_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -596,7 +582,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto customevent_cb = qbluetoothsocket_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -615,7 +600,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -634,7 +618,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -651,7 +634,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto setsocketstate_cb = qbluetoothsocket_setsocketstate_callback;
         if (setsocketstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setsocketstate_cb(this, cbval1);
             return;
         }
@@ -668,7 +650,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto setsocketerror_cb = qbluetoothsocket_setsocketerror_callback;
         if (setsocketerror_cb) {
             int cbval1 = static_cast<int>(errorVal);
-
             setsocketerror_cb(this, cbval1);
             return;
         }
@@ -688,7 +669,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
             // Cast returned reference into pointer
             QBluetoothServiceInfo* cbval1 = const_cast<QBluetoothServiceInfo*>(&service_ret);
             int cbval2 = static_cast<int>(openMode);
-
             dodevicediscovery_cb(this, cbval1, cbval2);
             return;
         }
@@ -705,7 +685,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto setopenmode_cb = qbluetoothsocket_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -729,7 +708,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -774,7 +752,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
         auto receivers_cb = qbluetoothsocket_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -792,7 +769,6 @@ class VirtualQBluetoothSocket final : public QBluetoothSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

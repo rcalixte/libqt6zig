@@ -229,7 +229,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto metacast_cb = kurlcompletion_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -247,7 +246,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -270,7 +268,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             const char* callback_ret = makecompletion_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(text_str);
@@ -291,7 +288,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             const QUrl& dir_ret = dir;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&dir_ret);
-
             setdir_cb(this, cbval1);
             return;
         }
@@ -307,7 +303,9 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto dir_cb = kurlcompletion_dir_callback;
         if (dir_cb) {
             QUrl* callback_ret = dir_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KUrlCompletion::dir();
     }
@@ -365,7 +363,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setmode_cb = kurlcompletion_setmode_callback;
         if (setmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setmode_cb(this, cbval1);
             return;
         }
@@ -396,7 +393,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setreplaceenv_cb = kurlcompletion_setreplaceenv_callback;
         if (setreplaceenv_cb) {
             bool cbval1 = replace;
-
             setreplaceenv_cb(this, cbval1);
             return;
         }
@@ -427,7 +423,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setreplacehome_cb = kurlcompletion_setreplacehome_callback;
         if (setreplacehome_cb) {
             bool cbval1 = replace;
-
             setreplacehome_cb(this, cbval1);
             return;
         }
@@ -457,7 +452,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             // Append sentinel null terminator to the list
             matches_arr[matches_ret->size()] = nullptr;
             const char** cbval1 = matches_arr;
-
             postprocessmatches_cb(this, cbval1);
             libqt_free(matches_arr);
             return;
@@ -475,7 +469,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto postprocessmatches2_cb = kurlcompletion_postprocessmatches2_callback;
         if (postprocessmatches2_cb) {
             KCompletionMatches* cbval1 = matches;
-
             postprocessmatches2_cb(this, cbval1);
             return;
         }
@@ -507,7 +500,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setcompletionmode_cb = kurlcompletion_setcompletionmode_callback;
         if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setcompletionmode_cb(this, cbval1);
             return;
         }
@@ -524,7 +516,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setorder_cb = kurlcompletion_setorder_callback;
         if (setorder_cb) {
             int cbval1 = static_cast<int>(order);
-
             setorder_cb(this, cbval1);
             return;
         }
@@ -541,7 +532,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setignorecase_cb = kurlcompletion_setignorecase_callback;
         if (setignorecase_cb) {
             bool cbval1 = ignoreCase;
-
             setignorecase_cb(this, cbval1);
             return;
         }
@@ -558,7 +548,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setsoundsenabled_cb = kurlcompletion_setsoundsenabled_callback;
         if (setsoundsenabled_cb) {
             bool cbval1 = enable;
-
             setsoundsenabled_cb(this, cbval1);
             return;
         }
@@ -588,7 +577,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             // Append sentinel null terminator to the list
             itemList_arr[itemList_ret.size()] = nullptr;
             const char** cbval1 = itemList_arr;
-
             setitems_cb(this, cbval1);
             libqt_free(itemList_arr);
             return;
@@ -620,7 +608,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto event_cb = kurlcompletion_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -637,7 +624,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -654,7 +640,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto timerevent_cb = kurlcompletion_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -671,7 +656,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto childevent_cb = kurlcompletion_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -688,7 +672,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto customevent_cb = kurlcompletion_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -707,7 +690,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -726,7 +708,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -743,7 +724,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto setshouldautosuggest_cb = kurlcompletion_setshouldautosuggest_callback;
         if (setshouldautosuggest_cb) {
             bool cbval1 = shouldAutosuggest;
-
             setshouldautosuggest_cb(this, cbval1);
             return;
         }
@@ -787,7 +767,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         auto receivers_cb = kurlcompletion_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -805,7 +784,6 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

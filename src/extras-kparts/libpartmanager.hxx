@@ -174,7 +174,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto metacast_cb = kparts__partmanager_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -192,7 +191,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -209,7 +207,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (eventfilter_cb) {
             QObject* cbval1 = obj;
             QEvent* cbval2 = ev;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -227,7 +224,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (addpart_cb) {
             KParts__Part* cbval1 = part;
             bool cbval2 = setActive;
-
             addpart_cb(this, cbval1, cbval2);
             return;
         }
@@ -244,7 +240,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto removepart_cb = kparts__partmanager_removepart_callback;
         if (removepart_cb) {
             KParts__Part* cbval1 = part;
-
             removepart_cb(this, cbval1);
             return;
         }
@@ -263,7 +258,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
             KParts__Part* cbval1 = oldPart;
             KParts__Part* cbval2 = newPart;
             bool cbval3 = setActive;
-
             replacepart_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -281,7 +275,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         if (setactivepart_cb) {
             KParts__Part* cbval1 = part;
             QWidget* cbval2 = widget;
-
             setactivepart_cb(this, cbval1, cbval2);
             return;
         }
@@ -325,7 +318,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto event_cb = kparts__partmanager_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -342,7 +334,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto timerevent_cb = kparts__partmanager_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -359,7 +350,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto childevent_cb = kparts__partmanager_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -376,7 +366,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto customevent_cb = kparts__partmanager_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -395,7 +384,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -414,7 +402,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -431,7 +418,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto setignoreexplictfocusrequests_cb = kparts__partmanager_setignoreexplictfocusrequests_callback;
         if (setignoreexplictfocusrequests_cb) {
             bool cbval1 = ignoreExplictFocusRequests;
-
             setignoreexplictfocusrequests_cb(this, cbval1);
             return;
         }
@@ -520,7 +506,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
         auto receivers_cb = kparts__partmanager_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -538,7 +523,6 @@ class VirtualKPartsPartManager final : public KParts::PartManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

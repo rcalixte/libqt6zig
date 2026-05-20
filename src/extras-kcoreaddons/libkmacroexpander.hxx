@@ -72,7 +72,6 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval3 = retVal_arr;
-
             int callback_ret = expandplainmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -112,7 +111,6 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval3 = retVal_arr;
-
             int callback_ret = expandescapedmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -196,7 +194,6 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval3 = retVal_arr;
-
             int callback_ret = expandplainmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -236,7 +233,6 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval3 = retVal_arr;
-
             int callback_ret = expandescapedmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -271,7 +267,6 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval2 = retVal_arr;
-
             bool callback_ret = expandmacro_cb(this, cbval1, cbval2);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -357,7 +352,6 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval3 = retVal_arr;
-
             int callback_ret = expandplainmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -397,7 +391,6 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval3 = retVal_arr;
-
             int callback_ret = expandescapedmacro_cb(this, cbval1, cbval2, cbval3);
             libqt_free(str_str);
             libqt_free(retVal_arr);
@@ -425,7 +418,6 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
             // Append sentinel null terminator to the list
             retVal_arr[retVal_ret.size()] = nullptr;
             const char** cbval2 = retVal_arr;
-
             bool callback_ret = expandmacro_cb(this, cbval1, cbval2);
             libqt_free(retVal_arr);
             return callback_ret;

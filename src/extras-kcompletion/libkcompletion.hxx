@@ -178,7 +178,6 @@ class VirtualKCompletion final : public KCompletion {
         auto metacast_cb = kcompletion_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -196,7 +195,6 @@ class VirtualKCompletion final : public KCompletion {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -228,7 +226,6 @@ class VirtualKCompletion final : public KCompletion {
         auto setcompletionmode_cb = kcompletion_setcompletionmode_callback;
         if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setcompletionmode_cb(this, cbval1);
             return;
         }
@@ -245,7 +242,6 @@ class VirtualKCompletion final : public KCompletion {
         auto setorder_cb = kcompletion_setorder_callback;
         if (setorder_cb) {
             int cbval1 = static_cast<int>(order);
-
             setorder_cb(this, cbval1);
             return;
         }
@@ -262,7 +258,6 @@ class VirtualKCompletion final : public KCompletion {
         auto setignorecase_cb = kcompletion_setignorecase_callback;
         if (setignorecase_cb) {
             bool cbval1 = ignoreCase;
-
             setignorecase_cb(this, cbval1);
             return;
         }
@@ -279,7 +274,6 @@ class VirtualKCompletion final : public KCompletion {
         auto setsoundsenabled_cb = kcompletion_setsoundsenabled_callback;
         if (setsoundsenabled_cb) {
             bool cbval1 = enable;
-
             setsoundsenabled_cb(this, cbval1);
             return;
         }
@@ -302,7 +296,6 @@ class VirtualKCompletion final : public KCompletion {
             memcpy((void*)stringVal_str, stringVal_b.data(), stringVal_str_len);
             ((char*)stringVal_str)[stringVal_str_len] = '\0';
             const char* cbval1 = stringVal_str;
-
             const char* callback_ret = makecompletion_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(stringVal_str);
@@ -334,7 +327,6 @@ class VirtualKCompletion final : public KCompletion {
             // Append sentinel null terminator to the list
             itemList_arr[itemList_ret.size()] = nullptr;
             const char** cbval1 = itemList_arr;
-
             setitems_cb(this, cbval1);
             libqt_free(itemList_arr);
             return;
@@ -380,7 +372,6 @@ class VirtualKCompletion final : public KCompletion {
             // Append sentinel null terminator to the list
             matchList_arr[matchList_ret->size()] = nullptr;
             const char** cbval1 = matchList_arr;
-
             postprocessmatches_cb(this, cbval1);
             libqt_free(matchList_arr);
             return;
@@ -398,7 +389,6 @@ class VirtualKCompletion final : public KCompletion {
         auto postprocessmatches2_cb = kcompletion_postprocessmatches2_callback;
         if (postprocessmatches2_cb) {
             KCompletionMatches* cbval1 = matches;
-
             postprocessmatches2_cb(this, cbval1);
             return;
         }
@@ -414,7 +404,6 @@ class VirtualKCompletion final : public KCompletion {
         auto event_cb = kcompletion_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -431,7 +420,6 @@ class VirtualKCompletion final : public KCompletion {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -448,7 +436,6 @@ class VirtualKCompletion final : public KCompletion {
         auto timerevent_cb = kcompletion_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -465,7 +452,6 @@ class VirtualKCompletion final : public KCompletion {
         auto childevent_cb = kcompletion_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -482,7 +468,6 @@ class VirtualKCompletion final : public KCompletion {
         auto customevent_cb = kcompletion_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -501,7 +486,6 @@ class VirtualKCompletion final : public KCompletion {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -520,7 +504,6 @@ class VirtualKCompletion final : public KCompletion {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -537,7 +520,6 @@ class VirtualKCompletion final : public KCompletion {
         auto setshouldautosuggest_cb = kcompletion_setshouldautosuggest_callback;
         if (setshouldautosuggest_cb) {
             bool cbval1 = shouldAutosuggest;
-
             setshouldautosuggest_cb(this, cbval1);
             return;
         }
@@ -581,7 +563,6 @@ class VirtualKCompletion final : public KCompletion {
         auto receivers_cb = kcompletion_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -599,7 +580,6 @@ class VirtualKCompletion final : public KCompletion {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

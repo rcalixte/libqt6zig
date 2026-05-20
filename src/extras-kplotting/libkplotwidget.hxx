@@ -379,7 +379,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto metacast_cb = kplotwidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -397,7 +396,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -413,7 +411,9 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto minimumsizehint_cb = kplotwidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPlotWidget::minimumSizeHint();
     }
@@ -427,7 +427,9 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto sizehint_cb = kplotwidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPlotWidget::sizeHint();
     }
@@ -441,7 +443,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto event_cb = kplotwidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -458,7 +459,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto paintevent_cb = kplotwidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -475,7 +475,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto resizeevent_cb = kplotwidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -492,7 +491,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto drawaxes_cb = kplotwidget_drawaxes_callback;
         if (drawaxes_cb) {
             QPainter* cbval1 = p;
-
             drawaxes_cb(this, cbval1);
             return;
         }
@@ -509,7 +507,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto changeevent_cb = kplotwidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -526,7 +523,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto initstyleoption_cb = kplotwidget_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -557,7 +553,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto setvisible_cb = kplotwidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -573,7 +568,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto heightforwidth_cb = kplotwidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -618,7 +612,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto mousepressevent_cb = kplotwidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -635,7 +628,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto mousereleaseevent_cb = kplotwidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -652,7 +644,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto mousedoubleclickevent_cb = kplotwidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -669,7 +660,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto mousemoveevent_cb = kplotwidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -686,7 +676,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto wheelevent_cb = kplotwidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -703,7 +692,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto keypressevent_cb = kplotwidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -720,7 +708,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto keyreleaseevent_cb = kplotwidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -737,7 +724,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto focusinevent_cb = kplotwidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -754,7 +740,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto focusoutevent_cb = kplotwidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -771,7 +756,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto enterevent_cb = kplotwidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -788,7 +772,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto leaveevent_cb = kplotwidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -805,7 +788,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto moveevent_cb = kplotwidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -822,7 +804,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto closeevent_cb = kplotwidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -839,7 +820,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto contextmenuevent_cb = kplotwidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -856,7 +836,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto tabletevent_cb = kplotwidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -873,7 +852,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto actionevent_cb = kplotwidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -890,7 +868,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto dragenterevent_cb = kplotwidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -907,7 +884,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto dragmoveevent_cb = kplotwidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -924,7 +900,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto dragleaveevent_cb = kplotwidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -941,7 +916,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto dropevent_cb = kplotwidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -958,7 +932,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto showevent_cb = kplotwidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -975,7 +948,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto hideevent_cb = kplotwidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -999,7 +971,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1016,7 +987,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto metric_cb = kplotwidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1033,7 +1003,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto initpainter_cb = kplotwidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1049,7 +1018,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto redirected_cb = kplotwidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1080,7 +1048,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto inputmethodevent_cb = kplotwidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1096,9 +1063,10 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto inputmethodquery_cb = kplotwidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPlotWidget::inputMethodQuery(param1);
     }
@@ -1112,7 +1080,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto focusnextprevchild_cb = kplotwidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1129,7 +1096,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1146,7 +1112,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto timerevent_cb = kplotwidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1163,7 +1128,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto childevent_cb = kplotwidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1180,7 +1144,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto customevent_cb = kplotwidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1199,7 +1162,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1218,7 +1180,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1251,7 +1212,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             libqt_list /* of KPlotPoint* */ callback_ret = pointsunderpoint_cb(this, cbval1);
             QList<KPlotPoint*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -1275,7 +1235,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto drawframe_cb = kplotwidget_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1392,7 +1351,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         auto receivers_cb = kplotwidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1410,7 +1368,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1427,7 +1384,6 @@ class VirtualKPlotWidget final : public KPlotWidget {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

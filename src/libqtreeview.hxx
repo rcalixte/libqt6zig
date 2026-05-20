@@ -697,7 +697,6 @@ class VirtualQTreeView final : public QTreeView {
         auto metacast_cb = qtreeview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -715,7 +714,6 @@ class VirtualQTreeView final : public QTreeView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -732,7 +730,6 @@ class VirtualQTreeView final : public QTreeView {
         auto setmodel_cb = qtreeview_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -751,7 +748,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -768,7 +764,6 @@ class VirtualQTreeView final : public QTreeView {
         auto setselectionmodel_cb = qtreeview_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -792,7 +787,6 @@ class VirtualQTreeView final : public QTreeView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -811,9 +805,10 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::visualRect(index);
     }
@@ -831,7 +826,6 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
             return;
         }
@@ -849,9 +843,10 @@ class VirtualQTreeView final : public QTreeView {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::indexAt(p);
     }
@@ -911,7 +906,6 @@ class VirtualQTreeView final : public QTreeView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -944,7 +938,6 @@ class VirtualQTreeView final : public QTreeView {
         auto verticalscrollbarvaluechanged_cb = qtreeview_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -962,7 +955,6 @@ class VirtualQTreeView final : public QTreeView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -983,7 +975,6 @@ class VirtualQTreeView final : public QTreeView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1004,7 +995,6 @@ class VirtualQTreeView final : public QTreeView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1021,9 +1011,10 @@ class VirtualQTreeView final : public QTreeView {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::moveCursor(cursorAction, modifiers);
     }
@@ -1069,7 +1060,6 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
-
             setselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -1087,9 +1077,10 @@ class VirtualQTreeView final : public QTreeView {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::visualRegionForSelection(selection);
     }
@@ -1125,7 +1116,6 @@ class VirtualQTreeView final : public QTreeView {
         auto changeevent_cb = qtreeview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1142,7 +1132,6 @@ class VirtualQTreeView final : public QTreeView {
         auto timerevent_cb = qtreeview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1159,7 +1148,6 @@ class VirtualQTreeView final : public QTreeView {
         auto paintevent_cb = qtreeview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1182,7 +1170,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             drawrow_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1205,7 +1192,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&index_ret);
-
             drawbranches_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1222,7 +1208,6 @@ class VirtualQTreeView final : public QTreeView {
         auto mousepressevent_cb = qtreeview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1239,7 +1224,6 @@ class VirtualQTreeView final : public QTreeView {
         auto mousereleaseevent_cb = qtreeview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1256,7 +1240,6 @@ class VirtualQTreeView final : public QTreeView {
         auto mousedoubleclickevent_cb = qtreeview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1273,7 +1256,6 @@ class VirtualQTreeView final : public QTreeView {
         auto mousemoveevent_cb = qtreeview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1290,7 +1272,6 @@ class VirtualQTreeView final : public QTreeView {
         auto keypressevent_cb = qtreeview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1307,7 +1288,6 @@ class VirtualQTreeView final : public QTreeView {
         auto dragmoveevent_cb = qtreeview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1323,7 +1303,6 @@ class VirtualQTreeView final : public QTreeView {
         auto viewportevent_cb = qtreeview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1354,7 +1333,9 @@ class VirtualQTreeView final : public QTreeView {
         auto viewportsizehint_cb = qtreeview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::viewportSizeHint();
     }
@@ -1368,7 +1349,6 @@ class VirtualQTreeView final : public QTreeView {
         auto sizehintforcolumn_cb = qtreeview_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1385,7 +1365,6 @@ class VirtualQTreeView final : public QTreeView {
         auto horizontalscrollbaraction_cb = qtreeview_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1403,7 +1382,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1425,7 +1403,6 @@ class VirtualQTreeView final : public QTreeView {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1447,7 +1424,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& previous_ret = previous;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1463,7 +1439,6 @@ class VirtualQTreeView final : public QTreeView {
         auto sizehintforrow_cb = qtreeview_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1481,7 +1456,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -1497,9 +1471,10 @@ class VirtualQTreeView final : public QTreeView {
         auto inputmethodquery_cb = qtreeview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::inputMethodQuery(query);
     }
@@ -1544,7 +1519,6 @@ class VirtualQTreeView final : public QTreeView {
         auto verticalscrollbaraction_cb = qtreeview_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1561,7 +1535,6 @@ class VirtualQTreeView final : public QTreeView {
         auto horizontalscrollbarvaluechanged_cb = qtreeview_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1579,7 +1552,6 @@ class VirtualQTreeView final : public QTreeView {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1596,7 +1568,6 @@ class VirtualQTreeView final : public QTreeView {
         auto commitdata_cb = qtreeview_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1613,7 +1584,6 @@ class VirtualQTreeView final : public QTreeView {
         auto editordestroyed_cb = qtreeview_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1633,7 +1603,6 @@ class VirtualQTreeView final : public QTreeView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1652,7 +1621,6 @@ class VirtualQTreeView final : public QTreeView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1669,7 +1637,6 @@ class VirtualQTreeView final : public QTreeView {
         auto startdrag_cb = qtreeview_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -1686,7 +1653,6 @@ class VirtualQTreeView final : public QTreeView {
         auto initviewitemoption_cb = qtreeview_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1702,7 +1668,6 @@ class VirtualQTreeView final : public QTreeView {
         auto focusnextprevchild_cb = qtreeview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1718,7 +1683,6 @@ class VirtualQTreeView final : public QTreeView {
         auto event_cb = qtreeview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1735,7 +1699,6 @@ class VirtualQTreeView final : public QTreeView {
         auto dragenterevent_cb = qtreeview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1752,7 +1715,6 @@ class VirtualQTreeView final : public QTreeView {
         auto dragleaveevent_cb = qtreeview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1769,7 +1731,6 @@ class VirtualQTreeView final : public QTreeView {
         auto dropevent_cb = qtreeview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1786,7 +1747,6 @@ class VirtualQTreeView final : public QTreeView {
         auto focusinevent_cb = qtreeview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1803,7 +1763,6 @@ class VirtualQTreeView final : public QTreeView {
         auto focusoutevent_cb = qtreeview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1820,7 +1779,6 @@ class VirtualQTreeView final : public QTreeView {
         auto resizeevent_cb = qtreeview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1837,7 +1795,6 @@ class VirtualQTreeView final : public QTreeView {
         auto inputmethodevent_cb = qtreeview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1854,7 +1811,6 @@ class VirtualQTreeView final : public QTreeView {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1870,7 +1826,9 @@ class VirtualQTreeView final : public QTreeView {
         auto minimumsizehint_cb = qtreeview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::minimumSizeHint();
     }
@@ -1884,7 +1842,9 @@ class VirtualQTreeView final : public QTreeView {
         auto sizehint_cb = qtreeview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::sizeHint();
     }
@@ -1899,7 +1859,6 @@ class VirtualQTreeView final : public QTreeView {
         auto setupviewport_cb = qtreeview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1916,7 +1875,6 @@ class VirtualQTreeView final : public QTreeView {
         auto wheelevent_cb = qtreeview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1933,7 +1891,6 @@ class VirtualQTreeView final : public QTreeView {
         auto contextmenuevent_cb = qtreeview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1950,7 +1907,6 @@ class VirtualQTreeView final : public QTreeView {
         auto initstyleoption_cb = qtreeview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1981,7 +1937,6 @@ class VirtualQTreeView final : public QTreeView {
         auto setvisible_cb = qtreeview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1997,7 +1952,6 @@ class VirtualQTreeView final : public QTreeView {
         auto heightforwidth_cb = qtreeview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2042,7 +1996,6 @@ class VirtualQTreeView final : public QTreeView {
         auto keyreleaseevent_cb = qtreeview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2059,7 +2012,6 @@ class VirtualQTreeView final : public QTreeView {
         auto enterevent_cb = qtreeview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2076,7 +2028,6 @@ class VirtualQTreeView final : public QTreeView {
         auto leaveevent_cb = qtreeview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2093,7 +2044,6 @@ class VirtualQTreeView final : public QTreeView {
         auto moveevent_cb = qtreeview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2110,7 +2060,6 @@ class VirtualQTreeView final : public QTreeView {
         auto closeevent_cb = qtreeview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2127,7 +2076,6 @@ class VirtualQTreeView final : public QTreeView {
         auto tabletevent_cb = qtreeview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2144,7 +2092,6 @@ class VirtualQTreeView final : public QTreeView {
         auto actionevent_cb = qtreeview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2161,7 +2108,6 @@ class VirtualQTreeView final : public QTreeView {
         auto showevent_cb = qtreeview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2178,7 +2124,6 @@ class VirtualQTreeView final : public QTreeView {
         auto hideevent_cb = qtreeview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2202,7 +2147,6 @@ class VirtualQTreeView final : public QTreeView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2219,7 +2163,6 @@ class VirtualQTreeView final : public QTreeView {
         auto metric_cb = qtreeview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2236,7 +2179,6 @@ class VirtualQTreeView final : public QTreeView {
         auto initpainter_cb = qtreeview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2252,7 +2194,6 @@ class VirtualQTreeView final : public QTreeView {
         auto redirected_cb = qtreeview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2283,7 +2224,6 @@ class VirtualQTreeView final : public QTreeView {
         auto childevent_cb = qtreeview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2300,7 +2240,6 @@ class VirtualQTreeView final : public QTreeView {
         auto customevent_cb = qtreeview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2319,7 +2258,6 @@ class VirtualQTreeView final : public QTreeView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2338,7 +2276,6 @@ class VirtualQTreeView final : public QTreeView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2357,7 +2294,6 @@ class VirtualQTreeView final : public QTreeView {
             int cbval1 = column;
             int cbval2 = oldSize;
             int cbval3 = newSize;
-
             columnresized_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2375,7 +2311,6 @@ class VirtualQTreeView final : public QTreeView {
         if (columncountchanged_cb) {
             int cbval1 = oldCount;
             int cbval2 = newCount;
-
             columncountchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -2426,7 +2361,6 @@ class VirtualQTreeView final : public QTreeView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             rowsremoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2446,7 +2380,6 @@ class VirtualQTreeView final : public QTreeView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval2 = const_cast<QRegion*>(&region_ret);
-
             drawtree_cb(this, cbval1, cbval2);
             return;
         }
@@ -2464,7 +2397,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = indexrowsizehint_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2482,7 +2414,6 @@ class VirtualQTreeView final : public QTreeView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = rowheight_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2513,7 +2444,6 @@ class VirtualQTreeView final : public QTreeView {
         auto setstate_cb = qtreeview_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2562,7 +2492,6 @@ class VirtualQTreeView final : public QTreeView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2580,7 +2509,6 @@ class VirtualQTreeView final : public QTreeView {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2596,7 +2524,9 @@ class VirtualQTreeView final : public QTreeView {
         auto dirtyregionoffset_cb = qtreeview_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::dirtyRegionOffset();
     }
@@ -2673,7 +2603,6 @@ class VirtualQTreeView final : public QTreeView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2689,7 +2618,9 @@ class VirtualQTreeView final : public QTreeView {
         auto viewportmargins_cb = qtreeview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTreeView::viewportMargins();
     }
@@ -2704,7 +2635,6 @@ class VirtualQTreeView final : public QTreeView {
         auto drawframe_cb = qtreeview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2821,7 +2751,6 @@ class VirtualQTreeView final : public QTreeView {
         auto receivers_cb = qtreeview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2839,7 +2768,6 @@ class VirtualQTreeView final : public QTreeView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2856,7 +2784,6 @@ class VirtualQTreeView final : public QTreeView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

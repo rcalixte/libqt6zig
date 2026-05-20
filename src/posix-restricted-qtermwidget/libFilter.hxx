@@ -151,7 +151,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto metacast_cb = konsole__filter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -169,7 +168,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -185,7 +183,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto event_cb = konsole__filter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -202,7 +199,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -219,7 +215,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto timerevent_cb = konsole__filter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -236,7 +231,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto childevent_cb = konsole__filter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -253,7 +247,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto customevent_cb = konsole__filter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -272,7 +265,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -291,7 +283,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -308,7 +299,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto addhotspot_cb = konsole__filter_addhotspot_callback;
         if (addhotspot_cb) {
             Konsole__Filter__HotSpot* cbval1 = param1;
-
             addhotspot_cb(this, cbval1);
             return;
         }
@@ -342,7 +332,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
             int cbval1 = position;
             int* cbval2 = &startLine;
             int* cbval3 = &startColumn;
-
             getlinecolumn_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -386,7 +375,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
         auto receivers_cb = konsole__filter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -404,7 +392,6 @@ class VirtualKonsoleFilter : public Konsole::Filter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -581,7 +568,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             int cbval2 = startColumn;
             int cbval3 = endLine;
             int cbval4 = endColumn;
-
             Konsole__RegExpFilter__HotSpot* callback_ret = newhotspot_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -611,7 +597,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto metacast_cb = konsole__regexpfilter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -629,7 +614,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -645,7 +629,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto event_cb = konsole__regexpfilter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -662,7 +645,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -679,7 +661,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto timerevent_cb = konsole__regexpfilter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -696,7 +677,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto childevent_cb = konsole__regexpfilter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -713,7 +693,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto customevent_cb = konsole__regexpfilter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -732,7 +711,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -751,7 +729,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -768,7 +745,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto addhotspot_cb = konsole__regexpfilter_addhotspot_callback;
         if (addhotspot_cb) {
             Konsole__Filter__HotSpot* cbval1 = param1;
-
             addhotspot_cb(this, cbval1);
             return;
         }
@@ -802,7 +778,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             int cbval1 = position;
             int* cbval2 = &startLine;
             int* cbval3 = &startColumn;
-
             getlinecolumn_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -846,7 +821,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
         auto receivers_cb = konsole__regexpfilter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -864,7 +838,6 @@ class VirtualKonsoleRegExpFilter final : public Konsole::RegExpFilter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1039,7 +1012,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto metacast_cb = konsole__urlfilter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1057,7 +1029,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1076,7 +1047,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
             int cbval2 = param2;
             int cbval3 = param3;
             int cbval4 = param4;
-
             Konsole__RegExpFilter__HotSpot* callback_ret = newhotspot_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -1107,7 +1077,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto event_cb = konsole__urlfilter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1124,7 +1093,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1141,7 +1109,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto timerevent_cb = konsole__urlfilter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1158,7 +1125,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto childevent_cb = konsole__urlfilter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1175,7 +1141,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto customevent_cb = konsole__urlfilter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1194,7 +1159,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1213,7 +1177,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1230,7 +1193,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto addhotspot_cb = konsole__urlfilter_addhotspot_callback;
         if (addhotspot_cb) {
             Konsole__Filter__HotSpot* cbval1 = param1;
-
             addhotspot_cb(this, cbval1);
             return;
         }
@@ -1264,7 +1226,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
             int cbval1 = position;
             int* cbval2 = &startLine;
             int* cbval3 = &startColumn;
-
             getlinecolumn_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1308,7 +1269,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
         auto receivers_cb = konsole__urlfilter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1326,7 +1286,6 @@ class VirtualKonsoleUrlFilter final : public Konsole::UrlFilter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1476,7 +1435,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         auto metacast_cb = konsole__filterobject_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1494,7 +1452,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1510,7 +1467,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         auto event_cb = konsole__filterobject_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1527,7 +1483,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1544,7 +1499,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         auto timerevent_cb = konsole__filterobject_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1561,7 +1515,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         auto childevent_cb = konsole__filterobject_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1578,7 +1531,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         auto customevent_cb = konsole__filterobject_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1597,7 +1549,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1616,7 +1567,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1660,7 +1610,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
         auto receivers_cb = konsole__filterobject_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1678,7 +1627,6 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1755,7 +1703,6 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
             memcpy((void*)action_str, action_b.data(), action_str_len);
             ((char*)action_str)[action_str_len] = '\0';
             const char* cbval1 = action_str;
-
             activate_cb(this, cbval1);
             libqt_free(action_str);
         }
@@ -1792,7 +1739,6 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
         auto settype_cb = konsole__filter__hotspot_settype_callback;
         if (settype_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             settype_cb(this, cbval1);
             return;
         }
@@ -1858,7 +1804,6 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
             memcpy((void*)action_str, action_b.data(), action_str_len);
             ((char*)action_str)[action_str_len] = '\0';
             const char* cbval1 = action_str;
-
             activate_cb(this, cbval1);
             libqt_free(action_str);
             return;
@@ -1897,7 +1842,6 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
         auto settype_cb = konsole__regexpfilter__hotspot_settype_callback;
         if (settype_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             settype_cb(this, cbval1);
             return;
         }
@@ -1983,7 +1927,6 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
             memcpy((void*)action_str, action_b.data(), action_str_len);
             ((char*)action_str)[action_str_len] = '\0';
             const char* cbval1 = action_str;
-
             activate_cb(this, cbval1);
             libqt_free(action_str);
             return;
@@ -2001,7 +1944,6 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
         auto settype_cb = konsole__urlfilter__hotspot_settype_callback;
         if (settype_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             settype_cb(this, cbval1);
             return;
         }

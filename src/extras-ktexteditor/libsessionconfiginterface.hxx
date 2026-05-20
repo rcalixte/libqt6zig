@@ -47,7 +47,6 @@ class VirtualKTextEditorSessionConfigInterface : public KTextEditor::SessionConf
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
-
             readsessionconfig_cb(this, cbval1);
         }
     }
@@ -59,7 +58,6 @@ class VirtualKTextEditorSessionConfigInterface : public KTextEditor::SessionConf
             KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &config_ret;
-
             writesessionconfig_cb(this, cbval1);
         }
     }

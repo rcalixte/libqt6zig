@@ -139,7 +139,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         auto metacast_cb = qextensionmanager_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -157,7 +156,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -182,7 +180,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             memcpy((void*)iid_str, iid_b.data(), iid_str_len);
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
-
             registerextensions_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
             return;
@@ -208,7 +205,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             memcpy((void*)iid_str, iid_b.data(), iid_str_len);
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
-
             unregisterextensions_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
             return;
@@ -233,7 +229,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             memcpy((void*)iid_str, iid_b.data(), iid_str_len);
             ((char*)iid_str)[iid_str_len] = '\0';
             const char* cbval2 = iid_str;
-
             QObject* callback_ret = extension_cb(this, cbval1, cbval2);
             libqt_free(iid_str);
             return callback_ret;
@@ -250,7 +245,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         auto event_cb = qextensionmanager_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -267,7 +261,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -284,7 +277,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         auto timerevent_cb = qextensionmanager_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -301,7 +293,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         auto childevent_cb = qextensionmanager_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -318,7 +309,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         auto customevent_cb = qextensionmanager_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -337,7 +327,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -356,7 +345,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -400,7 +388,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
         auto receivers_cb = qextensionmanager_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -418,7 +405,6 @@ class VirtualQExtensionManager final : public QExtensionManager {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -545,7 +545,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto metacast_cb = kxmlguiwindow_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -563,7 +562,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -596,7 +594,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const KConfigGroup& config_ret = config;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&config_ret);
-
             applymainwindowsettings_cb(this, cbval1);
             return;
         }
@@ -635,7 +632,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             memcpy((void*)newstate_str, newstate_b.data(), newstate_str_len);
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
-
             slotstatechanged_cb(this, cbval1);
             libqt_free(newstate_str);
             return;
@@ -652,7 +648,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto event_cb = kxmlguiwindow_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -691,7 +686,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             memcpy((void*)caption_str, caption_b.data(), caption_str_len);
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
-
             setcaption_cb(this, cbval1);
             libqt_free(caption_str);
             return;
@@ -716,7 +710,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             memcpy((void*)caption_str, caption_b.data(), caption_str_len);
             ((char*)caption_str)[caption_str_len] = '\0';
             const char* cbval1 = caption_str;
-
             setplaincaption_cb(this, cbval1);
             libqt_free(caption_str);
             return;
@@ -734,7 +727,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto keypressevent_cb = kxmlguiwindow_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = keyEvent;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -751,7 +743,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto closeevent_cb = kxmlguiwindow_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -784,7 +775,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &param1_ret;
-
             saveproperties_cb(this, cbval1);
             return;
         }
@@ -803,7 +793,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const KConfigGroup& param1_ret = param1;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&param1_ret);
-
             readproperties_cb(this, cbval1);
             return;
         }
@@ -820,7 +809,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto saveglobalproperties_cb = kxmlguiwindow_saveglobalproperties_callback;
         if (saveglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
-
             saveglobalproperties_cb(this, cbval1);
             return;
         }
@@ -837,7 +825,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto readglobalproperties_cb = kxmlguiwindow_readglobalproperties_callback;
         if (readglobalproperties_cb) {
             KConfig* cbval1 = sessionConfig;
-
             readglobalproperties_cb(this, cbval1);
             return;
         }
@@ -868,7 +855,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto contextmenuevent_cb = kxmlguiwindow_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -899,7 +885,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto setvisible_cb = kxmlguiwindow_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -915,7 +900,9 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto sizehint_cb = kxmlguiwindow_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KXmlGuiWindow::sizeHint();
     }
@@ -929,7 +916,9 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto minimumsizehint_cb = kxmlguiwindow_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KXmlGuiWindow::minimumSizeHint();
     }
@@ -943,7 +932,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto heightforwidth_cb = kxmlguiwindow_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -988,7 +976,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto mousepressevent_cb = kxmlguiwindow_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1005,7 +992,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto mousereleaseevent_cb = kxmlguiwindow_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1022,7 +1008,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto mousedoubleclickevent_cb = kxmlguiwindow_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1039,7 +1024,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto mousemoveevent_cb = kxmlguiwindow_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1056,7 +1040,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto wheelevent_cb = kxmlguiwindow_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1073,7 +1056,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto keyreleaseevent_cb = kxmlguiwindow_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1090,7 +1072,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto focusinevent_cb = kxmlguiwindow_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1107,7 +1088,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto focusoutevent_cb = kxmlguiwindow_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1124,7 +1104,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto enterevent_cb = kxmlguiwindow_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1141,7 +1120,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto leaveevent_cb = kxmlguiwindow_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1158,7 +1136,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto paintevent_cb = kxmlguiwindow_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1175,7 +1152,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto moveevent_cb = kxmlguiwindow_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1192,7 +1168,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto resizeevent_cb = kxmlguiwindow_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1209,7 +1184,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto tabletevent_cb = kxmlguiwindow_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1226,7 +1200,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto actionevent_cb = kxmlguiwindow_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1243,7 +1216,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto dragenterevent_cb = kxmlguiwindow_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1260,7 +1232,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto dragmoveevent_cb = kxmlguiwindow_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1277,7 +1248,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto dragleaveevent_cb = kxmlguiwindow_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1294,7 +1264,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto dropevent_cb = kxmlguiwindow_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1311,7 +1280,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto showevent_cb = kxmlguiwindow_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1328,7 +1296,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto hideevent_cb = kxmlguiwindow_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1352,7 +1319,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1370,7 +1336,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto changeevent_cb = kxmlguiwindow_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1386,7 +1351,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto metric_cb = kxmlguiwindow_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1403,7 +1367,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto initpainter_cb = kxmlguiwindow_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1419,7 +1382,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto redirected_cb = kxmlguiwindow_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1450,7 +1412,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto inputmethodevent_cb = kxmlguiwindow_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1466,9 +1427,10 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto inputmethodquery_cb = kxmlguiwindow_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KXmlGuiWindow::inputMethodQuery(param1);
     }
@@ -1482,7 +1444,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto focusnextprevchild_cb = kxmlguiwindow_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1499,7 +1460,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1516,7 +1476,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto timerevent_cb = kxmlguiwindow_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1533,7 +1492,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto childevent_cb = kxmlguiwindow_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1550,7 +1508,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto customevent_cb = kxmlguiwindow_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1569,7 +1526,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1588,7 +1544,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1634,7 +1589,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             QAction*& containerAction_ret = containerAction;
             // Cast returned reference into pointer
             QAction** cbval4 = &containerAction_ret;
-
             QWidget* callback_ret = createcontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -1656,7 +1610,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             // Cast returned reference into pointer
             QDomElement* cbval3 = &element_ret;
             QAction* cbval4 = containerAction;
-
             removecontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1699,7 +1652,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = const_cast<QDomElement*>(&element_ret);
-
             QAction* callback_ret = createcustomelement_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1716,7 +1668,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto finalizegui_cb = kxmlguiwindow_finalizegui_callback;
         if (finalizegui_cb) {
             KXMLGUIClient* cbval1 = client;
-
             finalizegui_cb(this, cbval1);
             return;
         }
@@ -1734,7 +1685,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
-
             QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
         }
@@ -1779,7 +1729,9 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto domdocument_cb = kxmlguiwindow_domdocument_callback;
         if (domdocument_cb) {
             QDomDocument* callback_ret = domdocument_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KXmlGuiWindow::domDocument();
     }
@@ -1839,7 +1791,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
-
             setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
@@ -1867,7 +1818,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
-
             setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
             return;
@@ -1892,7 +1842,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             memcpy((void*)file_str, file_b.data(), file_str_len);
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
-
             setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
             return;
@@ -1918,7 +1867,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)document_str)[document_str_len] = '\0';
             const char* cbval1 = document_str;
             bool cbval2 = merge;
-
             setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
             return;
@@ -1939,7 +1887,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
-
             setdomdocument_cb(this, cbval1, cbval2);
             return;
         }
@@ -1964,7 +1911,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
-
             statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
             return;
@@ -1998,7 +1944,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (savepropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
-
             savepropertiesinternal_cb(this, cbval1, cbval2);
             return;
         }
@@ -2015,7 +1960,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (readpropertiesinternal_cb) {
             KConfig* cbval1 = param1;
             int cbval2 = param2;
-
             bool callback_ret = readpropertiesinternal_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2161,7 +2105,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         auto receivers_cb = kxmlguiwindow_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2179,7 +2122,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2196,7 +2138,6 @@ class VirtualKXmlGuiWindow final : public KXmlGuiWindow {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

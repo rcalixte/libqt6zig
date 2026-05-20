@@ -124,7 +124,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         auto metacast_cb = qopengltimerquery_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -142,7 +141,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -158,7 +156,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         auto event_cb = qopengltimerquery_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -175,7 +172,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -192,7 +188,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         auto timerevent_cb = qopengltimerquery_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -209,7 +204,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         auto childevent_cb = qopengltimerquery_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -226,7 +220,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         auto customevent_cb = qopengltimerquery_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -245,7 +238,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -264,7 +256,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -308,7 +299,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
         auto receivers_cb = qopengltimerquery_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -326,7 +316,6 @@ class VirtualQOpenGLTimerQuery final : public QOpenGLTimerQuery {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -469,7 +458,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         auto metacast_cb = qopengltimemonitor_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -487,7 +475,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -503,7 +490,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         auto event_cb = qopengltimemonitor_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -520,7 +506,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -537,7 +522,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         auto timerevent_cb = qopengltimemonitor_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -554,7 +538,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         auto childevent_cb = qopengltimemonitor_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -571,7 +554,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         auto customevent_cb = qopengltimemonitor_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +572,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -609,7 +590,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -653,7 +633,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
         auto receivers_cb = qopengltimemonitor_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -671,7 +650,6 @@ class VirtualQOpenGLTimeMonitor final : public QOpenGLTimeMonitor {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

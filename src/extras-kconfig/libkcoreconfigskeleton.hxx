@@ -91,7 +91,6 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
         auto readconfig_cb = kconfigskeletonitem_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = param1;
-
             readconfig_cb(this, cbval1);
         }
     }
@@ -101,7 +100,6 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
         auto writeconfig_cb = kconfigskeletonitem_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = param1;
-
             writeconfig_cb(this, cbval1);
         }
     }
@@ -111,7 +109,6 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
         auto readdefault_cb = kconfigskeletonitem_readdefault_callback;
         if (readdefault_cb) {
             KConfig* cbval1 = param1;
-
             readdefault_cb(this, cbval1);
         }
     }
@@ -123,7 +120,6 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
         }
     }
@@ -135,7 +131,6 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -147,7 +142,9 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
         auto property_cb = kconfigskeletonitem_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -161,7 +158,9 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
         auto minvalue_cb = kconfigskeletonitem_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigSkeletonItem::minValue();
     }
@@ -175,7 +174,9 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
         auto maxvalue_cb = kconfigskeletonitem_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigSkeletonItem::maxValue();
     }
@@ -208,7 +209,6 @@ class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
             const KConfigGroup& group_ret = group;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&group_ret);
-
             readimmutability_cb(this, cbval1);
             return;
         }
@@ -306,7 +306,9 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
         auto property_cb = kpropertyskeletonitem_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPropertySkeletonItem::property();
     }
@@ -323,7 +325,6 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -341,7 +342,6 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -358,7 +358,6 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
         auto readconfig_cb = kpropertyskeletonitem_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = param1;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -375,7 +374,6 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
         auto writeconfig_cb = kpropertyskeletonitem_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = param1;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -392,7 +390,6 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
         auto readdefault_cb = kpropertyskeletonitem_readdefault_callback;
         if (readdefault_cb) {
             KConfig* cbval1 = param1;
-
             readdefault_cb(this, cbval1);
             return;
         }
@@ -438,7 +435,9 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
         auto minvalue_cb = kpropertyskeletonitem_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPropertySkeletonItem::minValue();
     }
@@ -452,7 +451,9 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
         auto maxvalue_cb = kpropertyskeletonitem_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPropertySkeletonItem::maxValue();
     }
@@ -469,7 +470,6 @@ class VirtualKPropertySkeletonItem final : public KPropertySkeletonItem {
             const KConfigGroup& group_ret = group;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&group_ret);
-
             readimmutability_cb(this, cbval1);
             return;
         }
@@ -627,7 +627,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto metacast_cb = kcoreconfigskeleton_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -645,7 +644,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -676,7 +674,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto usedefaults_cb = kcoreconfigskeleton_usedefaults_callback;
         if (usedefaults_cb) {
             bool cbval1 = b;
-
             bool callback_ret = usedefaults_cb(this, cbval1);
             return callback_ret;
         }
@@ -692,7 +689,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto usrusedefaults_cb = kcoreconfigskeleton_usrusedefaults_callback;
         if (usrusedefaults_cb) {
             bool cbval1 = b;
-
             bool callback_ret = usrusedefaults_cb(this, cbval1);
             return callback_ret;
         }
@@ -752,7 +748,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto event_cb = kcoreconfigskeleton_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -769,7 +764,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -786,7 +780,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto timerevent_cb = kcoreconfigskeleton_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -803,7 +796,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto childevent_cb = kcoreconfigskeleton_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -820,7 +812,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto customevent_cb = kcoreconfigskeleton_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -839,7 +830,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -858,7 +848,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -902,7 +891,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
         auto receivers_cb = kcoreconfigskeleton_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -920,7 +908,6 @@ class VirtualKCoreConfigSkeleton final : public KCoreConfigSkeleton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1014,7 +1001,6 @@ class VirtualKCoreConfigSkeletonItemString final : public KCoreConfigSkeleton::I
         auto writeconfig_cb = kcoreconfigskeleton__itemstring_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -1031,7 +1017,6 @@ class VirtualKCoreConfigSkeletonItemString final : public KCoreConfigSkeleton::I
         auto readconfig_cb = kcoreconfigskeleton__itemstring_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1050,7 +1035,6 @@ class VirtualKCoreConfigSkeletonItemString final : public KCoreConfigSkeleton::I
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1068,7 +1052,6 @@ class VirtualKCoreConfigSkeletonItemString final : public KCoreConfigSkeleton::I
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1084,7 +1067,9 @@ class VirtualKCoreConfigSkeletonItemString final : public KCoreConfigSkeleton::I
         auto property_cb = kcoreconfigskeleton__itemstring_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemString::property();
     }
@@ -1147,7 +1132,6 @@ class VirtualKCoreConfigSkeletonItemPassword final : public KCoreConfigSkeleton:
         auto writeconfig_cb = kcoreconfigskeleton__itempassword_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -1164,7 +1148,6 @@ class VirtualKCoreConfigSkeletonItemPassword final : public KCoreConfigSkeleton:
         auto readconfig_cb = kcoreconfigskeleton__itempassword_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1183,7 +1166,6 @@ class VirtualKCoreConfigSkeletonItemPassword final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1201,7 +1183,6 @@ class VirtualKCoreConfigSkeletonItemPassword final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1217,7 +1198,9 @@ class VirtualKCoreConfigSkeletonItemPassword final : public KCoreConfigSkeleton:
         auto property_cb = kcoreconfigskeleton__itempassword_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemPassword::property();
     }
@@ -1280,7 +1263,6 @@ class VirtualKCoreConfigSkeletonItemPath final : public KCoreConfigSkeleton::Ite
         auto writeconfig_cb = kcoreconfigskeleton__itempath_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -1297,7 +1279,6 @@ class VirtualKCoreConfigSkeletonItemPath final : public KCoreConfigSkeleton::Ite
         auto readconfig_cb = kcoreconfigskeleton__itempath_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1316,7 +1297,6 @@ class VirtualKCoreConfigSkeletonItemPath final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1334,7 +1314,6 @@ class VirtualKCoreConfigSkeletonItemPath final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1350,7 +1329,9 @@ class VirtualKCoreConfigSkeletonItemPath final : public KCoreConfigSkeleton::Ite
         auto property_cb = kcoreconfigskeleton__itempath_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemPath::property();
     }
@@ -1413,7 +1394,6 @@ class VirtualKCoreConfigSkeletonItemUrl final : public KCoreConfigSkeleton::Item
         auto writeconfig_cb = kcoreconfigskeleton__itemurl_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -1430,7 +1410,6 @@ class VirtualKCoreConfigSkeletonItemUrl final : public KCoreConfigSkeleton::Item
         auto readconfig_cb = kcoreconfigskeleton__itemurl_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1449,7 +1428,6 @@ class VirtualKCoreConfigSkeletonItemUrl final : public KCoreConfigSkeleton::Item
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1467,7 +1445,6 @@ class VirtualKCoreConfigSkeletonItemUrl final : public KCoreConfigSkeleton::Item
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1483,7 +1460,9 @@ class VirtualKCoreConfigSkeletonItemUrl final : public KCoreConfigSkeleton::Item
         auto property_cb = kcoreconfigskeleton__itemurl_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemUrl::property();
     }
@@ -1541,7 +1520,6 @@ class VirtualKCoreConfigSkeletonItemProperty final : public KCoreConfigSkeleton:
         auto readconfig_cb = kcoreconfigskeleton__itemproperty_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1560,7 +1538,6 @@ class VirtualKCoreConfigSkeletonItemProperty final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1578,7 +1555,6 @@ class VirtualKCoreConfigSkeletonItemProperty final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1594,7 +1570,9 @@ class VirtualKCoreConfigSkeletonItemProperty final : public KCoreConfigSkeleton:
         auto property_cb = kcoreconfigskeleton__itemproperty_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemProperty::property();
     }
@@ -1652,7 +1630,6 @@ class VirtualKCoreConfigSkeletonItemBool final : public KCoreConfigSkeleton::Ite
         auto readconfig_cb = kcoreconfigskeleton__itembool_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1671,7 +1648,6 @@ class VirtualKCoreConfigSkeletonItemBool final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1689,7 +1665,6 @@ class VirtualKCoreConfigSkeletonItemBool final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1705,7 +1680,9 @@ class VirtualKCoreConfigSkeletonItemBool final : public KCoreConfigSkeleton::Ite
         auto property_cb = kcoreconfigskeleton__itembool_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemBool::property();
     }
@@ -1773,7 +1750,6 @@ class VirtualKCoreConfigSkeletonItemInt final : public KCoreConfigSkeleton::Item
         auto readconfig_cb = kcoreconfigskeleton__itemint_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1792,7 +1768,6 @@ class VirtualKCoreConfigSkeletonItemInt final : public KCoreConfigSkeleton::Item
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1810,7 +1785,6 @@ class VirtualKCoreConfigSkeletonItemInt final : public KCoreConfigSkeleton::Item
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1826,7 +1800,9 @@ class VirtualKCoreConfigSkeletonItemInt final : public KCoreConfigSkeleton::Item
         auto property_cb = kcoreconfigskeleton__itemint_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemInt::property();
     }
@@ -1840,7 +1816,9 @@ class VirtualKCoreConfigSkeletonItemInt final : public KCoreConfigSkeleton::Item
         auto minvalue_cb = kcoreconfigskeleton__itemint_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemInt::minValue();
     }
@@ -1854,7 +1832,9 @@ class VirtualKCoreConfigSkeletonItemInt final : public KCoreConfigSkeleton::Item
         auto maxvalue_cb = kcoreconfigskeleton__itemint_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemInt::maxValue();
     }
@@ -1922,7 +1902,6 @@ class VirtualKCoreConfigSkeletonItemLongLong final : public KCoreConfigSkeleton:
         auto readconfig_cb = kcoreconfigskeleton__itemlonglong_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -1941,7 +1920,6 @@ class VirtualKCoreConfigSkeletonItemLongLong final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -1959,7 +1937,6 @@ class VirtualKCoreConfigSkeletonItemLongLong final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -1975,7 +1952,9 @@ class VirtualKCoreConfigSkeletonItemLongLong final : public KCoreConfigSkeleton:
         auto property_cb = kcoreconfigskeleton__itemlonglong_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemLongLong::property();
     }
@@ -1989,7 +1968,9 @@ class VirtualKCoreConfigSkeletonItemLongLong final : public KCoreConfigSkeleton:
         auto minvalue_cb = kcoreconfigskeleton__itemlonglong_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemLongLong::minValue();
     }
@@ -2003,7 +1984,9 @@ class VirtualKCoreConfigSkeletonItemLongLong final : public KCoreConfigSkeleton:
         auto maxvalue_cb = kcoreconfigskeleton__itemlonglong_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemLongLong::maxValue();
     }
@@ -2076,7 +2059,6 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
         auto readconfig_cb = kcoreconfigskeleton__itemenum_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2093,7 +2075,6 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
         auto writeconfig_cb = kcoreconfigskeleton__itemenum_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -2112,7 +2093,6 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2130,7 +2110,6 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2146,7 +2125,9 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
         auto property_cb = kcoreconfigskeleton__itemenum_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemEnum::property();
     }
@@ -2160,7 +2141,9 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
         auto minvalue_cb = kcoreconfigskeleton__itemenum_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemEnum::minValue();
     }
@@ -2174,7 +2157,9 @@ class VirtualKCoreConfigSkeletonItemEnum final : public KCoreConfigSkeleton::Ite
         auto maxvalue_cb = kcoreconfigskeleton__itemenum_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemEnum::maxValue();
     }
@@ -2242,7 +2227,6 @@ class VirtualKCoreConfigSkeletonItemUInt final : public KCoreConfigSkeleton::Ite
         auto readconfig_cb = kcoreconfigskeleton__itemuint_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2261,7 +2245,6 @@ class VirtualKCoreConfigSkeletonItemUInt final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2279,7 +2262,6 @@ class VirtualKCoreConfigSkeletonItemUInt final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2295,7 +2277,9 @@ class VirtualKCoreConfigSkeletonItemUInt final : public KCoreConfigSkeleton::Ite
         auto property_cb = kcoreconfigskeleton__itemuint_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemUInt::property();
     }
@@ -2309,7 +2293,9 @@ class VirtualKCoreConfigSkeletonItemUInt final : public KCoreConfigSkeleton::Ite
         auto minvalue_cb = kcoreconfigskeleton__itemuint_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemUInt::minValue();
     }
@@ -2323,7 +2309,9 @@ class VirtualKCoreConfigSkeletonItemUInt final : public KCoreConfigSkeleton::Ite
         auto maxvalue_cb = kcoreconfigskeleton__itemuint_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemUInt::maxValue();
     }
@@ -2391,7 +2379,6 @@ class VirtualKCoreConfigSkeletonItemULongLong final : public KCoreConfigSkeleton
         auto readconfig_cb = kcoreconfigskeleton__itemulonglong_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2410,7 +2397,6 @@ class VirtualKCoreConfigSkeletonItemULongLong final : public KCoreConfigSkeleton
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2428,7 +2414,6 @@ class VirtualKCoreConfigSkeletonItemULongLong final : public KCoreConfigSkeleton
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2444,7 +2429,9 @@ class VirtualKCoreConfigSkeletonItemULongLong final : public KCoreConfigSkeleton
         auto property_cb = kcoreconfigskeleton__itemulonglong_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemULongLong::property();
     }
@@ -2458,7 +2445,9 @@ class VirtualKCoreConfigSkeletonItemULongLong final : public KCoreConfigSkeleton
         auto minvalue_cb = kcoreconfigskeleton__itemulonglong_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemULongLong::minValue();
     }
@@ -2472,7 +2461,9 @@ class VirtualKCoreConfigSkeletonItemULongLong final : public KCoreConfigSkeleton
         auto maxvalue_cb = kcoreconfigskeleton__itemulonglong_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemULongLong::maxValue();
     }
@@ -2540,7 +2531,6 @@ class VirtualKCoreConfigSkeletonItemDouble final : public KCoreConfigSkeleton::I
         auto readconfig_cb = kcoreconfigskeleton__itemdouble_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2559,7 +2549,6 @@ class VirtualKCoreConfigSkeletonItemDouble final : public KCoreConfigSkeleton::I
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2577,7 +2566,6 @@ class VirtualKCoreConfigSkeletonItemDouble final : public KCoreConfigSkeleton::I
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2593,7 +2581,9 @@ class VirtualKCoreConfigSkeletonItemDouble final : public KCoreConfigSkeleton::I
         auto property_cb = kcoreconfigskeleton__itemdouble_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemDouble::property();
     }
@@ -2607,7 +2597,9 @@ class VirtualKCoreConfigSkeletonItemDouble final : public KCoreConfigSkeleton::I
         auto minvalue_cb = kcoreconfigskeleton__itemdouble_minvalue_callback;
         if (minvalue_cb) {
             QVariant* callback_ret = minvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemDouble::minValue();
     }
@@ -2621,7 +2613,9 @@ class VirtualKCoreConfigSkeletonItemDouble final : public KCoreConfigSkeleton::I
         auto maxvalue_cb = kcoreconfigskeleton__itemdouble_maxvalue_callback;
         if (maxvalue_cb) {
             QVariant* callback_ret = maxvalue_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemDouble::maxValue();
     }
@@ -2679,7 +2673,6 @@ class VirtualKCoreConfigSkeletonItemRect final : public KCoreConfigSkeleton::Ite
         auto readconfig_cb = kcoreconfigskeleton__itemrect_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2698,7 +2691,6 @@ class VirtualKCoreConfigSkeletonItemRect final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2716,7 +2708,6 @@ class VirtualKCoreConfigSkeletonItemRect final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2732,7 +2723,9 @@ class VirtualKCoreConfigSkeletonItemRect final : public KCoreConfigSkeleton::Ite
         auto property_cb = kcoreconfigskeleton__itemrect_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemRect::property();
     }
@@ -2790,7 +2783,6 @@ class VirtualKCoreConfigSkeletonItemRectF final : public KCoreConfigSkeleton::It
         auto readconfig_cb = kcoreconfigskeleton__itemrectf_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2809,7 +2801,6 @@ class VirtualKCoreConfigSkeletonItemRectF final : public KCoreConfigSkeleton::It
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2827,7 +2818,6 @@ class VirtualKCoreConfigSkeletonItemRectF final : public KCoreConfigSkeleton::It
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2843,7 +2833,9 @@ class VirtualKCoreConfigSkeletonItemRectF final : public KCoreConfigSkeleton::It
         auto property_cb = kcoreconfigskeleton__itemrectf_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemRectF::property();
     }
@@ -2901,7 +2893,6 @@ class VirtualKCoreConfigSkeletonItemPoint final : public KCoreConfigSkeleton::It
         auto readconfig_cb = kcoreconfigskeleton__itempoint_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -2920,7 +2911,6 @@ class VirtualKCoreConfigSkeletonItemPoint final : public KCoreConfigSkeleton::It
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -2938,7 +2928,6 @@ class VirtualKCoreConfigSkeletonItemPoint final : public KCoreConfigSkeleton::It
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -2954,7 +2943,9 @@ class VirtualKCoreConfigSkeletonItemPoint final : public KCoreConfigSkeleton::It
         auto property_cb = kcoreconfigskeleton__itempoint_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemPoint::property();
     }
@@ -3012,7 +3003,6 @@ class VirtualKCoreConfigSkeletonItemPointF final : public KCoreConfigSkeleton::I
         auto readconfig_cb = kcoreconfigskeleton__itempointf_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3031,7 +3021,6 @@ class VirtualKCoreConfigSkeletonItemPointF final : public KCoreConfigSkeleton::I
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3049,7 +3038,6 @@ class VirtualKCoreConfigSkeletonItemPointF final : public KCoreConfigSkeleton::I
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3065,7 +3053,9 @@ class VirtualKCoreConfigSkeletonItemPointF final : public KCoreConfigSkeleton::I
         auto property_cb = kcoreconfigskeleton__itempointf_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemPointF::property();
     }
@@ -3123,7 +3113,6 @@ class VirtualKCoreConfigSkeletonItemSize final : public KCoreConfigSkeleton::Ite
         auto readconfig_cb = kcoreconfigskeleton__itemsize_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3142,7 +3131,6 @@ class VirtualKCoreConfigSkeletonItemSize final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3160,7 +3148,6 @@ class VirtualKCoreConfigSkeletonItemSize final : public KCoreConfigSkeleton::Ite
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3176,7 +3163,9 @@ class VirtualKCoreConfigSkeletonItemSize final : public KCoreConfigSkeleton::Ite
         auto property_cb = kcoreconfigskeleton__itemsize_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemSize::property();
     }
@@ -3234,7 +3223,6 @@ class VirtualKCoreConfigSkeletonItemSizeF final : public KCoreConfigSkeleton::It
         auto readconfig_cb = kcoreconfigskeleton__itemsizef_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3253,7 +3241,6 @@ class VirtualKCoreConfigSkeletonItemSizeF final : public KCoreConfigSkeleton::It
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3271,7 +3258,6 @@ class VirtualKCoreConfigSkeletonItemSizeF final : public KCoreConfigSkeleton::It
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3287,7 +3273,9 @@ class VirtualKCoreConfigSkeletonItemSizeF final : public KCoreConfigSkeleton::It
         auto property_cb = kcoreconfigskeleton__itemsizef_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemSizeF::property();
     }
@@ -3345,7 +3333,6 @@ class VirtualKCoreConfigSkeletonItemDateTime final : public KCoreConfigSkeleton:
         auto readconfig_cb = kcoreconfigskeleton__itemdatetime_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3364,7 +3351,6 @@ class VirtualKCoreConfigSkeletonItemDateTime final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3382,7 +3368,6 @@ class VirtualKCoreConfigSkeletonItemDateTime final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3398,7 +3383,9 @@ class VirtualKCoreConfigSkeletonItemDateTime final : public KCoreConfigSkeleton:
         auto property_cb = kcoreconfigskeleton__itemdatetime_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemDateTime::property();
     }
@@ -3456,7 +3443,6 @@ class VirtualKCoreConfigSkeletonItemStringList final : public KCoreConfigSkeleto
         auto readconfig_cb = kcoreconfigskeleton__itemstringlist_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3475,7 +3461,6 @@ class VirtualKCoreConfigSkeletonItemStringList final : public KCoreConfigSkeleto
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3493,7 +3478,6 @@ class VirtualKCoreConfigSkeletonItemStringList final : public KCoreConfigSkeleto
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3509,7 +3493,9 @@ class VirtualKCoreConfigSkeletonItemStringList final : public KCoreConfigSkeleto
         auto property_cb = kcoreconfigskeleton__itemstringlist_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemStringList::property();
     }
@@ -3572,7 +3558,6 @@ class VirtualKCoreConfigSkeletonItemPathList final : public KCoreConfigSkeleton:
         auto readconfig_cb = kcoreconfigskeleton__itempathlist_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3589,7 +3574,6 @@ class VirtualKCoreConfigSkeletonItemPathList final : public KCoreConfigSkeleton:
         auto writeconfig_cb = kcoreconfigskeleton__itempathlist_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -3608,7 +3592,6 @@ class VirtualKCoreConfigSkeletonItemPathList final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3626,7 +3609,6 @@ class VirtualKCoreConfigSkeletonItemPathList final : public KCoreConfigSkeleton:
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3642,7 +3624,9 @@ class VirtualKCoreConfigSkeletonItemPathList final : public KCoreConfigSkeleton:
         auto property_cb = kcoreconfigskeleton__itempathlist_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemPathList::property();
     }
@@ -3705,7 +3689,6 @@ class VirtualKCoreConfigSkeletonItemUrlList final : public KCoreConfigSkeleton::
         auto readconfig_cb = kcoreconfigskeleton__itemurllist_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3722,7 +3705,6 @@ class VirtualKCoreConfigSkeletonItemUrlList final : public KCoreConfigSkeleton::
         auto writeconfig_cb = kcoreconfigskeleton__itemurllist_writeconfig_callback;
         if (writeconfig_cb) {
             KConfig* cbval1 = config;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -3741,7 +3723,6 @@ class VirtualKCoreConfigSkeletonItemUrlList final : public KCoreConfigSkeleton::
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3759,7 +3740,6 @@ class VirtualKCoreConfigSkeletonItemUrlList final : public KCoreConfigSkeleton::
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3775,7 +3755,9 @@ class VirtualKCoreConfigSkeletonItemUrlList final : public KCoreConfigSkeleton::
         auto property_cb = kcoreconfigskeleton__itemurllist_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemUrlList::property();
     }
@@ -3833,7 +3815,6 @@ class VirtualKCoreConfigSkeletonItemIntList final : public KCoreConfigSkeleton::
         auto readconfig_cb = kcoreconfigskeleton__itemintlist_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -3852,7 +3833,6 @@ class VirtualKCoreConfigSkeletonItemIntList final : public KCoreConfigSkeleton::
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -3870,7 +3850,6 @@ class VirtualKCoreConfigSkeletonItemIntList final : public KCoreConfigSkeleton::
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -3886,7 +3865,9 @@ class VirtualKCoreConfigSkeletonItemIntList final : public KCoreConfigSkeleton::
         auto property_cb = kcoreconfigskeleton__itemintlist_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCoreConfigSkeleton__ItemIntList::property();
     }

@@ -224,7 +224,6 @@ class VirtualKProcess final : public KProcess {
         auto metacast_cb = kprocess_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -242,7 +241,6 @@ class VirtualKProcess final : public KProcess {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -258,7 +256,6 @@ class VirtualKProcess final : public KProcess {
         auto open_cb = kprocess_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -274,7 +271,6 @@ class VirtualKProcess final : public KProcess {
         auto waitforreadyread_cb = kprocess_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -290,7 +286,6 @@ class VirtualKProcess final : public KProcess {
         auto waitforbyteswritten_cb = kprocess_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -350,7 +345,6 @@ class VirtualKProcess final : public KProcess {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -367,7 +361,6 @@ class VirtualKProcess final : public KProcess {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -411,7 +404,6 @@ class VirtualKProcess final : public KProcess {
         auto seek_cb = kprocess_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -484,7 +476,6 @@ class VirtualKProcess final : public KProcess {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -500,7 +491,6 @@ class VirtualKProcess final : public KProcess {
         auto skipdata_cb = kprocess_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -516,7 +506,6 @@ class VirtualKProcess final : public KProcess {
         auto event_cb = kprocess_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -533,7 +522,6 @@ class VirtualKProcess final : public KProcess {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -550,7 +538,6 @@ class VirtualKProcess final : public KProcess {
         auto timerevent_cb = kprocess_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -567,7 +554,6 @@ class VirtualKProcess final : public KProcess {
         auto childevent_cb = kprocess_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -584,7 +570,6 @@ class VirtualKProcess final : public KProcess {
         auto customevent_cb = kprocess_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -603,7 +588,6 @@ class VirtualKProcess final : public KProcess {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -622,7 +606,6 @@ class VirtualKProcess final : public KProcess {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -639,7 +622,6 @@ class VirtualKProcess final : public KProcess {
         auto setprocessstate_cb = kprocess_setprocessstate_callback;
         if (setprocessstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setprocessstate_cb(this, cbval1);
             return;
         }
@@ -656,7 +638,6 @@ class VirtualKProcess final : public KProcess {
         auto setopenmode_cb = kprocess_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -680,7 +661,6 @@ class VirtualKProcess final : public KProcess {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -725,7 +705,6 @@ class VirtualKProcess final : public KProcess {
         auto receivers_cb = kprocess_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -743,7 +722,6 @@ class VirtualKProcess final : public KProcess {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

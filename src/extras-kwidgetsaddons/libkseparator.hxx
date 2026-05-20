@@ -368,7 +368,6 @@ class VirtualKSeparator final : public KSeparator {
         auto metacast_cb = kseparator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -386,7 +385,6 @@ class VirtualKSeparator final : public KSeparator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -402,7 +400,9 @@ class VirtualKSeparator final : public KSeparator {
         auto sizehint_cb = kseparator_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KSeparator::sizeHint();
     }
@@ -416,7 +416,6 @@ class VirtualKSeparator final : public KSeparator {
         auto event_cb = kseparator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -433,7 +432,6 @@ class VirtualKSeparator final : public KSeparator {
         auto paintevent_cb = kseparator_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -450,7 +448,6 @@ class VirtualKSeparator final : public KSeparator {
         auto changeevent_cb = kseparator_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -467,7 +464,6 @@ class VirtualKSeparator final : public KSeparator {
         auto initstyleoption_cb = kseparator_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -498,7 +494,6 @@ class VirtualKSeparator final : public KSeparator {
         auto setvisible_cb = kseparator_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -514,7 +509,9 @@ class VirtualKSeparator final : public KSeparator {
         auto minimumsizehint_cb = kseparator_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KSeparator::minimumSizeHint();
     }
@@ -528,7 +525,6 @@ class VirtualKSeparator final : public KSeparator {
         auto heightforwidth_cb = kseparator_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -573,7 +569,6 @@ class VirtualKSeparator final : public KSeparator {
         auto mousepressevent_cb = kseparator_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +585,6 @@ class VirtualKSeparator final : public KSeparator {
         auto mousereleaseevent_cb = kseparator_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -607,7 +601,6 @@ class VirtualKSeparator final : public KSeparator {
         auto mousedoubleclickevent_cb = kseparator_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -624,7 +617,6 @@ class VirtualKSeparator final : public KSeparator {
         auto mousemoveevent_cb = kseparator_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -641,7 +633,6 @@ class VirtualKSeparator final : public KSeparator {
         auto wheelevent_cb = kseparator_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -658,7 +649,6 @@ class VirtualKSeparator final : public KSeparator {
         auto keypressevent_cb = kseparator_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -675,7 +665,6 @@ class VirtualKSeparator final : public KSeparator {
         auto keyreleaseevent_cb = kseparator_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -692,7 +681,6 @@ class VirtualKSeparator final : public KSeparator {
         auto focusinevent_cb = kseparator_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -709,7 +697,6 @@ class VirtualKSeparator final : public KSeparator {
         auto focusoutevent_cb = kseparator_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -726,7 +713,6 @@ class VirtualKSeparator final : public KSeparator {
         auto enterevent_cb = kseparator_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -743,7 +729,6 @@ class VirtualKSeparator final : public KSeparator {
         auto leaveevent_cb = kseparator_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -760,7 +745,6 @@ class VirtualKSeparator final : public KSeparator {
         auto moveevent_cb = kseparator_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -777,7 +761,6 @@ class VirtualKSeparator final : public KSeparator {
         auto resizeevent_cb = kseparator_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -794,7 +777,6 @@ class VirtualKSeparator final : public KSeparator {
         auto closeevent_cb = kseparator_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -811,7 +793,6 @@ class VirtualKSeparator final : public KSeparator {
         auto contextmenuevent_cb = kseparator_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -828,7 +809,6 @@ class VirtualKSeparator final : public KSeparator {
         auto tabletevent_cb = kseparator_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -845,7 +825,6 @@ class VirtualKSeparator final : public KSeparator {
         auto actionevent_cb = kseparator_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -862,7 +841,6 @@ class VirtualKSeparator final : public KSeparator {
         auto dragenterevent_cb = kseparator_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -879,7 +857,6 @@ class VirtualKSeparator final : public KSeparator {
         auto dragmoveevent_cb = kseparator_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -896,7 +873,6 @@ class VirtualKSeparator final : public KSeparator {
         auto dragleaveevent_cb = kseparator_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -913,7 +889,6 @@ class VirtualKSeparator final : public KSeparator {
         auto dropevent_cb = kseparator_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -930,7 +905,6 @@ class VirtualKSeparator final : public KSeparator {
         auto showevent_cb = kseparator_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -947,7 +921,6 @@ class VirtualKSeparator final : public KSeparator {
         auto hideevent_cb = kseparator_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -971,7 +944,6 @@ class VirtualKSeparator final : public KSeparator {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -988,7 +960,6 @@ class VirtualKSeparator final : public KSeparator {
         auto metric_cb = kseparator_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1005,7 +976,6 @@ class VirtualKSeparator final : public KSeparator {
         auto initpainter_cb = kseparator_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1021,7 +991,6 @@ class VirtualKSeparator final : public KSeparator {
         auto redirected_cb = kseparator_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1052,7 +1021,6 @@ class VirtualKSeparator final : public KSeparator {
         auto inputmethodevent_cb = kseparator_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1068,9 +1036,10 @@ class VirtualKSeparator final : public KSeparator {
         auto inputmethodquery_cb = kseparator_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KSeparator::inputMethodQuery(param1);
     }
@@ -1084,7 +1053,6 @@ class VirtualKSeparator final : public KSeparator {
         auto focusnextprevchild_cb = kseparator_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1101,7 +1069,6 @@ class VirtualKSeparator final : public KSeparator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1118,7 +1085,6 @@ class VirtualKSeparator final : public KSeparator {
         auto timerevent_cb = kseparator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1135,7 +1101,6 @@ class VirtualKSeparator final : public KSeparator {
         auto childevent_cb = kseparator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1152,7 +1117,6 @@ class VirtualKSeparator final : public KSeparator {
         auto customevent_cb = kseparator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1171,7 +1135,6 @@ class VirtualKSeparator final : public KSeparator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1190,7 +1153,6 @@ class VirtualKSeparator final : public KSeparator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1207,7 +1169,6 @@ class VirtualKSeparator final : public KSeparator {
         auto drawframe_cb = kseparator_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1324,7 +1285,6 @@ class VirtualKSeparator final : public KSeparator {
         auto receivers_cb = kseparator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1342,7 +1302,6 @@ class VirtualKSeparator final : public KSeparator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1359,7 +1318,6 @@ class VirtualKSeparator final : public KSeparator {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

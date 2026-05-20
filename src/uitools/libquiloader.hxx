@@ -144,7 +144,6 @@ class VirtualQUiLoader final : public QUiLoader {
         auto metacast_cb = quiloader_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -162,7 +161,6 @@ class VirtualQUiLoader final : public QUiLoader {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -194,7 +192,6 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-
             QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2, cbval3);
             libqt_free(className_str);
             libqt_free(name_str);
@@ -228,7 +225,6 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval3 = name_str;
-
             QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
             libqt_free(className_str);
             libqt_free(name_str);
@@ -254,7 +250,6 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-
             QActionGroup* callback_ret = createactiongroup_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -279,7 +274,6 @@ class VirtualQUiLoader final : public QUiLoader {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-
             QAction* callback_ret = createaction_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -296,7 +290,6 @@ class VirtualQUiLoader final : public QUiLoader {
         auto event_cb = quiloader_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -313,7 +306,6 @@ class VirtualQUiLoader final : public QUiLoader {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -330,7 +322,6 @@ class VirtualQUiLoader final : public QUiLoader {
         auto timerevent_cb = quiloader_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -347,7 +338,6 @@ class VirtualQUiLoader final : public QUiLoader {
         auto childevent_cb = quiloader_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -364,7 +354,6 @@ class VirtualQUiLoader final : public QUiLoader {
         auto customevent_cb = quiloader_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -383,7 +372,6 @@ class VirtualQUiLoader final : public QUiLoader {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -402,7 +390,6 @@ class VirtualQUiLoader final : public QUiLoader {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -446,7 +433,6 @@ class VirtualQUiLoader final : public QUiLoader {
         auto receivers_cb = quiloader_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -464,7 +450,6 @@ class VirtualQUiLoader final : public QUiLoader {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

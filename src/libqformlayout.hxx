@@ -264,7 +264,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto metacast_cb = qformlayout_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -282,7 +281,6 @@ class VirtualQFormLayout final : public QFormLayout {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -313,7 +311,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto setspacing_cb = qformlayout_setspacing_callback;
         if (setspacing_cb) {
             int cbval1 = spacing;
-
             setspacing_cb(this, cbval1);
             return;
         }
@@ -330,7 +327,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto additem_cb = qformlayout_additem_callback;
         if (additem_cb) {
             QLayoutItem* cbval1 = item;
-
             additem_cb(this, cbval1);
             return;
         }
@@ -346,7 +342,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto itemat2_cb = qformlayout_itemat2_callback;
         if (itemat2_cb) {
             int cbval1 = index;
-
             QLayoutItem* callback_ret = itemat2_cb(this, cbval1);
             return callback_ret;
         }
@@ -362,7 +357,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto takeat_cb = qformlayout_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QLayoutItem* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -381,7 +375,6 @@ class VirtualQFormLayout final : public QFormLayout {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -397,7 +390,9 @@ class VirtualQFormLayout final : public QFormLayout {
         auto minimumsize_cb = qformlayout_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFormLayout::minimumSize();
     }
@@ -411,7 +406,9 @@ class VirtualQFormLayout final : public QFormLayout {
         auto sizehint_cb = qformlayout_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFormLayout::sizeHint();
     }
@@ -454,7 +451,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto heightforwidth_cb = qformlayout_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = width;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -498,7 +494,9 @@ class VirtualQFormLayout final : public QFormLayout {
         auto geometry_cb = qformlayout_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFormLayout::geometry();
     }
@@ -512,7 +510,9 @@ class VirtualQFormLayout final : public QFormLayout {
         auto maximumsize_cb = qformlayout_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFormLayout::maximumSize();
     }
@@ -526,7 +526,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto indexof_cb = qformlayout_indexof_callback;
         if (indexof_cb) {
             QWidget* cbval1 = (QWidget*)param1;
-
             int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -572,7 +571,6 @@ class VirtualQFormLayout final : public QFormLayout {
             QWidget* cbval1 = from;
             QWidget* cbval2 = to;
             int cbval3 = static_cast<int>(options);
-
             QLayoutItem* callback_ret = replacewidget_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -603,7 +601,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto childevent_cb = qformlayout_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = e;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -619,7 +616,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto event_cb = qformlayout_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -636,7 +632,6 @@ class VirtualQFormLayout final : public QFormLayout {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -653,7 +648,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto timerevent_cb = qformlayout_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -670,7 +664,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto customevent_cb = qformlayout_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -689,7 +682,6 @@ class VirtualQFormLayout final : public QFormLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -708,7 +700,6 @@ class VirtualQFormLayout final : public QFormLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -724,7 +715,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto minimumheightforwidth_cb = qformlayout_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -769,7 +759,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto widgetevent_cb = qformlayout_widgetevent_callback;
         if (widgetevent_cb) {
             QEvent* cbval1 = param1;
-
             widgetevent_cb(this, cbval1);
             return;
         }
@@ -786,7 +775,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto addchildlayout_cb = qformlayout_addchildlayout_callback;
         if (addchildlayout_cb) {
             QLayout* cbval1 = l;
-
             addchildlayout_cb(this, cbval1);
             return;
         }
@@ -803,7 +791,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto addchildwidget_cb = qformlayout_addchildwidget_callback;
         if (addchildwidget_cb) {
             QWidget* cbval1 = w;
-
             addchildwidget_cb(this, cbval1);
             return;
         }
@@ -819,7 +806,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto adoptlayout_cb = qformlayout_adoptlayout_callback;
         if (adoptlayout_cb) {
             QLayout* cbval1 = layout;
-
             bool callback_ret = adoptlayout_cb(this, cbval1);
             return callback_ret;
         }
@@ -837,9 +823,10 @@ class VirtualQFormLayout final : public QFormLayout {
             const QRect& param1_ret = param1;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&param1_ret);
-
             QRect* callback_ret = alignmentrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QFormLayout::alignmentRect(param1);
     }
@@ -881,7 +868,6 @@ class VirtualQFormLayout final : public QFormLayout {
         auto receivers_cb = qformlayout_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -899,7 +885,6 @@ class VirtualQFormLayout final : public QFormLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

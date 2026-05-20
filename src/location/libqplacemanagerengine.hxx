@@ -219,7 +219,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         auto metacast_cb = qplacemanagerengine_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -237,7 +236,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -260,7 +258,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
             ((char*)placeId_str)[placeId_str_len] = '\0';
             const char* cbval1 = placeId_str;
-
             QPlaceDetailsReply* callback_ret = getplacedetails_cb(this, cbval1);
             libqt_free(placeId_str);
             return callback_ret;
@@ -279,7 +276,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlaceContentRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceContentRequest* cbval1 = const_cast<QPlaceContentRequest*>(&request_ret);
-
             QPlaceContentReply* callback_ret = getplacecontent_cb(this, cbval1);
             return callback_ret;
         }
@@ -297,7 +293,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlaceSearchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&request_ret);
-
             QPlaceSearchReply* callback_ret = search_cb(this, cbval1);
             return callback_ret;
         }
@@ -315,7 +310,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlaceSearchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceSearchRequest* cbval1 = const_cast<QPlaceSearchRequest*>(&request_ret);
-
             QPlaceSearchSuggestionReply* callback_ret = searchsuggestions_cb(this, cbval1);
             return callback_ret;
         }
@@ -333,7 +327,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlace& place_ret = place;
             // Cast returned reference into pointer
             QPlace* cbval1 = const_cast<QPlace*>(&place_ret);
-
             QPlaceIdReply* callback_ret = saveplace_cb(this, cbval1);
             return callback_ret;
         }
@@ -356,7 +349,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)placeId_str, placeId_b.data(), placeId_str_len);
             ((char*)placeId_str)[placeId_str_len] = '\0';
             const char* cbval1 = placeId_str;
-
             QPlaceIdReply* callback_ret = removeplace_cb(this, cbval1);
             libqt_free(placeId_str);
             return callback_ret;
@@ -383,7 +375,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
             ((char*)parentId_str)[parentId_str_len] = '\0';
             const char* cbval2 = parentId_str;
-
             QPlaceIdReply* callback_ret = savecategory_cb(this, cbval1, cbval2);
             libqt_free(parentId_str);
             return callback_ret;
@@ -407,7 +398,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
-
             QPlaceIdReply* callback_ret = removecategory_cb(this, cbval1);
             libqt_free(categoryId_str);
             return callback_ret;
@@ -445,7 +435,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
-
             const char* callback_ret = parentcategoryid_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(categoryId_str);
@@ -470,7 +459,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
-
             const char** callback_ret = childcategoryids_cb(this, cbval1);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -503,10 +491,11 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)categoryId_str, categoryId_b.data(), categoryId_str_len);
             ((char*)categoryId_str)[categoryId_str_len] = '\0';
             const char* cbval1 = categoryId_str;
-
             QPlaceCategory* callback_ret = category_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(categoryId_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QPlaceManagerEngine::category(categoryId);
     }
@@ -527,7 +516,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             memcpy((void*)parentId_str, parentId_b.data(), parentId_str_len);
             ((char*)parentId_str)[parentId_str_len] = '\0';
             const char* cbval1 = parentId_str;
-
             libqt_list /* of QPlaceCategory* */ callback_ret = childcategories_cb(this, cbval1);
             QList<QPlaceCategory> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -582,7 +570,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             locales_out.len = locales_ret.size();
             locales_out.data = static_cast<void*>(locales_arr);
             libqt_list /* of QLocale* */ cbval1 = locales_out;
-
             setlocales_cb(this, cbval1);
             free(locales_arr);
             return;
@@ -604,9 +591,10 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QSize& size_ret = size;
             // Cast returned reference into pointer
             QSize* cbval2 = const_cast<QSize*>(&size_ret);
-
             QUrl* callback_ret = constructiconurl_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPlaceManagerEngine::constructIconUrl(icon, size);
     }
@@ -622,9 +610,10 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlace& original_ret = original;
             // Cast returned reference into pointer
             QPlace* cbval1 = const_cast<QPlace*>(&original_ret);
-
             QPlace* callback_ret = compatibleplace_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPlaceManagerEngine::compatiblePlace(original);
     }
@@ -640,7 +629,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlaceMatchRequest& request_ret = request;
             // Cast returned reference into pointer
             QPlaceMatchRequest* cbval1 = const_cast<QPlaceMatchRequest*>(&request_ret);
-
             QPlaceMatchReply* callback_ret = matchingplaces_cb(this, cbval1);
             return callback_ret;
         }
@@ -656,7 +644,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         auto event_cb = qplacemanagerengine_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -673,7 +660,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -690,7 +676,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         auto timerevent_cb = qplacemanagerengine_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -707,7 +692,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         auto childevent_cb = qplacemanagerengine_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -724,7 +708,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         auto customevent_cb = qplacemanagerengine_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -743,7 +726,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -762,7 +744,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -820,7 +801,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         auto receivers_cb = qplacemanagerengine_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -838,7 +818,6 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

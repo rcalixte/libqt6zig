@@ -155,7 +155,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto metacast_cb = kconfigskeleton_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -173,7 +172,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -204,7 +202,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto usedefaults_cb = kconfigskeleton_usedefaults_callback;
         if (usedefaults_cb) {
             bool cbval1 = b;
-
             bool callback_ret = usedefaults_cb(this, cbval1);
             return callback_ret;
         }
@@ -220,7 +217,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto usrusedefaults_cb = kconfigskeleton_usrusedefaults_callback;
         if (usrusedefaults_cb) {
             bool cbval1 = b;
-
             bool callback_ret = usrusedefaults_cb(this, cbval1);
             return callback_ret;
         }
@@ -280,7 +276,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto event_cb = kconfigskeleton_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -297,7 +292,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -314,7 +308,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto timerevent_cb = kconfigskeleton_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -331,7 +324,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto childevent_cb = kconfigskeleton_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -348,7 +340,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto customevent_cb = kconfigskeleton_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -367,7 +358,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -386,7 +376,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -430,7 +419,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
         auto receivers_cb = kconfigskeleton_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -448,7 +436,6 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -536,7 +523,6 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
         auto readconfig_cb = kconfigskeleton__itemcolor_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -555,7 +541,6 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -573,7 +558,6 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -589,7 +573,9 @@ class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor 
         auto property_cb = kconfigskeleton__itemcolor_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigSkeleton__ItemColor::property();
     }
@@ -647,7 +633,6 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
         auto readconfig_cb = kconfigskeleton__itemfont_readconfig_callback;
         if (readconfig_cb) {
             KConfig* cbval1 = config;
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -666,7 +651,6 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             setproperty_cb(this, cbval1);
             return;
         }
@@ -684,7 +668,6 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
             const QVariant& p_ret = p;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
-
             bool callback_ret = isequal_cb(this, cbval1);
             return callback_ret;
         }
@@ -700,7 +683,9 @@ class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
         auto property_cb = kconfigskeleton__itemfont_property_callback;
         if (property_cb) {
             QVariant* callback_ret = property_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigSkeleton__ItemFont::property();
     }

@@ -469,7 +469,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto metacast_cb = qsortfilterproxymodel_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -487,7 +486,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -504,7 +502,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto setsourcemodel_cb = qsortfilterproxymodel_setsourcemodel_callback;
         if (setsourcemodel_cb) {
             QAbstractItemModel* cbval1 = sourceModel;
-
             setsourcemodel_cb(this, cbval1);
             return;
         }
@@ -522,9 +519,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& proxyIndex_ret = proxyIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&proxyIndex_ret);
-
             QModelIndex* callback_ret = maptosource_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::mapToSource(proxyIndex);
     }
@@ -540,9 +538,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& sourceIndex_ret = sourceIndex;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&sourceIndex_ret);
-
             QModelIndex* callback_ret = mapfromsource_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::mapFromSource(sourceIndex);
     }
@@ -558,9 +557,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QItemSelection& proxySelection_ret = proxySelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&proxySelection_ret);
-
             QItemSelection* callback_ret = mapselectiontosource_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::mapSelectionToSource(proxySelection);
     }
@@ -576,9 +576,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QItemSelection& sourceSelection_ret = sourceSelection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&sourceSelection_ret);
-
             QItemSelection* callback_ret = mapselectionfromsource_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::mapSelectionFromSource(sourceSelection);
     }
@@ -595,7 +596,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& source_parent_ret = source_parent;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&source_parent_ret);
-
             bool callback_ret = filteracceptsrow_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -614,7 +614,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& source_parent_ret = source_parent;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&source_parent_ret);
-
             bool callback_ret = filteracceptscolumn_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -635,7 +634,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& source_right_ret = source_right;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&source_right_ret);
-
             bool callback_ret = lessthan_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -655,9 +653,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             QModelIndex* callback_ret = index_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::index(row, column, parent);
     }
@@ -673,9 +672,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& child_ret = child;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&child_ret);
-
             QModelIndex* callback_ret = parent_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::parent(child);
     }
@@ -693,9 +693,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& idx_ret = idx;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&idx_ret);
-
             QModelIndex* callback_ret = sibling_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::sibling(row, column, idx);
     }
@@ -711,7 +712,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = rowcount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -729,7 +729,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             int callback_ret = columncount_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -747,7 +746,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = haschildren_cb(this, cbval1);
             return callback_ret;
         }
@@ -766,9 +764,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = role;
-
             QVariant* callback_ret = data_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::data(index, role);
     }
@@ -788,7 +787,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             int cbval3 = role;
-
             bool callback_ret = setdata_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -806,9 +804,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             int cbval1 = section;
             int cbval2 = static_cast<int>(orientation);
             int cbval3 = role;
-
             QVariant* callback_ret = headerdata_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::headerData(section, orientation, role);
     }
@@ -827,7 +826,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = role;
-
             bool callback_ret = setheaderdata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -852,7 +850,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             indexes_out.len = indexes_ret.size();
             indexes_out.data = static_cast<void*>(indexes_arr);
             libqt_list /* of QModelIndex* */ cbval1 = indexes_out;
-
             QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(indexes_arr);
             return callback_ret;
@@ -875,7 +872,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -895,7 +891,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertrows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -915,7 +910,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = insertcolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -935,7 +929,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removerows_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -955,7 +948,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval3 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = removecolumns_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -974,7 +966,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             fetchmore_cb(this, cbval1);
             return;
         }
@@ -992,7 +983,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = canfetchmore_cb(this, cbval1);
             return callback_ret;
         }
@@ -1010,7 +1000,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             int callback_ret = flags_cb(this, cbval1);
             return static_cast<Qt::ItemFlags>(callback_ret);
         }
@@ -1028,9 +1017,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QModelIndex* callback_ret = buddy_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::buddy(index);
     }
@@ -1052,7 +1042,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
-
             libqt_list /* of QModelIndex* */ callback_ret = match_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -1077,9 +1066,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QSize* callback_ret = span_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::span(index);
     }
@@ -1095,7 +1085,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         if (sort_cb) {
             int cbval1 = column;
             int cbval2 = static_cast<int>(order);
-
             sort_cb(this, cbval1, cbval2);
             return;
         }
@@ -1179,7 +1168,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             libqt_map /* of int to QVariant* */ callback_ret = itemdata_cb(this, cbval1);
             QMap<int, QVariant> callback_ret_QMap;
             int* callback_ret_karr = static_cast<int*>(callback_ret.keys);
@@ -1218,7 +1206,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             roles_out.keys = static_cast<void*>(roles_karr);
             roles_out.values = static_cast<void*>(roles_varr);
             libqt_map /* of int to QVariant* */ cbval2 = roles_out;
-
             bool callback_ret = setitemdata_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1236,7 +1223,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = clearitemdata_cb(this, cbval1);
             return callback_ret;
         }
@@ -1258,7 +1244,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& parent_ret = parent;
             // Cast returned reference into pointer
             QModelIndex* cbval5 = const_cast<QModelIndex*>(&parent_ret);
-
             bool callback_ret = candropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1318,7 +1303,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = moverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1342,7 +1326,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationChild;
-
             bool callback_ret = movecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1362,7 +1345,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QModelRoleDataSpan* cbval2 = new QModelRoleDataSpan(roleDataSpan);
-
             multidata_cb(this, cbval1, cbval2);
             return;
         }
@@ -1393,7 +1375,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto event_cb = qsortfilterproxymodel_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1410,7 +1391,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1427,7 +1407,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto timerevent_cb = qsortfilterproxymodel_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1444,7 +1423,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto childevent_cb = qsortfilterproxymodel_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1461,7 +1439,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto customevent_cb = qsortfilterproxymodel_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1480,7 +1457,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1499,7 +1475,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1562,9 +1537,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             int cbval1 = row;
             int cbval2 = col;
             void* cbval3 = internalPtr;
-
             QModelIndex* callback_ret = createsourceindex_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::createSourceIndex(row, col, internalPtr);
     }
@@ -1579,9 +1555,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         if (createindex_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             QModelIndex* callback_ret = createindex_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSortFilterProxyModel::createIndex(row, column);
     }
@@ -1608,7 +1585,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval2 = &stream_ret;
-
             encodedata_cb(this, cbval1, cbval2);
             free(indexes_arr);
             return;
@@ -1632,7 +1608,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval4 = &stream_ret;
-
             bool callback_ret = decodedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -1653,7 +1628,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertrows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1689,7 +1663,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremoverows_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1728,7 +1701,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationRow;
-
             bool callback_ret = beginmoverows_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1764,7 +1736,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             begininsertcolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1800,7 +1771,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = first;
             int cbval3 = last;
-
             beginremovecolumns_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1839,7 +1809,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval4 = const_cast<QModelIndex*>(&destinationParent_ret);
             int cbval5 = destinationColumn;
-
             bool callback_ret = beginmovecolumns_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return callback_ret;
         }
@@ -1906,7 +1875,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QModelIndex& to_ret = to;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&to_ret);
-
             changepersistentindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -1942,7 +1910,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             to_out.len = to_ret.size();
             to_out.data = static_cast<void*>(to_arr);
             libqt_list /* of QModelIndex* */ cbval2 = to_out;
-
             changepersistentindexlist_cb(this, cbval1, cbval2);
             free(from_arr);
             free(to_arr);
@@ -2009,7 +1976,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         auto receivers_cb = qsortfilterproxymodel_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2027,7 +1993,6 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

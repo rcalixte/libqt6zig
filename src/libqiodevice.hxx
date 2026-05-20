@@ -219,7 +219,6 @@ class VirtualQIODevice : public QIODevice {
         auto metacast_cb = qiodevice_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -237,7 +236,6 @@ class VirtualQIODevice : public QIODevice {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -267,7 +265,6 @@ class VirtualQIODevice : public QIODevice {
         auto open_cb = qiodevice_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -326,7 +323,6 @@ class VirtualQIODevice : public QIODevice {
         auto seek_cb = qiodevice_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -412,7 +408,6 @@ class VirtualQIODevice : public QIODevice {
         auto waitforreadyread_cb = qiodevice_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -428,7 +423,6 @@ class VirtualQIODevice : public QIODevice {
         auto waitforbyteswritten_cb = qiodevice_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -441,7 +435,6 @@ class VirtualQIODevice : public QIODevice {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -458,7 +451,6 @@ class VirtualQIODevice : public QIODevice {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -474,7 +466,6 @@ class VirtualQIODevice : public QIODevice {
         auto skipdata_cb = qiodevice_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -487,7 +478,6 @@ class VirtualQIODevice : public QIODevice {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -503,7 +493,6 @@ class VirtualQIODevice : public QIODevice {
         auto event_cb = qiodevice_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -520,7 +509,6 @@ class VirtualQIODevice : public QIODevice {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -537,7 +525,6 @@ class VirtualQIODevice : public QIODevice {
         auto timerevent_cb = qiodevice_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -554,7 +541,6 @@ class VirtualQIODevice : public QIODevice {
         auto childevent_cb = qiodevice_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -571,7 +557,6 @@ class VirtualQIODevice : public QIODevice {
         auto customevent_cb = qiodevice_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +575,6 @@ class VirtualQIODevice : public QIODevice {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -609,7 +593,6 @@ class VirtualQIODevice : public QIODevice {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -626,7 +609,6 @@ class VirtualQIODevice : public QIODevice {
         auto setopenmode_cb = qiodevice_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -650,7 +632,6 @@ class VirtualQIODevice : public QIODevice {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -695,7 +676,6 @@ class VirtualQIODevice : public QIODevice {
         auto receivers_cb = qiodevice_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -713,7 +693,6 @@ class VirtualQIODevice : public QIODevice {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

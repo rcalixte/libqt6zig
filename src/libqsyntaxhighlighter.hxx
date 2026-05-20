@@ -179,7 +179,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto metacast_cb = qsyntaxhighlighter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -197,7 +196,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -216,7 +214,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             highlightblock_cb(this, cbval1);
             libqt_free(text_str);
         }
@@ -231,7 +228,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto event_cb = qsyntaxhighlighter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -248,7 +244,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -265,7 +260,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto timerevent_cb = qsyntaxhighlighter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -282,7 +276,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto childevent_cb = qsyntaxhighlighter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -299,7 +292,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto customevent_cb = qsyntaxhighlighter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -318,7 +310,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -337,7 +328,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -358,7 +348,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             const QTextCharFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextCharFormat* cbval3 = const_cast<QTextCharFormat*>(&format_ret);
-
             setformat_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -379,7 +368,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             const QColor& color_ret = color;
             // Cast returned reference into pointer
             QColor* cbval3 = const_cast<QColor*>(&color_ret);
-
             setformat2_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -400,7 +388,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval3 = const_cast<QFont*>(&font_ret);
-
             setformat3_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -416,9 +403,10 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto format_cb = qsyntaxhighlighter_format_callback;
         if (format_cb) {
             int cbval1 = pos;
-
             QTextCharFormat* callback_ret = format_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSyntaxHighlighter::format(pos);
     }
@@ -461,7 +449,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto setcurrentblockstate_cb = qsyntaxhighlighter_setcurrentblockstate_callback;
         if (setcurrentblockstate_cb) {
             int cbval1 = newState;
-
             setcurrentblockstate_cb(this, cbval1);
             return;
         }
@@ -478,7 +465,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto setcurrentblockuserdata_cb = qsyntaxhighlighter_setcurrentblockuserdata_callback;
         if (setcurrentblockuserdata_cb) {
             QTextBlockUserData* cbval1 = data;
-
             setcurrentblockuserdata_cb(this, cbval1);
             return;
         }
@@ -508,7 +494,9 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto currentblock_cb = qsyntaxhighlighter_currentblock_callback;
         if (currentblock_cb) {
             QTextBlock* callback_ret = currentblock_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSyntaxHighlighter::currentBlock();
     }
@@ -550,7 +538,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
         auto receivers_cb = qsyntaxhighlighter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -568,7 +555,6 @@ class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -225,7 +225,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto metacast_cb = kcompressiondevice_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -243,7 +242,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -259,7 +257,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto open_cb = kcompressiondevice_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(mode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -290,7 +287,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto seek_cb = kcompressiondevice_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(param1);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -321,7 +317,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (readdata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -338,7 +333,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
             long long cbval2 = static_cast<long long>(lenVal);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -452,7 +446,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto waitforreadyread_cb = kcompressiondevice_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -468,7 +461,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto waitforbyteswritten_cb = kcompressiondevice_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -485,7 +477,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxlen);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -501,7 +492,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto skipdata_cb = kcompressiondevice_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -517,7 +507,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto event_cb = kcompressiondevice_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -534,7 +523,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -551,7 +539,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto timerevent_cb = kcompressiondevice_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -568,7 +555,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto childevent_cb = kcompressiondevice_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -585,7 +571,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto customevent_cb = kcompressiondevice_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -604,7 +589,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -623,7 +607,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -654,7 +637,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto setopenmode_cb = kcompressiondevice_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -678,7 +660,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -723,7 +704,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
         auto receivers_cb = kcompressiondevice_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -741,7 +721,6 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

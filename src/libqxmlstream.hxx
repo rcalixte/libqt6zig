@@ -64,7 +64,6 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             memcpy((void*)systemId_str, systemId_b.data(), systemId_str_len);
             ((char*)systemId_str)[systemId_str_len] = '\0';
             const char* cbval2 = systemId_str;
-
             const char* callback_ret = resolveentity_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(publicId_str);
@@ -90,7 +89,6 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             const char* callback_ret = resolveundeclaredentity_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(name_str);

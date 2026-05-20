@@ -99,7 +99,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             QAction*& containerAction_ret = containerAction;
             // Cast returned reference into pointer
             QAction** cbval4 = &containerAction_ret;
-
             QWidget* callback_ret = createcontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -121,7 +120,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             // Cast returned reference into pointer
             QDomElement* cbval3 = &element_ret;
             QAction* cbval4 = containerAction;
-
             removecontainer_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -164,7 +162,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval3 = const_cast<QDomElement*>(&element_ret);
-
             QAction* callback_ret = createcustomelement_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -181,7 +178,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         auto finalizegui_cb = kxmlguibuilder_finalizegui_callback;
         if (finalizegui_cb) {
             KXMLGUIClient* cbval1 = client;
-
             finalizegui_cb(this, cbval1);
             return;
         }

@@ -386,7 +386,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto metacast_cb = kfilecustomdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -404,7 +403,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -436,7 +434,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto setvisible_cb = kfilecustomdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -452,7 +449,9 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto sizehint_cb = kfilecustomdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFileCustomDialog::sizeHint();
     }
@@ -466,7 +465,9 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto minimumsizehint_cb = kfilecustomdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFileCustomDialog::minimumSizeHint();
     }
@@ -510,7 +511,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto done_cb = kfilecustomdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -542,7 +542,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto keypressevent_cb = kfilecustomdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -559,7 +558,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto closeevent_cb = kfilecustomdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -576,7 +574,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto showevent_cb = kfilecustomdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -593,7 +590,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto resizeevent_cb = kfilecustomdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -610,7 +606,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto contextmenuevent_cb = kfilecustomdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -627,7 +622,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -657,7 +651,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto heightforwidth_cb = kfilecustomdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -701,7 +694,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto event_cb = kfilecustomdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -718,7 +710,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto mousepressevent_cb = kfilecustomdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -735,7 +726,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto mousereleaseevent_cb = kfilecustomdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -752,7 +742,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto mousedoubleclickevent_cb = kfilecustomdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -769,7 +758,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto mousemoveevent_cb = kfilecustomdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -786,7 +774,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto wheelevent_cb = kfilecustomdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -803,7 +790,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto keyreleaseevent_cb = kfilecustomdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -820,7 +806,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto focusinevent_cb = kfilecustomdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -837,7 +822,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto focusoutevent_cb = kfilecustomdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -854,7 +838,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto enterevent_cb = kfilecustomdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -871,7 +854,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto leaveevent_cb = kfilecustomdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -888,7 +870,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto paintevent_cb = kfilecustomdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -905,7 +886,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto moveevent_cb = kfilecustomdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -922,7 +902,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto tabletevent_cb = kfilecustomdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -939,7 +918,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto actionevent_cb = kfilecustomdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -956,7 +934,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto dragenterevent_cb = kfilecustomdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -973,7 +950,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto dragmoveevent_cb = kfilecustomdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -990,7 +966,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto dragleaveevent_cb = kfilecustomdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1007,7 +982,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto dropevent_cb = kfilecustomdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1024,7 +998,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto hideevent_cb = kfilecustomdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1048,7 +1021,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1066,7 +1038,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto changeevent_cb = kfilecustomdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1082,7 +1053,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto metric_cb = kfilecustomdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1099,7 +1069,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto initpainter_cb = kfilecustomdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1115,7 +1084,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto redirected_cb = kfilecustomdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1146,7 +1114,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto inputmethodevent_cb = kfilecustomdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1162,9 +1129,10 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto inputmethodquery_cb = kfilecustomdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFileCustomDialog::inputMethodQuery(param1);
     }
@@ -1178,7 +1146,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto focusnextprevchild_cb = kfilecustomdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1195,7 +1162,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto timerevent_cb = kfilecustomdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1212,7 +1178,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto childevent_cb = kfilecustomdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1229,7 +1194,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto customevent_cb = kfilecustomdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1248,7 +1212,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1267,7 +1230,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1284,7 +1246,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto adjustposition_cb = kfilecustomdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1401,7 +1362,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         auto receivers_cb = kfilecustomdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1419,7 +1379,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1436,7 +1395,6 @@ class VirtualKFileCustomDialog final : public KFileCustomDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

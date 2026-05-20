@@ -404,7 +404,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto metacast_cb = textcustomeditor__plaintexteditfindbar_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -422,7 +421,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -474,7 +472,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
             int cbval2 = static_cast<int>(searchOptions);
-
             bool callback_ret = searchindocument_cb(this, cbval1, cbval2);
             libqt_free(text_str);
             return callback_ret;
@@ -494,7 +491,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             // Cast returned reference into pointer
             QRegularExpression* cbval1 = const_cast<QRegularExpression*>(&regExp_ret);
             int cbval2 = static_cast<int>(searchOptions);
-
             bool callback_ret = searchindocument2_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -527,7 +523,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         if (slotsearchtext_cb) {
             bool cbval1 = backward;
             bool cbval2 = isAutoSearch;
-
             slotsearchtext_cb(this, cbval1, cbval2);
             return;
         }
@@ -543,7 +538,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto event_cb = textcustomeditor__plaintexteditfindbar_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -574,7 +568,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto setvisible_cb = textcustomeditor__plaintexteditfindbar_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -590,7 +583,9 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto sizehint_cb = textcustomeditor__plaintexteditfindbar_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__PlainTextEditFindBar::sizeHint();
     }
@@ -604,7 +599,9 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto minimumsizehint_cb = textcustomeditor__plaintexteditfindbar_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__PlainTextEditFindBar::minimumSizeHint();
     }
@@ -618,7 +615,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto heightforwidth_cb = textcustomeditor__plaintexteditfindbar_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -663,7 +659,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto mousepressevent_cb = textcustomeditor__plaintexteditfindbar_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -680,7 +675,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto mousereleaseevent_cb = textcustomeditor__plaintexteditfindbar_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -697,7 +691,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto mousedoubleclickevent_cb = textcustomeditor__plaintexteditfindbar_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -714,7 +707,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto mousemoveevent_cb = textcustomeditor__plaintexteditfindbar_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -731,7 +723,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto wheelevent_cb = textcustomeditor__plaintexteditfindbar_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -748,7 +739,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto keypressevent_cb = textcustomeditor__plaintexteditfindbar_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -765,7 +755,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto keyreleaseevent_cb = textcustomeditor__plaintexteditfindbar_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -782,7 +771,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto focusinevent_cb = textcustomeditor__plaintexteditfindbar_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -799,7 +787,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto focusoutevent_cb = textcustomeditor__plaintexteditfindbar_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -816,7 +803,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto enterevent_cb = textcustomeditor__plaintexteditfindbar_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -833,7 +819,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto leaveevent_cb = textcustomeditor__plaintexteditfindbar_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -850,7 +835,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto paintevent_cb = textcustomeditor__plaintexteditfindbar_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -867,7 +851,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto moveevent_cb = textcustomeditor__plaintexteditfindbar_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -884,7 +867,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto resizeevent_cb = textcustomeditor__plaintexteditfindbar_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -901,7 +883,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto closeevent_cb = textcustomeditor__plaintexteditfindbar_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -918,7 +899,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto contextmenuevent_cb = textcustomeditor__plaintexteditfindbar_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -935,7 +915,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto tabletevent_cb = textcustomeditor__plaintexteditfindbar_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -952,7 +931,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto actionevent_cb = textcustomeditor__plaintexteditfindbar_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -969,7 +947,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto dragenterevent_cb = textcustomeditor__plaintexteditfindbar_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -986,7 +963,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto dragmoveevent_cb = textcustomeditor__plaintexteditfindbar_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1003,7 +979,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto dragleaveevent_cb = textcustomeditor__plaintexteditfindbar_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1020,7 +995,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto dropevent_cb = textcustomeditor__plaintexteditfindbar_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1037,7 +1011,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto showevent_cb = textcustomeditor__plaintexteditfindbar_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1054,7 +1027,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto hideevent_cb = textcustomeditor__plaintexteditfindbar_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1078,7 +1050,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1096,7 +1067,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto changeevent_cb = textcustomeditor__plaintexteditfindbar_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1112,7 +1082,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto metric_cb = textcustomeditor__plaintexteditfindbar_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1129,7 +1098,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto initpainter_cb = textcustomeditor__plaintexteditfindbar_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1145,7 +1113,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto redirected_cb = textcustomeditor__plaintexteditfindbar_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1176,7 +1143,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto inputmethodevent_cb = textcustomeditor__plaintexteditfindbar_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1192,9 +1158,10 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto inputmethodquery_cb = textcustomeditor__plaintexteditfindbar_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__PlainTextEditFindBar::inputMethodQuery(param1);
     }
@@ -1208,7 +1175,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto focusnextprevchild_cb = textcustomeditor__plaintexteditfindbar_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1225,7 +1191,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1242,7 +1207,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto timerevent_cb = textcustomeditor__plaintexteditfindbar_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1259,7 +1223,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto childevent_cb = textcustomeditor__plaintexteditfindbar_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1276,7 +1239,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto customevent_cb = textcustomeditor__plaintexteditfindbar_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1295,7 +1257,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1314,7 +1275,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1346,7 +1306,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         if (searchtext_cb) {
             bool cbval1 = backward;
             bool cbval2 = isAutoSearch;
-
             bool callback_ret = searchtext_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1363,7 +1322,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto setfoundmatch_cb = textcustomeditor__plaintexteditfindbar_setfoundmatch_callback;
         if (setfoundmatch_cb) {
             bool cbval1 = match;
-
             setfoundmatch_cb(this, cbval1);
             return;
         }
@@ -1382,7 +1340,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             bool cbval1 = backward;
             bool cbval2 = isAutoSearch;
             bool cbval3 = found;
-
             messageinfo_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1499,7 +1456,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         auto receivers_cb = textcustomeditor__plaintexteditfindbar_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1517,7 +1473,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1534,7 +1489,6 @@ class VirtualTextCustomEditorPlainTextEditFindBar final : public TextCustomEdito
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

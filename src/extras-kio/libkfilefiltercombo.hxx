@@ -439,7 +439,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto metacast_cb = kfilefiltercombo_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -457,7 +456,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -474,7 +472,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -491,7 +488,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto setautocompletion_cb = kfilefiltercombo_setautocompletion_callback;
         if (setautocompletion_cb) {
             bool cbval1 = autocomplete;
-
             setautocompletion_cb(this, cbval1);
             return;
         }
@@ -508,7 +504,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto setlineedit_cb = kfilefiltercombo_setlineedit_callback;
         if (setlineedit_cb) {
             QLineEdit* cbval1 = lineEdit;
-
             setlineedit_cb(this, cbval1);
             return;
         }
@@ -524,7 +519,9 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto minimumsizehint_cb = kfilefiltercombo_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFileFilterCombo::minimumSizeHint();
     }
@@ -546,7 +543,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             memcpy((void*)completedText_str, completedText_b.data(), completedText_str_len);
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
-
             setcompletedtext_cb(this, cbval1);
             libqt_free(completedText_str);
             return;
@@ -578,7 +574,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             items_arr[items_ret.size()] = nullptr;
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
-
             setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
             return;
@@ -603,7 +598,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             makecompletion_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -621,7 +615,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto setmodel_cb = kfilefiltercombo_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -637,7 +630,9 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto sizehint_cb = kfilefiltercombo_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFileFilterCombo::sizeHint();
     }
@@ -681,7 +676,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto event_cb = kfilefiltercombo_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -697,9 +691,10 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto inputmethodquery_cb = kfilefiltercombo_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFileFilterCombo::inputMethodQuery(param1);
     }
@@ -714,7 +709,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto focusinevent_cb = kfilefiltercombo_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -731,7 +725,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto focusoutevent_cb = kfilefiltercombo_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -748,7 +741,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto changeevent_cb = kfilefiltercombo_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -765,7 +757,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto resizeevent_cb = kfilefiltercombo_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -782,7 +773,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto paintevent_cb = kfilefiltercombo_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -799,7 +789,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto showevent_cb = kfilefiltercombo_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = e;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -816,7 +805,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto hideevent_cb = kfilefiltercombo_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = e;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -833,7 +821,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto mousepressevent_cb = kfilefiltercombo_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -850,7 +837,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto mousereleaseevent_cb = kfilefiltercombo_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -867,7 +853,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto keypressevent_cb = kfilefiltercombo_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -884,7 +869,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto keyreleaseevent_cb = kfilefiltercombo_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -901,7 +885,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto wheelevent_cb = kfilefiltercombo_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -918,7 +901,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto contextmenuevent_cb = kfilefiltercombo_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -935,7 +917,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto inputmethodevent_cb = kfilefiltercombo_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -952,7 +933,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto initstyleoption_cb = kfilefiltercombo_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -983,7 +963,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto setvisible_cb = kfilefiltercombo_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -999,7 +978,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto heightforwidth_cb = kfilefiltercombo_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1044,7 +1022,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto mousedoubleclickevent_cb = kfilefiltercombo_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1061,7 +1038,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto mousemoveevent_cb = kfilefiltercombo_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1078,7 +1054,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto enterevent_cb = kfilefiltercombo_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1095,7 +1070,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto leaveevent_cb = kfilefiltercombo_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1112,7 +1086,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto moveevent_cb = kfilefiltercombo_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1129,7 +1102,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto closeevent_cb = kfilefiltercombo_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1146,7 +1118,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto tabletevent_cb = kfilefiltercombo_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1163,7 +1134,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto actionevent_cb = kfilefiltercombo_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1180,7 +1150,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto dragenterevent_cb = kfilefiltercombo_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1197,7 +1166,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto dragmoveevent_cb = kfilefiltercombo_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1214,7 +1182,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto dragleaveevent_cb = kfilefiltercombo_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1231,7 +1198,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto dropevent_cb = kfilefiltercombo_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1255,7 +1221,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1272,7 +1237,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto metric_cb = kfilefiltercombo_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1289,7 +1253,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto initpainter_cb = kfilefiltercombo_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1305,7 +1268,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto redirected_cb = kfilefiltercombo_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1335,7 +1297,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto focusnextprevchild_cb = kfilefiltercombo_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1352,7 +1313,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto timerevent_cb = kfilefiltercombo_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1369,7 +1329,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto childevent_cb = kfilefiltercombo_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1386,7 +1345,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto customevent_cb = kfilefiltercombo_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1405,7 +1363,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1424,7 +1381,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1442,7 +1398,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (setcompletionobject_cb) {
             KCompletion* cbval1 = completionObject;
             bool cbval2 = handleSignals;
-
             setcompletionobject_cb(this, cbval1, cbval2);
             return;
         }
@@ -1459,7 +1414,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto sethandlesignals_cb = kfilefiltercombo_sethandlesignals_callback;
         if (sethandlesignals_cb) {
             bool cbval1 = handle;
-
             sethandlesignals_cb(this, cbval1);
             return;
         }
@@ -1476,7 +1430,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto setcompletionmode_cb = kfilefiltercombo_setcompletionmode_callback;
         if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setcompletionmode_cb(this, cbval1);
             return;
         }
@@ -1494,7 +1447,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }
@@ -1611,7 +1563,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto receivers_cb = kfilefiltercombo_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1629,7 +1580,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1646,7 +1596,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -1712,7 +1661,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
-
             setkeybindingmap_cb(this, cbval1);
             return;
         }
@@ -1729,7 +1677,6 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         auto setdelegate_cb = kfilefiltercombo_setdelegate_callback;
         if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
-
             setdelegate_cb(this, cbval1);
             return;
         }

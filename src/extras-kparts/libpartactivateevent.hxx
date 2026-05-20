@@ -50,7 +50,6 @@ class VirtualKPartsPartActivateEvent final : public KParts::PartActivateEvent {
         auto setaccepted_cb = kparts__partactivateevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

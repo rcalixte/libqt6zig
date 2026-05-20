@@ -411,7 +411,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto metacast_cb = qgraphicsview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -429,7 +428,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -445,7 +443,9 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto sizehint_cb = qgraphicsview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsView::sizeHint();
     }
@@ -459,9 +459,10 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto inputmethodquery_cb = qgraphicsview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsView::inputMethodQuery(query);
     }
@@ -476,7 +477,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto setupviewport_cb = qgraphicsview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = widget;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -492,7 +492,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto event_cb = qgraphicsview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -508,7 +507,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto viewportevent_cb = qgraphicsview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -525,7 +523,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto contextmenuevent_cb = qgraphicsview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -542,7 +539,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto dragenterevent_cb = qgraphicsview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -559,7 +555,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto dragleaveevent_cb = qgraphicsview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -576,7 +571,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto dragmoveevent_cb = qgraphicsview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -593,7 +587,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto dropevent_cb = qgraphicsview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -610,7 +603,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto focusinevent_cb = qgraphicsview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -626,7 +618,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto focusnextprevchild_cb = qgraphicsview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -643,7 +634,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto focusoutevent_cb = qgraphicsview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -660,7 +650,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto keypressevent_cb = qgraphicsview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -677,7 +666,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto keyreleaseevent_cb = qgraphicsview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -694,7 +682,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto mousedoubleclickevent_cb = qgraphicsview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -711,7 +698,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto mousepressevent_cb = qgraphicsview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -728,7 +714,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto mousemoveevent_cb = qgraphicsview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -745,7 +730,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto mousereleaseevent_cb = qgraphicsview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -762,7 +746,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto wheelevent_cb = qgraphicsview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -779,7 +762,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto paintevent_cb = qgraphicsview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -796,7 +778,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto resizeevent_cb = qgraphicsview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -814,7 +795,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -831,7 +811,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto showevent_cb = qgraphicsview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -848,7 +827,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto inputmethodevent_cb = qgraphicsview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -868,7 +846,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawbackground_cb(this, cbval1, cbval2);
             return;
         }
@@ -888,7 +865,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawforeground_cb(this, cbval1, cbval2);
             return;
         }
@@ -908,7 +884,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             int cbval2 = numItems;
             QGraphicsItem** cbval3 = items;
             QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
-
             drawitems_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -924,7 +899,9 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto minimumsizehint_cb = qgraphicsview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsView::minimumSizeHint();
     }
@@ -939,7 +916,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -955,7 +931,9 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto viewportsizehint_cb = qgraphicsview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsView::viewportSizeHint();
     }
@@ -970,7 +948,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto changeevent_cb = qgraphicsview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -987,7 +964,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto initstyleoption_cb = qgraphicsview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1018,7 +994,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto setvisible_cb = qgraphicsview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1034,7 +1009,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto heightforwidth_cb = qgraphicsview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1079,7 +1053,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto enterevent_cb = qgraphicsview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1096,7 +1069,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto leaveevent_cb = qgraphicsview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1113,7 +1085,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto moveevent_cb = qgraphicsview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1130,7 +1101,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto closeevent_cb = qgraphicsview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1147,7 +1117,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto tabletevent_cb = qgraphicsview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1164,7 +1133,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto actionevent_cb = qgraphicsview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1181,7 +1149,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto hideevent_cb = qgraphicsview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1205,7 +1172,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1222,7 +1188,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto metric_cb = qgraphicsview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1239,7 +1204,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto initpainter_cb = qgraphicsview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1255,7 +1219,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto redirected_cb = qgraphicsview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1286,7 +1249,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto timerevent_cb = qgraphicsview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1303,7 +1265,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto childevent_cb = qgraphicsview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1320,7 +1281,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto customevent_cb = qgraphicsview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1339,7 +1299,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1358,7 +1317,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1378,7 +1336,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1394,7 +1351,9 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto viewportmargins_cb = qgraphicsview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsView::viewportMargins();
     }
@@ -1409,7 +1368,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto drawframe_cb = qgraphicsview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1526,7 +1484,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         auto receivers_cb = qgraphicsview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1544,7 +1501,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1561,7 +1517,6 @@ class VirtualQGraphicsView final : public QGraphicsView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

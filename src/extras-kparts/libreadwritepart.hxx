@@ -310,7 +310,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto metacast_cb = kparts__readwritepart_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -328,7 +327,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -345,7 +343,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto setreadwrite_cb = kparts__readwritepart_setreadwrite_callback;
         if (setreadwrite_cb) {
             bool cbval1 = readwrite;
-
             setreadwrite_cb(this, cbval1);
             return;
         }
@@ -389,7 +386,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto closeurl2_cb = kparts__readwritepart_closeurl2_callback;
         if (closeurl2_cb) {
             bool cbval1 = promptToSave;
-
             bool callback_ret = closeurl2_cb(this, cbval1);
             return callback_ret;
         }
@@ -407,7 +403,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             bool callback_ret = saveas_cb(this, cbval1);
             return callback_ret;
         }
@@ -424,7 +419,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto setmodified_cb = kparts__readwritepart_setmodified_callback;
         if (setmodified_cb) {
             bool cbval1 = modified;
-
             setmodified_cb(this, cbval1);
             return;
         }
@@ -480,7 +474,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             bool callback_ret = openurl_cb(this, cbval1);
             return callback_ret;
         }
@@ -511,7 +504,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto guiactivateevent_cb = kparts__readwritepart_guiactivateevent_callback;
         if (guiactivateevent_cb) {
             KParts__GUIActivateEvent* cbval1 = event;
-
             guiactivateevent_cb(this, cbval1);
             return;
         }
@@ -542,7 +534,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto setmanager_cb = kparts__readwritepart_setmanager_callback;
         if (setmanager_cb) {
             KParts__PartManager* cbval1 = manager;
-
             setmanager_cb(this, cbval1);
             return;
         }
@@ -561,7 +552,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QPoint& globalPos_ret = globalPos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&globalPos_ret);
-
             KParts__Part* callback_ret = hittest_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -578,7 +568,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto setwidget_cb = kparts__readwritepart_setwidget_callback;
         if (setwidget_cb) {
             QWidget* cbval1 = widget;
-
             setwidget_cb(this, cbval1);
             return;
         }
@@ -595,7 +584,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto customevent_cb = kparts__readwritepart_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -612,7 +600,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto partactivateevent_cb = kparts__readwritepart_partactivateevent_callback;
         if (partactivateevent_cb) {
             KParts__PartActivateEvent* cbval1 = event;
-
             partactivateevent_cb(this, cbval1);
             return;
         }
@@ -628,7 +615,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto event_cb = kparts__readwritepart_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -645,7 +631,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -662,7 +647,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto timerevent_cb = kparts__readwritepart_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -679,7 +663,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto childevent_cb = kparts__readwritepart_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -698,7 +681,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -717,7 +699,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -735,7 +716,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
-
             QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
         }
@@ -780,7 +760,9 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto domdocument_cb = kparts__readwritepart_domdocument_callback;
         if (domdocument_cb) {
             QDomDocument* callback_ret = domdocument_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KParts__ReadWritePart::domDocument();
     }
@@ -840,7 +822,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
-
             setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
@@ -868,7 +849,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
-
             setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
             return;
@@ -893,7 +873,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             memcpy((void*)file_str, file_b.data(), file_str_len);
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
-
             setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
             return;
@@ -919,7 +898,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             ((char*)document_str)[document_str_len] = '\0';
             const char* cbval1 = document_str;
             bool cbval2 = merge;
-
             setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
             return;
@@ -940,7 +918,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
-
             setdomdocument_cb(this, cbval1, cbval2);
             return;
         }
@@ -965,7 +942,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
-
             statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
             return;
@@ -1000,7 +976,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             seturl_cb(this, cbval1);
             return;
         }
@@ -1039,7 +1014,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             memcpy((void*)localFilePath_str, localFilePath_b.data(), localFilePath_str_len);
             ((char*)localFilePath_str)[localFilePath_str_len] = '\0';
             const char* cbval1 = localFilePath_str;
-
             setlocalfilepath_cb(this, cbval1);
             libqt_free(localFilePath_str);
             return;
@@ -1063,7 +1037,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             memcpy((void*)containerName_str, containerName_b.data(), containerName_str_len);
             ((char*)containerName_str)[containerName_str_len] = '\0';
             const char* cbval1 = containerName_str;
-
             QWidget* callback_ret = hostcontainer_cb(this, cbval1);
             libqt_free(containerName_str);
             return callback_ret;
@@ -1123,7 +1096,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         auto receivers_cb = kparts__readwritepart_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1141,7 +1113,6 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

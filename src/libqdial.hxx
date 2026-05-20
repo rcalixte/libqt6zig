@@ -375,7 +375,6 @@ class VirtualQDial final : public QDial {
         auto metacast_cb = qdial_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -393,7 +392,6 @@ class VirtualQDial final : public QDial {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -409,7 +407,9 @@ class VirtualQDial final : public QDial {
         auto sizehint_cb = qdial_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDial::sizeHint();
     }
@@ -423,7 +423,9 @@ class VirtualQDial final : public QDial {
         auto minimumsizehint_cb = qdial_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDial::minimumSizeHint();
     }
@@ -437,7 +439,6 @@ class VirtualQDial final : public QDial {
         auto event_cb = qdial_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -454,7 +455,6 @@ class VirtualQDial final : public QDial {
         auto resizeevent_cb = qdial_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = re;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -471,7 +471,6 @@ class VirtualQDial final : public QDial {
         auto paintevent_cb = qdial_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = pe;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -488,7 +487,6 @@ class VirtualQDial final : public QDial {
         auto mousepressevent_cb = qdial_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = me;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -505,7 +503,6 @@ class VirtualQDial final : public QDial {
         auto mousereleaseevent_cb = qdial_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = me;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -522,7 +519,6 @@ class VirtualQDial final : public QDial {
         auto mousemoveevent_cb = qdial_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = me;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -539,7 +535,6 @@ class VirtualQDial final : public QDial {
         auto sliderchange_cb = qdial_sliderchange_callback;
         if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
-
             sliderchange_cb(this, cbval1);
             return;
         }
@@ -556,7 +551,6 @@ class VirtualQDial final : public QDial {
         auto initstyleoption_cb = qdial_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionSlider* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -573,7 +567,6 @@ class VirtualQDial final : public QDial {
         auto keypressevent_cb = qdial_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +583,6 @@ class VirtualQDial final : public QDial {
         auto timerevent_cb = qdial_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -607,7 +599,6 @@ class VirtualQDial final : public QDial {
         auto wheelevent_cb = qdial_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -624,7 +615,6 @@ class VirtualQDial final : public QDial {
         auto changeevent_cb = qdial_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -655,7 +645,6 @@ class VirtualQDial final : public QDial {
         auto setvisible_cb = qdial_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -671,7 +660,6 @@ class VirtualQDial final : public QDial {
         auto heightforwidth_cb = qdial_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -716,7 +704,6 @@ class VirtualQDial final : public QDial {
         auto mousedoubleclickevent_cb = qdial_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -733,7 +720,6 @@ class VirtualQDial final : public QDial {
         auto keyreleaseevent_cb = qdial_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -750,7 +736,6 @@ class VirtualQDial final : public QDial {
         auto focusinevent_cb = qdial_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -767,7 +752,6 @@ class VirtualQDial final : public QDial {
         auto focusoutevent_cb = qdial_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -784,7 +768,6 @@ class VirtualQDial final : public QDial {
         auto enterevent_cb = qdial_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -801,7 +784,6 @@ class VirtualQDial final : public QDial {
         auto leaveevent_cb = qdial_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -818,7 +800,6 @@ class VirtualQDial final : public QDial {
         auto moveevent_cb = qdial_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -835,7 +816,6 @@ class VirtualQDial final : public QDial {
         auto closeevent_cb = qdial_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -852,7 +832,6 @@ class VirtualQDial final : public QDial {
         auto contextmenuevent_cb = qdial_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -869,7 +848,6 @@ class VirtualQDial final : public QDial {
         auto tabletevent_cb = qdial_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -886,7 +864,6 @@ class VirtualQDial final : public QDial {
         auto actionevent_cb = qdial_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -903,7 +880,6 @@ class VirtualQDial final : public QDial {
         auto dragenterevent_cb = qdial_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -920,7 +896,6 @@ class VirtualQDial final : public QDial {
         auto dragmoveevent_cb = qdial_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -937,7 +912,6 @@ class VirtualQDial final : public QDial {
         auto dragleaveevent_cb = qdial_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -954,7 +928,6 @@ class VirtualQDial final : public QDial {
         auto dropevent_cb = qdial_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -971,7 +944,6 @@ class VirtualQDial final : public QDial {
         auto showevent_cb = qdial_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -988,7 +960,6 @@ class VirtualQDial final : public QDial {
         auto hideevent_cb = qdial_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1012,7 +983,6 @@ class VirtualQDial final : public QDial {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1029,7 +999,6 @@ class VirtualQDial final : public QDial {
         auto metric_cb = qdial_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1046,7 +1015,6 @@ class VirtualQDial final : public QDial {
         auto initpainter_cb = qdial_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1062,7 +1030,6 @@ class VirtualQDial final : public QDial {
         auto redirected_cb = qdial_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1093,7 +1060,6 @@ class VirtualQDial final : public QDial {
         auto inputmethodevent_cb = qdial_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1109,9 +1075,10 @@ class VirtualQDial final : public QDial {
         auto inputmethodquery_cb = qdial_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDial::inputMethodQuery(param1);
     }
@@ -1125,7 +1092,6 @@ class VirtualQDial final : public QDial {
         auto focusnextprevchild_cb = qdial_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1142,7 +1108,6 @@ class VirtualQDial final : public QDial {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1159,7 +1124,6 @@ class VirtualQDial final : public QDial {
         auto childevent_cb = qdial_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1176,7 +1140,6 @@ class VirtualQDial final : public QDial {
         auto customevent_cb = qdial_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1195,7 +1158,6 @@ class VirtualQDial final : public QDial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1214,7 +1176,6 @@ class VirtualQDial final : public QDial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1231,7 +1192,6 @@ class VirtualQDial final : public QDial {
         auto setrepeataction_cb = qdial_setrepeataction_callback;
         if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
-
             setrepeataction_cb(this, cbval1);
             return;
         }
@@ -1362,7 +1322,6 @@ class VirtualQDial final : public QDial {
         auto receivers_cb = qdial_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1380,7 +1339,6 @@ class VirtualQDial final : public QDial {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1397,7 +1355,6 @@ class VirtualQDial final : public QDial {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
