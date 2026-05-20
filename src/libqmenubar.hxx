@@ -359,7 +359,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto metacast_cb = qmenubar_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -377,7 +376,6 @@ class VirtualQMenuBar final : public QMenuBar {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -393,7 +391,9 @@ class VirtualQMenuBar final : public QMenuBar {
         auto sizehint_cb = qmenubar_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QMenuBar::sizeHint();
     }
@@ -407,7 +407,9 @@ class VirtualQMenuBar final : public QMenuBar {
         auto minimumsizehint_cb = qmenubar_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QMenuBar::minimumSizeHint();
     }
@@ -421,7 +423,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto heightforwidth_cb = qmenubar_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -438,7 +439,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto setvisible_cb = qmenubar_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -455,7 +455,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto changeevent_cb = qmenubar_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -472,7 +471,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto keypressevent_cb = qmenubar_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -489,7 +487,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto mousereleaseevent_cb = qmenubar_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -506,7 +503,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto mousepressevent_cb = qmenubar_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -523,7 +519,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto mousemoveevent_cb = qmenubar_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -540,7 +535,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto leaveevent_cb = qmenubar_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = param1;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -557,7 +551,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto paintevent_cb = qmenubar_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -574,7 +567,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto resizeevent_cb = qmenubar_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -591,7 +583,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto actionevent_cb = qmenubar_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -608,7 +599,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto focusoutevent_cb = qmenubar_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -625,7 +615,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto focusinevent_cb = qmenubar_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -642,7 +631,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto timerevent_cb = qmenubar_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -659,7 +647,6 @@ class VirtualQMenuBar final : public QMenuBar {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -675,7 +662,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto event_cb = qmenubar_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -693,7 +679,6 @@ class VirtualQMenuBar final : public QMenuBar {
         if (initstyleoption_cb) {
             QStyleOptionMenuItem* cbval1 = option;
             QAction* cbval2 = (QAction*)action;
-
             initstyleoption_cb(this, cbval1, cbval2);
             return;
         }
@@ -752,7 +737,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto mousedoubleclickevent_cb = qmenubar_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -769,7 +753,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto wheelevent_cb = qmenubar_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -786,7 +769,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto keyreleaseevent_cb = qmenubar_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -803,7 +785,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto enterevent_cb = qmenubar_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -820,7 +801,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto moveevent_cb = qmenubar_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -837,7 +817,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto closeevent_cb = qmenubar_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -854,7 +833,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto contextmenuevent_cb = qmenubar_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -871,7 +849,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto tabletevent_cb = qmenubar_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -888,7 +865,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto dragenterevent_cb = qmenubar_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -905,7 +881,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto dragmoveevent_cb = qmenubar_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -922,7 +897,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto dragleaveevent_cb = qmenubar_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -939,7 +913,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto dropevent_cb = qmenubar_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -956,7 +929,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto showevent_cb = qmenubar_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -973,7 +945,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto hideevent_cb = qmenubar_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -997,7 +968,6 @@ class VirtualQMenuBar final : public QMenuBar {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1014,7 +984,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto metric_cb = qmenubar_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1031,7 +1000,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto initpainter_cb = qmenubar_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1047,7 +1015,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto redirected_cb = qmenubar_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1078,7 +1045,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto inputmethodevent_cb = qmenubar_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1094,9 +1060,10 @@ class VirtualQMenuBar final : public QMenuBar {
         auto inputmethodquery_cb = qmenubar_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QMenuBar::inputMethodQuery(param1);
     }
@@ -1110,7 +1077,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto focusnextprevchild_cb = qmenubar_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1127,7 +1093,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto childevent_cb = qmenubar_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1144,7 +1109,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto customevent_cb = qmenubar_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1163,7 +1127,6 @@ class VirtualQMenuBar final : public QMenuBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1182,7 +1145,6 @@ class VirtualQMenuBar final : public QMenuBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1299,7 +1261,6 @@ class VirtualQMenuBar final : public QMenuBar {
         auto receivers_cb = qmenubar_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1317,7 +1278,6 @@ class VirtualQMenuBar final : public QMenuBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1334,7 +1294,6 @@ class VirtualQMenuBar final : public QMenuBar {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

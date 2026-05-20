@@ -189,7 +189,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto metacast_cb = texttranslator__translatorengineclient_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -207,7 +206,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -318,7 +316,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto showconfiguredialog_cb = texttranslator__translatorengineclient_showconfiguredialog_callback;
         if (showconfiguredialog_cb) {
             QWidget* cbval1 = parentWidget;
-
             bool callback_ret = showconfiguredialog_cb(this, cbval1);
             return callback_ret;
         }
@@ -342,7 +339,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             memcpy((void*)languageCode_str, languageCode_b.data(), languageCode_str_len);
             ((char*)languageCode_str)[languageCode_str_len] = '\0';
             const char* cbval1 = languageCode_str;
-
             generatetolistfromcurrenttolanguage_cb(this, cbval1);
             libqt_free(languageCode_str);
             return;
@@ -379,7 +375,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto issupported_cb = texttranslator__translatorengineclient_issupported_callback;
         if (issupported_cb) {
             int cbval1 = static_cast<int>(lang);
-
             bool callback_ret = issupported_cb(this, cbval1);
             return callback_ret;
         }
@@ -395,7 +390,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto event_cb = texttranslator__translatorengineclient_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -412,7 +406,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -429,7 +422,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto timerevent_cb = texttranslator__translatorengineclient_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -446,7 +438,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto childevent_cb = texttranslator__translatorengineclient_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -463,7 +454,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto customevent_cb = texttranslator__translatorengineclient_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -482,7 +472,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -501,7 +490,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -566,7 +554,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         auto receivers_cb = texttranslator__translatorengineclient_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -584,7 +571,6 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

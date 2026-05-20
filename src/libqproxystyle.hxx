@@ -240,7 +240,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto metacast_cb = qproxystyle_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -258,7 +257,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -278,7 +276,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QStyleOption* cbval2 = (QStyleOption*)option;
             QPainter* cbval3 = painter;
             QWidget* cbval4 = (QWidget*)widget;
-
             drawprimitive_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -298,7 +295,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QStyleOption* cbval2 = (QStyleOption*)option;
             QPainter* cbval3 = painter;
             QWidget* cbval4 = (QWidget*)widget;
-
             drawcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -318,7 +314,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)option;
             QPainter* cbval3 = painter;
             QWidget* cbval4 = (QWidget*)widget;
-
             drawcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -352,7 +347,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval6 = text_str;
             int cbval7 = static_cast<int>(textRole);
-
             drawitemtext_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(text_str);
             return;
@@ -377,7 +371,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval4 = const_cast<QPixmap*>(&pixmap_ret);
-
             drawitempixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -398,9 +391,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             // Cast returned reference into pointer
             QSize* cbval3 = const_cast<QSize*>(&size_ret);
             QWidget* cbval4 = (QWidget*)widget;
-
             QSize* callback_ret = sizefromcontents_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::sizeFromContents(typeVal, option, size, widget);
     }
@@ -416,9 +410,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             int cbval1 = static_cast<int>(element);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-
             QRect* callback_ret = subelementrect_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::subElementRect(element, option, widget);
     }
@@ -435,9 +430,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             int cbval3 = static_cast<int>(sc);
             QWidget* cbval4 = (QWidget*)widget;
-
             QRect* callback_ret = subcontrolrect_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::subControlRect(cc, opt, sc, widget);
     }
@@ -466,10 +462,11 @@ class VirtualQProxyStyle final : public QProxyStyle {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval5 = text_str;
-
             QRect* callback_ret = itemtextrect_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(text_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
     }
@@ -489,9 +486,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval3 = const_cast<QPixmap*>(&pixmap_ret);
-
             QRect* callback_ret = itempixmaprect_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::itemPixmapRect(r, flags, pixmap);
     }
@@ -510,7 +508,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             // Cast returned reference into pointer
             QPoint* cbval3 = const_cast<QPoint*>(&pos_ret);
             QWidget* cbval4 = (QWidget*)widget;
-
             int callback_ret = hittestcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<QStyle::SubControl>(callback_ret);
         }
@@ -529,7 +526,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
             QStyleHintReturn* cbval4 = returnData;
-
             int callback_ret = stylehint_cb(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<int>(callback_ret);
         }
@@ -547,7 +543,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             int cbval1 = static_cast<int>(metric);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-
             int callback_ret = pixelmetric_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -567,7 +562,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             int cbval3 = static_cast<int>(orientation);
             QStyleOption* cbval4 = (QStyleOption*)option;
             QWidget* cbval5 = (QWidget*)widget;
-
             int callback_ret = layoutspacing_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return static_cast<int>(callback_ret);
         }
@@ -585,9 +579,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             int cbval1 = static_cast<int>(standardIcon);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-
             QIcon* callback_ret = standardicon_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::standardIcon(standardIcon, option, widget);
     }
@@ -603,9 +598,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             int cbval1 = static_cast<int>(standardPixmap);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QWidget* cbval3 = (QWidget*)widget;
-
             QPixmap* callback_ret = standardpixmap_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::standardPixmap(standardPixmap, opt, widget);
     }
@@ -623,9 +619,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
             // Cast returned reference into pointer
             QPixmap* cbval2 = const_cast<QPixmap*>(&pixmap_ret);
             QStyleOption* cbval3 = (QStyleOption*)opt;
-
             QPixmap* callback_ret = generatediconpixmap_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::generatedIconPixmap(iconMode, pixmap, opt);
     }
@@ -639,7 +636,9 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto standardpalette_cb = qproxystyle_standardpalette_callback;
         if (standardpalette_cb) {
             QPalette* callback_ret = standardpalette_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QProxyStyle::standardPalette();
     }
@@ -654,7 +653,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto polish_cb = qproxystyle_polish_callback;
         if (polish_cb) {
             QWidget* cbval1 = widget;
-
             polish_cb(this, cbval1);
             return;
         }
@@ -673,7 +671,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             QPalette& pal_ret = pal;
             // Cast returned reference into pointer
             QPalette* cbval1 = &pal_ret;
-
             polish2_cb(this, cbval1);
             return;
         }
@@ -690,7 +687,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto polish3_cb = qproxystyle_polish3_callback;
         if (polish3_cb) {
             QApplication* cbval1 = app;
-
             polish3_cb(this, cbval1);
             return;
         }
@@ -707,7 +703,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto unpolish_cb = qproxystyle_unpolish_callback;
         if (unpolish_cb) {
             QWidget* cbval1 = widget;
-
             unpolish_cb(this, cbval1);
             return;
         }
@@ -724,7 +719,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto unpolish2_cb = qproxystyle_unpolish2_callback;
         if (unpolish2_cb) {
             QApplication* cbval1 = app;
-
             unpolish2_cb(this, cbval1);
             return;
         }
@@ -740,7 +734,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto event_cb = qproxystyle_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -757,7 +750,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -774,7 +766,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto timerevent_cb = qproxystyle_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -791,7 +782,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto childevent_cb = qproxystyle_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -808,7 +798,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto customevent_cb = qproxystyle_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -827,7 +816,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -846,7 +834,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -890,7 +877,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
         auto receivers_cb = qproxystyle_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -908,7 +894,6 @@ class VirtualQProxyStyle final : public QProxyStyle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

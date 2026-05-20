@@ -154,7 +154,6 @@ class VirtualQPrinter final : public QPrinter {
         auto metric_cb = qprinter_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -172,7 +171,6 @@ class VirtualQPrinter final : public QPrinter {
             const QPageLayout& pageLayout_ret = pageLayout;
             // Cast returned reference into pointer
             QPageLayout* cbval1 = const_cast<QPageLayout*>(&pageLayout_ret);
-
             bool callback_ret = setpagelayout_cb(this, cbval1);
             return callback_ret;
         }
@@ -190,7 +188,6 @@ class VirtualQPrinter final : public QPrinter {
             const QPageSize& pageSize_ret = pageSize;
             // Cast returned reference into pointer
             QPageSize* cbval1 = const_cast<QPageSize*>(&pageSize_ret);
-
             bool callback_ret = setpagesize_cb(this, cbval1);
             return callback_ret;
         }
@@ -206,7 +203,6 @@ class VirtualQPrinter final : public QPrinter {
         auto setpageorientation_cb = qprinter_setpageorientation_callback;
         if (setpageorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
-
             bool callback_ret = setpageorientation_cb(this, cbval1);
             return callback_ret;
         }
@@ -225,7 +221,6 @@ class VirtualQPrinter final : public QPrinter {
             // Cast returned reference into pointer
             QMarginsF* cbval1 = const_cast<QMarginsF*>(&margins_ret);
             int cbval2 = static_cast<int>(units);
-
             bool callback_ret = setpagemargins_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -244,7 +239,6 @@ class VirtualQPrinter final : public QPrinter {
             const QPageRanges& ranges_ret = ranges;
             // Cast returned reference into pointer
             QPageRanges* cbval1 = const_cast<QPageRanges*>(&ranges_ret);
-
             setpageranges_cb(this, cbval1);
             return;
         }
@@ -261,7 +255,6 @@ class VirtualQPrinter final : public QPrinter {
         auto initpainter_cb = qprinter_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -277,7 +270,6 @@ class VirtualQPrinter final : public QPrinter {
         auto redirected_cb = qprinter_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -309,7 +301,6 @@ class VirtualQPrinter final : public QPrinter {
         if (setengines_cb) {
             QPrintEngine* cbval1 = printEngine;
             QPaintEngine* cbval2 = paintEngine;
-
             setengines_cb(this, cbval1, cbval2);
             return;
         }
@@ -326,7 +317,6 @@ class VirtualQPrinter final : public QPrinter {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -144,7 +144,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QRect* cbval2 = const_cast<QRect*>(&rect_ret);
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(state);
-
             paint_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -164,9 +163,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
-
             QPixmap* callback_ret = pixmap_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCountryFlagEmojiIconEngine::pixmap(size, mode, state);
     }
@@ -185,9 +185,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
             double cbval4 = static_cast<double>(scale);
-
             QPixmap* callback_ret = scaledpixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCountryFlagEmojiIconEngine::scaledPixmap(size, mode, state, scale);
     }
@@ -219,9 +220,10 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QSize* cbval1 = const_cast<QSize*>(&size_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
-
             QSize* callback_ret = actualsize_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KCountryFlagEmojiIconEngine::actualSize(size, mode, state);
     }
@@ -240,7 +242,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
             int cbval2 = static_cast<int>(mode);
             int cbval3 = static_cast<int>(state);
-
             addpixmap_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -269,7 +270,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QSize* cbval2 = const_cast<QSize*>(&size_ret);
             int cbval3 = static_cast<int>(mode);
             int cbval4 = static_cast<int>(state);
-
             addfile_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(fileName_str);
             return;
@@ -288,7 +288,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QDataStream& in_ret = in;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &in_ret;
-
             bool callback_ret = read_cb(this, cbval1);
             return callback_ret;
         }
@@ -306,7 +305,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
             QDataStream& out_ret = out;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &out_ret;
-
             bool callback_ret = write_cb(this, cbval1);
             return callback_ret;
         }
@@ -323,7 +321,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (availablesizes_cb) {
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
-
             libqt_list /* of QSize* */ callback_ret = availablesizes_cb(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -363,7 +360,6 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }

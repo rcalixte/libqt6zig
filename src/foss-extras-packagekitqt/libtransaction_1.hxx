@@ -128,7 +128,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         auto metacast_cb = packagekit__transaction_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -146,7 +145,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -165,7 +163,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -184,7 +181,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -200,7 +196,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         auto event_cb = packagekit__transaction_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -217,7 +212,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -234,7 +228,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         auto timerevent_cb = packagekit__transaction_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -251,7 +244,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         auto childevent_cb = packagekit__transaction_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -268,7 +260,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         auto customevent_cb = packagekit__transaction_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -291,7 +282,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             memcpy((void*)errorName_str, errorName_b.data(), errorName_str_len);
             ((char*)errorName_str)[errorName_str_len] = '\0';
             const char* cbval1 = errorName_str;
-
             int callback_ret = parseerror_cb(this, cbval1);
             libqt_free(errorName_str);
             return static_cast<PackageKit::Transaction::InternalError>(callback_ret);
@@ -336,7 +326,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         auto receivers_cb = packagekit__transaction_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -354,7 +343,6 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

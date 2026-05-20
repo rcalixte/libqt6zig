@@ -364,7 +364,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto metacast_cb = qstatusbar_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -382,7 +381,6 @@ class VirtualQStatusBar final : public QStatusBar {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -399,7 +397,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto showevent_cb = qstatusbar_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -416,7 +413,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto paintevent_cb = qstatusbar_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -433,7 +429,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto resizeevent_cb = qstatusbar_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -449,7 +444,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto event_cb = qstatusbar_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -480,7 +474,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto setvisible_cb = qstatusbar_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -496,7 +489,9 @@ class VirtualQStatusBar final : public QStatusBar {
         auto sizehint_cb = qstatusbar_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QStatusBar::sizeHint();
     }
@@ -510,7 +505,9 @@ class VirtualQStatusBar final : public QStatusBar {
         auto minimumsizehint_cb = qstatusbar_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QStatusBar::minimumSizeHint();
     }
@@ -524,7 +521,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto heightforwidth_cb = qstatusbar_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -569,7 +565,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto mousepressevent_cb = qstatusbar_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -586,7 +581,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto mousereleaseevent_cb = qstatusbar_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -603,7 +597,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto mousedoubleclickevent_cb = qstatusbar_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -620,7 +613,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto mousemoveevent_cb = qstatusbar_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -637,7 +629,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto wheelevent_cb = qstatusbar_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -654,7 +645,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto keypressevent_cb = qstatusbar_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -671,7 +661,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto keyreleaseevent_cb = qstatusbar_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -688,7 +677,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto focusinevent_cb = qstatusbar_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -705,7 +693,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto focusoutevent_cb = qstatusbar_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -722,7 +709,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto enterevent_cb = qstatusbar_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -739,7 +725,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto leaveevent_cb = qstatusbar_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -756,7 +741,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto moveevent_cb = qstatusbar_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -773,7 +757,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto closeevent_cb = qstatusbar_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -790,7 +773,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto contextmenuevent_cb = qstatusbar_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -807,7 +789,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto tabletevent_cb = qstatusbar_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -824,7 +805,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto actionevent_cb = qstatusbar_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -841,7 +821,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto dragenterevent_cb = qstatusbar_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -858,7 +837,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto dragmoveevent_cb = qstatusbar_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -875,7 +853,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto dragleaveevent_cb = qstatusbar_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -892,7 +869,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto dropevent_cb = qstatusbar_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -909,7 +885,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto hideevent_cb = qstatusbar_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -933,7 +908,6 @@ class VirtualQStatusBar final : public QStatusBar {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -951,7 +925,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto changeevent_cb = qstatusbar_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -967,7 +940,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto metric_cb = qstatusbar_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -984,7 +956,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto initpainter_cb = qstatusbar_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1000,7 +971,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto redirected_cb = qstatusbar_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1031,7 +1001,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto inputmethodevent_cb = qstatusbar_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1047,9 +1016,10 @@ class VirtualQStatusBar final : public QStatusBar {
         auto inputmethodquery_cb = qstatusbar_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QStatusBar::inputMethodQuery(param1);
     }
@@ -1063,7 +1033,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto focusnextprevchild_cb = qstatusbar_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1080,7 +1049,6 @@ class VirtualQStatusBar final : public QStatusBar {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1097,7 +1065,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto timerevent_cb = qstatusbar_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1114,7 +1081,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto childevent_cb = qstatusbar_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1131,7 +1097,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto customevent_cb = qstatusbar_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1150,7 +1115,6 @@ class VirtualQStatusBar final : public QStatusBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1169,7 +1133,6 @@ class VirtualQStatusBar final : public QStatusBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1316,7 +1279,6 @@ class VirtualQStatusBar final : public QStatusBar {
         auto receivers_cb = qstatusbar_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1334,7 +1296,6 @@ class VirtualQStatusBar final : public QStatusBar {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1351,7 +1312,6 @@ class VirtualQStatusBar final : public QStatusBar {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

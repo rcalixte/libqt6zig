@@ -144,7 +144,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto metacast_cb = qsequentialanimationgroup_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -162,7 +161,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -192,7 +190,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto event_cb = qsequentialanimationgroup_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -209,7 +206,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto updatecurrenttime_cb = qsequentialanimationgroup_updatecurrenttime_callback;
         if (updatecurrenttime_cb) {
             int cbval1 = param1;
-
             updatecurrenttime_cb(this, cbval1);
             return;
         }
@@ -227,7 +223,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
-
             updatestate_cb(this, cbval1, cbval2);
             return;
         }
@@ -244,7 +239,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto updatedirection_cb = qsequentialanimationgroup_updatedirection_callback;
         if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
-
             updatedirection_cb(this, cbval1);
             return;
         }
@@ -261,7 +255,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -278,7 +271,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto timerevent_cb = qsequentialanimationgroup_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -295,7 +287,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto childevent_cb = qsequentialanimationgroup_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -312,7 +303,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto customevent_cb = qsequentialanimationgroup_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -331,7 +321,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -350,7 +339,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -394,7 +382,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
         auto receivers_cb = qsequentialanimationgroup_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -412,7 +399,6 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

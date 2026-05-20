@@ -386,7 +386,6 @@ class VirtualQSplitter final : public QSplitter {
         auto metacast_cb = qsplitter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -404,7 +403,6 @@ class VirtualQSplitter final : public QSplitter {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -420,7 +418,9 @@ class VirtualQSplitter final : public QSplitter {
         auto sizehint_cb = qsplitter_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplitter::sizeHint();
     }
@@ -434,7 +434,9 @@ class VirtualQSplitter final : public QSplitter {
         auto minimumsizehint_cb = qsplitter_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplitter::minimumSizeHint();
     }
@@ -463,7 +465,6 @@ class VirtualQSplitter final : public QSplitter {
         auto childevent_cb = qsplitter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = param1;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -479,7 +480,6 @@ class VirtualQSplitter final : public QSplitter {
         auto event_cb = qsplitter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -496,7 +496,6 @@ class VirtualQSplitter final : public QSplitter {
         auto resizeevent_cb = qsplitter_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -513,7 +512,6 @@ class VirtualQSplitter final : public QSplitter {
         auto changeevent_cb = qsplitter_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -530,7 +528,6 @@ class VirtualQSplitter final : public QSplitter {
         auto paintevent_cb = qsplitter_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -547,7 +544,6 @@ class VirtualQSplitter final : public QSplitter {
         auto initstyleoption_cb = qsplitter_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -578,7 +574,6 @@ class VirtualQSplitter final : public QSplitter {
         auto setvisible_cb = qsplitter_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -594,7 +589,6 @@ class VirtualQSplitter final : public QSplitter {
         auto heightforwidth_cb = qsplitter_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -639,7 +633,6 @@ class VirtualQSplitter final : public QSplitter {
         auto mousepressevent_cb = qsplitter_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -656,7 +649,6 @@ class VirtualQSplitter final : public QSplitter {
         auto mousereleaseevent_cb = qsplitter_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -673,7 +665,6 @@ class VirtualQSplitter final : public QSplitter {
         auto mousedoubleclickevent_cb = qsplitter_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -690,7 +681,6 @@ class VirtualQSplitter final : public QSplitter {
         auto mousemoveevent_cb = qsplitter_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -707,7 +697,6 @@ class VirtualQSplitter final : public QSplitter {
         auto wheelevent_cb = qsplitter_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -724,7 +713,6 @@ class VirtualQSplitter final : public QSplitter {
         auto keypressevent_cb = qsplitter_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -741,7 +729,6 @@ class VirtualQSplitter final : public QSplitter {
         auto keyreleaseevent_cb = qsplitter_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -758,7 +745,6 @@ class VirtualQSplitter final : public QSplitter {
         auto focusinevent_cb = qsplitter_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -775,7 +761,6 @@ class VirtualQSplitter final : public QSplitter {
         auto focusoutevent_cb = qsplitter_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -792,7 +777,6 @@ class VirtualQSplitter final : public QSplitter {
         auto enterevent_cb = qsplitter_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -809,7 +793,6 @@ class VirtualQSplitter final : public QSplitter {
         auto leaveevent_cb = qsplitter_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -826,7 +809,6 @@ class VirtualQSplitter final : public QSplitter {
         auto moveevent_cb = qsplitter_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -843,7 +825,6 @@ class VirtualQSplitter final : public QSplitter {
         auto closeevent_cb = qsplitter_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -860,7 +841,6 @@ class VirtualQSplitter final : public QSplitter {
         auto contextmenuevent_cb = qsplitter_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -877,7 +857,6 @@ class VirtualQSplitter final : public QSplitter {
         auto tabletevent_cb = qsplitter_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -894,7 +873,6 @@ class VirtualQSplitter final : public QSplitter {
         auto actionevent_cb = qsplitter_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -911,7 +889,6 @@ class VirtualQSplitter final : public QSplitter {
         auto dragenterevent_cb = qsplitter_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -928,7 +905,6 @@ class VirtualQSplitter final : public QSplitter {
         auto dragmoveevent_cb = qsplitter_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -945,7 +921,6 @@ class VirtualQSplitter final : public QSplitter {
         auto dragleaveevent_cb = qsplitter_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -962,7 +937,6 @@ class VirtualQSplitter final : public QSplitter {
         auto dropevent_cb = qsplitter_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -979,7 +953,6 @@ class VirtualQSplitter final : public QSplitter {
         auto showevent_cb = qsplitter_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -996,7 +969,6 @@ class VirtualQSplitter final : public QSplitter {
         auto hideevent_cb = qsplitter_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1020,7 +992,6 @@ class VirtualQSplitter final : public QSplitter {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1037,7 +1008,6 @@ class VirtualQSplitter final : public QSplitter {
         auto metric_cb = qsplitter_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1054,7 +1024,6 @@ class VirtualQSplitter final : public QSplitter {
         auto initpainter_cb = qsplitter_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1070,7 +1039,6 @@ class VirtualQSplitter final : public QSplitter {
         auto redirected_cb = qsplitter_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1101,7 +1069,6 @@ class VirtualQSplitter final : public QSplitter {
         auto inputmethodevent_cb = qsplitter_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1117,9 +1084,10 @@ class VirtualQSplitter final : public QSplitter {
         auto inputmethodquery_cb = qsplitter_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplitter::inputMethodQuery(param1);
     }
@@ -1133,7 +1101,6 @@ class VirtualQSplitter final : public QSplitter {
         auto focusnextprevchild_cb = qsplitter_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1150,7 +1117,6 @@ class VirtualQSplitter final : public QSplitter {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1167,7 +1133,6 @@ class VirtualQSplitter final : public QSplitter {
         auto timerevent_cb = qsplitter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1184,7 +1149,6 @@ class VirtualQSplitter final : public QSplitter {
         auto customevent_cb = qsplitter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1203,7 +1167,6 @@ class VirtualQSplitter final : public QSplitter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1222,7 +1185,6 @@ class VirtualQSplitter final : public QSplitter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1240,7 +1202,6 @@ class VirtualQSplitter final : public QSplitter {
         if (movesplitter_cb) {
             int cbval1 = pos;
             int cbval2 = index;
-
             movesplitter_cb(this, cbval1, cbval2);
             return;
         }
@@ -1257,7 +1218,6 @@ class VirtualQSplitter final : public QSplitter {
         auto setrubberband_cb = qsplitter_setrubberband_callback;
         if (setrubberband_cb) {
             int cbval1 = position;
-
             setrubberband_cb(this, cbval1);
             return;
         }
@@ -1274,7 +1234,6 @@ class VirtualQSplitter final : public QSplitter {
         if (closestlegalposition_cb) {
             int cbval1 = param1;
             int cbval2 = param2;
-
             int callback_ret = closestlegalposition_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -1291,7 +1250,6 @@ class VirtualQSplitter final : public QSplitter {
         auto drawframe_cb = qsplitter_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1408,7 +1366,6 @@ class VirtualQSplitter final : public QSplitter {
         auto receivers_cb = qsplitter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1426,7 +1383,6 @@ class VirtualQSplitter final : public QSplitter {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1443,7 +1399,6 @@ class VirtualQSplitter final : public QSplitter {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -1915,7 +1870,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto metacast_cb = qsplitterhandle_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1933,7 +1887,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1949,7 +1902,9 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto sizehint_cb = qsplitterhandle_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplitterHandle::sizeHint();
     }
@@ -1964,7 +1919,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto paintevent_cb = qsplitterhandle_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1981,7 +1935,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto mousemoveevent_cb = qsplitterhandle_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1998,7 +1951,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto mousepressevent_cb = qsplitterhandle_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2015,7 +1967,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto mousereleaseevent_cb = qsplitterhandle_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2032,7 +1983,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto resizeevent_cb = qsplitterhandle_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2048,7 +1998,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto event_cb = qsplitterhandle_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2079,7 +2028,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto setvisible_cb = qsplitterhandle_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2095,7 +2043,9 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto minimumsizehint_cb = qsplitterhandle_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplitterHandle::minimumSizeHint();
     }
@@ -2109,7 +2059,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto heightforwidth_cb = qsplitterhandle_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2154,7 +2103,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto mousedoubleclickevent_cb = qsplitterhandle_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2171,7 +2119,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto wheelevent_cb = qsplitterhandle_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2188,7 +2135,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto keypressevent_cb = qsplitterhandle_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2205,7 +2151,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto keyreleaseevent_cb = qsplitterhandle_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2222,7 +2167,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto focusinevent_cb = qsplitterhandle_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2239,7 +2183,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto focusoutevent_cb = qsplitterhandle_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2256,7 +2199,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto enterevent_cb = qsplitterhandle_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2273,7 +2215,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto leaveevent_cb = qsplitterhandle_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2290,7 +2231,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto moveevent_cb = qsplitterhandle_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2307,7 +2247,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto closeevent_cb = qsplitterhandle_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2324,7 +2263,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto contextmenuevent_cb = qsplitterhandle_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2341,7 +2279,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto tabletevent_cb = qsplitterhandle_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2358,7 +2295,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto actionevent_cb = qsplitterhandle_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2375,7 +2311,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto dragenterevent_cb = qsplitterhandle_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2392,7 +2327,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto dragmoveevent_cb = qsplitterhandle_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2409,7 +2343,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto dragleaveevent_cb = qsplitterhandle_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2426,7 +2359,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto dropevent_cb = qsplitterhandle_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2443,7 +2375,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto showevent_cb = qsplitterhandle_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2460,7 +2391,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto hideevent_cb = qsplitterhandle_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2484,7 +2414,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2502,7 +2431,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto changeevent_cb = qsplitterhandle_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2518,7 +2446,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto metric_cb = qsplitterhandle_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2535,7 +2462,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto initpainter_cb = qsplitterhandle_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2551,7 +2477,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto redirected_cb = qsplitterhandle_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2582,7 +2507,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto inputmethodevent_cb = qsplitterhandle_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2598,9 +2522,10 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto inputmethodquery_cb = qsplitterhandle_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSplitterHandle::inputMethodQuery(param1);
     }
@@ -2614,7 +2539,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto focusnextprevchild_cb = qsplitterhandle_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2631,7 +2555,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2648,7 +2571,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto timerevent_cb = qsplitterhandle_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2665,7 +2587,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto childevent_cb = qsplitterhandle_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2682,7 +2603,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto customevent_cb = qsplitterhandle_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2701,7 +2621,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2720,7 +2639,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2737,7 +2655,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto movesplitter_cb = qsplitterhandle_movesplitter_callback;
         if (movesplitter_cb) {
             int cbval1 = p;
-
             movesplitter_cb(this, cbval1);
             return;
         }
@@ -2753,7 +2670,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto closestlegalposition_cb = qsplitterhandle_closestlegalposition_callback;
         if (closestlegalposition_cb) {
             int cbval1 = p;
-
             int callback_ret = closestlegalposition_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2870,7 +2786,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         auto receivers_cb = qsplitterhandle_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2888,7 +2803,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2905,7 +2819,6 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

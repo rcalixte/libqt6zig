@@ -377,7 +377,6 @@ class VirtualQSlider final : public QSlider {
         auto metacast_cb = qslider_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -395,7 +394,6 @@ class VirtualQSlider final : public QSlider {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -411,7 +409,9 @@ class VirtualQSlider final : public QSlider {
         auto sizehint_cb = qslider_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSlider::sizeHint();
     }
@@ -425,7 +425,9 @@ class VirtualQSlider final : public QSlider {
         auto minimumsizehint_cb = qslider_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSlider::minimumSizeHint();
     }
@@ -439,7 +441,6 @@ class VirtualQSlider final : public QSlider {
         auto event_cb = qslider_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -456,7 +457,6 @@ class VirtualQSlider final : public QSlider {
         auto paintevent_cb = qslider_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = ev;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -473,7 +473,6 @@ class VirtualQSlider final : public QSlider {
         auto mousepressevent_cb = qslider_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = ev;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -490,7 +489,6 @@ class VirtualQSlider final : public QSlider {
         auto mousereleaseevent_cb = qslider_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = ev;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -507,7 +505,6 @@ class VirtualQSlider final : public QSlider {
         auto mousemoveevent_cb = qslider_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = ev;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -524,7 +521,6 @@ class VirtualQSlider final : public QSlider {
         auto initstyleoption_cb = qslider_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionSlider* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -541,7 +537,6 @@ class VirtualQSlider final : public QSlider {
         auto sliderchange_cb = qslider_sliderchange_callback;
         if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
-
             sliderchange_cb(this, cbval1);
             return;
         }
@@ -558,7 +553,6 @@ class VirtualQSlider final : public QSlider {
         auto keypressevent_cb = qslider_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -575,7 +569,6 @@ class VirtualQSlider final : public QSlider {
         auto timerevent_cb = qslider_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -592,7 +585,6 @@ class VirtualQSlider final : public QSlider {
         auto wheelevent_cb = qslider_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -609,7 +601,6 @@ class VirtualQSlider final : public QSlider {
         auto changeevent_cb = qslider_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -640,7 +631,6 @@ class VirtualQSlider final : public QSlider {
         auto setvisible_cb = qslider_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -656,7 +646,6 @@ class VirtualQSlider final : public QSlider {
         auto heightforwidth_cb = qslider_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -701,7 +690,6 @@ class VirtualQSlider final : public QSlider {
         auto mousedoubleclickevent_cb = qslider_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -718,7 +706,6 @@ class VirtualQSlider final : public QSlider {
         auto keyreleaseevent_cb = qslider_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -735,7 +722,6 @@ class VirtualQSlider final : public QSlider {
         auto focusinevent_cb = qslider_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -752,7 +738,6 @@ class VirtualQSlider final : public QSlider {
         auto focusoutevent_cb = qslider_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -769,7 +754,6 @@ class VirtualQSlider final : public QSlider {
         auto enterevent_cb = qslider_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -786,7 +770,6 @@ class VirtualQSlider final : public QSlider {
         auto leaveevent_cb = qslider_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -803,7 +786,6 @@ class VirtualQSlider final : public QSlider {
         auto moveevent_cb = qslider_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -820,7 +802,6 @@ class VirtualQSlider final : public QSlider {
         auto resizeevent_cb = qslider_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -837,7 +818,6 @@ class VirtualQSlider final : public QSlider {
         auto closeevent_cb = qslider_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -854,7 +834,6 @@ class VirtualQSlider final : public QSlider {
         auto contextmenuevent_cb = qslider_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -871,7 +850,6 @@ class VirtualQSlider final : public QSlider {
         auto tabletevent_cb = qslider_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -888,7 +866,6 @@ class VirtualQSlider final : public QSlider {
         auto actionevent_cb = qslider_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -905,7 +882,6 @@ class VirtualQSlider final : public QSlider {
         auto dragenterevent_cb = qslider_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -922,7 +898,6 @@ class VirtualQSlider final : public QSlider {
         auto dragmoveevent_cb = qslider_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -939,7 +914,6 @@ class VirtualQSlider final : public QSlider {
         auto dragleaveevent_cb = qslider_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -956,7 +930,6 @@ class VirtualQSlider final : public QSlider {
         auto dropevent_cb = qslider_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -973,7 +946,6 @@ class VirtualQSlider final : public QSlider {
         auto showevent_cb = qslider_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -990,7 +962,6 @@ class VirtualQSlider final : public QSlider {
         auto hideevent_cb = qslider_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1014,7 +985,6 @@ class VirtualQSlider final : public QSlider {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1031,7 +1001,6 @@ class VirtualQSlider final : public QSlider {
         auto metric_cb = qslider_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1048,7 +1017,6 @@ class VirtualQSlider final : public QSlider {
         auto initpainter_cb = qslider_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1064,7 +1032,6 @@ class VirtualQSlider final : public QSlider {
         auto redirected_cb = qslider_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1095,7 +1062,6 @@ class VirtualQSlider final : public QSlider {
         auto inputmethodevent_cb = qslider_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1111,9 +1077,10 @@ class VirtualQSlider final : public QSlider {
         auto inputmethodquery_cb = qslider_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSlider::inputMethodQuery(param1);
     }
@@ -1127,7 +1094,6 @@ class VirtualQSlider final : public QSlider {
         auto focusnextprevchild_cb = qslider_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1144,7 +1110,6 @@ class VirtualQSlider final : public QSlider {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1161,7 +1126,6 @@ class VirtualQSlider final : public QSlider {
         auto childevent_cb = qslider_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1178,7 +1142,6 @@ class VirtualQSlider final : public QSlider {
         auto customevent_cb = qslider_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1197,7 +1160,6 @@ class VirtualQSlider final : public QSlider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1216,7 +1178,6 @@ class VirtualQSlider final : public QSlider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1233,7 +1194,6 @@ class VirtualQSlider final : public QSlider {
         auto setrepeataction_cb = qslider_setrepeataction_callback;
         if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
-
             setrepeataction_cb(this, cbval1);
             return;
         }
@@ -1364,7 +1324,6 @@ class VirtualQSlider final : public QSlider {
         auto receivers_cb = qslider_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1382,7 +1341,6 @@ class VirtualQSlider final : public QSlider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1399,7 +1357,6 @@ class VirtualQSlider final : public QSlider {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -70,7 +70,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         auto rangeempty_cb = ktexteditor__movingrangefeedback_rangeempty_callback;
         if (rangeempty_cb) {
             KTextEditor__MovingRange* cbval1 = range;
-
             rangeempty_cb(this, cbval1);
             return;
         }
@@ -87,7 +86,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         auto rangeinvalid_cb = ktexteditor__movingrangefeedback_rangeinvalid_callback;
         if (rangeinvalid_cb) {
             KTextEditor__MovingRange* cbval1 = range;
-
             rangeinvalid_cb(this, cbval1);
             return;
         }
@@ -105,7 +103,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (mouseenteredrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
-
             mouseenteredrange_cb(this, cbval1, cbval2);
             return;
         }
@@ -123,7 +120,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (mouseexitedrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
-
             mouseexitedrange_cb(this, cbval1, cbval2);
             return;
         }
@@ -141,7 +137,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (caretenteredrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
-
             caretenteredrange_cb(this, cbval1, cbval2);
             return;
         }
@@ -159,7 +154,6 @@ class VirtualKTextEditorMovingRangeFeedback final : public KTextEditor::MovingRa
         if (caretexitedrange_cb) {
             KTextEditor__MovingRange* cbval1 = range;
             KTextEditor__View* cbval2 = view;
-
             caretexitedrange_cb(this, cbval1, cbval2);
             return;
         }

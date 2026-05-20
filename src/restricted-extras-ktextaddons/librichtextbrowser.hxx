@@ -459,7 +459,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto metacast_cb = textcustomeditor__richtextbrowser_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -477,7 +476,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -495,7 +493,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         if (addextramenuentry_cb) {
             QMenu* cbval1 = menu;
             QPoint* cbval2 = new QPoint(pos);
-
             addextramenuentry_cb(this, cbval1, cbval2);
             return;
         }
@@ -512,7 +509,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto contextmenuevent_cb = textcustomeditor__richtextbrowser_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -528,7 +524,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto event_cb = textcustomeditor__richtextbrowser_event_callback;
         if (event_cb) {
             QEvent* cbval1 = ev;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -545,7 +540,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto keypressevent_cb = textcustomeditor__richtextbrowser_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -562,7 +556,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto wheelevent_cb = textcustomeditor__richtextbrowser_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -581,9 +574,10 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             const QUrl& name_ret = name;
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&name_ret);
-
             QVariant* callback_ret = loadresource_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__RichTextBrowser::loadResource(typeVal, name);
     }
@@ -658,7 +652,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto mousemoveevent_cb = textcustomeditor__richtextbrowser_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = ev;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -675,7 +668,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto mousepressevent_cb = textcustomeditor__richtextbrowser_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = ev;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -692,7 +684,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto mousereleaseevent_cb = textcustomeditor__richtextbrowser_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = ev;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -709,7 +700,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto focusoutevent_cb = textcustomeditor__richtextbrowser_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = ev;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -725,7 +715,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto focusnextprevchild_cb = textcustomeditor__richtextbrowser_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -742,7 +731,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto paintevent_cb = textcustomeditor__richtextbrowser_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -762,7 +750,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&name_ret);
             int cbval2 = static_cast<int>(typeVal);
-
             dosetsource_cb(this, cbval1, cbval2);
             return;
         }
@@ -778,9 +765,10 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto inputmethodquery_cb = textcustomeditor__richtextbrowser_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(property);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__RichTextBrowser::inputMethodQuery(property);
     }
@@ -795,7 +783,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto timerevent_cb = textcustomeditor__richtextbrowser_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -812,7 +799,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto keyreleaseevent_cb = textcustomeditor__richtextbrowser_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -829,7 +815,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto resizeevent_cb = textcustomeditor__richtextbrowser_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -846,7 +831,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto mousedoubleclickevent_cb = textcustomeditor__richtextbrowser_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -863,7 +847,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto dragenterevent_cb = textcustomeditor__richtextbrowser_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -880,7 +863,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto dragleaveevent_cb = textcustomeditor__richtextbrowser_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -897,7 +879,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto dragmoveevent_cb = textcustomeditor__richtextbrowser_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -914,7 +895,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto dropevent_cb = textcustomeditor__richtextbrowser_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = e;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -931,7 +911,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto focusinevent_cb = textcustomeditor__richtextbrowser_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -948,7 +927,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto showevent_cb = textcustomeditor__richtextbrowser_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -965,7 +943,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto changeevent_cb = textcustomeditor__richtextbrowser_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -995,7 +972,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto caninsertfrommimedata_cb = textcustomeditor__richtextbrowser_caninsertfrommimedata_callback;
         if (caninsertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
-
             bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
             return callback_ret;
         }
@@ -1012,7 +988,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto insertfrommimedata_cb = textcustomeditor__richtextbrowser_insertfrommimedata_callback;
         if (insertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
-
             insertfrommimedata_cb(this, cbval1);
             return;
         }
@@ -1029,7 +1004,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto inputmethodevent_cb = textcustomeditor__richtextbrowser_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1047,7 +1021,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -1066,7 +1039,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             const QTextCursor& cursor_ret = cursor;
             // Cast returned reference into pointer
             QTextCursor* cbval1 = const_cast<QTextCursor*>(&cursor_ret);
-
             dosettextcursor_cb(this, cbval1);
             return;
         }
@@ -1082,7 +1054,9 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto minimumsizehint_cb = textcustomeditor__richtextbrowser_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__RichTextBrowser::minimumSizeHint();
     }
@@ -1096,7 +1070,9 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto sizehint_cb = textcustomeditor__richtextbrowser_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__RichTextBrowser::sizeHint();
     }
@@ -1111,7 +1087,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto setupviewport_cb = textcustomeditor__richtextbrowser_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1128,7 +1103,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1144,7 +1118,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto viewportevent_cb = textcustomeditor__richtextbrowser_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1160,7 +1133,9 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto viewportsizehint_cb = textcustomeditor__richtextbrowser_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__RichTextBrowser::viewportSizeHint();
     }
@@ -1175,7 +1150,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto initstyleoption_cb = textcustomeditor__richtextbrowser_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1206,7 +1180,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto setvisible_cb = textcustomeditor__richtextbrowser_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1222,7 +1195,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto heightforwidth_cb = textcustomeditor__richtextbrowser_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1267,7 +1239,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto enterevent_cb = textcustomeditor__richtextbrowser_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1284,7 +1255,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto leaveevent_cb = textcustomeditor__richtextbrowser_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1301,7 +1271,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto moveevent_cb = textcustomeditor__richtextbrowser_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1318,7 +1287,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto closeevent_cb = textcustomeditor__richtextbrowser_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1335,7 +1303,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto tabletevent_cb = textcustomeditor__richtextbrowser_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1352,7 +1319,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto actionevent_cb = textcustomeditor__richtextbrowser_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1369,7 +1335,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto hideevent_cb = textcustomeditor__richtextbrowser_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1393,7 +1358,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1410,7 +1374,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto metric_cb = textcustomeditor__richtextbrowser_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1427,7 +1390,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto initpainter_cb = textcustomeditor__richtextbrowser_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1443,7 +1405,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto redirected_cb = textcustomeditor__richtextbrowser_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1474,7 +1435,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto childevent_cb = textcustomeditor__richtextbrowser_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1491,7 +1451,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto customevent_cb = textcustomeditor__richtextbrowser_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1510,7 +1469,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1529,7 +1487,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1545,7 +1502,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto mousepopupmenu_cb = textcustomeditor__richtextbrowser_mousepopupmenu_callback;
         if (mousepopupmenu_cb) {
             QPoint* cbval1 = new QPoint(pos);
-
             QMenu* callback_ret = mousepopupmenu_cb(this, cbval1);
             return callback_ret;
         }
@@ -1562,7 +1518,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto zoominf_cb = textcustomeditor__richtextbrowser_zoominf_callback;
         if (zoominf_cb) {
             float cbval1 = range;
-
             zoominf_cb(this, cbval1);
             return;
         }
@@ -1582,7 +1537,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -1598,7 +1552,9 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto viewportmargins_cb = textcustomeditor__richtextbrowser_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__RichTextBrowser::viewportMargins();
     }
@@ -1613,7 +1569,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto drawframe_cb = textcustomeditor__richtextbrowser_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -1730,7 +1685,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         auto receivers_cb = textcustomeditor__richtextbrowser_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1748,7 +1702,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1765,7 +1718,6 @@ class VirtualTextCustomEditorRichTextBrowser final : public TextCustomEditor::Ri
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

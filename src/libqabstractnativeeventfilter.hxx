@@ -48,7 +48,6 @@ class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeeventfilter_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;

@@ -146,7 +146,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         auto begin_cb = qpaintengine_begin_callback;
         if (begin_cb) {
             QPaintDevice* cbval1 = pdev;
-
             bool callback_ret = begin_cb(this, cbval1);
             return callback_ret;
         }
@@ -170,7 +169,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QPaintEngineState& state_ret = state;
             // Cast returned reference into pointer
             QPaintEngineState* cbval1 = const_cast<QPaintEngineState*>(&state_ret);
-
             updatestate_cb(this, cbval1);
         }
     }
@@ -186,7 +184,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (drawrects_cb) {
             QRect* cbval1 = (QRect*)rects;
             int cbval2 = rectCount;
-
             drawrects_cb(this, cbval1, cbval2);
             return;
         }
@@ -204,7 +201,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (drawrects2_cb) {
             QRectF* cbval1 = (QRectF*)rects;
             int cbval2 = rectCount;
-
             drawrects2_cb(this, cbval1, cbval2);
             return;
         }
@@ -222,7 +218,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (drawlines_cb) {
             QLine* cbval1 = (QLine*)lines;
             int cbval2 = lineCount;
-
             drawlines_cb(this, cbval1, cbval2);
             return;
         }
@@ -240,7 +235,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (drawlines2_cb) {
             QLineF* cbval1 = (QLineF*)lines;
             int cbval2 = lineCount;
-
             drawlines2_cb(this, cbval1, cbval2);
             return;
         }
@@ -259,7 +253,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QRectF& r_ret = r;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&r_ret);
-
             drawellipse_cb(this, cbval1);
             return;
         }
@@ -278,7 +271,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QRect& r_ret = r;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&r_ret);
-
             drawellipse2_cb(this, cbval1);
             return;
         }
@@ -297,7 +289,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QPainterPath& path_ret = path;
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
-
             drawpath_cb(this, cbval1);
             return;
         }
@@ -315,7 +306,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (drawpoints_cb) {
             QPointF* cbval1 = (QPointF*)points;
             int cbval2 = pointCount;
-
             drawpoints_cb(this, cbval1, cbval2);
             return;
         }
@@ -333,7 +323,6 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (drawpoints2_cb) {
             QPoint* cbval1 = (QPoint*)points;
             int cbval2 = pointCount;
-
             drawpoints2_cb(this, cbval1, cbval2);
             return;
         }
@@ -352,7 +341,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             QPointF* cbval1 = (QPointF*)points;
             int cbval2 = pointCount;
             int cbval3 = static_cast<int>(mode);
-
             drawpolygon_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -371,7 +359,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             QPoint* cbval1 = (QPoint*)points;
             int cbval2 = pointCount;
             int cbval3 = static_cast<int>(mode);
-
             drawpolygon2_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -391,7 +378,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QRectF& sr_ret = sr;
             // Cast returned reference into pointer
             QRectF* cbval3 = const_cast<QRectF*>(&sr_ret);
-
             drawpixmap_cb(this, cbval1, cbval2, cbval3);
         }
     }
@@ -411,7 +397,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QTextItem& textItem_ret = textItem;
             // Cast returned reference into pointer
             QTextItem* cbval2 = const_cast<QTextItem*>(&textItem_ret);
-
             drawtextitem_cb(this, cbval1, cbval2);
             return;
         }
@@ -436,7 +421,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             const QPointF& s_ret = s;
             // Cast returned reference into pointer
             QPointF* cbval3 = const_cast<QPointF*>(&s_ret);
-
             drawtiledpixmap_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -462,7 +446,6 @@ class VirtualQPaintEngine : public QPaintEngine {
             // Cast returned reference into pointer
             QRectF* cbval3 = const_cast<QRectF*>(&sr_ret);
             int cbval4 = static_cast<int>(flags);
-
             drawimage_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -478,7 +461,9 @@ class VirtualQPaintEngine : public QPaintEngine {
         auto coordinateoffset_cb = qpaintengine_coordinateoffset_callback;
         if (coordinateoffset_cb) {
             QPoint* callback_ret = coordinateoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPaintEngine::coordinateOffset();
     }
@@ -502,9 +487,10 @@ class VirtualQPaintEngine : public QPaintEngine {
         auto createpixmap_cb = qpaintengine_createpixmap_callback;
         if (createpixmap_cb) {
             QSize* cbval1 = new QSize(size);
-
             QPixmap* callback_ret = createpixmap_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPaintEngine::createPixmap(size);
     }
@@ -519,9 +505,10 @@ class VirtualQPaintEngine : public QPaintEngine {
         if (createpixmapfromimage_cb) {
             QImage* cbval1 = new QImage(image);
             int cbval2 = static_cast<int>(flags);
-
             QPixmap* callback_ret = createpixmapfromimage_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPaintEngine::createPixmapFromImage(image, flags);
     }

@@ -219,7 +219,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto metacast_cb = qlocalsocket_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -237,7 +236,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -309,7 +307,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto open_cb = qlocalsocket_open_callback;
         if (open_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             bool callback_ret = open_cb(this, cbval1);
             return callback_ret;
         }
@@ -340,7 +337,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto waitforbyteswritten_cb = qlocalsocket_waitforbyteswritten_callback;
         if (waitforbyteswritten_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforbyteswritten_cb(this, cbval1);
             return callback_ret;
         }
@@ -356,7 +352,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto waitforreadyread_cb = qlocalsocket_waitforreadyread_callback;
         if (waitforreadyread_cb) {
             int cbval1 = msecs;
-
             bool callback_ret = waitforreadyread_cb(this, cbval1);
             return callback_ret;
         }
@@ -373,7 +368,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         if (readdata_cb) {
             char* cbval1 = param1;
             long long cbval2 = static_cast<long long>(param2);
-
             long long callback_ret = readdata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -390,7 +384,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         if (readlinedata_cb) {
             char* cbval1 = data;
             long long cbval2 = static_cast<long long>(maxSize);
-
             long long callback_ret = readlinedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -406,7 +399,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto skipdata_cb = qlocalsocket_skipdata_callback;
         if (skipdata_cb) {
             long long cbval1 = static_cast<long long>(maxSize);
-
             long long callback_ret = skipdata_cb(this, cbval1);
             return static_cast<qint64>(callback_ret);
         }
@@ -423,7 +415,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         if (writedata_cb) {
             const char* cbval1 = (const char*)param1;
             long long cbval2 = static_cast<long long>(param2);
-
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
@@ -467,7 +458,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto seek_cb = qlocalsocket_seek_callback;
         if (seek_cb) {
             long long cbval1 = static_cast<long long>(pos);
-
             bool callback_ret = seek_cb(this, cbval1);
             return callback_ret;
         }
@@ -511,7 +501,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto event_cb = qlocalsocket_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -528,7 +517,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -545,7 +533,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto timerevent_cb = qlocalsocket_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -562,7 +549,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto childevent_cb = qlocalsocket_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -579,7 +565,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto customevent_cb = qlocalsocket_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -598,7 +583,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -617,7 +601,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -634,7 +617,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto setopenmode_cb = qlocalsocket_setopenmode_callback;
         if (setopenmode_cb) {
             int cbval1 = static_cast<int>(openMode);
-
             setopenmode_cb(this, cbval1);
             return;
         }
@@ -658,7 +640,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
             memcpy((void*)errorString_str, errorString_b.data(), errorString_str_len);
             ((char*)errorString_str)[errorString_str_len] = '\0';
             const char* cbval1 = errorString_str;
-
             seterrorstring_cb(this, cbval1);
             libqt_free(errorString_str);
             return;
@@ -703,7 +684,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
         auto receivers_cb = qlocalsocket_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -721,7 +701,6 @@ class VirtualQLocalSocket final : public QLocalSocket {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

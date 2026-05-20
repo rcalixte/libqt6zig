@@ -647,7 +647,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto metacast_cb = qabstractitemview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -665,7 +664,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -682,7 +680,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto setmodel_cb = qabstractitemview_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -699,7 +696,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto setselectionmodel_cb = qabstractitemview_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -723,7 +719,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -738,9 +733,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -753,7 +749,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
         }
     }
@@ -765,9 +760,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QPoint& point_ret = point;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&point_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -781,7 +777,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto sizehintforrow_cb = qabstractitemview_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -797,7 +792,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto sizehintforcolumn_cb = qabstractitemview_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -815,7 +809,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -831,9 +824,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto inputmethodquery_cb = qabstractitemview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemView::inputMethodQuery(query);
     }
@@ -865,7 +859,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -927,7 +920,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -949,7 +941,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -970,7 +961,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -992,7 +982,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1014,7 +1003,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QModelIndex& previous_ret = previous;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1076,7 +1064,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto verticalscrollbaraction_cb = qabstractitemview_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1093,7 +1080,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto horizontalscrollbaraction_cb = qabstractitemview_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1110,7 +1096,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto verticalscrollbarvaluechanged_cb = qabstractitemview_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1127,7 +1112,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto horizontalscrollbarvaluechanged_cb = qabstractitemview_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1145,7 +1129,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1162,7 +1145,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto commitdata_cb = qabstractitemview_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1179,7 +1161,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto editordestroyed_cb = qabstractitemview_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1192,9 +1173,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -1226,7 +1208,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1241,7 +1222,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
-
             setselection_cb(this, cbval1, cbval2);
         }
     }
@@ -1253,9 +1233,10 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -1294,7 +1275,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1313,7 +1293,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1330,7 +1309,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto startdrag_cb = qabstractitemview_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -1347,7 +1325,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto initviewitemoption_cb = qabstractitemview_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1363,7 +1340,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto focusnextprevchild_cb = qabstractitemview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1379,7 +1355,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto event_cb = qabstractitemview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1395,7 +1370,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto viewportevent_cb = qabstractitemview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1412,7 +1386,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto mousepressevent_cb = qabstractitemview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1429,7 +1402,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto mousemoveevent_cb = qabstractitemview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1446,7 +1418,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto mousereleaseevent_cb = qabstractitemview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1463,7 +1434,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto mousedoubleclickevent_cb = qabstractitemview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1480,7 +1450,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto dragenterevent_cb = qabstractitemview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1497,7 +1466,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto dragmoveevent_cb = qabstractitemview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1514,7 +1482,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto dragleaveevent_cb = qabstractitemview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1531,7 +1498,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto dropevent_cb = qabstractitemview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1548,7 +1514,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto focusinevent_cb = qabstractitemview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1565,7 +1530,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto focusoutevent_cb = qabstractitemview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1582,7 +1546,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto keypressevent_cb = qabstractitemview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1599,7 +1562,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto resizeevent_cb = qabstractitemview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1616,7 +1578,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto timerevent_cb = qabstractitemview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1633,7 +1594,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto inputmethodevent_cb = qabstractitemview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1650,7 +1610,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1666,7 +1625,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto viewportsizehint_cb = qabstractitemview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemView::viewportSizeHint();
     }
@@ -1680,7 +1641,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto minimumsizehint_cb = qabstractitemview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemView::minimumSizeHint();
     }
@@ -1694,7 +1657,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto sizehint_cb = qabstractitemview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemView::sizeHint();
     }
@@ -1709,7 +1674,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto setupviewport_cb = qabstractitemview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1726,7 +1690,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto paintevent_cb = qabstractitemview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1743,7 +1706,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto wheelevent_cb = qabstractitemview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1760,7 +1722,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto contextmenuevent_cb = qabstractitemview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1778,7 +1739,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -1795,7 +1755,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto changeevent_cb = qabstractitemview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1812,7 +1771,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto initstyleoption_cb = qabstractitemview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1843,7 +1801,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto setvisible_cb = qabstractitemview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1859,7 +1816,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto heightforwidth_cb = qabstractitemview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1904,7 +1860,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto keyreleaseevent_cb = qabstractitemview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1921,7 +1876,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto enterevent_cb = qabstractitemview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1938,7 +1892,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto leaveevent_cb = qabstractitemview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1955,7 +1908,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto moveevent_cb = qabstractitemview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1972,7 +1924,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto closeevent_cb = qabstractitemview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1989,7 +1940,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto tabletevent_cb = qabstractitemview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2006,7 +1956,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto actionevent_cb = qabstractitemview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2023,7 +1972,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto showevent_cb = qabstractitemview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2040,7 +1988,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto hideevent_cb = qabstractitemview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2064,7 +2011,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2081,7 +2027,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto metric_cb = qabstractitemview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2098,7 +2043,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto initpainter_cb = qabstractitemview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2114,7 +2058,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto redirected_cb = qabstractitemview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2145,7 +2088,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto childevent_cb = qabstractitemview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2162,7 +2104,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto customevent_cb = qabstractitemview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2181,7 +2122,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2200,7 +2140,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2231,7 +2170,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto setstate_cb = qabstractitemview_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2280,7 +2218,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2298,7 +2235,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2314,7 +2250,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto dirtyregionoffset_cb = qabstractitemview_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemView::dirtyRegionOffset();
     }
@@ -2391,7 +2329,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2407,7 +2344,9 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto viewportmargins_cb = qabstractitemview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractItemView::viewportMargins();
     }
@@ -2422,7 +2361,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto drawframe_cb = qabstractitemview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2539,7 +2477,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         auto receivers_cb = qabstractitemview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2557,7 +2494,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2574,7 +2510,6 @@ class VirtualQAbstractItemView : public QAbstractItemView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

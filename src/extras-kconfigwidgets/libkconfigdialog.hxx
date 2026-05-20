@@ -453,7 +453,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto metacast_cb = kconfigdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -471,7 +470,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -576,7 +574,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto showevent_cb = kconfigdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = e;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -593,7 +590,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto setvisible_cb = kconfigdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -609,7 +605,9 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto sizehint_cb = kconfigdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigDialog::sizeHint();
     }
@@ -623,7 +621,9 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto minimumsizehint_cb = kconfigdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigDialog::minimumSizeHint();
     }
@@ -667,7 +667,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto done_cb = kconfigdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -714,7 +713,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto keypressevent_cb = kconfigdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -731,7 +729,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto closeevent_cb = kconfigdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -748,7 +745,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto resizeevent_cb = kconfigdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -765,7 +761,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto contextmenuevent_cb = kconfigdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -782,7 +777,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -812,7 +806,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto heightforwidth_cb = kconfigdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -856,7 +849,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto event_cb = kconfigdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -873,7 +865,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto mousepressevent_cb = kconfigdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -890,7 +881,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto mousereleaseevent_cb = kconfigdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -907,7 +897,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto mousedoubleclickevent_cb = kconfigdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -924,7 +913,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto mousemoveevent_cb = kconfigdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -941,7 +929,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto wheelevent_cb = kconfigdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -958,7 +945,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto keyreleaseevent_cb = kconfigdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -975,7 +961,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto focusinevent_cb = kconfigdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -992,7 +977,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto focusoutevent_cb = kconfigdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1009,7 +993,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto enterevent_cb = kconfigdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1026,7 +1009,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto leaveevent_cb = kconfigdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1043,7 +1025,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto paintevent_cb = kconfigdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1060,7 +1041,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto moveevent_cb = kconfigdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1077,7 +1057,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto tabletevent_cb = kconfigdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1094,7 +1073,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto actionevent_cb = kconfigdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1111,7 +1089,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto dragenterevent_cb = kconfigdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1128,7 +1105,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto dragmoveevent_cb = kconfigdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1145,7 +1121,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto dragleaveevent_cb = kconfigdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1162,7 +1137,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto dropevent_cb = kconfigdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1179,7 +1153,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto hideevent_cb = kconfigdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1203,7 +1176,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1221,7 +1193,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto changeevent_cb = kconfigdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1237,7 +1208,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto metric_cb = kconfigdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1254,7 +1224,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto initpainter_cb = kconfigdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1270,7 +1239,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto redirected_cb = kconfigdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1301,7 +1269,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto inputmethodevent_cb = kconfigdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1317,9 +1284,10 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto inputmethodquery_cb = kconfigdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KConfigDialog::inputMethodQuery(param1);
     }
@@ -1333,7 +1301,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto focusnextprevchild_cb = kconfigdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1350,7 +1317,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto timerevent_cb = kconfigdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1367,7 +1333,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto childevent_cb = kconfigdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1384,7 +1349,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto customevent_cb = kconfigdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1403,7 +1367,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1422,7 +1385,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1476,7 +1438,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             memcpy((void*)anchor_str, anchor_b.data(), anchor_str_len);
             ((char*)anchor_str)[anchor_str_len] = '\0';
             const char* cbval1 = anchor_str;
-
             sethelp_cb(this, cbval1);
             libqt_free(anchor_str);
             return;
@@ -1509,7 +1470,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             memcpy((void*)appname_str, appname_b.data(), appname_str_len);
             ((char*)appname_str)[appname_str_len] = '\0';
             const char* cbval2 = appname_str;
-
             sethelp2_cb(this, cbval1, cbval2);
             libqt_free(anchor_str);
             libqt_free(appname_str);
@@ -1542,7 +1502,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto setpagewidget_cb = kconfigdialog_setpagewidget_callback;
         if (setpagewidget_cb) {
             KPageWidget* cbval1 = widget;
-
             setpagewidget_cb(this, cbval1);
             return;
         }
@@ -1573,7 +1532,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto setbuttonbox_cb = kconfigdialog_setbuttonbox_callback;
         if (setbuttonbox_cb) {
             QDialogButtonBox* cbval1 = box;
-
             setbuttonbox_cb(this, cbval1);
             return;
         }
@@ -1590,7 +1548,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto adjustposition_cb = kconfigdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1707,7 +1664,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         auto receivers_cb = kconfigdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1725,7 +1681,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1742,7 +1697,6 @@ class VirtualKConfigDialog final : public KConfigDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

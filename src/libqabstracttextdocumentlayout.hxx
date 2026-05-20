@@ -183,7 +183,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto metacast_cb = qabstracttextdocumentlayout_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -201,7 +200,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -216,7 +214,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QAbstractTextDocumentLayout::PaintContext& context_ret = context;
             // Cast returned reference into pointer
             QAbstractTextDocumentLayout__PaintContext* cbval2 = const_cast<QAbstractTextDocumentLayout::PaintContext*>(&context_ret);
-
             draw_cb(this, cbval1, cbval2);
         }
     }
@@ -229,7 +226,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
             int cbval2 = static_cast<int>(accuracy);
-
             int callback_ret = hittest_cb(this, cbval1, cbval2);
             return static_cast<int>(callback_ret);
         }
@@ -251,7 +247,9 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto documentsize_cb = qabstracttextdocumentlayout_documentsize_callback;
         if (documentsize_cb) {
             QSizeF* callback_ret = documentsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -261,9 +259,10 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto frameboundingrect_cb = qabstracttextdocumentlayout_frameboundingrect_callback;
         if (frameboundingrect_cb) {
             QTextFrame* cbval1 = frame;
-
             QRectF* callback_ret = frameboundingrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -275,9 +274,10 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QTextBlock& block_ret = block;
             // Cast returned reference into pointer
             QTextBlock* cbval1 = const_cast<QTextBlock*>(&block_ret);
-
             QRectF* callback_ret = blockboundingrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -289,7 +289,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             int cbval1 = from;
             int cbval2 = charsRemoved;
             int cbval3 = charsAdded;
-
             documentchanged_cb(this, cbval1, cbval2, cbval3);
         }
     }
@@ -308,7 +307,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QTextFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextFormat* cbval3 = const_cast<QTextFormat*>(&format_ret);
-
             resizeinlineobject_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -329,7 +327,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QTextFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextFormat* cbval3 = const_cast<QTextFormat*>(&format_ret);
-
             positioninlineobject_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -354,7 +351,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QTextFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextFormat* cbval5 = const_cast<QTextFormat*>(&format_ret);
-
             drawinlineobject_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return;
         }
@@ -370,7 +366,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto event_cb = qabstracttextdocumentlayout_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -387,7 +382,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -404,7 +398,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto timerevent_cb = qabstracttextdocumentlayout_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -421,7 +414,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto childevent_cb = qabstracttextdocumentlayout_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -438,7 +430,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto customevent_cb = qabstracttextdocumentlayout_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -457,7 +448,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -476,7 +466,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -492,7 +481,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto formatindex_cb = qabstracttextdocumentlayout_formatindex_callback;
         if (formatindex_cb) {
             int cbval1 = pos;
-
             int callback_ret = formatindex_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -508,9 +496,10 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto format_cb = qabstracttextdocumentlayout_format_callback;
         if (format_cb) {
             int cbval1 = pos;
-
             QTextCharFormat* callback_ret = format_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QAbstractTextDocumentLayout::format(pos);
     }
@@ -552,7 +541,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
         auto receivers_cb = qabstracttextdocumentlayout_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -570,7 +558,6 @@ class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -239,7 +239,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto metacast_cb = qtexttospeechengine_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -257,7 +256,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -324,7 +322,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             say_cb(this, cbval1);
             libqt_free(text_str);
         }
@@ -342,7 +339,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             synthesize_cb(this, cbval1);
             libqt_free(text_str);
         }
@@ -353,7 +349,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto stop_cb = qtexttospeechengine_stop_callback;
         if (stop_cb) {
             int cbval1 = static_cast<int>(boundaryHint);
-
             stop_cb(this, cbval1);
         }
     }
@@ -363,7 +358,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto pause_cb = qtexttospeechengine_pause_callback;
         if (pause_cb) {
             int cbval1 = static_cast<int>(boundaryHint);
-
             pause_cb(this, cbval1);
         }
     }
@@ -391,7 +385,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto setrate_cb = qtexttospeechengine_setrate_callback;
         if (setrate_cb) {
             double cbval1 = rate;
-
             bool callback_ret = setrate_cb(this, cbval1);
             return callback_ret;
         }
@@ -413,7 +406,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto setpitch_cb = qtexttospeechengine_setpitch_callback;
         if (setpitch_cb) {
             double cbval1 = pitch;
-
             bool callback_ret = setpitch_cb(this, cbval1);
             return callback_ret;
         }
@@ -425,7 +417,9 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto locale_cb = qtexttospeechengine_locale_callback;
         if (locale_cb) {
             QLocale* callback_ret = locale_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -437,7 +431,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QLocale& locale_ret = locale;
             // Cast returned reference into pointer
             QLocale* cbval1 = const_cast<QLocale*>(&locale_ret);
-
             bool callback_ret = setlocale_cb(this, cbval1);
             return callback_ret;
         }
@@ -459,7 +452,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto setvolume_cb = qtexttospeechengine_setvolume_callback;
         if (setvolume_cb) {
             double cbval1 = volume;
-
             bool callback_ret = setvolume_cb(this, cbval1);
             return callback_ret;
         }
@@ -471,7 +463,9 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto voice_cb = qtexttospeechengine_voice_callback;
         if (voice_cb) {
             QVoice* callback_ret = voice_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -483,7 +477,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QVoice& voice_ret = voice;
             // Cast returned reference into pointer
             QVoice* cbval1 = const_cast<QVoice*>(&voice_ret);
-
             bool callback_ret = setvoice_cb(this, cbval1);
             return callback_ret;
         }
@@ -530,7 +523,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto event_cb = qtexttospeechengine_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -547,7 +539,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -564,7 +555,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto timerevent_cb = qtexttospeechengine_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -581,7 +571,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto childevent_cb = qtexttospeechengine_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -598,7 +587,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto customevent_cb = qtexttospeechengine_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -617,7 +605,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -636,7 +623,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -667,10 +653,11 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QVariant& data_ret = data;
             // Cast returned reference into pointer
             QVariant* cbval5 = const_cast<QVariant*>(&data_ret);
-
             QVoice* callback_ret = createvoice_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(name_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QTextToSpeechEngine::createVoice(name, locale, gender, age, data);
     }
@@ -686,9 +673,10 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QVoice& voice_ret = voice;
             // Cast returned reference into pointer
             QVoice* cbval1 = const_cast<QVoice*>(&voice_ret);
-
             QVariant* callback_ret = voicedata_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTextToSpeechEngine::voiceData(voice);
     }
@@ -730,7 +718,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         auto receivers_cb = qtexttospeechengine_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -748,7 +735,6 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -154,7 +154,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto metacast_cb = texttranslator__translatorengineplugin_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -172,7 +171,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -203,7 +201,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
             memcpy((void*)langStr_str, langStr_b.data(), langStr_str_len);
             ((char*)langStr_str)[langStr_str_len] = '\0';
             const char* cbval1 = langStr_str;
-
             const char* callback_ret = languagecode_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(langStr_str);
@@ -221,7 +218,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto event_cb = texttranslator__translatorengineplugin_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -238,7 +234,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -255,7 +250,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto timerevent_cb = texttranslator__translatorengineplugin_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -272,7 +266,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto childevent_cb = texttranslator__translatorengineplugin_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -289,7 +282,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto customevent_cb = texttranslator__translatorengineplugin_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -308,7 +300,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -327,7 +318,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -351,7 +341,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
             memcpy((void*)result_str, result_b.data(), result_str_len);
             ((char*)result_str)[result_str_len] = '\0';
             const char* cbval1 = result_str;
-
             appendresult_cb(this, cbval1);
             libqt_free(result_str);
             return;
@@ -369,7 +358,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto sloterror_cb = texttranslator__translatorengineplugin_sloterror_callback;
         if (sloterror_cb) {
             int cbval1 = static_cast<int>(errorVal);
-
             sloterror_cb(this, cbval1);
             return;
         }
@@ -441,7 +429,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         auto receivers_cb = texttranslator__translatorengineplugin_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -459,7 +446,6 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

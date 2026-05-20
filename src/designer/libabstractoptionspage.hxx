@@ -66,7 +66,6 @@ class VirtualQDesignerOptionsPageInterface : public QDesignerOptionsPageInterfac
         auto createpage_cb = qdesigneroptionspageinterface_createpage_callback;
         if (createpage_cb) {
             QWidget* cbval1 = parent;
-
             QWidget* callback_ret = createpage_cb(this, cbval1);
             return callback_ret;
         }

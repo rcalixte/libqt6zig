@@ -269,7 +269,6 @@ class VirtualQLayout : public QLayout {
         auto metacast_cb = qlayout_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -287,7 +286,6 @@ class VirtualQLayout : public QLayout {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -318,7 +316,6 @@ class VirtualQLayout : public QLayout {
         auto setspacing_cb = qlayout_setspacing_callback;
         if (setspacing_cb) {
             int cbval1 = spacing;
-
             setspacing_cb(this, cbval1);
             return;
         }
@@ -349,7 +346,9 @@ class VirtualQLayout : public QLayout {
         auto geometry_cb = qlayout_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLayout::geometry();
     }
@@ -359,7 +358,6 @@ class VirtualQLayout : public QLayout {
         auto additem_cb = qlayout_additem_callback;
         if (additem_cb) {
             QLayoutItem* cbval1 = param1;
-
             additem_cb(this, cbval1);
         }
     }
@@ -387,7 +385,9 @@ class VirtualQLayout : public QLayout {
         auto minimumsize_cb = qlayout_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLayout::minimumSize();
     }
@@ -401,7 +401,9 @@ class VirtualQLayout : public QLayout {
         auto maximumsize_cb = qlayout_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLayout::maximumSize();
     }
@@ -418,7 +420,6 @@ class VirtualQLayout : public QLayout {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -430,7 +431,6 @@ class VirtualQLayout : public QLayout {
         auto itemat_cb = qlayout_itemat_callback;
         if (itemat_cb) {
             int cbval1 = index;
-
             QLayoutItem* callback_ret = itemat_cb(this, cbval1);
             return callback_ret;
         }
@@ -442,7 +442,6 @@ class VirtualQLayout : public QLayout {
         auto takeat_cb = qlayout_takeat_callback;
         if (takeat_cb) {
             int cbval1 = index;
-
             QLayoutItem* callback_ret = takeat_cb(this, cbval1);
             return callback_ret;
         }
@@ -458,7 +457,6 @@ class VirtualQLayout : public QLayout {
         auto indexof_cb = qlayout_indexof_callback;
         if (indexof_cb) {
             QWidget* cbval1 = (QWidget*)param1;
-
             int callback_ret = indexof_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -474,7 +472,6 @@ class VirtualQLayout : public QLayout {
         auto indexof2_cb = qlayout_indexof2_callback;
         if (indexof2_cb) {
             QLayoutItem* cbval1 = (QLayoutItem*)param1;
-
             int callback_ret = indexof2_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -530,7 +527,6 @@ class VirtualQLayout : public QLayout {
             QWidget* cbval1 = from;
             QWidget* cbval2 = to;
             int cbval3 = static_cast<int>(options);
-
             QLayoutItem* callback_ret = replacewidget_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -561,7 +557,6 @@ class VirtualQLayout : public QLayout {
         auto childevent_cb = qlayout_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = e;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -577,7 +572,6 @@ class VirtualQLayout : public QLayout {
         auto event_cb = qlayout_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -594,7 +588,6 @@ class VirtualQLayout : public QLayout {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -611,7 +604,6 @@ class VirtualQLayout : public QLayout {
         auto timerevent_cb = qlayout_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -628,7 +620,6 @@ class VirtualQLayout : public QLayout {
         auto customevent_cb = qlayout_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -647,7 +638,6 @@ class VirtualQLayout : public QLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -666,7 +656,6 @@ class VirtualQLayout : public QLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -678,7 +667,9 @@ class VirtualQLayout : public QLayout {
         auto sizehint_cb = qlayout_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -706,7 +697,6 @@ class VirtualQLayout : public QLayout {
         auto heightforwidth_cb = qlayout_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -722,7 +712,6 @@ class VirtualQLayout : public QLayout {
         auto minimumheightforwidth_cb = qlayout_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -767,7 +756,6 @@ class VirtualQLayout : public QLayout {
         auto widgetevent_cb = qlayout_widgetevent_callback;
         if (widgetevent_cb) {
             QEvent* cbval1 = param1;
-
             widgetevent_cb(this, cbval1);
             return;
         }
@@ -784,7 +772,6 @@ class VirtualQLayout : public QLayout {
         auto addchildlayout_cb = qlayout_addchildlayout_callback;
         if (addchildlayout_cb) {
             QLayout* cbval1 = l;
-
             addchildlayout_cb(this, cbval1);
             return;
         }
@@ -801,7 +788,6 @@ class VirtualQLayout : public QLayout {
         auto addchildwidget_cb = qlayout_addchildwidget_callback;
         if (addchildwidget_cb) {
             QWidget* cbval1 = w;
-
             addchildwidget_cb(this, cbval1);
             return;
         }
@@ -817,7 +803,6 @@ class VirtualQLayout : public QLayout {
         auto adoptlayout_cb = qlayout_adoptlayout_callback;
         if (adoptlayout_cb) {
             QLayout* cbval1 = layout;
-
             bool callback_ret = adoptlayout_cb(this, cbval1);
             return callback_ret;
         }
@@ -835,9 +820,10 @@ class VirtualQLayout : public QLayout {
             const QRect& param1_ret = param1;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&param1_ret);
-
             QRect* callback_ret = alignmentrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QLayout::alignmentRect(param1);
     }
@@ -879,7 +865,6 @@ class VirtualQLayout : public QLayout {
         auto receivers_cb = qlayout_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -897,7 +882,6 @@ class VirtualQLayout : public QLayout {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

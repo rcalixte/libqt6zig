@@ -50,7 +50,6 @@ class VirtualKPartsGUIActivateEvent final : public KParts::GUIActivateEvent {
         auto setaccepted_cb = kparts__guiactivateevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

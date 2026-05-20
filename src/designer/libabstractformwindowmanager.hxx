@@ -199,7 +199,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto metacast_cb = qdesignerformwindowmanagerinterface_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -217,7 +216,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -229,7 +227,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto action_cb = qdesignerformwindowmanagerinterface_action_callback;
         if (action_cb) {
             int cbval1 = static_cast<int>(action);
-
             QAction* callback_ret = action_cb(this, cbval1);
             return callback_ret;
         }
@@ -241,7 +238,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto actiongroup_cb = qdesignerformwindowmanagerinterface_actiongroup_callback;
         if (actiongroup_cb) {
             int cbval1 = static_cast<int>(actionGroup);
-
             QActionGroup* callback_ret = actiongroup_cb(this, cbval1);
             return callback_ret;
         }
@@ -273,7 +269,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto formwindow_cb = qdesignerformwindowmanagerinterface_formwindow_callback;
         if (formwindow_cb) {
             int cbval1 = index;
-
             QDesignerFormWindowInterface* callback_ret = formwindow_cb(this, cbval1);
             return callback_ret;
         }
@@ -286,7 +281,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         if (createformwindow_cb) {
             QWidget* cbval1 = parentWidget;
             int cbval2 = static_cast<int>(flags);
-
             QDesignerFormWindowInterface* callback_ret = createformwindow_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -317,7 +311,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
             item_list_out.len = item_list_ret.size();
             item_list_out.data = static_cast<void*>(item_list_arr);
             libqt_list /* of QDesignerDnDItemInterface* */ cbval1 = item_list_out;
-
             dragitems_cb(this, cbval1);
             free(item_list_arr);
         }
@@ -328,7 +321,9 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto createpreviewpixmap_cb = qdesignerformwindowmanagerinterface_createpreviewpixmap_callback;
         if (createpreviewpixmap_cb) {
             QPixmap* callback_ret = createpreviewpixmap_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -338,7 +333,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto addformwindow_cb = qdesignerformwindowmanagerinterface_addformwindow_callback;
         if (addformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             addformwindow_cb(this, cbval1);
         }
     }
@@ -348,7 +342,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto removeformwindow_cb = qdesignerformwindowmanagerinterface_removeformwindow_callback;
         if (removeformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             removeformwindow_cb(this, cbval1);
         }
     }
@@ -358,7 +351,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto setactiveformwindow_cb = qdesignerformwindowmanagerinterface_setactiveformwindow_callback;
         if (setactiveformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             setactiveformwindow_cb(this, cbval1);
         }
     }
@@ -396,7 +388,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto event_cb = qdesignerformwindowmanagerinterface_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -413,7 +404,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -430,7 +420,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto timerevent_cb = qdesignerformwindowmanagerinterface_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -447,7 +436,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto childevent_cb = qdesignerformwindowmanagerinterface_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -464,7 +452,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto customevent_cb = qdesignerformwindowmanagerinterface_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -483,7 +470,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -502,7 +488,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -546,7 +531,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
         auto receivers_cb = qdesignerformwindowmanagerinterface_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -564,7 +548,6 @@ class VirtualQDesignerFormWindowManagerInterface : public QDesignerFormWindowMan
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

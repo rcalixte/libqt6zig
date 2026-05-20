@@ -384,7 +384,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto metacast_cb = textedittexttospeech__texttospeechconfigdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -402,7 +401,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -419,7 +417,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto setvisible_cb = textedittexttospeech__texttospeechconfigdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -435,7 +432,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto sizehint_cb = textedittexttospeech__texttospeechconfigdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::sizeHint();
     }
@@ -449,7 +448,9 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto minimumsizehint_cb = textedittexttospeech__texttospeechconfigdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::minimumSizeHint();
     }
@@ -493,7 +494,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto done_cb = textedittexttospeech__texttospeechconfigdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -540,7 +540,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto keypressevent_cb = textedittexttospeech__texttospeechconfigdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -557,7 +556,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto closeevent_cb = textedittexttospeech__texttospeechconfigdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -574,7 +572,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto showevent_cb = textedittexttospeech__texttospeechconfigdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -591,7 +588,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto resizeevent_cb = textedittexttospeech__texttospeechconfigdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -608,7 +604,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto contextmenuevent_cb = textedittexttospeech__texttospeechconfigdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -625,7 +620,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -655,7 +649,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto heightforwidth_cb = textedittexttospeech__texttospeechconfigdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -699,7 +692,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto event_cb = textedittexttospeech__texttospeechconfigdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -716,7 +708,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto mousepressevent_cb = textedittexttospeech__texttospeechconfigdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -733,7 +724,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto mousereleaseevent_cb = textedittexttospeech__texttospeechconfigdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -750,7 +740,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto mousedoubleclickevent_cb = textedittexttospeech__texttospeechconfigdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -767,7 +756,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto mousemoveevent_cb = textedittexttospeech__texttospeechconfigdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -784,7 +772,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto wheelevent_cb = textedittexttospeech__texttospeechconfigdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -801,7 +788,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto keyreleaseevent_cb = textedittexttospeech__texttospeechconfigdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -818,7 +804,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto focusinevent_cb = textedittexttospeech__texttospeechconfigdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -835,7 +820,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto focusoutevent_cb = textedittexttospeech__texttospeechconfigdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -852,7 +836,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto enterevent_cb = textedittexttospeech__texttospeechconfigdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -869,7 +852,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto leaveevent_cb = textedittexttospeech__texttospeechconfigdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -886,7 +868,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto paintevent_cb = textedittexttospeech__texttospeechconfigdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -903,7 +884,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto moveevent_cb = textedittexttospeech__texttospeechconfigdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -920,7 +900,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto tabletevent_cb = textedittexttospeech__texttospeechconfigdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -937,7 +916,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto actionevent_cb = textedittexttospeech__texttospeechconfigdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -954,7 +932,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto dragenterevent_cb = textedittexttospeech__texttospeechconfigdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -971,7 +948,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto dragmoveevent_cb = textedittexttospeech__texttospeechconfigdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -988,7 +964,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto dragleaveevent_cb = textedittexttospeech__texttospeechconfigdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1005,7 +980,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto dropevent_cb = textedittexttospeech__texttospeechconfigdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1022,7 +996,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto hideevent_cb = textedittexttospeech__texttospeechconfigdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1046,7 +1019,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1064,7 +1036,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto changeevent_cb = textedittexttospeech__texttospeechconfigdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1080,7 +1051,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto metric_cb = textedittexttospeech__texttospeechconfigdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1097,7 +1067,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto initpainter_cb = textedittexttospeech__texttospeechconfigdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1113,7 +1082,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto redirected_cb = textedittexttospeech__texttospeechconfigdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1144,7 +1112,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto inputmethodevent_cb = textedittexttospeech__texttospeechconfigdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1160,9 +1127,10 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto inputmethodquery_cb = textedittexttospeech__texttospeechconfigdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextEditTextToSpeech__TextToSpeechConfigDialog::inputMethodQuery(param1);
     }
@@ -1176,7 +1144,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto focusnextprevchild_cb = textedittexttospeech__texttospeechconfigdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1193,7 +1160,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto timerevent_cb = textedittexttospeech__texttospeechconfigdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1210,7 +1176,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto childevent_cb = textedittexttospeech__texttospeechconfigdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1227,7 +1192,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto customevent_cb = textedittexttospeech__texttospeechconfigdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1246,7 +1210,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1265,7 +1228,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1282,7 +1244,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto adjustposition_cb = textedittexttospeech__texttospeechconfigdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1399,7 +1360,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         auto receivers_cb = textedittexttospeech__texttospeechconfigdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1417,7 +1377,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1434,7 +1393,6 @@ class VirtualTextEditTextToSpeechTextToSpeechConfigDialog final : public TextEdi
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -111,7 +111,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             const QDomElement& element_ret = element;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&element_ret);
-
             QAction* callback_ret = action2_cb(this, cbval1);
             return callback_ret;
         }
@@ -156,7 +155,9 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         auto domdocument_cb = kparts__partbase_domdocument_callback;
         if (domdocument_cb) {
             QDomDocument* callback_ret = domdocument_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KParts__PartBase::domDocument();
     }
@@ -216,7 +217,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             memcpy((void*)componentDisplayName_str, componentDisplayName_b.data(), componentDisplayName_str_len);
             ((char*)componentDisplayName_str)[componentDisplayName_str_len] = '\0';
             const char* cbval2 = componentDisplayName_str;
-
             setcomponentname_cb(this, cbval1, cbval2);
             libqt_free(componentName_str);
             libqt_free(componentDisplayName_str);
@@ -244,7 +244,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             const char* cbval1 = file_str;
             bool cbval2 = merge;
             bool cbval3 = setXMLDoc;
-
             setxmlfile_cb(this, cbval1, cbval2, cbval3);
             libqt_free(file_str);
             return;
@@ -269,7 +268,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             memcpy((void*)file_str, file_b.data(), file_str_len);
             ((char*)file_str)[file_str_len] = '\0';
             const char* cbval1 = file_str;
-
             setlocalxmlfile_cb(this, cbval1);
             libqt_free(file_str);
             return;
@@ -295,7 +293,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             ((char*)document_str)[document_str_len] = '\0';
             const char* cbval1 = document_str;
             bool cbval2 = merge;
-
             setxml_cb(this, cbval1, cbval2);
             libqt_free(document_str);
             return;
@@ -316,7 +313,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             // Cast returned reference into pointer
             QDomDocument* cbval1 = const_cast<QDomDocument*>(&document_ret);
             bool cbval2 = merge;
-
             setdomdocument_cb(this, cbval1, cbval2);
             return;
         }
@@ -341,7 +337,6 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             ((char*)newstate_str)[newstate_str_len] = '\0';
             const char* cbval1 = newstate_str;
             int cbval2 = static_cast<int>(reverse);
-
             statechanged_cb(this, cbval1, cbval2);
             libqt_free(newstate_str);
             return;

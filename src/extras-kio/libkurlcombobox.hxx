@@ -441,7 +441,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto metacast_cb = kurlcombobox_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -459,7 +458,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -477,7 +475,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (setcompletionobject_cb) {
             KCompletion* cbval1 = compObj;
             bool cbval2 = hsig;
-
             setcompletionobject_cb(this, cbval1, cbval2);
             return;
         }
@@ -494,7 +491,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto mousepressevent_cb = kurlcombobox_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -511,7 +507,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto mousemoveevent_cb = kurlcombobox_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -528,7 +523,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto setautocompletion_cb = kurlcombobox_setautocompletion_callback;
         if (setautocompletion_cb) {
             bool cbval1 = autocomplete;
-
             setautocompletion_cb(this, cbval1);
             return;
         }
@@ -545,7 +539,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto setlineedit_cb = kurlcombobox_setlineedit_callback;
         if (setlineedit_cb) {
             QLineEdit* cbval1 = lineEdit;
-
             setlineedit_cb(this, cbval1);
             return;
         }
@@ -561,7 +554,9 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto minimumsizehint_cb = kurlcombobox_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KUrlComboBox::minimumSizeHint();
     }
@@ -583,7 +578,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             memcpy((void*)completedText_str, completedText_b.data(), completedText_str_len);
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
-
             setcompletedtext_cb(this, cbval1);
             libqt_free(completedText_str);
             return;
@@ -615,7 +609,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             items_arr[items_ret.size()] = nullptr;
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
-
             setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
             return;
@@ -640,7 +633,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             makecompletion_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -658,7 +650,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto setmodel_cb = kurlcombobox_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -674,7 +665,9 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto sizehint_cb = kurlcombobox_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KUrlComboBox::sizeHint();
     }
@@ -718,7 +711,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto event_cb = kurlcombobox_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -734,9 +726,10 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto inputmethodquery_cb = kurlcombobox_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KUrlComboBox::inputMethodQuery(param1);
     }
@@ -751,7 +744,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto focusinevent_cb = kurlcombobox_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -768,7 +760,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto focusoutevent_cb = kurlcombobox_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -785,7 +776,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto changeevent_cb = kurlcombobox_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -802,7 +792,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto resizeevent_cb = kurlcombobox_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -819,7 +808,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto paintevent_cb = kurlcombobox_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -836,7 +824,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto showevent_cb = kurlcombobox_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = e;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -853,7 +840,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto hideevent_cb = kurlcombobox_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = e;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -870,7 +856,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto mousereleaseevent_cb = kurlcombobox_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -887,7 +872,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto keypressevent_cb = kurlcombobox_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -904,7 +888,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto keyreleaseevent_cb = kurlcombobox_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -921,7 +904,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto wheelevent_cb = kurlcombobox_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -938,7 +920,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto contextmenuevent_cb = kurlcombobox_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -955,7 +936,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto inputmethodevent_cb = kurlcombobox_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -972,7 +952,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto initstyleoption_cb = kurlcombobox_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionComboBox* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1003,7 +982,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto setvisible_cb = kurlcombobox_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1019,7 +997,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto heightforwidth_cb = kurlcombobox_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1064,7 +1041,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto mousedoubleclickevent_cb = kurlcombobox_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1081,7 +1057,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto enterevent_cb = kurlcombobox_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1098,7 +1073,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto leaveevent_cb = kurlcombobox_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1115,7 +1089,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto moveevent_cb = kurlcombobox_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1132,7 +1105,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto closeevent_cb = kurlcombobox_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1149,7 +1121,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto tabletevent_cb = kurlcombobox_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1166,7 +1137,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto actionevent_cb = kurlcombobox_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1183,7 +1153,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto dragenterevent_cb = kurlcombobox_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1200,7 +1169,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto dragmoveevent_cb = kurlcombobox_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1217,7 +1185,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto dragleaveevent_cb = kurlcombobox_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1234,7 +1201,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto dropevent_cb = kurlcombobox_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1258,7 +1224,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1275,7 +1240,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto metric_cb = kurlcombobox_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1292,7 +1256,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto initpainter_cb = kurlcombobox_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1308,7 +1271,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto redirected_cb = kurlcombobox_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1338,7 +1300,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto focusnextprevchild_cb = kurlcombobox_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1355,7 +1316,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1372,7 +1332,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto timerevent_cb = kurlcombobox_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1389,7 +1348,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto childevent_cb = kurlcombobox_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1406,7 +1364,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto customevent_cb = kurlcombobox_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1425,7 +1382,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1444,7 +1400,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1461,7 +1416,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto sethandlesignals_cb = kurlcombobox_sethandlesignals_callback;
         if (sethandlesignals_cb) {
             bool cbval1 = handle;
-
             sethandlesignals_cb(this, cbval1);
             return;
         }
@@ -1478,7 +1432,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto setcompletionmode_cb = kurlcombobox_setcompletionmode_callback;
         if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setcompletionmode_cb(this, cbval1);
             return;
         }
@@ -1496,7 +1449,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }
@@ -1613,7 +1565,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto receivers_cb = kurlcombobox_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1631,7 +1582,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1648,7 +1598,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -1714,7 +1663,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
-
             setkeybindingmap_cb(this, cbval1);
             return;
         }
@@ -1731,7 +1679,6 @@ class VirtualKUrlComboBox final : public KUrlComboBox {
         auto setdelegate_cb = kurlcombobox_setdelegate_callback;
         if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
-
             setdelegate_cb(this, cbval1);
             return;
         }

@@ -405,7 +405,6 @@ class VirtualQWizard final : public QWizard {
         auto metacast_cb = qwizard_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -423,7 +422,6 @@ class VirtualQWizard final : public QWizard {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -468,7 +466,6 @@ class VirtualQWizard final : public QWizard {
         auto setvisible_cb = qwizard_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -484,7 +481,9 @@ class VirtualQWizard final : public QWizard {
         auto sizehint_cb = qwizard_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWizard::sizeHint();
     }
@@ -498,7 +497,6 @@ class VirtualQWizard final : public QWizard {
         auto event_cb = qwizard_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -515,7 +513,6 @@ class VirtualQWizard final : public QWizard {
         auto resizeevent_cb = qwizard_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -532,7 +529,6 @@ class VirtualQWizard final : public QWizard {
         auto paintevent_cb = qwizard_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -549,7 +545,6 @@ class VirtualQWizard final : public QWizard {
         auto done_cb = qwizard_done_callback;
         if (done_cb) {
             int cbval1 = result;
-
             done_cb(this, cbval1);
             return;
         }
@@ -566,7 +561,6 @@ class VirtualQWizard final : public QWizard {
         auto initializepage_cb = qwizard_initializepage_callback;
         if (initializepage_cb) {
             int cbval1 = id;
-
             initializepage_cb(this, cbval1);
             return;
         }
@@ -583,7 +577,6 @@ class VirtualQWizard final : public QWizard {
         auto cleanuppage_cb = qwizard_cleanuppage_callback;
         if (cleanuppage_cb) {
             int cbval1 = id;
-
             cleanuppage_cb(this, cbval1);
             return;
         }
@@ -599,7 +592,9 @@ class VirtualQWizard final : public QWizard {
         auto minimumsizehint_cb = qwizard_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWizard::minimumSizeHint();
     }
@@ -673,7 +668,6 @@ class VirtualQWizard final : public QWizard {
         auto keypressevent_cb = qwizard_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -690,7 +684,6 @@ class VirtualQWizard final : public QWizard {
         auto closeevent_cb = qwizard_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -707,7 +700,6 @@ class VirtualQWizard final : public QWizard {
         auto showevent_cb = qwizard_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -724,7 +716,6 @@ class VirtualQWizard final : public QWizard {
         auto contextmenuevent_cb = qwizard_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -741,7 +732,6 @@ class VirtualQWizard final : public QWizard {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -771,7 +761,6 @@ class VirtualQWizard final : public QWizard {
         auto heightforwidth_cb = qwizard_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -816,7 +805,6 @@ class VirtualQWizard final : public QWizard {
         auto mousepressevent_cb = qwizard_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -833,7 +821,6 @@ class VirtualQWizard final : public QWizard {
         auto mousereleaseevent_cb = qwizard_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -850,7 +837,6 @@ class VirtualQWizard final : public QWizard {
         auto mousedoubleclickevent_cb = qwizard_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -867,7 +853,6 @@ class VirtualQWizard final : public QWizard {
         auto mousemoveevent_cb = qwizard_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -884,7 +869,6 @@ class VirtualQWizard final : public QWizard {
         auto wheelevent_cb = qwizard_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -901,7 +885,6 @@ class VirtualQWizard final : public QWizard {
         auto keyreleaseevent_cb = qwizard_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -918,7 +901,6 @@ class VirtualQWizard final : public QWizard {
         auto focusinevent_cb = qwizard_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -935,7 +917,6 @@ class VirtualQWizard final : public QWizard {
         auto focusoutevent_cb = qwizard_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -952,7 +933,6 @@ class VirtualQWizard final : public QWizard {
         auto enterevent_cb = qwizard_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -969,7 +949,6 @@ class VirtualQWizard final : public QWizard {
         auto leaveevent_cb = qwizard_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -986,7 +965,6 @@ class VirtualQWizard final : public QWizard {
         auto moveevent_cb = qwizard_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1003,7 +981,6 @@ class VirtualQWizard final : public QWizard {
         auto tabletevent_cb = qwizard_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1020,7 +997,6 @@ class VirtualQWizard final : public QWizard {
         auto actionevent_cb = qwizard_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1037,7 +1013,6 @@ class VirtualQWizard final : public QWizard {
         auto dragenterevent_cb = qwizard_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1054,7 +1029,6 @@ class VirtualQWizard final : public QWizard {
         auto dragmoveevent_cb = qwizard_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1071,7 +1045,6 @@ class VirtualQWizard final : public QWizard {
         auto dragleaveevent_cb = qwizard_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1088,7 +1061,6 @@ class VirtualQWizard final : public QWizard {
         auto dropevent_cb = qwizard_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1105,7 +1077,6 @@ class VirtualQWizard final : public QWizard {
         auto hideevent_cb = qwizard_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1129,7 +1100,6 @@ class VirtualQWizard final : public QWizard {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1147,7 +1117,6 @@ class VirtualQWizard final : public QWizard {
         auto changeevent_cb = qwizard_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1163,7 +1132,6 @@ class VirtualQWizard final : public QWizard {
         auto metric_cb = qwizard_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1180,7 +1148,6 @@ class VirtualQWizard final : public QWizard {
         auto initpainter_cb = qwizard_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1196,7 +1163,6 @@ class VirtualQWizard final : public QWizard {
         auto redirected_cb = qwizard_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1227,7 +1193,6 @@ class VirtualQWizard final : public QWizard {
         auto inputmethodevent_cb = qwizard_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1243,9 +1208,10 @@ class VirtualQWizard final : public QWizard {
         auto inputmethodquery_cb = qwizard_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWizard::inputMethodQuery(param1);
     }
@@ -1259,7 +1225,6 @@ class VirtualQWizard final : public QWizard {
         auto focusnextprevchild_cb = qwizard_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1276,7 +1241,6 @@ class VirtualQWizard final : public QWizard {
         auto timerevent_cb = qwizard_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1293,7 +1257,6 @@ class VirtualQWizard final : public QWizard {
         auto childevent_cb = qwizard_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1310,7 +1273,6 @@ class VirtualQWizard final : public QWizard {
         auto customevent_cb = qwizard_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1329,7 +1291,6 @@ class VirtualQWizard final : public QWizard {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1348,7 +1309,6 @@ class VirtualQWizard final : public QWizard {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1365,7 +1325,6 @@ class VirtualQWizard final : public QWizard {
         auto adjustposition_cb = qwizard_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1482,7 +1441,6 @@ class VirtualQWizard final : public QWizard {
         auto receivers_cb = qwizard_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1500,7 +1458,6 @@ class VirtualQWizard final : public QWizard {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1517,7 +1474,6 @@ class VirtualQWizard final : public QWizard {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -2033,7 +1989,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto metacast_cb = qwizardpage_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -2051,7 +2006,6 @@ class VirtualQWizardPage final : public QWizardPage {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -2154,7 +2108,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto setvisible_cb = qwizardpage_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2170,7 +2123,9 @@ class VirtualQWizardPage final : public QWizardPage {
         auto sizehint_cb = qwizardpage_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWizardPage::sizeHint();
     }
@@ -2184,7 +2139,9 @@ class VirtualQWizardPage final : public QWizardPage {
         auto minimumsizehint_cb = qwizardpage_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWizardPage::minimumSizeHint();
     }
@@ -2198,7 +2155,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto heightforwidth_cb = qwizardpage_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2242,7 +2198,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto event_cb = qwizardpage_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2259,7 +2214,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto mousepressevent_cb = qwizardpage_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2276,7 +2230,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto mousereleaseevent_cb = qwizardpage_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2293,7 +2246,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto mousedoubleclickevent_cb = qwizardpage_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2310,7 +2262,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto mousemoveevent_cb = qwizardpage_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2327,7 +2278,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto wheelevent_cb = qwizardpage_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2344,7 +2294,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto keypressevent_cb = qwizardpage_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2361,7 +2310,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto keyreleaseevent_cb = qwizardpage_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2378,7 +2326,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto focusinevent_cb = qwizardpage_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2395,7 +2342,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto focusoutevent_cb = qwizardpage_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2412,7 +2358,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto enterevent_cb = qwizardpage_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2429,7 +2374,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto leaveevent_cb = qwizardpage_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2446,7 +2390,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto paintevent_cb = qwizardpage_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2463,7 +2406,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto moveevent_cb = qwizardpage_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2480,7 +2422,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto resizeevent_cb = qwizardpage_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2497,7 +2438,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto closeevent_cb = qwizardpage_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2514,7 +2454,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto contextmenuevent_cb = qwizardpage_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2531,7 +2470,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto tabletevent_cb = qwizardpage_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2548,7 +2486,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto actionevent_cb = qwizardpage_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2565,7 +2502,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto dragenterevent_cb = qwizardpage_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2582,7 +2518,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto dragmoveevent_cb = qwizardpage_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2599,7 +2534,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto dragleaveevent_cb = qwizardpage_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2616,7 +2550,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto dropevent_cb = qwizardpage_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2633,7 +2566,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto showevent_cb = qwizardpage_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2650,7 +2582,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto hideevent_cb = qwizardpage_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2674,7 +2605,6 @@ class VirtualQWizardPage final : public QWizardPage {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2692,7 +2622,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto changeevent_cb = qwizardpage_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2708,7 +2637,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto metric_cb = qwizardpage_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2725,7 +2653,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto initpainter_cb = qwizardpage_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2741,7 +2668,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto redirected_cb = qwizardpage_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2772,7 +2698,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto inputmethodevent_cb = qwizardpage_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2788,9 +2713,10 @@ class VirtualQWizardPage final : public QWizardPage {
         auto inputmethodquery_cb = qwizardpage_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWizardPage::inputMethodQuery(param1);
     }
@@ -2804,7 +2730,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto focusnextprevchild_cb = qwizardpage_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2821,7 +2746,6 @@ class VirtualQWizardPage final : public QWizardPage {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2838,7 +2762,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto timerevent_cb = qwizardpage_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2855,7 +2778,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto childevent_cb = qwizardpage_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2872,7 +2794,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto customevent_cb = qwizardpage_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2891,7 +2812,6 @@ class VirtualQWizardPage final : public QWizardPage {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2910,7 +2830,6 @@ class VirtualQWizardPage final : public QWizardPage {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2937,7 +2856,6 @@ class VirtualQWizardPage final : public QWizardPage {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setfield_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return;
@@ -2961,10 +2879,11 @@ class VirtualQWizardPage final : public QWizardPage {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QVariant* callback_ret = field_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(name_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QWizardPage::field(name);
     }
@@ -2987,7 +2906,6 @@ class VirtualQWizardPage final : public QWizardPage {
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             QWidget* cbval2 = widget;
-
             registerfield_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return;
@@ -3028,7 +2946,6 @@ class VirtualQWizardPage final : public QWizardPage {
             const char* cbval1 = name_str;
             QWidget* cbval2 = widget;
             const char* cbval3 = (const char*)property;
-
             registerfield3_cb(this, cbval1, cbval2, cbval3);
             libqt_free(name_str);
             return;
@@ -3056,7 +2973,6 @@ class VirtualQWizardPage final : public QWizardPage {
             QWidget* cbval2 = widget;
             const char* cbval3 = (const char*)property;
             const char* cbval4 = (const char*)changedSignal;
-
             registerfield4_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(name_str);
             return;
@@ -3174,7 +3090,6 @@ class VirtualQWizardPage final : public QWizardPage {
         auto receivers_cb = qwizardpage_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3192,7 +3107,6 @@ class VirtualQWizardPage final : public QWizardPage {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3209,7 +3123,6 @@ class VirtualQWizardPage final : public QWizardPage {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

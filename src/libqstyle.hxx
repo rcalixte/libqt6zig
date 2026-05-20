@@ -238,7 +238,6 @@ class VirtualQStyle : public QStyle {
         auto metacast_cb = qstyle_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -256,7 +255,6 @@ class VirtualQStyle : public QStyle {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -273,7 +271,6 @@ class VirtualQStyle : public QStyle {
         auto polish_cb = qstyle_polish_callback;
         if (polish_cb) {
             QWidget* cbval1 = widget;
-
             polish_cb(this, cbval1);
             return;
         }
@@ -290,7 +287,6 @@ class VirtualQStyle : public QStyle {
         auto unpolish_cb = qstyle_unpolish_callback;
         if (unpolish_cb) {
             QWidget* cbval1 = widget;
-
             unpolish_cb(this, cbval1);
             return;
         }
@@ -307,7 +303,6 @@ class VirtualQStyle : public QStyle {
         auto polish2_cb = qstyle_polish2_callback;
         if (polish2_cb) {
             QApplication* cbval1 = application;
-
             polish2_cb(this, cbval1);
             return;
         }
@@ -324,7 +319,6 @@ class VirtualQStyle : public QStyle {
         auto unpolish2_cb = qstyle_unpolish2_callback;
         if (unpolish2_cb) {
             QApplication* cbval1 = application;
-
             unpolish2_cb(this, cbval1);
             return;
         }
@@ -343,7 +337,6 @@ class VirtualQStyle : public QStyle {
             QPalette& palette_ret = palette;
             // Cast returned reference into pointer
             QPalette* cbval1 = &palette_ret;
-
             polish3_cb(this, cbval1);
             return;
         }
@@ -374,10 +367,11 @@ class VirtualQStyle : public QStyle {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval5 = text_str;
-
             QRect* callback_ret = itemtextrect_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(text_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QStyle::itemTextRect(fm, r, flags, enabled, text);
     }
@@ -397,9 +391,10 @@ class VirtualQStyle : public QStyle {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval3 = const_cast<QPixmap*>(&pixmap_ret);
-
             QRect* callback_ret = itempixmaprect_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QStyle::itemPixmapRect(r, flags, pixmap);
     }
@@ -431,7 +426,6 @@ class VirtualQStyle : public QStyle {
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval6 = text_str;
             int cbval7 = static_cast<int>(textRole);
-
             drawitemtext_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7);
             libqt_free(text_str);
             return;
@@ -456,7 +450,6 @@ class VirtualQStyle : public QStyle {
             const QPixmap& pixmap_ret = pixmap;
             // Cast returned reference into pointer
             QPixmap* cbval4 = const_cast<QPixmap*>(&pixmap_ret);
-
             drawitempixmap_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -472,7 +465,9 @@ class VirtualQStyle : public QStyle {
         auto standardpalette_cb = qstyle_standardpalette_callback;
         if (standardpalette_cb) {
             QPalette* callback_ret = standardpalette_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QStyle::standardPalette();
     }
@@ -485,7 +480,6 @@ class VirtualQStyle : public QStyle {
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QPainter* cbval3 = p;
             QWidget* cbval4 = (QWidget*)w;
-
             drawprimitive_cb(this, cbval1, cbval2, cbval3, cbval4);
         }
     }
@@ -498,7 +492,6 @@ class VirtualQStyle : public QStyle {
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QPainter* cbval3 = p;
             QWidget* cbval4 = (QWidget*)w;
-
             drawcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
         }
     }
@@ -510,9 +503,10 @@ class VirtualQStyle : public QStyle {
             int cbval1 = static_cast<int>(subElement);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-
             QRect* callback_ret = subelementrect_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -525,7 +519,6 @@ class VirtualQStyle : public QStyle {
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             QPainter* cbval3 = p;
             QWidget* cbval4 = (QWidget*)widget;
-
             drawcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
         }
     }
@@ -540,7 +533,6 @@ class VirtualQStyle : public QStyle {
             // Cast returned reference into pointer
             QPoint* cbval3 = const_cast<QPoint*>(&pt_ret);
             QWidget* cbval4 = (QWidget*)widget;
-
             int callback_ret = hittestcomplexcontrol_cb(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<QStyle::SubControl>(callback_ret);
         }
@@ -555,9 +547,10 @@ class VirtualQStyle : public QStyle {
             QStyleOptionComplex* cbval2 = (QStyleOptionComplex*)opt;
             int cbval3 = static_cast<int>(sc);
             QWidget* cbval4 = (QWidget*)widget;
-
             QRect* callback_ret = subcontrolrect_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -569,7 +562,6 @@ class VirtualQStyle : public QStyle {
             int cbval1 = static_cast<int>(metric);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-
             int callback_ret = pixelmetric_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -586,9 +578,10 @@ class VirtualQStyle : public QStyle {
             // Cast returned reference into pointer
             QSize* cbval3 = const_cast<QSize*>(&contentsSize_ret);
             QWidget* cbval4 = (QWidget*)w;
-
             QSize* callback_ret = sizefromcontents_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -601,7 +594,6 @@ class VirtualQStyle : public QStyle {
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QWidget* cbval3 = (QWidget*)widget;
             QStyleHintReturn* cbval4 = returnData;
-
             int callback_ret = stylehint_cb(this, cbval1, cbval2, cbval3, cbval4);
             return static_cast<int>(callback_ret);
         }
@@ -615,9 +607,10 @@ class VirtualQStyle : public QStyle {
             int cbval1 = static_cast<int>(standardPixmap);
             QStyleOption* cbval2 = (QStyleOption*)opt;
             QWidget* cbval3 = (QWidget*)widget;
-
             QPixmap* callback_ret = standardpixmap_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -629,9 +622,10 @@ class VirtualQStyle : public QStyle {
             int cbval1 = static_cast<int>(standardIcon);
             QStyleOption* cbval2 = (QStyleOption*)option;
             QWidget* cbval3 = (QWidget*)widget;
-
             QIcon* callback_ret = standardicon_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -645,9 +639,10 @@ class VirtualQStyle : public QStyle {
             // Cast returned reference into pointer
             QPixmap* cbval2 = const_cast<QPixmap*>(&pixmap_ret);
             QStyleOption* cbval3 = (QStyleOption*)opt;
-
             QPixmap* callback_ret = generatediconpixmap_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -661,7 +656,6 @@ class VirtualQStyle : public QStyle {
             int cbval3 = static_cast<int>(orientation);
             QStyleOption* cbval4 = (QStyleOption*)option;
             QWidget* cbval5 = (QWidget*)widget;
-
             int callback_ret = layoutspacing_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return static_cast<int>(callback_ret);
         }
@@ -677,7 +671,6 @@ class VirtualQStyle : public QStyle {
         auto event_cb = qstyle_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -694,7 +687,6 @@ class VirtualQStyle : public QStyle {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -711,7 +703,6 @@ class VirtualQStyle : public QStyle {
         auto timerevent_cb = qstyle_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -728,7 +719,6 @@ class VirtualQStyle : public QStyle {
         auto childevent_cb = qstyle_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -745,7 +735,6 @@ class VirtualQStyle : public QStyle {
         auto customevent_cb = qstyle_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -764,7 +753,6 @@ class VirtualQStyle : public QStyle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -783,7 +771,6 @@ class VirtualQStyle : public QStyle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -827,7 +814,6 @@ class VirtualQStyle : public QStyle {
         auto receivers_cb = qstyle_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -845,7 +831,6 @@ class VirtualQStyle : public QStyle {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

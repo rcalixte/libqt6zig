@@ -199,7 +199,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto metacast_cb = qcandlestickmodelmapper_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -217,7 +216,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -243,7 +241,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto event_cb = qcandlestickmodelmapper_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -260,7 +257,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -277,7 +273,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto timerevent_cb = qcandlestickmodelmapper_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -294,7 +289,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto childevent_cb = qcandlestickmodelmapper_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -311,7 +305,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto customevent_cb = qcandlestickmodelmapper_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -330,7 +323,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -349,7 +341,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -366,7 +357,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto settimestamp_cb = qcandlestickmodelmapper_settimestamp_callback;
         if (settimestamp_cb) {
             int cbval1 = timestamp;
-
             settimestamp_cb(this, cbval1);
             return;
         }
@@ -397,7 +387,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto setopen_cb = qcandlestickmodelmapper_setopen_callback;
         if (setopen_cb) {
             int cbval1 = open;
-
             setopen_cb(this, cbval1);
             return;
         }
@@ -428,7 +417,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto sethigh_cb = qcandlestickmodelmapper_sethigh_callback;
         if (sethigh_cb) {
             int cbval1 = high;
-
             sethigh_cb(this, cbval1);
             return;
         }
@@ -459,7 +447,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto setlow_cb = qcandlestickmodelmapper_setlow_callback;
         if (setlow_cb) {
             int cbval1 = low;
-
             setlow_cb(this, cbval1);
             return;
         }
@@ -490,7 +477,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto setclose_cb = qcandlestickmodelmapper_setclose_callback;
         if (setclose_cb) {
             int cbval1 = close;
-
             setclose_cb(this, cbval1);
             return;
         }
@@ -521,7 +507,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto setfirstsetsection_cb = qcandlestickmodelmapper_setfirstsetsection_callback;
         if (setfirstsetsection_cb) {
             int cbval1 = firstSetSection;
-
             setfirstsetsection_cb(this, cbval1);
             return;
         }
@@ -552,7 +537,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto setlastsetsection_cb = qcandlestickmodelmapper_setlastsetsection_callback;
         if (setlastsetsection_cb) {
             int cbval1 = lastSetSection;
-
             setlastsetsection_cb(this, cbval1);
             return;
         }
@@ -610,7 +594,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
         auto receivers_cb = qcandlestickmodelmapper_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -628,7 +611,6 @@ class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

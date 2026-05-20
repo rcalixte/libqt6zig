@@ -667,7 +667,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto metacast_cb = kfileplacesview_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -685,7 +684,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -701,7 +699,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto sizehint_cb = kfileplacesview_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::sizeHint();
     }
@@ -716,7 +716,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto setmodel_cb = kfileplacesview_setmodel_callback;
         if (setmodel_cb) {
             QAbstractItemModel* cbval1 = model;
-
             setmodel_cb(this, cbval1);
             return;
         }
@@ -733,7 +732,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto keypressevent_cb = kfileplacesview_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -750,7 +748,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto contextmenuevent_cb = kfileplacesview_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -767,7 +764,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto resizeevent_cb = kfileplacesview_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -784,7 +780,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto showevent_cb = kfileplacesview_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -801,7 +796,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto hideevent_cb = kfileplacesview_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -818,7 +812,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto dragenterevent_cb = kfileplacesview_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -835,7 +828,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto dragleaveevent_cb = kfileplacesview_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -852,7 +844,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto dragmoveevent_cb = kfileplacesview_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -869,7 +860,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto dropevent_cb = kfileplacesview_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -886,7 +876,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto paintevent_cb = kfileplacesview_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -903,7 +892,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto startdrag_cb = kfileplacesview_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -920,7 +908,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto mousepressevent_cb = kfileplacesview_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -941,7 +928,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -973,7 +959,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -992,9 +977,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::visualRect(index);
     }
@@ -1012,7 +998,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
             return;
         }
@@ -1030,9 +1015,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::indexAt(p);
     }
@@ -1079,7 +1065,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -1095,7 +1080,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto event_cb = kfileplacesview_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1113,7 +1097,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -1134,7 +1117,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1151,7 +1133,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto mousemoveevent_cb = kfileplacesview_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1168,7 +1149,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto mousereleaseevent_cb = kfileplacesview_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1185,7 +1165,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto wheelevent_cb = kfileplacesview_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1202,7 +1181,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto timerevent_cb = kfileplacesview_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = e;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1219,7 +1197,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto initviewitemoption_cb = kfileplacesview_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1264,9 +1241,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::moveCursor(cursorAction, modifiers);
     }
@@ -1284,7 +1262,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
-
             setselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -1302,9 +1279,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::visualRegionForSelection(selection);
     }
@@ -1356,7 +1334,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1378,7 +1355,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1400,7 +1376,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& previous_ret = previous;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1416,7 +1391,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto viewportsizehint_cb = kfileplacesview_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::viewportSizeHint();
     }
@@ -1431,7 +1408,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto setselectionmodel_cb = kfileplacesview_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -1455,7 +1431,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -1472,7 +1447,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto sizehintforrow_cb = kfileplacesview_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1488,7 +1462,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto sizehintforcolumn_cb = kfileplacesview_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1506,7 +1479,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -1522,9 +1494,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto inputmethodquery_cb = kfileplacesview_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::inputMethodQuery(query);
     }
@@ -1584,7 +1557,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto verticalscrollbaraction_cb = kfileplacesview_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1601,7 +1573,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto horizontalscrollbaraction_cb = kfileplacesview_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1618,7 +1589,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto verticalscrollbarvaluechanged_cb = kfileplacesview_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1635,7 +1605,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto horizontalscrollbarvaluechanged_cb = kfileplacesview_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1653,7 +1622,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1670,7 +1638,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto commitdata_cb = kfileplacesview_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1687,7 +1654,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto editordestroyed_cb = kfileplacesview_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1707,7 +1673,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1726,7 +1691,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1742,7 +1706,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto focusnextprevchild_cb = kfileplacesview_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1758,7 +1721,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto viewportevent_cb = kfileplacesview_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1775,7 +1737,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto mousedoubleclickevent_cb = kfileplacesview_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1792,7 +1753,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto focusinevent_cb = kfileplacesview_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1809,7 +1769,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto focusoutevent_cb = kfileplacesview_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1826,7 +1785,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto inputmethodevent_cb = kfileplacesview_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1843,7 +1801,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1859,7 +1816,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto minimumsizehint_cb = kfileplacesview_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::minimumSizeHint();
     }
@@ -1874,7 +1833,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto setupviewport_cb = kfileplacesview_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -1891,7 +1849,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto changeevent_cb = kfileplacesview_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1908,7 +1865,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto initstyleoption_cb = kfileplacesview_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1939,7 +1895,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto setvisible_cb = kfileplacesview_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1955,7 +1910,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto heightforwidth_cb = kfileplacesview_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2000,7 +1954,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto keyreleaseevent_cb = kfileplacesview_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2017,7 +1970,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto enterevent_cb = kfileplacesview_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2034,7 +1986,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto leaveevent_cb = kfileplacesview_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2051,7 +2002,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto moveevent_cb = kfileplacesview_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2068,7 +2018,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto closeevent_cb = kfileplacesview_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2085,7 +2034,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto tabletevent_cb = kfileplacesview_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2102,7 +2050,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto actionevent_cb = kfileplacesview_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2126,7 +2073,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2143,7 +2089,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto metric_cb = kfileplacesview_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2160,7 +2105,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto initpainter_cb = kfileplacesview_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2176,7 +2120,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto redirected_cb = kfileplacesview_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2207,7 +2150,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto childevent_cb = kfileplacesview_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2224,7 +2166,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto customevent_cb = kfileplacesview_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2243,7 +2184,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2262,7 +2202,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2280,7 +2219,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (resizecontents_cb) {
             int cbval1 = width;
             int cbval2 = height;
-
             resizecontents_cb(this, cbval1, cbval2);
             return;
         }
@@ -2296,7 +2234,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto contentssize_cb = kfileplacesview_contentssize_callback;
         if (contentssize_cb) {
             QSize* callback_ret = contentssize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::contentsSize();
     }
@@ -2312,9 +2252,10 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = rectforindex_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::rectForIndex(index);
     }
@@ -2334,7 +2275,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&index_ret);
-
             setpositionforindex_cb(this, cbval1, cbval2);
             return;
         }
@@ -2365,7 +2305,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto setstate_cb = kfileplacesview_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2414,7 +2353,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2432,7 +2370,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2448,7 +2385,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto dirtyregionoffset_cb = kfileplacesview_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::dirtyRegionOffset();
     }
@@ -2525,7 +2464,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2541,7 +2479,9 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto viewportmargins_cb = kfileplacesview_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KFilePlacesView::viewportMargins();
     }
@@ -2556,7 +2496,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto drawframe_cb = kfileplacesview_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2673,7 +2612,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         auto receivers_cb = kfileplacesview_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2691,7 +2629,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2708,7 +2645,6 @@ class VirtualKFilePlacesView final : public KFilePlacesView {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

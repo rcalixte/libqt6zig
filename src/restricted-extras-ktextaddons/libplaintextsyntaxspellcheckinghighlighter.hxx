@@ -198,7 +198,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const KSyntaxHighlighting::Definition& def_ret = def;
             // Cast returned reference into pointer
             KSyntaxHighlighting__Definition* cbval1 = const_cast<KSyntaxHighlighting::Definition*>(&def_ret);
-
             setdefinition_cb(this, cbval1);
             return;
         }
@@ -222,7 +221,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             highlightblock_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -241,7 +239,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         if (unsetmisspelled_cb) {
             int cbval1 = start;
             int cbval2 = count;
-
             unsetmisspelled_cb(this, cbval1, cbval2);
             return;
         }
@@ -259,7 +256,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         if (setmisspelled_cb) {
             int cbval1 = start;
             int cbval2 = count;
-
             setmisspelled_cb(this, cbval1, cbval2);
             return;
         }
@@ -280,7 +276,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const KSyntaxHighlighting::Format& format_ret = format;
             // Cast returned reference into pointer
             KSyntaxHighlighting__Format* cbval3 = const_cast<KSyntaxHighlighting::Format*>(&format_ret);
-
             applyformat_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -310,7 +305,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto metacast_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -328,7 +322,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -345,7 +338,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         if (eventfilter_cb) {
             QObject* cbval1 = o;
             QEvent* cbval2 = e;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -361,7 +353,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto event_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -378,7 +369,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto timerevent_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -395,7 +385,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto childevent_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -412,7 +401,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto customevent_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -431,7 +419,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -450,7 +437,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -469,7 +455,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const KSyntaxHighlighting::Theme& theme_ret = theme;
             // Cast returned reference into pointer
             KSyntaxHighlighting__Theme* cbval1 = const_cast<KSyntaxHighlighting::Theme*>(&theme_ret);
-
             settheme_cb(this, cbval1);
             return;
         }
@@ -488,7 +473,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             int cbval1 = offset;
             int cbval2 = length;
             KSyntaxHighlighting__FoldingRegion* cbval3 = new KSyntaxHighlighting::FoldingRegion(region);
-
             applyfolding_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -519,7 +503,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto setintrawordediting_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_setintrawordediting_callback;
         if (setintrawordediting_cb) {
             bool cbval1 = editing;
-
             setintrawordediting_cb(this, cbval1);
             return;
         }
@@ -540,7 +523,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const QTextCharFormat& format_ret = format;
             // Cast returned reference into pointer
             QTextCharFormat* cbval3 = const_cast<QTextCharFormat*>(&format_ret);
-
             setformat_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -556,9 +538,10 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto format_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_format_callback;
         if (format_cb) {
             int cbval1 = pos;
-
             QTextCharFormat* callback_ret = format_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter::format(pos);
     }
@@ -601,7 +584,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto setcurrentblockstate_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_setcurrentblockstate_callback;
         if (setcurrentblockstate_cb) {
             int cbval1 = newState;
-
             setcurrentblockstate_cb(this, cbval1);
             return;
         }
@@ -618,7 +600,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto setcurrentblockuserdata_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_setcurrentblockuserdata_callback;
         if (setcurrentblockuserdata_cb) {
             QTextBlockUserData* cbval1 = data;
-
             setcurrentblockuserdata_cb(this, cbval1);
             return;
         }
@@ -648,7 +629,9 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto currentblock_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_currentblock_callback;
         if (currentblock_cb) {
             QTextBlock* callback_ret = currentblock_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter::currentBlock();
     }
@@ -690,7 +673,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         auto receivers_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -708,7 +690,6 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

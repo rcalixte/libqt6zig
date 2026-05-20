@@ -111,7 +111,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         if (moveposition_cb) {
             int cbval1 = static_cast<int>(op);
             int cbval2 = static_cast<int>(mode);
-
             bool callback_ret = moveposition_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -134,7 +133,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         if (setposition_cb) {
             int cbval1 = pos;
             int cbval2 = static_cast<int>(mode);
-
             setposition_cb(this, cbval1, cbval2);
         }
     }
@@ -164,7 +162,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         auto widget_cb = qdesignerformwindowcursorinterface_widget_callback;
         if (widget_cb) {
             int cbval1 = index;
-
             QWidget* callback_ret = widget_cb(this, cbval1);
             return callback_ret;
         }
@@ -196,7 +193,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         auto selectedwidget_cb = qdesignerformwindowcursorinterface_selectedwidget_callback;
         if (selectedwidget_cb) {
             int cbval1 = index;
-
             QWidget* callback_ret = selectedwidget_cb(this, cbval1);
             return callback_ret;
         }
@@ -218,7 +214,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
         }
@@ -240,7 +235,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval3 = const_cast<QVariant*>(&value_ret);
-
             setwidgetproperty_cb(this, cbval1, cbval2, cbval3);
             libqt_free(name_str);
         }
@@ -259,7 +253,6 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval2 = name_str;
-
             resetwidgetproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
         }

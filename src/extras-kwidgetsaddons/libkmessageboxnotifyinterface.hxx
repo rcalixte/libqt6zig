@@ -49,7 +49,6 @@ class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
             QWidget* cbval3 = parent;
-
             sendnotification_cb(this, cbval1, cbval2, cbval3);
             libqt_free(message_str);
         }

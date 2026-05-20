@@ -163,7 +163,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto metacast_cb = qgeosatelliteinfosource_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -181,7 +180,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -198,7 +196,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto setupdateinterval_cb = qgeosatelliteinfosource_setupdateinterval_callback;
         if (setupdateinterval_cb) {
             int cbval1 = msec;
-
             setupdateinterval_cb(this, cbval1);
             return;
         }
@@ -244,7 +241,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -268,10 +264,11 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QVariant* callback_ret = backendproperty_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(name_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QGeoSatelliteInfoSource::backendProperty(name);
     }
@@ -297,7 +294,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto requestupdate_cb = qgeosatelliteinfosource_requestupdate_callback;
         if (requestupdate_cb) {
             int cbval1 = timeout;
-
             requestupdate_cb(this, cbval1);
         }
     }
@@ -311,7 +307,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto event_cb = qgeosatelliteinfosource_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -328,7 +323,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -345,7 +339,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto timerevent_cb = qgeosatelliteinfosource_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -362,7 +355,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto childevent_cb = qgeosatelliteinfosource_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -379,7 +371,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto customevent_cb = qgeosatelliteinfosource_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -398,7 +389,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -417,7 +407,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -461,7 +450,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         auto receivers_cb = qgeosatelliteinfosource_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -479,7 +467,6 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

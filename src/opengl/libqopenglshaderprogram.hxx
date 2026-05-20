@@ -124,7 +124,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         auto metacast_cb = qopenglshader_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -142,7 +141,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -158,7 +156,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         auto event_cb = qopenglshader_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -175,7 +172,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -192,7 +188,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         auto timerevent_cb = qopenglshader_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -209,7 +204,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         auto childevent_cb = qopenglshader_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -226,7 +220,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         auto customevent_cb = qopenglshader_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -245,7 +238,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -264,7 +256,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -308,7 +299,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
         auto receivers_cb = qopenglshader_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -326,7 +316,6 @@ class VirtualQOpenGLShader final : public QOpenGLShader {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -474,7 +463,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         auto metacast_cb = qopenglshaderprogram_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -492,7 +480,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -522,7 +509,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         auto event_cb = qopenglshaderprogram_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -539,7 +525,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -556,7 +541,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         auto timerevent_cb = qopenglshaderprogram_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -573,7 +557,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         auto childevent_cb = qopenglshaderprogram_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +573,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         auto customevent_cb = qopenglshaderprogram_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -609,7 +591,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -628,7 +609,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -672,7 +652,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
         auto receivers_cb = qopenglshaderprogram_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -690,7 +669,6 @@ class VirtualQOpenGLShaderProgram final : public QOpenGLShaderProgram {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

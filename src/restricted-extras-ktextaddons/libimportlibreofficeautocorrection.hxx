@@ -61,7 +61,6 @@ class VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection final : publi
             ((char*)errorMessage_str)[errorMessage_str_len] = '\0';
             const char* cbval2 = errorMessage_str;
             int cbval3 = static_cast<int>(loadAttribute);
-
             bool callback_ret = import_cb(this, cbval1, cbval2, cbval3);
             libqt_free(fileName_str);
             libqt_free(errorMessage_str);

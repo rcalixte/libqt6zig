@@ -169,7 +169,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto metacast_cb = qnetworkdiskcache_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -187,7 +186,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -219,9 +217,10 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             QNetworkCacheMetaData* callback_ret = metadata_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QNetworkDiskCache::metaData(url);
     }
@@ -238,7 +237,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QNetworkCacheMetaData& metaData_ret = metaData;
             // Cast returned reference into pointer
             QNetworkCacheMetaData* cbval1 = const_cast<QNetworkCacheMetaData*>(&metaData_ret);
-
             updatemetadata_cb(this, cbval1);
             return;
         }
@@ -256,7 +254,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             QIODevice* callback_ret = data_cb(this, cbval1);
             return callback_ret;
         }
@@ -274,7 +271,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             bool callback_ret = remove_cb(this, cbval1);
             return callback_ret;
         }
@@ -292,7 +288,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QNetworkCacheMetaData& metaData_ret = metaData;
             // Cast returned reference into pointer
             QNetworkCacheMetaData* cbval1 = const_cast<QNetworkCacheMetaData*>(&metaData_ret);
-
             QIODevice* callback_ret = prepare_cb(this, cbval1);
             return callback_ret;
         }
@@ -309,7 +304,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto insert_cb = qnetworkdiskcache_insert_callback;
         if (insert_cb) {
             QIODevice* cbval1 = device;
-
             insert_cb(this, cbval1);
             return;
         }
@@ -354,7 +348,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto event_cb = qnetworkdiskcache_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -371,7 +364,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -388,7 +380,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto timerevent_cb = qnetworkdiskcache_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -405,7 +396,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto childevent_cb = qnetworkdiskcache_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -422,7 +412,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto customevent_cb = qnetworkdiskcache_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -441,7 +430,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -460,7 +448,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -504,7 +491,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
         auto receivers_cb = qnetworkdiskcache_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -522,7 +508,6 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

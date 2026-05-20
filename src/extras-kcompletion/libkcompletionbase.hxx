@@ -91,7 +91,6 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (setcompletionobject_cb) {
             KCompletion* cbval1 = completionObject;
             bool cbval2 = handleSignals;
-
             setcompletionobject_cb(this, cbval1, cbval2);
             return;
         }
@@ -108,7 +107,6 @@ class VirtualKCompletionBase : public KCompletionBase {
         auto sethandlesignals_cb = kcompletionbase_sethandlesignals_callback;
         if (sethandlesignals_cb) {
             bool cbval1 = handle;
-
             sethandlesignals_cb(this, cbval1);
             return;
         }
@@ -125,7 +123,6 @@ class VirtualKCompletionBase : public KCompletionBase {
         auto setcompletionmode_cb = kcompletionbase_setcompletionmode_callback;
         if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setcompletionmode_cb(this, cbval1);
             return;
         }
@@ -144,7 +141,6 @@ class VirtualKCompletionBase : public KCompletionBase {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             setcompletedtext_cb(this, cbval1);
             libqt_free(text_str);
         }
@@ -169,7 +165,6 @@ class VirtualKCompletionBase : public KCompletionBase {
             items_arr[items_ret.size()] = nullptr;
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
-
             setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
         }
@@ -186,7 +181,6 @@ class VirtualKCompletionBase : public KCompletionBase {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }
@@ -252,7 +246,6 @@ class VirtualKCompletionBase : public KCompletionBase {
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
-
             setkeybindingmap_cb(this, cbval1);
             return;
         }
@@ -269,7 +262,6 @@ class VirtualKCompletionBase : public KCompletionBase {
         auto setdelegate_cb = kcompletionbase_setdelegate_callback;
         if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
-
             setdelegate_cb(this, cbval1);
             return;
         }

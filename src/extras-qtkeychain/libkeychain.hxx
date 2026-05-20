@@ -129,7 +129,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         auto metacast_cb = qkeychain__readpasswordjob_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -147,7 +146,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -163,7 +161,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         auto event_cb = qkeychain__readpasswordjob_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -180,7 +177,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -197,7 +193,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         auto timerevent_cb = qkeychain__readpasswordjob_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -214,7 +209,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         auto childevent_cb = qkeychain__readpasswordjob_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -231,7 +225,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         auto customevent_cb = qkeychain__readpasswordjob_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -250,7 +243,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -269,7 +261,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -328,7 +319,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
         auto receivers_cb = qkeychain__readpasswordjob_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -346,7 +336,6 @@ class VirtualQKeychainReadPasswordJob final : public QKeychain::ReadPasswordJob 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -496,7 +485,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         auto metacast_cb = qkeychain__writepasswordjob_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -514,7 +502,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -530,7 +517,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         auto event_cb = qkeychain__writepasswordjob_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -547,7 +533,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -564,7 +549,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         auto timerevent_cb = qkeychain__writepasswordjob_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -581,7 +565,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         auto childevent_cb = qkeychain__writepasswordjob_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -598,7 +581,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         auto customevent_cb = qkeychain__writepasswordjob_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -617,7 +599,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -636,7 +617,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -695,7 +675,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
         auto receivers_cb = qkeychain__writepasswordjob_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -713,7 +692,6 @@ class VirtualQKeychainWritePasswordJob final : public QKeychain::WritePasswordJo
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -863,7 +841,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         auto metacast_cb = qkeychain__deletepasswordjob_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -881,7 +858,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -897,7 +873,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         auto event_cb = qkeychain__deletepasswordjob_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -914,7 +889,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -931,7 +905,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         auto timerevent_cb = qkeychain__deletepasswordjob_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -948,7 +921,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         auto childevent_cb = qkeychain__deletepasswordjob_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -965,7 +937,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         auto customevent_cb = qkeychain__deletepasswordjob_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -984,7 +955,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1003,7 +973,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1062,7 +1031,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
         auto receivers_cb = qkeychain__deletepasswordjob_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1080,7 +1048,6 @@ class VirtualQKeychainDeletePasswordJob final : public QKeychain::DeletePassword
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

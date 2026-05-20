@@ -214,7 +214,6 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             memcpy((void*)pass_str, pass_b.data(), pass_str_len);
             ((char*)pass_str)[pass_str_len] = '\0';
             const char* cbval4 = pass_str;
-
             sethost_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(host_str);
             libqt_free(user_str);
@@ -233,7 +232,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
         auto openconnection_cb = kio__workerbase_openconnection_callback;
         if (openconnection_cb) {
             KIO__WorkerResult* callback_ret = openconnection_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::openConnection();
     }
@@ -264,9 +265,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             KIO__WorkerResult* callback_ret = get_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::get(url);
     }
@@ -283,9 +285,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = static_cast<int>(mode);
-
             KIO__WorkerResult* callback_ret = open_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::open(url, mode);
     }
@@ -299,9 +302,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
         auto read_cb = kio__workerbase_read_callback;
         if (read_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(size);
-
             KIO__WorkerResult* callback_ret = read_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::read(size);
     }
@@ -320,10 +324,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
-
             KIO__WorkerResult* callback_ret = write_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(data_str.data);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::write(data);
     }
@@ -337,9 +342,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
         auto seek_cb = kio__workerbase_seek_callback;
         if (seek_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(offset);
-
             KIO__WorkerResult* callback_ret = seek_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::seek(offset);
     }
@@ -353,9 +359,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
         auto truncate_cb = kio__workerbase_truncate_callback;
         if (truncate_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(size);
-
             KIO__WorkerResult* callback_ret = truncate_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::truncate(size);
     }
@@ -369,7 +376,9 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
         auto close_cb = kio__workerbase_close_callback;
         if (close_cb) {
             KIO__WorkerResult* callback_ret = close_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::close();
     }
@@ -387,9 +396,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
             int cbval3 = static_cast<int>(flags);
-
             KIO__WorkerResult* callback_ret = put_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::put(url, permissions, flags);
     }
@@ -405,9 +415,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             KIO__WorkerResult* callback_ret = stat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::stat(url);
     }
@@ -423,9 +434,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             KIO__WorkerResult* callback_ret = mimetype_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::mimetype(url);
     }
@@ -441,9 +453,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             KIO__WorkerResult* callback_ret = listdir_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::listDir(url);
     }
@@ -460,9 +473,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
-
             KIO__WorkerResult* callback_ret = mkdir_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::mkdir(url, permissions);
     }
@@ -482,9 +496,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
-
             KIO__WorkerResult* callback_ret = rename_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::rename(src, dest, flags);
     }
@@ -509,10 +524,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = static_cast<int>(flags);
-
             KIO__WorkerResult* callback_ret = symlink_cb(this, cbval1, cbval2, cbval3);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(target_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::symlink(target, dest, flags);
     }
@@ -529,9 +545,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             int cbval2 = permissions;
-
             KIO__WorkerResult* callback_ret = chmod_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::chmod(url, permissions);
     }
@@ -563,11 +580,12 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             memcpy((void*)group_str, group_b.data(), group_str_len);
             ((char*)group_str)[group_str_len] = '\0';
             const char* cbval3 = group_str;
-
             KIO__WorkerResult* callback_ret = chown_cb(this, cbval1, cbval2, cbval3);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(owner_str);
             libqt_free(group_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::chown(url, owner, group);
     }
@@ -586,9 +604,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QDateTime& mtime_ret = mtime;
             // Cast returned reference into pointer
             QDateTime* cbval2 = const_cast<QDateTime*>(&mtime_ret);
-
             KIO__WorkerResult* callback_ret = setmodificationtime_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::setModificationTime(url, mtime);
     }
@@ -609,9 +628,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             QUrl* cbval2 = const_cast<QUrl*>(&dest_ret);
             int cbval3 = permissions;
             int cbval4 = static_cast<int>(flags);
-
             KIO__WorkerResult* callback_ret = copy_cb(this, cbval1, cbval2, cbval3, cbval4);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::copy(src, dest, permissions, flags);
     }
@@ -628,9 +648,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             bool cbval2 = isfile;
-
             KIO__WorkerResult* callback_ret = del_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::del(url, isfile);
     }
@@ -649,10 +670,11 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             data_str.data = static_cast<char*>(malloc(data_str.len));
             memcpy((void*)data_str.data, data_qb.data(), data_str.len);
             libqt_string cbval1 = data_str;
-
             KIO__WorkerResult* callback_ret = special_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(data_str.data);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::special(data);
     }
@@ -668,9 +690,10 @@ class VirtualKIOWorkerBase final : public KIO::WorkerBase {
             const QUrl& url_ret = url;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
-
             KIO__WorkerResult* callback_ret = filesystemfreespace_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KIO__WorkerBase::fileSystemFreeSpace(url);
     }

@@ -134,7 +134,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         auto metacast_cb = kemailvalidator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -152,7 +151,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -176,7 +174,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
             int* cbval2 = &pos;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(str_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -201,7 +198,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
             memcpy((void*)str_str, str_b.data(), str_str_len);
             ((char*)str_str)[str_str_len] = '\0';
             const char* cbval1 = str_str;
-
             fixup_cb(this, cbval1);
             libqt_free(str_str);
             return;
@@ -218,7 +214,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         auto event_cb = kemailvalidator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -235,7 +230,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -252,7 +246,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         auto timerevent_cb = kemailvalidator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -269,7 +262,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         auto childevent_cb = kemailvalidator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -286,7 +278,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         auto customevent_cb = kemailvalidator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -305,7 +296,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -324,7 +314,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -368,7 +357,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
         auto receivers_cb = kemailvalidator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -386,7 +374,6 @@ class VirtualKEmailValidator final : public KEmailValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

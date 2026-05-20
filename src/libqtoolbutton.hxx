@@ -374,7 +374,6 @@ class VirtualQToolButton final : public QToolButton {
         auto metacast_cb = qtoolbutton_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -392,7 +391,6 @@ class VirtualQToolButton final : public QToolButton {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -408,7 +406,9 @@ class VirtualQToolButton final : public QToolButton {
         auto sizehint_cb = qtoolbutton_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QToolButton::sizeHint();
     }
@@ -422,7 +422,9 @@ class VirtualQToolButton final : public QToolButton {
         auto minimumsizehint_cb = qtoolbutton_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QToolButton::minimumSizeHint();
     }
@@ -436,7 +438,6 @@ class VirtualQToolButton final : public QToolButton {
         auto event_cb = qtoolbutton_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -453,7 +454,6 @@ class VirtualQToolButton final : public QToolButton {
         auto mousepressevent_cb = qtoolbutton_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -470,7 +470,6 @@ class VirtualQToolButton final : public QToolButton {
         auto mousereleaseevent_cb = qtoolbutton_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -487,7 +486,6 @@ class VirtualQToolButton final : public QToolButton {
         auto paintevent_cb = qtoolbutton_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -504,7 +502,6 @@ class VirtualQToolButton final : public QToolButton {
         auto actionevent_cb = qtoolbutton_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -521,7 +518,6 @@ class VirtualQToolButton final : public QToolButton {
         auto enterevent_cb = qtoolbutton_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -538,7 +534,6 @@ class VirtualQToolButton final : public QToolButton {
         auto leaveevent_cb = qtoolbutton_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = param1;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -555,7 +550,6 @@ class VirtualQToolButton final : public QToolButton {
         auto timerevent_cb = qtoolbutton_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -572,7 +566,6 @@ class VirtualQToolButton final : public QToolButton {
         auto changeevent_cb = qtoolbutton_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +583,6 @@ class VirtualQToolButton final : public QToolButton {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
-
             bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
         }
@@ -637,7 +629,6 @@ class VirtualQToolButton final : public QToolButton {
         auto initstyleoption_cb = qtoolbutton_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionToolButton* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -654,7 +645,6 @@ class VirtualQToolButton final : public QToolButton {
         auto keypressevent_cb = qtoolbutton_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -671,7 +661,6 @@ class VirtualQToolButton final : public QToolButton {
         auto keyreleaseevent_cb = qtoolbutton_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -688,7 +677,6 @@ class VirtualQToolButton final : public QToolButton {
         auto mousemoveevent_cb = qtoolbutton_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -705,7 +693,6 @@ class VirtualQToolButton final : public QToolButton {
         auto focusinevent_cb = qtoolbutton_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -722,7 +709,6 @@ class VirtualQToolButton final : public QToolButton {
         auto focusoutevent_cb = qtoolbutton_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -753,7 +739,6 @@ class VirtualQToolButton final : public QToolButton {
         auto setvisible_cb = qtoolbutton_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -769,7 +754,6 @@ class VirtualQToolButton final : public QToolButton {
         auto heightforwidth_cb = qtoolbutton_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -814,7 +798,6 @@ class VirtualQToolButton final : public QToolButton {
         auto mousedoubleclickevent_cb = qtoolbutton_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -831,7 +814,6 @@ class VirtualQToolButton final : public QToolButton {
         auto wheelevent_cb = qtoolbutton_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -848,7 +830,6 @@ class VirtualQToolButton final : public QToolButton {
         auto moveevent_cb = qtoolbutton_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -865,7 +846,6 @@ class VirtualQToolButton final : public QToolButton {
         auto resizeevent_cb = qtoolbutton_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -882,7 +862,6 @@ class VirtualQToolButton final : public QToolButton {
         auto closeevent_cb = qtoolbutton_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -899,7 +878,6 @@ class VirtualQToolButton final : public QToolButton {
         auto contextmenuevent_cb = qtoolbutton_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -916,7 +894,6 @@ class VirtualQToolButton final : public QToolButton {
         auto tabletevent_cb = qtoolbutton_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -933,7 +910,6 @@ class VirtualQToolButton final : public QToolButton {
         auto dragenterevent_cb = qtoolbutton_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -950,7 +926,6 @@ class VirtualQToolButton final : public QToolButton {
         auto dragmoveevent_cb = qtoolbutton_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -967,7 +942,6 @@ class VirtualQToolButton final : public QToolButton {
         auto dragleaveevent_cb = qtoolbutton_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -984,7 +958,6 @@ class VirtualQToolButton final : public QToolButton {
         auto dropevent_cb = qtoolbutton_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1001,7 +974,6 @@ class VirtualQToolButton final : public QToolButton {
         auto showevent_cb = qtoolbutton_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1018,7 +990,6 @@ class VirtualQToolButton final : public QToolButton {
         auto hideevent_cb = qtoolbutton_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1042,7 +1013,6 @@ class VirtualQToolButton final : public QToolButton {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1059,7 +1029,6 @@ class VirtualQToolButton final : public QToolButton {
         auto metric_cb = qtoolbutton_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1076,7 +1045,6 @@ class VirtualQToolButton final : public QToolButton {
         auto initpainter_cb = qtoolbutton_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1092,7 +1060,6 @@ class VirtualQToolButton final : public QToolButton {
         auto redirected_cb = qtoolbutton_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1123,7 +1090,6 @@ class VirtualQToolButton final : public QToolButton {
         auto inputmethodevent_cb = qtoolbutton_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1139,9 +1105,10 @@ class VirtualQToolButton final : public QToolButton {
         auto inputmethodquery_cb = qtoolbutton_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QToolButton::inputMethodQuery(param1);
     }
@@ -1155,7 +1122,6 @@ class VirtualQToolButton final : public QToolButton {
         auto focusnextprevchild_cb = qtoolbutton_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1172,7 +1138,6 @@ class VirtualQToolButton final : public QToolButton {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1189,7 +1154,6 @@ class VirtualQToolButton final : public QToolButton {
         auto childevent_cb = qtoolbutton_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1206,7 +1170,6 @@ class VirtualQToolButton final : public QToolButton {
         auto customevent_cb = qtoolbutton_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1225,7 +1188,6 @@ class VirtualQToolButton final : public QToolButton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1244,7 +1206,6 @@ class VirtualQToolButton final : public QToolButton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1361,7 +1322,6 @@ class VirtualQToolButton final : public QToolButton {
         auto receivers_cb = qtoolbutton_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1379,7 +1339,6 @@ class VirtualQToolButton final : public QToolButton {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1396,7 +1355,6 @@ class VirtualQToolButton final : public QToolButton {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

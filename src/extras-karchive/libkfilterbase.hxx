@@ -110,7 +110,6 @@ class VirtualKFilterBase : public KFilterBase {
         auto init_cb = kfilterbase_init_callback;
         if (init_cb) {
             int cbval1 = mode;
-
             bool callback_ret = init_cb(this, cbval1);
             return callback_ret;
         }
@@ -176,7 +175,6 @@ class VirtualKFilterBase : public KFilterBase {
             filename_str.data = static_cast<char*>(malloc(filename_str.len));
             memcpy((void*)filename_str.data, filename_qb.data(), filename_str.len);
             libqt_string cbval1 = filename_str;
-
             bool callback_ret = writeheader_cb(this, cbval1);
             libqt_free(filename_str.data);
             return callback_ret;
@@ -190,7 +188,6 @@ class VirtualKFilterBase : public KFilterBase {
         if (setoutbuffer_cb) {
             char* cbval1 = data;
             unsigned int cbval2 = static_cast<unsigned int>(maxlen);
-
             setoutbuffer_cb(this, cbval1, cbval2);
         }
     }
@@ -201,7 +198,6 @@ class VirtualKFilterBase : public KFilterBase {
         if (setinbuffer_cb) {
             const char* cbval1 = (const char*)data;
             unsigned int cbval2 = static_cast<unsigned int>(size);
-
             setinbuffer_cb(this, cbval1, cbval2);
         }
     }
@@ -269,7 +265,6 @@ class VirtualKFilterBase : public KFilterBase {
         auto compress_cb = kfilterbase_compress_callback;
         if (compress_cb) {
             bool cbval1 = finish;
-
             int callback_ret = compress_cb(this, cbval1);
             return static_cast<KFilterBase::Result>(callback_ret);
         }
@@ -287,7 +282,6 @@ class VirtualKFilterBase : public KFilterBase {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }

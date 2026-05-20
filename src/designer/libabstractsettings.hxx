@@ -72,7 +72,6 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval1 = prefix_str;
-
             begingroup_cb(this, cbval1);
             libqt_free(prefix_str);
         }
@@ -98,7 +97,6 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
-
             bool callback_ret = contains_cb(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
@@ -121,7 +119,6 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setvalue_cb(this, cbval1, cbval2);
             libqt_free(key_str);
         }
@@ -142,10 +139,11 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             const QVariant& defaultValue_ret = defaultValue;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&defaultValue_ret);
-
             QVariant* callback_ret = value_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(key_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -162,7 +160,6 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
-
             remove_cb(this, cbval1);
             libqt_free(key_str);
         }

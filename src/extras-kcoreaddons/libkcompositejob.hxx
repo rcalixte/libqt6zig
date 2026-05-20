@@ -244,7 +244,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto metacast_cb = kcompositejob_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -262,7 +261,6 @@ class VirtualKCompositeJob : public KCompositeJob {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -278,7 +276,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto addsubjob_cb = kcompositejob_addsubjob_callback;
         if (addsubjob_cb) {
             KJob* cbval1 = job;
-
             bool callback_ret = addsubjob_cb(this, cbval1);
             return callback_ret;
         }
@@ -294,7 +291,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto removesubjob_cb = kcompositejob_removesubjob_callback;
         if (removesubjob_cb) {
             KJob* cbval1 = job;
-
             bool callback_ret = removesubjob_cb(this, cbval1);
             return callback_ret;
         }
@@ -311,7 +307,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto slotresult_cb = kcompositejob_slotresult_callback;
         if (slotresult_cb) {
             KJob* cbval1 = job;
-
             slotresult_cb(this, cbval1);
             return;
         }
@@ -336,7 +331,6 @@ class VirtualKCompositeJob : public KCompositeJob {
             memcpy((void*)message_str, message_b.data(), message_str_len);
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
-
             slotinfomessage_cb(this, cbval1, cbval2);
             libqt_free(message_str);
             return;
@@ -418,7 +412,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto event_cb = kcompositejob_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -435,7 +428,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -452,7 +444,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto timerevent_cb = kcompositejob_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -469,7 +460,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto childevent_cb = kcompositejob_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -486,7 +476,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto customevent_cb = kcompositejob_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -505,7 +494,6 @@ class VirtualKCompositeJob : public KCompositeJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -524,7 +512,6 @@ class VirtualKCompositeJob : public KCompositeJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -591,7 +578,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto setcapabilities_cb = kcompositejob_setcapabilities_callback;
         if (setcapabilities_cb) {
             int cbval1 = static_cast<int>(capabilities);
-
             setcapabilities_cb(this, cbval1);
             return;
         }
@@ -622,7 +608,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto seterror_cb = kcompositejob_seterror_callback;
         if (seterror_cb) {
             int cbval1 = errorCode;
-
             seterror_cb(this, cbval1);
             return;
         }
@@ -646,7 +631,6 @@ class VirtualKCompositeJob : public KCompositeJob {
             memcpy((void*)errorText_str, errorText_b.data(), errorText_str_len);
             ((char*)errorText_str)[errorText_str_len] = '\0';
             const char* cbval1 = errorText_str;
-
             seterrortext_cb(this, cbval1);
             libqt_free(errorText_str);
             return;
@@ -665,7 +649,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         if (setprocessedamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
-
             setprocessedamount_cb(this, cbval1, cbval2);
             return;
         }
@@ -683,7 +666,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         if (settotalamount_cb) {
             int cbval1 = static_cast<int>(unit);
             unsigned long long cbval2 = static_cast<unsigned long long>(amount);
-
             settotalamount_cb(this, cbval1, cbval2);
             return;
         }
@@ -700,7 +682,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto setprogressunit_cb = kcompositejob_setprogressunit_callback;
         if (setprogressunit_cb) {
             int cbval1 = static_cast<int>(unit);
-
             setprogressunit_cb(this, cbval1);
             return;
         }
@@ -717,7 +698,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto setpercent_cb = kcompositejob_setpercent_callback;
         if (setpercent_cb) {
             unsigned long cbval1 = percentage;
-
             setpercent_cb(this, cbval1);
             return;
         }
@@ -750,7 +730,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         if (emitpercent_cb) {
             unsigned long long cbval1 = static_cast<unsigned long long>(processedAmount);
             unsigned long long cbval2 = static_cast<unsigned long long>(totalAmount);
-
             emitpercent_cb(this, cbval1, cbval2);
             return;
         }
@@ -767,7 +746,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto emitspeed_cb = kcompositejob_emitspeed_callback;
         if (emitspeed_cb) {
             unsigned long cbval1 = speed;
-
             emitspeed_cb(this, cbval1);
             return;
         }
@@ -826,7 +804,6 @@ class VirtualKCompositeJob : public KCompositeJob {
         auto receivers_cb = kcompositejob_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -844,7 +821,6 @@ class VirtualKCompositeJob : public KCompositeJob {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

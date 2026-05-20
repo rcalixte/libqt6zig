@@ -159,7 +159,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto metacast_cb = qdesignerwidgetfactoryinterface_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -177,7 +176,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -199,7 +197,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto containerofwidget_cb = qdesignerwidgetfactoryinterface_containerofwidget_callback;
         if (containerofwidget_cb) {
             QWidget* cbval1 = w;
-
             QWidget* callback_ret = containerofwidget_cb(this, cbval1);
             return callback_ret;
         }
@@ -211,7 +208,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto widgetofcontainer_cb = qdesignerwidgetfactoryinterface_widgetofcontainer_callback;
         if (widgetofcontainer_cb) {
             QWidget* cbval1 = w;
-
             QWidget* callback_ret = widgetofcontainer_cb(this, cbval1);
             return callback_ret;
         }
@@ -231,7 +227,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
             QWidget* cbval2 = parentWidget;
-
             QWidget* callback_ret = createwidget_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -246,7 +241,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
             QWidget* cbval1 = widget;
             QLayout* cbval2 = layout;
             int cbval3 = typeVal;
-
             QLayout* callback_ret = createlayout_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -258,7 +252,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto ispassiveinteractor_cb = qdesignerwidgetfactoryinterface_ispassiveinteractor_callback;
         if (ispassiveinteractor_cb) {
             QWidget* cbval1 = widget;
-
             bool callback_ret = ispassiveinteractor_cb(this, cbval1);
             return callback_ret;
         }
@@ -270,7 +263,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto initialize_cb = qdesignerwidgetfactoryinterface_initialize_callback;
         if (initialize_cb) {
             QObject* cbval1 = object;
-
             initialize_cb(this, cbval1);
         }
     }
@@ -284,7 +276,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto event_cb = qdesignerwidgetfactoryinterface_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -301,7 +292,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -318,7 +308,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto timerevent_cb = qdesignerwidgetfactoryinterface_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -335,7 +324,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto childevent_cb = qdesignerwidgetfactoryinterface_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -352,7 +340,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto customevent_cb = qdesignerwidgetfactoryinterface_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -371,7 +358,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -390,7 +376,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -434,7 +419,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
         auto receivers_cb = qdesignerwidgetfactoryinterface_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -452,7 +436,6 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

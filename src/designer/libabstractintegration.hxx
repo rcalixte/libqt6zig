@@ -224,7 +224,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto metacast_cb = qdesignerintegrationinterface_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -242,7 +241,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -254,7 +252,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto containerwindow_cb = qdesignerintegrationinterface_containerwindow_callback;
         if (containerwindow_cb) {
             QWidget* cbval1 = widget;
-
             QWidget* callback_ret = containerwindow_cb(this, cbval1);
             return callback_ret;
         }
@@ -266,7 +263,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto createresourcebrowser_cb = qdesignerintegrationinterface_createresourcebrowser_callback;
         if (createresourcebrowser_cb) {
             QWidget* cbval1 = parent;
-
             QDesignerResourceBrowserInterface* callback_ret = createresourcebrowser_cb(this, cbval1);
             return callback_ret;
         }
@@ -296,7 +292,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             memcpy((void*)headerSuffix_str, headerSuffix_b.data(), headerSuffix_str_len);
             ((char*)headerSuffix_str)[headerSuffix_str_len] = '\0';
             const char* cbval1 = headerSuffix_str;
-
             setheadersuffix_cb(this, cbval1);
             libqt_free(headerSuffix_str);
         }
@@ -317,7 +312,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto setheaderlowercase_cb = qdesignerintegrationinterface_setheaderlowercase_callback;
         if (setheaderlowercase_cb) {
             bool cbval1 = headerLowerCase;
-
             setheaderlowercase_cb(this, cbval1);
         }
     }
@@ -347,7 +341,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto setresourcefilewatcherbehaviour_cb = qdesignerintegrationinterface_setresourcefilewatcherbehaviour_callback;
         if (setresourcefilewatcherbehaviour_cb) {
             int cbval1 = static_cast<int>(behaviour);
-
             setresourcefilewatcherbehaviour_cb(this, cbval1);
         }
     }
@@ -368,7 +361,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto setfeatures_cb = qdesignerintegrationinterface_setfeatures_callback;
         if (setfeatures_cb) {
             int cbval1 = static_cast<int>(f);
-
             setfeatures_cb(this, cbval1);
         }
     }
@@ -389,7 +381,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             bool cbval3 = enableSubPropertyHandling;
-
             updateproperty_cb(this, cbval1, cbval2, cbval3);
             libqt_free(name_str);
         }
@@ -410,7 +401,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             updateproperty2_cb(this, cbval1, cbval2);
             libqt_free(name_str);
         }
@@ -428,7 +418,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             resetproperty_cb(this, cbval1);
             libqt_free(name_str);
         }
@@ -449,7 +438,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             adddynamicproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
         }
@@ -467,7 +455,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             removedynamicproperty_cb(this, cbval1);
             libqt_free(name_str);
         }
@@ -478,7 +465,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto updateactiveformwindow_cb = qdesignerintegrationinterface_updateactiveformwindow_callback;
         if (updateactiveformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             updateactiveformwindow_cb(this, cbval1);
         }
     }
@@ -488,7 +474,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto setupformwindow_cb = qdesignerintegrationinterface_setupformwindow_callback;
         if (setupformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             setupformwindow_cb(this, cbval1);
         }
     }
@@ -518,7 +503,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto event_cb = qdesignerintegrationinterface_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -535,7 +519,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -552,7 +535,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto timerevent_cb = qdesignerintegrationinterface_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -569,7 +551,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto childevent_cb = qdesignerintegrationinterface_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -586,7 +567,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto customevent_cb = qdesignerintegrationinterface_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -605,7 +585,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -624,7 +603,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -668,7 +646,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
         auto receivers_cb = qdesignerintegrationinterface_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -686,7 +663,6 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -929,7 +905,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto metacast_cb = qdesignerintegration_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -947,7 +922,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -986,7 +960,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             memcpy((void*)headerSuffix_str, headerSuffix_b.data(), headerSuffix_str_len);
             ((char*)headerSuffix_str)[headerSuffix_str_len] = '\0';
             const char* cbval1 = headerSuffix_str;
-
             setheadersuffix_cb(this, cbval1);
             libqt_free(headerSuffix_str);
             return;
@@ -1018,7 +991,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto setheaderlowercase_cb = qdesignerintegration_setheaderlowercase_callback;
         if (setheaderlowercase_cb) {
             bool cbval1 = headerLowerCase;
-
             setheaderlowercase_cb(this, cbval1);
             return;
         }
@@ -1049,7 +1021,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto setfeatures_cb = qdesignerintegration_setfeatures_callback;
         if (setfeatures_cb) {
             int cbval1 = static_cast<int>(f);
-
             setfeatures_cb(this, cbval1);
             return;
         }
@@ -1080,7 +1051,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto setresourcefilewatcherbehaviour_cb = qdesignerintegration_setresourcefilewatcherbehaviour_callback;
         if (setresourcefilewatcherbehaviour_cb) {
             int cbval1 = static_cast<int>(behaviour);
-
             setresourcefilewatcherbehaviour_cb(this, cbval1);
             return;
         }
@@ -1096,7 +1066,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto containerwindow_cb = qdesignerintegration_containerwindow_callback;
         if (containerwindow_cb) {
             QWidget* cbval1 = widget;
-
             QWidget* callback_ret = containerwindow_cb(this, cbval1);
             return callback_ret;
         }
@@ -1112,7 +1081,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto createresourcebrowser_cb = qdesignerintegration_createresourcebrowser_callback;
         if (createresourcebrowser_cb) {
             QWidget* cbval1 = parent;
-
             QDesignerResourceBrowserInterface* callback_ret = createresourcebrowser_cb(this, cbval1);
             return callback_ret;
         }
@@ -1155,7 +1123,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
             bool cbval3 = enableSubPropertyHandling;
-
             updateproperty_cb(this, cbval1, cbval2, cbval3);
             libqt_free(name_str);
             return;
@@ -1183,7 +1150,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             updateproperty2_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return;
@@ -1208,7 +1174,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             resetproperty_cb(this, cbval1);
             libqt_free(name_str);
             return;
@@ -1236,7 +1201,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             adddynamicproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return;
@@ -1261,7 +1225,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             removedynamicproperty_cb(this, cbval1);
             libqt_free(name_str);
             return;
@@ -1279,7 +1242,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto updateactiveformwindow_cb = qdesignerintegration_updateactiveformwindow_callback;
         if (updateactiveformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             updateactiveformwindow_cb(this, cbval1);
             return;
         }
@@ -1296,7 +1258,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto setupformwindow_cb = qdesignerintegration_setupformwindow_callback;
         if (setupformwindow_cb) {
             QDesignerFormWindowInterface* cbval1 = formWindow;
-
             setupformwindow_cb(this, cbval1);
             return;
         }
@@ -1342,7 +1303,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto event_cb = qdesignerintegration_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1359,7 +1319,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1376,7 +1335,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto timerevent_cb = qdesignerintegration_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1393,7 +1351,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto childevent_cb = qdesignerintegration_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1410,7 +1367,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto customevent_cb = qdesignerintegration_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1429,7 +1385,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1448,7 +1403,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1492,7 +1446,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         auto receivers_cb = qdesignerintegration_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1510,7 +1463,6 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

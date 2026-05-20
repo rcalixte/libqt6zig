@@ -279,7 +279,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto metacast_cb = qrasterwindow_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -297,7 +296,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -313,7 +311,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto metric_cb = qrasterwindow_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -329,7 +326,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto redirected_cb = qrasterwindow_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = param1;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -346,7 +342,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto resizeevent_cb = qrasterwindow_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -363,7 +358,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto exposeevent_cb = qrasterwindow_exposeevent_callback;
         if (exposeevent_cb) {
             QExposeEvent* cbval1 = param1;
-
             exposeevent_cb(this, cbval1);
             return;
         }
@@ -380,7 +374,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto paintevent_cb = qrasterwindow_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -396,7 +389,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto event_cb = qrasterwindow_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -426,7 +418,9 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto format_cb = qrasterwindow_format_callback;
         if (format_cb) {
             QSurfaceFormat* callback_ret = format_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QRasterWindow::format();
     }
@@ -440,7 +434,9 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto size_cb = qrasterwindow_size_callback;
         if (size_cb) {
             QSize* callback_ret = size_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QRasterWindow::size();
     }
@@ -483,7 +479,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto moveevent_cb = qrasterwindow_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = param1;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -500,7 +495,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto focusinevent_cb = qrasterwindow_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -517,7 +511,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto focusoutevent_cb = qrasterwindow_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -534,7 +527,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto showevent_cb = qrasterwindow_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -551,7 +543,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto hideevent_cb = qrasterwindow_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -568,7 +559,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto closeevent_cb = qrasterwindow_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -585,7 +575,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto keypressevent_cb = qrasterwindow_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -602,7 +591,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto keyreleaseevent_cb = qrasterwindow_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -619,7 +607,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto mousepressevent_cb = qrasterwindow_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -636,7 +623,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto mousereleaseevent_cb = qrasterwindow_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -653,7 +639,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto mousedoubleclickevent_cb = qrasterwindow_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -670,7 +655,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto mousemoveevent_cb = qrasterwindow_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -687,7 +671,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto wheelevent_cb = qrasterwindow_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -704,7 +687,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto touchevent_cb = qrasterwindow_touchevent_callback;
         if (touchevent_cb) {
             QTouchEvent* cbval1 = param1;
-
             touchevent_cb(this, cbval1);
             return;
         }
@@ -721,7 +703,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto tabletevent_cb = qrasterwindow_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = param1;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -745,7 +726,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -763,7 +743,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -780,7 +759,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto timerevent_cb = qrasterwindow_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -797,7 +775,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto childevent_cb = qrasterwindow_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -814,7 +791,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto customevent_cb = qrasterwindow_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -833,7 +809,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -852,7 +827,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -883,7 +857,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto initpainter_cb = qrasterwindow_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -914,7 +887,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
-
             void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -958,7 +930,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         auto receivers_cb = qrasterwindow_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -976,7 +947,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -993,7 +963,6 @@ class VirtualQRasterWindow final : public QRasterWindow {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -233,7 +233,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto metacast_cb = qgraphicsscene_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -251,7 +250,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -267,9 +265,10 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto inputmethodquery_cb = qgraphicsscene_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsScene::inputMethodQuery(query);
     }
@@ -283,7 +282,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto event_cb = qgraphicsscene_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -300,7 +298,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -317,7 +314,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto contextmenuevent_cb = qgraphicsscene_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -334,7 +330,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto dragenterevent_cb = qgraphicsscene_dragenterevent_callback;
         if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -351,7 +346,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto dragmoveevent_cb = qgraphicsscene_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -368,7 +362,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto dragleaveevent_cb = qgraphicsscene_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -385,7 +378,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto dropevent_cb = qgraphicsscene_dropevent_callback;
         if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -402,7 +394,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto focusinevent_cb = qgraphicsscene_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -419,7 +410,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto focusoutevent_cb = qgraphicsscene_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -436,7 +426,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto helpevent_cb = qgraphicsscene_helpevent_callback;
         if (helpevent_cb) {
             QGraphicsSceneHelpEvent* cbval1 = event;
-
             helpevent_cb(this, cbval1);
             return;
         }
@@ -453,7 +442,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto keypressevent_cb = qgraphicsscene_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -470,7 +458,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto keyreleaseevent_cb = qgraphicsscene_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -487,7 +474,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto mousepressevent_cb = qgraphicsscene_mousepressevent_callback;
         if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -504,7 +490,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto mousemoveevent_cb = qgraphicsscene_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -521,7 +506,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto mousereleaseevent_cb = qgraphicsscene_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -538,7 +522,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto mousedoubleclickevent_cb = qgraphicsscene_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -555,7 +538,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto wheelevent_cb = qgraphicsscene_wheelevent_callback;
         if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -572,7 +554,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto inputmethodevent_cb = qgraphicsscene_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -592,7 +573,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawbackground_cb(this, cbval1, cbval2);
             return;
         }
@@ -612,7 +592,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval2 = const_cast<QRectF*>(&rect_ret);
-
             drawforeground_cb(this, cbval1, cbval2);
             return;
         }
@@ -633,7 +612,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             QGraphicsItem** cbval3 = items;
             QStyleOptionGraphicsItem* cbval4 = (QStyleOptionGraphicsItem*)options;
             QWidget* cbval5 = widget;
-
             drawitems_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             return;
         }
@@ -649,7 +627,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto focusnextprevchild_cb = qgraphicsscene_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -666,7 +643,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto timerevent_cb = qgraphicsscene_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -683,7 +659,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto childevent_cb = qgraphicsscene_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -700,7 +675,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto customevent_cb = qgraphicsscene_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -719,7 +693,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -738,7 +711,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -782,7 +754,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
         auto receivers_cb = qgraphicsscene_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -800,7 +771,6 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -382,7 +382,6 @@ class VirtualKSelector final : public KSelector {
         auto metacast_cb = kselector_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -400,7 +399,6 @@ class VirtualKSelector final : public KSelector {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -417,7 +415,6 @@ class VirtualKSelector final : public KSelector {
         auto drawcontents_cb = kselector_drawcontents_callback;
         if (drawcontents_cb) {
             QPainter* cbval1 = param1;
-
             drawcontents_cb(this, cbval1);
             return;
         }
@@ -437,7 +434,6 @@ class VirtualKSelector final : public KSelector {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&pos_ret);
-
             drawarrow_cb(this, cbval1, cbval2);
             return;
         }
@@ -454,7 +450,6 @@ class VirtualKSelector final : public KSelector {
         auto paintevent_cb = kselector_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -471,7 +466,6 @@ class VirtualKSelector final : public KSelector {
         auto mousepressevent_cb = kselector_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -488,7 +482,6 @@ class VirtualKSelector final : public KSelector {
         auto mousemoveevent_cb = kselector_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -505,7 +498,6 @@ class VirtualKSelector final : public KSelector {
         auto mousereleaseevent_cb = kselector_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -522,7 +514,6 @@ class VirtualKSelector final : public KSelector {
         auto wheelevent_cb = kselector_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -538,7 +529,6 @@ class VirtualKSelector final : public KSelector {
         auto event_cb = kselector_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -555,7 +545,6 @@ class VirtualKSelector final : public KSelector {
         auto sliderchange_cb = kselector_sliderchange_callback;
         if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
-
             sliderchange_cb(this, cbval1);
             return;
         }
@@ -572,7 +561,6 @@ class VirtualKSelector final : public KSelector {
         auto keypressevent_cb = kselector_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -589,7 +577,6 @@ class VirtualKSelector final : public KSelector {
         auto timerevent_cb = kselector_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -606,7 +593,6 @@ class VirtualKSelector final : public KSelector {
         auto changeevent_cb = kselector_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -637,7 +623,6 @@ class VirtualKSelector final : public KSelector {
         auto setvisible_cb = kselector_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -653,7 +638,9 @@ class VirtualKSelector final : public KSelector {
         auto sizehint_cb = kselector_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KSelector::sizeHint();
     }
@@ -667,7 +654,9 @@ class VirtualKSelector final : public KSelector {
         auto minimumsizehint_cb = kselector_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KSelector::minimumSizeHint();
     }
@@ -681,7 +670,6 @@ class VirtualKSelector final : public KSelector {
         auto heightforwidth_cb = kselector_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -726,7 +714,6 @@ class VirtualKSelector final : public KSelector {
         auto mousedoubleclickevent_cb = kselector_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -743,7 +730,6 @@ class VirtualKSelector final : public KSelector {
         auto keyreleaseevent_cb = kselector_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -760,7 +746,6 @@ class VirtualKSelector final : public KSelector {
         auto focusinevent_cb = kselector_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -777,7 +762,6 @@ class VirtualKSelector final : public KSelector {
         auto focusoutevent_cb = kselector_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -794,7 +778,6 @@ class VirtualKSelector final : public KSelector {
         auto enterevent_cb = kselector_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -811,7 +794,6 @@ class VirtualKSelector final : public KSelector {
         auto leaveevent_cb = kselector_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -828,7 +810,6 @@ class VirtualKSelector final : public KSelector {
         auto moveevent_cb = kselector_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -845,7 +826,6 @@ class VirtualKSelector final : public KSelector {
         auto resizeevent_cb = kselector_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -862,7 +842,6 @@ class VirtualKSelector final : public KSelector {
         auto closeevent_cb = kselector_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -879,7 +858,6 @@ class VirtualKSelector final : public KSelector {
         auto contextmenuevent_cb = kselector_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -896,7 +874,6 @@ class VirtualKSelector final : public KSelector {
         auto tabletevent_cb = kselector_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -913,7 +890,6 @@ class VirtualKSelector final : public KSelector {
         auto actionevent_cb = kselector_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -930,7 +906,6 @@ class VirtualKSelector final : public KSelector {
         auto dragenterevent_cb = kselector_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -947,7 +922,6 @@ class VirtualKSelector final : public KSelector {
         auto dragmoveevent_cb = kselector_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -964,7 +938,6 @@ class VirtualKSelector final : public KSelector {
         auto dragleaveevent_cb = kselector_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -981,7 +954,6 @@ class VirtualKSelector final : public KSelector {
         auto dropevent_cb = kselector_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -998,7 +970,6 @@ class VirtualKSelector final : public KSelector {
         auto showevent_cb = kselector_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1015,7 +986,6 @@ class VirtualKSelector final : public KSelector {
         auto hideevent_cb = kselector_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1039,7 +1009,6 @@ class VirtualKSelector final : public KSelector {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1056,7 +1025,6 @@ class VirtualKSelector final : public KSelector {
         auto metric_cb = kselector_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1073,7 +1041,6 @@ class VirtualKSelector final : public KSelector {
         auto initpainter_cb = kselector_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1089,7 +1056,6 @@ class VirtualKSelector final : public KSelector {
         auto redirected_cb = kselector_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1120,7 +1086,6 @@ class VirtualKSelector final : public KSelector {
         auto inputmethodevent_cb = kselector_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1136,9 +1101,10 @@ class VirtualKSelector final : public KSelector {
         auto inputmethodquery_cb = kselector_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KSelector::inputMethodQuery(param1);
     }
@@ -1152,7 +1118,6 @@ class VirtualKSelector final : public KSelector {
         auto focusnextprevchild_cb = kselector_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1169,7 +1134,6 @@ class VirtualKSelector final : public KSelector {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1186,7 +1150,6 @@ class VirtualKSelector final : public KSelector {
         auto childevent_cb = kselector_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1203,7 +1166,6 @@ class VirtualKSelector final : public KSelector {
         auto customevent_cb = kselector_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1222,7 +1184,6 @@ class VirtualKSelector final : public KSelector {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1241,7 +1202,6 @@ class VirtualKSelector final : public KSelector {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1258,7 +1218,6 @@ class VirtualKSelector final : public KSelector {
         auto setrepeataction_cb = kselector_setrepeataction_callback;
         if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
-
             setrepeataction_cb(this, cbval1);
             return;
         }
@@ -1389,7 +1348,6 @@ class VirtualKSelector final : public KSelector {
         auto receivers_cb = kselector_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1407,7 +1365,6 @@ class VirtualKSelector final : public KSelector {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1424,7 +1381,6 @@ class VirtualKSelector final : public KSelector {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -1918,7 +1874,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto metacast_cb = kgradientselector_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1936,7 +1891,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1953,7 +1907,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto drawcontents_cb = kgradientselector_drawcontents_callback;
         if (drawcontents_cb) {
             QPainter* cbval1 = param1;
-
             drawcontents_cb(this, cbval1);
             return;
         }
@@ -1969,7 +1922,9 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto minimumsize_cb = kgradientselector_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KGradientSelector::minimumSize();
     }
@@ -1987,7 +1942,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&pos_ret);
-
             drawarrow_cb(this, cbval1, cbval2);
             return;
         }
@@ -2004,7 +1958,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto paintevent_cb = kgradientselector_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2021,7 +1974,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto mousepressevent_cb = kgradientselector_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2038,7 +1990,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto mousemoveevent_cb = kgradientselector_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2055,7 +2006,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto mousereleaseevent_cb = kgradientselector_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2072,7 +2022,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto wheelevent_cb = kgradientselector_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2088,7 +2037,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto event_cb = kgradientselector_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2105,7 +2053,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto sliderchange_cb = kgradientselector_sliderchange_callback;
         if (sliderchange_cb) {
             int cbval1 = static_cast<int>(change);
-
             sliderchange_cb(this, cbval1);
             return;
         }
@@ -2122,7 +2069,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto keypressevent_cb = kgradientselector_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = ev;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2139,7 +2085,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto timerevent_cb = kgradientselector_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2156,7 +2101,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto changeevent_cb = kgradientselector_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2187,7 +2131,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto setvisible_cb = kgradientselector_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2203,7 +2146,9 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto sizehint_cb = kgradientselector_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KGradientSelector::sizeHint();
     }
@@ -2217,7 +2162,9 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto minimumsizehint_cb = kgradientselector_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KGradientSelector::minimumSizeHint();
     }
@@ -2231,7 +2178,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto heightforwidth_cb = kgradientselector_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2276,7 +2222,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto mousedoubleclickevent_cb = kgradientselector_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2293,7 +2238,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto keyreleaseevent_cb = kgradientselector_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2310,7 +2254,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto focusinevent_cb = kgradientselector_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2327,7 +2270,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto focusoutevent_cb = kgradientselector_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2344,7 +2286,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto enterevent_cb = kgradientselector_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2361,7 +2302,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto leaveevent_cb = kgradientselector_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2378,7 +2318,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto moveevent_cb = kgradientselector_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2395,7 +2334,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto resizeevent_cb = kgradientselector_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2412,7 +2350,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto closeevent_cb = kgradientselector_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2429,7 +2366,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto contextmenuevent_cb = kgradientselector_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2446,7 +2382,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto tabletevent_cb = kgradientselector_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2463,7 +2398,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto actionevent_cb = kgradientselector_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2480,7 +2414,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto dragenterevent_cb = kgradientselector_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2497,7 +2430,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto dragmoveevent_cb = kgradientselector_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2514,7 +2446,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto dragleaveevent_cb = kgradientselector_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2531,7 +2462,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto dropevent_cb = kgradientselector_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2548,7 +2478,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto showevent_cb = kgradientselector_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2565,7 +2494,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto hideevent_cb = kgradientselector_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2589,7 +2517,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2606,7 +2533,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto metric_cb = kgradientselector_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2623,7 +2549,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto initpainter_cb = kgradientselector_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2639,7 +2564,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto redirected_cb = kgradientselector_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2670,7 +2594,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto inputmethodevent_cb = kgradientselector_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2686,9 +2609,10 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto inputmethodquery_cb = kgradientselector_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KGradientSelector::inputMethodQuery(param1);
     }
@@ -2702,7 +2626,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto focusnextprevchild_cb = kgradientselector_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2719,7 +2642,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2736,7 +2658,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto childevent_cb = kgradientselector_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2753,7 +2674,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto customevent_cb = kgradientselector_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2772,7 +2692,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2791,7 +2710,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2808,7 +2726,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto setrepeataction_cb = kgradientselector_setrepeataction_callback;
         if (setrepeataction_cb) {
             int cbval1 = static_cast<int>(action);
-
             setrepeataction_cb(this, cbval1);
             return;
         }
@@ -2939,7 +2856,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         auto receivers_cb = kgradientselector_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2957,7 +2873,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2974,7 +2889,6 @@ class VirtualKGradientSelector final : public KGradientSelector {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

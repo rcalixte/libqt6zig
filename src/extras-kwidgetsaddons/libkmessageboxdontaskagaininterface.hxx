@@ -79,7 +79,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             const char* cbval1 = dontShowAgainName_str;
             KMessageBox::ButtonCode& result_ret = result;
             int* cbval2 = reinterpret_cast<int*>(&result);
-
             bool callback_ret = shouldbeshowntwoactions_cb(this, cbval1, cbval2);
             libqt_free(dontShowAgainName_str);
             return callback_ret;
@@ -99,7 +98,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
-
             bool callback_ret = shouldbeshowncontinue_cb(this, cbval1);
             libqt_free(dontShowAgainName_str);
             return callback_ret;
@@ -120,7 +118,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
             int cbval2 = static_cast<int>(result);
-
             savedontshowagaintwoactions_cb(this, cbval1, cbval2);
             libqt_free(dontShowAgainName_str);
         }
@@ -138,7 +135,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
-
             savedontshowagaincontinue_cb(this, cbval1);
             libqt_free(dontShowAgainName_str);
         }
@@ -164,7 +160,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
             memcpy((void*)dontShowAgainName_str, dontShowAgainName_b.data(), dontShowAgainName_str_len);
             ((char*)dontShowAgainName_str)[dontShowAgainName_str_len] = '\0';
             const char* cbval1 = dontShowAgainName_str;
-
             enablemessage_cb(this, cbval1);
             libqt_free(dontShowAgainName_str);
         }
@@ -175,7 +170,6 @@ class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainIn
         auto setconfig_cb = kmessageboxdontaskagaininterface_setconfig_callback;
         if (setconfig_cb) {
             KConfig* cbval1 = config;
-
             setconfig_cb(this, cbval1);
         }
     }

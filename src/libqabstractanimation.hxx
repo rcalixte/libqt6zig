@@ -144,7 +144,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto metacast_cb = qabstractanimation_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -162,7 +161,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -188,7 +186,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto event_cb = qabstractanimation_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -200,7 +197,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto updatecurrenttime_cb = qabstractanimation_updatecurrenttime_callback;
         if (updatecurrenttime_cb) {
             int cbval1 = currentTime;
-
             updatecurrenttime_cb(this, cbval1);
         }
     }
@@ -216,7 +212,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
-
             updatestate_cb(this, cbval1, cbval2);
             return;
         }
@@ -233,7 +228,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto updatedirection_cb = qabstractanimation_updatedirection_callback;
         if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
-
             updatedirection_cb(this, cbval1);
             return;
         }
@@ -250,7 +244,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -267,7 +260,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto timerevent_cb = qabstractanimation_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -284,7 +276,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto childevent_cb = qabstractanimation_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -301,7 +292,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto customevent_cb = qabstractanimation_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -320,7 +310,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -339,7 +328,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -383,7 +371,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
         auto receivers_cb = qabstractanimation_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -401,7 +388,6 @@ class VirtualQAbstractAnimation : public QAbstractAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -577,7 +563,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         auto metacast_cb = qanimationdriver_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -595,7 +580,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -670,7 +654,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         auto event_cb = qanimationdriver_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -687,7 +670,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -704,7 +686,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         auto timerevent_cb = qanimationdriver_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -721,7 +702,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         auto childevent_cb = qanimationdriver_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -738,7 +718,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         auto customevent_cb = qanimationdriver_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -757,7 +736,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -776,7 +754,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -835,7 +812,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
         auto receivers_cb = qanimationdriver_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -853,7 +829,6 @@ class VirtualQAnimationDriver final : public QAnimationDriver {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -250,7 +250,6 @@ class VirtualQWindow final : public QWindow {
         auto metacast_cb = qwindow_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -268,7 +267,6 @@ class VirtualQWindow final : public QWindow {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -298,7 +296,9 @@ class VirtualQWindow final : public QWindow {
         auto format_cb = qwindow_format_callback;
         if (format_cb) {
             QSurfaceFormat* callback_ret = format_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWindow::format();
     }
@@ -312,7 +312,9 @@ class VirtualQWindow final : public QWindow {
         auto size_cb = qwindow_size_callback;
         if (size_cb) {
             QSize* callback_ret = size_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWindow::size();
     }
@@ -355,7 +357,6 @@ class VirtualQWindow final : public QWindow {
         auto exposeevent_cb = qwindow_exposeevent_callback;
         if (exposeevent_cb) {
             QExposeEvent* cbval1 = param1;
-
             exposeevent_cb(this, cbval1);
             return;
         }
@@ -372,7 +373,6 @@ class VirtualQWindow final : public QWindow {
         auto resizeevent_cb = qwindow_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -389,7 +389,6 @@ class VirtualQWindow final : public QWindow {
         auto paintevent_cb = qwindow_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -406,7 +405,6 @@ class VirtualQWindow final : public QWindow {
         auto moveevent_cb = qwindow_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = param1;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -423,7 +421,6 @@ class VirtualQWindow final : public QWindow {
         auto focusinevent_cb = qwindow_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -440,7 +437,6 @@ class VirtualQWindow final : public QWindow {
         auto focusoutevent_cb = qwindow_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -457,7 +453,6 @@ class VirtualQWindow final : public QWindow {
         auto showevent_cb = qwindow_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -474,7 +469,6 @@ class VirtualQWindow final : public QWindow {
         auto hideevent_cb = qwindow_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = param1;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -491,7 +485,6 @@ class VirtualQWindow final : public QWindow {
         auto closeevent_cb = qwindow_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -507,7 +500,6 @@ class VirtualQWindow final : public QWindow {
         auto event_cb = qwindow_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -524,7 +516,6 @@ class VirtualQWindow final : public QWindow {
         auto keypressevent_cb = qwindow_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -541,7 +532,6 @@ class VirtualQWindow final : public QWindow {
         auto keyreleaseevent_cb = qwindow_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -558,7 +548,6 @@ class VirtualQWindow final : public QWindow {
         auto mousepressevent_cb = qwindow_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -575,7 +564,6 @@ class VirtualQWindow final : public QWindow {
         auto mousereleaseevent_cb = qwindow_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -592,7 +580,6 @@ class VirtualQWindow final : public QWindow {
         auto mousedoubleclickevent_cb = qwindow_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -609,7 +596,6 @@ class VirtualQWindow final : public QWindow {
         auto mousemoveevent_cb = qwindow_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -626,7 +612,6 @@ class VirtualQWindow final : public QWindow {
         auto wheelevent_cb = qwindow_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -643,7 +628,6 @@ class VirtualQWindow final : public QWindow {
         auto touchevent_cb = qwindow_touchevent_callback;
         if (touchevent_cb) {
             QTouchEvent* cbval1 = param1;
-
             touchevent_cb(this, cbval1);
             return;
         }
@@ -660,7 +644,6 @@ class VirtualQWindow final : public QWindow {
         auto tabletevent_cb = qwindow_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = param1;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -684,7 +667,6 @@ class VirtualQWindow final : public QWindow {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -702,7 +684,6 @@ class VirtualQWindow final : public QWindow {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -719,7 +700,6 @@ class VirtualQWindow final : public QWindow {
         auto timerevent_cb = qwindow_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -736,7 +716,6 @@ class VirtualQWindow final : public QWindow {
         auto childevent_cb = qwindow_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -753,7 +732,6 @@ class VirtualQWindow final : public QWindow {
         auto customevent_cb = qwindow_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -772,7 +750,6 @@ class VirtualQWindow final : public QWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -791,7 +768,6 @@ class VirtualQWindow final : public QWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -808,7 +784,6 @@ class VirtualQWindow final : public QWindow {
         if (resolveinterface_cb) {
             const char* cbval1 = (const char*)name;
             int cbval2 = revision;
-
             void* callback_ret = resolveinterface_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -852,7 +827,6 @@ class VirtualQWindow final : public QWindow {
         auto receivers_cb = qwindow_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -870,7 +844,6 @@ class VirtualQWindow final : public QWindow {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

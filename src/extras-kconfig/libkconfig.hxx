@@ -186,7 +186,6 @@ class VirtualKConfig final : public KConfig {
             memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
-
             bool callback_ret = hasgroupimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return callback_ret;
@@ -210,10 +209,11 @@ class VirtualKConfig final : public KConfig {
             memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
-
             KConfigGroup* callback_ret = groupimpl_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(groupName_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return KConfig::groupImpl(groupName);
     }
@@ -234,10 +234,11 @@ class VirtualKConfig final : public KConfig {
             memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
-
             KConfigGroup* callback_ret = groupimpl2_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(groupName_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return KConfig::groupImpl(groupName);
     }
@@ -260,7 +261,6 @@ class VirtualKConfig final : public KConfig {
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
             int cbval2 = static_cast<int>(flags);
-
             deletegroupimpl_cb(this, cbval1, cbval2);
             libqt_free(groupName_str);
             return;
@@ -284,7 +284,6 @@ class VirtualKConfig final : public KConfig {
             memcpy((void*)groupName_str, groupName_b.data(), groupName_str_len);
             ((char*)groupName_str)[groupName_str_len] = '\0';
             const char* cbval1 = groupName_str;
-
             bool callback_ret = isgroupimmutableimpl_cb(this, cbval1);
             libqt_free(groupName_str);
             return callback_ret;
@@ -303,7 +302,6 @@ class VirtualKConfig final : public KConfig {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }

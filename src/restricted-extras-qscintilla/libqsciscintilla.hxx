@@ -834,7 +834,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto metacast_cb = qsciscintilla_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -852,7 +851,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -870,7 +868,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             int cbval1 = pos;
             int* cbval2 = &context_start;
             int* cbval3 = &last_word_start;
-
             const char** callback_ret = apicontext_cb(this, cbval1, cbval2, cbval3);
             QList<QString> callback_ret_QList;
             size_t callback_ret_len = libqt_strv_length(callback_ret);
@@ -912,7 +909,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             bool cbval9 = show;
             bool cbval10 = posix;
             bool cbval11 = cxx11;
-
             bool callback_ret = findfirst_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8, cbval9, cbval10, cbval11);
             libqt_free(expr_str);
             return callback_ret;
@@ -943,7 +939,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             bool cbval6 = show;
             bool cbval7 = posix;
             bool cbval8 = cxx11;
-
             bool callback_ret = findfirstinselection_cb(this, cbval1, cbval2, cbval3, cbval4, cbval5, cbval6, cbval7, cbval8);
             libqt_free(expr_str);
             return callback_ret;
@@ -976,7 +971,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (recolor_cb) {
             int cbval1 = start;
             int cbval2 = end;
-
             recolor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1000,7 +994,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)replaceStr_str, replaceStr_b.data(), replaceStr_str_len);
             ((char*)replaceStr_str)[replaceStr_str_len] = '\0';
             const char* cbval1 = replaceStr_str;
-
             replace_cb(this, cbval1);
             libqt_free(replaceStr_str);
             return;
@@ -1025,7 +1018,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             append_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -1163,7 +1155,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto ensurelinevisible_cb = qsciscintilla_ensurelinevisible_callback;
         if (ensurelinevisible_cb) {
             int cbval1 = line;
-
             ensurelinevisible_cb(this, cbval1);
             return;
         }
@@ -1180,7 +1171,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto foldall_cb = qsciscintilla_foldall_callback;
         if (foldall_cb) {
             bool cbval1 = children;
-
             foldall_cb(this, cbval1);
             return;
         }
@@ -1197,7 +1187,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto foldline_cb = qsciscintilla_foldline_callback;
         if (foldline_cb) {
             int cbval1 = line;
-
             foldline_cb(this, cbval1);
             return;
         }
@@ -1214,7 +1203,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto indent_cb = qsciscintilla_indent_callback;
         if (indent_cb) {
             int cbval1 = line;
-
             indent_cb(this, cbval1);
             return;
         }
@@ -1238,7 +1226,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             insert_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -1265,7 +1252,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const char* cbval1 = text_str;
             int cbval2 = line;
             int cbval3 = index;
-
             insertat_cb(this, cbval1, cbval2, cbval3);
             libqt_free(text_str);
             return;
@@ -1350,7 +1336,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             replaceselectedtext_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -1398,7 +1383,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto selectall_cb = qsciscintilla_selectall_callback;
         if (selectall_cb) {
             bool cbval1 = selectVal;
-
             selectall_cb(this, cbval1);
             return;
         }
@@ -1430,7 +1414,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautocompletioncasesensitivity_cb = qsciscintilla_setautocompletioncasesensitivity_callback;
         if (setautocompletioncasesensitivity_cb) {
             bool cbval1 = cs;
-
             setautocompletioncasesensitivity_cb(this, cbval1);
             return;
         }
@@ -1447,7 +1430,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautocompletionreplaceword_cb = qsciscintilla_setautocompletionreplaceword_callback;
         if (setautocompletionreplaceword_cb) {
             bool cbval1 = replace;
-
             setautocompletionreplaceword_cb(this, cbval1);
             return;
         }
@@ -1464,7 +1446,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautocompletionshowsingle_cb = qsciscintilla_setautocompletionshowsingle_callback;
         if (setautocompletionshowsingle_cb) {
             bool cbval1 = single;
-
             setautocompletionshowsingle_cb(this, cbval1);
             return;
         }
@@ -1481,7 +1462,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautocompletionsource_cb = qsciscintilla_setautocompletionsource_callback;
         if (setautocompletionsource_cb) {
             int cbval1 = static_cast<int>(source);
-
             setautocompletionsource_cb(this, cbval1);
             return;
         }
@@ -1498,7 +1478,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautocompletionthreshold_cb = qsciscintilla_setautocompletionthreshold_callback;
         if (setautocompletionthreshold_cb) {
             int cbval1 = thresh;
-
             setautocompletionthreshold_cb(this, cbval1);
             return;
         }
@@ -1515,7 +1494,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautocompletionusesingle_cb = qsciscintilla_setautocompletionusesingle_callback;
         if (setautocompletionusesingle_cb) {
             int cbval1 = static_cast<int>(single);
-
             setautocompletionusesingle_cb(this, cbval1);
             return;
         }
@@ -1532,7 +1510,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setautoindent_cb = qsciscintilla_setautoindent_callback;
         if (setautoindent_cb) {
             bool cbval1 = autoindent;
-
             setautoindent_cb(this, cbval1);
             return;
         }
@@ -1549,7 +1526,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setbracematching_cb = qsciscintilla_setbracematching_callback;
         if (setbracematching_cb) {
             int cbval1 = static_cast<int>(bm);
-
             setbracematching_cb(this, cbval1);
             return;
         }
@@ -1566,7 +1542,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setbackspaceunindents_cb = qsciscintilla_setbackspaceunindents_callback;
         if (setbackspaceunindents_cb) {
             bool cbval1 = unindent;
-
             setbackspaceunindents_cb(this, cbval1);
             return;
         }
@@ -1585,7 +1560,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setcaretforegroundcolor_cb(this, cbval1);
             return;
         }
@@ -1604,7 +1578,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setcaretlinebackgroundcolor_cb(this, cbval1);
             return;
         }
@@ -1621,7 +1594,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setcaretlineframewidth_cb = qsciscintilla_setcaretlineframewidth_callback;
         if (setcaretlineframewidth_cb) {
             int cbval1 = width;
-
             setcaretlineframewidth_cb(this, cbval1);
             return;
         }
@@ -1638,7 +1610,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setcaretlinevisible_cb = qsciscintilla_setcaretlinevisible_callback;
         if (setcaretlinevisible_cb) {
             bool cbval1 = enable;
-
             setcaretlinevisible_cb(this, cbval1);
             return;
         }
@@ -1655,7 +1626,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setcaretwidth_cb = qsciscintilla_setcaretwidth_callback;
         if (setcaretwidth_cb) {
             int cbval1 = width;
-
             setcaretwidth_cb(this, cbval1);
             return;
         }
@@ -1674,7 +1644,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& c_ret = c;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
-
             setcolor_cb(this, cbval1);
             return;
         }
@@ -1692,7 +1661,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setcursorposition_cb) {
             int cbval1 = line;
             int cbval2 = index;
-
             setcursorposition_cb(this, cbval1, cbval2);
             return;
         }
@@ -1709,7 +1677,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto seteolmode_cb = qsciscintilla_seteolmode_callback;
         if (seteolmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             seteolmode_cb(this, cbval1);
             return;
         }
@@ -1726,7 +1693,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto seteolvisibility_cb = qsciscintilla_seteolvisibility_callback;
         if (seteolvisibility_cb) {
             bool cbval1 = visible;
-
             seteolvisibility_cb(this, cbval1);
             return;
         }
@@ -1744,7 +1710,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setfolding_cb) {
             int cbval1 = static_cast<int>(fold);
             int cbval2 = margin;
-
             setfolding_cb(this, cbval1, cbval2);
             return;
         }
@@ -1762,7 +1727,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setindentation_cb) {
             int cbval1 = line;
             int cbval2 = indentation;
-
             setindentation_cb(this, cbval1, cbval2);
             return;
         }
@@ -1779,7 +1743,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setindentationguides_cb = qsciscintilla_setindentationguides_callback;
         if (setindentationguides_cb) {
             bool cbval1 = enable;
-
             setindentationguides_cb(this, cbval1);
             return;
         }
@@ -1798,7 +1761,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setindentationguidesbackgroundcolor_cb(this, cbval1);
             return;
         }
@@ -1817,7 +1779,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setindentationguidesforegroundcolor_cb(this, cbval1);
             return;
         }
@@ -1834,7 +1795,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setindentationsusetabs_cb = qsciscintilla_setindentationsusetabs_callback;
         if (setindentationsusetabs_cb) {
             bool cbval1 = tabs;
-
             setindentationsusetabs_cb(this, cbval1);
             return;
         }
@@ -1851,7 +1811,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setindentationwidth_cb = qsciscintilla_setindentationwidth_callback;
         if (setindentationwidth_cb) {
             int cbval1 = width;
-
             setindentationwidth_cb(this, cbval1);
             return;
         }
@@ -1868,7 +1827,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setlexer_cb = qsciscintilla_setlexer_callback;
         if (setlexer_cb) {
             QsciLexer* cbval1 = lexer;
-
             setlexer_cb(this, cbval1);
             return;
         }
@@ -1887,7 +1845,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setmarginsbackgroundcolor_cb(this, cbval1);
             return;
         }
@@ -1906,7 +1863,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QFont& f_ret = f;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&f_ret);
-
             setmarginsfont_cb(this, cbval1);
             return;
         }
@@ -1925,7 +1881,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setmarginsforegroundcolor_cb(this, cbval1);
             return;
         }
@@ -1943,7 +1898,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setmarginlinenumbers_cb) {
             int cbval1 = margin;
             bool cbval2 = lnrs;
-
             setmarginlinenumbers_cb(this, cbval1, cbval2);
             return;
         }
@@ -1961,7 +1915,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setmarginmarkermask_cb) {
             int cbval1 = margin;
             int cbval2 = mask;
-
             setmarginmarkermask_cb(this, cbval1, cbval2);
             return;
         }
@@ -1979,7 +1932,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setmarginsensitivity_cb) {
             int cbval1 = margin;
             bool cbval2 = sens;
-
             setmarginsensitivity_cb(this, cbval1, cbval2);
             return;
         }
@@ -1997,7 +1949,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (setmarginwidth_cb) {
             int cbval1 = margin;
             int cbval2 = width;
-
             setmarginwidth_cb(this, cbval1, cbval2);
             return;
         }
@@ -2022,7 +1973,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)s_str, s_b.data(), s_str_len);
             ((char*)s_str)[s_str_len] = '\0';
             const char* cbval2 = s_str;
-
             setmarginwidth2_cb(this, cbval1, cbval2);
             libqt_free(s_str);
             return;
@@ -2040,7 +1990,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setmodified_cb = qsciscintilla_setmodified_callback;
         if (setmodified_cb) {
             bool cbval1 = m;
-
             setmodified_cb(this, cbval1);
             return;
         }
@@ -2059,7 +2008,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& c_ret = c;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
-
             setpaper_cb(this, cbval1);
             return;
         }
@@ -2076,7 +2024,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setreadonly_cb = qsciscintilla_setreadonly_callback;
         if (setreadonly_cb) {
             bool cbval1 = ro;
-
             setreadonly_cb(this, cbval1);
             return;
         }
@@ -2096,7 +2043,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             int cbval2 = indexFrom;
             int cbval3 = lineTo;
             int cbval4 = indexTo;
-
             setselection_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2115,7 +2061,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setselectionbackgroundcolor_cb(this, cbval1);
             return;
         }
@@ -2134,7 +2079,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QColor& col_ret = col;
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&col_ret);
-
             setselectionforegroundcolor_cb(this, cbval1);
             return;
         }
@@ -2151,7 +2095,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto settabindents_cb = qsciscintilla_settabindents_callback;
         if (settabindents_cb) {
             bool cbval1 = indent;
-
             settabindents_cb(this, cbval1);
             return;
         }
@@ -2168,7 +2111,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto settabwidth_cb = qsciscintilla_settabwidth_callback;
         if (settabwidth_cb) {
             int cbval1 = width;
-
             settabwidth_cb(this, cbval1);
             return;
         }
@@ -2192,7 +2134,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             settext_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -2210,7 +2151,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setutf8_cb = qsciscintilla_setutf8_callback;
         if (setutf8_cb) {
             bool cbval1 = cp;
-
             setutf8_cb(this, cbval1);
             return;
         }
@@ -2227,7 +2167,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setwhitespacevisibility_cb = qsciscintilla_setwhitespacevisibility_callback;
         if (setwhitespacevisibility_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setwhitespacevisibility_cb(this, cbval1);
             return;
         }
@@ -2244,7 +2183,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setwrapmode_cb = qsciscintilla_setwrapmode_callback;
         if (setwrapmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setwrapmode_cb(this, cbval1);
             return;
         }
@@ -2276,7 +2214,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto unindent_cb = qsciscintilla_unindent_callback;
         if (unindent_cb) {
             int cbval1 = line;
-
             unindent_cb(this, cbval1);
             return;
         }
@@ -2293,7 +2230,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto zoomin_cb = qsciscintilla_zoomin_callback;
         if (zoomin_cb) {
             int cbval1 = range;
-
             zoomin_cb(this, cbval1);
             return;
         }
@@ -2325,7 +2261,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto zoomout_cb = qsciscintilla_zoomout_callback;
         if (zoomout_cb) {
             int cbval1 = range;
-
             zoomout_cb(this, cbval1);
             return;
         }
@@ -2357,7 +2292,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto zoomto_cb = qsciscintilla_zoomto_callback;
         if (zoomto_cb) {
             int cbval1 = size;
-
             zoomto_cb(this, cbval1);
             return;
         }
@@ -2373,7 +2307,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto event_cb = qsciscintilla_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2390,7 +2323,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto changeevent_cb = qsciscintilla_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = e;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2407,7 +2339,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto contextmenuevent_cb = qsciscintilla_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = e;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2424,7 +2355,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto wheelevent_cb = qsciscintilla_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = e;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2440,7 +2370,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto caninsertfrommimedata_cb = qsciscintilla_caninsertfrommimedata_callback;
         if (caninsertfrommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
-
             bool callback_ret = caninsertfrommimedata_cb(this, cbval1);
             return callback_ret;
         }
@@ -2457,7 +2386,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (frommimedata_cb) {
             QMimeData* cbval1 = (QMimeData*)source;
             bool* cbval2 = &rectangular;
-
             libqt_string callback_ret = frommimedata_cb(this, cbval1, cbval2);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             return callback_ret_QByteArray;
@@ -2480,7 +2408,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             memcpy((void*)text_str.data, text_qb.data(), text_str.len);
             libqt_string cbval1 = text_str;
             bool cbval2 = rectangular;
-
             QMimeData* callback_ret = tomimedata_cb(this, cbval1, cbval2);
             libqt_free(text_str.data);
             return callback_ret;
@@ -2498,7 +2425,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto dragenterevent_cb = qsciscintilla_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = e;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2515,7 +2441,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto dragleaveevent_cb = qsciscintilla_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2532,7 +2457,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto dragmoveevent_cb = qsciscintilla_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2549,7 +2473,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto dropevent_cb = qsciscintilla_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = e;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2566,7 +2489,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto focusinevent_cb = qsciscintilla_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2583,7 +2505,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto focusoutevent_cb = qsciscintilla_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2599,7 +2520,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto focusnextprevchild_cb = qsciscintilla_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2616,7 +2536,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto keypressevent_cb = qsciscintilla_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2633,7 +2552,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto inputmethodevent_cb = qsciscintilla_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2649,9 +2567,10 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto inputmethodquery_cb = qsciscintilla_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintilla::inputMethodQuery(query);
     }
@@ -2666,7 +2585,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto mousedoubleclickevent_cb = qsciscintilla_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2683,7 +2601,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto mousemoveevent_cb = qsciscintilla_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2700,7 +2617,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto mousepressevent_cb = qsciscintilla_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2717,7 +2633,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto mousereleaseevent_cb = qsciscintilla_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2734,7 +2649,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto paintevent_cb = qsciscintilla_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2751,7 +2665,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto resizeevent_cb = qsciscintilla_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = e;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2769,7 +2682,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -2785,7 +2697,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto minimumsizehint_cb = qsciscintilla_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintilla::minimumSizeHint();
     }
@@ -2799,7 +2713,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto sizehint_cb = qsciscintilla_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintilla::sizeHint();
     }
@@ -2814,7 +2730,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setupviewport_cb = qsciscintilla_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -2831,7 +2746,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2847,7 +2761,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto viewportevent_cb = qsciscintilla_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -2863,7 +2776,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto viewportsizehint_cb = qsciscintilla_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintilla::viewportSizeHint();
     }
@@ -2878,7 +2793,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto initstyleoption_cb = qsciscintilla_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -2909,7 +2823,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setvisible_cb = qsciscintilla_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2925,7 +2838,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto heightforwidth_cb = qsciscintilla_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2970,7 +2882,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto keyreleaseevent_cb = qsciscintilla_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2987,7 +2898,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto enterevent_cb = qsciscintilla_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -3004,7 +2914,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto leaveevent_cb = qsciscintilla_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -3021,7 +2930,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto moveevent_cb = qsciscintilla_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -3038,7 +2946,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto closeevent_cb = qsciscintilla_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -3055,7 +2962,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto tabletevent_cb = qsciscintilla_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -3072,7 +2978,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto actionevent_cb = qsciscintilla_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -3089,7 +2994,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto showevent_cb = qsciscintilla_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -3106,7 +3010,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto hideevent_cb = qsciscintilla_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -3130,7 +3033,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -3147,7 +3049,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto metric_cb = qsciscintilla_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3164,7 +3065,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto initpainter_cb = qsciscintilla_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -3180,7 +3080,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto redirected_cb = qsciscintilla_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3211,7 +3110,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto timerevent_cb = qsciscintilla_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -3228,7 +3126,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto childevent_cb = qsciscintilla_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -3245,7 +3142,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto customevent_cb = qsciscintilla_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -3264,7 +3160,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -3283,7 +3178,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -3315,7 +3209,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (contextmenuneeded_cb) {
             int cbval1 = x;
             int cbval2 = y;
-
             bool callback_ret = contextmenuneeded_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -3335,7 +3228,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -3351,7 +3243,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto viewportmargins_cb = qsciscintilla_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciScintilla::viewportMargins();
     }
@@ -3366,7 +3260,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto drawframe_cb = qsciscintilla_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -3483,7 +3376,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto receivers_cb = qsciscintilla_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3501,7 +3393,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3518,7 +3409,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

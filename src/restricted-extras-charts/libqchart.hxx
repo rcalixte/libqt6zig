@@ -441,7 +441,6 @@ class VirtualQChart final : public QChart {
         auto metacast_cb = qchart_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -459,7 +458,6 @@ class VirtualQChart final : public QChart {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -478,7 +476,6 @@ class VirtualQChart final : public QChart {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -498,7 +495,6 @@ class VirtualQChart final : public QChart {
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
-
             getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -531,7 +527,6 @@ class VirtualQChart final : public QChart {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
-
             paint_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -550,7 +545,6 @@ class VirtualQChart final : public QChart {
             QPainter* cbval1 = painter;
             QStyleOptionGraphicsItem* cbval2 = (QStyleOptionGraphicsItem*)option;
             QWidget* cbval3 = widget;
-
             paintwindowframe_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -566,7 +560,9 @@ class VirtualQChart final : public QChart {
         auto boundingrect_cb = qchart_boundingrect_callback;
         if (boundingrect_cb) {
             QRectF* callback_ret = boundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::boundingRect();
     }
@@ -580,7 +576,9 @@ class VirtualQChart final : public QChart {
         auto shape_cb = qchart_shape_callback;
         if (shape_cb) {
             QPainterPath* callback_ret = shape_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::shape();
     }
@@ -595,7 +593,6 @@ class VirtualQChart final : public QChart {
         auto initstyleoption_cb = qchart_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOption* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -614,9 +611,10 @@ class VirtualQChart final : public QChart {
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
-
             QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::sizeHint(which, constraint);
     }
@@ -648,9 +646,10 @@ class VirtualQChart final : public QChart {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             QVariant* callback_ret = itemchange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::itemChange(change, value);
     }
@@ -674,10 +673,11 @@ class VirtualQChart final : public QChart {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             QVariant* callback_ret = propertychange_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(propertyName_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QChart::propertyChange(propertyName, value);
     }
@@ -691,7 +691,6 @@ class VirtualQChart final : public QChart {
         auto sceneevent_cb = qchart_sceneevent_callback;
         if (sceneevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = sceneevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -707,7 +706,6 @@ class VirtualQChart final : public QChart {
         auto windowframeevent_cb = qchart_windowframeevent_callback;
         if (windowframeevent_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = windowframeevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -725,7 +723,6 @@ class VirtualQChart final : public QChart {
             const QPointF& pos_ret = pos;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&pos_ret);
-
             int callback_ret = windowframesectionat_cb(this, cbval1);
             return static_cast<Qt::WindowFrameSection>(callback_ret);
         }
@@ -741,7 +738,6 @@ class VirtualQChart final : public QChart {
         auto event_cb = qchart_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -758,7 +754,6 @@ class VirtualQChart final : public QChart {
         auto changeevent_cb = qchart_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -775,7 +770,6 @@ class VirtualQChart final : public QChart {
         auto closeevent_cb = qchart_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -792,7 +786,6 @@ class VirtualQChart final : public QChart {
         auto focusinevent_cb = qchart_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -808,7 +801,6 @@ class VirtualQChart final : public QChart {
         auto focusnextprevchild_cb = qchart_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -825,7 +817,6 @@ class VirtualQChart final : public QChart {
         auto focusoutevent_cb = qchart_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -842,7 +833,6 @@ class VirtualQChart final : public QChart {
         auto hideevent_cb = qchart_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -859,7 +849,6 @@ class VirtualQChart final : public QChart {
         auto moveevent_cb = qchart_moveevent_callback;
         if (moveevent_cb) {
             QGraphicsSceneMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -891,7 +880,6 @@ class VirtualQChart final : public QChart {
         auto resizeevent_cb = qchart_resizeevent_callback;
         if (resizeevent_cb) {
             QGraphicsSceneResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -908,7 +896,6 @@ class VirtualQChart final : public QChart {
         auto showevent_cb = qchart_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -925,7 +912,6 @@ class VirtualQChart final : public QChart {
         auto hovermoveevent_cb = qchart_hovermoveevent_callback;
         if (hovermoveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-
             hovermoveevent_cb(this, cbval1);
             return;
         }
@@ -942,7 +928,6 @@ class VirtualQChart final : public QChart {
         auto hoverleaveevent_cb = qchart_hoverleaveevent_callback;
         if (hoverleaveevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-
             hoverleaveevent_cb(this, cbval1);
             return;
         }
@@ -959,7 +944,6 @@ class VirtualQChart final : public QChart {
         auto grabmouseevent_cb = qchart_grabmouseevent_callback;
         if (grabmouseevent_cb) {
             QEvent* cbval1 = event;
-
             grabmouseevent_cb(this, cbval1);
             return;
         }
@@ -976,7 +960,6 @@ class VirtualQChart final : public QChart {
         auto ungrabmouseevent_cb = qchart_ungrabmouseevent_callback;
         if (ungrabmouseevent_cb) {
             QEvent* cbval1 = event;
-
             ungrabmouseevent_cb(this, cbval1);
             return;
         }
@@ -993,7 +976,6 @@ class VirtualQChart final : public QChart {
         auto grabkeyboardevent_cb = qchart_grabkeyboardevent_callback;
         if (grabkeyboardevent_cb) {
             QEvent* cbval1 = event;
-
             grabkeyboardevent_cb(this, cbval1);
             return;
         }
@@ -1010,7 +992,6 @@ class VirtualQChart final : public QChart {
         auto ungrabkeyboardevent_cb = qchart_ungrabkeyboardevent_callback;
         if (ungrabkeyboardevent_cb) {
             QEvent* cbval1 = event;
-
             ungrabkeyboardevent_cb(this, cbval1);
             return;
         }
@@ -1027,7 +1008,6 @@ class VirtualQChart final : public QChart {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1044,7 +1024,6 @@ class VirtualQChart final : public QChart {
         auto timerevent_cb = qchart_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1061,7 +1040,6 @@ class VirtualQChart final : public QChart {
         auto childevent_cb = qchart_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1078,7 +1056,6 @@ class VirtualQChart final : public QChart {
         auto customevent_cb = qchart_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1097,7 +1074,6 @@ class VirtualQChart final : public QChart {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1116,7 +1092,6 @@ class VirtualQChart final : public QChart {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1133,7 +1108,6 @@ class VirtualQChart final : public QChart {
         auto advance_cb = qchart_advance_callback;
         if (advance_cb) {
             int cbval1 = phase;
-
             advance_cb(this, cbval1);
             return;
         }
@@ -1151,7 +1125,6 @@ class VirtualQChart final : public QChart {
             const QPointF& point_ret = point;
             // Cast returned reference into pointer
             QPointF* cbval1 = const_cast<QPointF*>(&point_ret);
-
             bool callback_ret = contains_cb(this, cbval1);
             return callback_ret;
         }
@@ -1168,7 +1141,6 @@ class VirtualQChart final : public QChart {
         if (collideswithitem_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)other;
             int cbval2 = static_cast<int>(mode);
-
             bool callback_ret = collideswithitem_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1187,7 +1159,6 @@ class VirtualQChart final : public QChart {
             // Cast returned reference into pointer
             QPainterPath* cbval1 = const_cast<QPainterPath*>(&path_ret);
             int cbval2 = static_cast<int>(mode);
-
             bool callback_ret = collideswithpath_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1203,7 +1174,6 @@ class VirtualQChart final : public QChart {
         auto isobscuredby_cb = qchart_isobscuredby_callback;
         if (isobscuredby_cb) {
             QGraphicsItem* cbval1 = (QGraphicsItem*)item;
-
             bool callback_ret = isobscuredby_cb(this, cbval1);
             return callback_ret;
         }
@@ -1219,7 +1189,9 @@ class VirtualQChart final : public QChart {
         auto opaquearea_cb = qchart_opaquearea_callback;
         if (opaquearea_cb) {
             QPainterPath* callback_ret = opaquearea_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::opaqueArea();
     }
@@ -1234,7 +1206,6 @@ class VirtualQChart final : public QChart {
         if (sceneeventfilter_cb) {
             QGraphicsItem* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = sceneeventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1251,7 +1222,6 @@ class VirtualQChart final : public QChart {
         auto contextmenuevent_cb = qchart_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QGraphicsSceneContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1268,7 +1238,6 @@ class VirtualQChart final : public QChart {
         auto dragenterevent_cb = qchart_dragenterevent_callback;
         if (dragenterevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1285,7 +1254,6 @@ class VirtualQChart final : public QChart {
         auto dragleaveevent_cb = qchart_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1302,7 +1270,6 @@ class VirtualQChart final : public QChart {
         auto dragmoveevent_cb = qchart_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1319,7 +1286,6 @@ class VirtualQChart final : public QChart {
         auto dropevent_cb = qchart_dropevent_callback;
         if (dropevent_cb) {
             QGraphicsSceneDragDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1336,7 +1302,6 @@ class VirtualQChart final : public QChart {
         auto hoverenterevent_cb = qchart_hoverenterevent_callback;
         if (hoverenterevent_cb) {
             QGraphicsSceneHoverEvent* cbval1 = event;
-
             hoverenterevent_cb(this, cbval1);
             return;
         }
@@ -1353,7 +1318,6 @@ class VirtualQChart final : public QChart {
         auto keypressevent_cb = qchart_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1370,7 +1334,6 @@ class VirtualQChart final : public QChart {
         auto keyreleaseevent_cb = qchart_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1387,7 +1350,6 @@ class VirtualQChart final : public QChart {
         auto mousepressevent_cb = qchart_mousepressevent_callback;
         if (mousepressevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1404,7 +1366,6 @@ class VirtualQChart final : public QChart {
         auto mousemoveevent_cb = qchart_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1421,7 +1382,6 @@ class VirtualQChart final : public QChart {
         auto mousereleaseevent_cb = qchart_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1438,7 +1398,6 @@ class VirtualQChart final : public QChart {
         auto mousedoubleclickevent_cb = qchart_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QGraphicsSceneMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1455,7 +1414,6 @@ class VirtualQChart final : public QChart {
         auto wheelevent_cb = qchart_wheelevent_callback;
         if (wheelevent_cb) {
             QGraphicsSceneWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1472,7 +1430,6 @@ class VirtualQChart final : public QChart {
         auto inputmethodevent_cb = qchart_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1488,9 +1445,10 @@ class VirtualQChart final : public QChart {
         auto inputmethodquery_cb = qchart_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::inputMethodQuery(query);
     }
@@ -1504,7 +1462,6 @@ class VirtualQChart final : public QChart {
         auto supportsextension_cb = qchart_supportsextension_callback;
         if (supportsextension_cb) {
             int cbval1 = static_cast<int>(extension);
-
             bool callback_ret = supportsextension_cb(this, cbval1);
             return callback_ret;
         }
@@ -1524,7 +1481,6 @@ class VirtualQChart final : public QChart {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&variant_ret);
-
             setextension_cb(this, cbval1, cbval2);
             return;
         }
@@ -1542,9 +1498,10 @@ class VirtualQChart final : public QChart {
             const QVariant& variant_ret = variant;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&variant_ret);
-
             QVariant* callback_ret = extension_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QChart::extension(variant);
     }
@@ -1615,7 +1572,6 @@ class VirtualQChart final : public QChart {
         auto receivers_cb = qchart_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1633,7 +1589,6 @@ class VirtualQChart final : public QChart {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1695,7 +1650,6 @@ class VirtualQChart final : public QChart {
         auto setgraphicsitem_cb = qchart_setgraphicsitem_callback;
         if (setgraphicsitem_cb) {
             QGraphicsItem* cbval1 = item;
-
             setgraphicsitem_cb(this, cbval1);
             return;
         }
@@ -1712,7 +1666,6 @@ class VirtualQChart final : public QChart {
         auto setownedbylayout_cb = qchart_setownedbylayout_callback;
         if (setownedbylayout_cb) {
             bool cbval1 = ownedByLayout;
-
             setownedbylayout_cb(this, cbval1);
             return;
         }

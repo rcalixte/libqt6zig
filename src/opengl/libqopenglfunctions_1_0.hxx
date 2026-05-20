@@ -88,7 +88,6 @@ class VirtualQOpenGLFunctions_1_0 final : public QOpenGLFunctions_1_0 {
         auto setowningcontext_cb = qopenglfunctions_1_0_setowningcontext_callback;
         if (setowningcontext_cb) {
             QOpenGLContext* cbval1 = (QOpenGLContext*)context;
-
             setowningcontext_cb(this, cbval1);
             return;
         }

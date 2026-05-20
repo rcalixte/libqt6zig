@@ -59,7 +59,6 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         auto stationary_cb = qtest__qtoucheventwidgetsequence_stationary_callback;
         if (stationary_cb) {
             int cbval1 = touchId;
-
             QTest__QTouchEventWidgetSequence* callback_ret = stationary_cb(this, cbval1);
             return *callback_ret;
         }
@@ -75,7 +74,6 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         auto commit_cb = qtest__qtoucheventwidgetsequence_commit_callback;
         if (commit_cb) {
             bool cbval1 = processEvents;
-
             bool callback_ret = commit_cb(this, cbval1);
             return callback_ret;
         }
@@ -91,7 +89,6 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         auto point_cb = qtest__qtoucheventwidgetsequence_point_callback;
         if (point_cb) {
             int cbval1 = touchId;
-
             QEventPoint* callback_ret = point_cb(this, cbval1);
             return *callback_ret;
         }
@@ -107,7 +104,6 @@ class VirtualQTestQTouchEventWidgetSequence final : public QTest::QTouchEventWid
         auto pointorpreviouspoint_cb = qtest__qtoucheventwidgetsequence_pointorpreviouspoint_callback;
         if (pointorpreviouspoint_cb) {
             int cbval1 = touchId;
-
             QEventPoint* callback_ret = pointorpreviouspoint_cb(this, cbval1);
             return *callback_ret;
         }

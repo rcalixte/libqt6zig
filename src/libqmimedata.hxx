@@ -138,7 +138,6 @@ class VirtualQMimeData final : public QMimeData {
         auto metacast_cb = qmimedata_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -156,7 +155,6 @@ class VirtualQMimeData final : public QMimeData {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -179,7 +177,6 @@ class VirtualQMimeData final : public QMimeData {
             memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
             ((char*)mimetype_str)[mimetype_str_len] = '\0';
             const char* cbval1 = mimetype_str;
-
             bool callback_ret = hasformat_cb(this, cbval1);
             libqt_free(mimetype_str);
             return callback_ret;
@@ -227,10 +224,11 @@ class VirtualQMimeData final : public QMimeData {
             ((char*)mimetype_str)[mimetype_str_len] = '\0';
             const char* cbval1 = mimetype_str;
             QMetaType* cbval2 = new QMetaType(preferredType);
-
             QVariant* callback_ret = retrievedata_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(mimetype_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QMimeData::retrieveData(mimetype, preferredType);
     }
@@ -244,7 +242,6 @@ class VirtualQMimeData final : public QMimeData {
         auto event_cb = qmimedata_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -261,7 +258,6 @@ class VirtualQMimeData final : public QMimeData {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -278,7 +274,6 @@ class VirtualQMimeData final : public QMimeData {
         auto timerevent_cb = qmimedata_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -295,7 +290,6 @@ class VirtualQMimeData final : public QMimeData {
         auto childevent_cb = qmimedata_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -312,7 +306,6 @@ class VirtualQMimeData final : public QMimeData {
         auto customevent_cb = qmimedata_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -331,7 +324,6 @@ class VirtualQMimeData final : public QMimeData {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -350,7 +342,6 @@ class VirtualQMimeData final : public QMimeData {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -394,7 +385,6 @@ class VirtualQMimeData final : public QMimeData {
         auto receivers_cb = qmimedata_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -412,7 +402,6 @@ class VirtualQMimeData final : public QMimeData {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

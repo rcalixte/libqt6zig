@@ -154,7 +154,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto metacast_cb = ktexteditor__command_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -172,7 +171,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -195,7 +193,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)cmd_str, cmd_b.data(), cmd_str_len);
             ((char*)cmd_str)[cmd_str_len] = '\0';
             const char* cbval1 = cmd_str;
-
             bool callback_ret = supportsrange_cb(this, cbval1);
             libqt_free(cmd_str);
             return callback_ret;
@@ -227,7 +224,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
             KTextEditor__Range* cbval4 = const_cast<KTextEditor::Range*>(&range_ret);
-
             bool callback_ret = exec_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(cmd_str);
             libqt_free(msg_str);
@@ -257,7 +253,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)msg_str, msg_b.data(), msg_str_len);
             ((char*)msg_str)[msg_str_len] = '\0';
             const char* cbval3 = msg_str;
-
             bool callback_ret = help_cb(this, cbval1, cbval2, cbval3);
             libqt_free(cmd_str);
             libqt_free(msg_str);
@@ -283,7 +278,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)cmdname_str, cmdname_b.data(), cmdname_str_len);
             ((char*)cmdname_str)[cmdname_str_len] = '\0';
             const char* cbval2 = cmdname_str;
-
             KCompletion* callback_ret = completionobject_cb(this, cbval1, cbval2);
             libqt_free(cmdname_str);
             return callback_ret;
@@ -307,7 +301,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)cmdname_str, cmdname_b.data(), cmdname_str_len);
             ((char*)cmdname_str)[cmdname_str_len] = '\0';
             const char* cbval1 = cmdname_str;
-
             bool callback_ret = wantstoprocesstext_cb(this, cbval1);
             libqt_free(cmdname_str);
             return callback_ret;
@@ -333,7 +326,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval2 = text_str;
-
             processtext_cb(this, cbval1, cbval2);
             libqt_free(text_str);
             return;
@@ -350,7 +342,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto event_cb = ktexteditor__command_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -367,7 +358,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -384,7 +374,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto timerevent_cb = ktexteditor__command_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -401,7 +390,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto childevent_cb = ktexteditor__command_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -418,7 +406,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto customevent_cb = ktexteditor__command_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -437,7 +424,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -456,7 +442,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -500,7 +485,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto receivers_cb = ktexteditor__command_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -518,7 +502,6 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -375,7 +375,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto metacast_cb = kcolorpicker__kcolorpicker_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -393,7 +392,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -409,7 +407,9 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto sizehint_cb = kcolorpicker__kcolorpicker_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return kColorPicker__KColorPicker::sizeHint();
     }
@@ -423,7 +423,9 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto minimumsizehint_cb = kcolorpicker__kcolorpicker_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return kColorPicker__KColorPicker::minimumSizeHint();
     }
@@ -437,7 +439,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto event_cb = kcolorpicker__kcolorpicker_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -454,7 +455,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto mousepressevent_cb = kcolorpicker__kcolorpicker_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -471,7 +471,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto mousereleaseevent_cb = kcolorpicker__kcolorpicker_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -488,7 +487,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto paintevent_cb = kcolorpicker__kcolorpicker_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -505,7 +503,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto actionevent_cb = kcolorpicker__kcolorpicker_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = param1;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -522,7 +519,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto enterevent_cb = kcolorpicker__kcolorpicker_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = param1;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -539,7 +535,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto leaveevent_cb = kcolorpicker__kcolorpicker_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = param1;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -556,7 +551,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto timerevent_cb = kcolorpicker__kcolorpicker_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -573,7 +567,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto changeevent_cb = kcolorpicker__kcolorpicker_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -591,7 +584,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&pos_ret);
-
             bool callback_ret = hitbutton_cb(this, cbval1);
             return callback_ret;
         }
@@ -638,7 +630,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto initstyleoption_cb = kcolorpicker__kcolorpicker_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionToolButton* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -655,7 +646,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto keypressevent_cb = kcolorpicker__kcolorpicker_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -672,7 +662,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto keyreleaseevent_cb = kcolorpicker__kcolorpicker_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = e;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -689,7 +678,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto mousemoveevent_cb = kcolorpicker__kcolorpicker_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = e;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -706,7 +694,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto focusinevent_cb = kcolorpicker__kcolorpicker_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -723,7 +710,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto focusoutevent_cb = kcolorpicker__kcolorpicker_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = e;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -754,7 +740,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto setvisible_cb = kcolorpicker__kcolorpicker_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -770,7 +755,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto heightforwidth_cb = kcolorpicker__kcolorpicker_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -815,7 +799,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto mousedoubleclickevent_cb = kcolorpicker__kcolorpicker_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -832,7 +815,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto wheelevent_cb = kcolorpicker__kcolorpicker_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -849,7 +831,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto moveevent_cb = kcolorpicker__kcolorpicker_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -866,7 +847,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto resizeevent_cb = kcolorpicker__kcolorpicker_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -883,7 +863,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto closeevent_cb = kcolorpicker__kcolorpicker_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -900,7 +879,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto contextmenuevent_cb = kcolorpicker__kcolorpicker_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -917,7 +895,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto tabletevent_cb = kcolorpicker__kcolorpicker_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -934,7 +911,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto dragenterevent_cb = kcolorpicker__kcolorpicker_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -951,7 +927,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto dragmoveevent_cb = kcolorpicker__kcolorpicker_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -968,7 +943,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto dragleaveevent_cb = kcolorpicker__kcolorpicker_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -985,7 +959,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto dropevent_cb = kcolorpicker__kcolorpicker_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1002,7 +975,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto showevent_cb = kcolorpicker__kcolorpicker_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1019,7 +991,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto hideevent_cb = kcolorpicker__kcolorpicker_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1043,7 +1014,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1060,7 +1030,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto metric_cb = kcolorpicker__kcolorpicker_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1077,7 +1046,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto initpainter_cb = kcolorpicker__kcolorpicker_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1093,7 +1061,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto redirected_cb = kcolorpicker__kcolorpicker_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1124,7 +1091,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto inputmethodevent_cb = kcolorpicker__kcolorpicker_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1140,9 +1106,10 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto inputmethodquery_cb = kcolorpicker__kcolorpicker_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return kColorPicker__KColorPicker::inputMethodQuery(param1);
     }
@@ -1156,7 +1123,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto focusnextprevchild_cb = kcolorpicker__kcolorpicker_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1173,7 +1139,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1190,7 +1155,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto childevent_cb = kcolorpicker__kcolorpicker_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1207,7 +1171,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto customevent_cb = kcolorpicker__kcolorpicker_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1226,7 +1189,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1245,7 +1207,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1362,7 +1323,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         auto receivers_cb = kcolorpicker__kcolorpicker_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1380,7 +1340,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1397,7 +1356,6 @@ class VirtualkColorPickerKColorPicker final : public kColorPicker::KColorPicker 
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

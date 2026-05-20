@@ -387,7 +387,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto metacast_cb = kshortcutsdialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -405,7 +404,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -421,7 +419,9 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto sizehint_cb = kshortcutsdialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KShortcutsDialog::sizeHint();
     }
@@ -451,7 +451,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto setvisible_cb = kshortcutsdialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -467,7 +466,9 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto minimumsizehint_cb = kshortcutsdialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KShortcutsDialog::minimumSizeHint();
     }
@@ -511,7 +512,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto done_cb = kshortcutsdialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -543,7 +543,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto keypressevent_cb = kshortcutsdialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -560,7 +559,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto closeevent_cb = kshortcutsdialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -577,7 +575,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto showevent_cb = kshortcutsdialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -594,7 +591,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto resizeevent_cb = kshortcutsdialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -611,7 +607,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto contextmenuevent_cb = kshortcutsdialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -628,7 +623,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -658,7 +652,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto heightforwidth_cb = kshortcutsdialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -702,7 +695,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto event_cb = kshortcutsdialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -719,7 +711,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto mousepressevent_cb = kshortcutsdialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -736,7 +727,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto mousereleaseevent_cb = kshortcutsdialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -753,7 +743,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto mousedoubleclickevent_cb = kshortcutsdialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -770,7 +759,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto mousemoveevent_cb = kshortcutsdialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -787,7 +775,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto wheelevent_cb = kshortcutsdialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -804,7 +791,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto keyreleaseevent_cb = kshortcutsdialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -821,7 +807,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto focusinevent_cb = kshortcutsdialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -838,7 +823,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto focusoutevent_cb = kshortcutsdialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -855,7 +839,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto enterevent_cb = kshortcutsdialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -872,7 +855,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto leaveevent_cb = kshortcutsdialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -889,7 +871,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto paintevent_cb = kshortcutsdialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -906,7 +887,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto moveevent_cb = kshortcutsdialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -923,7 +903,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto tabletevent_cb = kshortcutsdialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -940,7 +919,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto actionevent_cb = kshortcutsdialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -957,7 +935,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto dragenterevent_cb = kshortcutsdialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -974,7 +951,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto dragmoveevent_cb = kshortcutsdialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -991,7 +967,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto dragleaveevent_cb = kshortcutsdialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1008,7 +983,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto dropevent_cb = kshortcutsdialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1025,7 +999,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto hideevent_cb = kshortcutsdialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1049,7 +1022,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1067,7 +1039,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto changeevent_cb = kshortcutsdialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1083,7 +1054,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto metric_cb = kshortcutsdialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1100,7 +1070,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto initpainter_cb = kshortcutsdialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1116,7 +1085,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto redirected_cb = kshortcutsdialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1147,7 +1115,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto inputmethodevent_cb = kshortcutsdialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1163,9 +1130,10 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto inputmethodquery_cb = kshortcutsdialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KShortcutsDialog::inputMethodQuery(param1);
     }
@@ -1179,7 +1147,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto focusnextprevchild_cb = kshortcutsdialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1196,7 +1163,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto timerevent_cb = kshortcutsdialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1213,7 +1179,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto childevent_cb = kshortcutsdialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1230,7 +1195,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto customevent_cb = kshortcutsdialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1249,7 +1213,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1268,7 +1231,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1285,7 +1247,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto adjustposition_cb = kshortcutsdialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1402,7 +1363,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         auto receivers_cb = kshortcutsdialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1420,7 +1380,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1437,7 +1396,6 @@ class VirtualKShortcutsDialog final : public KShortcutsDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

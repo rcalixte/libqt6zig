@@ -89,7 +89,6 @@ class VirtualQSvgGenerator final : public QSvgGenerator {
         auto metric_cb = qsvggenerator_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -120,7 +119,6 @@ class VirtualQSvgGenerator final : public QSvgGenerator {
         auto initpainter_cb = qsvggenerator_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -136,7 +134,6 @@ class VirtualQSvgGenerator final : public QSvgGenerator {
         auto redirected_cb = qsvggenerator_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -167,7 +164,6 @@ class VirtualQSvgGenerator final : public QSvgGenerator {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

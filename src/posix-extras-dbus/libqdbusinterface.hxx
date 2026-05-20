@@ -141,7 +141,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto metacast_cb = qdbusinterface_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -159,7 +158,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -178,7 +176,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -197,7 +194,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -213,7 +209,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto event_cb = qdbusinterface_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -230,7 +225,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -247,7 +241,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto timerevent_cb = qdbusinterface_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -264,7 +257,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto childevent_cb = qdbusinterface_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -281,7 +273,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto customevent_cb = qdbusinterface_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -297,9 +288,10 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto internalpropget_cb = qdbusinterface_internalpropget_callback;
         if (internalpropget_cb) {
             const char* cbval1 = (const char*)propname;
-
             QVariant* callback_ret = internalpropget_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDBusInterface::internalPropGet(propname);
     }
@@ -317,7 +309,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             internalpropset_cb(this, cbval1, cbval2);
             return;
         }
@@ -341,10 +332,11 @@ class VirtualQDBusInterface final : public QDBusInterface {
             memcpy((void*)method_str, method_b.data(), method_str_len);
             ((char*)method_str)[method_str_len] = '\0';
             const char* cbval2 = method_str;
-
             QDBusMessage* callback_ret = internalconstcall_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(method_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QDBusInterface::internalConstCall(mode, method);
     }
@@ -386,7 +378,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto receivers_cb = qdbusinterface_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -404,7 +395,6 @@ class VirtualQDBusInterface final : public QDBusInterface {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

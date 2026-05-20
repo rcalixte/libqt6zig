@@ -80,7 +80,6 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             int callback_ret = adddynamicproperty_cb(this, cbval1, cbval2);
             libqt_free(propertyName_str);
             return static_cast<int>(callback_ret);
@@ -93,7 +92,6 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
         auto removedynamicproperty_cb = qdesignerdynamicpropertysheetextension_removedynamicproperty_callback;
         if (removedynamicproperty_cb) {
             int cbval1 = index;
-
             bool callback_ret = removedynamicproperty_cb(this, cbval1);
             return callback_ret;
         }
@@ -105,7 +103,6 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
         auto isdynamicproperty_cb = qdesignerdynamicpropertysheetextension_isdynamicproperty_callback;
         if (isdynamicproperty_cb) {
             int cbval1 = index;
-
             bool callback_ret = isdynamicproperty_cb(this, cbval1);
             return callback_ret;
         }
@@ -124,7 +121,6 @@ class VirtualQDesignerDynamicPropertySheetExtension : public QDesignerDynamicPro
             memcpy((void*)propertyName_str, propertyName_b.data(), propertyName_str_len);
             ((char*)propertyName_str)[propertyName_str_len] = '\0';
             const char* cbval1 = propertyName_str;
-
             bool callback_ret = canadddynamicproperty_cb(this, cbval1);
             libqt_free(propertyName_str);
             return callback_ret;

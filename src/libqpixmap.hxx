@@ -109,7 +109,6 @@ class VirtualQPixmap final : public QPixmap {
         auto metric_cb = qpixmap_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -126,7 +125,6 @@ class VirtualQPixmap final : public QPixmap {
         auto initpainter_cb = qpixmap_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -142,7 +140,6 @@ class VirtualQPixmap final : public QPixmap {
         auto redirected_cb = qpixmap_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -173,7 +170,6 @@ class VirtualQPixmap final : public QPixmap {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

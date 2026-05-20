@@ -410,7 +410,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto metacast_cb = qdatetimeedit_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -428,7 +427,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -444,7 +442,9 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto sizehint_cb = qdatetimeedit_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDateTimeEdit::sizeHint();
     }
@@ -474,7 +474,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto stepby_cb = qdatetimeedit_stepby_callback;
         if (stepby_cb) {
             int cbval1 = steps;
-
             stepby_cb(this, cbval1);
             return;
         }
@@ -490,7 +489,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto event_cb = qdatetimeedit_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -507,7 +505,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto keypressevent_cb = qdatetimeedit_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -524,7 +521,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto wheelevent_cb = qdatetimeedit_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -541,7 +537,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto focusinevent_cb = qdatetimeedit_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -557,7 +552,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto focusnextprevchild_cb = qdatetimeedit_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -581,7 +575,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -606,7 +599,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             memcpy((void*)input_str, input_b.data(), input_str_len);
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
-
             fixup_cb(this, cbval1);
             libqt_free(input_str);
             return;
@@ -630,10 +622,11 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             QDateTime* callback_ret = datetimefromtext_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(text_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QDateTimeEdit::dateTimeFromText(text);
     }
@@ -649,7 +642,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             const QDateTime& dt_ret = dt;
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
-
             const char* callback_ret = textfromdatetime_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -681,7 +673,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto mousepressevent_cb = qdatetimeedit_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -698,7 +689,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto paintevent_cb = qdatetimeedit_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -715,7 +705,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto initstyleoption_cb = qdatetimeedit_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -731,7 +720,9 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto minimumsizehint_cb = qdatetimeedit_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDateTimeEdit::minimumSizeHint();
     }
@@ -745,9 +736,10 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto inputmethodquery_cb = qdatetimeedit_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDateTimeEdit::inputMethodQuery(param1);
     }
@@ -762,7 +754,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto resizeevent_cb = qdatetimeedit_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -779,7 +770,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto keyreleaseevent_cb = qdatetimeedit_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -796,7 +786,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto focusoutevent_cb = qdatetimeedit_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -813,7 +802,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto contextmenuevent_cb = qdatetimeedit_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -830,7 +818,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto changeevent_cb = qdatetimeedit_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -847,7 +834,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto closeevent_cb = qdatetimeedit_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -864,7 +850,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto hideevent_cb = qdatetimeedit_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -881,7 +866,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto mousereleaseevent_cb = qdatetimeedit_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -898,7 +882,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto mousemoveevent_cb = qdatetimeedit_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -915,7 +898,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto timerevent_cb = qdatetimeedit_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -932,7 +914,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto showevent_cb = qdatetimeedit_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -963,7 +944,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto setvisible_cb = qdatetimeedit_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -979,7 +959,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto heightforwidth_cb = qdatetimeedit_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1024,7 +1003,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto mousedoubleclickevent_cb = qdatetimeedit_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1041,7 +1019,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto enterevent_cb = qdatetimeedit_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1058,7 +1035,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto leaveevent_cb = qdatetimeedit_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1075,7 +1051,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto moveevent_cb = qdatetimeedit_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1092,7 +1067,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto tabletevent_cb = qdatetimeedit_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1109,7 +1083,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto actionevent_cb = qdatetimeedit_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1126,7 +1099,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto dragenterevent_cb = qdatetimeedit_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1143,7 +1115,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto dragmoveevent_cb = qdatetimeedit_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1160,7 +1131,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto dragleaveevent_cb = qdatetimeedit_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1177,7 +1147,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto dropevent_cb = qdatetimeedit_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1201,7 +1170,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1218,7 +1186,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto metric_cb = qdatetimeedit_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1235,7 +1202,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto initpainter_cb = qdatetimeedit_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1251,7 +1217,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto redirected_cb = qdatetimeedit_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1282,7 +1247,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto inputmethodevent_cb = qdatetimeedit_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1299,7 +1263,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1316,7 +1279,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto childevent_cb = qdatetimeedit_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1333,7 +1295,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto customevent_cb = qdatetimeedit_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1352,7 +1313,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1371,7 +1331,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1402,7 +1361,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto setlineedit_cb = qdatetimeedit_setlineedit_callback;
         if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
-
             setlineedit_cb(this, cbval1);
             return;
         }
@@ -1519,7 +1477,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         auto receivers_cb = qdatetimeedit_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1537,7 +1494,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1554,7 +1510,6 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -2071,7 +2026,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto metacast_cb = qtimeedit_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -2089,7 +2043,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -2105,7 +2058,9 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto sizehint_cb = qtimeedit_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTimeEdit::sizeHint();
     }
@@ -2135,7 +2090,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto stepby_cb = qtimeedit_stepby_callback;
         if (stepby_cb) {
             int cbval1 = steps;
-
             stepby_cb(this, cbval1);
             return;
         }
@@ -2151,7 +2105,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto event_cb = qtimeedit_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2168,7 +2121,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto keypressevent_cb = qtimeedit_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2185,7 +2137,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto wheelevent_cb = qtimeedit_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2202,7 +2153,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto focusinevent_cb = qtimeedit_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2218,7 +2168,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto focusnextprevchild_cb = qtimeedit_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2242,7 +2191,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -2267,7 +2215,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             memcpy((void*)input_str, input_b.data(), input_str_len);
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
-
             fixup_cb(this, cbval1);
             libqt_free(input_str);
             return;
@@ -2291,10 +2238,11 @@ class VirtualQTimeEdit final : public QTimeEdit {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             QDateTime* callback_ret = datetimefromtext_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(text_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QTimeEdit::dateTimeFromText(text);
     }
@@ -2310,7 +2258,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             const QDateTime& dt_ret = dt;
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
-
             const char* callback_ret = textfromdatetime_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -2342,7 +2289,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto mousepressevent_cb = qtimeedit_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -2359,7 +2305,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto paintevent_cb = qtimeedit_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2376,7 +2321,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto initstyleoption_cb = qtimeedit_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -2392,7 +2336,9 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto minimumsizehint_cb = qtimeedit_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTimeEdit::minimumSizeHint();
     }
@@ -2406,9 +2352,10 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto inputmethodquery_cb = qtimeedit_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTimeEdit::inputMethodQuery(param1);
     }
@@ -2423,7 +2370,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto resizeevent_cb = qtimeedit_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2440,7 +2386,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto keyreleaseevent_cb = qtimeedit_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2457,7 +2402,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto focusoutevent_cb = qtimeedit_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2474,7 +2418,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto contextmenuevent_cb = qtimeedit_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2491,7 +2434,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto changeevent_cb = qtimeedit_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2508,7 +2450,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto closeevent_cb = qtimeedit_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2525,7 +2466,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto hideevent_cb = qtimeedit_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2542,7 +2482,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto mousereleaseevent_cb = qtimeedit_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -2559,7 +2498,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto mousemoveevent_cb = qtimeedit_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2576,7 +2514,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto timerevent_cb = qtimeedit_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2593,7 +2530,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto showevent_cb = qtimeedit_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2624,7 +2560,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto setvisible_cb = qtimeedit_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2640,7 +2575,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto heightforwidth_cb = qtimeedit_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2685,7 +2619,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto mousedoubleclickevent_cb = qtimeedit_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2702,7 +2635,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto enterevent_cb = qtimeedit_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2719,7 +2651,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto leaveevent_cb = qtimeedit_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2736,7 +2667,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto moveevent_cb = qtimeedit_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2753,7 +2683,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto tabletevent_cb = qtimeedit_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2770,7 +2699,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto actionevent_cb = qtimeedit_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2787,7 +2715,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto dragenterevent_cb = qtimeedit_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2804,7 +2731,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto dragmoveevent_cb = qtimeedit_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2821,7 +2747,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto dragleaveevent_cb = qtimeedit_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2838,7 +2763,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto dropevent_cb = qtimeedit_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2862,7 +2786,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2879,7 +2802,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto metric_cb = qtimeedit_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2896,7 +2818,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto initpainter_cb = qtimeedit_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2912,7 +2833,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto redirected_cb = qtimeedit_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2943,7 +2863,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto inputmethodevent_cb = qtimeedit_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2960,7 +2879,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2977,7 +2895,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto childevent_cb = qtimeedit_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2994,7 +2911,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto customevent_cb = qtimeedit_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -3013,7 +2929,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -3032,7 +2947,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -3063,7 +2977,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto setlineedit_cb = qtimeedit_setlineedit_callback;
         if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
-
             setlineedit_cb(this, cbval1);
             return;
         }
@@ -3180,7 +3093,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         auto receivers_cb = qtimeedit_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -3198,7 +3110,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3215,7 +3126,6 @@ class VirtualQTimeEdit final : public QTimeEdit {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -3732,7 +3642,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto metacast_cb = qdateedit_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -3750,7 +3659,6 @@ class VirtualQDateEdit final : public QDateEdit {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -3766,7 +3674,9 @@ class VirtualQDateEdit final : public QDateEdit {
         auto sizehint_cb = qdateedit_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDateEdit::sizeHint();
     }
@@ -3796,7 +3706,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto stepby_cb = qdateedit_stepby_callback;
         if (stepby_cb) {
             int cbval1 = steps;
-
             stepby_cb(this, cbval1);
             return;
         }
@@ -3812,7 +3721,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto event_cb = qdateedit_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -3829,7 +3737,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto keypressevent_cb = qdateedit_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -3846,7 +3753,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto wheelevent_cb = qdateedit_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -3863,7 +3769,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto focusinevent_cb = qdateedit_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -3879,7 +3784,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto focusnextprevchild_cb = qdateedit_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -3903,7 +3807,6 @@ class VirtualQDateEdit final : public QDateEdit {
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -3928,7 +3831,6 @@ class VirtualQDateEdit final : public QDateEdit {
             memcpy((void*)input_str, input_b.data(), input_str_len);
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
-
             fixup_cb(this, cbval1);
             libqt_free(input_str);
             return;
@@ -3952,10 +3854,11 @@ class VirtualQDateEdit final : public QDateEdit {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             QDateTime* callback_ret = datetimefromtext_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(text_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QDateEdit::dateTimeFromText(text);
     }
@@ -3971,7 +3874,6 @@ class VirtualQDateEdit final : public QDateEdit {
             const QDateTime& dt_ret = dt;
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
-
             const char* callback_ret = textfromdatetime_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -4003,7 +3905,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto mousepressevent_cb = qdateedit_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -4020,7 +3921,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto paintevent_cb = qdateedit_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -4037,7 +3937,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto initstyleoption_cb = qdateedit_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionSpinBox* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -4053,7 +3952,9 @@ class VirtualQDateEdit final : public QDateEdit {
         auto minimumsizehint_cb = qdateedit_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDateEdit::minimumSizeHint();
     }
@@ -4067,9 +3968,10 @@ class VirtualQDateEdit final : public QDateEdit {
         auto inputmethodquery_cb = qdateedit_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QDateEdit::inputMethodQuery(param1);
     }
@@ -4084,7 +3986,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto resizeevent_cb = qdateedit_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -4101,7 +4002,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto keyreleaseevent_cb = qdateedit_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -4118,7 +4018,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto focusoutevent_cb = qdateedit_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -4135,7 +4034,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto contextmenuevent_cb = qdateedit_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -4152,7 +4050,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto changeevent_cb = qdateedit_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -4169,7 +4066,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto closeevent_cb = qdateedit_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -4186,7 +4082,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto hideevent_cb = qdateedit_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -4203,7 +4098,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto mousereleaseevent_cb = qdateedit_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -4220,7 +4114,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto mousemoveevent_cb = qdateedit_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -4237,7 +4130,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto timerevent_cb = qdateedit_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -4254,7 +4146,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto showevent_cb = qdateedit_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -4285,7 +4176,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto setvisible_cb = qdateedit_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -4301,7 +4191,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto heightforwidth_cb = qdateedit_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -4346,7 +4235,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto mousedoubleclickevent_cb = qdateedit_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -4363,7 +4251,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto enterevent_cb = qdateedit_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -4380,7 +4267,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto leaveevent_cb = qdateedit_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -4397,7 +4283,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto moveevent_cb = qdateedit_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -4414,7 +4299,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto tabletevent_cb = qdateedit_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -4431,7 +4315,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto actionevent_cb = qdateedit_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -4448,7 +4331,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto dragenterevent_cb = qdateedit_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -4465,7 +4347,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto dragmoveevent_cb = qdateedit_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -4482,7 +4363,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto dragleaveevent_cb = qdateedit_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -4499,7 +4379,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto dropevent_cb = qdateedit_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -4523,7 +4402,6 @@ class VirtualQDateEdit final : public QDateEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -4540,7 +4418,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto metric_cb = qdateedit_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -4557,7 +4434,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto initpainter_cb = qdateedit_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -4573,7 +4449,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto redirected_cb = qdateedit_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -4604,7 +4479,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto inputmethodevent_cb = qdateedit_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -4621,7 +4495,6 @@ class VirtualQDateEdit final : public QDateEdit {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -4638,7 +4511,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto childevent_cb = qdateedit_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -4655,7 +4527,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto customevent_cb = qdateedit_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -4674,7 +4545,6 @@ class VirtualQDateEdit final : public QDateEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -4693,7 +4563,6 @@ class VirtualQDateEdit final : public QDateEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -4724,7 +4593,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto setlineedit_cb = qdateedit_setlineedit_callback;
         if (setlineedit_cb) {
             QLineEdit* cbval1 = edit;
-
             setlineedit_cb(this, cbval1);
             return;
         }
@@ -4841,7 +4709,6 @@ class VirtualQDateEdit final : public QDateEdit {
         auto receivers_cb = qdateedit_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -4859,7 +4726,6 @@ class VirtualQDateEdit final : public QDateEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -4876,7 +4742,6 @@ class VirtualQDateEdit final : public QDateEdit {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

@@ -49,7 +49,6 @@ class VirtualKACL final : public KACL {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }

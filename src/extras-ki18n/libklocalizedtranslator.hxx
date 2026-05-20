@@ -134,7 +134,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         auto metacast_cb = klocalizedtranslator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -152,7 +151,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -171,7 +169,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
             const char* cbval2 = (const char*)sourceText;
             const char* cbval3 = (const char*)disambiguation;
             int cbval4 = n;
-
             const char* callback_ret = translate_cb(this, cbval1, cbval2, cbval3, cbval4);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -202,7 +199,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         auto event_cb = klocalizedtranslator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -219,7 +215,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -236,7 +231,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         auto timerevent_cb = klocalizedtranslator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -253,7 +247,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         auto childevent_cb = klocalizedtranslator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -270,7 +263,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         auto customevent_cb = klocalizedtranslator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -289,7 +281,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -308,7 +299,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -352,7 +342,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
         auto receivers_cb = klocalizedtranslator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -370,7 +359,6 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

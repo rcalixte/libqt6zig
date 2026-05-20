@@ -143,7 +143,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         auto metacast_cb = kparts__navigationextension_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -161,7 +160,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -208,7 +206,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &stream_ret;
-
             savestate_cb(this, cbval1);
             return;
         }
@@ -227,7 +224,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
             QDataStream& stream_ret = stream;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &stream_ret;
-
             restorestate_cb(this, cbval1);
             return;
         }
@@ -243,7 +239,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         auto event_cb = kparts__navigationextension_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -260,7 +255,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -277,7 +271,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         auto timerevent_cb = kparts__navigationextension_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -294,7 +287,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         auto childevent_cb = kparts__navigationextension_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -311,7 +303,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         auto customevent_cb = kparts__navigationextension_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -330,7 +321,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -349,7 +339,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -393,7 +382,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
         auto receivers_cb = kparts__navigationextension_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -411,7 +399,6 @@ class VirtualKPartsNavigationExtension final : public KParts::NavigationExtensio
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

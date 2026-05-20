@@ -174,7 +174,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto metacast_cb = qvxymodelmapper_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -192,7 +191,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -208,7 +206,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto event_cb = qvxymodelmapper_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -225,7 +222,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -242,7 +238,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto timerevent_cb = qvxymodelmapper_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -259,7 +254,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto childevent_cb = qvxymodelmapper_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -276,7 +270,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto customevent_cb = qvxymodelmapper_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -295,7 +288,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -314,7 +306,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -345,7 +336,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto setfirst_cb = qvxymodelmapper_setfirst_callback;
         if (setfirst_cb) {
             int cbval1 = first;
-
             setfirst_cb(this, cbval1);
             return;
         }
@@ -376,7 +366,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto setcount_cb = qvxymodelmapper_setcount_callback;
         if (setcount_cb) {
             int cbval1 = count;
-
             setcount_cb(this, cbval1);
             return;
         }
@@ -407,7 +396,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto setorientation_cb = qvxymodelmapper_setorientation_callback;
         if (setorientation_cb) {
             int cbval1 = static_cast<int>(orientation);
-
             setorientation_cb(this, cbval1);
             return;
         }
@@ -438,7 +426,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto setxsection_cb = qvxymodelmapper_setxsection_callback;
         if (setxsection_cb) {
             int cbval1 = xSection;
-
             setxsection_cb(this, cbval1);
             return;
         }
@@ -469,7 +456,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto setysection_cb = qvxymodelmapper_setysection_callback;
         if (setysection_cb) {
             int cbval1 = ySection;
-
             setysection_cb(this, cbval1);
             return;
         }
@@ -513,7 +499,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
         auto receivers_cb = qvxymodelmapper_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -531,7 +516,6 @@ class VirtualQVXYModelMapper final : public QVXYModelMapper {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

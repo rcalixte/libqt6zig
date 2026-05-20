@@ -124,7 +124,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         auto metacast_cb = kstartupinfo_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -142,7 +141,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -159,7 +157,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         auto customevent_cb = kstartupinfo_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = e_P;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -175,7 +172,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         auto event_cb = kstartupinfo_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -192,7 +188,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -209,7 +204,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         auto timerevent_cb = kstartupinfo_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -226,7 +220,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         auto childevent_cb = kstartupinfo_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -245,7 +238,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -264,7 +256,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -308,7 +299,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
         auto receivers_cb = kstartupinfo_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -326,7 +316,6 @@ class VirtualKStartupInfo final : public KStartupInfo {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

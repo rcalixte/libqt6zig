@@ -189,7 +189,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto metacast_cb = konsole__emulation_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -207,7 +206,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -255,7 +253,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (setimagesize_cb) {
             int cbval1 = lines;
             int cbval2 = columns;
-
             setimagesize_cb(this, cbval1, cbval2);
             return;
         }
@@ -274,7 +271,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             sendtext_cb(this, cbval1);
             libqt_free(text_str);
         }
@@ -291,7 +287,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (sendkeyevent_cb) {
             QKeyEvent* cbval1 = param1;
             bool cbval2 = fromPaste;
-
             sendkeyevent_cb(this, cbval1, cbval2);
             return;
         }
@@ -311,7 +306,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             int cbval2 = column;
             int cbval3 = line;
             int cbval4 = eventType;
-
             sendmouseevent_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -324,7 +318,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (sendstring_cb) {
             const char* cbval1 = (const char*)stringVal;
             int cbval2 = length;
-
             sendstring_cb(this, cbval1, cbval2);
         }
     }
@@ -334,7 +327,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto setmode_cb = konsole__emulation_setmode_callback;
         if (setmode_cb) {
             int cbval1 = mode;
-
             setmode_cb(this, cbval1);
         }
     }
@@ -344,7 +336,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto resetmode_cb = konsole__emulation_resetmode_callback;
         if (resetmode_cb) {
             int cbval1 = mode;
-
             resetmode_cb(this, cbval1);
         }
     }
@@ -358,7 +349,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto event_cb = konsole__emulation_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -375,7 +365,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -392,7 +381,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto timerevent_cb = konsole__emulation_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -409,7 +397,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto childevent_cb = konsole__emulation_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -426,7 +413,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto customevent_cb = konsole__emulation_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -445,7 +431,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -464,7 +449,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -481,7 +465,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto setscreen_cb = konsole__emulation_setscreen_callback;
         if (setscreen_cb) {
             int cbval1 = index;
-
             setscreen_cb(this, cbval1);
             return;
         }
@@ -498,7 +481,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto setcodec_cb = konsole__emulation_setcodec_callback;
         if (setcodec_cb) {
             int cbval1 = static_cast<int>(codec);
-
             setcodec_cb(this, cbval1);
             return;
         }
@@ -557,7 +539,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
         auto receivers_cb = konsole__emulation_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -575,7 +556,6 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

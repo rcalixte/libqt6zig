@@ -356,7 +356,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto metacast_cb = kpixmapsequencewidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -374,7 +373,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -390,7 +388,9 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto sizehint_cb = kpixmapsequencewidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPixmapSequenceWidget::sizeHint();
     }
@@ -419,7 +419,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto setvisible_cb = kpixmapsequencewidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -435,7 +434,9 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto minimumsizehint_cb = kpixmapsequencewidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPixmapSequenceWidget::minimumSizeHint();
     }
@@ -449,7 +450,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto heightforwidth_cb = kpixmapsequencewidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -493,7 +493,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto event_cb = kpixmapsequencewidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -510,7 +509,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto mousepressevent_cb = kpixmapsequencewidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -527,7 +525,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto mousereleaseevent_cb = kpixmapsequencewidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -544,7 +541,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto mousedoubleclickevent_cb = kpixmapsequencewidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -561,7 +557,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto mousemoveevent_cb = kpixmapsequencewidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -578,7 +573,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto wheelevent_cb = kpixmapsequencewidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -595,7 +589,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto keypressevent_cb = kpixmapsequencewidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -612,7 +605,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto keyreleaseevent_cb = kpixmapsequencewidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -629,7 +621,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto focusinevent_cb = kpixmapsequencewidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -646,7 +637,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto focusoutevent_cb = kpixmapsequencewidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -663,7 +653,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto enterevent_cb = kpixmapsequencewidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -680,7 +669,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto leaveevent_cb = kpixmapsequencewidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -697,7 +685,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto paintevent_cb = kpixmapsequencewidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -714,7 +701,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto moveevent_cb = kpixmapsequencewidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -731,7 +717,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto resizeevent_cb = kpixmapsequencewidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -748,7 +733,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto closeevent_cb = kpixmapsequencewidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -765,7 +749,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto contextmenuevent_cb = kpixmapsequencewidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -782,7 +765,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto tabletevent_cb = kpixmapsequencewidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -799,7 +781,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto actionevent_cb = kpixmapsequencewidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -816,7 +797,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto dragenterevent_cb = kpixmapsequencewidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -833,7 +813,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto dragmoveevent_cb = kpixmapsequencewidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -850,7 +829,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto dragleaveevent_cb = kpixmapsequencewidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -867,7 +845,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto dropevent_cb = kpixmapsequencewidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -884,7 +861,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto showevent_cb = kpixmapsequencewidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -901,7 +877,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto hideevent_cb = kpixmapsequencewidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -925,7 +900,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -943,7 +917,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto changeevent_cb = kpixmapsequencewidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -959,7 +932,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto metric_cb = kpixmapsequencewidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -976,7 +948,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto initpainter_cb = kpixmapsequencewidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -992,7 +963,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto redirected_cb = kpixmapsequencewidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1023,7 +993,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto inputmethodevent_cb = kpixmapsequencewidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1039,9 +1008,10 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto inputmethodquery_cb = kpixmapsequencewidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPixmapSequenceWidget::inputMethodQuery(param1);
     }
@@ -1055,7 +1025,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto focusnextprevchild_cb = kpixmapsequencewidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1072,7 +1041,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1089,7 +1057,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto timerevent_cb = kpixmapsequencewidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1106,7 +1073,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto childevent_cb = kpixmapsequencewidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1123,7 +1089,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto customevent_cb = kpixmapsequencewidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1142,7 +1107,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1161,7 +1125,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1278,7 +1241,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         auto receivers_cb = kpixmapsequencewidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1296,7 +1258,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1313,7 +1274,6 @@ class VirtualKPixmapSequenceWidget final : public KPixmapSequenceWidget {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

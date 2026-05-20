@@ -178,7 +178,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto metacast_cb = qgeopositioninfosource_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -196,7 +195,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -213,7 +211,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto setupdateinterval_cb = qgeopositioninfosource_setupdateinterval_callback;
         if (setupdateinterval_cb) {
             int cbval1 = msec;
-
             setupdateinterval_cb(this, cbval1);
             return;
         }
@@ -230,7 +227,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto setpreferredpositioningmethods_cb = qgeopositioninfosource_setpreferredpositioningmethods_callback;
         if (setpreferredpositioningmethods_cb) {
             int cbval1 = static_cast<int>(methods);
-
             setpreferredpositioningmethods_cb(this, cbval1);
             return;
         }
@@ -242,9 +238,10 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto lastknownposition_cb = qgeopositioninfosource_lastknownposition_callback;
         if (lastknownposition_cb) {
             bool cbval1 = fromSatellitePositioningMethodsOnly;
-
             QGeoPositionInfo* callback_ret = lastknownposition_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -288,7 +285,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -312,10 +308,11 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QVariant* callback_ret = backendproperty_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(name_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QGeoPositionInfoSource::backendProperty(name);
     }
@@ -351,7 +348,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto requestupdate_cb = qgeopositioninfosource_requestupdate_callback;
         if (requestupdate_cb) {
             int cbval1 = timeout;
-
             requestupdate_cb(this, cbval1);
         }
     }
@@ -365,7 +361,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto event_cb = qgeopositioninfosource_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -382,7 +377,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -399,7 +393,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto timerevent_cb = qgeopositioninfosource_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -416,7 +409,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto childevent_cb = qgeopositioninfosource_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -433,7 +425,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto customevent_cb = qgeopositioninfosource_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -452,7 +443,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -471,7 +461,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -515,7 +504,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
         auto receivers_cb = qgeopositioninfosource_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -533,7 +521,6 @@ class VirtualQGeoPositionInfoSource : public QGeoPositionInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

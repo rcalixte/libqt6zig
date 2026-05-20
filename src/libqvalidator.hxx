@@ -134,7 +134,6 @@ class VirtualQValidator : public QValidator {
         auto metacast_cb = qvalidator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -152,7 +151,6 @@ class VirtualQValidator : public QValidator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -172,7 +170,6 @@ class VirtualQValidator : public QValidator {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
             int* cbval2 = &param2;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -197,7 +194,6 @@ class VirtualQValidator : public QValidator {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             fixup_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -214,7 +210,6 @@ class VirtualQValidator : public QValidator {
         auto event_cb = qvalidator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -231,7 +226,6 @@ class VirtualQValidator : public QValidator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -248,7 +242,6 @@ class VirtualQValidator : public QValidator {
         auto timerevent_cb = qvalidator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -265,7 +258,6 @@ class VirtualQValidator : public QValidator {
         auto childevent_cb = qvalidator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -282,7 +274,6 @@ class VirtualQValidator : public QValidator {
         auto customevent_cb = qvalidator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -301,7 +292,6 @@ class VirtualQValidator : public QValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -320,7 +310,6 @@ class VirtualQValidator : public QValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -364,7 +353,6 @@ class VirtualQValidator : public QValidator {
         auto receivers_cb = qvalidator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -382,7 +370,6 @@ class VirtualQValidator : public QValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -537,7 +524,6 @@ class VirtualQIntValidator final : public QIntValidator {
         auto metacast_cb = qintvalidator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -555,7 +541,6 @@ class VirtualQIntValidator final : public QIntValidator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -579,7 +564,6 @@ class VirtualQIntValidator final : public QIntValidator {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
             int* cbval2 = &param2;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -604,7 +588,6 @@ class VirtualQIntValidator final : public QIntValidator {
             memcpy((void*)input_str, input_b.data(), input_str_len);
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
-
             fixup_cb(this, cbval1);
             libqt_free(input_str);
             return;
@@ -621,7 +604,6 @@ class VirtualQIntValidator final : public QIntValidator {
         auto event_cb = qintvalidator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -638,7 +620,6 @@ class VirtualQIntValidator final : public QIntValidator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -655,7 +636,6 @@ class VirtualQIntValidator final : public QIntValidator {
         auto timerevent_cb = qintvalidator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -672,7 +652,6 @@ class VirtualQIntValidator final : public QIntValidator {
         auto childevent_cb = qintvalidator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -689,7 +668,6 @@ class VirtualQIntValidator final : public QIntValidator {
         auto customevent_cb = qintvalidator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -708,7 +686,6 @@ class VirtualQIntValidator final : public QIntValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -727,7 +704,6 @@ class VirtualQIntValidator final : public QIntValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -771,7 +747,6 @@ class VirtualQIntValidator final : public QIntValidator {
         auto receivers_cb = qintvalidator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -789,7 +764,6 @@ class VirtualQIntValidator final : public QIntValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -944,7 +918,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         auto metacast_cb = qdoublevalidator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -962,7 +935,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -986,7 +958,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
             int* cbval2 = &param2;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -1011,7 +982,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             memcpy((void*)input_str, input_b.data(), input_str_len);
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
-
             fixup_cb(this, cbval1);
             libqt_free(input_str);
             return;
@@ -1028,7 +998,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         auto event_cb = qdoublevalidator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1045,7 +1014,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1062,7 +1030,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         auto timerevent_cb = qdoublevalidator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1079,7 +1046,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         auto childevent_cb = qdoublevalidator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1096,7 +1062,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         auto customevent_cb = qdoublevalidator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1115,7 +1080,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1134,7 +1098,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1178,7 +1141,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         auto receivers_cb = qdoublevalidator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1196,7 +1158,6 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1351,7 +1312,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         auto metacast_cb = qregularexpressionvalidator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1369,7 +1329,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1393,7 +1352,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             ((char*)input_str)[input_str_len] = '\0';
             const char* cbval1 = input_str;
             int* cbval2 = &pos;
-
             int callback_ret = validate_cb(this, cbval1, cbval2);
             libqt_free(input_str);
             return static_cast<QValidator::State>(callback_ret);
@@ -1418,7 +1376,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             fixup_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -1435,7 +1392,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         auto event_cb = qregularexpressionvalidator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1452,7 +1408,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1469,7 +1424,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         auto timerevent_cb = qregularexpressionvalidator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1486,7 +1440,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         auto childevent_cb = qregularexpressionvalidator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1503,7 +1456,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         auto customevent_cb = qregularexpressionvalidator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1522,7 +1474,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1541,7 +1492,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1585,7 +1535,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         auto receivers_cb = qregularexpressionvalidator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1603,7 +1552,6 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

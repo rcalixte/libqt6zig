@@ -154,7 +154,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto metacast_cb = qvariantanimation_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -172,7 +171,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -202,7 +200,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto event_cb = qvariantanimation_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -219,7 +216,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto updatecurrenttime_cb = qvariantanimation_updatecurrenttime_callback;
         if (updatecurrenttime_cb) {
             int cbval1 = param1;
-
             updatecurrenttime_cb(this, cbval1);
             return;
         }
@@ -237,7 +233,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
-
             updatestate_cb(this, cbval1, cbval2);
             return;
         }
@@ -256,7 +251,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&value_ret);
-
             updatecurrentvalue_cb(this, cbval1);
             return;
         }
@@ -278,9 +272,10 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&to_ret);
             double cbval3 = static_cast<double>(progress);
-
             QVariant* callback_ret = interpolated_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QVariantAnimation::interpolated(from, to, progress);
     }
@@ -295,7 +290,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto updatedirection_cb = qvariantanimation_updatedirection_callback;
         if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
-
             updatedirection_cb(this, cbval1);
             return;
         }
@@ -312,7 +306,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -329,7 +322,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto timerevent_cb = qvariantanimation_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -346,7 +338,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto childevent_cb = qvariantanimation_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -363,7 +354,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto customevent_cb = qvariantanimation_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -382,7 +372,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -401,7 +390,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -445,7 +433,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
         auto receivers_cb = qvariantanimation_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -463,7 +450,6 @@ class VirtualQVariantAnimation final : public QVariantAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

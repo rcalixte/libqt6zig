@@ -190,7 +190,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto metacast_cb = qnmeasatelliteinfosource_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -208,7 +207,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -225,7 +223,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto setupdateinterval_cb = qnmeasatelliteinfosource_setupdateinterval_callback;
         if (setupdateinterval_cb) {
             int cbval1 = msec;
-
             setupdateinterval_cb(this, cbval1);
             return;
         }
@@ -279,7 +276,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             bool callback_ret = setbackendproperty_cb(this, cbval1, cbval2);
             libqt_free(name_str);
             return callback_ret;
@@ -303,10 +299,11 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             QVariant* callback_ret = backendproperty_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
             libqt_free(name_str);
-            return *callback_ret;
+            return callback_ret_Value;
         }
         return QNmeaSatelliteInfoSource::backendProperty(name);
     }
@@ -351,7 +348,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto requestupdate_cb = qnmeasatelliteinfosource_requestupdate_callback;
         if (requestupdate_cb) {
             int cbval1 = timeout;
-
             requestupdate_cb(this, cbval1);
             return;
         }
@@ -378,7 +374,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             pnrsInUse_out.len = pnrsInUse_ret.size();
             pnrsInUse_out.data = static_cast<void*>(pnrsInUse_arr);
             libqt_list /* of int */ cbval3 = pnrsInUse_out;
-
             int callback_ret = parsesatellitesinusefromnmea_cb(this, cbval1, cbval2, cbval3);
             free(pnrsInUse_arr);
             return static_cast<QGeoSatelliteInfo::SatelliteSystem>(callback_ret);
@@ -408,7 +403,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             libqt_list /* of QGeoSatelliteInfo* */ cbval3 = infos_out;
             QGeoSatelliteInfo::SatelliteSystem& system_ret = system;
             int* cbval4 = reinterpret_cast<int*>(&system);
-
             int callback_ret = parsesatelliteinfofromnmea_cb(this, cbval1, cbval2, cbval3, cbval4);
             free(infos_arr);
             return static_cast<VirtualQNmeaSatelliteInfoSource::SatelliteInfoParseStatus>(callback_ret);
@@ -425,7 +419,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto event_cb = qnmeasatelliteinfosource_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -442,7 +435,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -459,7 +451,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto timerevent_cb = qnmeasatelliteinfosource_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -476,7 +467,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto childevent_cb = qnmeasatelliteinfosource_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -493,7 +483,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto customevent_cb = qnmeasatelliteinfosource_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -512,7 +501,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -531,7 +519,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -562,7 +549,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             pnrsInUse_out.len = pnrsInUse_ret.size();
             pnrsInUse_out.data = static_cast<void*>(pnrsInUse_arr);
             libqt_list /* of int */ cbval2 = pnrsInUse_out;
-
             int callback_ret = parsesatellitesinusefromnmea2_cb(this, cbval1, cbval2);
             libqt_free(data_str.data);
             free(pnrsInUse_arr);
@@ -597,7 +583,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             libqt_list /* of QGeoSatelliteInfo* */ cbval2 = infos_out;
             QGeoSatelliteInfo::SatelliteSystem& system_ret = system;
             int* cbval3 = reinterpret_cast<int*>(&system);
-
             int callback_ret = parsesatelliteinfofromnmea2_cb(this, cbval1, cbval2, cbval3);
             libqt_free(data_str.data);
             free(infos_arr);
@@ -616,7 +601,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto seterror_cb = qnmeasatelliteinfosource_seterror_callback;
         if (seterror_cb) {
             int cbval1 = static_cast<int>(satelliteError);
-
             seterror_cb(this, cbval1);
             return;
         }
@@ -660,7 +644,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
         auto receivers_cb = qnmeasatelliteinfosource_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -678,7 +661,6 @@ class VirtualQNmeaSatelliteInfoSource final : public QNmeaSatelliteInfoSource {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

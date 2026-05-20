@@ -375,7 +375,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto metacast_cb = klistwidgetsearchline_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -393,7 +392,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -417,7 +415,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             memcpy((void*)s_str, s_b.data(), s_str_len);
             ((char*)s_str)[s_str_len] = '\0';
             const char* cbval1 = s_str;
-
             updatesearch_cb(this, cbval1);
             libqt_free(s_str);
             return;
@@ -442,7 +439,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             memcpy((void*)s_str, s_b.data(), s_str_len);
             ((char*)s_str)[s_str_len] = '\0';
             const char* cbval2 = s_str;
-
             bool callback_ret = itemmatches_cb(this, cbval1, cbval2);
             libqt_free(s_str);
             return callback_ret;
@@ -459,7 +455,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto event_cb = klistwidgetsearchline_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -475,7 +470,9 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto sizehint_cb = klistwidgetsearchline_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KListWidgetSearchLine::sizeHint();
     }
@@ -489,7 +486,9 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto minimumsizehint_cb = klistwidgetsearchline_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KListWidgetSearchLine::minimumSizeHint();
     }
@@ -504,7 +503,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto mousepressevent_cb = klistwidgetsearchline_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -521,7 +519,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto mousemoveevent_cb = klistwidgetsearchline_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -538,7 +535,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto mousereleaseevent_cb = klistwidgetsearchline_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -555,7 +551,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto mousedoubleclickevent_cb = klistwidgetsearchline_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -572,7 +567,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto keypressevent_cb = klistwidgetsearchline_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -589,7 +583,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto keyreleaseevent_cb = klistwidgetsearchline_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -606,7 +599,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto focusinevent_cb = klistwidgetsearchline_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -623,7 +615,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto focusoutevent_cb = klistwidgetsearchline_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -640,7 +631,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto paintevent_cb = klistwidgetsearchline_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = param1;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -657,7 +647,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto dragenterevent_cb = klistwidgetsearchline_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -674,7 +663,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto dragmoveevent_cb = klistwidgetsearchline_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -691,7 +679,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto dragleaveevent_cb = klistwidgetsearchline_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -708,7 +695,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto dropevent_cb = klistwidgetsearchline_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -725,7 +711,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto changeevent_cb = klistwidgetsearchline_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -742,7 +727,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto contextmenuevent_cb = klistwidgetsearchline_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -759,7 +743,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto inputmethodevent_cb = klistwidgetsearchline_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -776,7 +759,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto initstyleoption_cb = klistwidgetsearchline_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -792,9 +774,10 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto inputmethodquery_cb = klistwidgetsearchline_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KListWidgetSearchLine::inputMethodQuery(param1);
     }
@@ -809,7 +792,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto timerevent_cb = klistwidgetsearchline_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -840,7 +822,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto setvisible_cb = klistwidgetsearchline_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -856,7 +837,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto heightforwidth_cb = klistwidgetsearchline_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -901,7 +881,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto wheelevent_cb = klistwidgetsearchline_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -918,7 +897,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto enterevent_cb = klistwidgetsearchline_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -935,7 +913,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto leaveevent_cb = klistwidgetsearchline_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -952,7 +929,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto moveevent_cb = klistwidgetsearchline_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -969,7 +945,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto resizeevent_cb = klistwidgetsearchline_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -986,7 +961,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto closeevent_cb = klistwidgetsearchline_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1003,7 +977,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto tabletevent_cb = klistwidgetsearchline_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1020,7 +993,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto actionevent_cb = klistwidgetsearchline_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1037,7 +1009,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto showevent_cb = klistwidgetsearchline_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1054,7 +1025,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto hideevent_cb = klistwidgetsearchline_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1078,7 +1048,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1095,7 +1064,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto metric_cb = klistwidgetsearchline_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1112,7 +1080,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto initpainter_cb = klistwidgetsearchline_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1128,7 +1095,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto redirected_cb = klistwidgetsearchline_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1158,7 +1124,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto focusnextprevchild_cb = klistwidgetsearchline_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1175,7 +1140,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1192,7 +1156,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto childevent_cb = klistwidgetsearchline_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1209,7 +1172,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto customevent_cb = klistwidgetsearchline_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1228,7 +1190,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1247,7 +1208,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1263,7 +1223,9 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto cursorrect_cb = klistwidgetsearchline_cursorrect_callback;
         if (cursorrect_cb) {
             QRect* callback_ret = cursorrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KListWidgetSearchLine::cursorRect();
     }
@@ -1378,7 +1340,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto receivers_cb = klistwidgetsearchline_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1396,7 +1357,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1413,7 +1373,6 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

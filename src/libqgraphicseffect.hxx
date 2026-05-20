@@ -184,7 +184,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto metacast_cb = qgraphicseffect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -202,7 +201,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -220,9 +218,10 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
             const QRectF& sourceRect_ret = sourceRect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&sourceRect_ret);
-
             QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::boundingRectFor(sourceRect);
     }
@@ -232,7 +231,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto draw_cb = qgraphicseffect_draw_callback;
         if (draw_cb) {
             QPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
         }
     }
@@ -247,7 +245,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto sourcechanged_cb = qgraphicseffect_sourcechanged_callback;
         if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
-
             sourcechanged_cb(this, cbval1);
             return;
         }
@@ -263,7 +260,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto event_cb = qgraphicseffect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -280,7 +276,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -297,7 +292,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto timerevent_cb = qgraphicseffect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -314,7 +308,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto childevent_cb = qgraphicseffect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -331,7 +324,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto customevent_cb = qgraphicseffect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -350,7 +342,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -369,7 +360,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -414,7 +404,9 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto sourceboundingrect_cb = qgraphicseffect_sourceboundingrect_callback;
         if (sourceboundingrect_cb) {
             QRectF* callback_ret = sourceboundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::sourceBoundingRect();
     }
@@ -429,7 +421,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto drawsource_cb = qgraphicseffect_drawsource_callback;
         if (drawsource_cb) {
             QPainter* cbval1 = painter;
-
             drawsource_cb(this, cbval1);
             return;
         }
@@ -445,7 +436,9 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto sourcepixmap_cb = qgraphicseffect_sourcepixmap_callback;
         if (sourcepixmap_cb) {
             QPixmap* callback_ret = sourcepixmap_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::sourcePixmap();
     }
@@ -459,9 +452,10 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto sourceboundingrect1_cb = qgraphicseffect_sourceboundingrect1_callback;
         if (sourceboundingrect1_cb) {
             int cbval1 = static_cast<int>(system);
-
             QRectF* callback_ret = sourceboundingrect1_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::sourceBoundingRect(system);
     }
@@ -475,9 +469,10 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto sourcepixmap1_cb = qgraphicseffect_sourcepixmap1_callback;
         if (sourcepixmap1_cb) {
             int cbval1 = static_cast<int>(system);
-
             QPixmap* callback_ret = sourcepixmap1_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::sourcePixmap(system);
     }
@@ -492,9 +487,10 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         if (sourcepixmap2_cb) {
             int cbval1 = static_cast<int>(system);
             QPoint* cbval2 = offset;
-
             QPixmap* callback_ret = sourcepixmap2_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::sourcePixmap(system, offset);
     }
@@ -510,9 +506,10 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
             int cbval1 = static_cast<int>(system);
             QPoint* cbval2 = offset;
             int cbval3 = static_cast<int>(mode);
-
             QPixmap* callback_ret = sourcepixmap3_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsEffect::sourcePixmap(system, offset, mode);
     }
@@ -554,7 +551,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
         auto receivers_cb = qgraphicseffect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -572,7 +568,6 @@ class VirtualQGraphicsEffect : public QGraphicsEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -777,7 +772,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto metacast_cb = qgraphicscolorizeeffect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -795,7 +789,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -812,7 +805,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto draw_cb = qgraphicscolorizeeffect_draw_callback;
         if (draw_cb) {
             QPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -830,9 +822,10 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
             const QRectF& sourceRect_ret = sourceRect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&sourceRect_ret);
-
             QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsColorizeEffect::boundingRectFor(sourceRect);
     }
@@ -847,7 +840,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto sourcechanged_cb = qgraphicscolorizeeffect_sourcechanged_callback;
         if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
-
             sourcechanged_cb(this, cbval1);
             return;
         }
@@ -863,7 +855,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto event_cb = qgraphicscolorizeeffect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -880,7 +871,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -897,7 +887,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto timerevent_cb = qgraphicscolorizeeffect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -914,7 +903,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto childevent_cb = qgraphicscolorizeeffect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -931,7 +919,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto customevent_cb = qgraphicscolorizeeffect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -950,7 +937,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -969,7 +955,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1014,7 +999,9 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto sourceboundingrect_cb = qgraphicscolorizeeffect_sourceboundingrect_callback;
         if (sourceboundingrect_cb) {
             QRectF* callback_ret = sourceboundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsColorizeEffect::sourceBoundingRect();
     }
@@ -1029,7 +1016,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto drawsource_cb = qgraphicscolorizeeffect_drawsource_callback;
         if (drawsource_cb) {
             QPainter* cbval1 = painter;
-
             drawsource_cb(this, cbval1);
             return;
         }
@@ -1045,7 +1031,9 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto sourcepixmap_cb = qgraphicscolorizeeffect_sourcepixmap_callback;
         if (sourcepixmap_cb) {
             QPixmap* callback_ret = sourcepixmap_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsColorizeEffect::sourcePixmap();
     }
@@ -1087,7 +1075,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
         auto receivers_cb = qgraphicscolorizeeffect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1105,7 +1092,6 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1302,7 +1288,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto metacast_cb = qgraphicsblureffect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1320,7 +1305,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1338,9 +1322,10 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
-
             QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsBlurEffect::boundingRectFor(rect);
     }
@@ -1355,7 +1340,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto draw_cb = qgraphicsblureffect_draw_callback;
         if (draw_cb) {
             QPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -1372,7 +1356,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto sourcechanged_cb = qgraphicsblureffect_sourcechanged_callback;
         if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
-
             sourcechanged_cb(this, cbval1);
             return;
         }
@@ -1388,7 +1371,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto event_cb = qgraphicsblureffect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1405,7 +1387,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1422,7 +1403,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto timerevent_cb = qgraphicsblureffect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1439,7 +1419,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto childevent_cb = qgraphicsblureffect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1456,7 +1435,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto customevent_cb = qgraphicsblureffect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1475,7 +1453,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1494,7 +1471,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1539,7 +1515,9 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto sourceboundingrect_cb = qgraphicsblureffect_sourceboundingrect_callback;
         if (sourceboundingrect_cb) {
             QRectF* callback_ret = sourceboundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsBlurEffect::sourceBoundingRect();
     }
@@ -1554,7 +1532,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto drawsource_cb = qgraphicsblureffect_drawsource_callback;
         if (drawsource_cb) {
             QPainter* cbval1 = painter;
-
             drawsource_cb(this, cbval1);
             return;
         }
@@ -1570,7 +1547,9 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto sourcepixmap_cb = qgraphicsblureffect_sourcepixmap_callback;
         if (sourcepixmap_cb) {
             QPixmap* callback_ret = sourcepixmap_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsBlurEffect::sourcePixmap();
     }
@@ -1612,7 +1591,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
         auto receivers_cb = qgraphicsblureffect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1630,7 +1608,6 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1827,7 +1804,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto metacast_cb = qgraphicsdropshadoweffect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -1845,7 +1821,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -1863,9 +1838,10 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
-
             QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsDropShadowEffect::boundingRectFor(rect);
     }
@@ -1880,7 +1856,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto draw_cb = qgraphicsdropshadoweffect_draw_callback;
         if (draw_cb) {
             QPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -1897,7 +1872,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto sourcechanged_cb = qgraphicsdropshadoweffect_sourcechanged_callback;
         if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
-
             sourcechanged_cb(this, cbval1);
             return;
         }
@@ -1913,7 +1887,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto event_cb = qgraphicsdropshadoweffect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1930,7 +1903,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1947,7 +1919,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto timerevent_cb = qgraphicsdropshadoweffect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1964,7 +1935,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto childevent_cb = qgraphicsdropshadoweffect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1981,7 +1951,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto customevent_cb = qgraphicsdropshadoweffect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2000,7 +1969,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2019,7 +1987,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2064,7 +2031,9 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto sourceboundingrect_cb = qgraphicsdropshadoweffect_sourceboundingrect_callback;
         if (sourceboundingrect_cb) {
             QRectF* callback_ret = sourceboundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsDropShadowEffect::sourceBoundingRect();
     }
@@ -2079,7 +2048,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto drawsource_cb = qgraphicsdropshadoweffect_drawsource_callback;
         if (drawsource_cb) {
             QPainter* cbval1 = painter;
-
             drawsource_cb(this, cbval1);
             return;
         }
@@ -2095,7 +2063,9 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto sourcepixmap_cb = qgraphicsdropshadoweffect_sourcepixmap_callback;
         if (sourcepixmap_cb) {
             QPixmap* callback_ret = sourcepixmap_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsDropShadowEffect::sourcePixmap();
     }
@@ -2137,7 +2107,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
         auto receivers_cb = qgraphicsdropshadoweffect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2155,7 +2124,6 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2352,7 +2320,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto metacast_cb = qgraphicsopacityeffect_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -2370,7 +2337,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -2387,7 +2353,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto draw_cb = qgraphicsopacityeffect_draw_callback;
         if (draw_cb) {
             QPainter* cbval1 = painter;
-
             draw_cb(this, cbval1);
             return;
         }
@@ -2405,9 +2370,10 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
             const QRectF& sourceRect_ret = sourceRect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&sourceRect_ret);
-
             QRectF* callback_ret = boundingrectfor_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsOpacityEffect::boundingRectFor(sourceRect);
     }
@@ -2422,7 +2388,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto sourcechanged_cb = qgraphicsopacityeffect_sourcechanged_callback;
         if (sourcechanged_cb) {
             int cbval1 = static_cast<int>(flags);
-
             sourcechanged_cb(this, cbval1);
             return;
         }
@@ -2438,7 +2403,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto event_cb = qgraphicsopacityeffect_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -2455,7 +2419,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2472,7 +2435,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto timerevent_cb = qgraphicsopacityeffect_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2489,7 +2451,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto childevent_cb = qgraphicsopacityeffect_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2506,7 +2467,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto customevent_cb = qgraphicsopacityeffect_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2525,7 +2485,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2544,7 +2503,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2589,7 +2547,9 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto sourceboundingrect_cb = qgraphicsopacityeffect_sourceboundingrect_callback;
         if (sourceboundingrect_cb) {
             QRectF* callback_ret = sourceboundingrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsOpacityEffect::sourceBoundingRect();
     }
@@ -2604,7 +2564,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto drawsource_cb = qgraphicsopacityeffect_drawsource_callback;
         if (drawsource_cb) {
             QPainter* cbval1 = painter;
-
             drawsource_cb(this, cbval1);
             return;
         }
@@ -2620,7 +2579,9 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto sourcepixmap_cb = qgraphicsopacityeffect_sourcepixmap_callback;
         if (sourcepixmap_cb) {
             QPixmap* callback_ret = sourcepixmap_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsOpacityEffect::sourcePixmap();
     }
@@ -2662,7 +2623,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
         auto receivers_cb = qgraphicsopacityeffect_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2680,7 +2640,6 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

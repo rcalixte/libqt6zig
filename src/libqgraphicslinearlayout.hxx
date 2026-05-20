@@ -108,7 +108,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
         auto removeat_cb = qgraphicslinearlayout_removeat_callback;
         if (removeat_cb) {
             int cbval1 = index;
-
             removeat_cb(this, cbval1);
             return;
         }
@@ -127,7 +126,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
             const QRectF& rect_ret = rect;
             // Cast returned reference into pointer
             QRectF* cbval1 = const_cast<QRectF*>(&rect_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -157,7 +155,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
         auto itemat_cb = qgraphicslinearlayout_itemat_callback;
         if (itemat_cb) {
             int cbval1 = index;
-
             QGraphicsLayoutItem* callback_ret = itemat_cb(this, cbval1);
             return callback_ret;
         }
@@ -191,9 +188,10 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
             const QSizeF& constraint_ret = constraint;
             // Cast returned reference into pointer
             QSizeF* cbval2 = const_cast<QSizeF*>(&constraint_ret);
-
             QSizeF* callback_ret = sizehint_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QGraphicsLinearLayout::sizeHint(which, constraint);
     }
@@ -211,7 +209,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
             double* cbval2 = static_cast<double*>(top);
             double* cbval3 = static_cast<double*>(right);
             double* cbval4 = static_cast<double*>(bottom);
-
             getcontentsmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -243,7 +240,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
         auto widgetevent_cb = qgraphicslinearlayout_widgetevent_callback;
         if (widgetevent_cb) {
             QEvent* cbval1 = e;
-
             widgetevent_cb(this, cbval1);
             return;
         }
@@ -274,7 +270,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
         auto addchildlayoutitem_cb = qgraphicslinearlayout_addchildlayoutitem_callback;
         if (addchildlayoutitem_cb) {
             QGraphicsLayoutItem* cbval1 = layoutItem;
-
             addchildlayoutitem_cb(this, cbval1);
             return;
         }
@@ -291,7 +286,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
         auto setgraphicsitem_cb = qgraphicslinearlayout_setgraphicsitem_callback;
         if (setgraphicsitem_cb) {
             QGraphicsItem* cbval1 = item;
-
             setgraphicsitem_cb(this, cbval1);
             return;
         }
@@ -308,7 +302,6 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
         auto setownedbylayout_cb = qgraphicslinearlayout_setownedbylayout_callback;
         if (setownedbylayout_cb) {
             bool cbval1 = ownedByLayout;
-
             setownedbylayout_cb(this, cbval1);
             return;
         }

@@ -104,7 +104,9 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
         auto currenturl_cb = kbookmarkowner_currenturl_callback;
         if (currenturl_cb) {
             QUrl* callback_ret = currenturl_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KBookmarkOwner::currentUrl();
     }
@@ -168,7 +170,6 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
         auto enableoption_cb = kbookmarkowner_enableoption_callback;
         if (enableoption_cb) {
             int cbval1 = static_cast<int>(option);
-
             bool callback_ret = enableoption_cb(this, cbval1);
             return callback_ret;
         }
@@ -184,7 +185,6 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
             KBookmark* cbval1 = const_cast<KBookmark*>(&bm_ret);
             int cbval2 = static_cast<int>(mb);
             int cbval3 = static_cast<int>(km);
-
             openbookmark_cb(this, cbval1, cbval2, cbval3);
         }
     }
@@ -201,7 +201,6 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
             const KBookmarkGroup& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmarkGroup* cbval1 = const_cast<KBookmarkGroup*>(&bm_ret);
-
             openfolderintabs_cb(this, cbval1);
             return;
         }
@@ -220,7 +219,6 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
             const KBookmark& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmark* cbval1 = const_cast<KBookmark*>(&bm_ret);
-
             openinnewtab_cb(this, cbval1);
             return;
         }
@@ -239,7 +237,6 @@ class VirtualKBookmarkOwner : public KBookmarkOwner {
             const KBookmark& bm_ret = bm;
             // Cast returned reference into pointer
             KBookmark* cbval1 = const_cast<KBookmark*>(&bm_ret);
-
             openinnewwindow_cb(this, cbval1);
             return;
         }

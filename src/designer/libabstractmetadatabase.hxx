@@ -83,7 +83,6 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             setname_cb(this, cbval1);
             libqt_free(name_str);
         }
@@ -120,7 +119,6 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
             tabOrder_out.len = tabOrder_ret.size();
             tabOrder_out.data = static_cast<void*>(tabOrder_arr);
             libqt_list /* of QWidget* */ cbval1 = tabOrder_out;
-
             settaborder_cb(this, cbval1);
             free(tabOrder_arr);
         }
@@ -141,7 +139,6 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
         auto setenabled_cb = qdesignermetadatabaseiteminterface_setenabled_callback;
         if (setenabled_cb) {
             bool cbval1 = b;
-
             setenabled_cb(this, cbval1);
         }
     }
@@ -287,7 +284,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto metacast_cb = qdesignermetadatabaseinterface_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -305,7 +301,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -317,7 +312,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto item_cb = qdesignermetadatabaseinterface_item_callback;
         if (item_cb) {
             QObject* cbval1 = object;
-
             QDesignerMetaDataBaseItemInterface* callback_ret = item_cb(this, cbval1);
             return callback_ret;
         }
@@ -329,7 +323,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto add_cb = qdesignermetadatabaseinterface_add_callback;
         if (add_cb) {
             QObject* cbval1 = object;
-
             add_cb(this, cbval1);
         }
     }
@@ -339,7 +332,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto remove_cb = qdesignermetadatabaseinterface_remove_callback;
         if (remove_cb) {
             QObject* cbval1 = object;
-
             remove_cb(this, cbval1);
         }
     }
@@ -380,7 +372,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto event_cb = qdesignermetadatabaseinterface_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -397,7 +388,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -414,7 +404,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto timerevent_cb = qdesignermetadatabaseinterface_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -431,7 +420,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto childevent_cb = qdesignermetadatabaseinterface_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -448,7 +436,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto customevent_cb = qdesignermetadatabaseinterface_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -467,7 +454,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -486,7 +472,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -530,7 +515,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
         auto receivers_cb = qdesignermetadatabaseinterface_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -548,7 +532,6 @@ class VirtualQDesignerMetaDataBaseInterface : public QDesignerMetaDataBaseInterf
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

@@ -129,7 +129,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         auto metacast_cb = qaccessiblebridgeplugin_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -147,7 +146,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -166,7 +164,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
             memcpy((void*)key_str, key_b.data(), key_str_len);
             ((char*)key_str)[key_str_len] = '\0';
             const char* cbval1 = key_str;
-
             QAccessibleBridge* callback_ret = create_cb(this, cbval1);
             libqt_free(key_str);
             return callback_ret;
@@ -183,7 +180,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         auto event_cb = qaccessiblebridgeplugin_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -200,7 +196,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -217,7 +212,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         auto timerevent_cb = qaccessiblebridgeplugin_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -234,7 +228,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         auto childevent_cb = qaccessiblebridgeplugin_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -251,7 +244,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         auto customevent_cb = qaccessiblebridgeplugin_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -270,7 +262,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -289,7 +280,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -333,7 +323,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
         auto receivers_cb = qaccessiblebridgeplugin_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -351,7 +340,6 @@ class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

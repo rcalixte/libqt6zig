@@ -415,7 +415,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto metacast_cb = kpagedialog_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -433,7 +432,6 @@ class VirtualKPageDialog final : public KPageDialog {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -450,7 +448,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto setvisible_cb = kpagedialog_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -466,7 +463,9 @@ class VirtualKPageDialog final : public KPageDialog {
         auto sizehint_cb = kpagedialog_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPageDialog::sizeHint();
     }
@@ -480,7 +479,9 @@ class VirtualKPageDialog final : public KPageDialog {
         auto minimumsizehint_cb = kpagedialog_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPageDialog::minimumSizeHint();
     }
@@ -524,7 +525,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto done_cb = kpagedialog_done_callback;
         if (done_cb) {
             int cbval1 = param1;
-
             done_cb(this, cbval1);
             return;
         }
@@ -571,7 +571,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto keypressevent_cb = kpagedialog_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -588,7 +587,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto closeevent_cb = kpagedialog_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = param1;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -605,7 +603,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto showevent_cb = kpagedialog_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = param1;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -622,7 +619,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto resizeevent_cb = kpagedialog_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -639,7 +635,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto contextmenuevent_cb = kpagedialog_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -656,7 +651,6 @@ class VirtualKPageDialog final : public KPageDialog {
         if (eventfilter_cb) {
             QObject* cbval1 = param1;
             QEvent* cbval2 = param2;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -686,7 +680,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto heightforwidth_cb = kpagedialog_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -730,7 +723,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto event_cb = kpagedialog_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -747,7 +739,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto mousepressevent_cb = kpagedialog_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -764,7 +755,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto mousereleaseevent_cb = kpagedialog_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -781,7 +771,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto mousedoubleclickevent_cb = kpagedialog_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -798,7 +787,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto mousemoveevent_cb = kpagedialog_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -815,7 +803,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto wheelevent_cb = kpagedialog_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -832,7 +819,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto keyreleaseevent_cb = kpagedialog_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -849,7 +835,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto focusinevent_cb = kpagedialog_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -866,7 +851,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto focusoutevent_cb = kpagedialog_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -883,7 +867,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto enterevent_cb = kpagedialog_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -900,7 +883,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto leaveevent_cb = kpagedialog_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -917,7 +899,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto paintevent_cb = kpagedialog_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -934,7 +915,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto moveevent_cb = kpagedialog_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -951,7 +931,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto tabletevent_cb = kpagedialog_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -968,7 +947,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto actionevent_cb = kpagedialog_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -985,7 +963,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto dragenterevent_cb = kpagedialog_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1002,7 +979,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto dragmoveevent_cb = kpagedialog_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1019,7 +995,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto dragleaveevent_cb = kpagedialog_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1036,7 +1011,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto dropevent_cb = kpagedialog_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1053,7 +1027,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto hideevent_cb = kpagedialog_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1077,7 +1050,6 @@ class VirtualKPageDialog final : public KPageDialog {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1095,7 +1067,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto changeevent_cb = kpagedialog_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1111,7 +1082,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto metric_cb = kpagedialog_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1128,7 +1098,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto initpainter_cb = kpagedialog_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1144,7 +1113,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto redirected_cb = kpagedialog_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1175,7 +1143,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto inputmethodevent_cb = kpagedialog_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1191,9 +1158,10 @@ class VirtualKPageDialog final : public KPageDialog {
         auto inputmethodquery_cb = kpagedialog_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KPageDialog::inputMethodQuery(param1);
     }
@@ -1207,7 +1175,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto focusnextprevchild_cb = kpagedialog_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1224,7 +1191,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto timerevent_cb = kpagedialog_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1241,7 +1207,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto childevent_cb = kpagedialog_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1258,7 +1223,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto customevent_cb = kpagedialog_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1277,7 +1241,6 @@ class VirtualKPageDialog final : public KPageDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1296,7 +1259,6 @@ class VirtualKPageDialog final : public KPageDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1341,7 +1303,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto setpagewidget_cb = kpagedialog_setpagewidget_callback;
         if (setpagewidget_cb) {
             KPageWidget* cbval1 = widget;
-
             setpagewidget_cb(this, cbval1);
             return;
         }
@@ -1386,7 +1347,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto setbuttonbox_cb = kpagedialog_setbuttonbox_callback;
         if (setbuttonbox_cb) {
             QDialogButtonBox* cbval1 = box;
-
             setbuttonbox_cb(this, cbval1);
             return;
         }
@@ -1403,7 +1363,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto adjustposition_cb = kpagedialog_adjustposition_callback;
         if (adjustposition_cb) {
             QWidget* cbval1 = param1;
-
             adjustposition_cb(this, cbval1);
             return;
         }
@@ -1520,7 +1479,6 @@ class VirtualKPageDialog final : public KPageDialog {
         auto receivers_cb = kpagedialog_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1538,7 +1496,6 @@ class VirtualKPageDialog final : public KPageDialog {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1555,7 +1512,6 @@ class VirtualKPageDialog final : public KPageDialog {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

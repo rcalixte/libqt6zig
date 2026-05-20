@@ -60,7 +60,6 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             append_cb(this, cbval1);
             libqt_free(text_str);
         }
@@ -74,7 +73,6 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             add_cb(this, cbval1, cbval2);
         }
     }
@@ -84,7 +82,6 @@ class VirtualKFileMetaDataExtractionResult : public KFileMetaData::ExtractionRes
         auto addtype_cb = kfilemetadata__extractionresult_addtype_callback;
         if (addtype_cb) {
             int cbval1 = static_cast<int>(typeVal);
-
             addtype_cb(this, cbval1);
         }
     }

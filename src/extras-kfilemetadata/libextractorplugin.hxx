@@ -138,7 +138,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto metacast_cb = kfilemetadata__extractorplugin_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -156,7 +155,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -187,7 +185,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto extract_cb = kfilemetadata__extractorplugin_extract_callback;
         if (extract_cb) {
             KFileMetaData__ExtractionResult* cbval1 = result;
-
             extract_cb(this, cbval1);
         }
     }
@@ -201,7 +198,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto event_cb = kfilemetadata__extractorplugin_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -218,7 +214,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -235,7 +230,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto timerevent_cb = kfilemetadata__extractorplugin_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -252,7 +246,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto childevent_cb = kfilemetadata__extractorplugin_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -269,7 +262,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto customevent_cb = kfilemetadata__extractorplugin_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -288,7 +280,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -307,7 +298,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -330,7 +320,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             memcpy((void*)mimetype_str, mimetype_b.data(), mimetype_str_len);
             ((char*)mimetype_str)[mimetype_str_len] = '\0';
             const char* cbval1 = mimetype_str;
-
             const char* callback_ret = getsupportedmimetype_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             libqt_free(mimetype_str);
@@ -376,7 +365,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         auto receivers_cb = kfilemetadata__extractorplugin_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -394,7 +382,6 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

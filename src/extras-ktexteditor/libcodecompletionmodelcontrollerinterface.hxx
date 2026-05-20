@@ -96,7 +96,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval4 = const_cast<KTextEditor::Cursor*>(&position_ret);
-
             bool callback_ret = shouldstartcompletion_cb(this, cbval1, cbval2, cbval3, cbval4);
             libqt_free(insertedText_str);
             return callback_ret;
@@ -116,9 +115,10 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval2 = const_cast<KTextEditor::Cursor*>(&position_ret);
-
             KTextEditor__Range* callback_ret = completionrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KTextEditor__CodeCompletionModelControllerInterface::completionRange(view, position);
     }
@@ -135,9 +135,10 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
             KTextEditor__Range* cbval2 = const_cast<KTextEditor::Range*>(&range_ret);
-
             KTextEditor__Range* callback_ret = updatecompletionrange_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KTextEditor__CodeCompletionModelControllerInterface::updateCompletionRange(view, range);
     }
@@ -157,7 +158,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             const KTextEditor::Cursor& position_ret = position;
             // Cast returned reference into pointer
             KTextEditor__Cursor* cbval3 = const_cast<KTextEditor::Cursor*>(&position_ret);
-
             const char* callback_ret = filterstring_cb(this, cbval1, cbval2, cbval3);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -185,7 +185,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             memcpy((void*)currentCompletion_str, currentCompletion_b.data(), currentCompletion_str_len);
             ((char*)currentCompletion_str)[currentCompletion_str_len] = '\0';
             const char* cbval3 = currentCompletion_str;
-
             bool callback_ret = shouldabortcompletion_cb(this, cbval1, cbval2, cbval3);
             libqt_free(currentCompletion_str);
             return callback_ret;
@@ -205,7 +204,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&selected_ret);
             QChar* cbval2 = new QChar(inserted);
-
             bool callback_ret = shouldexecute_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -222,7 +220,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         auto aborted_cb = ktexteditor__codecompletionmodelcontrollerinterface_aborted_callback;
         if (aborted_cb) {
             KTextEditor__View* cbval1 = view;
-
             aborted_cb(this, cbval1);
             return;
         }
@@ -240,7 +237,6 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             const QModelIndex& matched_ret = matched;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&matched_ret);
-
             int callback_ret = matchingitem_cb(this, cbval1);
             return static_cast<KTextEditor::CodeCompletionModelControllerInterface::MatchReaction>(callback_ret);
         }

@@ -117,7 +117,9 @@ class VirtualQLayoutItem : public QLayoutItem {
         auto sizehint_cb = qlayoutitem_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -127,7 +129,9 @@ class VirtualQLayoutItem : public QLayoutItem {
         auto minimumsize_cb = qlayoutitem_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -137,7 +141,9 @@ class VirtualQLayoutItem : public QLayoutItem {
         auto maximumsize_cb = qlayoutitem_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -159,7 +165,6 @@ class VirtualQLayoutItem : public QLayoutItem {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
-
             setgeometry_cb(this, cbval1);
         }
     }
@@ -169,7 +174,9 @@ class VirtualQLayoutItem : public QLayoutItem {
         auto geometry_cb = qlayoutitem_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return {};
     }
@@ -207,7 +214,6 @@ class VirtualQLayoutItem : public QLayoutItem {
         auto heightforwidth_cb = qlayoutitem_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -223,7 +229,6 @@ class VirtualQLayoutItem : public QLayoutItem {
         auto minimumheightforwidth_cb = qlayoutitem_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -313,7 +318,6 @@ class VirtualQLayoutItem : public QLayoutItem {
             const QLayoutItem& param1_ret = param1;
             // Cast returned reference into pointer
             QLayoutItem* cbval1 = const_cast<QLayoutItem*>(&param1_ret);
-
             operatorassign_cb(this, cbval1);
             return;
         }
@@ -433,7 +437,9 @@ class VirtualQSpacerItem final : public QSpacerItem {
         auto sizehint_cb = qspaceritem_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSpacerItem::sizeHint();
     }
@@ -447,7 +453,9 @@ class VirtualQSpacerItem final : public QSpacerItem {
         auto minimumsize_cb = qspaceritem_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSpacerItem::minimumSize();
     }
@@ -461,7 +469,9 @@ class VirtualQSpacerItem final : public QSpacerItem {
         auto maximumsize_cb = qspaceritem_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSpacerItem::maximumSize();
     }
@@ -506,7 +516,6 @@ class VirtualQSpacerItem final : public QSpacerItem {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -522,7 +531,9 @@ class VirtualQSpacerItem final : public QSpacerItem {
         auto geometry_cb = qspaceritem_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QSpacerItem::geometry();
     }
@@ -564,7 +575,6 @@ class VirtualQSpacerItem final : public QSpacerItem {
         auto heightforwidth_cb = qspaceritem_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -580,7 +590,6 @@ class VirtualQSpacerItem final : public QSpacerItem {
         auto minimumheightforwidth_cb = qspaceritem_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -750,7 +759,9 @@ class VirtualQWidgetItem final : public QWidgetItem {
         auto sizehint_cb = qwidgetitem_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItem::sizeHint();
     }
@@ -764,7 +775,9 @@ class VirtualQWidgetItem final : public QWidgetItem {
         auto minimumsize_cb = qwidgetitem_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItem::minimumSize();
     }
@@ -778,7 +791,9 @@ class VirtualQWidgetItem final : public QWidgetItem {
         auto maximumsize_cb = qwidgetitem_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItem::maximumSize();
     }
@@ -823,7 +838,6 @@ class VirtualQWidgetItem final : public QWidgetItem {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -839,7 +853,9 @@ class VirtualQWidgetItem final : public QWidgetItem {
         auto geometry_cb = qwidgetitem_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItem::geometry();
     }
@@ -881,7 +897,6 @@ class VirtualQWidgetItem final : public QWidgetItem {
         auto heightforwidth_cb = qwidgetitem_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -897,7 +912,6 @@ class VirtualQWidgetItem final : public QWidgetItem {
         auto minimumheightforwidth_cb = qwidgetitem_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1067,7 +1081,9 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
         auto sizehint_cb = qwidgetitemv2_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItemV2::sizeHint();
     }
@@ -1081,7 +1097,9 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
         auto minimumsize_cb = qwidgetitemv2_minimumsize_callback;
         if (minimumsize_cb) {
             QSize* callback_ret = minimumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItemV2::minimumSize();
     }
@@ -1095,7 +1113,9 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
         auto maximumsize_cb = qwidgetitemv2_maximumsize_callback;
         if (maximumsize_cb) {
             QSize* callback_ret = maximumsize_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItemV2::maximumSize();
     }
@@ -1109,7 +1129,6 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
         auto heightforwidth_cb = qwidgetitemv2_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = width;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1156,7 +1175,6 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
             const QRect& geometry_ret = geometry;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&geometry_ret);
-
             setgeometry_cb(this, cbval1);
             return;
         }
@@ -1172,7 +1190,9 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
         auto geometry_cb = qwidgetitemv2_geometry_callback;
         if (geometry_cb) {
             QRect* callback_ret = geometry_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QWidgetItemV2::geometry();
     }
@@ -1214,7 +1234,6 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
         auto minimumheightforwidth_cb = qwidgetitemv2_minimumheightforwidth_callback;
         if (minimumheightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = minimumheightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }

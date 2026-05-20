@@ -309,7 +309,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto metacast_cb = qscilexerproperties_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -327,7 +326,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -344,7 +342,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto setfoldcompact_cb = qscilexerproperties_setfoldcompact_callback;
         if (setfoldcompact_cb) {
             bool cbval1 = fold;
-
             setfoldcompact_cb(this, cbval1);
             return;
         }
@@ -435,7 +432,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto blockend_cb = qscilexerproperties_blockend_callback;
         if (blockend_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockend_cb(this, cbval1);
             return callback_ret;
         }
@@ -465,7 +461,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto blockstart_cb = qscilexerproperties_blockstart_callback;
         if (blockstart_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockstart_cb(this, cbval1);
             return callback_ret;
         }
@@ -481,7 +476,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto blockstartkeyword_cb = qscilexerproperties_blockstartkeyword_callback;
         if (blockstartkeyword_cb) {
             int* cbval1 = style;
-
             const char* callback_ret = blockstartkeyword_cb(this, cbval1);
             return callback_ret;
         }
@@ -525,9 +519,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto color_cb = qscilexerproperties_color_callback;
         if (color_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = color_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerProperties::color(style);
     }
@@ -541,7 +536,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto eolfill_cb = qscilexerproperties_eolfill_callback;
         if (eolfill_cb) {
             int cbval1 = style;
-
             bool callback_ret = eolfill_cb(this, cbval1);
             return callback_ret;
         }
@@ -557,9 +551,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto font_cb = qscilexerproperties_font_callback;
         if (font_cb) {
             int cbval1 = style;
-
             QFont* callback_ret = font_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerProperties::font(style);
     }
@@ -587,7 +582,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto keywords_cb = qscilexerproperties_keywords_callback;
         if (keywords_cb) {
             int cbval1 = set;
-
             const char* callback_ret = keywords_cb(this, cbval1);
             return callback_ret;
         }
@@ -613,7 +607,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto description_cb = qscilexerproperties_description_callback;
         if (description_cb) {
             int cbval1 = style;
-
             const char* callback_ret = description_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -630,9 +623,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto paper_cb = qscilexerproperties_paper_callback;
         if (paper_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = paper_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerProperties::paper(style);
     }
@@ -646,9 +640,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto defaultcolor2_cb = qscilexerproperties_defaultcolor2_callback;
         if (defaultcolor2_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = defaultcolor2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerProperties::defaultColor(style);
     }
@@ -662,7 +657,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto defaulteolfill_cb = qscilexerproperties_defaulteolfill_callback;
         if (defaulteolfill_cb) {
             int cbval1 = style;
-
             bool callback_ret = defaulteolfill_cb(this, cbval1);
             return callback_ret;
         }
@@ -678,9 +672,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto defaultfont2_cb = qscilexerproperties_defaultfont2_callback;
         if (defaultfont2_cb) {
             int cbval1 = style;
-
             QFont* callback_ret = defaultfont2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerProperties::defaultFont(style);
     }
@@ -694,9 +689,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto defaultpaper2_cb = qscilexerproperties_defaultpaper2_callback;
         if (defaultpaper2_cb) {
             int cbval1 = style;
-
             QColor* callback_ret = defaultpaper2_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QsciLexerProperties::defaultPaper(style);
     }
@@ -711,7 +707,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto seteditor_cb = qscilexerproperties_seteditor_callback;
         if (seteditor_cb) {
             QsciScintilla* cbval1 = editor;
-
             seteditor_cb(this, cbval1);
             return;
         }
@@ -771,7 +766,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto setautoindentstyle_cb = qscilexerproperties_setautoindentstyle_callback;
         if (setautoindentstyle_cb) {
             int cbval1 = autoindentstyle;
-
             setautoindentstyle_cb(this, cbval1);
             return;
         }
@@ -791,7 +785,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
-
             setcolor_cb(this, cbval1, cbval2);
             return;
         }
@@ -809,7 +802,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         if (seteolfill_cb) {
             bool cbval1 = eoffill;
             int cbval2 = style;
-
             seteolfill_cb(this, cbval1, cbval2);
             return;
         }
@@ -829,7 +821,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&f_ret);
             int cbval2 = style;
-
             setfont_cb(this, cbval1, cbval2);
             return;
         }
@@ -849,7 +840,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             // Cast returned reference into pointer
             QColor* cbval1 = const_cast<QColor*>(&c_ret);
             int cbval2 = style;
-
             setpaper_cb(this, cbval1, cbval2);
             return;
         }
@@ -875,7 +865,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
-
             bool callback_ret = readproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
@@ -902,7 +891,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             memcpy((void*)prefix_str, prefix_b.data(), prefix_str_len);
             ((char*)prefix_str)[prefix_str_len] = '\0';
             const char* cbval2 = prefix_str;
-
             bool callback_ret = writeproperties_cb(this, cbval1, cbval2);
             libqt_free(prefix_str);
             return callback_ret;
@@ -919,7 +907,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto event_cb = qscilexerproperties_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -936,7 +923,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -953,7 +939,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto timerevent_cb = qscilexerproperties_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -970,7 +955,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto childevent_cb = qscilexerproperties_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -987,7 +971,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto customevent_cb = qscilexerproperties_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1006,7 +989,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1025,7 +1007,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1048,7 +1029,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             libqt_string callback_ret = textasbytes_cb(this, cbval1);
             QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
             libqt_free(text_str);
@@ -1067,7 +1047,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         if (bytesastext_cb) {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
-
             const char* callback_ret = bytesastext_cb(this, cbval1, cbval2);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -1112,7 +1091,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         auto receivers_cb = qscilexerproperties_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1130,7 +1108,6 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

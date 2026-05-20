@@ -50,7 +50,6 @@ class VirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
         auto setaccepted_cb = qgraphicssceneevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -114,7 +113,6 @@ class VirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
         auto setaccepted_cb = qgraphicsscenemouseevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -178,7 +176,6 @@ class VirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
         auto setaccepted_cb = qgraphicsscenewheelevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -242,7 +239,6 @@ class VirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContext
         auto setaccepted_cb = qgraphicsscenecontextmenuevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -306,7 +302,6 @@ class VirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
         auto setaccepted_cb = qgraphicsscenehoverevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -370,7 +365,6 @@ class VirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
         auto setaccepted_cb = qgraphicsscenehelpevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -434,7 +428,6 @@ class VirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEv
         auto setaccepted_cb = qgraphicsscenedragdropevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -497,7 +490,6 @@ class VirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent 
         auto setaccepted_cb = qgraphicssceneresizeevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }
@@ -560,7 +552,6 @@ class VirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
         auto setaccepted_cb = qgraphicsscenemoveevent_setaccepted_callback;
         if (setaccepted_cb) {
             bool cbval1 = accepted;
-
             setaccepted_cb(this, cbval1);
             return;
         }

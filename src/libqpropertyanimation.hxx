@@ -156,7 +156,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto metacast_cb = qpropertyanimation_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -174,7 +173,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -190,7 +188,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto event_cb = qpropertyanimation_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -209,7 +206,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval1 = const_cast<QVariant*>(&value_ret);
-
             updatecurrentvalue_cb(this, cbval1);
             return;
         }
@@ -227,7 +223,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         if (updatestate_cb) {
             int cbval1 = static_cast<int>(newState);
             int cbval2 = static_cast<int>(oldState);
-
             updatestate_cb(this, cbval1, cbval2);
             return;
         }
@@ -258,7 +253,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto updatecurrenttime_cb = qpropertyanimation_updatecurrenttime_callback;
         if (updatecurrenttime_cb) {
             int cbval1 = param1;
-
             updatecurrenttime_cb(this, cbval1);
             return;
         }
@@ -280,9 +274,10 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&to_ret);
             double cbval3 = static_cast<double>(progress);
-
             QVariant* callback_ret = interpolated_cb(this, cbval1, cbval2, cbval3);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QPropertyAnimation::interpolated(from, to, progress);
     }
@@ -297,7 +292,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto updatedirection_cb = qpropertyanimation_updatedirection_callback;
         if (updatedirection_cb) {
             int cbval1 = static_cast<int>(direction);
-
             updatedirection_cb(this, cbval1);
             return;
         }
@@ -314,7 +308,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -331,7 +324,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto timerevent_cb = qpropertyanimation_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -348,7 +340,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto childevent_cb = qpropertyanimation_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -365,7 +356,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto customevent_cb = qpropertyanimation_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -384,7 +374,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -403,7 +392,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -447,7 +435,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
         auto receivers_cb = qpropertyanimation_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -465,7 +452,6 @@ class VirtualQPropertyAnimation final : public QPropertyAnimation {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

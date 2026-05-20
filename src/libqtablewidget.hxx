@@ -89,9 +89,10 @@ class VirtualQTableWidgetItem final : public QTableWidgetItem {
         auto data_cb = qtablewidgetitem_data_callback;
         if (data_cb) {
             int cbval1 = role;
-
             QVariant* callback_ret = data_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidgetItem::data(role);
     }
@@ -109,7 +110,6 @@ class VirtualQTableWidgetItem final : public QTableWidgetItem {
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
             QVariant* cbval2 = const_cast<QVariant*>(&value_ret);
-
             setdata_cb(this, cbval1, cbval2);
             return;
         }
@@ -127,7 +127,6 @@ class VirtualQTableWidgetItem final : public QTableWidgetItem {
             const QTableWidgetItem& other_ret = other;
             // Cast returned reference into pointer
             QTableWidgetItem* cbval1 = const_cast<QTableWidgetItem*>(&other_ret);
-
             bool callback_ret = operatorlesser_cb(this, cbval1);
             return callback_ret;
         }
@@ -146,7 +145,6 @@ class VirtualQTableWidgetItem final : public QTableWidgetItem {
             QDataStream& in_ret = in;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &in_ret;
-
             read_cb(this, cbval1);
             return;
         }
@@ -165,7 +163,6 @@ class VirtualQTableWidgetItem final : public QTableWidgetItem {
             QDataStream& out_ret = out;
             // Cast returned reference into pointer
             QDataStream* cbval1 = &out_ret;
-
             write_cb(this, cbval1);
             return;
         }
@@ -858,7 +855,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto metacast_cb = qtablewidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -876,7 +872,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -892,7 +887,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto event_cb = qtablewidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = e;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -940,7 +934,6 @@ class VirtualQTableWidget final : public QTableWidget {
             items_out.len = items_ret.size();
             items_out.data = static_cast<void*>(items_arr);
             libqt_list /* of QTableWidgetItem* */ cbval1 = items_out;
-
             QMimeData* callback_ret = mimedata_cb(this, cbval1);
             free(items_arr);
             return callback_ret;
@@ -960,7 +953,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval2 = column;
             QMimeData* cbval3 = (QMimeData*)data;
             int cbval4 = static_cast<int>(action);
-
             bool callback_ret = dropmimedata_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -991,7 +983,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto dropevent_cb = qtablewidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1010,7 +1001,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             setrootindex_cb(this, cbval1);
             return;
         }
@@ -1027,7 +1017,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto setselectionmodel_cb = qtablewidget_setselectionmodel_callback;
         if (setselectionmodel_cb) {
             QItemSelectionModel* cbval1 = selectionModel;
-
             setselectionmodel_cb(this, cbval1);
             return;
         }
@@ -1060,9 +1049,10 @@ class VirtualQTableWidget final : public QTableWidget {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QRect* callback_ret = visualrect_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::visualRect(index);
     }
@@ -1080,7 +1070,6 @@ class VirtualQTableWidget final : public QTableWidget {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(hint);
-
             scrollto_cb(this, cbval1, cbval2);
             return;
         }
@@ -1098,9 +1087,10 @@ class VirtualQTableWidget final : public QTableWidget {
             const QPoint& p_ret = p;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&p_ret);
-
             QModelIndex* callback_ret = indexat_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::indexAt(p);
     }
@@ -1116,7 +1106,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (scrollcontentsby_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrollcontentsby_cb(this, cbval1, cbval2);
             return;
         }
@@ -1133,7 +1122,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto initviewitemoption_cb = qtablewidget_initviewitemoption_callback;
         if (initviewitemoption_cb) {
             QStyleOptionViewItem* cbval1 = option;
-
             initviewitemoption_cb(this, cbval1);
             return;
         }
@@ -1150,7 +1138,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto paintevent_cb = qtablewidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = e;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1167,7 +1154,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto timerevent_cb = qtablewidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1212,9 +1198,10 @@ class VirtualQTableWidget final : public QTableWidget {
         if (movecursor_cb) {
             int cbval1 = static_cast<int>(cursorAction);
             int cbval2 = static_cast<int>(modifiers);
-
             QModelIndex* callback_ret = movecursor_cb(this, cbval1, cbval2);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::moveCursor(cursorAction, modifiers);
     }
@@ -1232,7 +1219,6 @@ class VirtualQTableWidget final : public QTableWidget {
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&rect_ret);
             int cbval2 = static_cast<int>(command);
-
             setselection_cb(this, cbval1, cbval2);
             return;
         }
@@ -1250,9 +1236,10 @@ class VirtualQTableWidget final : public QTableWidget {
             const QItemSelection& selection_ret = selection;
             // Cast returned reference into pointer
             QItemSelection* cbval1 = const_cast<QItemSelection*>(&selection_ret);
-
             QRegion* callback_ret = visualregionforselection_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::visualRegionForSelection(selection);
     }
@@ -1302,7 +1289,9 @@ class VirtualQTableWidget final : public QTableWidget {
         auto viewportsizehint_cb = qtablewidget_viewportsizehint_callback;
         if (viewportsizehint_cb) {
             QSize* callback_ret = viewportsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::viewportSizeHint();
     }
@@ -1316,7 +1305,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto sizehintforrow_cb = qtablewidget_sizehintforrow_callback;
         if (sizehintforrow_cb) {
             int cbval1 = row;
-
             int callback_ret = sizehintforrow_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1332,7 +1320,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto sizehintforcolumn_cb = qtablewidget_sizehintforcolumn_callback;
         if (sizehintforcolumn_cb) {
             int cbval1 = column;
-
             int callback_ret = sizehintforcolumn_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1349,7 +1336,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto verticalscrollbaraction_cb = qtablewidget_verticalscrollbaraction_callback;
         if (verticalscrollbaraction_cb) {
             int cbval1 = action;
-
             verticalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1366,7 +1352,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto horizontalscrollbaraction_cb = qtablewidget_horizontalscrollbaraction_callback;
         if (horizontalscrollbaraction_cb) {
             int cbval1 = action;
-
             horizontalscrollbaraction_cb(this, cbval1);
             return;
         }
@@ -1384,7 +1369,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             bool callback_ret = isindexhidden_cb(this, cbval1);
             return callback_ret;
         }
@@ -1406,7 +1390,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QItemSelection& deselected_ret = deselected;
             // Cast returned reference into pointer
             QItemSelection* cbval2 = const_cast<QItemSelection*>(&deselected_ret);
-
             selectionchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1428,7 +1411,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QModelIndex& previous_ret = previous;
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&previous_ret);
-
             currentchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -1452,7 +1434,6 @@ class VirtualQTableWidget final : public QTableWidget {
             memcpy((void*)search_str, search_b.data(), search_str_len);
             ((char*)search_str)[search_str_len] = '\0';
             const char* cbval1 = search_str;
-
             keyboardsearch_cb(this, cbval1);
             libqt_free(search_str);
             return;
@@ -1471,7 +1452,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QModelIndex& index_ret = index;
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
-
             QAbstractItemDelegate* callback_ret = itemdelegateforindex_cb(this, cbval1);
             return callback_ret;
         }
@@ -1487,9 +1467,10 @@ class VirtualQTableWidget final : public QTableWidget {
         auto inputmethodquery_cb = qtablewidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(query);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::inputMethodQuery(query);
     }
@@ -1549,7 +1530,6 @@ class VirtualQTableWidget final : public QTableWidget {
             roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
-
             datachanged_cb(this, cbval1, cbval2, cbval3);
             free(roles_arr);
             return;
@@ -1571,7 +1551,6 @@ class VirtualQTableWidget final : public QTableWidget {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsinserted_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1592,7 +1571,6 @@ class VirtualQTableWidget final : public QTableWidget {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&parent_ret);
             int cbval2 = start;
             int cbval3 = end;
-
             rowsabouttoberemoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -1639,7 +1617,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto verticalscrollbarvaluechanged_cb = qtablewidget_verticalscrollbarvaluechanged_callback;
         if (verticalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             verticalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1656,7 +1633,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto horizontalscrollbarvaluechanged_cb = qtablewidget_horizontalscrollbarvaluechanged_callback;
         if (horizontalscrollbarvaluechanged_cb) {
             int cbval1 = value;
-
             horizontalscrollbarvaluechanged_cb(this, cbval1);
             return;
         }
@@ -1674,7 +1650,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (closeeditor_cb) {
             QWidget* cbval1 = editor;
             int cbval2 = static_cast<int>(hint);
-
             closeeditor_cb(this, cbval1, cbval2);
             return;
         }
@@ -1691,7 +1666,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto commitdata_cb = qtablewidget_commitdata_callback;
         if (commitdata_cb) {
             QWidget* cbval1 = editor;
-
             commitdata_cb(this, cbval1);
             return;
         }
@@ -1708,7 +1682,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto editordestroyed_cb = qtablewidget_editordestroyed_callback;
         if (editordestroyed_cb) {
             QObject* cbval1 = editor;
-
             editordestroyed_cb(this, cbval1);
             return;
         }
@@ -1728,7 +1701,6 @@ class VirtualQTableWidget final : public QTableWidget {
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             int cbval2 = static_cast<int>(trigger);
             QEvent* cbval3 = event;
-
             bool callback_ret = edit2_cb(this, cbval1, cbval2, cbval3);
             return callback_ret;
         }
@@ -1747,7 +1719,6 @@ class VirtualQTableWidget final : public QTableWidget {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             QEvent* cbval2 = (QEvent*)event;
-
             int callback_ret = selectioncommand_cb(this, cbval1, cbval2);
             return static_cast<QItemSelectionModel::SelectionFlags>(callback_ret);
         }
@@ -1764,7 +1735,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto startdrag_cb = qtablewidget_startdrag_callback;
         if (startdrag_cb) {
             int cbval1 = static_cast<int>(supportedActions);
-
             startdrag_cb(this, cbval1);
             return;
         }
@@ -1780,7 +1750,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto focusnextprevchild_cb = qtablewidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1796,7 +1765,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto viewportevent_cb = qtablewidget_viewportevent_callback;
         if (viewportevent_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = viewportevent_cb(this, cbval1);
             return callback_ret;
         }
@@ -1813,7 +1781,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto mousepressevent_cb = qtablewidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1830,7 +1797,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto mousemoveevent_cb = qtablewidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1847,7 +1813,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto mousereleaseevent_cb = qtablewidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1864,7 +1829,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto mousedoubleclickevent_cb = qtablewidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1881,7 +1845,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto dragenterevent_cb = qtablewidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1898,7 +1861,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto dragmoveevent_cb = qtablewidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1915,7 +1877,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto dragleaveevent_cb = qtablewidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1932,7 +1893,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto focusinevent_cb = qtablewidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1949,7 +1909,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto focusoutevent_cb = qtablewidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1966,7 +1925,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto keypressevent_cb = qtablewidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1983,7 +1941,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto resizeevent_cb = qtablewidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -2000,7 +1957,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto inputmethodevent_cb = qtablewidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = event;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2017,7 +1973,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = object;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2033,7 +1988,9 @@ class VirtualQTableWidget final : public QTableWidget {
         auto minimumsizehint_cb = qtablewidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::minimumSizeHint();
     }
@@ -2047,7 +2004,9 @@ class VirtualQTableWidget final : public QTableWidget {
         auto sizehint_cb = qtablewidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::sizeHint();
     }
@@ -2062,7 +2021,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto setupviewport_cb = qtablewidget_setupviewport_callback;
         if (setupviewport_cb) {
             QWidget* cbval1 = viewport;
-
             setupviewport_cb(this, cbval1);
             return;
         }
@@ -2079,7 +2037,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto wheelevent_cb = qtablewidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = param1;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2096,7 +2053,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto contextmenuevent_cb = qtablewidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2113,7 +2069,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto changeevent_cb = qtablewidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2130,7 +2085,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto initstyleoption_cb = qtablewidget_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -2161,7 +2115,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto setvisible_cb = qtablewidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -2177,7 +2130,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto heightforwidth_cb = qtablewidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2222,7 +2174,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto keyreleaseevent_cb = qtablewidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2239,7 +2190,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto enterevent_cb = qtablewidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2256,7 +2206,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto leaveevent_cb = qtablewidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2273,7 +2222,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto moveevent_cb = qtablewidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2290,7 +2238,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto closeevent_cb = qtablewidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2307,7 +2254,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto tabletevent_cb = qtablewidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2324,7 +2270,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto actionevent_cb = qtablewidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2341,7 +2286,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto showevent_cb = qtablewidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2358,7 +2302,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto hideevent_cb = qtablewidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2382,7 +2325,6 @@ class VirtualQTableWidget final : public QTableWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2399,7 +2341,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto metric_cb = qtablewidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2416,7 +2357,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto initpainter_cb = qtablewidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2432,7 +2372,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto redirected_cb = qtablewidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2463,7 +2402,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto childevent_cb = qtablewidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2480,7 +2418,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto customevent_cb = qtablewidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2499,7 +2436,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2518,7 +2454,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2537,7 +2472,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval1 = row;
             int cbval2 = oldIndex;
             int cbval3 = newIndex;
-
             rowmoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2556,7 +2490,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval1 = column;
             int cbval2 = oldIndex;
             int cbval3 = newIndex;
-
             columnmoved_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2575,7 +2508,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval1 = row;
             int cbval2 = oldHeight;
             int cbval3 = newHeight;
-
             rowresized_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2594,7 +2526,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval1 = column;
             int cbval2 = oldWidth;
             int cbval3 = newWidth;
-
             columnresized_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -2612,7 +2543,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (rowcountchanged_cb) {
             int cbval1 = oldCount;
             int cbval2 = newCount;
-
             rowcountchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -2630,7 +2560,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (columncountchanged_cb) {
             int cbval1 = oldCount;
             int cbval2 = newCount;
-
             columncountchanged_cb(this, cbval1, cbval2);
             return;
         }
@@ -2661,7 +2590,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto setstate_cb = qtablewidget_setstate_callback;
         if (setstate_cb) {
             int cbval1 = static_cast<int>(state);
-
             setstate_cb(this, cbval1);
             return;
         }
@@ -2710,7 +2638,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QRegion& region_ret = region;
             // Cast returned reference into pointer
             QRegion* cbval1 = const_cast<QRegion*>(&region_ret);
-
             setdirtyregion_cb(this, cbval1);
             return;
         }
@@ -2728,7 +2655,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (scrolldirtyregion_cb) {
             int cbval1 = dx;
             int cbval2 = dy;
-
             scrolldirtyregion_cb(this, cbval1, cbval2);
             return;
         }
@@ -2744,7 +2670,9 @@ class VirtualQTableWidget final : public QTableWidget {
         auto dirtyregionoffset_cb = qtablewidget_dirtyregionoffset_callback;
         if (dirtyregionoffset_cb) {
             QPoint* callback_ret = dirtyregionoffset_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::dirtyRegionOffset();
     }
@@ -2821,7 +2749,6 @@ class VirtualQTableWidget final : public QTableWidget {
             int cbval2 = top;
             int cbval3 = right;
             int cbval4 = bottom;
-
             setviewportmargins_cb(this, cbval1, cbval2, cbval3, cbval4);
             return;
         }
@@ -2837,7 +2764,9 @@ class VirtualQTableWidget final : public QTableWidget {
         auto viewportmargins_cb = qtablewidget_viewportmargins_callback;
         if (viewportmargins_cb) {
             QMargins* callback_ret = viewportmargins_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTableWidget::viewportMargins();
     }
@@ -2852,7 +2781,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto drawframe_cb = qtablewidget_drawframe_callback;
         if (drawframe_cb) {
             QPainter* cbval1 = param1;
-
             drawframe_cb(this, cbval1);
             return;
         }
@@ -2969,7 +2897,6 @@ class VirtualQTableWidget final : public QTableWidget {
         auto receivers_cb = qtablewidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2987,7 +2914,6 @@ class VirtualQTableWidget final : public QTableWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -3004,7 +2930,6 @@ class VirtualQTableWidget final : public QTableWidget {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

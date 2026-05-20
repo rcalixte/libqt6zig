@@ -65,7 +65,6 @@ class VirtualQDesignerFormEditorPluginInterface : public QDesignerFormEditorPlug
         auto initialize_cb = qdesignerformeditorplugininterface_initialize_callback;
         if (initialize_cb) {
             QDesignerFormEditorInterface* cbval1 = core;
-
             initialize_cb(this, cbval1);
         }
     }

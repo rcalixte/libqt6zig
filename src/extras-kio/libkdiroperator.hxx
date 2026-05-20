@@ -565,7 +565,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto metacast_cb = kdiroperator_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -583,7 +582,6 @@ class VirtualKDirOperator final : public KDirOperator {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -600,7 +598,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setshowhiddenfiles_cb = kdiroperator_setshowhiddenfiles_callback;
         if (setshowhiddenfiles_cb) {
             bool cbval1 = s;
-
             setshowhiddenfiles_cb(this, cbval1);
             return;
         }
@@ -620,7 +617,6 @@ class VirtualKDirOperator final : public KDirOperator {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
             bool cbval2 = clearforward;
-
             seturl_cb(this, cbval1, cbval2);
             return;
         }
@@ -637,7 +633,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setmode_cb = kdiroperator_setmode_callback;
         if (setmode_cb) {
             int cbval1 = static_cast<int>(m);
-
             setmode_cb(this, cbval1);
             return;
         }
@@ -654,7 +649,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setpreviewwidget_cb = kdiroperator_setpreviewwidget_callback;
         if (setpreviewwidget_cb) {
             KPreviewWidgetBase* cbval1 = w;
-
             setpreviewwidget_cb(this, cbval1);
             return;
         }
@@ -673,7 +667,6 @@ class VirtualKDirOperator final : public KDirOperator {
             KConfigGroup& configGroup_ret = configGroup;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &configGroup_ret;
-
             setviewconfig_cb(this, cbval1);
             return;
         }
@@ -692,7 +685,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const KConfigGroup& configGroup_ret = configGroup;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = const_cast<KConfigGroup*>(&configGroup_ret);
-
             readconfig_cb(this, cbval1);
             return;
         }
@@ -711,7 +703,6 @@ class VirtualKDirOperator final : public KDirOperator {
             KConfigGroup& configGroup_ret = configGroup;
             // Cast returned reference into pointer
             KConfigGroup* cbval1 = &configGroup_ret;
-
             writeconfig_cb(this, cbval1);
             return;
         }
@@ -732,7 +723,6 @@ class VirtualKDirOperator final : public KDirOperator {
             QWidget* cbval2 = parent;
             bool cbval3 = ask;
             bool cbval4 = showProgress;
-
             KIO__DeleteJob* callback_ret = del_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -749,7 +739,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setenabledirhighlighting_cb = kdiroperator_setenabledirhighlighting_callback;
         if (setenabledirhighlighting_cb) {
             bool cbval1 = enable;
-
             setenabledirhighlighting_cb(this, cbval1);
             return;
         }
@@ -766,7 +755,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setacceptdrops_cb = kdiroperator_setacceptdrops_callback;
         if (setacceptdrops_cb) {
             bool cbval1 = b;
-
             setacceptdrops_cb(this, cbval1);
             return;
         }
@@ -783,7 +771,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setdropoptions_cb = kdiroperator_setdropoptions_callback;
         if (setdropoptions_cb) {
             int cbval1 = options;
-
             setdropoptions_cb(this, cbval1);
             return;
         }
@@ -804,7 +791,6 @@ class VirtualKDirOperator final : public KDirOperator {
             QWidget* cbval2 = parent;
             bool cbval3 = ask;
             bool cbval4 = showProgress;
-
             KIO__CopyJob* callback_ret = trash_cb(this, cbval1, cbval2, cbval3, cbval4);
             return callback_ret;
         }
@@ -821,7 +807,6 @@ class VirtualKDirOperator final : public KDirOperator {
         if (createview_cb) {
             QWidget* cbval1 = parent;
             int cbval2 = static_cast<int>(viewKind);
-
             QAbstractItemView* callback_ret = createview_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -838,7 +823,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setdirlister_cb = kdiroperator_setdirlister_callback;
         if (setdirlister_cb) {
             KDirLister* cbval1 = lister;
-
             setdirlister_cb(this, cbval1);
             return;
         }
@@ -855,7 +839,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto resizeevent_cb = kdiroperator_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = event;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -877,7 +860,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const QPoint& pos_ret = pos;
             // Cast returned reference into pointer
             QPoint* cbval2 = const_cast<QPoint*>(&pos_ret);
-
             activatedmenu_cb(this, cbval1, cbval2);
             return;
         }
@@ -894,7 +876,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto changeevent_cb = kdiroperator_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = event;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -911,7 +892,6 @@ class VirtualKDirOperator final : public KDirOperator {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1050,7 +1030,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
-
             selectdir_cb(this, cbval1);
             return;
         }
@@ -1081,7 +1060,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto setvisible_cb = kdiroperator_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1097,7 +1075,9 @@ class VirtualKDirOperator final : public KDirOperator {
         auto sizehint_cb = kdiroperator_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KDirOperator::sizeHint();
     }
@@ -1111,7 +1091,9 @@ class VirtualKDirOperator final : public KDirOperator {
         auto minimumsizehint_cb = kdiroperator_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KDirOperator::minimumSizeHint();
     }
@@ -1125,7 +1107,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto heightforwidth_cb = kdiroperator_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1169,7 +1150,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto event_cb = kdiroperator_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1186,7 +1166,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto mousepressevent_cb = kdiroperator_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1203,7 +1182,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto mousereleaseevent_cb = kdiroperator_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1220,7 +1198,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto mousedoubleclickevent_cb = kdiroperator_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -1237,7 +1214,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto mousemoveevent_cb = kdiroperator_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -1254,7 +1230,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto wheelevent_cb = kdiroperator_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1271,7 +1246,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto keypressevent_cb = kdiroperator_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -1288,7 +1262,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto keyreleaseevent_cb = kdiroperator_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -1305,7 +1278,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto focusinevent_cb = kdiroperator_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -1322,7 +1294,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto focusoutevent_cb = kdiroperator_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -1339,7 +1310,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto enterevent_cb = kdiroperator_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1356,7 +1326,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto leaveevent_cb = kdiroperator_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1373,7 +1342,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto paintevent_cb = kdiroperator_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -1390,7 +1358,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto moveevent_cb = kdiroperator_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1407,7 +1374,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto closeevent_cb = kdiroperator_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1424,7 +1390,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto contextmenuevent_cb = kdiroperator_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -1441,7 +1406,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto tabletevent_cb = kdiroperator_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1458,7 +1422,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto actionevent_cb = kdiroperator_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1475,7 +1438,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto dragenterevent_cb = kdiroperator_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -1492,7 +1454,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto dragmoveevent_cb = kdiroperator_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -1509,7 +1470,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto dragleaveevent_cb = kdiroperator_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -1526,7 +1486,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto dropevent_cb = kdiroperator_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1543,7 +1502,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto showevent_cb = kdiroperator_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1560,7 +1518,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto hideevent_cb = kdiroperator_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1584,7 +1541,6 @@ class VirtualKDirOperator final : public KDirOperator {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1601,7 +1557,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto metric_cb = kdiroperator_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1618,7 +1573,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto initpainter_cb = kdiroperator_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1634,7 +1588,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto redirected_cb = kdiroperator_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1665,7 +1618,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto inputmethodevent_cb = kdiroperator_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1681,9 +1633,10 @@ class VirtualKDirOperator final : public KDirOperator {
         auto inputmethodquery_cb = kdiroperator_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KDirOperator::inputMethodQuery(param1);
     }
@@ -1697,7 +1650,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto focusnextprevchild_cb = kdiroperator_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1714,7 +1666,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto timerevent_cb = kdiroperator_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1731,7 +1682,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto childevent_cb = kdiroperator_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1748,7 +1698,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto customevent_cb = kdiroperator_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1767,7 +1716,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1786,7 +1734,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1924,7 +1871,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
-
             selectfile_cb(this, cbval1);
             return;
         }
@@ -1943,7 +1889,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const KFileItem& item_ret = item;
             // Cast returned reference into pointer
             KFileItem* cbval1 = const_cast<KFileItem*>(&item_ret);
-
             highlightfile_cb(this, cbval1);
             return;
         }
@@ -2072,7 +2017,6 @@ class VirtualKDirOperator final : public KDirOperator {
             memcpy((void*)match_str, match_b.data(), match_str_len);
             ((char*)match_str)[match_str_len] = '\0';
             const char* cbval1 = match_str;
-
             slotcompletionmatch_cb(this, cbval1);
             libqt_free(match_str);
             return;
@@ -2190,7 +2134,6 @@ class VirtualKDirOperator final : public KDirOperator {
         auto receivers_cb = kdiroperator_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2208,7 +2151,6 @@ class VirtualKDirOperator final : public KDirOperator {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2225,7 +2167,6 @@ class VirtualKDirOperator final : public KDirOperator {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

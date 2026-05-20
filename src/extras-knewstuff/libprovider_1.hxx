@@ -213,7 +213,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto metacast_cb = knscore__provider_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -231,7 +230,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -256,7 +254,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const QDomElement& xmldata_ret = xmldata;
             // Cast returned reference into pointer
             QDomElement* cbval1 = const_cast<QDomElement*>(&xmldata_ret);
-
             bool callback_ret = setproviderxml_cb(this, cbval1);
             return callback_ret;
         }
@@ -287,7 +284,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             cachedEntries_out.len = cachedEntries_ret.size();
             cachedEntries_out.data = static_cast<void*>(cachedEntries_arr);
             libqt_list /* of KNSCore__Entry* */ cbval1 = cachedEntries_out;
-
             setcachedentries_cb(this, cbval1);
             free(cachedEntries_arr);
         }
@@ -317,7 +313,9 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto icon_cb = knscore__provider_icon_callback;
         if (icon_cb) {
             QUrl* callback_ret = icon_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KNSCore__Provider::icon();
     }
@@ -329,7 +327,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const KNSCore::Provider::SearchRequest& request_ret = request;
             // Cast returned reference into pointer
             KNSCore__Provider__SearchRequest* cbval1 = const_cast<KNSCore::Provider::SearchRequest*>(&request_ret);
-
             loadentries_cb(this, cbval1);
         }
     }
@@ -346,7 +343,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const KNSCore::Entry& param1_ret = param1;
             // Cast returned reference into pointer
             KNSCore__Entry* cbval1 = const_cast<KNSCore::Entry*>(&param1_ret);
-
             loadentrydetails_cb(this, cbval1);
             return;
         }
@@ -361,7 +357,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             // Cast returned reference into pointer
             KNSCore__Entry* cbval1 = const_cast<KNSCore::Entry*>(&entry_ret);
             int cbval2 = linkId;
-
             loadpayloadlink_cb(this, cbval1, cbval2);
         }
     }
@@ -380,7 +375,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             KNSCore__Entry* cbval1 = const_cast<KNSCore::Entry*>(&param1_ret);
             int cbval2 = param2;
             int cbval3 = param3;
-
             loadcomments_cb(this, cbval1, cbval2, cbval3);
             return;
         }
@@ -404,7 +398,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             loadperson_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -454,7 +447,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             // Cast returned reference into pointer
             KNSCore__Entry* cbval1 = const_cast<KNSCore::Entry*>(&param1_ret);
             unsigned int cbval2 = static_cast<unsigned int>(param2);
-
             vote_cb(this, cbval1, cbval2);
             return;
         }
@@ -487,7 +479,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const KNSCore::Entry& param1_ret = param1;
             // Cast returned reference into pointer
             KNSCore__Entry* cbval1 = const_cast<KNSCore::Entry*>(&param1_ret);
-
             becomefan_cb(this, cbval1);
             return;
         }
@@ -503,7 +494,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto event_cb = knscore__provider_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -520,7 +510,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -537,7 +526,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto timerevent_cb = knscore__provider_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -554,7 +542,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto childevent_cb = knscore__provider_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -571,7 +558,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto customevent_cb = knscore__provider_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -590,7 +576,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -609,7 +594,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -633,7 +617,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             setname_cb(this, cbval1);
             libqt_free(name_str);
             return;
@@ -653,7 +636,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const QUrl& icon_ret = icon;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&icon_ret);
-
             seticon_cb(this, cbval1);
             return;
         }
@@ -697,7 +679,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
         auto receivers_cb = knscore__provider_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -715,7 +696,6 @@ class VirtualKNSCoreProvider : public KNSCore::Provider {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

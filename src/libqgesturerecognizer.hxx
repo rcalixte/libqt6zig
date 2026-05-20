@@ -54,7 +54,6 @@ class VirtualQGestureRecognizer : public QGestureRecognizer {
         auto create_cb = qgesturerecognizer_create_callback;
         if (create_cb) {
             QObject* cbval1 = target;
-
             QGesture* callback_ret = create_cb(this, cbval1);
             return callback_ret;
         }
@@ -68,7 +67,6 @@ class VirtualQGestureRecognizer : public QGestureRecognizer {
             QGesture* cbval1 = state;
             QObject* cbval2 = watched;
             QEvent* cbval3 = event;
-
             int callback_ret = recognize_cb(this, cbval1, cbval2, cbval3);
             return static_cast<QGestureRecognizer::Result>(callback_ret);
         }
@@ -85,7 +83,6 @@ class VirtualQGestureRecognizer : public QGestureRecognizer {
         auto reset_cb = qgesturerecognizer_reset_callback;
         if (reset_cb) {
             QGesture* cbval1 = state;
-
             reset_cb(this, cbval1);
             return;
         }

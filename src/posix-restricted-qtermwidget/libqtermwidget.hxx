@@ -676,7 +676,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto metacast_cb = qtermwidget_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -694,7 +693,6 @@ class VirtualQTermWidget final : public QTermWidget {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -710,7 +708,9 @@ class VirtualQTermWidget final : public QTermWidget {
         auto sizehint_cb = qtermwidget_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTermWidget::sizeHint();
     }
@@ -725,7 +725,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setterminalsizehint_cb = qtermwidget_setterminalsizehint_callback;
         if (setterminalsizehint_cb) {
             bool cbval1 = enabled;
-
             setterminalsizehint_cb(this, cbval1);
             return;
         }
@@ -821,7 +820,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)dir_str, dir_b.data(), dir_str_len);
             ((char*)dir_str)[dir_str_len] = '\0';
             const char* cbval1 = dir_str;
-
             changedir_cb(this, cbval1);
             libqt_free(dir_str);
             return;
@@ -841,7 +839,6 @@ class VirtualQTermWidget final : public QTermWidget {
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval1 = const_cast<QFont*>(&font_ret);
-
             setterminalfont_cb(this, cbval1);
             return;
         }
@@ -857,7 +854,9 @@ class VirtualQTermWidget final : public QTermWidget {
         auto getterminalfont_cb = qtermwidget_getterminalfont_callback;
         if (getterminalfont_cb) {
             QFont* callback_ret = getterminalfont_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTermWidget::getTerminalFont();
     }
@@ -872,7 +871,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setterminalopacity_cb = qtermwidget_setterminalopacity_callback;
         if (setterminalopacity_cb) {
             double cbval1 = static_cast<double>(level);
-
             setterminalopacity_cb(this, cbval1);
             return;
         }
@@ -896,7 +894,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)backgroundImage_str, backgroundImage_b.data(), backgroundImage_str_len);
             ((char*)backgroundImage_str)[backgroundImage_str_len] = '\0';
             const char* cbval1 = backgroundImage_str;
-
             setterminalbackgroundimage_cb(this, cbval1);
             libqt_free(backgroundImage_str);
             return;
@@ -914,7 +911,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setterminalbackgroundmode_cb = qtermwidget_setterminalbackgroundmode_callback;
         if (setterminalbackgroundmode_cb) {
             int cbval1 = mode;
-
             setterminalbackgroundmode_cb(this, cbval1);
             return;
         }
@@ -944,7 +940,6 @@ class VirtualQTermWidget final : public QTermWidget {
             // Append sentinel null terminator to the list
             environment_arr[environment_ret.size()] = nullptr;
             const char** cbval1 = environment_arr;
-
             setenvironment_cb(this, cbval1);
             libqt_free(environment_arr);
             return;
@@ -969,7 +964,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)program_str, program_b.data(), program_str_len);
             ((char*)program_str)[program_str_len] = '\0';
             const char* cbval1 = program_str;
-
             setshellprogram_cb(this, cbval1);
             libqt_free(program_str);
             return;
@@ -994,7 +988,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)dir_str, dir_b.data(), dir_str_len);
             ((char*)dir_str)[dir_str_len] = '\0';
             const char* cbval1 = dir_str;
-
             setworkingdirectory_cb(this, cbval1);
             libqt_free(dir_str);
             return;
@@ -1040,7 +1033,6 @@ class VirtualQTermWidget final : public QTermWidget {
             // Append sentinel null terminator to the list
             args_arr[args_ret.size()] = nullptr;
             const char** cbval1 = args_arr;
-
             setargs_cb(this, cbval1);
             libqt_free(args_arr);
             return;
@@ -1065,7 +1057,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-
             setcolorscheme_cb(this, cbval1);
             libqt_free(name_str);
             return;
@@ -1106,7 +1097,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto sethistorysize_cb = qtermwidget_sethistorysize_callback;
         if (sethistorysize_cb) {
             int cbval1 = lines;
-
             sethistorysize_cb(this, cbval1);
             return;
         }
@@ -1137,7 +1127,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setscrollbarposition_cb = qtermwidget_setscrollbarposition_callback;
         if (setscrollbarposition_cb) {
             int cbval1 = static_cast<int>(scrollBarPosition);
-
             setscrollbarposition_cb(this, cbval1);
             return;
         }
@@ -1176,7 +1165,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             sendtext_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -1194,7 +1182,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto sendkeyevent_cb = qtermwidget_sendkeyevent_callback;
         if (sendkeyevent_cb) {
             QKeyEvent* cbval1 = e;
-
             sendkeyevent_cb(this, cbval1);
             return;
         }
@@ -1211,7 +1198,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setflowcontrolenabled_cb = qtermwidget_setflowcontrolenabled_callback;
         if (setflowcontrolenabled_cb) {
             bool cbval1 = enabled;
-
             setflowcontrolenabled_cb(this, cbval1);
             return;
         }
@@ -1242,7 +1228,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setflowcontrolwarningenabled_cb = qtermwidget_setflowcontrolwarningenabled_callback;
         if (setflowcontrolwarningenabled_cb) {
             bool cbval1 = enabled;
-
             setflowcontrolwarningenabled_cb(this, cbval1);
             return;
         }
@@ -1274,7 +1259,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setmotionafterpasting_cb = qtermwidget_setmotionafterpasting_callback;
         if (setmotionafterpasting_cb) {
             int cbval1 = motionAfterPasting;
-
             setmotionafterpasting_cb(this, cbval1);
             return;
         }
@@ -1334,7 +1318,6 @@ class VirtualQTermWidget final : public QTermWidget {
         if (setselectionstart_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             setselectionstart_cb(this, cbval1, cbval2);
             return;
         }
@@ -1352,7 +1335,6 @@ class VirtualQTermWidget final : public QTermWidget {
         if (setselectionend_cb) {
             int cbval1 = row;
             int cbval2 = column;
-
             setselectionend_cb(this, cbval1, cbval2);
             return;
         }
@@ -1370,7 +1352,6 @@ class VirtualQTermWidget final : public QTermWidget {
         if (getselectionstart_cb) {
             int* cbval1 = &row;
             int* cbval2 = &column;
-
             getselectionstart_cb(this, cbval1, cbval2);
             return;
         }
@@ -1388,7 +1369,6 @@ class VirtualQTermWidget final : public QTermWidget {
         if (getselectionend_cb) {
             int* cbval1 = &row;
             int* cbval2 = &column;
-
             getselectionend_cb(this, cbval1, cbval2);
             return;
         }
@@ -1404,7 +1384,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto selectedtext_cb = qtermwidget_selectedtext_callback;
         if (selectedtext_cb) {
             bool cbval1 = preserveLineBreaks;
-
             const char* callback_ret = selectedtext_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
@@ -1422,7 +1401,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setmonitoractivity_cb = qtermwidget_setmonitoractivity_callback;
         if (setmonitoractivity_cb) {
             bool cbval1 = monitorActivity;
-
             setmonitoractivity_cb(this, cbval1);
             return;
         }
@@ -1439,7 +1417,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setmonitorsilence_cb = qtermwidget_setmonitorsilence_callback;
         if (setmonitorsilence_cb) {
             bool cbval1 = monitorSilence;
-
             setmonitorsilence_cb(this, cbval1);
             return;
         }
@@ -1456,7 +1433,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setsilencetimeout_cb = qtermwidget_setsilencetimeout_callback;
         if (setsilencetimeout_cb) {
             int cbval1 = seconds;
-
             setsilencetimeout_cb(this, cbval1);
             return;
         }
@@ -1474,7 +1450,6 @@ class VirtualQTermWidget final : public QTermWidget {
             const QPoint& position_ret = position;
             // Cast returned reference into pointer
             QPoint* cbval1 = const_cast<QPoint*>(&position_ret);
-
             libqt_list /* of QAction* */ callback_ret = filteractions_cb(this, cbval1);
             QList<QAction*> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
@@ -1512,7 +1487,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setblinkingcursor_cb = qtermwidget_setblinkingcursor_callback;
         if (setblinkingcursor_cb) {
             bool cbval1 = blink;
-
             setblinkingcursor_cb(this, cbval1);
             return;
         }
@@ -1529,7 +1503,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setbidienabled_cb = qtermwidget_setbidienabled_callback;
         if (setbidienabled_cb) {
             bool cbval1 = enabled;
-
             setbidienabled_cb(this, cbval1);
             return;
         }
@@ -1560,7 +1533,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setautoclose_cb = qtermwidget_setautoclose_callback;
         if (setautoclose_cb) {
             bool cbval1 = autoClose;
-
             setautoclose_cb(this, cbval1);
             return;
         }
@@ -1628,7 +1600,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             brackettext_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -1646,7 +1617,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto disablebracketedpastemode_cb = qtermwidget_disablebracketedpastemode_callback;
         if (disablebracketedpastemode_cb) {
             bool cbval1 = disable;
-
             disablebracketedpastemode_cb(this, cbval1);
             return;
         }
@@ -1677,7 +1647,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setmargin_cb = qtermwidget_setmargin_callback;
         if (setmargin_cb) {
             int cbval1 = margin;
-
             setmargin_cb(this, cbval1);
             return;
         }
@@ -1708,7 +1677,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setdrawlinechars_cb = qtermwidget_setdrawlinechars_callback;
         if (setdrawlinechars_cb) {
             bool cbval1 = drawLineChars;
-
             setdrawlinechars_cb(this, cbval1);
             return;
         }
@@ -1725,7 +1693,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setboldintense_cb = qtermwidget_setboldintense_callback;
         if (setboldintense_cb) {
             bool cbval1 = boldIntense;
-
             setboldintense_cb(this, cbval1);
             return;
         }
@@ -1742,7 +1709,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setconfirmmultilinepaste_cb = qtermwidget_setconfirmmultilinepaste_callback;
         if (setconfirmmultilinepaste_cb) {
             bool cbval1 = confirmMultilinePaste;
-
             setconfirmmultilinepaste_cb(this, cbval1);
             return;
         }
@@ -1759,7 +1725,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto settrimpastedtrailingnewlines_cb = qtermwidget_settrimpastedtrailingnewlines_callback;
         if (settrimpastedtrailingnewlines_cb) {
             bool cbval1 = trimPastedTrailingNewlines;
-
             settrimpastedtrailingnewlines_cb(this, cbval1);
             return;
         }
@@ -1798,7 +1763,6 @@ class VirtualQTermWidget final : public QTermWidget {
             memcpy((void*)chars_str, chars_b.data(), chars_str_len);
             ((char*)chars_str)[chars_str_len] = '\0';
             const char* cbval1 = chars_str;
-
             setwordcharacters_cb(this, cbval1);
             libqt_free(chars_str);
             return;
@@ -1815,7 +1779,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto createwidget_cb = qtermwidget_createwidget_callback;
         if (createwidget_cb) {
             int cbval1 = startnow;
-
             QTermWidgetInterface* callback_ret = createwidget_cb(this, cbval1);
             return callback_ret;
         }
@@ -1832,7 +1795,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto resizeevent_cb = qtermwidget_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -1863,7 +1825,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto setvisible_cb = qtermwidget_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1879,7 +1840,9 @@ class VirtualQTermWidget final : public QTermWidget {
         auto minimumsizehint_cb = qtermwidget_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTermWidget::minimumSizeHint();
     }
@@ -1893,7 +1856,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto heightforwidth_cb = qtermwidget_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1937,7 +1899,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto event_cb = qtermwidget_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -1954,7 +1915,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto mousepressevent_cb = qtermwidget_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -1971,7 +1931,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto mousereleaseevent_cb = qtermwidget_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -1988,7 +1947,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto mousedoubleclickevent_cb = qtermwidget_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -2005,7 +1963,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto mousemoveevent_cb = qtermwidget_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = event;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -2022,7 +1979,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto wheelevent_cb = qtermwidget_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -2039,7 +1995,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto keypressevent_cb = qtermwidget_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -2056,7 +2011,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto keyreleaseevent_cb = qtermwidget_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = event;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -2073,7 +2027,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto focusinevent_cb = qtermwidget_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -2090,7 +2043,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto focusoutevent_cb = qtermwidget_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = event;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -2107,7 +2059,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto enterevent_cb = qtermwidget_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -2124,7 +2075,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto leaveevent_cb = qtermwidget_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -2141,7 +2091,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto paintevent_cb = qtermwidget_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = event;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -2158,7 +2107,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto moveevent_cb = qtermwidget_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -2175,7 +2123,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto closeevent_cb = qtermwidget_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -2192,7 +2139,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto contextmenuevent_cb = qtermwidget_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = event;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -2209,7 +2155,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto tabletevent_cb = qtermwidget_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -2226,7 +2171,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto actionevent_cb = qtermwidget_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -2243,7 +2187,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto dragenterevent_cb = qtermwidget_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = event;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -2260,7 +2203,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto dragmoveevent_cb = qtermwidget_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = event;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -2277,7 +2219,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto dragleaveevent_cb = qtermwidget_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = event;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -2294,7 +2235,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto dropevent_cb = qtermwidget_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = event;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -2311,7 +2251,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto showevent_cb = qtermwidget_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -2328,7 +2267,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto hideevent_cb = qtermwidget_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -2352,7 +2290,6 @@ class VirtualQTermWidget final : public QTermWidget {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -2370,7 +2307,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto changeevent_cb = qtermwidget_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -2386,7 +2322,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto metric_cb = qtermwidget_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2403,7 +2338,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto initpainter_cb = qtermwidget_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -2419,7 +2353,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto redirected_cb = qtermwidget_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2450,7 +2383,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto inputmethodevent_cb = qtermwidget_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -2466,9 +2398,10 @@ class VirtualQTermWidget final : public QTermWidget {
         auto inputmethodquery_cb = qtermwidget_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return QTermWidget::inputMethodQuery(param1);
     }
@@ -2482,7 +2415,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto focusnextprevchild_cb = qtermwidget_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -2499,7 +2431,6 @@ class VirtualQTermWidget final : public QTermWidget {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -2516,7 +2447,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto timerevent_cb = qtermwidget_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -2533,7 +2463,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto childevent_cb = qtermwidget_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -2550,7 +2479,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto customevent_cb = qtermwidget_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -2569,7 +2497,6 @@ class VirtualQTermWidget final : public QTermWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -2588,7 +2515,6 @@ class VirtualQTermWidget final : public QTermWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -2620,7 +2546,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto selectionchanged_cb = qtermwidget_selectionchanged_callback;
         if (selectionchanged_cb) {
             bool cbval1 = textSelected;
-
             selectionchanged_cb(this, cbval1);
             return;
         }
@@ -2737,7 +2662,6 @@ class VirtualQTermWidget final : public QTermWidget {
         auto receivers_cb = qtermwidget_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -2755,7 +2679,6 @@ class VirtualQTermWidget final : public QTermWidget {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -2772,7 +2695,6 @@ class VirtualQTermWidget final : public QTermWidget {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }

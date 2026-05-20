@@ -133,7 +133,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         auto metacast_cb = kfilemetadata__writerplugin_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -151,7 +150,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -184,7 +182,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
             const KFileMetaData::WriteData& data_ret = data;
             // Cast returned reference into pointer
             KFileMetaData__WriteData* cbval1 = const_cast<KFileMetaData::WriteData*>(&data_ret);
-
             write_cb(this, cbval1);
         }
     }
@@ -198,7 +195,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         auto event_cb = kfilemetadata__writerplugin_event_callback;
         if (event_cb) {
             QEvent* cbval1 = event;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -215,7 +211,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -232,7 +227,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         auto timerevent_cb = kfilemetadata__writerplugin_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = event;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -249,7 +243,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         auto childevent_cb = kfilemetadata__writerplugin_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -266,7 +259,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         auto customevent_cb = kfilemetadata__writerplugin_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -285,7 +277,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -304,7 +295,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -348,7 +338,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
         auto receivers_cb = kfilemetadata__writerplugin_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -366,7 +355,6 @@ class VirtualKFileMetaDataWriterPlugin : public KFileMetaData::WriterPlugin {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }

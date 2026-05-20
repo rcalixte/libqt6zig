@@ -466,7 +466,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto metacast_cb = klineedit_metacast_callback;
         if (metacast_cb) {
             const char* cbval1 = (const char*)param1;
-
             void* callback_ret = metacast_cb(this, cbval1);
             return callback_ret;
         }
@@ -484,7 +483,6 @@ class VirtualKLineEdit final : public KLineEdit {
             int cbval1 = static_cast<int>(param1);
             int cbval2 = param2;
             void** cbval3 = param3;
-
             int callback_ret = metacall_cb(this, cbval1, cbval2, cbval3);
             return static_cast<int>(callback_ret);
         }
@@ -501,7 +499,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto setcompletionmode_cb = klineedit_setcompletionmode_callback;
         if (setcompletionmode_cb) {
             int cbval1 = static_cast<int>(mode);
-
             setcompletionmode_cb(this, cbval1);
             return;
         }
@@ -517,7 +514,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto completionbox_cb = klineedit_completionbox_callback;
         if (completionbox_cb) {
             bool cbval1 = create;
-
             KCompletionBox* callback_ret = completionbox_cb(this, cbval1);
             return callback_ret;
         }
@@ -535,7 +531,6 @@ class VirtualKLineEdit final : public KLineEdit {
         if (setcompletionobject_cb) {
             KCompletion* cbval1 = param1;
             bool cbval2 = handle;
-
             setcompletionobject_cb(this, cbval1, cbval2);
             return;
         }
@@ -567,7 +562,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto setreadonly_cb = klineedit_setreadonly_callback;
         if (setreadonly_cb) {
             bool cbval1 = readOnly;
-
             setreadonly_cb(this, cbval1);
             return;
         }
@@ -591,7 +585,6 @@ class VirtualKLineEdit final : public KLineEdit {
             memcpy((void*)completedText_str, completedText_b.data(), completedText_str_len);
             ((char*)completedText_str)[completedText_str_len] = '\0';
             const char* cbval1 = completedText_str;
-
             setcompletedtext_cb(this, cbval1);
             libqt_free(completedText_str);
             return;
@@ -623,7 +616,6 @@ class VirtualKLineEdit final : public KLineEdit {
             items_arr[items_ret.size()] = nullptr;
             const char** cbval1 = items_arr;
             bool cbval2 = autoSuggest;
-
             setcompleteditems_cb(this, cbval1, cbval2);
             libqt_free(items_arr);
             return;
@@ -648,7 +640,6 @@ class VirtualKLineEdit final : public KLineEdit {
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval1 = text_str;
-
             settext_cb(this, cbval1);
             libqt_free(text_str);
             return;
@@ -673,7 +664,6 @@ class VirtualKLineEdit final : public KLineEdit {
             memcpy((void*)param1_str, param1_b.data(), param1_str_len);
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
-
             makecompletion_cb(this, cbval1);
             libqt_free(param1_str);
             return;
@@ -690,7 +680,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto event_cb = klineedit_event_callback;
         if (event_cb) {
             QEvent* cbval1 = param1;
-
             bool callback_ret = event_cb(this, cbval1);
             return callback_ret;
         }
@@ -707,7 +696,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto resizeevent_cb = klineedit_resizeevent_callback;
         if (resizeevent_cb) {
             QResizeEvent* cbval1 = param1;
-
             resizeevent_cb(this, cbval1);
             return;
         }
@@ -724,7 +712,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto keypressevent_cb = klineedit_keypressevent_callback;
         if (keypressevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keypressevent_cb(this, cbval1);
             return;
         }
@@ -741,7 +728,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto mousepressevent_cb = klineedit_mousepressevent_callback;
         if (mousepressevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousepressevent_cb(this, cbval1);
             return;
         }
@@ -758,7 +744,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto mousereleaseevent_cb = klineedit_mousereleaseevent_callback;
         if (mousereleaseevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousereleaseevent_cb(this, cbval1);
             return;
         }
@@ -775,7 +760,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto mousedoubleclickevent_cb = klineedit_mousedoubleclickevent_callback;
         if (mousedoubleclickevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousedoubleclickevent_cb(this, cbval1);
             return;
         }
@@ -792,7 +776,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto contextmenuevent_cb = klineedit_contextmenuevent_callback;
         if (contextmenuevent_cb) {
             QContextMenuEvent* cbval1 = param1;
-
             contextmenuevent_cb(this, cbval1);
             return;
         }
@@ -817,7 +800,6 @@ class VirtualKLineEdit final : public KLineEdit {
             ((char*)param1_str)[param1_str_len] = '\0';
             const char* cbval1 = param1_str;
             bool cbval2 = param2;
-
             setcompletedtext2_cb(this, cbval1, cbval2);
             libqt_free(param1_str);
             return;
@@ -835,7 +817,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto paintevent_cb = klineedit_paintevent_callback;
         if (paintevent_cb) {
             QPaintEvent* cbval1 = ev;
-
             paintevent_cb(this, cbval1);
             return;
         }
@@ -851,7 +832,9 @@ class VirtualKLineEdit final : public KLineEdit {
         auto sizehint_cb = klineedit_sizehint_callback;
         if (sizehint_cb) {
             QSize* callback_ret = sizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KLineEdit::sizeHint();
     }
@@ -865,7 +848,9 @@ class VirtualKLineEdit final : public KLineEdit {
         auto minimumsizehint_cb = klineedit_minimumsizehint_callback;
         if (minimumsizehint_cb) {
             QSize* callback_ret = minimumsizehint_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KLineEdit::minimumSizeHint();
     }
@@ -880,7 +865,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto mousemoveevent_cb = klineedit_mousemoveevent_callback;
         if (mousemoveevent_cb) {
             QMouseEvent* cbval1 = param1;
-
             mousemoveevent_cb(this, cbval1);
             return;
         }
@@ -897,7 +881,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto keyreleaseevent_cb = klineedit_keyreleaseevent_callback;
         if (keyreleaseevent_cb) {
             QKeyEvent* cbval1 = param1;
-
             keyreleaseevent_cb(this, cbval1);
             return;
         }
@@ -914,7 +897,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto focusinevent_cb = klineedit_focusinevent_callback;
         if (focusinevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusinevent_cb(this, cbval1);
             return;
         }
@@ -931,7 +913,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto focusoutevent_cb = klineedit_focusoutevent_callback;
         if (focusoutevent_cb) {
             QFocusEvent* cbval1 = param1;
-
             focusoutevent_cb(this, cbval1);
             return;
         }
@@ -948,7 +929,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto dragenterevent_cb = klineedit_dragenterevent_callback;
         if (dragenterevent_cb) {
             QDragEnterEvent* cbval1 = param1;
-
             dragenterevent_cb(this, cbval1);
             return;
         }
@@ -965,7 +945,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto dragmoveevent_cb = klineedit_dragmoveevent_callback;
         if (dragmoveevent_cb) {
             QDragMoveEvent* cbval1 = e;
-
             dragmoveevent_cb(this, cbval1);
             return;
         }
@@ -982,7 +961,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto dragleaveevent_cb = klineedit_dragleaveevent_callback;
         if (dragleaveevent_cb) {
             QDragLeaveEvent* cbval1 = e;
-
             dragleaveevent_cb(this, cbval1);
             return;
         }
@@ -999,7 +977,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto dropevent_cb = klineedit_dropevent_callback;
         if (dropevent_cb) {
             QDropEvent* cbval1 = param1;
-
             dropevent_cb(this, cbval1);
             return;
         }
@@ -1016,7 +993,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto changeevent_cb = klineedit_changeevent_callback;
         if (changeevent_cb) {
             QEvent* cbval1 = param1;
-
             changeevent_cb(this, cbval1);
             return;
         }
@@ -1033,7 +1009,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto inputmethodevent_cb = klineedit_inputmethodevent_callback;
         if (inputmethodevent_cb) {
             QInputMethodEvent* cbval1 = param1;
-
             inputmethodevent_cb(this, cbval1);
             return;
         }
@@ -1050,7 +1025,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto initstyleoption_cb = klineedit_initstyleoption_callback;
         if (initstyleoption_cb) {
             QStyleOptionFrame* cbval1 = option;
-
             initstyleoption_cb(this, cbval1);
             return;
         }
@@ -1066,9 +1040,10 @@ class VirtualKLineEdit final : public KLineEdit {
         auto inputmethodquery_cb = klineedit_inputmethodquery_callback;
         if (inputmethodquery_cb) {
             int cbval1 = static_cast<int>(param1);
-
             QVariant* callback_ret = inputmethodquery_cb(this, cbval1);
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KLineEdit::inputMethodQuery(param1);
     }
@@ -1083,7 +1058,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto timerevent_cb = klineedit_timerevent_callback;
         if (timerevent_cb) {
             QTimerEvent* cbval1 = param1;
-
             timerevent_cb(this, cbval1);
             return;
         }
@@ -1114,7 +1088,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto setvisible_cb = klineedit_setvisible_callback;
         if (setvisible_cb) {
             bool cbval1 = visible;
-
             setvisible_cb(this, cbval1);
             return;
         }
@@ -1130,7 +1103,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto heightforwidth_cb = klineedit_heightforwidth_callback;
         if (heightforwidth_cb) {
             int cbval1 = param1;
-
             int callback_ret = heightforwidth_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1175,7 +1147,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto wheelevent_cb = klineedit_wheelevent_callback;
         if (wheelevent_cb) {
             QWheelEvent* cbval1 = event;
-
             wheelevent_cb(this, cbval1);
             return;
         }
@@ -1192,7 +1163,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto enterevent_cb = klineedit_enterevent_callback;
         if (enterevent_cb) {
             QEnterEvent* cbval1 = event;
-
             enterevent_cb(this, cbval1);
             return;
         }
@@ -1209,7 +1179,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto leaveevent_cb = klineedit_leaveevent_callback;
         if (leaveevent_cb) {
             QEvent* cbval1 = event;
-
             leaveevent_cb(this, cbval1);
             return;
         }
@@ -1226,7 +1195,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto moveevent_cb = klineedit_moveevent_callback;
         if (moveevent_cb) {
             QMoveEvent* cbval1 = event;
-
             moveevent_cb(this, cbval1);
             return;
         }
@@ -1243,7 +1211,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto closeevent_cb = klineedit_closeevent_callback;
         if (closeevent_cb) {
             QCloseEvent* cbval1 = event;
-
             closeevent_cb(this, cbval1);
             return;
         }
@@ -1260,7 +1227,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto tabletevent_cb = klineedit_tabletevent_callback;
         if (tabletevent_cb) {
             QTabletEvent* cbval1 = event;
-
             tabletevent_cb(this, cbval1);
             return;
         }
@@ -1277,7 +1243,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto actionevent_cb = klineedit_actionevent_callback;
         if (actionevent_cb) {
             QActionEvent* cbval1 = event;
-
             actionevent_cb(this, cbval1);
             return;
         }
@@ -1294,7 +1259,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto showevent_cb = klineedit_showevent_callback;
         if (showevent_cb) {
             QShowEvent* cbval1 = event;
-
             showevent_cb(this, cbval1);
             return;
         }
@@ -1311,7 +1275,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto hideevent_cb = klineedit_hideevent_callback;
         if (hideevent_cb) {
             QHideEvent* cbval1 = event;
-
             hideevent_cb(this, cbval1);
             return;
         }
@@ -1335,7 +1298,6 @@ class VirtualKLineEdit final : public KLineEdit {
             void* cbval2 = message;
             qintptr* result_ret = result;
             intptr_t* cbval3 = (intptr_t*)(result_ret);
-
             bool callback_ret = nativeevent_cb(this, cbval1, cbval2, cbval3);
             libqt_free(eventType_str.data);
             return callback_ret;
@@ -1352,7 +1314,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto metric_cb = klineedit_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(param1);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1369,7 +1330,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto initpainter_cb = klineedit_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -1385,7 +1345,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto redirected_cb = klineedit_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1415,7 +1374,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto focusnextprevchild_cb = klineedit_focusnextprevchild_callback;
         if (focusnextprevchild_cb) {
             bool cbval1 = next;
-
             bool callback_ret = focusnextprevchild_cb(this, cbval1);
             return callback_ret;
         }
@@ -1432,7 +1390,6 @@ class VirtualKLineEdit final : public KLineEdit {
         if (eventfilter_cb) {
             QObject* cbval1 = watched;
             QEvent* cbval2 = event;
-
             bool callback_ret = eventfilter_cb(this, cbval1, cbval2);
             return callback_ret;
         }
@@ -1449,7 +1406,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto childevent_cb = klineedit_childevent_callback;
         if (childevent_cb) {
             QChildEvent* cbval1 = event;
-
             childevent_cb(this, cbval1);
             return;
         }
@@ -1466,7 +1422,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto customevent_cb = klineedit_customevent_callback;
         if (customevent_cb) {
             QEvent* cbval1 = event;
-
             customevent_cb(this, cbval1);
             return;
         }
@@ -1485,7 +1440,6 @@ class VirtualKLineEdit final : public KLineEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             connectnotify_cb(this, cbval1);
             return;
         }
@@ -1504,7 +1458,6 @@ class VirtualKLineEdit final : public KLineEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             disconnectnotify_cb(this, cbval1);
             return;
         }
@@ -1521,7 +1474,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto sethandlesignals_cb = klineedit_sethandlesignals_callback;
         if (sethandlesignals_cb) {
             bool cbval1 = handle;
-
             sethandlesignals_cb(this, cbval1);
             return;
         }
@@ -1539,7 +1491,6 @@ class VirtualKLineEdit final : public KLineEdit {
         if (virtualhook_cb) {
             int cbval1 = id;
             void* cbval2 = data;
-
             virtualhook_cb(this, cbval1, cbval2);
             return;
         }
@@ -1563,7 +1514,6 @@ class VirtualKLineEdit final : public KLineEdit {
             memcpy((void*)cancelText_str, cancelText_b.data(), cancelText_str_len);
             ((char*)cancelText_str)[cancelText_str_len] = '\0';
             const char* cbval1 = cancelText_str;
-
             usercancelled_cb(this, cbval1);
             libqt_free(cancelText_str);
             return;
@@ -1595,7 +1545,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto setuserselection_cb = klineedit_setuserselection_callback;
         if (setuserselection_cb) {
             bool cbval1 = userSelection;
-
             setuserselection_cb(this, cbval1);
             return;
         }
@@ -1625,7 +1574,9 @@ class VirtualKLineEdit final : public KLineEdit {
         auto cursorrect_cb = klineedit_cursorrect_callback;
         if (cursorrect_cb) {
             QRect* callback_ret = cursorrect_cb();
-            return *callback_ret;
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
         }
         return KLineEdit::cursorRect();
     }
@@ -1740,7 +1691,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto receivers_cb = klineedit_receivers_callback;
         if (receivers_cb) {
             const char* cbval1 = (const char*)signal;
-
             int callback_ret = receivers_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -1758,7 +1708,6 @@ class VirtualKLineEdit final : public KLineEdit {
             const QMetaMethod& signal_ret = signal;
             // Cast returned reference into pointer
             QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
             bool callback_ret = issignalconnected_cb(this, cbval1);
             return callback_ret;
         }
@@ -1775,7 +1724,6 @@ class VirtualKLineEdit final : public KLineEdit {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
@@ -1841,7 +1789,6 @@ class VirtualKLineEdit final : public KLineEdit {
             keyBindingMap_out.keys = static_cast<void*>(keyBindingMap_karr);
             keyBindingMap_out.values = static_cast<void*>(keyBindingMap_varr);
             libqt_map /* of int to libqt_list of QKeySequence* */ cbval1 = keyBindingMap_out;
-
             setkeybindingmap_cb(this, cbval1);
             return;
         }
@@ -1858,7 +1805,6 @@ class VirtualKLineEdit final : public KLineEdit {
         auto setdelegate_cb = klineedit_setdelegate_callback;
         if (setdelegate_cb) {
             KCompletionBase* cbval1 = delegate;
-
             setdelegate_cb(this, cbval1);
             return;
         }

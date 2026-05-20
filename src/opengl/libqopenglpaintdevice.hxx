@@ -124,7 +124,6 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         auto metric_cb = qopenglpaintdevice_metric_callback;
         if (metric_cb) {
             int cbval1 = static_cast<int>(metric);
-
             int callback_ret = metric_cb(this, cbval1);
             return static_cast<int>(callback_ret);
         }
@@ -141,7 +140,6 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         auto initpainter_cb = qopenglpaintdevice_initpainter_callback;
         if (initpainter_cb) {
             QPainter* cbval1 = painter;
-
             initpainter_cb(this, cbval1);
             return;
         }
@@ -157,7 +155,6 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         auto redirected_cb = qopenglpaintdevice_redirected_callback;
         if (redirected_cb) {
             QPoint* cbval1 = offset;
-
             QPaintDevice* callback_ret = redirected_cb(this, cbval1);
             return callback_ret;
         }
@@ -188,7 +185,6 @@ class VirtualQOpenGLPaintDevice final : public QOpenGLPaintDevice {
         if (getdecodedmetricf_cb) {
             int cbval1 = static_cast<int>(metricA);
             int cbval2 = static_cast<int>(metricB);
-
             double callback_ret = getdecodedmetricf_cb(this, cbval1, cbval2);
             return static_cast<double>(callback_ret);
         }
