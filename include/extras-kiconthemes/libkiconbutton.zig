@@ -5899,6 +5899,8 @@ pub const KIconButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KIconButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KIconButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5946,6 +5948,8 @@ pub const KIconButton = extern struct {
     /// ` self: KIconButton`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KIconButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KIconButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8238,6 +8242,8 @@ pub const KIconButton = extern struct {
     /// ` self: KIconButton`
     ///
     /// ` callback: *const fn (self: KIconButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KIconButton, callback: *const fn (KIconButton, i32) callconv(.c) QVariant) void {
         qtc.KIconButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -55,7 +55,7 @@ void QNativeIpcKey_SetType(QNativeIpcKey* self, uint16_t typeVal) {
 }
 
 libqt_string QNativeIpcKey_NativeKey(const QNativeIpcKey* self) {
-    QString _ret = self->nativeKey();
+    auto _ret = self->nativeKey();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,7 +72,7 @@ void QNativeIpcKey_SetNativeKey(QNativeIpcKey* self, const libqt_string newKey) 
 }
 
 libqt_string QNativeIpcKey_ToString(const QNativeIpcKey* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -166,7 +166,7 @@ int QWindow_Type(const QWindow* self) {
 }
 
 libqt_string QWindow_Title(const QWindow* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -360,7 +360,7 @@ void QWindow_SetFilePath(QWindow* self, const libqt_string filePath) {
 }
 
 libqt_string QWindow_FilePath(const QWindow* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -598,7 +598,7 @@ void QWindow_WindowTitleChanged(QWindow* self, const libqt_string title) {
 void QWindow_Connect_WindowTitleChanged(QWindow* self, intptr_t slot) {
     void (*slotFunc)(QWindow*, const char*) = reinterpret_cast<void (*)(QWindow*, const char*)>(slot);
     QWindow::connect(self, &QWindow::windowTitleChanged, [self, slotFunc](const QString& title) {
-        const QString title_ret = title;
+        const auto title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
         auto title_str_len = title_b.length();

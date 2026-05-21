@@ -75,7 +75,7 @@ class VirtualQDesignerMetaDataBaseItemInterface : public QDesignerMetaDataBaseIt
     virtual void setName(const QString& name) override {
         auto setname_cb = qdesignermetadatabaseiteminterface_setname_callback;
         if (setname_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

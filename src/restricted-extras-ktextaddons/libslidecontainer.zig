@@ -285,6 +285,8 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -324,6 +326,8 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7622,6 +7626,8 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     /// ` self: TextAddonsWidgets__SlideContainer`
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) QVariant) void {
         qtc.TextAddonsWidgets__SlideContainer_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

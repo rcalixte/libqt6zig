@@ -4,6 +4,7 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCodecs__Encoder
 #include <QByteArray>
 #include <QByteArrayView>
+#include <QString>
 #include <kcodecs.h>
 #include "libkcodecs.h"
 #include "libkcodecs.hxx"
@@ -86,6 +87,30 @@ void KCodecs_Base64Decode2(libqt_string param1, libqt_string param2) {
     QByteArrayView param1_QByteArrayView(param1.data, param1.len);
     QByteArray param2_QByteArray(param2.data, param2.len);
     KCodecs::base64Decode(param1_QByteArrayView, param2_QByteArray);
+}
+
+libqt_string KCodecs_DecodeRFC2047String(libqt_string param1) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    auto _ret = KCodecs::decodeRFC2047String(param1_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string KCodecs_EncodeRFC2047String(libqt_string param1, const libqt_string param2) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    QByteArray param2_QByteArray(param2.data, param2.len);
+    QByteArray _qb = KCodecs::encodeRFC2047String(param1_QString, param2_QByteArray);
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
 }
 
 libqt_string KCodecs_Base45Decode(libqt_string param1) {

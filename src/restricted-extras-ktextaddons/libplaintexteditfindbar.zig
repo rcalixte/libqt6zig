@@ -5808,6 +5808,8 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5855,6 +5857,8 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7735,6 +7739,8 @@ pub const TextCustomEditor__PlainTextEditFindBar = extern struct {
     /// ` self: TextCustomEditor__PlainTextEditFindBar`
     ///
     /// ` callback: *const fn (self: TextCustomEditor__PlainTextEditFindBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextCustomEditor__PlainTextEditFindBar, callback: *const fn (TextCustomEditor__PlainTextEditFindBar, i32) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__PlainTextEditFindBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

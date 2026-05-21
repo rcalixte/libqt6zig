@@ -349,6 +349,8 @@ pub const QGroupBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QGroupBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGroupBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5996,6 +5998,8 @@ pub const QGroupBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QGroupBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGroupBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7497,6 +7501,8 @@ pub const QGroupBox = extern struct {
     /// ` self: QGroupBox`
     ///
     /// ` callback: *const fn (self: QGroupBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QGroupBox, callback: *const fn (QGroupBox, i32) callconv(.c) QVariant) void {
         qtc.QGroupBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

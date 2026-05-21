@@ -466,6 +466,8 @@ pub const QSqlDriver = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlDriver, tableName: [*:0]const u8) callconv(.c) QSqlIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPrimaryIndex(self: QSqlDriver, callback: *const fn (QSqlDriver, [*:0]const u8) callconv(.c) QSqlIndex) void {
         qtc.QSqlDriver_OnPrimaryIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -517,6 +519,8 @@ pub const QSqlDriver = extern struct {
     /// ` self: QSqlDriver `
     ///
     /// ` callback: *const fn (self: QSqlDriver, tableName: [*:0]const u8) callconv(.c) QSqlRecord `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRecord(self: QSqlDriver, callback: *const fn (QSqlDriver, [*:0]const u8) callconv(.c) QSqlRecord) void {
         qtc.QSqlDriver_OnRecord(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -787,6 +791,8 @@ pub const QSqlDriver = extern struct {
     /// ` self: QSqlDriver `
     ///
     /// ` callback: *const fn () callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHandle(self: QSqlDriver, callback: *const fn () callconv(.c) QVariant) void {
         qtc.QSqlDriver_OnHandle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

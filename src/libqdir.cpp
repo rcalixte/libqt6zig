@@ -52,7 +52,7 @@ void QDir_SetPath(QDir* self, const libqt_string path) {
 }
 
 libqt_string QDir_Path(const QDir* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ libqt_string QDir_Path(const QDir* self) {
 }
 
 libqt_string QDir_AbsolutePath(const QDir* self) {
-    QString _ret = self->absolutePath();
+    auto _ret = self->absolutePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,7 +76,7 @@ libqt_string QDir_AbsolutePath(const QDir* self) {
 }
 
 libqt_string QDir_CanonicalPath(const QDir* self) {
-    QString _ret = self->canonicalPath();
+    auto _ret = self->canonicalPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -111,7 +111,7 @@ libqt_list /* of libqt_string */ QDir_SearchPaths(const libqt_string prefix) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -128,7 +128,7 @@ libqt_list /* of libqt_string */ QDir_SearchPaths(const libqt_string prefix) {
 }
 
 libqt_string QDir_DirName(const QDir* self) {
-    QString _ret = self->dirName();
+    auto _ret = self->dirName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -141,7 +141,7 @@ libqt_string QDir_DirName(const QDir* self) {
 
 libqt_string QDir_FilePath(const QDir* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString _ret = self->filePath(fileName_QString);
+    auto _ret = self->filePath(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -154,7 +154,7 @@ libqt_string QDir_FilePath(const QDir* self, const libqt_string fileName) {
 
 libqt_string QDir_AbsoluteFilePath(const QDir* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString _ret = self->absoluteFilePath(fileName_QString);
+    auto _ret = self->absoluteFilePath(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -167,7 +167,7 @@ libqt_string QDir_AbsoluteFilePath(const QDir* self, const libqt_string fileName
 
 libqt_string QDir_RelativeFilePath(const QDir* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString _ret = self->relativeFilePath(fileName_QString);
+    auto _ret = self->relativeFilePath(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_string QDir_RelativeFilePath(const QDir* self, const libqt_string fileName
 
 libqt_string QDir_ToNativeSeparators(const libqt_string pathName) {
     QString pathName_QString = QString::fromUtf8(pathName.data, pathName.len);
-    QString _ret = QDir::toNativeSeparators(pathName_QString);
+    auto _ret = QDir::toNativeSeparators(pathName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ libqt_string QDir_ToNativeSeparators(const libqt_string pathName) {
 
 libqt_string QDir_FromNativeSeparators(const libqt_string pathName) {
     QString pathName_QString = QString::fromUtf8(pathName.data, pathName.len);
-    QString _ret = QDir::fromNativeSeparators(pathName_QString);
+    auto _ret = QDir::fromNativeSeparators(pathName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -218,7 +218,7 @@ libqt_list /* of libqt_string */ QDir_NameFilters(const QDir* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -270,7 +270,7 @@ bool QDir_IsEmpty(const QDir* self) {
 }
 
 libqt_string QDir_OperatorSubscript(const QDir* self, long long param1) {
-    QString _ret = self->operator[]((qsizetype)(param1));
+    auto _ret = self->operator[]((qsizetype)(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -287,7 +287,7 @@ libqt_list /* of libqt_string */ QDir_NameFiltersFromString(const libqt_string n
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -308,7 +308,7 @@ libqt_list /* of libqt_string */ QDir_EntryList(const QDir* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -336,7 +336,7 @@ libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, const libqt_l
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -495,7 +495,7 @@ QDir* QDir_Current() {
 }
 
 libqt_string QDir_CurrentPath() {
-    QString _ret = QDir::currentPath();
+    auto _ret = QDir::currentPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -511,7 +511,7 @@ QDir* QDir_Home() {
 }
 
 libqt_string QDir_HomePath() {
-    QString _ret = QDir::homePath();
+    auto _ret = QDir::homePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -527,7 +527,7 @@ QDir* QDir_Root() {
 }
 
 libqt_string QDir_RootPath() {
-    QString _ret = QDir::rootPath();
+    auto _ret = QDir::rootPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -543,7 +543,7 @@ QDir* QDir_Temp() {
 }
 
 libqt_string QDir_TempPath() {
-    QString _ret = QDir::tempPath();
+    auto _ret = QDir::tempPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -574,7 +574,7 @@ bool QDir_Match2(const libqt_string filter, const libqt_string fileName) {
 
 libqt_string QDir_CleanPath(const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    QString _ret = QDir::cleanPath(path_QString);
+    auto _ret = QDir::cleanPath(path_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -598,7 +598,7 @@ libqt_list /* of libqt_string */ QDir_EntryList1(const QDir* self, int filters) 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -619,7 +619,7 @@ libqt_list /* of libqt_string */ QDir_EntryList22(const QDir* self, int filters,
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -647,7 +647,7 @@ libqt_list /* of libqt_string */ QDir_EntryList23(const QDir* self, const libqt_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -675,7 +675,7 @@ libqt_list /* of libqt_string */ QDir_EntryList3(const QDir* self, const libqt_l
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

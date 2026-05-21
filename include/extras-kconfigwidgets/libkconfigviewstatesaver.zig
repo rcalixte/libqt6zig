@@ -1320,6 +1320,8 @@ pub const KConfigViewStateSaver = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigViewStateSaver, model: QAbstractItemModel, key: [*:0]const u8) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndexFromConfigString(self: KConfigViewStateSaver, callback: *const fn (KConfigViewStateSaver, QAbstractItemModel, [*:0]const u8) callconv(.c) QModelIndex) void {
         qtc.KConfigViewStateSaver_OnIndexFromConfigString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

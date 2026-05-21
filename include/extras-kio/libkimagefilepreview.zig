@@ -263,6 +263,8 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KImageFilePreview, callback: *const fn () callconv(.c) QSize) void {
         qtc.KImageFilePreview_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5670,6 +5672,8 @@ pub const KImageFilePreview = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KImageFilePreview, callback: *const fn () callconv(.c) QSize) void {
         qtc.KImageFilePreview_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7549,6 +7553,8 @@ pub const KImageFilePreview = extern struct {
     /// ` self: KImageFilePreview`
     ///
     /// ` callback: *const fn (self: KImageFilePreview, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KImageFilePreview, callback: *const fn (KImageFilePreview, i32) callconv(.c) QVariant) void {
         qtc.KImageFilePreview_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

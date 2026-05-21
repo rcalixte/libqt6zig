@@ -169,7 +169,7 @@ class VirtualKDesktopFile final : public KDesktopFile {
         }
         auto hasgroupimpl_cb = kdesktopfile_hasgroupimpl_callback;
         if (hasgroupimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -192,7 +192,7 @@ class VirtualKDesktopFile final : public KDesktopFile {
         }
         auto groupimpl_cb = kdesktopfile_groupimpl_callback;
         if (groupimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -218,7 +218,7 @@ class VirtualKDesktopFile final : public KDesktopFile {
         }
         auto deletegroupimpl_cb = kdesktopfile_deletegroupimpl_callback;
         if (deletegroupimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -242,7 +242,7 @@ class VirtualKDesktopFile final : public KDesktopFile {
         }
         auto isgroupimmutableimpl_cb = kdesktopfile_isgroupimmutableimpl_callback;
         if (isgroupimmutableimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();

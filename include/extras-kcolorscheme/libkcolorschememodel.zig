@@ -221,6 +221,8 @@ pub const KColorSchemeModel = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KColorSchemeModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -376,6 +378,8 @@ pub const KColorSchemeModel = extern struct {
     /// ` self: KColorSchemeModel `
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1826,6 +1830,8 @@ pub const KColorSchemeModel = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KColorSchemeModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1887,6 +1893,8 @@ pub const KColorSchemeModel = extern struct {
     /// ` self: KColorSchemeModel`
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KColorSchemeModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2145,6 +2153,8 @@ pub const KColorSchemeModel = extern struct {
     /// ` self: KColorSchemeModel`
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KColorSchemeModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3390,6 +3400,8 @@ pub const KColorSchemeModel = extern struct {
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KColorSchemeModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3537,6 +3549,8 @@ pub const KColorSchemeModel = extern struct {
     /// ` self: KColorSchemeModel`
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KColorSchemeModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4279,6 +4293,8 @@ pub const KColorSchemeModel = extern struct {
     /// ` self: KColorSchemeModel`
     ///
     /// ` callback: *const fn (self: KColorSchemeModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KColorSchemeModel, callback: *const fn (KColorSchemeModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KColorSchemeModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -603,6 +603,8 @@ pub const QProxyStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QProxyStyle, typeVal: qstyle_enums.ContentsType, option: QStyleOption, size: QSize, widget: QWidget) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeFromContents(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QSize, QWidget) callconv(.c) QSize) void {
         qtc.QProxyStyle_OnSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -662,6 +664,8 @@ pub const QProxyStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QProxyStyle, element: qstyle_enums.SubElement, option: QStyleOption, widget: QWidget) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSubElementRect(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) QRect) void {
         qtc.QProxyStyle_OnSubElementRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -719,6 +723,8 @@ pub const QProxyStyle = extern struct {
     /// ` self: QProxyStyle `
     ///
     /// ` callback: *const fn (self: QProxyStyle, cc: qstyle_enums.ComplexControl, opt: QStyleOptionComplex, sc: qstyle_enums.SubControl, widget: QWidget) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSubControlRect(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOptionComplex, i32, QWidget) callconv(.c) QRect) void {
         qtc.QProxyStyle_OnSubControlRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -786,6 +792,8 @@ pub const QProxyStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QProxyStyle, fm: QFontMetrics, r: QRect, flags: i32, enabled: bool, text: [*:0]const u8) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemTextRect(self: QProxyStyle, callback: *const fn (QProxyStyle, QFontMetrics, QRect, i32, bool, [*:0]const u8) callconv(.c) QRect) void {
         qtc.QProxyStyle_OnItemTextRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -849,6 +857,8 @@ pub const QProxyStyle = extern struct {
     /// ` self: QProxyStyle `
     ///
     /// ` callback: *const fn (self: QProxyStyle, r: QRect, flags: i32, pixmap: QPixmap) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemPixmapRect(self: QProxyStyle, callback: *const fn (QProxyStyle, QRect, i32, QPixmap) callconv(.c) QRect) void {
         qtc.QProxyStyle_OnItemPixmapRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1158,6 +1168,8 @@ pub const QProxyStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QProxyStyle, standardIcon: qstyle_enums.StandardPixmap, option: QStyleOption, widget: QWidget) callconv(.c) QIcon `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnStandardIcon(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) QIcon) void {
         qtc.QProxyStyle_OnStandardIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1213,6 +1225,8 @@ pub const QProxyStyle = extern struct {
     /// ` self: QProxyStyle `
     ///
     /// ` callback: *const fn (self: QProxyStyle, standardPixmap: qstyle_enums.StandardPixmap, opt: QStyleOption, widget: QWidget) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnStandardPixmap(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QStyleOption, QWidget) callconv(.c) QPixmap) void {
         qtc.QProxyStyle_OnStandardPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1270,6 +1284,8 @@ pub const QProxyStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QProxyStyle, iconMode: qicon_enums.Mode, pixmap: QPixmap, opt: QStyleOption) callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGeneratedIconPixmap(self: QProxyStyle, callback: *const fn (QProxyStyle, i32, QPixmap, QStyleOption) callconv(.c) QPixmap) void {
         qtc.QProxyStyle_OnGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1317,6 +1333,8 @@ pub const QProxyStyle = extern struct {
     /// ` self: QProxyStyle `
     ///
     /// ` callback: *const fn () callconv(.c) QPalette `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnStandardPalette(self: QProxyStyle, callback: *const fn () callconv(.c) QPalette) void {
         qtc.QProxyStyle_OnStandardPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

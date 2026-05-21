@@ -792,6 +792,8 @@ pub const QGeoAreaMonitorSource = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoAreaMonitorSource, name: [*:0]const u8) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBackendProperty(self: QGeoAreaMonitorSource, callback: *const fn (QGeoAreaMonitorSource, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QGeoAreaMonitorSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

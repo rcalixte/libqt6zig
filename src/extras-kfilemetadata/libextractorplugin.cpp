@@ -51,7 +51,7 @@ libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_Mimetypes(const 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -70,7 +70,7 @@ libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_Mimetypes(const 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -107,7 +107,7 @@ libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_ContactsFromStri
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -189,7 +189,7 @@ libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_SuperMimetypes(c
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -208,7 +208,7 @@ libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_SuperMimetypes(c
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -460,7 +460,7 @@ libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMeta
     auto* vkfilemetadataextractorplugin = const_cast<VirtualKFileMetaDataExtractorPlugin*>(dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self));
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        QString _ret = vkfilemetadataextractorplugin->getSupportedMimeType(mimetype_QString);
+        auto _ret = vkfilemetadataextractorplugin->getSupportedMimeType(mimetype_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -470,7 +470,7 @@ libqt_string KFileMetaData__ExtractorPlugin_GetSupportedMimeType(const KFileMeta
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->getSupportedMimeType(mimetype_QString);
+        auto _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->getSupportedMimeType(mimetype_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -488,7 +488,7 @@ libqt_string KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(const KFil
     QString mimetype_QString = QString::fromUtf8(mimetype.data, mimetype.len);
     if (vkfilemetadataextractorplugin && vkfilemetadataextractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
         vkfilemetadataextractorplugin->setKFileMetaData__ExtractorPlugin_GetSupportedMimeType_IsBase(true);
-        QString _ret = vkfilemetadataextractorplugin->getSupportedMimeType(mimetype_QString);
+        auto _ret = vkfilemetadataextractorplugin->getSupportedMimeType(mimetype_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -498,7 +498,7 @@ libqt_string KFileMetaData__ExtractorPlugin_SuperGetSupportedMimeType(const KFil
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->getSupportedMimeType(mimetype_QString);
+        auto _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->getSupportedMimeType(mimetype_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

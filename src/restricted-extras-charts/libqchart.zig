@@ -6427,6 +6427,8 @@ pub const QChart = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QChart, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QChart_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6474,6 +6476,8 @@ pub const QChart = extern struct {
     /// ` self: QChart`
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QChart, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QChart_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6587,6 +6591,8 @@ pub const QChart = extern struct {
     ///
     /// ` callback: *const fn (self: QChart, which: qnamespace_enums.SizeHint, constraint: QSizeF) callconv(.c) QSizeF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QChart, callback: *const fn (QChart, i32, QSizeF) callconv(.c) QSizeF) void {
         qtc.QChart_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6693,6 +6699,8 @@ pub const QChart = extern struct {
     ///
     /// ` callback: *const fn (self: QChart, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemChange(self: QChart, callback: *const fn (QChart, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QChart_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6758,6 +6766,8 @@ pub const QChart = extern struct {
     /// ` self: QChart`
     ///
     /// ` callback: *const fn (self: QChart, propertyName: [*:0]const u8, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPropertyChange(self: QChart, callback: *const fn (QChart, [*:0]const u8, QVariant) callconv(.c) QVariant) void {
         qtc.QChart_OnPropertyChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8493,6 +8503,8 @@ pub const QChart = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QChart, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QChart_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9361,6 +9373,8 @@ pub const QChart = extern struct {
     ///
     /// ` callback: *const fn (self: QChart, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QChart, callback: *const fn (QChart, i32) callconv(.c) QVariant) void {
         qtc.QChart_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9524,6 +9538,8 @@ pub const QChart = extern struct {
     /// ` self: QChart`
     ///
     /// ` callback: *const fn (self: QChart, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QChart, callback: *const fn (QChart, QVariant) callconv(.c) QVariant) void {
         qtc.QChart_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

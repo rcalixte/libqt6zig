@@ -566,7 +566,7 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         }
         auto validate_cb = qdatetimeedit_validate_callback;
         if (validate_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -591,7 +591,7 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         }
         auto fixup_cb = qdatetimeedit_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -614,7 +614,7 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
         }
         auto datetimefromtext_cb = qdatetimeedit_datetimefromtext_callback;
         if (datetimefromtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -2182,7 +2182,7 @@ class VirtualQTimeEdit final : public QTimeEdit {
         }
         auto validate_cb = qtimeedit_validate_callback;
         if (validate_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -2207,7 +2207,7 @@ class VirtualQTimeEdit final : public QTimeEdit {
         }
         auto fixup_cb = qtimeedit_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -2230,7 +2230,7 @@ class VirtualQTimeEdit final : public QTimeEdit {
         }
         auto datetimefromtext_cb = qtimeedit_datetimefromtext_callback;
         if (datetimefromtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -3798,7 +3798,7 @@ class VirtualQDateEdit final : public QDateEdit {
         }
         auto validate_cb = qdateedit_validate_callback;
         if (validate_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -3823,7 +3823,7 @@ class VirtualQDateEdit final : public QDateEdit {
         }
         auto fixup_cb = qdateedit_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -3846,7 +3846,7 @@ class VirtualQDateEdit final : public QDateEdit {
         }
         auto datetimefromtext_cb = qdateedit_datetimefromtext_callback;
         if (datetimefromtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

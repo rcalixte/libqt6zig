@@ -59,7 +59,7 @@ void QGeoCircle_ExtendCircle(QGeoCircle* self, const QGeoCoordinate* coordinate)
 }
 
 libqt_string QGeoCircle_ToString(const QGeoCircle* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

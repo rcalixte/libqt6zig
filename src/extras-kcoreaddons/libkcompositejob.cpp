@@ -332,7 +332,7 @@ void KCompositeJob_OnDoResume(KCompositeJob* self, intptr_t slot) {
 libqt_string KCompositeJob_ErrorString(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        QString _ret = vkcompositejob->errorString();
+        auto _ret = vkcompositejob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -342,7 +342,7 @@ libqt_string KCompositeJob_ErrorString(const KCompositeJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KCompositeJob::errorString();
+        auto _ret = self->KCompositeJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -359,7 +359,7 @@ libqt_string KCompositeJob_SuperErrorString(const KCompositeJob* self) {
     auto* vkcompositejob = const_cast<VirtualKCompositeJob*>(dynamic_cast<const VirtualKCompositeJob*>(self));
     if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
         vkcompositejob->setKCompositeJob_ErrorString_IsBase(true);
-        QString _ret = vkcompositejob->errorString();
+        auto _ret = vkcompositejob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -369,7 +369,7 @@ libqt_string KCompositeJob_SuperErrorString(const KCompositeJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KCompositeJob::errorString();
+        auto _ret = self->KCompositeJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

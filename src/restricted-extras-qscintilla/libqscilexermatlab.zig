@@ -1950,6 +1950,8 @@ pub const QsciLexerMatlab = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerMatlab, style: i32) callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnColor(self: QsciLexerMatlab, callback: *const fn (QsciLexerMatlab, i32) callconv(.c) QColor) void {
         qtc.QsciLexerMatlab_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2053,6 +2055,8 @@ pub const QsciLexerMatlab = extern struct {
     /// ` self: QsciLexerMatlab`
     ///
     /// ` callback: *const fn (self: QsciLexerMatlab, style: i32) callconv(.c) QFont `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFont(self: QsciLexerMatlab, callback: *const fn (QsciLexerMatlab, i32) callconv(.c) QFont) void {
         qtc.QsciLexerMatlab_OnFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2202,6 +2206,8 @@ pub const QsciLexerMatlab = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerMatlab, style: i32) callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPaper(self: QsciLexerMatlab, callback: *const fn (QsciLexerMatlab, i32) callconv(.c) QColor) void {
         qtc.QsciLexerMatlab_OnPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2253,6 +2259,8 @@ pub const QsciLexerMatlab = extern struct {
     /// ` self: QsciLexerMatlab`
     ///
     /// ` callback: *const fn (self: QsciLexerMatlab, style: i32) callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDefaultColor2(self: QsciLexerMatlab, callback: *const fn (QsciLexerMatlab, i32) callconv(.c) QColor) void {
         qtc.QsciLexerMatlab_OnDefaultColor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2358,6 +2366,8 @@ pub const QsciLexerMatlab = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerMatlab, style: i32) callconv(.c) QFont `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDefaultFont2(self: QsciLexerMatlab, callback: *const fn (QsciLexerMatlab, i32) callconv(.c) QFont) void {
         qtc.QsciLexerMatlab_OnDefaultFont2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2409,6 +2419,8 @@ pub const QsciLexerMatlab = extern struct {
     /// ` self: QsciLexerMatlab`
     ///
     /// ` callback: *const fn (self: QsciLexerMatlab, style: i32) callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDefaultPaper2(self: QsciLexerMatlab, callback: *const fn (QsciLexerMatlab, i32) callconv(.c) QColor) void {
         qtc.QsciLexerMatlab_OnDefaultPaper2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

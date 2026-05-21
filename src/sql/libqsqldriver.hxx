@@ -360,7 +360,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto primaryindex_cb = qsqldriver_primaryindex_callback;
         if (primaryindex_cb) {
-            const QString tableName_ret = tableName;
+            const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
             auto tableName_str_len = tableName_b.length();
@@ -385,7 +385,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto record_cb = qsqldriver_record_callback;
         if (record_cb) {
-            const QString tableName_ret = tableName;
+            const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
             auto tableName_str_len = tableName_b.length();
@@ -429,7 +429,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto escapeidentifier_cb = qsqldriver_escapeidentifier_callback;
         if (escapeidentifier_cb) {
-            const QString identifier_ret = identifier;
+            const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
             auto identifier_str_len = identifier_b.length();
@@ -455,7 +455,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         auto sqlstatement_cb = qsqldriver_sqlstatement_callback;
         if (sqlstatement_cb) {
             int cbval1 = static_cast<int>(typeVal);
-            const QString tableName_ret = tableName;
+            const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
             auto tableName_str_len = tableName_b.length();
@@ -524,7 +524,7 @@ class VirtualQSqlDriver : public QSqlDriver {
     virtual bool open(const QString& db, const QString& user, const QString& password, const QString& host, int port, const QString& connOpts) override {
         auto open_cb = qsqldriver_open_callback;
         if (open_cb) {
-            const QString db_ret = db;
+            const auto db_ret = db;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray db_b = db_ret.toUtf8();
             auto db_str_len = db_b.length();
@@ -532,7 +532,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)db_str, db_b.data(), db_str_len);
             ((char*)db_str)[db_str_len] = '\0';
             const char* cbval1 = db_str;
-            const QString user_ret = user;
+            const auto user_ret = user;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
             auto user_str_len = user_b.length();
@@ -540,7 +540,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)user_str, user_b.data(), user_str_len);
             ((char*)user_str)[user_str_len] = '\0';
             const char* cbval2 = user_str;
-            const QString password_ret = password;
+            const auto password_ret = password;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray password_b = password_ret.toUtf8();
             auto password_str_len = password_b.length();
@@ -548,7 +548,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             memcpy((void*)password_str, password_b.data(), password_str_len);
             ((char*)password_str)[password_str_len] = '\0';
             const char* cbval3 = password_str;
-            const QString host_ret = host;
+            const auto host_ret = host;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray host_b = host_ret.toUtf8();
             auto host_str_len = host_b.length();
@@ -557,7 +557,7 @@ class VirtualQSqlDriver : public QSqlDriver {
             ((char*)host_str)[host_str_len] = '\0';
             const char* cbval4 = host_str;
             int cbval5 = port;
-            const QString connOpts_ret = connOpts;
+            const auto connOpts_ret = connOpts;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray connOpts_b = connOpts_ret.toUtf8();
             auto connOpts_str_len = connOpts_b.length();
@@ -584,7 +584,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto subscribetonotification_cb = qsqldriver_subscribetonotification_callback;
         if (subscribetonotification_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -607,7 +607,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto unsubscribefromnotification_cb = qsqldriver_unsubscribefromnotification_callback;
         if (unsubscribefromnotification_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -653,7 +653,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto isidentifierescaped_cb = qsqldriver_isidentifierescaped_callback;
         if (isidentifierescaped_cb) {
-            const QString identifier_ret = identifier;
+            const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
             auto identifier_str_len = identifier_b.length();
@@ -677,7 +677,7 @@ class VirtualQSqlDriver : public QSqlDriver {
         }
         auto stripdelimiters_cb = qsqldriver_stripdelimiters_callback;
         if (stripdelimiters_cb) {
-            const QString identifier_ret = identifier;
+            const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
             auto identifier_str_len = identifier_b.length();

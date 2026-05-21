@@ -64,7 +64,7 @@ int QTextItem_RenderFlags(const QTextItem* self) {
 }
 
 libqt_string QTextItem_Text(const QTextItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

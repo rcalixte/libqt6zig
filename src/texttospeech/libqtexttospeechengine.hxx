@@ -314,7 +314,7 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
     virtual void say(const QString& text) override {
         auto say_cb = qtexttospeechengine_say_callback;
         if (say_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -331,7 +331,7 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
     virtual void synthesize(const QString& text) override {
         auto synthesize_cb = qtexttospeechengine_synthesize_callback;
         if (synthesize_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -637,7 +637,7 @@ class VirtualQTextToSpeechEngine : public QTextToSpeechEngine {
         }
         auto createvoice_cb = qtexttospeechengine_createvoice_callback;
         if (createvoice_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

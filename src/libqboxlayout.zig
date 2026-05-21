@@ -594,6 +594,8 @@ pub const QBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QBoxLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -634,6 +636,8 @@ pub const QBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSize(self: QBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QBoxLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -673,6 +677,8 @@ pub const QBoxLayout = extern struct {
     /// ` self: QBoxLayout `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QBoxLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2487,6 +2493,8 @@ pub const QBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGeometry(self: QBoxLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QBoxLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3506,6 +3514,8 @@ pub const QBoxLayout = extern struct {
     /// ` self: QBoxLayout`
     ///
     /// ` callback: *const fn (self: QBoxLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QBoxLayout, callback: *const fn (QBoxLayout, QRect) callconv(.c) QRect) void {
         qtc.QBoxLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5772,6 +5782,8 @@ pub const QHBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QHBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHBoxLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5820,6 +5832,8 @@ pub const QHBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSize(self: QHBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHBoxLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5867,6 +5881,8 @@ pub const QHBoxLayout = extern struct {
     /// ` self: QHBoxLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QHBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHBoxLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6377,6 +6393,8 @@ pub const QHBoxLayout = extern struct {
     /// ` self: QHBoxLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGeometry(self: QHBoxLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QHBoxLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7397,6 +7415,8 @@ pub const QHBoxLayout = extern struct {
     /// ` self: QHBoxLayout`
     ///
     /// ` callback: *const fn (self: QHBoxLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QHBoxLayout, callback: *const fn (QHBoxLayout, QRect) callconv(.c) QRect) void {
         qtc.QHBoxLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9663,6 +9683,8 @@ pub const QVBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QVBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QVBoxLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9711,6 +9733,8 @@ pub const QVBoxLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSize(self: QVBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QVBoxLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9758,6 +9782,8 @@ pub const QVBoxLayout = extern struct {
     /// ` self: QVBoxLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QVBoxLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QVBoxLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10268,6 +10294,8 @@ pub const QVBoxLayout = extern struct {
     /// ` self: QVBoxLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGeometry(self: QVBoxLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QVBoxLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -11288,6 +11316,8 @@ pub const QVBoxLayout = extern struct {
     /// ` self: QVBoxLayout`
     ///
     /// ` callback: *const fn (self: QVBoxLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QVBoxLayout, callback: *const fn (QVBoxLayout, QRect) callconv(.c) QRect) void {
         qtc.QVBoxLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -1955,7 +1955,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_ContainerTags(const KParts__
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1974,7 +1974,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_ContainerTags(const KParts__
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2000,7 +2000,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_SuperContainerTags(const KPa
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2019,7 +2019,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_SuperContainerTags(const KPa
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2110,7 +2110,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_CustomTags(const KParts__Mai
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2129,7 +2129,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_CustomTags(const KParts__Mai
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2155,7 +2155,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_SuperCustomTags(const KParts
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2174,7 +2174,7 @@ libqt_list /* of libqt_string */ KParts__MainWindow_SuperCustomTags(const KParts
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2319,7 +2319,7 @@ void KParts__MainWindow_OnActionCollection(const KParts__MainWindow* self, intpt
 libqt_string KParts__MainWindow_ComponentName(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        QString _ret = vkpartsmainwindow->componentName();
+        auto _ret = vkpartsmainwindow->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2329,7 +2329,7 @@ libqt_string KParts__MainWindow_ComponentName(const KParts__MainWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::MainWindow::componentName();
+        auto _ret = self->KParts::MainWindow::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2346,7 +2346,7 @@ libqt_string KParts__MainWindow_SuperComponentName(const KParts__MainWindow* sel
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_ComponentName_IsBase(true);
-        QString _ret = vkpartsmainwindow->componentName();
+        auto _ret = vkpartsmainwindow->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2356,7 +2356,7 @@ libqt_string KParts__MainWindow_SuperComponentName(const KParts__MainWindow* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::MainWindow::componentName();
+        auto _ret = self->KParts::MainWindow::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2409,7 +2409,7 @@ void KParts__MainWindow_OnDomDocument(const KParts__MainWindow* self, intptr_t s
 libqt_string KParts__MainWindow_XmlFile(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        QString _ret = vkpartsmainwindow->xmlFile();
+        auto _ret = vkpartsmainwindow->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2419,7 +2419,7 @@ libqt_string KParts__MainWindow_XmlFile(const KParts__MainWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::MainWindow::xmlFile();
+        auto _ret = self->KParts::MainWindow::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2436,7 +2436,7 @@ libqt_string KParts__MainWindow_SuperXmlFile(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_XmlFile_IsBase(true);
-        QString _ret = vkpartsmainwindow->xmlFile();
+        auto _ret = vkpartsmainwindow->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2446,7 +2446,7 @@ libqt_string KParts__MainWindow_SuperXmlFile(const KParts__MainWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::MainWindow::xmlFile();
+        auto _ret = self->KParts::MainWindow::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2470,7 +2470,7 @@ void KParts__MainWindow_OnXmlFile(const KParts__MainWindow* self, intptr_t slot)
 libqt_string KParts__MainWindow_LocalXMLFile(const KParts__MainWindow* self) {
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        QString _ret = vkpartsmainwindow->localXMLFile();
+        auto _ret = vkpartsmainwindow->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2480,7 +2480,7 @@ libqt_string KParts__MainWindow_LocalXMLFile(const KParts__MainWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::MainWindow::localXMLFile();
+        auto _ret = self->KParts::MainWindow::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2497,7 +2497,7 @@ libqt_string KParts__MainWindow_SuperLocalXMLFile(const KParts__MainWindow* self
     auto* vkpartsmainwindow = const_cast<VirtualKPartsMainWindow*>(dynamic_cast<const VirtualKPartsMainWindow*>(self));
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_LocalXMLFile_IsBase(true);
-        QString _ret = vkpartsmainwindow->localXMLFile();
+        auto _ret = vkpartsmainwindow->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2507,7 +2507,7 @@ libqt_string KParts__MainWindow_SuperLocalXMLFile(const KParts__MainWindow* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::MainWindow::localXMLFile();
+        auto _ret = self->KParts::MainWindow::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3210,7 +3210,7 @@ void KParts__MainWindow_OnGetDecodedMetricF(const KParts__MainWindow* self, intp
 libqt_string KParts__MainWindow_StandardsXmlFileLocation(KParts__MainWindow* self) {
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
-        QString _ret = vkpartsmainwindow->standardsXmlFileLocation();
+        auto _ret = vkpartsmainwindow->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3220,7 +3220,7 @@ libqt_string KParts__MainWindow_StandardsXmlFileLocation(KParts__MainWindow* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsMainWindow*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKPartsMainWindow*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3237,7 +3237,7 @@ libqt_string KParts__MainWindow_SuperStandardsXmlFileLocation(KParts__MainWindow
     auto* vkpartsmainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkpartsmainwindow && vkpartsmainwindow->isVirtualKPartsMainWindow) {
         vkpartsmainwindow->setKParts__MainWindow_StandardsXmlFileLocation_IsBase(true);
-        QString _ret = vkpartsmainwindow->standardsXmlFileLocation();
+        auto _ret = vkpartsmainwindow->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3247,7 +3247,7 @@ libqt_string KParts__MainWindow_SuperStandardsXmlFileLocation(KParts__MainWindow
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsMainWindow*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKPartsMainWindow*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

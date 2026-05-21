@@ -54,7 +54,7 @@ int KXMLGUIFactory_Metacall(KXMLGUIFactory* self, int param1, int param2, void**
 
 libqt_string KXMLGUIFactory_ReadConfigFile(const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    QString _ret = KXMLGUIFactory::readConfigFile(filename_QString);
+    auto _ret = KXMLGUIFactory::readConfigFile(filename_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -207,7 +207,7 @@ void KXMLGUIFactory_Connect_ShortcutsSaved(KXMLGUIFactory* self, intptr_t slot) 
 libqt_string KXMLGUIFactory_ReadConfigFile2(const libqt_string filename, const libqt_string componentName) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     QString componentName_QString = QString::fromUtf8(componentName.data, componentName.len);
-    QString _ret = KXMLGUIFactory::readConfigFile(filename_QString, componentName_QString);
+    auto _ret = KXMLGUIFactory::readConfigFile(filename_QString, componentName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -49,7 +49,7 @@ void QSqlRelation_Swap(QSqlRelation* self, QSqlRelation* other) {
 }
 
 libqt_string QSqlRelation_TableName(const QSqlRelation* self) {
-    QString _ret = self->tableName();
+    auto _ret = self->tableName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ libqt_string QSqlRelation_TableName(const QSqlRelation* self) {
 }
 
 libqt_string QSqlRelation_IndexColumn(const QSqlRelation* self) {
-    QString _ret = self->indexColumn();
+    auto _ret = self->indexColumn();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -73,7 +73,7 @@ libqt_string QSqlRelation_IndexColumn(const QSqlRelation* self) {
 }
 
 libqt_string QSqlRelation_DisplayColumn(const QSqlRelation* self) {
-    QString _ret = self->displayColumn();
+    auto _ret = self->displayColumn();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -224,7 +224,7 @@ void QSqlRelationalTableModel_RevertRow(QSqlRelationalTableModel* self, int row)
 libqt_string QSqlRelationalTableModel_SelectStatement(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        QString _ret = vqsqlrelationaltablemodel->selectStatement();
+        auto _ret = vqsqlrelationaltablemodel->selectStatement();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -256,7 +256,7 @@ bool QSqlRelationalTableModel_InsertRowIntoTable(QSqlRelationalTableModel* self,
 libqt_string QSqlRelationalTableModel_OrderByClause(const QSqlRelationalTableModel* self) {
     auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        QString _ret = vqsqlrelationaltablemodel->orderByClause();
+        auto _ret = vqsqlrelationaltablemodel->orderByClause();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -503,7 +503,7 @@ libqt_string QSqlRelationalTableModel_SuperSelectStatement(const QSqlRelationalT
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_SelectStatement_IsBase(true);
-        QString _ret = vqsqlrelationaltablemodel->selectStatement();
+        auto _ret = vqsqlrelationaltablemodel->selectStatement();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -513,7 +513,7 @@ libqt_string QSqlRelationalTableModel_SuperSelectStatement(const QSqlRelationalT
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlRelationalTableModel*)self)->selectStatement();
+        auto _ret = ((VirtualQSqlRelationalTableModel*)self)->selectStatement();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -576,7 +576,7 @@ libqt_string QSqlRelationalTableModel_SuperOrderByClause(const QSqlRelationalTab
     auto* vqsqlrelationaltablemodel = const_cast<VirtualQSqlRelationalTableModel*>(dynamic_cast<const VirtualQSqlRelationalTableModel*>(self));
     if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
         vqsqlrelationaltablemodel->setQSqlRelationalTableModel_OrderByClause_IsBase(true);
-        QString _ret = vqsqlrelationaltablemodel->orderByClause();
+        auto _ret = vqsqlrelationaltablemodel->orderByClause();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -586,7 +586,7 @@ libqt_string QSqlRelationalTableModel_SuperOrderByClause(const QSqlRelationalTab
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlRelationalTableModel*)self)->orderByClause();
+        auto _ret = ((VirtualQSqlRelationalTableModel*)self)->orderByClause();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1541,7 +1541,7 @@ libqt_list /* of libqt_string */ QSqlRelationalTableModel_MimeTypes(const QSqlRe
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1560,7 +1560,7 @@ libqt_list /* of libqt_string */ QSqlRelationalTableModel_MimeTypes(const QSqlRe
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1586,7 +1586,7 @@ libqt_list /* of libqt_string */ QSqlRelationalTableModel_SuperMimeTypes(const Q
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1605,7 +1605,7 @@ libqt_list /* of libqt_string */ QSqlRelationalTableModel_SuperMimeTypes(const Q
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

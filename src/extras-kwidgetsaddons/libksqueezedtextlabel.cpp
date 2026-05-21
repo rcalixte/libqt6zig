@@ -130,7 +130,7 @@ void KSqueezedTextLabel_SetTextElideMode(KSqueezedTextLabel* self, int mode) {
 }
 
 libqt_string KSqueezedTextLabel_FullText(const KSqueezedTextLabel* self) {
-    QString _ret = self->fullText();
+    auto _ret = self->fullText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

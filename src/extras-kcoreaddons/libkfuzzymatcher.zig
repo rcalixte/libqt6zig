@@ -1,5 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const kfuzzymatcher_enums = enums;
+const std = @import("std");
 
 /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher-result.html)
 pub const KFuzzyMatcher__Result = extern struct {
@@ -199,6 +201,87 @@ pub const KFuzzyMatcher__Range = extern struct {
     ///
     pub fn Delete(self: KFuzzyMatcher__Range) void {
         qtc.KFuzzyMatcher__Range_Delete(@ptrCast(self.ptr));
+    }
+};
+
+/// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html)
+pub const KFuzzyMatcher = extern struct {
+    /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html)
+    ///
+    /// The pointer to the underlying Qt C++ object
+    ///
+    ptr: QtC.KFuzzyMatcher,
+
+    pub const _is_KFuzzyMatcher = {};
+
+    /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html#matchSimple)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    pub fn MatchSimple(param1: []const u8, param2: []const u8) bool {
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        const param2_str = qtc.libqt_string{
+            .len = param2.len,
+            .data = param2.ptr,
+        };
+        return qtc.KFuzzyMatcher_MatchSimple(param1_str, param2_str);
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html#match)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    pub fn Match(param1: []const u8, param2: []const u8) KFuzzyMatcher__Result {
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        const param2_str = qtc.libqt_string{
+            .len = param2.len,
+            .data = param2.ptr,
+        };
+        return .{ .ptr = qtc.KFuzzyMatcher_Match(param1_str, param2_str) };
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html#matchedRanges)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: kfuzzymatcher_enums.RangeType `
+    ///
+    pub fn MatchedRanges(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8, param3: u8) []KFuzzyMatcher__Range {
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        const param2_str = qtc.libqt_string{
+            .len = param2.len,
+            .data = param2.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KFuzzyMatcher_MatchedRanges(param1_str, param2_str, @bitCast(param3));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(KFuzzyMatcher__Range, _arr.len) catch @panic("kfuzzymatcher.MatchedRanges: Memory allocation failed");
+        const _data: [*]QtC.KFuzzyMatcher__Range = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |ii|
+            _ret[ii] = .{ .ptr = _data[ii] };
+        return _ret;
     }
 };
 

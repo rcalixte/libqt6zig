@@ -18,17 +18,27 @@ QStringMatcher* QStringMatcher_new3(const QChar* uc, ptrdiff_t lenVal) {
     return new QStringMatcher(uc, (qsizetype)(lenVal));
 }
 
-QStringMatcher* QStringMatcher_new4(const QStringMatcher* other) {
+QStringMatcher* QStringMatcher_new4(libqt_string pattern) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    return new QStringMatcher(pattern_QString);
+}
+
+QStringMatcher* QStringMatcher_new5(const QStringMatcher* other) {
     return new QStringMatcher(*other);
 }
 
-QStringMatcher* QStringMatcher_new5(const libqt_string pattern, int cs) {
+QStringMatcher* QStringMatcher_new6(const libqt_string pattern, int cs) {
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
     return new QStringMatcher(pattern_QString, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-QStringMatcher* QStringMatcher_new6(const QChar* uc, ptrdiff_t lenVal, int cs) {
+QStringMatcher* QStringMatcher_new7(const QChar* uc, ptrdiff_t lenVal, int cs) {
     return new QStringMatcher(uc, (qsizetype)(lenVal), static_cast<Qt::CaseSensitivity>(cs));
+}
+
+QStringMatcher* QStringMatcher_new8(libqt_string pattern, int cs) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    return new QStringMatcher(pattern_QString, static_cast<Qt::CaseSensitivity>(cs));
 }
 
 void QStringMatcher_OperatorAssign(QStringMatcher* self, const QStringMatcher* other) {
@@ -53,8 +63,25 @@ ptrdiff_t QStringMatcher_IndexIn2(const QStringMatcher* self, const QChar* str, 
     return static_cast<ptrdiff_t>(self->indexIn(str, (qsizetype)(length)));
 }
 
+ptrdiff_t QStringMatcher_IndexIn3(const QStringMatcher* self, libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    return static_cast<ptrdiff_t>(self->indexIn(str_QString));
+}
+
 libqt_string QStringMatcher_Pattern(const QStringMatcher* self) {
-    QString _ret = self->pattern();
+    auto _ret = self->pattern();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QStringMatcher_PatternView(const QStringMatcher* self) {
+    auto _ret = self->patternView();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,6 +103,11 @@ ptrdiff_t QStringMatcher_IndexIn22(const QStringMatcher* self, const libqt_strin
 
 ptrdiff_t QStringMatcher_IndexIn32(const QStringMatcher* self, const QChar* str, ptrdiff_t length, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexIn(str, (qsizetype)(length), (qsizetype)(from)));
+}
+
+ptrdiff_t QStringMatcher_IndexIn23(const QStringMatcher* self, libqt_string str, ptrdiff_t from) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    return static_cast<ptrdiff_t>(self->indexIn(str_QString, (qsizetype)(from)));
 }
 
 void QStringMatcher_Delete(QStringMatcher* self) {

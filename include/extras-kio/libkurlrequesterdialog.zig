@@ -5470,6 +5470,8 @@ pub const KUrlRequesterDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlRequesterDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5517,6 +5519,8 @@ pub const KUrlRequesterDialog = extern struct {
     /// ` self: KUrlRequesterDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KUrlRequesterDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlRequesterDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7803,6 +7807,8 @@ pub const KUrlRequesterDialog = extern struct {
     /// ` self: KUrlRequesterDialog`
     ///
     /// ` callback: *const fn (self: KUrlRequesterDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KUrlRequesterDialog, callback: *const fn (KUrlRequesterDialog, i32) callconv(.c) QVariant) void {
         qtc.KUrlRequesterDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -44,7 +44,7 @@ KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_UpdateCo
 libqt_string KTextEditor__CodeCompletionModelControllerInterface_FilterString(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const KTextEditor__Cursor* position) {
     auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        QString _ret = self->filterString(view, *range, *position);
+        auto _ret = self->filterString(view, *range, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -54,7 +54,7 @@ libqt_string KTextEditor__CodeCompletionModelControllerInterface_FilterString(KT
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->filterString(view, *range, *position);
+        auto _ret = ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->filterString(view, *range, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -179,7 +179,7 @@ libqt_string KTextEditor__CodeCompletionModelControllerInterface_SuperFilterStri
     auto* vktexteditorcodecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
     if (vktexteditorcodecompletionmodelcontrollerinterface && vktexteditorcodecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
         vktexteditorcodecompletionmodelcontrollerinterface->setKTextEditor__CodeCompletionModelControllerInterface_FilterString_IsBase(true);
-        QString _ret = vktexteditorcodecompletionmodelcontrollerinterface->filterString(view, *range, *position);
+        auto _ret = vktexteditorcodecompletionmodelcontrollerinterface->filterString(view, *range, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -189,7 +189,7 @@ libqt_string KTextEditor__CodeCompletionModelControllerInterface_SuperFilterStri
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KTextEditor::CodeCompletionModelControllerInterface::filterString(view, *range, *position);
+        auto _ret = self->KTextEditor::CodeCompletionModelControllerInterface::filterString(view, *range, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -5505,6 +5505,8 @@ pub const KPasswordLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPasswordLineEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPasswordLineEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5552,6 +5554,8 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPasswordLineEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPasswordLineEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7486,6 +7490,8 @@ pub const KPasswordLineEdit = extern struct {
     /// ` self: KPasswordLineEdit`
     ///
     /// ` callback: *const fn (self: KPasswordLineEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPasswordLineEdit, callback: *const fn (KPasswordLineEdit, i32) callconv(.c) QVariant) void {
         qtc.KPasswordLineEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

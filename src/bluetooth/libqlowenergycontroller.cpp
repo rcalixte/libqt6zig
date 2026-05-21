@@ -57,7 +57,7 @@ QBluetoothUuid* QLowEnergyController_RemoteDeviceUuid(const QLowEnergyController
 }
 
 libqt_string QLowEnergyController_RemoteName(const QLowEnergyController* self) {
-    QString _ret = self->remoteName();
+    auto _ret = self->remoteName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -130,7 +130,7 @@ int QLowEnergyController_Error(const QLowEnergyController* self) {
 }
 
 libqt_string QLowEnergyController_ErrorString(const QLowEnergyController* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -31,7 +31,7 @@ bool KCountrySubdivision_IsValid(const KCountrySubdivision* self) {
 }
 
 libqt_string KCountrySubdivision_Code(const KCountrySubdivision* self) {
-    QString _ret = self->code();
+    auto _ret = self->code();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,7 +43,7 @@ libqt_string KCountrySubdivision_Code(const KCountrySubdivision* self) {
 }
 
 libqt_string KCountrySubdivision_Name(const KCountrySubdivision* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -86,6 +86,11 @@ libqt_list /* of KCountrySubdivision* */ KCountrySubdivision_Subdivisions(const 
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+KCountrySubdivision* KCountrySubdivision_FromCode(libqt_string code) {
+    QString code_QString = QString::fromUtf8(code.data, code.len);
+    return new KCountrySubdivision(KCountrySubdivision::fromCode(code_QString));
 }
 
 KCountrySubdivision* KCountrySubdivision_FromCode2(const char* code) {

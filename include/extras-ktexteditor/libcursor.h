@@ -31,6 +31,7 @@ bool KTextEditor__Cursor_IsValid(const KTextEditor__Cursor* self);
 KTextEditor__Cursor* KTextEditor__Cursor_Invalid();
 KTextEditor__Cursor* KTextEditor__Cursor_Start();
 libqt_string KTextEditor__Cursor_ToString(const KTextEditor__Cursor* self);
+KTextEditor__Cursor* KTextEditor__Cursor_FromString(libqt_string str);
 void KTextEditor__Cursor_SetPosition(KTextEditor__Cursor* self, KTextEditor__Cursor* position);
 void KTextEditor__Cursor_SetPosition2(KTextEditor__Cursor* self, int line, int column);
 int KTextEditor__Cursor_Line(const KTextEditor__Cursor* self);

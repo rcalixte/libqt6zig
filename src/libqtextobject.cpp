@@ -634,7 +634,7 @@ int QTextBlock_TextDirection(const QTextBlock* self) {
 }
 
 libqt_string QTextBlock_Text(const QTextBlock* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -787,7 +787,7 @@ int QTextFragment_CharFormatIndex(const QTextFragment* self) {
 }
 
 libqt_string QTextFragment_Text(const QTextFragment* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

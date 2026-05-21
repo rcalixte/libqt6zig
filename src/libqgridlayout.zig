@@ -216,6 +216,8 @@ pub const QGridLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QGridLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGridLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -256,6 +258,8 @@ pub const QGridLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSize(self: QGridLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGridLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -295,6 +299,8 @@ pub const QGridLayout = extern struct {
     /// ` self: QGridLayout `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QGridLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGridLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2622,6 +2628,8 @@ pub const QGridLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGeometry(self: QGridLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QGridLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3641,6 +3649,8 @@ pub const QGridLayout = extern struct {
     /// ` self: QGridLayout`
     ///
     /// ` callback: *const fn (self: QGridLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QGridLayout, callback: *const fn (QGridLayout, QRect) callconv(.c) QRect) void {
         qtc.QGridLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

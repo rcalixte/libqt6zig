@@ -30,7 +30,7 @@ bool Attica__DownloadDescription_HasPrice(const Attica__DownloadDescription* sel
 }
 
 libqt_string Attica__DownloadDescription_Category(const Attica__DownloadDescription* self) {
-    QString _ret = self->category();
+    auto _ret = self->category();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -42,7 +42,7 @@ libqt_string Attica__DownloadDescription_Category(const Attica__DownloadDescript
 }
 
 libqt_string Attica__DownloadDescription_Name(const Attica__DownloadDescription* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -54,7 +54,7 @@ libqt_string Attica__DownloadDescription_Name(const Attica__DownloadDescription*
 }
 
 libqt_string Attica__DownloadDescription_Link(const Attica__DownloadDescription* self) {
-    QString _ret = self->link();
+    auto _ret = self->link();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -66,7 +66,7 @@ libqt_string Attica__DownloadDescription_Link(const Attica__DownloadDescription*
 }
 
 libqt_string Attica__DownloadDescription_DistributionType(const Attica__DownloadDescription* self) {
-    QString _ret = self->distributionType();
+    auto _ret = self->distributionType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -78,7 +78,7 @@ libqt_string Attica__DownloadDescription_DistributionType(const Attica__Download
 }
 
 libqt_string Attica__DownloadDescription_PriceReason(const Attica__DownloadDescription* self) {
-    QString _ret = self->priceReason();
+    auto _ret = self->priceReason();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ libqt_string Attica__DownloadDescription_PriceReason(const Attica__DownloadDescr
 }
 
 libqt_string Attica__DownloadDescription_PriceAmount(const Attica__DownloadDescription* self) {
-    QString _ret = self->priceAmount();
+    auto _ret = self->priceAmount();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,7 +106,7 @@ unsigned int Attica__DownloadDescription_Size(const Attica__DownloadDescription*
 }
 
 libqt_string Attica__DownloadDescription_GpgFingerprint(const Attica__DownloadDescription* self) {
-    QString _ret = self->gpgFingerprint();
+    auto _ret = self->gpgFingerprint();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -118,7 +118,7 @@ libqt_string Attica__DownloadDescription_GpgFingerprint(const Attica__DownloadDe
 }
 
 libqt_string Attica__DownloadDescription_GpgSignature(const Attica__DownloadDescription* self) {
-    QString _ret = self->gpgSignature();
+    auto _ret = self->gpgSignature();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -130,7 +130,7 @@ libqt_string Attica__DownloadDescription_GpgSignature(const Attica__DownloadDesc
 }
 
 libqt_string Attica__DownloadDescription_PackageName(const Attica__DownloadDescription* self) {
-    QString _ret = self->packageName();
+    auto _ret = self->packageName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -142,7 +142,7 @@ libqt_string Attica__DownloadDescription_PackageName(const Attica__DownloadDescr
 }
 
 libqt_string Attica__DownloadDescription_Repository(const Attica__DownloadDescription* self) {
-    QString _ret = self->repository();
+    auto _ret = self->repository();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -158,7 +158,7 @@ libqt_list /* of libqt_string */ Attica__DownloadDescription_Tags(const Attica__
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -252,7 +252,7 @@ void Attica__DownloadDescription_SetTags(Attica__DownloadDescription* self, cons
 }
 
 libqt_string Attica__DownloadDescription_Version(const Attica__DownloadDescription* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

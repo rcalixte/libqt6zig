@@ -103,7 +103,7 @@ void TextCustomEditor__RichTextEditorWidget_SetHtml(TextCustomEditor__RichTextEd
 }
 
 libqt_string TextCustomEditor__RichTextEditorWidget_ToHtml(const TextCustomEditor__RichTextEditorWidget* self) {
-    QString _ret = self->toHtml();
+    auto _ret = self->toHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ void TextCustomEditor__RichTextEditorWidget_SetPlainText(TextCustomEditor__RichT
 }
 
 libqt_string TextCustomEditor__RichTextEditorWidget_ToPlainText(const TextCustomEditor__RichTextEditorWidget* self) {
-    QString _ret = self->toPlainText();
+    auto _ret = self->toPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

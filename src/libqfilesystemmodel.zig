@@ -327,6 +327,8 @@ pub const QFileSystemModel = extern struct {
     ///
     /// ` callback: *const fn (self: QFileSystemModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QFileSystemModel, callback: *const fn (QFileSystemModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QFileSystemModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -393,6 +395,8 @@ pub const QFileSystemModel = extern struct {
     ///
     /// ` callback: *const fn (self: QFileSystemModel, child: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnParent(self: QFileSystemModel, callback: *const fn (QFileSystemModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QFileSystemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -442,6 +446,8 @@ pub const QFileSystemModel = extern struct {
     /// ` self: QFileSystemModel `
     ///
     /// ` callback: *const fn (self: QFileSystemModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QFileSystemModel, callback: *const fn (QFileSystemModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QFileSystemModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -735,6 +741,8 @@ pub const QFileSystemModel = extern struct {
     ///
     /// ` callback: *const fn (self: QFileSystemModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QFileSystemModel, callback: *const fn (QFileSystemModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QFileSystemModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -841,6 +849,8 @@ pub const QFileSystemModel = extern struct {
     /// ` self: QFileSystemModel `
     ///
     /// ` callback: *const fn (self: QFileSystemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QFileSystemModel, callback: *const fn (QFileSystemModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QFileSystemModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4090,6 +4100,8 @@ pub const QFileSystemModel = extern struct {
     ///
     /// ` callback: *const fn (self: QFileSystemModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QFileSystemModel, callback: *const fn (QFileSystemModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QFileSystemModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4237,6 +4249,8 @@ pub const QFileSystemModel = extern struct {
     /// ` self: QFileSystemModel`
     ///
     /// ` callback: *const fn (self: QFileSystemModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QFileSystemModel, callback: *const fn (QFileSystemModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QFileSystemModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4773,6 +4787,8 @@ pub const QFileSystemModel = extern struct {
     /// ` self: QFileSystemModel`
     ///
     /// ` callback: *const fn (self: QFileSystemModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QFileSystemModel, callback: *const fn (QFileSystemModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QFileSystemModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

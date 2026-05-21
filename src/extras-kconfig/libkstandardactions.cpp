@@ -12,7 +12,7 @@ QAction* KStandardActions_KguiCreateInternal(int param1, QObject* param2) {
 }
 
 libqt_string KStandardActions_Name(int param1) {
-    QString _ret = KStandardActions::name(static_cast<KStandardActions::StandardAction>(param1));
+    auto _ret = KStandardActions::name(static_cast<KStandardActions::StandardAction>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -35,7 +35,12 @@ void QCborStreamWriter_Append4(QCborStreamWriter* self, const libqt_string ba) {
 }
 
 void QCborStreamWriter_Append5(QCborStreamWriter* self, libqt_string str) {
-    QLatin1StringView str_QString = QLatin1StringView(str.data, str.len);
+    QLatin1StringView str_QLatin1StringView(str.data, str.len);
+    self->append(str_QLatin1StringView);
+}
+
+void QCborStreamWriter_Append6(QCborStreamWriter* self, libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
     self->append(str_QString);
 }
 

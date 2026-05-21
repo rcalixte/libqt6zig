@@ -44,6 +44,8 @@ pub const QFileIconProvider = extern struct {
     ///
     /// ` callback: *const fn (self: QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType) callconv(.c) QIcon `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIcon(self: QFileIconProvider, callback: *const fn (QFileIconProvider, i32) callconv(.c) QIcon) void {
         qtc.QFileIconProvider_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -88,6 +90,8 @@ pub const QFileIconProvider = extern struct {
     /// ` self: QFileIconProvider `
     ///
     /// ` callback: *const fn (self: QFileIconProvider, info: QFileInfo) callconv(.c) QIcon `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIcon2(self: QFileIconProvider, callback: *const fn (QFileIconProvider, QFileInfo) callconv(.c) QIcon) void {
         qtc.QFileIconProvider_OnIcon2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -148,7 +148,7 @@ QRect* QFontMetrics_TightBoundingRect2(const QFontMetrics* self, const libqt_str
 
 libqt_string QFontMetrics_ElidedText(const QFontMetrics* self, const libqt_string text, int mode, int width) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<int>(width));
+    auto _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<int>(width));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -224,7 +224,7 @@ QSize* QFontMetrics_Size4(const QFontMetrics* self, int flags, const libqt_strin
 
 libqt_string QFontMetrics_ElidedText4(const QFontMetrics* self, const libqt_string text, int mode, int width, int flags) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<int>(width), static_cast<int>(flags));
+    auto _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<int>(width), static_cast<int>(flags));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -377,7 +377,7 @@ QRectF* QFontMetricsF_TightBoundingRect2(const QFontMetricsF* self, const libqt_
 
 libqt_string QFontMetricsF_ElidedText(const QFontMetricsF* self, const libqt_string text, int mode, double width) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<qreal>(width));
+    auto _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<qreal>(width));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -443,7 +443,7 @@ QSizeF* QFontMetricsF_Size4(const QFontMetricsF* self, int flags, const libqt_st
 
 libqt_string QFontMetricsF_ElidedText4(const QFontMetricsF* self, const libqt_string text, int mode, double width, int flags) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<qreal>(width), static_cast<int>(flags));
+    auto _ret = self->elidedText(text_QString, static_cast<Qt::TextElideMode>(mode), static_cast<qreal>(width), static_cast<int>(flags));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

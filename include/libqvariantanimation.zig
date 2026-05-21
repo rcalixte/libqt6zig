@@ -618,6 +618,8 @@ pub const QVariantAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QVariantAnimation, from: QVariant, to: QVariant, progress: f64) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInterpolated(self: QVariantAnimation, callback: *const fn (QVariantAnimation, QVariant, QVariant, f64) callconv(.c) QVariant) void {
         qtc.QVariantAnimation_OnInterpolated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

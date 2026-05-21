@@ -860,7 +860,7 @@ void KBookmarkMenu_OnIsDirty(const KBookmarkMenu* self, intptr_t slot) {
 libqt_string KBookmarkMenu_ParentAddress(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
-        QString _ret = vkbookmarkmenu->parentAddress();
+        auto _ret = vkbookmarkmenu->parentAddress();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -870,7 +870,7 @@ libqt_string KBookmarkMenu_ParentAddress(const KBookmarkMenu* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKBookmarkMenu*)self)->parentAddress();
+        auto _ret = ((VirtualKBookmarkMenu*)self)->parentAddress();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -887,7 +887,7 @@ libqt_string KBookmarkMenu_SuperParentAddress(const KBookmarkMenu* self) {
     auto* vkbookmarkmenu = const_cast<VirtualKBookmarkMenu*>(dynamic_cast<const VirtualKBookmarkMenu*>(self));
     if (vkbookmarkmenu && vkbookmarkmenu->isVirtualKBookmarkMenu) {
         vkbookmarkmenu->setKBookmarkMenu_ParentAddress_IsBase(true);
-        QString _ret = vkbookmarkmenu->parentAddress();
+        auto _ret = vkbookmarkmenu->parentAddress();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -897,7 +897,7 @@ libqt_string KBookmarkMenu_SuperParentAddress(const KBookmarkMenu* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKBookmarkMenu*)self)->parentAddress();
+        auto _ret = ((VirtualKBookmarkMenu*)self)->parentAddress();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

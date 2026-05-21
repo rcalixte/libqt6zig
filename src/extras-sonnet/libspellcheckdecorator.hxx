@@ -176,7 +176,7 @@ class VirtualSonnetSpellCheckDecorator final : public Sonnet::SpellCheckDecorato
         }
         auto isspellcheckingenabledforblock_cb = sonnet__spellcheckdecorator_isspellcheckingenabledforblock_callback;
         if (isspellcheckingenabledforblock_cb) {
-            const QString textBlock_ret = textBlock;
+            const auto textBlock_ret = textBlock;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray textBlock_b = textBlock_ret.toUtf8();
             auto textBlock_str_len = textBlock_b.length();

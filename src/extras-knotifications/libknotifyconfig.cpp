@@ -19,7 +19,7 @@ void KNotifyConfig_OperatorAssign(KNotifyConfig* self, const KNotifyConfig* othe
 }
 
 libqt_string KNotifyConfig_ApplicationName(const KNotifyConfig* self) {
-    QString _ret = self->applicationName();
+    auto _ret = self->applicationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -31,7 +31,7 @@ libqt_string KNotifyConfig_ApplicationName(const KNotifyConfig* self) {
 }
 
 libqt_string KNotifyConfig_EventId(const KNotifyConfig* self) {
-    QString _ret = self->eventId();
+    auto _ret = self->eventId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ bool KNotifyConfig_IsValid(const KNotifyConfig* self) {
 
 libqt_string KNotifyConfig_ReadGlobalEntry(const KNotifyConfig* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->readGlobalEntry(key_QString);
+    auto _ret = self->readGlobalEntry(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ libqt_string KNotifyConfig_ReadGlobalEntry(const KNotifyConfig* self, const libq
 
 libqt_string KNotifyConfig_ReadEntry(const KNotifyConfig* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->readEntry(key_QString);
+    auto _ret = self->readEntry(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ libqt_string KNotifyConfig_ReadEntry(const KNotifyConfig* self, const libqt_stri
 
 libqt_string KNotifyConfig_ReadPathEntry(const KNotifyConfig* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->readPathEntry(key_QString);
+    auto _ret = self->readPathEntry(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -67,7 +67,7 @@ QBluetoothUuid* QLowEnergyService_ServiceUuid(const QLowEnergyService* self) {
 }
 
 libqt_string QLowEnergyService_ServiceName(const QLowEnergyService* self) {
-    QString _ret = self->serviceName();
+    auto _ret = self->serviceName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -305,6 +305,8 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.QItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -988,6 +990,8 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, index: QModelIndex, role: i32) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnRect(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex, i32) callconv(.c) QRect) void {
         qtc.QItemDelegate_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1158,6 +1162,8 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, index: QModelIndex, option: QStyleOptionViewItem) callconv(.c) QStyleOptionViewItem `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSetOptions(self: QItemDelegate, callback: *const fn (QItemDelegate, QModelIndex, QStyleOptionViewItem) callconv(.c) QStyleOptionViewItem) void {
         qtc.QItemDelegate_OnSetOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1209,6 +1215,8 @@ pub const QItemDelegate = extern struct {
     /// ` self: QItemDelegate `
     ///
     /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, variant: QVariant) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDecoration(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QVariant) callconv(.c) QPixmap) void {
         qtc.QItemDelegate_OnDecoration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1264,6 +1272,8 @@ pub const QItemDelegate = extern struct {
     /// ` self: QItemDelegate `
     ///
     /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, bounding: QRect, variant: QVariant) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDoCheck(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QVariant) callconv(.c) QRect) void {
         qtc.QItemDelegate_OnDoCheck(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1328,6 +1338,8 @@ pub const QItemDelegate = extern struct {
     /// ` self: QItemDelegate `
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, rect: QRect, font: QFont, text: [*:0]const u8) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnTextRectangle(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QRect, QFont, [*:0]const u8) callconv(.c) QRect) void {
         qtc.QItemDelegate_OnTextRectangle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

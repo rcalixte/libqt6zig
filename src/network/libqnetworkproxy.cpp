@@ -91,7 +91,7 @@ void QNetworkProxyQuery_SetPeerPort(QNetworkProxyQuery* self, int port) {
 }
 
 libqt_string QNetworkProxyQuery_PeerHostName(const QNetworkProxyQuery* self) {
-    QString _ret = self->peerHostName();
+    auto _ret = self->peerHostName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -116,7 +116,7 @@ void QNetworkProxyQuery_SetLocalPort(QNetworkProxyQuery* self, int port) {
 }
 
 libqt_string QNetworkProxyQuery_ProtocolTag(const QNetworkProxyQuery* self) {
-    QString _ret = self->protocolTag();
+    auto _ret = self->protocolTag();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -225,7 +225,7 @@ void QNetworkProxy_SetUser(QNetworkProxy* self, const libqt_string userName) {
 }
 
 libqt_string QNetworkProxy_User(const QNetworkProxy* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -242,7 +242,7 @@ void QNetworkProxy_SetPassword(QNetworkProxy* self, const libqt_string password)
 }
 
 libqt_string QNetworkProxy_Password(const QNetworkProxy* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -259,7 +259,7 @@ void QNetworkProxy_SetHostName(QNetworkProxy* self, const libqt_string hostName)
 }
 
 libqt_string QNetworkProxy_HostName(const QNetworkProxy* self) {
-    QString _ret = self->hostName();
+    auto _ret = self->hostName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

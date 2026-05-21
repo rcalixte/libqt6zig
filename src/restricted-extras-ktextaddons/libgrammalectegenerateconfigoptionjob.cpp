@@ -56,7 +56,7 @@ bool TextGrammarCheck__GrammalecteGenerateConfigOptionJob_CanStart(const TextGra
 }
 
 libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob_PythonPath(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    QString _ret = self->pythonPath();
+    auto _ret = self->pythonPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -73,7 +73,7 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_SetPythonPath(TextGram
 }
 
 libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob_GrammarlecteCliPath(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    QString _ret = self->grammarlecteCliPath();
+    auto _ret = self->grammarlecteCliPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -517,7 +517,7 @@ TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* TextGrammarCheck__
 }
 
 libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_OptionName(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* self) {
-    QString optionName_ret = self->optionName;
+    auto optionName_ret = self->optionName;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray optionName_b = optionName_ret.toUtf8();
     libqt_string optionName_str;
@@ -534,7 +534,7 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_SetOptionName(
 }
 
 libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_Description(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* self) {
-    QString description_ret = self->description;
+    auto description_ret = self->description;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray description_b = description_ret.toUtf8();
     libqt_string description_str;

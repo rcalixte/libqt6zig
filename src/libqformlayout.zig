@@ -1132,6 +1132,8 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFormLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1171,6 +1173,8 @@ pub const QFormLayout = extern struct {
     /// ` self: QFormLayout `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFormLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2706,6 +2710,8 @@ pub const QFormLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGeometry(self: QFormLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QFormLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2753,6 +2759,8 @@ pub const QFormLayout = extern struct {
     /// ` self: QFormLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QFormLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFormLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3825,6 +3833,8 @@ pub const QFormLayout = extern struct {
     /// ` self: QFormLayout`
     ///
     /// ` callback: *const fn (self: QFormLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QFormLayout, callback: *const fn (QFormLayout, QRect) callconv(.c) QRect) void {
         qtc.QFormLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

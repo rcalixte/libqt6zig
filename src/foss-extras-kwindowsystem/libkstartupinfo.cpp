@@ -635,7 +635,7 @@ void KStartupInfoData_SetBin(KStartupInfoData* self, const libqt_string bin) {
 }
 
 libqt_string KStartupInfoData_Bin(const KStartupInfoData* self) {
-    const QString _ret = self->bin();
+    const auto _ret = self->bin();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -652,7 +652,7 @@ void KStartupInfoData_SetName(KStartupInfoData* self, const libqt_string name) {
 }
 
 libqt_string KStartupInfoData_FindName(const KStartupInfoData* self) {
-    const QString _ret = self->findName();
+    const auto _ret = self->findName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -664,7 +664,7 @@ libqt_string KStartupInfoData_FindName(const KStartupInfoData* self) {
 }
 
 libqt_string KStartupInfoData_Name(const KStartupInfoData* self) {
-    const QString _ret = self->name();
+    const auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -681,7 +681,7 @@ void KStartupInfoData_SetDescription(KStartupInfoData* self, const libqt_string 
 }
 
 libqt_string KStartupInfoData_FindDescription(const KStartupInfoData* self) {
-    const QString _ret = self->findDescription();
+    const auto _ret = self->findDescription();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -693,7 +693,7 @@ libqt_string KStartupInfoData_FindDescription(const KStartupInfoData* self) {
 }
 
 libqt_string KStartupInfoData_Description(const KStartupInfoData* self) {
-    const QString _ret = self->description();
+    const auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -710,7 +710,7 @@ void KStartupInfoData_SetIcon(KStartupInfoData* self, const libqt_string icon) {
 }
 
 libqt_string KStartupInfoData_FindIcon(const KStartupInfoData* self) {
-    const QString _ret = self->findIcon();
+    const auto _ret = self->findIcon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -722,7 +722,7 @@ libqt_string KStartupInfoData_FindIcon(const KStartupInfoData* self) {
 }
 
 libqt_string KStartupInfoData_Icon(const KStartupInfoData* self) {
-    const QString _ret = self->icon();
+    const auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -823,7 +823,7 @@ void KStartupInfoData_SetXinerama(KStartupInfoData* self, int xinerama) {
 }
 
 libqt_string KStartupInfoData_ApplicationId(const KStartupInfoData* self) {
-    QString _ret = self->applicationId();
+    auto _ret = self->applicationId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

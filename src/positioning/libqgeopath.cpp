@@ -147,7 +147,7 @@ void QGeoPath_RemoveCoordinate2(QGeoPath* self, ptrdiff_t index) {
 }
 
 libqt_string QGeoPath_ToString(const QGeoPath* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

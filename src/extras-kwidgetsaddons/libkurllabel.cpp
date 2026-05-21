@@ -97,7 +97,7 @@ int KUrlLabel_Metacall(KUrlLabel* self, int param1, int param2, void** param3) {
 }
 
 libqt_string KUrlLabel_Url(const KUrlLabel* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -109,7 +109,7 @@ libqt_string KUrlLabel_Url(const KUrlLabel* self) {
 }
 
 libqt_string KUrlLabel_TipText(const KUrlLabel* self) {
-    QString _ret = self->tipText();
+    auto _ret = self->tipText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

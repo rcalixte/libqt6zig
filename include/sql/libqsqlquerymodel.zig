@@ -339,6 +339,8 @@ pub const QSqlQueryModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, item: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QSqlQueryModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -389,6 +391,8 @@ pub const QSqlQueryModel = extern struct {
     /// ` self: QSqlQueryModel `
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QSqlQueryModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1372,6 +1376,8 @@ pub const QSqlQueryModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, item: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndexInQuery(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlQueryModel_OnIndexInQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1544,6 +1550,8 @@ pub const QSqlQueryModel = extern struct {
     /// ` self: QSqlQueryModel `
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2942,6 +2950,8 @@ pub const QSqlQueryModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlQueryModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3003,6 +3013,8 @@ pub const QSqlQueryModel = extern struct {
     /// ` self: QSqlQueryModel`
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlQueryModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4148,6 +4160,8 @@ pub const QSqlQueryModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlQueryModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4295,6 +4309,8 @@ pub const QSqlQueryModel = extern struct {
     /// ` self: QSqlQueryModel`
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QSqlQueryModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4939,6 +4955,8 @@ pub const QSqlQueryModel = extern struct {
     /// ` self: QSqlQueryModel`
     ///
     /// ` callback: *const fn (self: QSqlQueryModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QSqlQueryModel, callback: *const fn (QSqlQueryModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QSqlQueryModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

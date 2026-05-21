@@ -186,7 +186,7 @@ void QAbstractAxis_SetTitleText(QAbstractAxis* self, const libqt_string title) {
 }
 
 libqt_string QAbstractAxis_TitleText(const QAbstractAxis* self) {
-    QString _ret = self->titleText();
+    auto _ret = self->titleText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -487,7 +487,7 @@ void QAbstractAxis_TitleTextChanged(QAbstractAxis* self, const libqt_string titl
 void QAbstractAxis_Connect_TitleTextChanged(QAbstractAxis* self, intptr_t slot) {
     void (*slotFunc)(QAbstractAxis*, const char*) = reinterpret_cast<void (*)(QAbstractAxis*, const char*)>(slot);
     QAbstractAxis::connect(self, &QAbstractAxis::titleTextChanged, [self, slotFunc](const QString& title) {
-        const QString title_ret = title;
+        const auto title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
         auto title_str_len = title_b.length();

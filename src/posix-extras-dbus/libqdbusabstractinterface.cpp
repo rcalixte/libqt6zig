@@ -43,7 +43,7 @@ QDBusConnection* QDBusAbstractInterface_Connection(const QDBusAbstractInterface*
 }
 
 libqt_string QDBusAbstractInterface_Service(const QDBusAbstractInterface* self) {
-    QString _ret = self->service();
+    auto _ret = self->service();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,7 +55,7 @@ libqt_string QDBusAbstractInterface_Service(const QDBusAbstractInterface* self) 
 }
 
 libqt_string QDBusAbstractInterface_Path(const QDBusAbstractInterface* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,7 +67,7 @@ libqt_string QDBusAbstractInterface_Path(const QDBusAbstractInterface* self) {
 }
 
 libqt_string QDBusAbstractInterface_Interface(const QDBusAbstractInterface* self) {
-    QString _ret = self->interface();
+    auto _ret = self->interface();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

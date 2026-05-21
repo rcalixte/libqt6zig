@@ -151,7 +151,7 @@ void KTreeWidgetSearchLine_SearchUpdated(KTreeWidgetSearchLine* self, const libq
 void KTreeWidgetSearchLine_Connect_SearchUpdated(KTreeWidgetSearchLine* self, intptr_t slot) {
     void (*slotFunc)(KTreeWidgetSearchLine*, const char*) = reinterpret_cast<void (*)(KTreeWidgetSearchLine*, const char*)>(slot);
     KTreeWidgetSearchLine::connect(self, &KTreeWidgetSearchLine::searchUpdated, [self, slotFunc](const QString& searchString) {
-        const QString searchString_ret = searchString;
+        const auto searchString_ret = searchString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray searchString_b = searchString_ret.toUtf8();
         auto searchString_str_len = searchString_b.length();

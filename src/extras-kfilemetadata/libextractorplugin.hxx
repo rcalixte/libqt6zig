@@ -312,7 +312,7 @@ class VirtualKFileMetaDataExtractorPlugin : public KFileMetaData::ExtractorPlugi
         }
         auto getsupportedmimetype_cb = kfilemetadata__extractorplugin_getsupportedmimetype_callback;
         if (getsupportedmimetype_cb) {
-            const QString mimetype_ret = mimetype;
+            const auto mimetype_ret = mimetype;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
             auto mimetype_str_len = mimetype_b.length();

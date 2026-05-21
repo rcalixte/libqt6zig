@@ -5607,6 +5607,8 @@ pub const KFilePlaceEditDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFilePlaceEditDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5654,6 +5656,8 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KFilePlaceEditDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFilePlaceEditDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7940,6 +7944,8 @@ pub const KFilePlaceEditDialog = extern struct {
     /// ` self: KFilePlaceEditDialog`
     ///
     /// ` callback: *const fn (self: KFilePlaceEditDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KFilePlaceEditDialog, callback: *const fn (KFilePlaceEditDialog, i32) callconv(.c) QVariant) void {
         qtc.KFilePlaceEditDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -19,7 +19,7 @@ KServiceGroup* KServiceGroup_new2(const libqt_string _fullpath, const libqt_stri
 }
 
 libqt_string KServiceGroup_RelPath(const KServiceGroup* self) {
-    QString _ret = self->relPath();
+    auto _ret = self->relPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -31,7 +31,7 @@ libqt_string KServiceGroup_RelPath(const KServiceGroup* self) {
 }
 
 libqt_string KServiceGroup_Caption(const KServiceGroup* self) {
-    QString _ret = self->caption();
+    auto _ret = self->caption();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,7 +43,7 @@ libqt_string KServiceGroup_Caption(const KServiceGroup* self) {
 }
 
 libqt_string KServiceGroup_Icon(const KServiceGroup* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,7 +55,7 @@ libqt_string KServiceGroup_Icon(const KServiceGroup* self) {
 }
 
 libqt_string KServiceGroup_Comment(const KServiceGroup* self) {
-    QString _ret = self->comment();
+    auto _ret = self->comment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ libqt_list /* of libqt_string */ KServiceGroup_SuppressGenericNames(const KServi
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -151,7 +151,7 @@ libqt_list /* of libqt_string */ KServiceGroup_LayoutInfo(const KServiceGroup* s
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -168,7 +168,7 @@ libqt_list /* of libqt_string */ KServiceGroup_LayoutInfo(const KServiceGroup* s
 }
 
 libqt_string KServiceGroup_BaseGroupName(const KServiceGroup* self) {
-    QString _ret = self->baseGroupName();
+    auto _ret = self->baseGroupName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_string KServiceGroup_BaseGroupName(const KServiceGroup* self) {
 }
 
 libqt_string KServiceGroup_DirectoryEntryPath(const KServiceGroup* self) {
-    QString _ret = self->directoryEntryPath();
+    auto _ret = self->directoryEntryPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

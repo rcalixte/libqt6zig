@@ -21,7 +21,7 @@ void QPlaceContactDetail_Swap(QPlaceContactDetail* self, QPlaceContactDetail* ot
 }
 
 libqt_string QPlaceContactDetail_Label(const QPlaceContactDetail* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ void QPlaceContactDetail_SetLabel(QPlaceContactDetail* self, const libqt_string 
 }
 
 libqt_string QPlaceContactDetail_Value(const QPlaceContactDetail* self) {
-    QString _ret = self->value();
+    auto _ret = self->value();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

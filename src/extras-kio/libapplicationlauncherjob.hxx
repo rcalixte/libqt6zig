@@ -478,7 +478,7 @@ class VirtualKIOApplicationLauncherJob final : public KIO::ApplicationLauncherJo
         }
         auto seterrortext_cb = kio__applicationlauncherjob_seterrortext_callback;
         if (seterrortext_cb) {
-            const QString errorText_ret = errorText;
+            const auto errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
             auto errorText_str_len = errorText_b.length();

@@ -29,7 +29,7 @@ int QDesignerFormWindowInterface_Metacall(QDesignerFormWindowInterface* self, in
 }
 
 libqt_string QDesignerFormWindowInterface_FileName(const QDesignerFormWindowInterface* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -45,7 +45,7 @@ QDir* QDesignerFormWindowInterface_AbsoluteDir(const QDesignerFormWindowInterfac
 }
 
 libqt_string QDesignerFormWindowInterface_Contents(const QDesignerFormWindowInterface* self) {
-    QString _ret = self->contents();
+    auto _ret = self->contents();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ libqt_list /* of libqt_string */ QDesignerFormWindowInterface_CheckContents(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -86,7 +86,7 @@ bool QDesignerFormWindowInterface_HasFeature(const QDesignerFormWindowInterface*
 }
 
 libqt_string QDesignerFormWindowInterface_Author(const QDesignerFormWindowInterface* self) {
-    QString _ret = self->author();
+    auto _ret = self->author();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -103,7 +103,7 @@ void QDesignerFormWindowInterface_SetAuthor(QDesignerFormWindowInterface* self, 
 }
 
 libqt_string QDesignerFormWindowInterface_Comment(const QDesignerFormWindowInterface* self) {
-    QString _ret = self->comment();
+    auto _ret = self->comment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -134,7 +134,7 @@ void QDesignerFormWindowInterface_SetLayoutFunction(QDesignerFormWindowInterface
 }
 
 libqt_string QDesignerFormWindowInterface_PixmapFunction(const QDesignerFormWindowInterface* self) {
-    QString _ret = self->pixmapFunction();
+    auto _ret = self->pixmapFunction();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -151,7 +151,7 @@ void QDesignerFormWindowInterface_SetPixmapFunction(QDesignerFormWindowInterface
 }
 
 libqt_string QDesignerFormWindowInterface_ExportMacro(const QDesignerFormWindowInterface* self) {
-    QString _ret = self->exportMacro();
+    auto _ret = self->exportMacro();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -172,7 +172,7 @@ libqt_list /* of libqt_string */ QDesignerFormWindowInterface_IncludeHints(const
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -212,7 +212,7 @@ libqt_list /* of libqt_string */ QDesignerFormWindowInterface_ActiveResourceFile
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -320,7 +320,7 @@ libqt_list /* of libqt_string */ QDesignerFormWindowInterface_ResourceFiles(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -435,7 +435,7 @@ void QDesignerFormWindowInterface_FileNameChanged(QDesignerFormWindowInterface* 
 void QDesignerFormWindowInterface_Connect_FileNameChanged(QDesignerFormWindowInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerFormWindowInterface*, const char*) = reinterpret_cast<void (*)(QDesignerFormWindowInterface*, const char*)>(slot);
     QDesignerFormWindowInterface::connect(self, &QDesignerFormWindowInterface::fileNameChanged, [self, slotFunc](const QString& fileName) {
-        const QString fileName_ret = fileName;
+        const auto fileName_ret = fileName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray fileName_b = fileName_ret.toUtf8();
         auto fileName_str_len = fileName_b.length();

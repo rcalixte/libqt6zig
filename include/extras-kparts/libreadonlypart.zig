@@ -3064,6 +3064,8 @@ pub const KParts__ReadOnlyPart = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDomDocument `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDomDocument(self: KParts__ReadOnlyPart, callback: *const fn () callconv(.c) QDomDocument) void {
         qtc.KParts__ReadOnlyPart_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

@@ -33,7 +33,7 @@ libqt_string TextEmoticonsCore__CustomEmojiIconManager_FileName(TextEmoticonsCor
     QString customIdentifier_QString = QString::fromUtf8(customIdentifier.data, customIdentifier.len);
     auto* vtextemoticonscore__customemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
     if (vtextemoticonscore__customemojiiconmanager && vtextemoticonscore__customemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
-        QString _ret = self->fileName(customIdentifier_QString);
+        auto _ret = self->fileName(customIdentifier_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -43,7 +43,7 @@ libqt_string TextEmoticonsCore__CustomEmojiIconManager_FileName(TextEmoticonsCor
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualTextEmoticonsCoreCustomEmojiIconManager*)self)->fileName(customIdentifier_QString);
+        auto _ret = ((VirtualTextEmoticonsCoreCustomEmojiIconManager*)self)->fileName(customIdentifier_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -81,7 +81,7 @@ libqt_string TextEmoticonsCore__CustomEmojiIconManager_SuperFileName(TextEmotico
     QString customIdentifier_QString = QString::fromUtf8(customIdentifier.data, customIdentifier.len);
     if (vtextemoticonscorecustomemojiiconmanager && vtextemoticonscorecustomemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
         vtextemoticonscorecustomemojiiconmanager->setTextEmoticonsCore__CustomEmojiIconManager_FileName_IsBase(true);
-        QString _ret = vtextemoticonscorecustomemojiiconmanager->fileName(customIdentifier_QString);
+        auto _ret = vtextemoticonscorecustomemojiiconmanager->fileName(customIdentifier_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -91,7 +91,7 @@ libqt_string TextEmoticonsCore__CustomEmojiIconManager_SuperFileName(TextEmotico
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->TextEmoticonsCore::CustomEmojiIconManager::fileName(customIdentifier_QString);
+        auto _ret = self->TextEmoticonsCore::CustomEmojiIconManager::fileName(customIdentifier_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -8,7 +8,7 @@
 
 libqt_string KFileUtils_SuggestName(const QUrl* param1, const libqt_string param2) {
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString _ret = KFileUtils::suggestName(*param1, param2_QString);
+    auto _ret = KFileUtils::suggestName(*param1, param2_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -21,7 +21,7 @@ libqt_string KFileUtils_SuggestName(const QUrl* param1, const libqt_string param
 
 libqt_string KFileUtils_MakeSuggestedName(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KFileUtils::makeSuggestedName(param1_QString);
+    auto _ret = KFileUtils::makeSuggestedName(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -51,7 +51,7 @@ libqt_list /* of libqt_string */ KFileUtils_FindAllUniqueFiles(const libqt_list 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

@@ -213,6 +213,8 @@ pub const KXMLGUIClient = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDomDocument `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDomDocument(self: KXMLGUIClient, callback: *const fn () callconv(.c) QDomDocument) void {
         qtc.KXMLGUIClient_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

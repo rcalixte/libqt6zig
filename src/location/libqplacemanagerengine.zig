@@ -896,6 +896,8 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) QPlaceCategory `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceCategory) void {
         qtc.QPlaceManagerEngine_OnCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1136,6 +1138,8 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, icon: QPlaceIcon, size: QSize) callconv(.c) QUrl `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnConstructIconUrl(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceIcon, QSize) callconv(.c) QUrl) void {
         qtc.QPlaceManagerEngine_OnConstructIconUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1184,6 +1188,8 @@ pub const QPlaceManagerEngine = extern struct {
     /// ` self: QPlaceManagerEngine `
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, original: QPlace) callconv(.c) QPlace `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCompatiblePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlace) callconv(.c) QPlace) void {
         qtc.QPlaceManagerEngine_OnCompatiblePlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

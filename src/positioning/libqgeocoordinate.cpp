@@ -73,7 +73,7 @@ QGeoCoordinate* QGeoCoordinate_AtDistanceAndAzimuth(const QGeoCoordinate* self, 
 }
 
 libqt_string QGeoCoordinate_ToString(const QGeoCoordinate* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ QGeoCoordinate* QGeoCoordinate_AtDistanceAndAzimuth3(const QGeoCoordinate* self,
 }
 
 libqt_string QGeoCoordinate_ToString1(const QGeoCoordinate* self, int format) {
-    QString _ret = self->toString(static_cast<QGeoCoordinate::CoordinateFormat>(format));
+    auto _ret = self->toString(static_cast<QGeoCoordinate::CoordinateFormat>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

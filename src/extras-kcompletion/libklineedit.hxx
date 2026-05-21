@@ -577,7 +577,7 @@ class VirtualKLineEdit final : public KLineEdit {
         }
         auto setcompletedtext_cb = klineedit_setcompletedtext_callback;
         if (setcompletedtext_cb) {
-            const QString completedText_ret = completedText;
+            const auto completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
             auto completedText_str_len = completedText_b.length();
@@ -632,7 +632,7 @@ class VirtualKLineEdit final : public KLineEdit {
         }
         auto settext_cb = klineedit_settext_callback;
         if (settext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -656,7 +656,7 @@ class VirtualKLineEdit final : public KLineEdit {
         }
         auto makecompletion_cb = klineedit_makecompletion_callback;
         if (makecompletion_cb) {
-            const QString param1_ret = param1;
+            const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -791,7 +791,7 @@ class VirtualKLineEdit final : public KLineEdit {
         }
         auto setcompletedtext2_cb = klineedit_setcompletedtext2_callback;
         if (setcompletedtext2_cb) {
-            const QString param1_ret = param1;
+            const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -1506,7 +1506,7 @@ class VirtualKLineEdit final : public KLineEdit {
         }
         auto usercancelled_cb = klineedit_usercancelled_callback;
         if (usercancelled_cb) {
-            const QString cancelText_ret = cancelText;
+            const auto cancelText_ret = cancelText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cancelText_b = cancelText_ret.toUtf8();
             auto cancelText_str_len = cancelText_b.length();

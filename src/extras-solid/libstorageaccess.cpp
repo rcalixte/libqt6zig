@@ -30,7 +30,7 @@ bool Solid__StorageAccess_IsAccessible(const Solid__StorageAccess* self) {
 }
 
 libqt_string Solid__StorageAccess_FilePath(const Solid__StorageAccess* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ void Solid__StorageAccess_Connect_AccessibilityChanged(Solid__StorageAccess* sel
     void (*slotFunc)(Solid__StorageAccess*, bool, const char*) = reinterpret_cast<void (*)(Solid__StorageAccess*, bool, const char*)>(slot);
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::accessibilityChanged, [self, slotFunc](bool accessible, const QString& udi) {
         bool sigval1 = accessible;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -105,7 +105,7 @@ void Solid__StorageAccess_Connect_SetupDone(Solid__StorageAccess* self, intptr_t
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::setupDone, [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
         int sigval1 = static_cast<int>(errorVal);
         QVariant* sigval2 = new QVariant(errorData);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -128,7 +128,7 @@ void Solid__StorageAccess_Connect_TeardownDone(Solid__StorageAccess* self, intpt
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::teardownDone, [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
         int sigval1 = static_cast<int>(errorVal);
         QVariant* sigval2 = new QVariant(errorData);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -149,7 +149,7 @@ void Solid__StorageAccess_SetupRequested(Solid__StorageAccess* self, const libqt
 void Solid__StorageAccess_Connect_SetupRequested(Solid__StorageAccess* self, intptr_t slot) {
     void (*slotFunc)(Solid__StorageAccess*, const char*) = reinterpret_cast<void (*)(Solid__StorageAccess*, const char*)>(slot);
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::setupRequested, [self, slotFunc](const QString& udi) {
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -170,7 +170,7 @@ void Solid__StorageAccess_TeardownRequested(Solid__StorageAccess* self, const li
 void Solid__StorageAccess_Connect_TeardownRequested(Solid__StorageAccess* self, intptr_t slot) {
     void (*slotFunc)(Solid__StorageAccess*, const char*) = reinterpret_cast<void (*)(Solid__StorageAccess*, const char*)>(slot);
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::teardownRequested, [self, slotFunc](const QString& udi) {
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -191,7 +191,7 @@ void Solid__StorageAccess_CheckRequested(Solid__StorageAccess* self, const libqt
 void Solid__StorageAccess_Connect_CheckRequested(Solid__StorageAccess* self, intptr_t slot) {
     void (*slotFunc)(Solid__StorageAccess*, const char*) = reinterpret_cast<void (*)(Solid__StorageAccess*, const char*)>(slot);
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::checkRequested, [self, slotFunc](const QString& udi) {
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -214,7 +214,7 @@ void Solid__StorageAccess_Connect_CheckDone(Solid__StorageAccess* self, intptr_t
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::checkDone, [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
         int sigval1 = static_cast<int>(errorVal);
         QVariant* sigval2 = new QVariant(errorData);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -235,7 +235,7 @@ void Solid__StorageAccess_RepairRequested(Solid__StorageAccess* self, const libq
 void Solid__StorageAccess_Connect_RepairRequested(Solid__StorageAccess* self, intptr_t slot) {
     void (*slotFunc)(Solid__StorageAccess*, const char*) = reinterpret_cast<void (*)(Solid__StorageAccess*, const char*)>(slot);
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::repairRequested, [self, slotFunc](const QString& udi) {
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -258,7 +258,7 @@ void Solid__StorageAccess_Connect_RepairDone(Solid__StorageAccess* self, intptr_
     Solid::StorageAccess::connect(self, &Solid::StorageAccess::repairDone, [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
         int sigval1 = static_cast<int>(errorVal);
         QVariant* sigval2 = new QVariant(errorData);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();

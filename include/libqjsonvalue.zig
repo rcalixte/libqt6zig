@@ -80,9 +80,9 @@ pub const QJsonValue = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s: []const u8 `
+    /// ` s: []u8 `
     ///
-    pub fn New7(s: []const u8) QJsonValue {
+    pub fn New7(s: []u8) QJsonValue {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -423,7 +423,23 @@ pub const QJsonValue = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript3(self: QJsonValue, key: []const u8) QJsonValue {
+    pub fn OperatorSubscript2(self: QJsonValue, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValue_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonValue `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn OperatorSubscript3(self: QJsonValue, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -728,7 +744,23 @@ pub const QJsonValueConstRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonValueConstRef, key: []const u8) QJsonValue {
+    pub fn OperatorSubscript(self: QJsonValueConstRef, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValueConstRef_OperatorSubscript(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonValueConstRef `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn OperatorSubscript2(self: QJsonValueConstRef, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -1108,7 +1140,23 @@ pub const QJsonValueRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonValueRef, key: []const u8) QJsonValue {
+    pub fn OperatorSubscript(self: QJsonValueRef, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonValueRef_OperatorSubscript(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonValueRef `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn OperatorSubscript2(self: QJsonValueRef, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

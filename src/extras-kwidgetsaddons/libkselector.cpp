@@ -2057,7 +2057,7 @@ QColor* KGradientSelector_SecondColor(const KGradientSelector* self) {
 }
 
 libqt_string KGradientSelector_FirstText(const KGradientSelector* self) {
-    QString _ret = self->firstText();
+    auto _ret = self->firstText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2069,7 +2069,7 @@ libqt_string KGradientSelector_FirstText(const KGradientSelector* self) {
 }
 
 libqt_string KGradientSelector_SecondText(const KGradientSelector* self) {
-    QString _ret = self->secondText();
+    auto _ret = self->secondText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

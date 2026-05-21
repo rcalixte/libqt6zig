@@ -276,6 +276,8 @@ pub const QAbstractProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -321,6 +323,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel `
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapFromSource(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -368,6 +372,8 @@ pub const QAbstractProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionToSource(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.QAbstractProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -413,6 +419,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel `
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.QAbstractProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -542,6 +550,8 @@ pub const QAbstractProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, proxyIndex: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QAbstractProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -592,6 +602,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel `
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QAbstractProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1028,6 +1040,8 @@ pub const QAbstractProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1214,6 +1228,8 @@ pub const QAbstractProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSpan(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QAbstractProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1309,6 +1325,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel `
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1802,6 +1820,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel `
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateSourceIndex(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3207,6 +3227,8 @@ pub const QAbstractProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3260,6 +3282,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel`
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4402,6 +4426,8 @@ pub const QAbstractProxyModel = extern struct {
     /// ` self: QAbstractProxyModel`
     ///
     /// ` callback: *const fn (self: QAbstractProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QAbstractProxyModel, callback: *const fn (QAbstractProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QAbstractProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

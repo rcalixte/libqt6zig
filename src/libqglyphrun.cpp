@@ -175,7 +175,7 @@ void QGlyphRun_SetSourceString(QGlyphRun* self, const libqt_string sourceString)
 }
 
 libqt_string QGlyphRun_SourceString(const QGlyphRun* self) {
-    QString _ret = self->sourceString();
+    auto _ret = self->sourceString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -30,7 +30,7 @@ int QPlaceSearchResult_Type(const QPlaceSearchResult* self) {
 }
 
 libqt_string QPlaceSearchResult_Title(const QPlaceSearchResult* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

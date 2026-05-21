@@ -61,7 +61,7 @@ int QSaveFile_Metacall(QSaveFile* self, int param1, int param2, void** param3) {
 libqt_string QSaveFile_FileName(const QSaveFile* self) {
     auto* vqsavefile = dynamic_cast<const VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        QString _ret = self->fileName();
+        auto _ret = self->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -71,7 +71,7 @@ libqt_string QSaveFile_FileName(const QSaveFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSaveFile*)self)->fileName();
+        auto _ret = ((VirtualQSaveFile*)self)->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -183,7 +183,7 @@ libqt_string QSaveFile_SuperFileName(const QSaveFile* self) {
     auto* vqsavefile = const_cast<VirtualQSaveFile*>(dynamic_cast<const VirtualQSaveFile*>(self));
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_FileName_IsBase(true);
-        QString _ret = vqsavefile->fileName();
+        auto _ret = vqsavefile->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -193,7 +193,7 @@ libqt_string QSaveFile_SuperFileName(const QSaveFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QSaveFile::fileName();
+        auto _ret = self->QSaveFile::fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

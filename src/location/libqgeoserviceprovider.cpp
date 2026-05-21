@@ -78,7 +78,7 @@ libqt_list /* of libqt_string */ QGeoServiceProvider_AvailableServiceProviders()
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -131,7 +131,7 @@ int QGeoServiceProvider_Error(const QGeoServiceProvider* self) {
 }
 
 libqt_string QGeoServiceProvider_ErrorString(const QGeoServiceProvider* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -147,7 +147,7 @@ int QGeoServiceProvider_MappingError(const QGeoServiceProvider* self) {
 }
 
 libqt_string QGeoServiceProvider_MappingErrorString(const QGeoServiceProvider* self) {
-    QString _ret = self->mappingErrorString();
+    auto _ret = self->mappingErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -163,7 +163,7 @@ int QGeoServiceProvider_GeocodingError(const QGeoServiceProvider* self) {
 }
 
 libqt_string QGeoServiceProvider_GeocodingErrorString(const QGeoServiceProvider* self) {
-    QString _ret = self->geocodingErrorString();
+    auto _ret = self->geocodingErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -179,7 +179,7 @@ int QGeoServiceProvider_RoutingError(const QGeoServiceProvider* self) {
 }
 
 libqt_string QGeoServiceProvider_RoutingErrorString(const QGeoServiceProvider* self) {
-    QString _ret = self->routingErrorString();
+    auto _ret = self->routingErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -195,7 +195,7 @@ int QGeoServiceProvider_PlacesError(const QGeoServiceProvider* self) {
 }
 
 libqt_string QGeoServiceProvider_PlacesErrorString(const QGeoServiceProvider* self) {
-    QString _ret = self->placesErrorString();
+    auto _ret = self->placesErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -211,7 +211,7 @@ int QGeoServiceProvider_NavigationError(const QGeoServiceProvider* self) {
 }
 
 libqt_string QGeoServiceProvider_NavigationErrorString(const QGeoServiceProvider* self) {
-    QString _ret = self->navigationErrorString();
+    auto _ret = self->navigationErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

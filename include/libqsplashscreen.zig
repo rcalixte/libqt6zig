@@ -5606,6 +5606,8 @@ pub const QSplashScreen = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QSplashScreen, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSplashScreen_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5653,6 +5655,8 @@ pub const QSplashScreen = extern struct {
     /// ` self: QSplashScreen`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QSplashScreen, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSplashScreen_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7479,6 +7483,8 @@ pub const QSplashScreen = extern struct {
     /// ` self: QSplashScreen`
     ///
     /// ` callback: *const fn (self: QSplashScreen, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QSplashScreen, callback: *const fn (QSplashScreen, i32) callconv(.c) QVariant) void {
         qtc.QSplashScreen_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

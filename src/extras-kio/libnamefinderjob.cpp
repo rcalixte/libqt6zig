@@ -64,7 +64,7 @@ QUrl* KIO__NameFinderJob_BaseUrl(const KIO__NameFinderJob* self) {
 }
 
 libqt_string KIO__NameFinderJob_FinalName(const KIO__NameFinderJob* self) {
-    QString _ret = self->finalName();
+    auto _ret = self->finalName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -360,7 +360,7 @@ void KIO__NameFinderJob_OnDoResume(KIO__NameFinderJob* self, intptr_t slot) {
 libqt_string KIO__NameFinderJob_ErrorString(const KIO__NameFinderJob* self) {
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
-        QString _ret = vkionamefinderjob->errorString();
+        auto _ret = vkionamefinderjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -370,7 +370,7 @@ libqt_string KIO__NameFinderJob_ErrorString(const KIO__NameFinderJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::NameFinderJob::errorString();
+        auto _ret = self->KIO::NameFinderJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -387,7 +387,7 @@ libqt_string KIO__NameFinderJob_SuperErrorString(const KIO__NameFinderJob* self)
     auto* vkionamefinderjob = const_cast<VirtualKIONameFinderJob*>(dynamic_cast<const VirtualKIONameFinderJob*>(self));
     if (vkionamefinderjob && vkionamefinderjob->isVirtualKIONameFinderJob) {
         vkionamefinderjob->setKIO__NameFinderJob_ErrorString_IsBase(true);
-        QString _ret = vkionamefinderjob->errorString();
+        auto _ret = vkionamefinderjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -397,7 +397,7 @@ libqt_string KIO__NameFinderJob_SuperErrorString(const KIO__NameFinderJob* self)
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::NameFinderJob::errorString();
+        auto _ret = self->KIO::NameFinderJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

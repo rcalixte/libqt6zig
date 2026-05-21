@@ -12,7 +12,7 @@ QDesignerOptionsPageInterface* QDesignerOptionsPageInterface_new() {
 libqt_string QDesignerOptionsPageInterface_Name(const QDesignerOptionsPageInterface* self) {
     auto* vqdesigneroptionspageinterface = dynamic_cast<const VirtualQDesignerOptionsPageInterface*>(self);
     if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
-        QString _ret = vqdesigneroptionspageinterface->name();
+        auto _ret = vqdesigneroptionspageinterface->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -22,7 +22,7 @@ libqt_string QDesignerOptionsPageInterface_Name(const QDesignerOptionsPageInterf
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerOptionsPageInterface*)self)->name();
+        auto _ret = ((VirtualQDesignerOptionsPageInterface*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -66,7 +66,7 @@ libqt_string QDesignerOptionsPageInterface_SuperName(const QDesignerOptionsPageI
     auto* vqdesigneroptionspageinterface = const_cast<VirtualQDesignerOptionsPageInterface*>(dynamic_cast<const VirtualQDesignerOptionsPageInterface*>(self));
     if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
         vqdesigneroptionspageinterface->setQDesignerOptionsPageInterface_Name_IsBase(true);
-        QString _ret = vqdesigneroptionspageinterface->name();
+        auto _ret = vqdesigneroptionspageinterface->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -76,7 +76,7 @@ libqt_string QDesignerOptionsPageInterface_SuperName(const QDesignerOptionsPageI
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerOptionsPageInterface*)self)->name();
+        auto _ret = ((VirtualQDesignerOptionsPageInterface*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

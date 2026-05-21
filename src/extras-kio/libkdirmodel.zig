@@ -439,6 +439,8 @@ pub const KDirModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDirModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KDirModel, callback: *const fn (KDirModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KDirModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -700,6 +702,8 @@ pub const KDirModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDirModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnHeaderData(self: KDirModel, callback: *const fn (KDirModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KDirModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -752,6 +756,8 @@ pub const KDirModel = extern struct {
     /// ` self: KDirModel `
     ///
     /// ` callback: *const fn (self: KDirModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndex(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDirModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -929,6 +935,8 @@ pub const KDirModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnParent(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDirModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -978,6 +986,8 @@ pub const KDirModel = extern struct {
     /// ` self: KDirModel `
     ///
     /// ` callback: *const fn (self: KDirModel, row: i32, column: i32, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KDirModel, callback: *const fn (KDirModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDirModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3610,6 +3620,8 @@ pub const KDirModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDirModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3757,6 +3769,8 @@ pub const KDirModel = extern struct {
     /// ` self: KDirModel`
     ///
     /// ` callback: *const fn (self: KDirModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KDirModel, callback: *const fn (KDirModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KDirModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4401,6 +4415,8 @@ pub const KDirModel = extern struct {
     /// ` self: KDirModel`
     ///
     /// ` callback: *const fn (self: KDirModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KDirModel, callback: *const fn (KDirModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KDirModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -331,7 +331,7 @@ class VirtualTextTranslatorTranslatorEngineClient : public TextTranslator::Trans
         }
         auto generatetolistfromcurrenttolanguage_cb = texttranslator__translatorengineclient_generatetolistfromcurrenttolanguage_callback;
         if (generatetolistfromcurrenttolanguage_cb) {
-            const QString languageCode_ret = languageCode;
+            const auto languageCode_ret = languageCode;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray languageCode_b = languageCode_ret.toUtf8();
             auto languageCode_str_len = languageCode_b.length();

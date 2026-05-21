@@ -16,7 +16,7 @@ KRemoteEncoding* KRemoteEncoding_new2(const char* name) {
 
 libqt_string KRemoteEncoding_Decode(const KRemoteEncoding* self, const libqt_string name) {
     QByteArray name_QByteArray(name.data, name.len);
-    QString _ret = self->decode(name_QByteArray);
+    auto _ret = self->decode(name_QByteArray);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

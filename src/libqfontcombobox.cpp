@@ -111,7 +111,7 @@ void QFontComboBox_SetSampleTextForSystem(QFontComboBox* self, int writingSystem
 }
 
 libqt_string QFontComboBox_SampleTextForSystem(const QFontComboBox* self, int writingSystem) {
-    QString _ret = self->sampleTextForSystem(static_cast<QFontDatabase::WritingSystem>(writingSystem));
+    auto _ret = self->sampleTextForSystem(static_cast<QFontDatabase::WritingSystem>(writingSystem));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -130,7 +130,7 @@ void QFontComboBox_SetSampleTextForFont(QFontComboBox* self, const libqt_string 
 
 libqt_string QFontComboBox_SampleTextForFont(const QFontComboBox* self, const libqt_string fontFamily) {
     QString fontFamily_QString = QString::fromUtf8(fontFamily.data, fontFamily.len);
-    QString _ret = self->sampleTextForFont(fontFamily_QString);
+    auto _ret = self->sampleTextForFont(fontFamily_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -29,7 +29,7 @@ KFileMetaData__ExtractionResult* KFileMetaData__ExtractionResult_new4(const libq
 }
 
 libqt_string KFileMetaData__ExtractionResult_InputUrl(const KFileMetaData__ExtractionResult* self) {
-    QString _ret = self->inputUrl();
+    auto _ret = self->inputUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -41,7 +41,7 @@ libqt_string KFileMetaData__ExtractionResult_InputUrl(const KFileMetaData__Extra
 }
 
 libqt_string KFileMetaData__ExtractionResult_InputMimetype(const KFileMetaData__ExtractionResult* self) {
-    QString _ret = self->inputMimetype();
+    auto _ret = self->inputMimetype();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -178,7 +178,7 @@ libqt_list /* of Accounts__Application* */ Accounts__Manager_ApplicationList(con
 }
 
 libqt_string Accounts__Manager_ServiceType2(const Accounts__Manager* self) {
-    QString _ret = self->serviceType();
+    auto _ret = self->serviceType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

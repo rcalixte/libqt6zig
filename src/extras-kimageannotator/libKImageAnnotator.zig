@@ -309,6 +309,8 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QSize) void {
         qtc.kImageAnnotator__KImageAnnotator_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5832,6 +5834,8 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: kImageAnnotator__KImageAnnotator, callback: *const fn () callconv(.c) QSize) void {
         qtc.kImageAnnotator__KImageAnnotator_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7765,6 +7769,8 @@ pub const kImageAnnotator__KImageAnnotator = extern struct {
     /// ` self: kImageAnnotator__KImageAnnotator`
     ///
     /// ` callback: *const fn (self: kImageAnnotator__KImageAnnotator, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: kImageAnnotator__KImageAnnotator, callback: *const fn (kImageAnnotator__KImageAnnotator, i32) callconv(.c) QVariant) void {
         qtc.kImageAnnotator__KImageAnnotator_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

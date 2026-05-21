@@ -59,7 +59,7 @@ int QGeoRouteReply_Error(const QGeoRouteReply* self) {
 }
 
 libqt_string QGeoRouteReply_ErrorString(const QGeoRouteReply* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -139,7 +139,7 @@ void QGeoRouteReply_Connect_ErrorOccurred2(QGeoRouteReply* self, intptr_t slot) 
     void (*slotFunc)(QGeoRouteReply*, int, const char*) = reinterpret_cast<void (*)(QGeoRouteReply*, int, const char*)>(slot);
     QGeoRouteReply::connect(self, &QGeoRouteReply::errorOccurred, [self, slotFunc](QGeoRouteReply::Error errorVal, const QString& errorString) {
         int sigval1 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();

@@ -306,7 +306,7 @@ bool QIODevice_GetChar(QIODevice* self, char* c) {
 }
 
 libqt_string QIODevice_ErrorString(const QIODevice* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

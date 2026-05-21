@@ -733,6 +733,8 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.QPlainTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1002,6 +1004,8 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) QVariant) void {
         qtc.QPlainTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2673,6 +2677,8 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QTextBlock `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFirstVisibleBlock(self: QPlainTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.QPlainTextEdit_OnFirstVisibleBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2712,6 +2718,8 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     /// ` callback: *const fn () callconv(.c) QPointF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnContentOffset(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPointF) void {
         qtc.QPlainTextEdit_OnContentOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2755,6 +2763,8 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, block: QTextBlock) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBlockBoundingRect(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.QPlainTextEdit_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2802,6 +2812,8 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, block: QTextBlock) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBlockBoundingGeometry(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.QPlainTextEdit_OnBlockBoundingGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2844,6 +2856,8 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit `
     ///
     /// ` callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGetPaintContext(self: QPlainTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
         qtc.QPlainTextEdit_OnGetPaintContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8325,6 +8339,8 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPlainTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8372,6 +8388,8 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPlainTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8588,6 +8606,8 @@ pub const QPlainTextEdit = extern struct {
     /// ` self: QPlainTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPlainTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9873,6 +9893,8 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnViewportMargins(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QPlainTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10792,6 +10814,8 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSizeF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDocumentSize(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QSizeF) void {
         qtc.QPlainTextDocumentLayout_OnDocumentSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10834,6 +10858,8 @@ pub const QPlainTextDocumentLayout = extern struct {
     /// ` self: QPlainTextDocumentLayout `
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: QTextFrame) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFrameBoundingRect(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextFrame) callconv(.c) QRectF) void {
         qtc.QPlainTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10880,6 +10906,8 @@ pub const QPlainTextDocumentLayout = extern struct {
     /// ` self: QPlainTextDocumentLayout `
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, block: QTextBlock) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBlockBoundingRect(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextBlock) callconv(.c) QRectF) void {
         qtc.QPlainTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12813,6 +12841,8 @@ pub const QPlainTextDocumentLayout = extern struct {
     /// ` self: QPlainTextDocumentLayout`
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, pos: i32) callconv(.c) QTextCharFormat `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFormat(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) QTextCharFormat) void {
         qtc.QPlainTextDocumentLayout_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -84,7 +84,7 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
         auto shouldstartcompletion_cb = ktexteditor__codecompletionmodelcontrollerinterface_shouldstartcompletion_callback;
         if (shouldstartcompletion_cb) {
             KTextEditor__View* cbval1 = view;
-            const QString insertedText_ret = insertedText;
+            const auto insertedText_ret = insertedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray insertedText_b = insertedText_ret.toUtf8();
             auto insertedText_str_len = insertedText_b.length();
@@ -177,7 +177,7 @@ class VirtualKTextEditorCodeCompletionModelControllerInterface final : public KT
             const KTextEditor::Range& range_ret = range;
             // Cast returned reference into pointer
             KTextEditor__Range* cbval2 = const_cast<KTextEditor::Range*>(&range_ret);
-            const QString currentCompletion_ret = currentCompletion;
+            const auto currentCompletion_ret = currentCompletion;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray currentCompletion_b = currentCompletion_ret.toUtf8();
             auto currentCompletion_str_len = currentCompletion_b.length();

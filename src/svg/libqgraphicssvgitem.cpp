@@ -88,7 +88,7 @@ void QGraphicsSvgItem_SetElementId(QGraphicsSvgItem* self, const libqt_string id
 }
 
 libqt_string QGraphicsSvgItem_ElementId(const QGraphicsSvgItem* self) {
-    QString _ret = self->elementId();
+    auto _ret = self->elementId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

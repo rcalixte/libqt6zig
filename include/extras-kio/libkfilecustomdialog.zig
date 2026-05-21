@@ -5485,6 +5485,8 @@ pub const KFileCustomDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KFileCustomDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFileCustomDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5532,6 +5534,8 @@ pub const KFileCustomDialog = extern struct {
     /// ` self: KFileCustomDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KFileCustomDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFileCustomDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7770,6 +7774,8 @@ pub const KFileCustomDialog = extern struct {
     /// ` self: KFileCustomDialog`
     ///
     /// ` callback: *const fn (self: KFileCustomDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KFileCustomDialog, callback: *const fn (KFileCustomDialog, i32) callconv(.c) QVariant) void {
         qtc.KFileCustomDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

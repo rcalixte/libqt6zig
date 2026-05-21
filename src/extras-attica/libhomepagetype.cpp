@@ -25,7 +25,7 @@ void Attica__HomePageType_SetId(Attica__HomePageType* self, unsigned int id) {
 }
 
 libqt_string Attica__HomePageType_Name(const Attica__HomePageType* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

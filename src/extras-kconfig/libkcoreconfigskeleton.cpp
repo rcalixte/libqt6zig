@@ -63,7 +63,7 @@ void KConfigSkeletonItem_SetGroup(KConfigSkeletonItem* self, const libqt_string 
 }
 
 libqt_string KConfigSkeletonItem_Group(const KConfigSkeletonItem* self) {
-    QString _ret = self->group();
+    auto _ret = self->group();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -88,7 +88,7 @@ void KConfigSkeletonItem_SetKey(KConfigSkeletonItem* self, const libqt_string _k
 }
 
 libqt_string KConfigSkeletonItem_Key(const KConfigSkeletonItem* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -105,7 +105,7 @@ void KConfigSkeletonItem_SetName(KConfigSkeletonItem* self, const libqt_string _
 }
 
 libqt_string KConfigSkeletonItem_Name(const KConfigSkeletonItem* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -122,7 +122,7 @@ void KConfigSkeletonItem_SetLabel(KConfigSkeletonItem* self, const libqt_string 
 }
 
 libqt_string KConfigSkeletonItem_Label(const KConfigSkeletonItem* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -139,7 +139,7 @@ void KConfigSkeletonItem_SetToolTip(KConfigSkeletonItem* self, const libqt_strin
 }
 
 libqt_string KConfigSkeletonItem_ToolTip(const KConfigSkeletonItem* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -156,7 +156,7 @@ void KConfigSkeletonItem_SetWhatsThis(KConfigSkeletonItem* self, const libqt_str
 }
 
 libqt_string KConfigSkeletonItem_WhatsThis(const KConfigSkeletonItem* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -967,7 +967,7 @@ void KCoreConfigSkeleton_SetCurrentGroup(KCoreConfigSkeleton* self, const libqt_
 }
 
 libqt_string KCoreConfigSkeleton_CurrentGroup(const KCoreConfigSkeleton* self) {
-    QString _ret = self->currentGroup();
+    auto _ret = self->currentGroup();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -3251,7 +3251,7 @@ KCoreConfigSkeleton__ItemEnum__Choice* KCoreConfigSkeleton__ItemEnum__Choice_new
 }
 
 libqt_string KCoreConfigSkeleton__ItemEnum__Choice_Name(const KCoreConfigSkeleton__ItemEnum__Choice* self) {
-    QString name_ret = self->name;
+    auto name_ret = self->name;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray name_b = name_ret.toUtf8();
     libqt_string name_str;
@@ -3268,7 +3268,7 @@ void KCoreConfigSkeleton__ItemEnum__Choice_SetName(KCoreConfigSkeleton__ItemEnum
 }
 
 libqt_string KCoreConfigSkeleton__ItemEnum__Choice_Label(const KCoreConfigSkeleton__ItemEnum__Choice* self) {
-    QString label_ret = self->label;
+    auto label_ret = self->label;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray label_b = label_ret.toUtf8();
     libqt_string label_str;
@@ -3285,7 +3285,7 @@ void KCoreConfigSkeleton__ItemEnum__Choice_SetLabel(KCoreConfigSkeleton__ItemEnu
 }
 
 libqt_string KCoreConfigSkeleton__ItemEnum__Choice_ToolTip(const KCoreConfigSkeleton__ItemEnum__Choice* self) {
-    QString toolTip_ret = self->toolTip;
+    auto toolTip_ret = self->toolTip;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray toolTip_b = toolTip_ret.toUtf8();
     libqt_string toolTip_str;
@@ -3302,7 +3302,7 @@ void KCoreConfigSkeleton__ItemEnum__Choice_SetToolTip(KCoreConfigSkeleton__ItemE
 }
 
 libqt_string KCoreConfigSkeleton__ItemEnum__Choice_WhatsThis(const KCoreConfigSkeleton__ItemEnum__Choice* self) {
-    QString whatsThis_ret = self->whatsThis;
+    auto whatsThis_ret = self->whatsThis;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray whatsThis_b = whatsThis_ret.toUtf8();
     libqt_string whatsThis_str;
@@ -3319,7 +3319,7 @@ void KCoreConfigSkeleton__ItemEnum__Choice_SetWhatsThis(KCoreConfigSkeleton__Ite
 }
 
 libqt_string KCoreConfigSkeleton__ItemEnum__Choice_Value(const KCoreConfigSkeleton__ItemEnum__Choice* self) {
-    QString value_ret = self->value;
+    auto value_ret = self->value;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray value_b = value_ret.toUtf8();
     libqt_string value_str;
@@ -3400,7 +3400,7 @@ void KCoreConfigSkeleton__ItemEnum_WriteConfig(KCoreConfigSkeleton__ItemEnum* se
 
 libqt_string KCoreConfigSkeleton__ItemEnum_ValueForChoice(const KCoreConfigSkeleton__ItemEnum* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->valueForChoice(name_QString);
+    auto _ret = self->valueForChoice(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -123,7 +123,7 @@ void KIO__CopyJob_Connect_Linking(KIO__CopyJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__CopyJob*, KIO__Job*, const char*, QUrl*) = reinterpret_cast<void (*)(KIO__CopyJob*, KIO__Job*, const char*, QUrl*)>(slot);
     KIO::CopyJob::connect(self, &KIO::CopyJob::linking, [self, slotFunc](KIO::Job* job, const QString& target, const QUrl& to) {
         KIO__Job* sigval1 = job;
-        const QString target_ret = target;
+        const auto target_ret = target;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray target_b = target_ret.toUtf8();
         auto target_str_len = target_b.length();
@@ -225,7 +225,7 @@ void KIO__CopyJob_Connect_CopyingLinkDone(KIO__CopyJob* self, intptr_t slot) {
         const QUrl& from_ret = from;
         // Cast returned reference into pointer
         QUrl* sigval2 = const_cast<QUrl*>(&from_ret);
-        const QString target_ret = target;
+        const auto target_ret = target;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray target_b = target_ret.toUtf8();
         auto target_str_len = target_b.length();

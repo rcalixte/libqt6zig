@@ -6276,6 +6276,8 @@ pub const QPdfView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QPdfView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6323,6 +6325,8 @@ pub const QPdfView = extern struct {
     /// ` self: QPdfView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QPdfView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7025,6 +7029,8 @@ pub const QPdfView = extern struct {
     /// ` self: QPdfView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QPdfView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8358,6 +8364,8 @@ pub const QPdfView = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfView, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QPdfView, callback: *const fn (QPdfView, i32) callconv(.c) QVariant) void {
         qtc.QPdfView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8791,6 +8799,8 @@ pub const QPdfView = extern struct {
     /// ` self: QPdfView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QPdfView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QPdfView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

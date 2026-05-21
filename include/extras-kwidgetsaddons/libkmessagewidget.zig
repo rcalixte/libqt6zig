@@ -420,6 +420,8 @@ pub const KMessageWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KMessageWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMessageWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -459,6 +461,8 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KMessageWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMessageWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7792,6 +7796,8 @@ pub const KMessageWidget = extern struct {
     /// ` self: KMessageWidget`
     ///
     /// ` callback: *const fn (self: KMessageWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KMessageWidget, callback: *const fn (KMessageWidget, i32) callconv(.c) QVariant) void {
         qtc.KMessageWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

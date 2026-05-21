@@ -5447,6 +5447,8 @@ pub const KPreviewWidgetBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPreviewWidgetBase_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5494,6 +5496,8 @@ pub const KPreviewWidgetBase = extern struct {
     /// ` self: KPreviewWidgetBase`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPreviewWidgetBase, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPreviewWidgetBase_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7428,6 +7432,8 @@ pub const KPreviewWidgetBase = extern struct {
     /// ` self: KPreviewWidgetBase`
     ///
     /// ` callback: *const fn (self: KPreviewWidgetBase, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPreviewWidgetBase, callback: *const fn (KPreviewWidgetBase, i32) callconv(.c) QVariant) void {
         qtc.KPreviewWidgetBase_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

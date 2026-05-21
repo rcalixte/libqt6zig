@@ -782,6 +782,8 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLocale `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLocale(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QLocale) void {
         qtc.QTextToSpeechEngine_OnLocale(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -951,6 +953,8 @@ pub const QTextToSpeechEngine = extern struct {
     /// ` self: QTextToSpeechEngine `
     ///
     /// ` callback: *const fn () callconv(.c) QVoice `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVoice(self: QTextToSpeechEngine, callback: *const fn () callconv(.c) QVoice) void {
         qtc.QTextToSpeechEngine_OnVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1204,6 +1208,8 @@ pub const QTextToSpeechEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, name: [*:0]const u8, locale: QLocale, gender: qvoice_enums.Gender, age: qvoice_enums.Age, data: QVariant) callconv(.c) QVoice `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateVoice(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, [*:0]const u8, QLocale, i32, i32, QVariant) callconv(.c) QVoice) void {
         qtc.QTextToSpeechEngine_OnCreateVoice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1262,6 +1268,8 @@ pub const QTextToSpeechEngine = extern struct {
     /// ` self: QTextToSpeechEngine `
     ///
     /// ` callback: *const fn (self: QTextToSpeechEngine, voice: QVoice) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVoiceData(self: QTextToSpeechEngine, callback: *const fn (QTextToSpeechEngine, QVoice) callconv(.c) QVariant) void {
         qtc.QTextToSpeechEngine_OnVoiceData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

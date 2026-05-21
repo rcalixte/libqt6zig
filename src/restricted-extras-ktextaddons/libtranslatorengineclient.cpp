@@ -51,7 +51,7 @@ int TextTranslator__TranslatorEngineClient_Metacall(TextTranslator__TranslatorEn
 libqt_string TextTranslator__TranslatorEngineClient_Name(const TextTranslator__TranslatorEngineClient* self) {
     auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
     if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        QString _ret = vtexttranslator__translatorengineclient->name();
+        auto _ret = vtexttranslator__translatorengineclient->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -61,7 +61,7 @@ libqt_string TextTranslator__TranslatorEngineClient_Name(const TextTranslator__T
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->name();
+        auto _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -76,7 +76,7 @@ libqt_string TextTranslator__TranslatorEngineClient_Name(const TextTranslator__T
 libqt_string TextTranslator__TranslatorEngineClient_TranslatedName(const TextTranslator__TranslatorEngineClient* self) {
     auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
     if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        QString _ret = vtexttranslator__translatorengineclient->translatedName();
+        auto _ret = vtexttranslator__translatorengineclient->translatedName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -86,7 +86,7 @@ libqt_string TextTranslator__TranslatorEngineClient_TranslatedName(const TextTra
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->translatedName();
+        auto _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->translatedName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -117,7 +117,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -141,7 +141,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -170,7 +170,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -194,7 +194,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -349,7 +349,7 @@ libqt_string TextTranslator__TranslatorEngineClient_SuperName(const TextTranslat
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
     if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_Name_IsBase(true);
-        QString _ret = vtexttranslatortranslatorengineclient->name();
+        auto _ret = vtexttranslatortranslatorengineclient->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -359,7 +359,7 @@ libqt_string TextTranslator__TranslatorEngineClient_SuperName(const TextTranslat
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->name();
+        auto _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -384,7 +384,7 @@ libqt_string TextTranslator__TranslatorEngineClient_SuperTranslatedName(const Te
     auto* vtexttranslatortranslatorengineclient = const_cast<VirtualTextTranslatorTranslatorEngineClient*>(dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self));
     if (vtexttranslatortranslatorengineclient && vtexttranslatortranslatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
         vtexttranslatortranslatorengineclient->setTextTranslator__TranslatorEngineClient_TranslatedName_IsBase(true);
-        QString _ret = vtexttranslatortranslatorengineclient->translatedName();
+        auto _ret = vtexttranslatortranslatorengineclient->translatedName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -394,7 +394,7 @@ libqt_string TextTranslator__TranslatorEngineClient_SuperTranslatedName(const Te
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->translatedName();
+        auto _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->translatedName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -445,7 +445,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -469,7 +469,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -508,7 +508,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -532,7 +532,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -907,7 +907,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Fi
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -931,7 +931,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Fi
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -962,7 +962,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;
@@ -986,7 +986,7 @@ libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_Su
         int _ctr = 0;
         for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
             _karr[_ctr] = static_cast<int>(_itr->first);
-            QString _mapval_ret = _itr->second;
+            auto _mapval_ret = _itr->second;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _mapval_b = _mapval_ret.toUtf8();
             libqt_string _mapval_str;

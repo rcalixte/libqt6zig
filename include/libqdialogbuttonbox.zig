@@ -5735,6 +5735,8 @@ pub const QDialogButtonBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QDialogButtonBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDialogButtonBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5782,6 +5784,8 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QDialogButtonBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDialogButtonBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7608,6 +7612,8 @@ pub const QDialogButtonBox = extern struct {
     /// ` self: QDialogButtonBox`
     ///
     /// ` callback: *const fn (self: QDialogButtonBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QDialogButtonBox, callback: *const fn (QDialogButtonBox, i32) callconv(.c) QVariant) void {
         qtc.QDialogButtonBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

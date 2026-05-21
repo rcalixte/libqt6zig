@@ -6863,6 +6863,8 @@ pub const KToolBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KToolBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KToolBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6910,6 +6912,8 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KToolBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KToolBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8196,6 +8200,8 @@ pub const KToolBar = extern struct {
     /// ` self: KToolBar`
     ///
     /// ` callback: *const fn (self: KToolBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KToolBar, callback: *const fn (KToolBar, i32) callconv(.c) QVariant) void {
         qtc.KToolBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

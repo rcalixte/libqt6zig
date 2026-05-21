@@ -5499,6 +5499,8 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractPrintDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5546,6 +5548,8 @@ pub const QAbstractPrintDialog = extern struct {
     /// ` self: QAbstractPrintDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractPrintDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7832,6 +7836,8 @@ pub const QAbstractPrintDialog = extern struct {
     /// ` self: QAbstractPrintDialog`
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) QVariant) void {
         qtc.QAbstractPrintDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

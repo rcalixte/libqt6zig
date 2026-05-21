@@ -252,7 +252,7 @@ void QDateTimeEdit_SetSelectedSection(QDateTimeEdit* self, int section) {
 }
 
 libqt_string QDateTimeEdit_SectionText(const QDateTimeEdit* self, int section) {
-    QString _ret = self->sectionText(static_cast<QDateTimeEdit::Section>(section));
+    auto _ret = self->sectionText(static_cast<QDateTimeEdit::Section>(section));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -264,7 +264,7 @@ libqt_string QDateTimeEdit_SectionText(const QDateTimeEdit* self, int section) {
 }
 
 libqt_string QDateTimeEdit_DisplayFormat(const QDateTimeEdit* self) {
-    QString _ret = self->displayFormat();
+    auto _ret = self->displayFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -448,7 +448,7 @@ QDateTime* QDateTimeEdit_DateTimeFromText(const QDateTimeEdit* self, const libqt
 libqt_string QDateTimeEdit_TextFromDateTime(const QDateTimeEdit* self, const QDateTime* dt) {
     auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        QString _ret = vqdatetimeedit->textFromDateTime(*dt);
+        auto _ret = vqdatetimeedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -763,7 +763,7 @@ libqt_string QDateTimeEdit_SuperTextFromDateTime(const QDateTimeEdit* self, cons
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_TextFromDateTime_IsBase(true);
-        QString _ret = vqdatetimeedit->textFromDateTime(*dt);
+        auto _ret = vqdatetimeedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -773,7 +773,7 @@ libqt_string QDateTimeEdit_SuperTextFromDateTime(const QDateTimeEdit* self, cons
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDateTimeEdit*)self)->textFromDateTime(*dt);
+        auto _ret = ((VirtualQDateTimeEdit*)self)->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2793,7 +2793,7 @@ void QTimeEdit_OnDateTimeFromText(const QTimeEdit* self, intptr_t slot) {
 libqt_string QTimeEdit_TextFromDateTime(const QTimeEdit* self, const QDateTime* dt) {
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        QString _ret = vqtimeedit->textFromDateTime(*dt);
+        auto _ret = vqtimeedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2803,7 +2803,7 @@ libqt_string QTimeEdit_TextFromDateTime(const QTimeEdit* self, const QDateTime* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTimeEdit*)self)->textFromDateTime(*dt);
+        auto _ret = ((VirtualQTimeEdit*)self)->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2820,7 +2820,7 @@ libqt_string QTimeEdit_SuperTextFromDateTime(const QTimeEdit* self, const QDateT
     auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
     if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
         vqtimeedit->setQTimeEdit_TextFromDateTime_IsBase(true);
-        QString _ret = vqtimeedit->textFromDateTime(*dt);
+        auto _ret = vqtimeedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2830,7 +2830,7 @@ libqt_string QTimeEdit_SuperTextFromDateTime(const QTimeEdit* self, const QDateT
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTimeEdit*)self)->textFromDateTime(*dt);
+        auto _ret = ((VirtualQTimeEdit*)self)->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -4890,7 +4890,7 @@ void QDateEdit_OnDateTimeFromText(const QDateEdit* self, intptr_t slot) {
 libqt_string QDateEdit_TextFromDateTime(const QDateEdit* self, const QDateTime* dt) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        QString _ret = vqdateedit->textFromDateTime(*dt);
+        auto _ret = vqdateedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -4900,7 +4900,7 @@ libqt_string QDateEdit_TextFromDateTime(const QDateEdit* self, const QDateTime* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDateEdit*)self)->textFromDateTime(*dt);
+        auto _ret = ((VirtualQDateEdit*)self)->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -4917,7 +4917,7 @@ libqt_string QDateEdit_SuperTextFromDateTime(const QDateEdit* self, const QDateT
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_TextFromDateTime_IsBase(true);
-        QString _ret = vqdateedit->textFromDateTime(*dt);
+        auto _ret = vqdateedit->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -4927,7 +4927,7 @@ libqt_string QDateEdit_SuperTextFromDateTime(const QDateEdit* self, const QDateT
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDateEdit*)self)->textFromDateTime(*dt);
+        auto _ret = ((VirtualQDateEdit*)self)->textFromDateTime(*dt);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -6960,6 +6960,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7011,6 +7013,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8458,6 +8462,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8505,6 +8511,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8721,6 +8729,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9942,6 +9952,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QTextBlock `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFirstVisibleBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9989,6 +10001,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QPointF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnContentOffset(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPointF) void {
         qtc.TextTranslator__TranslatorTextEdit_OnContentOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10044,6 +10058,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, block: QTextBlock) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.TextTranslator__TranslatorTextEdit_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10098,6 +10114,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, block: QTextBlock) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.TextTranslator__TranslatorTextEdit_OnBlockBoundingGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10145,6 +10163,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGetPaintContext(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
         qtc.TextTranslator__TranslatorTextEdit_OnGetPaintContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10309,6 +10329,8 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     /// ` self: TextTranslator__TranslatorTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextTranslator__TranslatorTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -16272,6 +16294,8 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -16319,6 +16343,8 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     /// ` self: TextTranslator__TranslatorWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -18199,6 +18225,8 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     /// ` self: TextTranslator__TranslatorWidget`
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

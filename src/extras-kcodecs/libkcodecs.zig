@@ -219,6 +219,52 @@ pub const KCodecs = extern struct {
         qtc.KCodecs_Base64Decode2(param1_str, param2_str);
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kcodecs.html#decodeRFC2047String)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: []const u8 `
+    ///
+    pub fn DecodeRFC2047String(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        var _str = qtc.KCodecs_DecodeRFC2047String(param1_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecs.DecodeRFC2047String: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcodecs.html#encodeRFC2047String)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []u8 `
+    ///
+    pub fn EncodeRFC2047String(allocator: std.mem.Allocator, param1: []const u8, param2: []u8) []u8 {
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        const param2_str = qtc.libqt_string{
+            .len = param2.len,
+            .data = param2.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.KCodecs_EncodeRFC2047String(param1_str, param2_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.EncodeRFC2047String: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kcodecs.html#base45Decode)
     ///
     /// ## Parameter(s):

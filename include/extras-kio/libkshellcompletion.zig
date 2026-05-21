@@ -1864,6 +1864,8 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QUrl `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDir(self: KShellCompletion, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KShellCompletion_OnDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

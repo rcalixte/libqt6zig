@@ -81,7 +81,7 @@ void KNewPasswordDialog_SetPrompt(KNewPasswordDialog* self, const libqt_string p
 }
 
 libqt_string KNewPasswordDialog_Prompt(const KNewPasswordDialog* self) {
-    QString _ret = self->prompt();
+    auto _ret = self->prompt();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -149,7 +149,7 @@ QColor* KNewPasswordDialog_BackgroundWarningColor(const KNewPasswordDialog* self
 }
 
 libqt_string KNewPasswordDialog_Password(const KNewPasswordDialog* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -202,7 +202,7 @@ void KNewPasswordDialog_NewPassword(KNewPasswordDialog* self, const libqt_string
 void KNewPasswordDialog_Connect_NewPassword(KNewPasswordDialog* self, intptr_t slot) {
     void (*slotFunc)(KNewPasswordDialog*, const char*) = reinterpret_cast<void (*)(KNewPasswordDialog*, const char*)>(slot);
     KNewPasswordDialog::connect(self, &KNewPasswordDialog::newPassword, [self, slotFunc](const QString& password) {
-        const QString password_ret = password;
+        const auto password_ret = password;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray password_b = password_ret.toUtf8();
         auto password_str_len = password_b.length();

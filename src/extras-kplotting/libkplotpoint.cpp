@@ -62,7 +62,7 @@ void KPlotPoint_SetY(KPlotPoint* self, double y) {
 }
 
 libqt_string KPlotPoint_Label(const KPlotPoint* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

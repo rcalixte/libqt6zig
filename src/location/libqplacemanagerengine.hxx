@@ -250,7 +250,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto getplacedetails_cb = qplacemanagerengine_getplacedetails_callback;
         if (getplacedetails_cb) {
-            const QString placeId_ret = placeId;
+            const auto placeId_ret = placeId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray placeId_b = placeId_ret.toUtf8();
             auto placeId_str_len = placeId_b.length();
@@ -341,7 +341,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto removeplace_cb = qplacemanagerengine_removeplace_callback;
         if (removeplace_cb) {
-            const QString placeId_ret = placeId;
+            const auto placeId_ret = placeId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray placeId_b = placeId_ret.toUtf8();
             auto placeId_str_len = placeId_b.length();
@@ -367,7 +367,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
             const QPlaceCategory& category_ret = category;
             // Cast returned reference into pointer
             QPlaceCategory* cbval1 = const_cast<QPlaceCategory*>(&category_ret);
-            const QString parentId_ret = parentId;
+            const auto parentId_ret = parentId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray parentId_b = parentId_ret.toUtf8();
             auto parentId_str_len = parentId_b.length();
@@ -390,7 +390,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto removecategory_cb = qplacemanagerengine_removecategory_callback;
         if (removecategory_cb) {
-            const QString categoryId_ret = categoryId;
+            const auto categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
             auto categoryId_str_len = categoryId_b.length();
@@ -427,7 +427,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto parentcategoryid_cb = qplacemanagerengine_parentcategoryid_callback;
         if (parentcategoryid_cb) {
-            const QString categoryId_ret = categoryId;
+            const auto categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
             auto categoryId_str_len = categoryId_b.length();
@@ -451,7 +451,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto childcategoryids_cb = qplacemanagerengine_childcategoryids_callback;
         if (childcategoryids_cb) {
-            const QString categoryId_ret = categoryId;
+            const auto categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
             auto categoryId_str_len = categoryId_b.length();
@@ -483,7 +483,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto category_cb = qplacemanagerengine_category_callback;
         if (category_cb) {
-            const QString categoryId_ret = categoryId;
+            const auto categoryId_ret = categoryId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray categoryId_b = categoryId_ret.toUtf8();
             auto categoryId_str_len = categoryId_b.length();
@@ -508,7 +508,7 @@ class VirtualQPlaceManagerEngine final : public QPlaceManagerEngine {
         }
         auto childcategories_cb = qplacemanagerengine_childcategories_callback;
         if (childcategories_cb) {
-            const QString parentId_ret = parentId;
+            const auto parentId_ret = parentId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray parentId_b = parentId_ret.toUtf8();
             auto parentId_str_len = parentId_b.length();

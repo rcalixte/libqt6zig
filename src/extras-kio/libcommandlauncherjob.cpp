@@ -54,7 +54,7 @@ void KIO__CommandLauncherJob_SetCommand(KIO__CommandLauncherJob* self, const lib
 }
 
 libqt_string KIO__CommandLauncherJob_Command(const KIO__CommandLauncherJob* self) {
-    QString _ret = self->command();
+    auto _ret = self->command();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -86,7 +86,7 @@ void KIO__CommandLauncherJob_SetWorkingDirectory(KIO__CommandLauncherJob* self, 
 }
 
 libqt_string KIO__CommandLauncherJob_WorkingDirectory(const KIO__CommandLauncherJob* self) {
-    QString _ret = self->workingDirectory();
+    auto _ret = self->workingDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -311,7 +311,7 @@ void KIO__CommandLauncherJob_OnDoResume(KIO__CommandLauncherJob* self, intptr_t 
 libqt_string KIO__CommandLauncherJob_ErrorString(const KIO__CommandLauncherJob* self) {
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        QString _ret = vkiocommandlauncherjob->errorString();
+        auto _ret = vkiocommandlauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -321,7 +321,7 @@ libqt_string KIO__CommandLauncherJob_ErrorString(const KIO__CommandLauncherJob* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::CommandLauncherJob::errorString();
+        auto _ret = self->KIO::CommandLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -338,7 +338,7 @@ libqt_string KIO__CommandLauncherJob_SuperErrorString(const KIO__CommandLauncher
     auto* vkiocommandlauncherjob = const_cast<VirtualKIOCommandLauncherJob*>(dynamic_cast<const VirtualKIOCommandLauncherJob*>(self));
     if (vkiocommandlauncherjob && vkiocommandlauncherjob->isVirtualKIOCommandLauncherJob) {
         vkiocommandlauncherjob->setKIO__CommandLauncherJob_ErrorString_IsBase(true);
-        QString _ret = vkiocommandlauncherjob->errorString();
+        auto _ret = vkiocommandlauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -348,7 +348,7 @@ libqt_string KIO__CommandLauncherJob_SuperErrorString(const KIO__CommandLauncher
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::CommandLauncherJob::errorString();
+        auto _ret = self->KIO::CommandLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

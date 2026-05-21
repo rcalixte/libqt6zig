@@ -519,6 +519,8 @@ pub const QLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QLineEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLineEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -558,6 +560,8 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QLineEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLineEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2101,6 +2105,8 @@ pub const QLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QLineEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QLineEdit, callback: *const fn (QLineEdit, i32) callconv(.c) QVariant) void {
         qtc.QLineEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2249,6 +2255,8 @@ pub const QLineEdit = extern struct {
     /// ` self: QLineEdit `
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCursorRect(self: QLineEdit, callback: *const fn () callconv(.c) QRect) void {
         qtc.QLineEdit_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

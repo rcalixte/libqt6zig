@@ -121,7 +121,7 @@ class VirtualKTar final : public KTar {
         }
         auto dowritesymlink_cb = ktar_dowritesymlink_callback;
         if (dowritesymlink_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -129,7 +129,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-            const QString target_ret = target;
+            const auto target_ret = target;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray target_b = target_ret.toUtf8();
             auto target_str_len = target_b.length();
@@ -137,7 +137,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)target_str, target_b.data(), target_str_len);
             ((char*)target_str)[target_str_len] = '\0';
             const char* cbval2 = target_str;
-            const QString user_ret = user;
+            const auto user_ret = user;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
             auto user_str_len = user_b.length();
@@ -145,7 +145,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)user_str, user_b.data(), user_str_len);
             ((char*)user_str)[user_str_len] = '\0';
             const char* cbval3 = user_str;
-            const QString group_ret = group;
+            const auto group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
             auto group_str_len = group_b.length();
@@ -181,7 +181,7 @@ class VirtualKTar final : public KTar {
         }
         auto dowritedir_cb = ktar_dowritedir_callback;
         if (dowritedir_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -189,7 +189,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-            const QString user_ret = user;
+            const auto user_ret = user;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
             auto user_str_len = user_b.length();
@@ -197,7 +197,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)user_str, user_b.data(), user_str_len);
             ((char*)user_str)[user_str_len] = '\0';
             const char* cbval2 = user_str;
-            const QString group_ret = group;
+            const auto group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
             auto group_str_len = group_b.length();
@@ -232,7 +232,7 @@ class VirtualKTar final : public KTar {
         }
         auto dopreparewriting_cb = ktar_dopreparewriting_callback;
         if (dopreparewriting_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -240,7 +240,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-            const QString user_ret = user;
+            const auto user_ret = user;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray user_b = user_ret.toUtf8();
             auto user_str_len = user_b.length();
@@ -248,7 +248,7 @@ class VirtualKTar final : public KTar {
             memcpy((void*)user_str, user_b.data(), user_str_len);
             ((char*)user_str)[user_str_len] = '\0';
             const char* cbval2 = user_str;
-            const QString group_ret = group;
+            const auto group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
             auto group_str_len = group_b.length();
@@ -420,7 +420,7 @@ class VirtualKTar final : public KTar {
         }
         auto seterrorstring_cb = ktar_seterrorstring_callback;
         if (seterrorstring_cb) {
-            const QString errorStr_ret = errorStr;
+            const auto errorStr_ret = errorStr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorStr_b = errorStr_ret.toUtf8();
             auto errorStr_str_len = errorStr_b.length();
@@ -443,7 +443,7 @@ class VirtualKTar final : public KTar {
         }
         auto findorcreate_cb = ktar_findorcreate_callback;
         if (findorcreate_cb) {
-            const QString path_ret = path;
+            const auto path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
             auto path_str_len = path_b.length();

@@ -274,7 +274,7 @@ class VirtualPackageKitTransaction final : public PackageKit::Transaction {
         }
         auto parseerror_cb = packagekit__transaction_parseerror_callback;
         if (parseerror_cb) {
-            const QString errorName_ret = errorName;
+            const auto errorName_ret = errorName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorName_b = errorName_ret.toUtf8();
             auto errorName_str_len = errorName_b.length();

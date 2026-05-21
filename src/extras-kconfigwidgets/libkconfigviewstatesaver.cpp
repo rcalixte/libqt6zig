@@ -147,7 +147,7 @@ void KConfigViewStateSaver_OnIndexFromConfigString(const KConfigViewStateSaver* 
 libqt_string KConfigViewStateSaver_IndexToConfigString(const KConfigViewStateSaver* self, const QModelIndex* index) {
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
-        QString _ret = vkconfigviewstatesaver->indexToConfigString(*index);
+        auto _ret = vkconfigviewstatesaver->indexToConfigString(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -157,7 +157,7 @@ libqt_string KConfigViewStateSaver_IndexToConfigString(const KConfigViewStateSav
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKConfigViewStateSaver*)self)->indexToConfigString(*index);
+        auto _ret = ((VirtualKConfigViewStateSaver*)self)->indexToConfigString(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -174,7 +174,7 @@ libqt_string KConfigViewStateSaver_SuperIndexToConfigString(const KConfigViewSta
     auto* vkconfigviewstatesaver = const_cast<VirtualKConfigViewStateSaver*>(dynamic_cast<const VirtualKConfigViewStateSaver*>(self));
     if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
         vkconfigviewstatesaver->setKConfigViewStateSaver_IndexToConfigString_IsBase(true);
-        QString _ret = vkconfigviewstatesaver->indexToConfigString(*index);
+        auto _ret = vkconfigviewstatesaver->indexToConfigString(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -184,7 +184,7 @@ libqt_string KConfigViewStateSaver_SuperIndexToConfigString(const KConfigViewSta
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKConfigViewStateSaver*)self)->indexToConfigString(*index);
+        auto _ret = ((VirtualKConfigViewStateSaver*)self)->indexToConfigString(*index);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

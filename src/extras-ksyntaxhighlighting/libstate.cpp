@@ -1,4 +1,4 @@
-#define WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__State
+#include <KSyntaxHighlighting/State>
 #include <state.h>
 #include "libstate.h"
 #include "libstate.hxx"

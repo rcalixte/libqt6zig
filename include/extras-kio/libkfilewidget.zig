@@ -707,6 +707,8 @@ pub const KFileWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KFileWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFileWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6159,6 +6161,8 @@ pub const KFileWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KFileWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFileWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7984,6 +7988,8 @@ pub const KFileWidget = extern struct {
     /// ` self: KFileWidget`
     ///
     /// ` callback: *const fn (self: KFileWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KFileWidget, callback: *const fn (KFileWidget, i32) callconv(.c) QVariant) void {
         qtc.KFileWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

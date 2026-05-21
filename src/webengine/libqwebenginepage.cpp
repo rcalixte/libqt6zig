@@ -95,7 +95,7 @@ bool QWebEnginePage_HasSelection(const QWebEnginePage* self) {
 }
 
 libqt_string QWebEnginePage_SelectedText(const QWebEnginePage* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -170,7 +170,7 @@ void QWebEnginePage_SetContent(QWebEnginePage* self, const libqt_string data) {
 
 void QWebEnginePage_ToHtml(const QWebEnginePage* self, intptr_t resultCallback) {
     auto resultCallback_func = [resultCallback](const QString& funcparam1_fp) -> void {
-        const QString funcparam1_ret = funcparam1_fp;
+        const auto funcparam1_ret = funcparam1_fp;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray funcparam1_b = funcparam1_ret.toUtf8();
         auto funcparam1_str_len = funcparam1_b.length();
@@ -185,7 +185,7 @@ void QWebEnginePage_ToHtml(const QWebEnginePage* self, intptr_t resultCallback) 
 
 void QWebEnginePage_ToPlainText(const QWebEnginePage* self, intptr_t resultCallback) {
     auto resultCallback_func = [resultCallback](const QString& funcparam1_fp) -> void {
-        const QString funcparam1_ret = funcparam1_fp;
+        const auto funcparam1_ret = funcparam1_fp;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray funcparam1_b = funcparam1_ret.toUtf8();
         auto funcparam1_str_len = funcparam1_b.length();
@@ -199,7 +199,7 @@ void QWebEnginePage_ToPlainText(const QWebEnginePage* self, intptr_t resultCallb
 }
 
 libqt_string QWebEnginePage_Title(const QWebEnginePage* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -344,7 +344,7 @@ QWebEnginePage* QWebEnginePage_DevToolsPage(const QWebEnginePage* self) {
 }
 
 libqt_string QWebEnginePage_DevToolsId(const QWebEnginePage* self) {
-    QString _ret = self->devToolsId();
+    auto _ret = self->devToolsId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -449,7 +449,7 @@ void QWebEnginePage_LinkHovered(QWebEnginePage* self, const libqt_string url) {
 void QWebEnginePage_Connect_LinkHovered(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, const char*)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::linkHovered, [self, slotFunc](const QString& url) {
-        const QString url_ret = url;
+        const auto url_ret = url;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray url_b = url_ret.toUtf8();
         auto url_str_len = url_b.length();
@@ -627,7 +627,7 @@ void QWebEnginePage_Connect_ProxyAuthenticationRequired(QWebEnginePage* self, in
         // Cast returned reference into pointer
         QUrl* sigval1 = const_cast<QUrl*>(&requestUrl_ret);
         QAuthenticator* sigval2 = authenticator;
-        const QString proxyHost_ret = proxyHost;
+        const auto proxyHost_ret = proxyHost;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray proxyHost_b = proxyHost_ret.toUtf8();
         auto proxyHost_str_len = proxyHost_b.length();
@@ -717,7 +717,7 @@ void QWebEnginePage_TitleChanged(QWebEnginePage* self, const libqt_string title)
 void QWebEnginePage_Connect_TitleChanged(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, const char*)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::titleChanged, [self, slotFunc](const QString& title) {
-        const QString title_ret = title;
+        const auto title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
         auto title_str_len = title_b.length();
@@ -856,7 +856,7 @@ void QWebEnginePage_PdfPrintingFinished(QWebEnginePage* self, const libqt_string
 void QWebEnginePage_Connect_PdfPrintingFinished(QWebEnginePage* self, intptr_t slot) {
     void (*slotFunc)(QWebEnginePage*, const char*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, const char*, bool)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::pdfPrintingFinished, [self, slotFunc](const QString& filePath, bool success) {
-        const QString filePath_ret = filePath;
+        const auto filePath_ret = filePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
         auto filePath_str_len = filePath_b.length();
@@ -995,7 +995,7 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1283,7 +1283,7 @@ libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1302,7 +1302,7 @@ libqt_list /* of libqt_string */ QWebEnginePage_SuperChooseFiles(QWebEnginePage*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

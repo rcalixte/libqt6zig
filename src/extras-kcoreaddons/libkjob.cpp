@@ -116,7 +116,7 @@ int KJob_Error(const KJob* self) {
 }
 
 libqt_string KJob_ErrorText(const KJob* self) {
-    QString _ret = self->errorText();
+    auto _ret = self->errorText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -130,7 +130,7 @@ libqt_string KJob_ErrorText(const KJob* self) {
 libqt_string KJob_ErrorString(const KJob* self) {
     auto* vkjob = dynamic_cast<const VirtualKJob*>(self);
     if (vkjob && vkjob->isVirtualKJob) {
-        QString _ret = self->errorString();
+        auto _ret = self->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -140,7 +140,7 @@ libqt_string KJob_ErrorString(const KJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKJob*)self)->errorString();
+        auto _ret = ((VirtualKJob*)self)->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -197,7 +197,7 @@ void KJob_Connect_InfoMessage(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, const char*) = reinterpret_cast<void (*)(KJob*, KJob*, const char*)>(slot);
     KJob::connect(self, &KJob::infoMessage, [self, slotFunc](KJob* job, const QString& message) {
         KJob* sigval1 = job;
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -219,7 +219,7 @@ void KJob_Connect_Warning(KJob* self, intptr_t slot) {
     void (*slotFunc)(KJob*, KJob*, const char*) = reinterpret_cast<void (*)(KJob*, KJob*, const char*)>(slot);
     KJob::connect(self, &KJob::warning, [self, slotFunc](KJob* job, const QString& message) {
         KJob* sigval1 = job;
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -417,7 +417,7 @@ libqt_string KJob_SuperErrorString(const KJob* self) {
     auto* vkjob = const_cast<VirtualKJob*>(dynamic_cast<const VirtualKJob*>(self));
     if (vkjob && vkjob->isVirtualKJob) {
         vkjob->setKJob_ErrorString_IsBase(true);
-        QString _ret = vkjob->errorString();
+        auto _ret = vkjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -427,7 +427,7 @@ libqt_string KJob_SuperErrorString(const KJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KJob::errorString();
+        auto _ret = self->KJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -289,6 +289,8 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTermWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -670,6 +672,8 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget `
     ///
     /// ` callback: *const fn () callconv(.c) QFont `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGetTerminalFont(self: QTermWidget, callback: *const fn () callconv(.c) QFont) void {
         qtc.QTermWidget_OnGetTerminalFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8931,6 +8935,8 @@ pub const QTermWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QTermWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTermWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10810,6 +10816,8 @@ pub const QTermWidget = extern struct {
     /// ` self: QTermWidget`
     ///
     /// ` callback: *const fn (self: QTermWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QTermWidget, callback: *const fn (QTermWidget, i32) callconv(.c) QVariant) void {
         qtc.QTermWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

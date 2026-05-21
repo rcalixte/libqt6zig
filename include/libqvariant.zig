@@ -548,9 +548,9 @@ pub const QVariant = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` stringVal: []u8 `
     ///
-    pub fn New42(stringVal: []const u8) QVariant {
+    pub fn New42(stringVal: []u8) QVariant {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,

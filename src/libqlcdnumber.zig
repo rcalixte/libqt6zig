@@ -414,6 +414,8 @@ pub const QLCDNumber = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QLCDNumber, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLCDNumber_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5956,6 +5958,8 @@ pub const QLCDNumber = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QLCDNumber, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLCDNumber_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7727,6 +7731,8 @@ pub const QLCDNumber = extern struct {
     /// ` self: QLCDNumber`
     ///
     /// ` callback: *const fn (self: QLCDNumber, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QLCDNumber, callback: *const fn (QLCDNumber, i32) callconv(.c) QVariant) void {
         qtc.QLCDNumber_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

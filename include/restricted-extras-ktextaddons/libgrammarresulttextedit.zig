@@ -7438,6 +7438,8 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammarResultTextEdit, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn (TextGrammarCheck__GrammarResultTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7489,6 +7491,8 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     /// ` self: TextGrammarCheck__GrammarResultTextEdit`
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammarResultTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn (TextGrammarCheck__GrammarResultTextEdit, i32) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8828,6 +8832,8 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8875,6 +8881,8 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     /// ` self: TextGrammarCheck__GrammarResultTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9091,6 +9099,8 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     /// ` self: TextGrammarCheck__GrammarResultTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10427,6 +10437,8 @@ pub const TextGrammarCheck__GrammarResultTextEdit = extern struct {
     /// ` self: TextGrammarCheck__GrammarResultTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: TextGrammarCheck__GrammarResultTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextGrammarCheck__GrammarResultTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

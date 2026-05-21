@@ -165,7 +165,7 @@ void KParts__ReadOnlyPart_Canceled(KParts__ReadOnlyPart* self, const libqt_strin
 void KParts__ReadOnlyPart_Connect_Canceled(KParts__ReadOnlyPart* self, intptr_t slot) {
     void (*slotFunc)(KParts__ReadOnlyPart*, const char*) = reinterpret_cast<void (*)(KParts__ReadOnlyPart*, const char*)>(slot);
     KParts::ReadOnlyPart::connect(self, &KParts::ReadOnlyPart::canceled, [self, slotFunc](const QString& errMsg) {
-        const QString errMsg_ret = errMsg;
+        const auto errMsg_ret = errMsg;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errMsg_b = errMsg_ret.toUtf8();
         auto errMsg_str_len = errMsg_b.length();
@@ -750,7 +750,7 @@ void KParts__ReadOnlyPart_OnActionCollection(const KParts__ReadOnlyPart* self, i
 libqt_string KParts__ReadOnlyPart_ComponentName(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
-        QString _ret = vkpartsreadonlypart->componentName();
+        auto _ret = vkpartsreadonlypart->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -760,7 +760,7 @@ libqt_string KParts__ReadOnlyPart_ComponentName(const KParts__ReadOnlyPart* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::ReadOnlyPart::componentName();
+        auto _ret = self->KParts::ReadOnlyPart::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -777,7 +777,7 @@ libqt_string KParts__ReadOnlyPart_SuperComponentName(const KParts__ReadOnlyPart*
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_ComponentName_IsBase(true);
-        QString _ret = vkpartsreadonlypart->componentName();
+        auto _ret = vkpartsreadonlypart->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -787,7 +787,7 @@ libqt_string KParts__ReadOnlyPart_SuperComponentName(const KParts__ReadOnlyPart*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::ReadOnlyPart::componentName();
+        auto _ret = self->KParts::ReadOnlyPart::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -840,7 +840,7 @@ void KParts__ReadOnlyPart_OnDomDocument(const KParts__ReadOnlyPart* self, intptr
 libqt_string KParts__ReadOnlyPart_XmlFile(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
-        QString _ret = vkpartsreadonlypart->xmlFile();
+        auto _ret = vkpartsreadonlypart->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -850,7 +850,7 @@ libqt_string KParts__ReadOnlyPart_XmlFile(const KParts__ReadOnlyPart* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::ReadOnlyPart::xmlFile();
+        auto _ret = self->KParts::ReadOnlyPart::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -867,7 +867,7 @@ libqt_string KParts__ReadOnlyPart_SuperXmlFile(const KParts__ReadOnlyPart* self)
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_XmlFile_IsBase(true);
-        QString _ret = vkpartsreadonlypart->xmlFile();
+        auto _ret = vkpartsreadonlypart->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -877,7 +877,7 @@ libqt_string KParts__ReadOnlyPart_SuperXmlFile(const KParts__ReadOnlyPart* self)
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::ReadOnlyPart::xmlFile();
+        auto _ret = self->KParts::ReadOnlyPart::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -901,7 +901,7 @@ void KParts__ReadOnlyPart_OnXmlFile(const KParts__ReadOnlyPart* self, intptr_t s
 libqt_string KParts__ReadOnlyPart_LocalXMLFile(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
-        QString _ret = vkpartsreadonlypart->localXMLFile();
+        auto _ret = vkpartsreadonlypart->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -911,7 +911,7 @@ libqt_string KParts__ReadOnlyPart_LocalXMLFile(const KParts__ReadOnlyPart* self)
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::ReadOnlyPart::localXMLFile();
+        auto _ret = self->KParts::ReadOnlyPart::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -928,7 +928,7 @@ libqt_string KParts__ReadOnlyPart_SuperLocalXMLFile(const KParts__ReadOnlyPart* 
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LocalXMLFile_IsBase(true);
-        QString _ret = vkpartsreadonlypart->localXMLFile();
+        auto _ret = vkpartsreadonlypart->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -938,7 +938,7 @@ libqt_string KParts__ReadOnlyPart_SuperLocalXMLFile(const KParts__ReadOnlyPart* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::ReadOnlyPart::localXMLFile();
+        auto _ret = self->KParts::ReadOnlyPart::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1206,7 +1206,7 @@ void KParts__ReadOnlyPart_OnSetUrl(KParts__ReadOnlyPart* self, intptr_t slot) {
 libqt_string KParts__ReadOnlyPart_LocalFilePath(const KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
-        QString _ret = vkpartsreadonlypart->localFilePath();
+        auto _ret = vkpartsreadonlypart->localFilePath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1216,7 +1216,7 @@ libqt_string KParts__ReadOnlyPart_LocalFilePath(const KParts__ReadOnlyPart* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsReadOnlyPart*)self)->localFilePath();
+        auto _ret = ((VirtualKPartsReadOnlyPart*)self)->localFilePath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1233,7 +1233,7 @@ libqt_string KParts__ReadOnlyPart_SuperLocalFilePath(const KParts__ReadOnlyPart*
     auto* vkpartsreadonlypart = const_cast<VirtualKPartsReadOnlyPart*>(dynamic_cast<const VirtualKPartsReadOnlyPart*>(self));
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_LocalFilePath_IsBase(true);
-        QString _ret = vkpartsreadonlypart->localFilePath();
+        auto _ret = vkpartsreadonlypart->localFilePath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1243,7 +1243,7 @@ libqt_string KParts__ReadOnlyPart_SuperLocalFilePath(const KParts__ReadOnlyPart*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsReadOnlyPart*)self)->localFilePath();
+        auto _ret = ((VirtualKPartsReadOnlyPart*)self)->localFilePath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1474,7 +1474,7 @@ void KParts__ReadOnlyPart_OnIsSignalConnected(const KParts__ReadOnlyPart* self, 
 libqt_string KParts__ReadOnlyPart_StandardsXmlFileLocation(KParts__ReadOnlyPart* self) {
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
-        QString _ret = vkpartsreadonlypart->standardsXmlFileLocation();
+        auto _ret = vkpartsreadonlypart->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1484,7 +1484,7 @@ libqt_string KParts__ReadOnlyPart_StandardsXmlFileLocation(KParts__ReadOnlyPart*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsReadOnlyPart*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKPartsReadOnlyPart*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1501,7 +1501,7 @@ libqt_string KParts__ReadOnlyPart_SuperStandardsXmlFileLocation(KParts__ReadOnly
     auto* vkpartsreadonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
     if (vkpartsreadonlypart && vkpartsreadonlypart->isVirtualKPartsReadOnlyPart) {
         vkpartsreadonlypart->setKParts__ReadOnlyPart_StandardsXmlFileLocation_IsBase(true);
-        QString _ret = vkpartsreadonlypart->standardsXmlFileLocation();
+        auto _ret = vkpartsreadonlypart->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1511,7 +1511,7 @@ libqt_string KParts__ReadOnlyPart_SuperStandardsXmlFileLocation(KParts__ReadOnly
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsReadOnlyPart*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKPartsReadOnlyPart*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

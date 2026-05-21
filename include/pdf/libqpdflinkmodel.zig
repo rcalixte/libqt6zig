@@ -370,6 +370,8 @@ pub const QPdfLinkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QPdfLinkModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -573,6 +575,8 @@ pub const QPdfLinkModel = extern struct {
     /// ` self: QPdfLinkModel `
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2023,6 +2027,8 @@ pub const QPdfLinkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfLinkModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2084,6 +2090,8 @@ pub const QPdfLinkModel = extern struct {
     /// ` self: QPdfLinkModel`
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfLinkModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2342,6 +2350,8 @@ pub const QPdfLinkModel = extern struct {
     /// ` self: QPdfLinkModel`
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QPdfLinkModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3587,6 +3597,8 @@ pub const QPdfLinkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfLinkModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3734,6 +3746,8 @@ pub const QPdfLinkModel = extern struct {
     /// ` self: QPdfLinkModel`
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QPdfLinkModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4378,6 +4392,8 @@ pub const QPdfLinkModel = extern struct {
     /// ` self: QPdfLinkModel`
     ///
     /// ` callback: *const fn (self: QPdfLinkModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QPdfLinkModel, callback: *const fn (QPdfLinkModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QPdfLinkModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

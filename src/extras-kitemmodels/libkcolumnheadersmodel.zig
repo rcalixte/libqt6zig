@@ -268,6 +268,8 @@ pub const KColumnHeadersModel = extern struct {
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KColumnHeadersModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -604,6 +606,8 @@ pub const KColumnHeadersModel = extern struct {
     /// ` self: KColumnHeadersModel `
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2054,6 +2058,8 @@ pub const KColumnHeadersModel = extern struct {
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KColumnHeadersModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2115,6 +2121,8 @@ pub const KColumnHeadersModel = extern struct {
     /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KColumnHeadersModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2373,6 +2381,8 @@ pub const KColumnHeadersModel = extern struct {
     /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KColumnHeadersModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3618,6 +3628,8 @@ pub const KColumnHeadersModel = extern struct {
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KColumnHeadersModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3765,6 +3777,8 @@ pub const KColumnHeadersModel = extern struct {
     /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KColumnHeadersModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4409,6 +4423,8 @@ pub const KColumnHeadersModel = extern struct {
     /// ` self: KColumnHeadersModel`
     ///
     /// ` callback: *const fn (self: KColumnHeadersModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KColumnHeadersModel, callback: *const fn (KColumnHeadersModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KColumnHeadersModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

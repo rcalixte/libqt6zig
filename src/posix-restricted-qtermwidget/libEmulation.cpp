@@ -70,7 +70,7 @@ void Konsole__Emulation_SetKeyBindings(Konsole__Emulation* self, const libqt_str
 }
 
 libqt_string Konsole__Emulation_KeyBindings(const Konsole__Emulation* self) {
-    QString _ret = self->keyBindings();
+    auto _ret = self->keyBindings();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -273,7 +273,7 @@ void Konsole__Emulation_Connect_TitleChanged(Konsole__Emulation* self, intptr_t 
     void (*slotFunc)(Konsole__Emulation*, int, const char*) = reinterpret_cast<void (*)(Konsole__Emulation*, int, const char*)>(slot);
     Konsole::Emulation::connect(self, &Konsole::Emulation::titleChanged, [self, slotFunc](int title, const QString& newTitle) {
         int sigval1 = title;
-        const QString newTitle_ret = newTitle;
+        const auto newTitle_ret = newTitle;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newTitle_b = newTitle_ret.toUtf8();
         auto newTitle_str_len = newTitle_b.length();
@@ -332,7 +332,7 @@ void Konsole__Emulation_ProfileChangeCommandReceived(Konsole__Emulation* self, c
 void Konsole__Emulation_Connect_ProfileChangeCommandReceived(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, const char*) = reinterpret_cast<void (*)(Konsole__Emulation*, const char*)>(slot);
     Konsole::Emulation::connect(self, &Konsole::Emulation::profileChangeCommandReceived, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

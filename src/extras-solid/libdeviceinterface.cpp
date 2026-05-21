@@ -24,7 +24,7 @@ bool Solid__DeviceInterface_IsValid(const Solid__DeviceInterface* self) {
 }
 
 libqt_string Solid__DeviceInterface_TypeToString(int typeVal) {
-    QString _ret = Solid::DeviceInterface::typeToString(static_cast<Solid::DeviceInterface::Type>(typeVal));
+    auto _ret = Solid::DeviceInterface::typeToString(static_cast<Solid::DeviceInterface::Type>(typeVal));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -41,7 +41,7 @@ int Solid__DeviceInterface_StringToType(const libqt_string typeVal) {
 }
 
 libqt_string Solid__DeviceInterface_TypeDescription(int typeVal) {
-    QString _ret = Solid::DeviceInterface::typeDescription(static_cast<Solid::DeviceInterface::Type>(typeVal));
+    auto _ret = Solid::DeviceInterface::typeDescription(static_cast<Solid::DeviceInterface::Type>(typeVal));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

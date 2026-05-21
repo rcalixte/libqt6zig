@@ -288,7 +288,7 @@ class VirtualKCompletion final : public KCompletion {
         }
         auto makecompletion_cb = kcompletion_makecompletion_callback;
         if (makecompletion_cb) {
-            const QString stringVal_ret = stringVal;
+            const auto stringVal_ret = stringVal;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray stringVal_b = stringVal_ret.toUtf8();
             auto stringVal_str_len = stringVal_b.length();

@@ -273,6 +273,8 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSplitterCollapserButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6184,6 +6186,8 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSplitterCollapserButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8259,6 +8263,8 @@ pub const KSplitterCollapserButton = extern struct {
     /// ` self: KSplitterCollapserButton`
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) QVariant) void {
         qtc.KSplitterCollapserButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

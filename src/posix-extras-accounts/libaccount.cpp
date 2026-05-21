@@ -545,7 +545,7 @@ void Accounts__Account_SetCredentialsId(Accounts__Account* self, const unsigned 
 }
 
 libqt_string Accounts__Account_DisplayName(const Accounts__Account* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -562,7 +562,7 @@ void Accounts__Account_SetDisplayName(Accounts__Account* self, const libqt_strin
 }
 
 libqt_string Accounts__Account_ProviderName(const Accounts__Account* self) {
-    QString _ret = self->providerName();
+    auto _ret = self->providerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -590,7 +590,7 @@ libqt_list /* of libqt_string */ Accounts__Account_AllKeys(const Accounts__Accou
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -616,7 +616,7 @@ libqt_list /* of libqt_string */ Accounts__Account_ChildGroups(const Accounts__A
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -637,7 +637,7 @@ libqt_list /* of libqt_string */ Accounts__Account_ChildKeys(const Accounts__Acc
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -667,7 +667,7 @@ void Accounts__Account_EndGroup(Accounts__Account* self) {
 }
 
 libqt_string Accounts__Account_Group(const Accounts__Account* self) {
-    QString _ret = self->group();
+    auto _ret = self->group();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -704,7 +704,7 @@ int Accounts__Account_Value2(const Accounts__Account* self, const libqt_string k
 
 libqt_string Accounts__Account_ValueAsString(const Accounts__Account* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->valueAsString(key_QString);
+    auto _ret = self->valueAsString(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -775,7 +775,7 @@ void Accounts__Account_DisplayNameChanged(Accounts__Account* self, const libqt_s
 void Accounts__Account_Connect_DisplayNameChanged(Accounts__Account* self, intptr_t slot) {
     void (*slotFunc)(Accounts__Account*, const char*) = reinterpret_cast<void (*)(Accounts__Account*, const char*)>(slot);
     Accounts::Account::connect(self, &Accounts::Account::displayNameChanged, [self, slotFunc](const QString& displayName) {
-        const QString displayName_ret = displayName;
+        const auto displayName_ret = displayName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray displayName_b = displayName_ret.toUtf8();
         auto displayName_str_len = displayName_b.length();
@@ -796,7 +796,7 @@ void Accounts__Account_EnabledChanged(Accounts__Account* self, const libqt_strin
 void Accounts__Account_Connect_EnabledChanged(Accounts__Account* self, intptr_t slot) {
     void (*slotFunc)(Accounts__Account*, const char*, bool) = reinterpret_cast<void (*)(Accounts__Account*, const char*, bool)>(slot);
     Accounts::Account::connect(self, &Accounts::Account::enabledChanged, [self, slotFunc](const QString& serviceName, bool enabled) {
-        const QString serviceName_ret = serviceName;
+        const auto serviceName_ret = serviceName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray serviceName_b = serviceName_ret.toUtf8();
         auto serviceName_str_len = serviceName_b.length();
@@ -879,7 +879,7 @@ QVariant* Accounts__Account_Value3(const Accounts__Account* self, const libqt_st
 libqt_string Accounts__Account_ValueAsString2(const Accounts__Account* self, const libqt_string key, libqt_string default_value) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString default_value_QString = QString::fromUtf8(default_value.data, default_value.len);
-    QString _ret = self->valueAsString(key_QString, default_value_QString);
+    auto _ret = self->valueAsString(key_QString, default_value_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -893,7 +893,7 @@ libqt_string Accounts__Account_ValueAsString2(const Accounts__Account* self, con
 libqt_string Accounts__Account_ValueAsString3(const Accounts__Account* self, const libqt_string key, libqt_string default_value, int* source) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString default_value_QString = QString::fromUtf8(default_value.data, default_value.len);
-    QString _ret = self->valueAsString(key_QString, default_value_QString, reinterpret_cast<Accounts::SettingSource*>(source));
+    auto _ret = self->valueAsString(key_QString, default_value_QString, reinterpret_cast<Accounts::SettingSource*>(source));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

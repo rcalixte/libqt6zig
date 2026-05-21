@@ -311,6 +311,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KNSCore__ProvidersModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -499,6 +501,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     /// ` self: KNSCore__ProvidersModel `
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1949,6 +1953,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KNSCore__ProvidersModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2010,6 +2016,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KNSCore__ProvidersModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2268,6 +2276,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KNSCore__ProvidersModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3513,6 +3523,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KNSCore__ProvidersModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3660,6 +3672,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KNSCore__ProvidersModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4304,6 +4318,8 @@ pub const KNSCore__ProvidersModel = extern struct {
     /// ` self: KNSCore__ProvidersModel`
     ///
     /// ` callback: *const fn (self: KNSCore__ProvidersModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KNSCore__ProvidersModel, callback: *const fn (KNSCore__ProvidersModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KNSCore__ProvidersModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

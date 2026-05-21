@@ -107,12 +107,27 @@ QSizeF* KSvg__Svg_ElementSize(const KSvg__Svg* self, const libqt_string elementI
     return new QSizeF(self->elementSize(elementId_QString));
 }
 
+QSizeF* KSvg__Svg_ElementSize2(const KSvg__Svg* self, libqt_string elementId) {
+    QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
+    return new QSizeF(self->elementSize(elementId_QString));
+}
+
 QRectF* KSvg__Svg_ElementRect(const KSvg__Svg* self, const libqt_string elementId) {
     QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
     return new QRectF(self->elementRect(elementId_QString));
 }
 
+QRectF* KSvg__Svg_ElementRect2(const KSvg__Svg* self, libqt_string elementId) {
+    QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
+    return new QRectF(self->elementRect(elementId_QString));
+}
+
 bool KSvg__Svg_HasElement(const KSvg__Svg* self, const libqt_string elementId) {
+    QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
+    return self->hasElement(elementId_QString);
+}
+
+bool KSvg__Svg_HasElement2(const KSvg__Svg* self, libqt_string elementId) {
     QString elementId_QString = QString::fromUtf8(elementId.data, elementId.len);
     return self->hasElement(elementId_QString);
 }
@@ -140,7 +155,7 @@ void KSvg__Svg_SetImagePath(KSvg__Svg* self, const libqt_string svgFilePath) {
 }
 
 libqt_string KSvg__Svg_ImagePath(const KSvg__Svg* self) {
-    QString _ret = self->imagePath();
+    auto _ret = self->imagePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

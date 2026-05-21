@@ -90,7 +90,7 @@ bool QUndoGroup_CanRedo(const QUndoGroup* self) {
 }
 
 libqt_string QUndoGroup_UndoText(const QUndoGroup* self) {
-    QString _ret = self->undoText();
+    auto _ret = self->undoText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ libqt_string QUndoGroup_UndoText(const QUndoGroup* self) {
 }
 
 libqt_string QUndoGroup_RedoText(const QUndoGroup* self) {
-    QString _ret = self->redoText();
+    auto _ret = self->redoText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,7 +197,7 @@ void QUndoGroup_UndoTextChanged(QUndoGroup* self, const libqt_string undoText) {
 void QUndoGroup_Connect_UndoTextChanged(QUndoGroup* self, intptr_t slot) {
     void (*slotFunc)(QUndoGroup*, const char*) = reinterpret_cast<void (*)(QUndoGroup*, const char*)>(slot);
     QUndoGroup::connect(self, &QUndoGroup::undoTextChanged, [self, slotFunc](const QString& undoText) {
-        const QString undoText_ret = undoText;
+        const auto undoText_ret = undoText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray undoText_b = undoText_ret.toUtf8();
         auto undoText_str_len = undoText_b.length();
@@ -218,7 +218,7 @@ void QUndoGroup_RedoTextChanged(QUndoGroup* self, const libqt_string redoText) {
 void QUndoGroup_Connect_RedoTextChanged(QUndoGroup* self, intptr_t slot) {
     void (*slotFunc)(QUndoGroup*, const char*) = reinterpret_cast<void (*)(QUndoGroup*, const char*)>(slot);
     QUndoGroup::connect(self, &QUndoGroup::redoTextChanged, [self, slotFunc](const QString& redoText) {
-        const QString redoText_ret = redoText;
+        const auto redoText_ret = redoText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray redoText_b = redoText_ret.toUtf8();
         auto redoText_str_len = redoText_b.length();

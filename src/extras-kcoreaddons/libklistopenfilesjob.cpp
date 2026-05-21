@@ -234,7 +234,7 @@ void KListOpenFilesJob_OnDoResume(KListOpenFilesJob* self, intptr_t slot) {
 libqt_string KListOpenFilesJob_ErrorString(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        QString _ret = vklistopenfilesjob->errorString();
+        auto _ret = vklistopenfilesjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -244,7 +244,7 @@ libqt_string KListOpenFilesJob_ErrorString(const KListOpenFilesJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KListOpenFilesJob::errorString();
+        auto _ret = self->KListOpenFilesJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -261,7 +261,7 @@ libqt_string KListOpenFilesJob_SuperErrorString(const KListOpenFilesJob* self) {
     auto* vklistopenfilesjob = const_cast<VirtualKListOpenFilesJob*>(dynamic_cast<const VirtualKListOpenFilesJob*>(self));
     if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
         vklistopenfilesjob->setKListOpenFilesJob_ErrorString_IsBase(true);
-        QString _ret = vklistopenfilesjob->errorString();
+        auto _ret = vklistopenfilesjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -271,7 +271,7 @@ libqt_string KListOpenFilesJob_SuperErrorString(const KListOpenFilesJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KListOpenFilesJob::errorString();
+        auto _ret = self->KListOpenFilesJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

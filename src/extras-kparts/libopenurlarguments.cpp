@@ -42,7 +42,7 @@ void KParts__OpenUrlArguments_SetYOffset(KParts__OpenUrlArguments* self, int y) 
 }
 
 libqt_string KParts__OpenUrlArguments_MimeType(const KParts__OpenUrlArguments* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -73,7 +73,7 @@ libqt_map /* of libqt_string to libqt_string */ KParts__OpenUrlArguments_MetaDat
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -82,7 +82,7 @@ libqt_map /* of libqt_string to libqt_string */ KParts__OpenUrlArguments_MetaDat
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;
@@ -107,7 +107,7 @@ libqt_map /* of libqt_string to libqt_string */ KParts__OpenUrlArguments_MetaDat
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -116,7 +116,7 @@ libqt_map /* of libqt_string to libqt_string */ KParts__OpenUrlArguments_MetaDat
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;

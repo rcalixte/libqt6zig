@@ -180,7 +180,7 @@ void QTableWidgetItem_SetFlags(QTableWidgetItem* self, int flags) {
 }
 
 libqt_string QTableWidgetItem_Text(const QTableWidgetItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -205,7 +205,7 @@ void QTableWidgetItem_SetIcon(QTableWidgetItem* self, const QIcon* icon) {
 }
 
 libqt_string QTableWidgetItem_StatusTip(const QTableWidgetItem* self) {
-    QString _ret = self->statusTip();
+    auto _ret = self->statusTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -222,7 +222,7 @@ void QTableWidgetItem_SetStatusTip(QTableWidgetItem* self, const libqt_string st
 }
 
 libqt_string QTableWidgetItem_ToolTip(const QTableWidgetItem* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -239,7 +239,7 @@ void QTableWidgetItem_SetToolTip(QTableWidgetItem* self, const libqt_string tool
 }
 
 libqt_string QTableWidgetItem_WhatsThis(const QTableWidgetItem* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1000,7 +1000,7 @@ libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1148,7 +1148,7 @@ libqt_list /* of libqt_string */ QTableWidget_SuperMimeTypes(const QTableWidget*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1167,7 +1167,7 @@ libqt_list /* of libqt_string */ QTableWidget_SuperMimeTypes(const QTableWidget*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

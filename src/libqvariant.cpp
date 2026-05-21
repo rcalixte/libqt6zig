@@ -230,8 +230,8 @@ QVariant* QVariant_new41(const char* str) {
 }
 
 QVariant* QVariant_new42(libqt_string stringVal) {
-    QLatin1StringView stringVal_QString = QLatin1StringView(stringVal.data, stringVal.len);
-    return new QVariant(stringVal_QString);
+    QLatin1StringView stringVal_QLatin1StringView(stringVal.data, stringVal.len);
+    return new QVariant(stringVal_QLatin1StringView);
 }
 
 QVariant* QVariant_new43(int typeVal) {
@@ -352,7 +352,7 @@ QBitArray* QVariant_ToBitArray(const QVariant* self) {
 }
 
 libqt_string QVariant_ToString(const QVariant* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -368,7 +368,7 @@ libqt_list /* of libqt_string */ QVariant_ToStringList(const QVariant* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -420,7 +420,7 @@ libqt_map /* of libqt_string to QVariant* */ QVariant_ToMap(const QVariant* self
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -446,7 +446,7 @@ libqt_map /* of libqt_string to QVariant* */ QVariant_ToHash(const QVariant* sel
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _hashkey_ret = _itr->first;
+        auto _hashkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _hashkey_b = _hashkey_ret.toUtf8();
         libqt_string _hashkey_str;

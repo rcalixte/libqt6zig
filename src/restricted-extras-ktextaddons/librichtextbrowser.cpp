@@ -171,7 +171,7 @@ void TextCustomEditor__RichTextBrowser_Say(TextCustomEditor__RichTextBrowser* se
 void TextCustomEditor__RichTextBrowser_Connect_Say(TextCustomEditor__RichTextBrowser* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextBrowser*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextBrowser*, const char*)>(slot);
     TextCustomEditor::RichTextBrowser::connect(self, &TextCustomEditor::RichTextBrowser::say, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

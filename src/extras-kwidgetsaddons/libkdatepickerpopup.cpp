@@ -106,7 +106,7 @@ libqt_map /* of QDate* to libqt_string */ KDatePickerPopup_DateMap(const KDatePi
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
         _karr[_ctr] = new QDate(_itr->first);
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;

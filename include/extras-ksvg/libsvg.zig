@@ -373,6 +373,22 @@ pub const KSvg__Svg = extern struct {
         return .{ .ptr = qtc.KSvg__Svg_ElementSize(@ptrCast(self.ptr), elementId_str) };
     }
 
+    /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#elementSize)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSvg__Svg `
+    ///
+    /// ` elementId: []const u8 `
+    ///
+    pub fn ElementSize2(self: KSvg__Svg, elementId: []const u8) QSizeF {
+        const elementId_str = qtc.libqt_string{
+            .len = elementId.len,
+            .data = elementId.ptr,
+        };
+        return .{ .ptr = qtc.KSvg__Svg_ElementSize2(@ptrCast(self.ptr), elementId_str) };
+    }
+
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#elementRect)
     ///
     /// ## Parameter(s):
@@ -389,6 +405,22 @@ pub const KSvg__Svg = extern struct {
         return .{ .ptr = qtc.KSvg__Svg_ElementRect(@ptrCast(self.ptr), elementId_str) };
     }
 
+    /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#elementRect)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSvg__Svg `
+    ///
+    /// ` elementId: []const u8 `
+    ///
+    pub fn ElementRect2(self: KSvg__Svg, elementId: []const u8) QRectF {
+        const elementId_str = qtc.libqt_string{
+            .len = elementId.len,
+            .data = elementId.ptr,
+        };
+        return .{ .ptr = qtc.KSvg__Svg_ElementRect2(@ptrCast(self.ptr), elementId_str) };
+    }
+
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#hasElement)
     ///
     /// ## Parameter(s):
@@ -403,6 +435,22 @@ pub const KSvg__Svg = extern struct {
             .data = elementId.ptr,
         };
         return qtc.KSvg__Svg_HasElement(@ptrCast(self.ptr), elementId_str);
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#hasElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSvg__Svg `
+    ///
+    /// ` elementId: []const u8 `
+    ///
+    pub fn HasElement2(self: KSvg__Svg, elementId: []const u8) bool {
+        const elementId_str = qtc.libqt_string{
+            .len = elementId.len,
+            .data = elementId.ptr,
+        };
+        return qtc.KSvg__Svg_HasElement2(@ptrCast(self.ptr), elementId_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksvg-svg.html#isValid)

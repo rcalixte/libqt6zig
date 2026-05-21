@@ -203,7 +203,7 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
     virtual void setProperty(const QString& name, const QVariant& value) override {
         auto setproperty_cb = qdesignerformwindowcursorinterface_setproperty_callback;
         if (setproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -224,7 +224,7 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         auto setwidgetproperty_cb = qdesignerformwindowcursorinterface_setwidgetproperty_callback;
         if (setwidgetproperty_cb) {
             QWidget* cbval1 = widget;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -245,7 +245,7 @@ class VirtualQDesignerFormWindowCursorInterface : public QDesignerFormWindowCurs
         auto resetwidgetproperty_cb = qdesignerformwindowcursorinterface_resetwidgetproperty_callback;
         if (resetwidgetproperty_cb) {
             QWidget* cbval1 = widget;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

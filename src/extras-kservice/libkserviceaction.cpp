@@ -26,7 +26,7 @@ QVariant* KServiceAction_Data(const KServiceAction* self) {
 }
 
 libqt_string KServiceAction_Name(const KServiceAction* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ libqt_string KServiceAction_Name(const KServiceAction* self) {
 }
 
 libqt_string KServiceAction_Text(const KServiceAction* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -50,7 +50,7 @@ libqt_string KServiceAction_Text(const KServiceAction* self) {
 }
 
 libqt_string KServiceAction_Icon(const KServiceAction* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -62,7 +62,7 @@ libqt_string KServiceAction_Icon(const KServiceAction* self) {
 }
 
 libqt_string KServiceAction_Exec(const KServiceAction* self) {
-    QString _ret = self->exec();
+    auto _ret = self->exec();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

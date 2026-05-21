@@ -119,7 +119,7 @@ void TextCustomEditor__RichTextEditor_SetSpellCheckingLanguage(TextCustomEditor_
 }
 
 libqt_string TextCustomEditor__RichTextEditor_SpellCheckingLanguage(const TextCustomEditor__RichTextEditor* self) {
-    const QString _ret = self->spellCheckingLanguage();
+    const auto _ret = self->spellCheckingLanguage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -189,7 +189,7 @@ void TextCustomEditor__RichTextEditor_ForceSpellChecking(TextCustomEditor__RichT
 }
 
 libqt_string TextCustomEditor__RichTextEditor_SpellCheckingConfigFileName(const TextCustomEditor__RichTextEditor* self) {
-    QString _ret = self->spellCheckingConfigFileName();
+    auto _ret = self->spellCheckingConfigFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -334,7 +334,7 @@ void TextCustomEditor__RichTextEditor_Say(TextCustomEditor__RichTextEditor* self
 void TextCustomEditor__RichTextEditor_Connect_Say(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextEditor*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextEditor*, const char*)>(slot);
     TextCustomEditor::RichTextEditor::connect(self, &TextCustomEditor::RichTextEditor::say, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -378,7 +378,7 @@ void TextCustomEditor__RichTextEditor_SpellCheckerAutoCorrect(TextCustomEditor__
 void TextCustomEditor__RichTextEditor_Connect_SpellCheckerAutoCorrect(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextEditor*, const char*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextEditor*, const char*, const char*)>(slot);
     TextCustomEditor::RichTextEditor::connect(self, &TextCustomEditor::RichTextEditor::spellCheckerAutoCorrect, [self, slotFunc](const QString& currentWord, const QString& autoCorrectWord) {
-        const QString currentWord_ret = currentWord;
+        const auto currentWord_ret = currentWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray currentWord_b = currentWord_ret.toUtf8();
         auto currentWord_str_len = currentWord_b.length();
@@ -386,7 +386,7 @@ void TextCustomEditor__RichTextEditor_Connect_SpellCheckerAutoCorrect(TextCustom
         memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_str_len);
         ((char*)currentWord_str)[currentWord_str_len] = '\0';
         const char* sigval1 = currentWord_str;
-        const QString autoCorrectWord_ret = autoCorrectWord;
+        const auto autoCorrectWord_ret = autoCorrectWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray autoCorrectWord_b = autoCorrectWord_ret.toUtf8();
         auto autoCorrectWord_str_len = autoCorrectWord_b.length();
@@ -420,7 +420,7 @@ void TextCustomEditor__RichTextEditor_LanguageChanged(TextCustomEditor__RichText
 void TextCustomEditor__RichTextEditor_Connect_LanguageChanged(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextEditor*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextEditor*, const char*)>(slot);
     TextCustomEditor::RichTextEditor::connect(self, &TextCustomEditor::RichTextEditor::languageChanged, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -441,7 +441,7 @@ void TextCustomEditor__RichTextEditor_SpellCheckStatus(TextCustomEditor__RichTex
 void TextCustomEditor__RichTextEditor_Connect_SpellCheckStatus(TextCustomEditor__RichTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__RichTextEditor*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__RichTextEditor*, const char*)>(slot);
     TextCustomEditor::RichTextEditor::connect(self, &TextCustomEditor::RichTextEditor::spellCheckStatus, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

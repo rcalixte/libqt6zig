@@ -71,7 +71,7 @@ void QFileIconProvider_OnIcon2(const QFileIconProvider* self, intptr_t slot) {
 libqt_string QFileIconProvider_Type(const QFileIconProvider* self, const QFileInfo* param1) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
-        QString _ret = vqfileiconprovider->type(*param1);
+        auto _ret = vqfileiconprovider->type(*param1);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -81,7 +81,7 @@ libqt_string QFileIconProvider_Type(const QFileIconProvider* self, const QFileIn
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QFileIconProvider::type(*param1);
+        auto _ret = self->QFileIconProvider::type(*param1);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -98,7 +98,7 @@ libqt_string QFileIconProvider_SuperType(const QFileIconProvider* self, const QF
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
         vqfileiconprovider->setQFileIconProvider_Type_IsBase(true);
-        QString _ret = vqfileiconprovider->type(*param1);
+        auto _ret = vqfileiconprovider->type(*param1);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -108,7 +108,7 @@ libqt_string QFileIconProvider_SuperType(const QFileIconProvider* self, const QF
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QFileIconProvider::type(*param1);
+        auto _ret = self->QFileIconProvider::type(*param1);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

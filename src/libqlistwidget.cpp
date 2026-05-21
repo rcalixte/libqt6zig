@@ -141,7 +141,7 @@ void QListWidgetItem_SetFlags(QListWidgetItem* self, int flags) {
 }
 
 libqt_string QListWidgetItem_Text(const QListWidgetItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -166,7 +166,7 @@ void QListWidgetItem_SetIcon(QListWidgetItem* self, const QIcon* icon) {
 }
 
 libqt_string QListWidgetItem_StatusTip(const QListWidgetItem* self) {
-    QString _ret = self->statusTip();
+    auto _ret = self->statusTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -183,7 +183,7 @@ void QListWidgetItem_SetStatusTip(QListWidgetItem* self, const libqt_string stat
 }
 
 libqt_string QListWidgetItem_ToolTip(const QListWidgetItem* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -200,7 +200,7 @@ void QListWidgetItem_SetToolTip(QListWidgetItem* self, const libqt_string toolTi
 }
 
 libqt_string QListWidgetItem_WhatsThis(const QListWidgetItem* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -775,7 +775,7 @@ void QListWidget_CurrentTextChanged(QListWidget* self, const libqt_string curren
 void QListWidget_Connect_CurrentTextChanged(QListWidget* self, intptr_t slot) {
     void (*slotFunc)(QListWidget*, const char*) = reinterpret_cast<void (*)(QListWidget*, const char*)>(slot);
     QListWidget::connect(self, &QListWidget::currentTextChanged, [self, slotFunc](const QString& currentText) {
-        const QString currentText_ret = currentText;
+        const auto currentText_ret = currentText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray currentText_b = currentText_ret.toUtf8();
         auto currentText_str_len = currentText_b.length();
@@ -826,7 +826,7 @@ libqt_list /* of libqt_string */ QListWidget_MimeTypes(const QListWidget* self) 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1005,7 +1005,7 @@ libqt_list /* of libqt_string */ QListWidget_SuperMimeTypes(const QListWidget* s
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1024,7 +1024,7 @@ libqt_list /* of libqt_string */ QListWidget_SuperMimeTypes(const QListWidget* s
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

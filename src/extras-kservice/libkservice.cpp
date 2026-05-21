@@ -39,7 +39,7 @@ bool KService_IsApplication(const KService* self) {
 }
 
 libqt_string KService_Exec(const KService* self) {
-    QString _ret = self->exec();
+    auto _ret = self->exec();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -51,7 +51,7 @@ libqt_string KService_Exec(const KService* self) {
 }
 
 libqt_string KService_Icon(const KService* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,7 +67,7 @@ bool KService_Terminal(const KService* self) {
 }
 
 libqt_string KService_TerminalOptions(const KService* self) {
-    QString _ret = self->terminalOptions();
+    auto _ret = self->terminalOptions();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -87,7 +87,7 @@ bool KService_SubstituteUid(const KService* self) {
 }
 
 libqt_string KService_Username(const KService* self) {
-    QString _ret = self->username();
+    auto _ret = self->username();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -99,7 +99,7 @@ libqt_string KService_Username(const KService* self) {
 }
 
 libqt_string KService_DesktopEntryName(const KService* self) {
-    QString _ret = self->desktopEntryName();
+    auto _ret = self->desktopEntryName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -111,7 +111,7 @@ libqt_string KService_DesktopEntryName(const KService* self) {
 }
 
 libqt_string KService_MenuId(const KService* self) {
-    QString _ret = self->menuId();
+    auto _ret = self->menuId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -123,7 +123,7 @@ libqt_string KService_MenuId(const KService* self) {
 }
 
 libqt_string KService_StorageId(const KService* self) {
-    QString _ret = self->storageId();
+    auto _ret = self->storageId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -135,7 +135,7 @@ libqt_string KService_StorageId(const KService* self) {
 }
 
 libqt_string KService_WorkingDirectory(const KService* self) {
-    QString _ret = self->workingDirectory();
+    auto _ret = self->workingDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -147,7 +147,7 @@ libqt_string KService_WorkingDirectory(const KService* self) {
 }
 
 libqt_string KService_Comment(const KService* self) {
-    QString _ret = self->comment();
+    auto _ret = self->comment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -159,7 +159,7 @@ libqt_string KService_Comment(const KService* self) {
 }
 
 libqt_string KService_GenericName(const KService* self) {
-    QString _ret = self->genericName();
+    auto _ret = self->genericName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -171,7 +171,7 @@ libqt_string KService_GenericName(const KService* self) {
 }
 
 libqt_string KService_UntranslatedGenericName(const KService* self) {
-    QString _ret = self->untranslatedGenericName();
+    auto _ret = self->untranslatedGenericName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -183,7 +183,7 @@ libqt_string KService_UntranslatedGenericName(const KService* self) {
 }
 
 libqt_string KService_UntranslatedName(const KService* self) {
-    QString _ret = self->untranslatedName();
+    auto _ret = self->untranslatedName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -199,7 +199,7 @@ libqt_list /* of libqt_string */ KService_Keywords(const KService* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -220,7 +220,7 @@ libqt_list /* of libqt_string */ KService_Categories(const KService* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -241,7 +241,7 @@ libqt_list /* of libqt_string */ KService_MimeTypes(const KService* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -262,7 +262,7 @@ libqt_list /* of libqt_string */ KService_SchemeHandlers(const KService* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -283,7 +283,7 @@ libqt_list /* of libqt_string */ KService_SupportedProtocols(const KService* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -334,7 +334,7 @@ bool KService_ShowOnCurrentPlatform(const KService* self) {
 }
 
 libqt_string KService_DocPath(const KService* self) {
-    QString _ret = self->docPath();
+    auto _ret = self->docPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -346,7 +346,7 @@ libqt_string KService_DocPath(const KService* self) {
 }
 
 libqt_string KService_LocateLocal(const KService* self) {
-    QString _ret = self->locateLocal();
+    auto _ret = self->locateLocal();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -383,7 +383,7 @@ void KService_SetWorkingDirectory(KService* self, const libqt_string workingDir)
 
 libqt_string KService_NewServicePath(bool showInMenu, const libqt_string suggestedName) {
     QString suggestedName_QString = QString::fromUtf8(suggestedName.data, suggestedName.len);
-    QString _ret = KService::newServicePath(showInMenu, suggestedName_QString);
+    auto _ret = KService::newServicePath(showInMenu, suggestedName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -395,7 +395,7 @@ libqt_string KService_NewServicePath(bool showInMenu, const libqt_string suggest
 }
 
 libqt_string KService_AliasFor(const KService* self) {
-    QString _ret = self->aliasFor();
+    auto _ret = self->aliasFor();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

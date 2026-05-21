@@ -44,7 +44,7 @@ int KConfig_LocationType(const KConfig* self) {
 }
 
 libqt_string KConfig_Name(const KConfig* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -125,7 +125,7 @@ libqt_list /* of libqt_string */ KConfig_AdditionalConfigSources(const KConfig* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -142,7 +142,7 @@ libqt_list /* of libqt_string */ KConfig_AdditionalConfigSources(const KConfig* 
 }
 
 libqt_string KConfig_Locale(const KConfig* self) {
-    QString _ret = self->locale();
+    auto _ret = self->locale();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -182,7 +182,7 @@ libqt_list /* of libqt_string */ KConfig_GroupList(const KConfig* self) {
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -201,7 +201,7 @@ libqt_list /* of libqt_string */ KConfig_GroupList(const KConfig* self) {
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -225,7 +225,7 @@ libqt_map /* of libqt_string to libqt_string */ KConfig_EntryMap(const KConfig* 
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -234,7 +234,7 @@ libqt_map /* of libqt_string to libqt_string */ KConfig_EntryMap(const KConfig* 
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;
@@ -258,7 +258,7 @@ void KConfig_SetMainConfigName(const libqt_string str) {
 }
 
 libqt_string KConfig_MainConfigName() {
-    QString _ret = KConfig::mainConfigName();
+    auto _ret = KConfig::mainConfigName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -333,7 +333,7 @@ libqt_map /* of libqt_string to libqt_string */ KConfig_EntryMap1(const KConfig*
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -342,7 +342,7 @@ libqt_map /* of libqt_string to libqt_string */ KConfig_EntryMap1(const KConfig*
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;
@@ -445,7 +445,7 @@ libqt_list /* of libqt_string */ KConfig_SuperGroupList(const KConfig* self) {
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -464,7 +464,7 @@ libqt_list /* of libqt_string */ KConfig_SuperGroupList(const KConfig* self) {
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

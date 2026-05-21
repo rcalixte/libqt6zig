@@ -1272,6 +1272,8 @@ pub const QGraphicsItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1331,6 +1333,8 @@ pub const QGraphicsItem = extern struct {
     /// ` self: QGraphicsItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1629,6 +1633,8 @@ pub const QGraphicsItem = extern struct {
     /// ` self: QGraphicsItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QGraphicsItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3384,6 +3390,8 @@ pub const QGraphicsItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsItem, callback: *const fn (QGraphicsItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3430,6 +3438,8 @@ pub const QGraphicsItem = extern struct {
     /// ` self: QGraphicsItem `
     ///
     /// ` callback: *const fn (self: QGraphicsItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsItem, callback: *const fn (QGraphicsItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3572,6 +3582,8 @@ pub const QGraphicsItem = extern struct {
     /// ` self: QGraphicsItem `
     ///
     /// ` callback: *const fn (self: QGraphicsItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsItem, callback: *const fn (QGraphicsItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8198,6 +8210,8 @@ pub const QGraphicsObject = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsObject, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsObject_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8245,6 +8259,8 @@ pub const QGraphicsObject = extern struct {
     /// ` self: QGraphicsObject`
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsObject, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsObject_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8517,6 +8533,8 @@ pub const QGraphicsObject = extern struct {
     /// ` self: QGraphicsObject`
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QGraphicsObject, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsObject_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9770,6 +9788,8 @@ pub const QGraphicsObject = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsObject, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsObject, callback: *const fn (QGraphicsObject, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsObject_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9827,6 +9847,8 @@ pub const QGraphicsObject = extern struct {
     /// ` self: QGraphicsObject`
     ///
     /// ` callback: *const fn (self: QGraphicsObject, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsObject, callback: *const fn (QGraphicsObject, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsObject_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9991,6 +10013,8 @@ pub const QGraphicsObject = extern struct {
     /// ` self: QGraphicsObject`
     ///
     /// ` callback: *const fn (self: QGraphicsObject, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsObject, callback: *const fn (QGraphicsObject, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsObject_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10516,6 +10540,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     /// ` self: QAbstractGraphicsShapeItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QAbstractGraphicsShapeItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -13068,6 +13094,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QAbstractGraphicsShapeItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -13115,6 +13143,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     /// ` self: QAbstractGraphicsShapeItem`
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QAbstractGraphicsShapeItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -14538,6 +14568,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractGraphicsShapeItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QAbstractGraphicsShapeItem, callback: *const fn (QAbstractGraphicsShapeItem, i32) callconv(.c) QVariant) void {
         qtc.QAbstractGraphicsShapeItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -14595,6 +14627,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     /// ` self: QAbstractGraphicsShapeItem`
     ///
     /// ` callback: *const fn (self: QAbstractGraphicsShapeItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QAbstractGraphicsShapeItem, callback: *const fn (QAbstractGraphicsShapeItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QAbstractGraphicsShapeItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -14759,6 +14793,8 @@ pub const QAbstractGraphicsShapeItem = extern struct {
     /// ` self: QAbstractGraphicsShapeItem`
     ///
     /// ` callback: *const fn (self: QAbstractGraphicsShapeItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QAbstractGraphicsShapeItem, callback: *const fn (QAbstractGraphicsShapeItem, QVariant) callconv(.c) QVariant) void {
         qtc.QAbstractGraphicsShapeItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15070,6 +15106,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsPathItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsPathItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -15109,6 +15147,8 @@ pub const QGraphicsPathItem = extern struct {
     /// ` self: QGraphicsPathItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsPathItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsPathItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15300,6 +15340,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsPathItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsPathItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -15476,6 +15518,8 @@ pub const QGraphicsPathItem = extern struct {
     /// ` self: QGraphicsPathItem `
     ///
     /// ` callback: *const fn (self: QGraphicsPathItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsPathItem, callback: *const fn (QGraphicsPathItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsPathItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -19291,6 +19335,8 @@ pub const QGraphicsPathItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsPathItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsPathItem, callback: *const fn (QGraphicsPathItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsPathItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -19348,6 +19394,8 @@ pub const QGraphicsPathItem = extern struct {
     /// ` self: QGraphicsPathItem`
     ///
     /// ` callback: *const fn (self: QGraphicsPathItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsPathItem, callback: *const fn (QGraphicsPathItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsPathItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -19712,6 +19760,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsRectItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsRectItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -19751,6 +19801,8 @@ pub const QGraphicsRectItem = extern struct {
     /// ` self: QGraphicsRectItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsRectItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsRectItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -19942,6 +19994,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsRectItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsRectItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -20118,6 +20172,8 @@ pub const QGraphicsRectItem = extern struct {
     /// ` self: QGraphicsRectItem `
     ///
     /// ` callback: *const fn (self: QGraphicsRectItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsRectItem, callback: *const fn (QGraphicsRectItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsRectItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -23933,6 +23989,8 @@ pub const QGraphicsRectItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsRectItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsRectItem, callback: *const fn (QGraphicsRectItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsRectItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -23990,6 +24048,8 @@ pub const QGraphicsRectItem = extern struct {
     /// ` self: QGraphicsRectItem`
     ///
     /// ` callback: *const fn (self: QGraphicsRectItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsRectItem, callback: *const fn (QGraphicsRectItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsRectItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -24398,6 +24458,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsEllipseItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsEllipseItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -24437,6 +24499,8 @@ pub const QGraphicsEllipseItem = extern struct {
     /// ` self: QGraphicsEllipseItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsEllipseItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsEllipseItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -24628,6 +24692,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsEllipseItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsEllipseItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -24804,6 +24870,8 @@ pub const QGraphicsEllipseItem = extern struct {
     /// ` self: QGraphicsEllipseItem `
     ///
     /// ` callback: *const fn (self: QGraphicsEllipseItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsEllipseItem, callback: *const fn (QGraphicsEllipseItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsEllipseItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -28619,6 +28687,8 @@ pub const QGraphicsEllipseItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEllipseItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsEllipseItem, callback: *const fn (QGraphicsEllipseItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsEllipseItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -28676,6 +28746,8 @@ pub const QGraphicsEllipseItem = extern struct {
     /// ` self: QGraphicsEllipseItem`
     ///
     /// ` callback: *const fn (self: QGraphicsEllipseItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsEllipseItem, callback: *const fn (QGraphicsEllipseItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsEllipseItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -28965,6 +29037,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsPolygonItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsPolygonItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -29004,6 +29078,8 @@ pub const QGraphicsPolygonItem = extern struct {
     /// ` self: QGraphicsPolygonItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsPolygonItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsPolygonItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -29195,6 +29271,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsPolygonItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsPolygonItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -29371,6 +29449,8 @@ pub const QGraphicsPolygonItem = extern struct {
     /// ` self: QGraphicsPolygonItem `
     ///
     /// ` callback: *const fn (self: QGraphicsPolygonItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsPolygonItem, callback: *const fn (QGraphicsPolygonItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsPolygonItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -33186,6 +33266,8 @@ pub const QGraphicsPolygonItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsPolygonItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsPolygonItem, callback: *const fn (QGraphicsPolygonItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsPolygonItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -33243,6 +33325,8 @@ pub const QGraphicsPolygonItem = extern struct {
     /// ` self: QGraphicsPolygonItem`
     ///
     /// ` callback: *const fn (self: QGraphicsPolygonItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsPolygonItem, callback: *const fn (QGraphicsPolygonItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsPolygonItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -33629,6 +33713,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsLineItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsLineItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -33668,6 +33754,8 @@ pub const QGraphicsLineItem = extern struct {
     /// ` self: QGraphicsLineItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsLineItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsLineItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -33859,6 +33947,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsLineItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsLineItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -34035,6 +34125,8 @@ pub const QGraphicsLineItem = extern struct {
     /// ` self: QGraphicsLineItem `
     ///
     /// ` callback: *const fn (self: QGraphicsLineItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsLineItem, callback: *const fn (QGraphicsLineItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsLineItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -37796,6 +37888,8 @@ pub const QGraphicsLineItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsLineItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsLineItem, callback: *const fn (QGraphicsLineItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsLineItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -37853,6 +37947,8 @@ pub const QGraphicsLineItem = extern struct {
     /// ` self: QGraphicsLineItem`
     ///
     /// ` callback: *const fn (self: QGraphicsLineItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsLineItem, callback: *const fn (QGraphicsLineItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsLineItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -38226,6 +38322,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsPixmapItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsPixmapItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -38265,6 +38363,8 @@ pub const QGraphicsPixmapItem = extern struct {
     /// ` self: QGraphicsPixmapItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsPixmapItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsPixmapItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -38455,6 +38555,8 @@ pub const QGraphicsPixmapItem = extern struct {
     /// ` self: QGraphicsPixmapItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QGraphicsPixmapItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsPixmapItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -38658,6 +38760,8 @@ pub const QGraphicsPixmapItem = extern struct {
     /// ` self: QGraphicsPixmapItem `
     ///
     /// ` callback: *const fn (self: QGraphicsPixmapItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsPixmapItem, callback: *const fn (QGraphicsPixmapItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsPixmapItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -42419,6 +42523,8 @@ pub const QGraphicsPixmapItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsPixmapItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsPixmapItem, callback: *const fn (QGraphicsPixmapItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsPixmapItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -42476,6 +42582,8 @@ pub const QGraphicsPixmapItem = extern struct {
     /// ` self: QGraphicsPixmapItem`
     ///
     /// ` callback: *const fn (self: QGraphicsPixmapItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsPixmapItem, callback: *const fn (QGraphicsPixmapItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsPixmapItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -43024,6 +43132,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsTextItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsTextItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -43063,6 +43173,8 @@ pub const QGraphicsTextItem = extern struct {
     /// ` self: QGraphicsTextItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsTextItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsTextItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -43253,6 +43365,8 @@ pub const QGraphicsTextItem = extern struct {
     /// ` self: QGraphicsTextItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QGraphicsTextItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsTextItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -44368,6 +44482,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsTextItem, callback: *const fn (QGraphicsTextItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsTextItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -44506,6 +44622,8 @@ pub const QGraphicsTextItem = extern struct {
     /// ` self: QGraphicsTextItem `
     ///
     /// ` callback: *const fn (self: QGraphicsTextItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsTextItem, callback: *const fn (QGraphicsTextItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsTextItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -48852,6 +48970,8 @@ pub const QGraphicsTextItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemChange(self: QGraphicsTextItem, callback: *const fn (QGraphicsTextItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsTextItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -49420,6 +49540,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsSimpleTextItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -49459,6 +49581,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     /// ` self: QGraphicsSimpleTextItem `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsSimpleTextItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -49650,6 +49774,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsSimpleTextItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -49826,6 +49952,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     /// ` self: QGraphicsSimpleTextItem `
     ///
     /// ` callback: *const fn (self: QGraphicsSimpleTextItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsSimpleTextItem, callback: *const fn (QGraphicsSimpleTextItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsSimpleTextItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -53641,6 +53769,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSimpleTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsSimpleTextItem, callback: *const fn (QGraphicsSimpleTextItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsSimpleTextItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -53698,6 +53828,8 @@ pub const QGraphicsSimpleTextItem = extern struct {
     /// ` self: QGraphicsSimpleTextItem`
     ///
     /// ` callback: *const fn (self: QGraphicsSimpleTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsSimpleTextItem, callback: *const fn (QGraphicsSimpleTextItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsSimpleTextItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -53986,6 +54118,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsItemGroup, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsItemGroup_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -54129,6 +54263,8 @@ pub const QGraphicsItemGroup = extern struct {
     /// ` self: QGraphicsItemGroup `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QGraphicsItemGroup, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsItemGroup_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -56721,6 +56857,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnShape(self: QGraphicsItemGroup, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsItemGroup_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -58029,6 +58167,8 @@ pub const QGraphicsItemGroup = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsItemGroup, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsItemGroup, callback: *const fn (QGraphicsItemGroup, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsItemGroup_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -58086,6 +58226,8 @@ pub const QGraphicsItemGroup = extern struct {
     /// ` self: QGraphicsItemGroup`
     ///
     /// ` callback: *const fn (self: QGraphicsItemGroup, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsItemGroup, callback: *const fn (QGraphicsItemGroup, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsItemGroup_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -58250,6 +58392,8 @@ pub const QGraphicsItemGroup = extern struct {
     /// ` self: QGraphicsItemGroup`
     ///
     /// ` callback: *const fn (self: QGraphicsItemGroup, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsItemGroup, callback: *const fn (QGraphicsItemGroup, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsItemGroup_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

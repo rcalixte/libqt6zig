@@ -48,6 +48,7 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
     using TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_Callback = int (*)();
     using TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_Callback = int (*)(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter*, const char*);
     using TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback = bool (*)(const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter*, QMetaMethod*);
+    using TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback = KSyntaxHighlighting__State* (*)(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter*, const char*, KSyntaxHighlighting__State*);
 
   protected:
     // Instance callback storage
@@ -82,6 +83,7 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
     TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_Callback textcustomeditor__plaintextsyntaxspellcheckinghighlighter_sendersignalindex_callback = nullptr;
     TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_Callback textcustomeditor__plaintextsyntaxspellcheckinghighlighter_receivers_callback = nullptr;
     TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback textcustomeditor__plaintextsyntaxspellcheckinghighlighter_issignalconnected_callback = nullptr;
+    TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_callback = nullptr;
 
     // Instance base flags
     mutable bool textcustomeditor__plaintextsyntaxspellcheckinghighlighter_setdefinition_isbase = false;
@@ -115,6 +117,7 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
     mutable bool textcustomeditor__plaintextsyntaxspellcheckinghighlighter_sendersignalindex_isbase = false;
     mutable bool textcustomeditor__plaintextsyntaxspellcheckinghighlighter_receivers_isbase = false;
     mutable bool textcustomeditor__plaintextsyntaxspellcheckinghighlighter_issignalconnected_isbase = false;
+    mutable bool textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_isbase = false;
 
   public:
     VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter(TextCustomEditor::PlainTextEditor* plainText) : TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter(plainText) {};
@@ -152,6 +155,7 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_Callback(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_Callback cb) { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_sendersignalindex_callback = cb; }
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_Callback(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_Callback cb) { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_receivers_callback = cb; }
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback cb) { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_issignalconnected_callback = cb; }
+    inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback cb) { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_callback = cb; }
 
     // Base flag setters
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetDefinition_IsBase(bool value) const { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_setdefinition_isbase = value; }
@@ -185,6 +189,7 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SenderSignalIndex_IsBase(bool value) const { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_sendersignalindex_isbase = value; }
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_Receivers_IsBase(bool value) const { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_receivers_isbase = value; }
     inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_IsBase(bool value) const { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_issignalconnected_isbase = value; }
+    inline void setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_IsBase(bool value) const { textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual void setDefinition(const KSyntaxHighlighting::Definition& def) override {
@@ -213,7 +218,7 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         }
         auto highlightblock_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightblock_callback;
         if (highlightblock_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -696,6 +701,34 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
         return TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter::isSignalConnected(signal);
     }
 
+    // Virtual method for C ABI access and custom callback
+    KSyntaxHighlighting::State highlightLine(QStringView text, const KSyntaxHighlighting::State& state) {
+        if (textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_isbase) {
+            textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_isbase = false;
+            return TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter::highlightLine(text, state);
+        }
+        auto highlightline_cb = textcustomeditor__plaintextsyntaxspellcheckinghighlighter_highlightline_callback;
+        if (highlightline_cb) {
+            auto text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
+            const KSyntaxHighlighting::State& state_ret = state;
+            // Cast returned reference into pointer
+            KSyntaxHighlighting__State* cbval2 = const_cast<KSyntaxHighlighting::State*>(&state_ret);
+            KSyntaxHighlighting__State* callback_ret = highlightline_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            libqt_free(text_str);
+            return callback_ret_Value;
+        }
+        return TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter::highlightLine(text, state);
+    }
+
     // Friend functions
     friend void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_UnsetMisspelled(TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, int start, int count);
     friend void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperUnsetMisspelled(TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, int start, int count);
@@ -745,6 +778,8 @@ class VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter final : pub
     friend int TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperReceivers(const TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, const char* signal);
     friend bool TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected(const TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, const QMetaMethod* signal);
     friend bool TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperIsSignalConnected(const TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, const QMetaMethod* signal);
+    friend KSyntaxHighlighting__State* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine(TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state);
+    friend KSyntaxHighlighting__State* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperHighlightLine(TextCustomEditor::PlainTextSyntaxSpellCheckingHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state);
 };
 
 #endif

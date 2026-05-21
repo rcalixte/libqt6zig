@@ -104,7 +104,7 @@ void KIconDialog_Setup(KIconDialog* self, int group) {
 }
 
 libqt_string KIconDialog_OpenDialog(KIconDialog* self) {
-    QString _ret = self->openDialog();
+    auto _ret = self->openDialog();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ void KIconDialog_ShowDialog(KIconDialog* self) {
 }
 
 libqt_string KIconDialog_GetIcon() {
-    QString _ret = KIconDialog::getIcon();
+    auto _ret = KIconDialog::getIcon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -139,7 +139,7 @@ void KIconDialog_NewIconName(KIconDialog* self, const libqt_string iconName) {
 void KIconDialog_Connect_NewIconName(KIconDialog* self, intptr_t slot) {
     void (*slotFunc)(KIconDialog*, const char*) = reinterpret_cast<void (*)(KIconDialog*, const char*)>(slot);
     KIconDialog::connect(self, &KIconDialog::newIconName, [self, slotFunc](const QString& iconName) {
-        const QString iconName_ret = iconName;
+        const auto iconName_ret = iconName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray iconName_b = iconName_ret.toUtf8();
         auto iconName_str_len = iconName_b.length();
@@ -184,7 +184,7 @@ void KIconDialog_Setup7(KIconDialog* self, int group, int context, bool strictIc
 }
 
 libqt_string KIconDialog_GetIcon1(int group) {
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group));
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -196,7 +196,7 @@ libqt_string KIconDialog_GetIcon1(int group) {
 }
 
 libqt_string KIconDialog_GetIcon2(int group, int context) {
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context));
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -208,7 +208,7 @@ libqt_string KIconDialog_GetIcon2(int group, int context) {
 }
 
 libqt_string KIconDialog_GetIcon3(int group, int context, bool strictIconSize) {
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize);
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -220,7 +220,7 @@ libqt_string KIconDialog_GetIcon3(int group, int context, bool strictIconSize) {
 }
 
 libqt_string KIconDialog_GetIcon4(int group, int context, bool strictIconSize, int iconSize) {
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize));
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -232,7 +232,7 @@ libqt_string KIconDialog_GetIcon4(int group, int context, bool strictIconSize, i
 }
 
 libqt_string KIconDialog_GetIcon5(int group, int context, bool strictIconSize, int iconSize, bool user) {
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize), user);
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize), user);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -244,7 +244,7 @@ libqt_string KIconDialog_GetIcon5(int group, int context, bool strictIconSize, i
 }
 
 libqt_string KIconDialog_GetIcon6(int group, int context, bool strictIconSize, int iconSize, bool user, QWidget* parent) {
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize), user, parent);
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize), user, parent);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -257,7 +257,7 @@ libqt_string KIconDialog_GetIcon6(int group, int context, bool strictIconSize, i
 
 libqt_string KIconDialog_GetIcon7(int group, int context, bool strictIconSize, int iconSize, bool user, QWidget* parent, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
-    QString _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize), user, parent, title_QString);
+    auto _ret = KIconDialog::getIcon(static_cast<KIconLoader::Group>(group), static_cast<KIconLoader::Context>(context), strictIconSize, static_cast<int>(iconSize), user, parent, title_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

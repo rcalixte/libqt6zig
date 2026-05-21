@@ -151,7 +151,7 @@ void KTextEditor__Application_PluginCreated(KTextEditor__Application* self, cons
 void KTextEditor__Application_Connect_PluginCreated(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, const char*, KTextEditor__Plugin*) = reinterpret_cast<void (*)(KTextEditor__Application*, const char*, KTextEditor__Plugin*)>(slot);
     KTextEditor::Application::connect(self, &KTextEditor::Application::pluginCreated, [self, slotFunc](const QString& name, KTextEditor::Plugin* plugin) {
-        const QString name_ret = name;
+        const auto name_ret = name;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
         auto name_str_len = name_b.length();
@@ -173,7 +173,7 @@ void KTextEditor__Application_PluginDeleted(KTextEditor__Application* self, cons
 void KTextEditor__Application_Connect_PluginDeleted(KTextEditor__Application* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Application*, const char*, KTextEditor__Plugin*) = reinterpret_cast<void (*)(KTextEditor__Application*, const char*, KTextEditor__Plugin*)>(slot);
     KTextEditor::Application::connect(self, &KTextEditor::Application::pluginDeleted, [self, slotFunc](const QString& name, KTextEditor::Plugin* plugin) {
-        const QString name_ret = name;
+        const auto name_ret = name;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
         auto name_str_len = name_b.length();

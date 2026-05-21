@@ -103,7 +103,7 @@ QObject* QDesignerPropertyEditorInterface_Object(const QDesignerPropertyEditorIn
 libqt_string QDesignerPropertyEditorInterface_CurrentPropertyName(const QDesignerPropertyEditorInterface* self) {
     auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        QString _ret = vqdesignerpropertyeditorinterface->currentPropertyName();
+        auto _ret = vqdesignerpropertyeditorinterface->currentPropertyName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -113,7 +113,7 @@ libqt_string QDesignerPropertyEditorInterface_CurrentPropertyName(const QDesigne
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerPropertyEditorInterface*)self)->currentPropertyName();
+        auto _ret = ((VirtualQDesignerPropertyEditorInterface*)self)->currentPropertyName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -133,7 +133,7 @@ void QDesignerPropertyEditorInterface_PropertyChanged(QDesignerPropertyEditorInt
 void QDesignerPropertyEditorInterface_Connect_PropertyChanged(QDesignerPropertyEditorInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerPropertyEditorInterface*, const char*, QVariant*) = reinterpret_cast<void (*)(QDesignerPropertyEditorInterface*, const char*, QVariant*)>(slot);
     QDesignerPropertyEditorInterface::connect(self, &QDesignerPropertyEditorInterface::propertyChanged, [self, slotFunc](const QString& name, const QVariant& value) {
-        const QString name_ret = name;
+        const auto name_ret = name;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
         auto name_str_len = name_b.length();
@@ -296,7 +296,7 @@ libqt_string QDesignerPropertyEditorInterface_SuperCurrentPropertyName(const QDe
     auto* vqdesignerpropertyeditorinterface = const_cast<VirtualQDesignerPropertyEditorInterface*>(dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self));
     if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
         vqdesignerpropertyeditorinterface->setQDesignerPropertyEditorInterface_CurrentPropertyName_IsBase(true);
-        QString _ret = vqdesignerpropertyeditorinterface->currentPropertyName();
+        auto _ret = vqdesignerpropertyeditorinterface->currentPropertyName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -306,7 +306,7 @@ libqt_string QDesignerPropertyEditorInterface_SuperCurrentPropertyName(const QDe
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerPropertyEditorInterface*)self)->currentPropertyName();
+        auto _ret = ((VirtualQDesignerPropertyEditorInterface*)self)->currentPropertyName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

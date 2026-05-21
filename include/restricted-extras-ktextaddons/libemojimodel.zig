@@ -270,6 +270,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.TextEmoticonsCore__EmojiModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -495,6 +497,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiModel `
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1945,6 +1949,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2006,6 +2012,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2264,6 +2272,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.TextEmoticonsCore__EmojiModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3509,6 +3519,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3656,6 +3668,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, QModelIndex) callconv(.c) QSize) void {
         qtc.TextEmoticonsCore__EmojiModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4398,6 +4412,8 @@ pub const TextEmoticonsCore__EmojiModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: TextEmoticonsCore__EmojiModel, callback: *const fn (TextEmoticonsCore__EmojiModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

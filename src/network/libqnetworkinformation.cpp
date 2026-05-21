@@ -37,7 +37,7 @@ bool QNetworkInformation_IsMetered(const QNetworkInformation* self) {
 }
 
 libqt_string QNetworkInformation_BackendName(const QNetworkInformation* self) {
-    QString _ret = self->backendName();
+    auto _ret = self->backendName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,8 +60,18 @@ bool QNetworkInformation_LoadDefaultBackend() {
     return QNetworkInformation::loadDefaultBackend();
 }
 
+bool QNetworkInformation_LoadBackendByName(libqt_string backend) {
+    QString backend_QString = QString::fromUtf8(backend.data, backend.len);
+    return QNetworkInformation::loadBackendByName(backend_QString);
+}
+
 bool QNetworkInformation_LoadBackendByFeatures(int features) {
     return QNetworkInformation::loadBackendByFeatures(static_cast<QNetworkInformation::Features>(features));
+}
+
+bool QNetworkInformation_Load(libqt_string backend) {
+    QString backend_QString = QString::fromUtf8(backend.data, backend.len);
+    return QNetworkInformation::load(backend_QString);
 }
 
 bool QNetworkInformation_Load2(int features) {
@@ -73,7 +83,7 @@ libqt_list /* of libqt_string */ QNetworkInformation_AvailableBackends() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

@@ -324,7 +324,7 @@ class VirtualQDBusInterface final : public QDBusInterface {
         auto internalconstcall_cb = qdbusinterface_internalconstcall_callback;
         if (internalconstcall_cb) {
             int cbval1 = static_cast<int>(mode);
-            const QString method_ret = method;
+            const auto method_ret = method;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray method_b = method_ret.toUtf8();
             auto method_str_len = method_b.length();

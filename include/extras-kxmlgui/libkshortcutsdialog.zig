@@ -340,6 +340,8 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KShortcutsDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KShortcutsDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5677,6 +5679,8 @@ pub const KShortcutsDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KShortcutsDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KShortcutsDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7914,6 +7918,8 @@ pub const KShortcutsDialog = extern struct {
     /// ` self: KShortcutsDialog`
     ///
     /// ` callback: *const fn (self: KShortcutsDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KShortcutsDialog, callback: *const fn (KShortcutsDialog, i32) callconv(.c) QVariant) void {
         qtc.KShortcutsDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -49,7 +49,7 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
         }
         auto expandplainmacro_cb = kmacroexpanderbase_expandplainmacro_callback;
         if (expandplainmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -88,7 +88,7 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
         }
         auto expandescapedmacro_cb = kmacroexpanderbase_expandescapedmacro_callback;
         if (expandescapedmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -171,7 +171,7 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
         }
         auto expandplainmacro_cb = kwordmacroexpander_expandplainmacro_callback;
         if (expandplainmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -210,7 +210,7 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
         }
         auto expandescapedmacro_cb = kwordmacroexpander_expandescapedmacro_callback;
         if (expandescapedmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -245,7 +245,7 @@ class VirtualKWordMacroExpander : public KWordMacroExpander {
     virtual bool expandMacro(const QString& str, QList<QString>& retVal) override {
         auto expandmacro_cb = kwordmacroexpander_expandmacro_callback;
         if (expandmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -329,7 +329,7 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
         }
         auto expandplainmacro_cb = kcharmacroexpander_expandplainmacro_callback;
         if (expandplainmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -368,7 +368,7 @@ class VirtualKCharMacroExpander : public KCharMacroExpander {
         }
         auto expandescapedmacro_cb = kcharmacroexpander_expandescapedmacro_callback;
         if (expandescapedmacro_cb) {
-            const QString str_ret = str;
+            const auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();

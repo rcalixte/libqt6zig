@@ -115,6 +115,8 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerLayoutDecorationExtension, index: i32) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemInfo(self: QDesignerLayoutDecorationExtension, callback: *const fn (QDesignerLayoutDecorationExtension, i32) callconv(.c) QRect) void {
         qtc.QDesignerLayoutDecorationExtension_OnItemInfo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

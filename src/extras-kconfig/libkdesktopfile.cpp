@@ -31,7 +31,7 @@ bool KDesktopFile_IsAuthorizedDesktopFile(const libqt_string path) {
 
 libqt_string KDesktopFile_LocateLocal(const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    QString _ret = KDesktopFile::locateLocal(path_QString);
+    auto _ret = KDesktopFile::locateLocal(path_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -47,7 +47,7 @@ KConfigGroup* KDesktopFile_DesktopGroup(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadType(const KDesktopFile* self) {
-    QString _ret = self->readType();
+    auto _ret = self->readType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string KDesktopFile_ReadType(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadIcon(const KDesktopFile* self) {
-    QString _ret = self->readIcon();
+    auto _ret = self->readIcon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -71,7 +71,7 @@ libqt_string KDesktopFile_ReadIcon(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadName(const KDesktopFile* self) {
-    QString _ret = self->readName();
+    auto _ret = self->readName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -83,7 +83,7 @@ libqt_string KDesktopFile_ReadName(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadComment(const KDesktopFile* self) {
-    QString _ret = self->readComment();
+    auto _ret = self->readComment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -95,7 +95,7 @@ libqt_string KDesktopFile_ReadComment(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadGenericName(const KDesktopFile* self) {
-    QString _ret = self->readGenericName();
+    auto _ret = self->readGenericName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ libqt_string KDesktopFile_ReadGenericName(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadPath(const KDesktopFile* self) {
-    QString _ret = self->readPath();
+    auto _ret = self->readPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ libqt_string KDesktopFile_ReadPath(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadUrl(const KDesktopFile* self) {
-    QString _ret = self->readUrl();
+    auto _ret = self->readUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -135,7 +135,7 @@ libqt_list /* of libqt_string */ KDesktopFile_ReadActions(const KDesktopFile* se
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -156,7 +156,7 @@ libqt_list /* of libqt_string */ KDesktopFile_ReadMimeTypes(const KDesktopFile* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -204,7 +204,7 @@ bool KDesktopFile_TryExec(const KDesktopFile* self) {
 }
 
 libqt_string KDesktopFile_ReadDocPath(const KDesktopFile* self) {
-    QString _ret = self->readDocPath();
+    auto _ret = self->readDocPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -225,7 +225,7 @@ KDesktopFile* KDesktopFile_CopyTo(const KDesktopFile* self, const libqt_string f
 }
 
 libqt_string KDesktopFile_FileName(const KDesktopFile* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -373,7 +373,7 @@ libqt_list /* of libqt_string */ KDesktopFile_GroupList(const KDesktopFile* self
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -392,7 +392,7 @@ libqt_list /* of libqt_string */ KDesktopFile_GroupList(const KDesktopFile* self
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -418,7 +418,7 @@ libqt_list /* of libqt_string */ KDesktopFile_SuperGroupList(const KDesktopFile*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -437,7 +437,7 @@ libqt_list /* of libqt_string */ KDesktopFile_SuperGroupList(const KDesktopFile*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

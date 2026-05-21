@@ -82,7 +82,7 @@ void QPlaceContent_SetUser(QPlaceContent* self, const QPlaceUser* user) {
 }
 
 libqt_string QPlaceContent_Attribution(const QPlaceContent* self) {
-    QString _ret = self->attribution();
+    auto _ret = self->attribution();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

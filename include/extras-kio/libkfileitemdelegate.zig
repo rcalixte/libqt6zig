@@ -228,6 +228,8 @@ pub const KFileItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KFileItemDelegate, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KFileItemDelegate, callback: *const fn (KFileItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.KFileItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

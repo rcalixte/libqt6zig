@@ -68,7 +68,7 @@ void KGuiItem_SetText(KGuiItem* self, const libqt_string text) {
 }
 
 libqt_string KGuiItem_Text(const KGuiItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -80,7 +80,7 @@ libqt_string KGuiItem_Text(const KGuiItem* self) {
 }
 
 libqt_string KGuiItem_PlainText(const KGuiItem* self) {
-    QString _ret = self->plainText();
+    auto _ret = self->plainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -105,7 +105,7 @@ void KGuiItem_SetIconName(KGuiItem* self, const libqt_string iconName) {
 }
 
 libqt_string KGuiItem_IconName(const KGuiItem* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -126,7 +126,7 @@ void KGuiItem_SetToolTip(KGuiItem* self, const libqt_string tooltip) {
 }
 
 libqt_string KGuiItem_ToolTip(const KGuiItem* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -143,7 +143,7 @@ void KGuiItem_SetWhatsThis(KGuiItem* self, const libqt_string whatsThis) {
 }
 
 libqt_string KGuiItem_WhatsThis(const KGuiItem* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

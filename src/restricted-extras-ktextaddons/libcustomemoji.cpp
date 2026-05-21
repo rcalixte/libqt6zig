@@ -13,7 +13,7 @@ TextEmoticonsCore__CustomEmoji* TextEmoticonsCore__CustomEmoji_new2(const TextEm
 }
 
 libqt_string TextEmoticonsCore__CustomEmoji_Identifier(const TextEmoticonsCore__CustomEmoji* self) {
-    QString _ret = self->identifier();
+    auto _ret = self->identifier();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -30,7 +30,7 @@ void TextEmoticonsCore__CustomEmoji_SetIdentifier(TextEmoticonsCore__CustomEmoji
 }
 
 libqt_string TextEmoticonsCore__CustomEmoji_Category(const TextEmoticonsCore__CustomEmoji* self) {
-    QString _ret = self->category();
+    auto _ret = self->category();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

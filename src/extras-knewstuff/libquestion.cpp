@@ -69,7 +69,7 @@ void KNSCore__Question_SetQuestion(KNSCore__Question* self, const libqt_string n
 }
 
 libqt_string KNSCore__Question_Question(const KNSCore__Question* self) {
-    QString _ret = self->question();
+    auto _ret = self->question();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -86,7 +86,7 @@ void KNSCore__Question_SetTitle(KNSCore__Question* self, const libqt_string newT
 }
 
 libqt_string KNSCore__Question_Title(const KNSCore__Question* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ libqt_list /* of libqt_string */ KNSCore__Question_List(const KNSCore__Question*
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -147,7 +147,7 @@ void KNSCore__Question_SetResponse2(KNSCore__Question* self, const libqt_string 
 }
 
 libqt_string KNSCore__Question_Response(const KNSCore__Question* self) {
-    QString _ret = self->response();
+    auto _ret = self->response();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

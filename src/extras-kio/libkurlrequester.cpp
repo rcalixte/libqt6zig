@@ -101,7 +101,7 @@ QUrl* KUrlRequester_StartDir(const KUrlRequester* self) {
 }
 
 libqt_string KUrlRequester_Text(const KUrlRequester* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -149,7 +149,7 @@ libqt_list /* of libqt_string */ KUrlRequester_NameFilters(const KUrlRequester* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -181,7 +181,7 @@ libqt_list /* of libqt_string */ KUrlRequester_MimeTypeFilters(const KUrlRequest
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -229,7 +229,7 @@ KEditListWidget__CustomEditor* KUrlRequester_CustomEditor(KUrlRequester* self) {
 }
 
 libqt_string KUrlRequester_PlaceholderText(const KUrlRequester* self) {
-    QString _ret = self->placeholderText();
+    auto _ret = self->placeholderText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -278,7 +278,7 @@ void KUrlRequester_TextChanged(KUrlRequester* self, const libqt_string param1) {
 void KUrlRequester_Connect_TextChanged(KUrlRequester* self, intptr_t slot) {
     void (*slotFunc)(KUrlRequester*, const char*) = reinterpret_cast<void (*)(KUrlRequester*, const char*)>(slot);
     KUrlRequester::connect(self, &KUrlRequester::textChanged, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -299,7 +299,7 @@ void KUrlRequester_TextEdited(KUrlRequester* self, const libqt_string param1) {
 void KUrlRequester_Connect_TextEdited(KUrlRequester* self, intptr_t slot) {
     void (*slotFunc)(KUrlRequester*, const char*) = reinterpret_cast<void (*)(KUrlRequester*, const char*)>(slot);
     KUrlRequester::connect(self, &KUrlRequester::textEdited, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -320,7 +320,7 @@ void KUrlRequester_ReturnPressed(KUrlRequester* self, const libqt_string text) {
 void KUrlRequester_Connect_ReturnPressed(KUrlRequester* self, intptr_t slot) {
     void (*slotFunc)(KUrlRequester*, const char*) = reinterpret_cast<void (*)(KUrlRequester*, const char*)>(slot);
     KUrlRequester::connect(self, &KUrlRequester::returnPressed, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

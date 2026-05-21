@@ -284,7 +284,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void setHeaderSuffix(const QString& headerSuffix) override {
         auto setheadersuffix_cb = qdesignerintegrationinterface_setheadersuffix_callback;
         if (setheadersuffix_cb) {
-            const QString headerSuffix_ret = headerSuffix;
+            const auto headerSuffix_ret = headerSuffix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray headerSuffix_b = headerSuffix_ret.toUtf8();
             auto headerSuffix_str_len = headerSuffix_b.length();
@@ -369,7 +369,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void updateProperty(const QString& name, const QVariant& value, bool enableSubPropertyHandling) override {
         auto updateproperty_cb = qdesignerintegrationinterface_updateproperty_callback;
         if (updateproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -390,7 +390,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void updateProperty(const QString& name, const QVariant& value) override {
         auto updateproperty2_cb = qdesignerintegrationinterface_updateproperty2_callback;
         if (updateproperty2_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -410,7 +410,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void resetProperty(const QString& name) override {
         auto resetproperty_cb = qdesignerintegrationinterface_resetproperty_callback;
         if (resetproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -427,7 +427,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void addDynamicProperty(const QString& name, const QVariant& value) override {
         auto adddynamicproperty_cb = qdesignerintegrationinterface_adddynamicproperty_callback;
         if (adddynamicproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -447,7 +447,7 @@ class VirtualQDesignerIntegrationInterface : public QDesignerIntegrationInterfac
     virtual void removeDynamicProperty(const QString& name) override {
         auto removedynamicproperty_cb = qdesignerintegrationinterface_removedynamicproperty_callback;
         if (removedynamicproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -952,7 +952,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         }
         auto setheadersuffix_cb = qdesignerintegration_setheadersuffix_callback;
         if (setheadersuffix_cb) {
-            const QString headerSuffix_ret = headerSuffix;
+            const auto headerSuffix_ret = headerSuffix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray headerSuffix_b = headerSuffix_ret.toUtf8();
             auto headerSuffix_str_len = headerSuffix_b.length();
@@ -1111,7 +1111,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         }
         auto updateproperty_cb = qdesignerintegration_updateproperty_callback;
         if (updateproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -1139,7 +1139,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         }
         auto updateproperty2_cb = qdesignerintegration_updateproperty2_callback;
         if (updateproperty2_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -1166,7 +1166,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         }
         auto resetproperty_cb = qdesignerintegration_resetproperty_callback;
         if (resetproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -1190,7 +1190,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         }
         auto adddynamicproperty_cb = qdesignerintegration_adddynamicproperty_callback;
         if (adddynamicproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -1217,7 +1217,7 @@ class VirtualQDesignerIntegration final : public QDesignerIntegration {
         }
         auto removedynamicproperty_cb = qdesignerintegration_removedynamicproperty_callback;
         if (removedynamicproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

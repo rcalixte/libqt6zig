@@ -22,7 +22,7 @@ void QWebSocketCorsAuthenticator_OperatorAssign(QWebSocketCorsAuthenticator* sel
 }
 
 libqt_string QWebSocketCorsAuthenticator_Origin(const QWebSocketCorsAuthenticator* self) {
-    QString _ret = self->origin();
+    auto _ret = self->origin();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

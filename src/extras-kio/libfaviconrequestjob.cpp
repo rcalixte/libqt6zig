@@ -58,7 +58,7 @@ void KIO__FavIconRequestJob_SetIconUrl(KIO__FavIconRequestJob* self, const QUrl*
 }
 
 libqt_string KIO__FavIconRequestJob_IconFile(const KIO__FavIconRequestJob* self) {
-    QString _ret = self->iconFile();
+    auto _ret = self->iconFile();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -338,7 +338,7 @@ void KIO__FavIconRequestJob_OnDoResume(KIO__FavIconRequestJob* self, intptr_t sl
 libqt_string KIO__FavIconRequestJob_ErrorString(const KIO__FavIconRequestJob* self) {
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
-        QString _ret = vkiofaviconrequestjob->errorString();
+        auto _ret = vkiofaviconrequestjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -348,7 +348,7 @@ libqt_string KIO__FavIconRequestJob_ErrorString(const KIO__FavIconRequestJob* se
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::FavIconRequestJob::errorString();
+        auto _ret = self->KIO::FavIconRequestJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -365,7 +365,7 @@ libqt_string KIO__FavIconRequestJob_SuperErrorString(const KIO__FavIconRequestJo
     auto* vkiofaviconrequestjob = const_cast<VirtualKIOFavIconRequestJob*>(dynamic_cast<const VirtualKIOFavIconRequestJob*>(self));
     if (vkiofaviconrequestjob && vkiofaviconrequestjob->isVirtualKIOFavIconRequestJob) {
         vkiofaviconrequestjob->setKIO__FavIconRequestJob_ErrorString_IsBase(true);
-        QString _ret = vkiofaviconrequestjob->errorString();
+        auto _ret = vkiofaviconrequestjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -375,7 +375,7 @@ libqt_string KIO__FavIconRequestJob_SuperErrorString(const KIO__FavIconRequestJo
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::FavIconRequestJob::errorString();
+        auto _ret = self->KIO::FavIconRequestJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

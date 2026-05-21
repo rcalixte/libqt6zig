@@ -5540,6 +5540,8 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooser_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5587,6 +5589,8 @@ pub const KMimeTypeChooser = extern struct {
     /// ` self: KMimeTypeChooser`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooser_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7522,6 +7526,8 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) QVariant) void {
         qtc.KMimeTypeChooser_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8997,6 +9003,8 @@ pub const KMimeTypeChooserDialog = extern struct {
     /// ` self: KMimeTypeChooserDialog `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooserDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -14147,6 +14155,8 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooserDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -16432,6 +16442,8 @@ pub const KMimeTypeChooserDialog = extern struct {
     /// ` self: KMimeTypeChooserDialog`
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) QVariant) void {
         qtc.KMimeTypeChooserDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

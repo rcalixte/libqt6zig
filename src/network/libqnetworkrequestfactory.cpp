@@ -96,7 +96,7 @@ void QNetworkRequestFactory_ClearBearerToken(QNetworkRequestFactory* self) {
 }
 
 libqt_string QNetworkRequestFactory_UserName(const QNetworkRequestFactory* self) {
-    QString _ret = self->userName();
+    auto _ret = self->userName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -117,7 +117,7 @@ void QNetworkRequestFactory_ClearUserName(QNetworkRequestFactory* self) {
 }
 
 libqt_string QNetworkRequestFactory_Password(const QNetworkRequestFactory* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

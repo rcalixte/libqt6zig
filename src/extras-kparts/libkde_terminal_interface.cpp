@@ -36,7 +36,7 @@ int TerminalInterface_ForegroundProcessId(TerminalInterface* self) {
 }
 
 libqt_string TerminalInterface_ForegroundProcessName(TerminalInterface* self) {
-    QString _ret = self->foregroundProcessName();
+    auto _ret = self->foregroundProcessName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string TerminalInterface_ForegroundProcessName(TerminalInterface* self) {
 }
 
 libqt_string TerminalInterface_CurrentWorkingDirectory(const TerminalInterface* self) {
-    QString _ret = self->currentWorkingDirectory();
+    auto _ret = self->currentWorkingDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ libqt_list /* of libqt_string */ TerminalInterface_AvailableProfiles(const Termi
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -81,7 +81,7 @@ libqt_list /* of libqt_string */ TerminalInterface_AvailableProfiles(const Termi
 }
 
 libqt_string TerminalInterface_CurrentProfileName(const TerminalInterface* self) {
-    QString _ret = self->currentProfileName();
+    auto _ret = self->currentProfileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

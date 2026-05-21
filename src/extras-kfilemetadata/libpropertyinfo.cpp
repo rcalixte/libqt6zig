@@ -31,7 +31,7 @@ int KFileMetaData__PropertyInfo_Property(const KFileMetaData__PropertyInfo* self
 }
 
 libqt_string KFileMetaData__PropertyInfo_Name(const KFileMetaData__PropertyInfo* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,7 +43,7 @@ libqt_string KFileMetaData__PropertyInfo_Name(const KFileMetaData__PropertyInfo*
 }
 
 libqt_string KFileMetaData__PropertyInfo_DisplayName(const KFileMetaData__PropertyInfo* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,7 +72,7 @@ libqt_list /* of libqt_string */ KFileMetaData__PropertyInfo_AllNames() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -89,7 +89,7 @@ libqt_list /* of libqt_string */ KFileMetaData__PropertyInfo_AllNames() {
 }
 
 libqt_string KFileMetaData__PropertyInfo_FormatAsDisplayString(const KFileMetaData__PropertyInfo* self, const QVariant* value) {
-    QString _ret = self->formatAsDisplayString(*value);
+    auto _ret = self->formatAsDisplayString(*value);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

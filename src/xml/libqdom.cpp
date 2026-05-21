@@ -139,7 +139,7 @@ bool QDomNode_IsSupported(const QDomNode* self, const libqt_string feature, cons
 }
 
 libqt_string QDomNode_NodeName(const QDomNode* self) {
-    QString _ret = self->nodeName();
+    auto _ret = self->nodeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -187,7 +187,7 @@ QDomDocument* QDomNode_OwnerDocument(const QDomNode* self) {
 }
 
 libqt_string QDomNode_NamespaceURI(const QDomNode* self) {
-    QString _ret = self->namespaceURI();
+    auto _ret = self->namespaceURI();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -199,7 +199,7 @@ libqt_string QDomNode_NamespaceURI(const QDomNode* self) {
 }
 
 libqt_string QDomNode_LocalName(const QDomNode* self) {
-    QString _ret = self->localName();
+    auto _ret = self->localName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -215,7 +215,7 @@ bool QDomNode_HasAttributes(const QDomNode* self) {
 }
 
 libqt_string QDomNode_NodeValue(const QDomNode* self) {
-    QString _ret = self->nodeValue();
+    auto _ret = self->nodeValue();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -232,7 +232,7 @@ void QDomNode_SetNodeValue(QDomNode* self, const libqt_string value) {
 }
 
 libqt_string QDomNode_Prefix(const QDomNode* self) {
-    QString _ret = self->prefix();
+    auto _ret = self->prefix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -510,7 +510,7 @@ void QDomDocumentType_OperatorAssign(QDomDocumentType* self, const QDomDocumentT
 }
 
 libqt_string QDomDocumentType_Name(const QDomDocumentType* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -530,7 +530,7 @@ QDomNamedNodeMap* QDomDocumentType_Notations(const QDomDocumentType* self) {
 }
 
 libqt_string QDomDocumentType_PublicId(const QDomDocumentType* self) {
-    QString _ret = self->publicId();
+    auto _ret = self->publicId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -542,7 +542,7 @@ libqt_string QDomDocumentType_PublicId(const QDomDocumentType* self) {
 }
 
 libqt_string QDomDocumentType_SystemId(const QDomDocumentType* self) {
-    QString _ret = self->systemId();
+    auto _ret = self->systemId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -554,7 +554,7 @@ libqt_string QDomDocumentType_SystemId(const QDomDocumentType* self) {
 }
 
 libqt_string QDomDocumentType_InternalSubset(const QDomDocumentType* self) {
-    QString _ret = self->internalSubset();
+    auto _ret = self->internalSubset();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -713,7 +713,7 @@ QDomDocument__ParseResult* QDomDocument_SetContent10(QDomDocument* self, QXmlStr
 }
 
 libqt_string QDomDocument_ToString(const QDomDocument* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -746,7 +746,7 @@ QDomDocument__ParseResult* QDomDocument_SetContent24(QDomDocument* self, QXmlStr
 }
 
 libqt_string QDomDocument_ToString1(const QDomDocument* self, int indent) {
-    QString _ret = self->toString(static_cast<int>(indent));
+    auto _ret = self->toString(static_cast<int>(indent));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -882,7 +882,7 @@ void QDomCharacterData_OperatorAssign(QDomCharacterData* self, const QDomCharact
 }
 
 libqt_string QDomCharacterData_SubstringData(QDomCharacterData* self, unsigned long offset, unsigned long count) {
-    QString _ret = self->substringData(static_cast<unsigned long>(offset), static_cast<unsigned long>(count));
+    auto _ret = self->substringData(static_cast<unsigned long>(offset), static_cast<unsigned long>(count));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -917,7 +917,7 @@ int QDomCharacterData_Length(const QDomCharacterData* self) {
 }
 
 libqt_string QDomCharacterData_Data(const QDomCharacterData* self) {
-    QString _ret = self->data();
+    auto _ret = self->data();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -954,7 +954,7 @@ void QDomAttr_OperatorAssign(QDomAttr* self, const QDomAttr* other) {
 }
 
 libqt_string QDomAttr_Name(const QDomAttr* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -974,7 +974,7 @@ QDomElement* QDomAttr_OwnerElement(const QDomAttr* self) {
 }
 
 libqt_string QDomAttr_Value(const QDomAttr* self) {
-    QString _ret = self->value();
+    auto _ret = self->value();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1012,7 +1012,7 @@ void QDomElement_OperatorAssign(QDomElement* self, const QDomElement* other) {
 
 libqt_string QDomElement_Attribute(const QDomElement* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->attribute(name_QString);
+    auto _ret = self->attribute(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1090,7 +1090,7 @@ bool QDomElement_HasAttribute(const QDomElement* self, const libqt_string name) 
 libqt_string QDomElement_AttributeNS(const QDomElement* self, const libqt_string nsURI, const libqt_string localName) {
     QString nsURI_QString = QString::fromUtf8(nsURI.data, nsURI.len);
     QString localName_QString = QString::fromUtf8(localName.data, localName.len);
-    QString _ret = self->attributeNS(nsURI_QString, localName_QString);
+    auto _ret = self->attributeNS(nsURI_QString, localName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1167,7 +1167,7 @@ bool QDomElement_HasAttributeNS(const QDomElement* self, const libqt_string nsUR
 }
 
 libqt_string QDomElement_TagName(const QDomElement* self) {
-    QString _ret = self->tagName();
+    auto _ret = self->tagName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1192,7 +1192,7 @@ int QDomElement_NodeType(const QDomElement* self) {
 }
 
 libqt_string QDomElement_Text(const QDomElement* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1206,7 +1206,7 @@ libqt_string QDomElement_Text(const QDomElement* self) {
 libqt_string QDomElement_Attribute2(const QDomElement* self, const libqt_string name, const libqt_string defValue) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString defValue_QString = QString::fromUtf8(defValue.data, defValue.len);
-    QString _ret = self->attribute(name_QString, defValue_QString);
+    auto _ret = self->attribute(name_QString, defValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1221,7 +1221,7 @@ libqt_string QDomElement_AttributeNS3(const QDomElement* self, const libqt_strin
     QString nsURI_QString = QString::fromUtf8(nsURI.data, nsURI.len);
     QString localName_QString = QString::fromUtf8(localName.data, localName.len);
     QString defValue_QString = QString::fromUtf8(defValue.data, defValue.len);
-    QString _ret = self->attributeNS(nsURI_QString, localName_QString, defValue_QString);
+    auto _ret = self->attributeNS(nsURI_QString, localName_QString, defValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1313,7 +1313,7 @@ void QDomNotation_OperatorAssign(QDomNotation* self, const QDomNotation* other) 
 }
 
 libqt_string QDomNotation_PublicId(const QDomNotation* self) {
-    QString _ret = self->publicId();
+    auto _ret = self->publicId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1325,7 +1325,7 @@ libqt_string QDomNotation_PublicId(const QDomNotation* self) {
 }
 
 libqt_string QDomNotation_SystemId(const QDomNotation* self) {
-    QString _ret = self->systemId();
+    auto _ret = self->systemId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1357,7 +1357,7 @@ void QDomEntity_OperatorAssign(QDomEntity* self, const QDomEntity* other) {
 }
 
 libqt_string QDomEntity_PublicId(const QDomEntity* self) {
-    QString _ret = self->publicId();
+    auto _ret = self->publicId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1369,7 +1369,7 @@ libqt_string QDomEntity_PublicId(const QDomEntity* self) {
 }
 
 libqt_string QDomEntity_SystemId(const QDomEntity* self) {
-    QString _ret = self->systemId();
+    auto _ret = self->systemId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1381,7 +1381,7 @@ libqt_string QDomEntity_SystemId(const QDomEntity* self) {
 }
 
 libqt_string QDomEntity_NotationName(const QDomEntity* self) {
-    QString _ret = self->notationName();
+    auto _ret = self->notationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1433,7 +1433,7 @@ void QDomProcessingInstruction_OperatorAssign(QDomProcessingInstruction* self, c
 }
 
 libqt_string QDomProcessingInstruction_Target(const QDomProcessingInstruction* self) {
-    QString _ret = self->target();
+    auto _ret = self->target();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1445,7 +1445,7 @@ libqt_string QDomProcessingInstruction_Target(const QDomProcessingInstruction* s
 }
 
 libqt_string QDomProcessingInstruction_Data(const QDomProcessingInstruction* self) {
-    QString _ret = self->data();
+    auto _ret = self->data();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1474,7 +1474,7 @@ QDomDocument__ParseResult* QDomDocument__ParseResult_new(const QDomDocument__Par
 }
 
 libqt_string QDomDocument__ParseResult_ErrorMessage(const QDomDocument__ParseResult* self) {
-    QString errorMessage_ret = self->errorMessage;
+    auto errorMessage_ret = self->errorMessage;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray errorMessage_b = errorMessage_ret.toUtf8();
     libqt_string errorMessage_str;

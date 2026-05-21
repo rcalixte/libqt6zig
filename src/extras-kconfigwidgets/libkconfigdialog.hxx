@@ -1430,7 +1430,7 @@ class VirtualKConfigDialog final : public KConfigDialog {
         }
         auto sethelp_cb = kconfigdialog_sethelp_callback;
         if (sethelp_cb) {
-            const QString anchor_ret = anchor;
+            const auto anchor_ret = anchor;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray anchor_b = anchor_ret.toUtf8();
             auto anchor_str_len = anchor_b.length();
@@ -1454,7 +1454,7 @@ class VirtualKConfigDialog final : public KConfigDialog {
         }
         auto sethelp2_cb = kconfigdialog_sethelp2_callback;
         if (sethelp2_cb) {
-            const QString anchor_ret = anchor;
+            const auto anchor_ret = anchor;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray anchor_b = anchor_ret.toUtf8();
             auto anchor_str_len = anchor_b.length();
@@ -1462,7 +1462,7 @@ class VirtualKConfigDialog final : public KConfigDialog {
             memcpy((void*)anchor_str, anchor_b.data(), anchor_str_len);
             ((char*)anchor_str)[anchor_str_len] = '\0';
             const char* cbval1 = anchor_str;
-            const QString appname_ret = appname;
+            const auto appname_ret = appname;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray appname_b = appname_ret.toUtf8();
             auto appname_str_len = appname_b.length();

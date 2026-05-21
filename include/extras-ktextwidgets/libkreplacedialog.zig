@@ -5905,6 +5905,8 @@ pub const KReplaceDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KReplaceDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KReplaceDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5952,6 +5954,8 @@ pub const KReplaceDialog = extern struct {
     /// ` self: KReplaceDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KReplaceDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KReplaceDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8184,6 +8188,8 @@ pub const KReplaceDialog = extern struct {
     /// ` self: KReplaceDialog`
     ///
     /// ` callback: *const fn (self: KReplaceDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KReplaceDialog, callback: *const fn (KReplaceDialog, i32) callconv(.c) QVariant) void {
         qtc.KReplaceDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

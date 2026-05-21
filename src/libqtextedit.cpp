@@ -113,7 +113,7 @@ void QTextEdit_SetPlaceholderText(QTextEdit* self, const libqt_string placeholde
 }
 
 libqt_string QTextEdit_PlaceholderText(const QTextEdit* self) {
-    QString _ret = self->placeholderText();
+    auto _ret = self->placeholderText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -153,7 +153,7 @@ double QTextEdit_FontPointSize(const QTextEdit* self) {
 }
 
 libqt_string QTextEdit_FontFamily(const QTextEdit* self) {
-    QString _ret = self->fontFamily();
+    auto _ret = self->fontFamily();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -226,7 +226,7 @@ void QTextEdit_SetDocumentTitle(QTextEdit* self, const libqt_string title) {
 }
 
 libqt_string QTextEdit_DocumentTitle(const QTextEdit* self) {
-    QString _ret = self->documentTitle();
+    auto _ret = self->documentTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -279,7 +279,7 @@ bool QTextEdit_Find2(QTextEdit* self, const QRegularExpression* exp) {
 }
 
 libqt_string QTextEdit_ToPlainText(const QTextEdit* self) {
-    QString _ret = self->toPlainText();
+    auto _ret = self->toPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -291,7 +291,7 @@ libqt_string QTextEdit_ToPlainText(const QTextEdit* self) {
 }
 
 libqt_string QTextEdit_ToHtml(const QTextEdit* self) {
-    QString _ret = self->toHtml();
+    auto _ret = self->toHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -303,7 +303,7 @@ libqt_string QTextEdit_ToHtml(const QTextEdit* self) {
 }
 
 libqt_string QTextEdit_ToMarkdown(const QTextEdit* self) {
-    QString _ret = self->toMarkdown();
+    auto _ret = self->toMarkdown();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -348,7 +348,7 @@ QRect* QTextEdit_CursorRect2(const QTextEdit* self) {
 }
 
 libqt_string QTextEdit_AnchorAt(const QTextEdit* self, const QPoint* pos) {
-    QString _ret = self->anchorAt(*pos);
+    auto _ret = self->anchorAt(*pos);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -838,7 +838,7 @@ bool QTextEdit_Find23(QTextEdit* self, const QRegularExpression* exp, int option
 }
 
 libqt_string QTextEdit_ToMarkdown1(const QTextEdit* self, int features) {
-    QString _ret = self->toMarkdown(static_cast<QTextDocument::MarkdownFeatures>(features));
+    auto _ret = self->toMarkdown(static_cast<QTextDocument::MarkdownFeatures>(features));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

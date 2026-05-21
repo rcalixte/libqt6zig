@@ -129,7 +129,7 @@ void QTabBar_SetTabVisible(QTabBar* self, int index, bool visible) {
 }
 
 libqt_string QTabBar_TabText(const QTabBar* self, int index) {
-    QString _ret = self->tabText(static_cast<int>(index));
+    auto _ret = self->tabText(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -175,7 +175,7 @@ void QTabBar_SetTabToolTip(QTabBar* self, int index, const libqt_string tip) {
 }
 
 libqt_string QTabBar_TabToolTip(const QTabBar* self, int index) {
-    QString _ret = self->tabToolTip(static_cast<int>(index));
+    auto _ret = self->tabToolTip(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -192,7 +192,7 @@ void QTabBar_SetTabWhatsThis(QTabBar* self, int index, const libqt_string text) 
 }
 
 libqt_string QTabBar_TabWhatsThis(const QTabBar* self, int index) {
-    QString _ret = self->tabWhatsThis(static_cast<int>(index));
+    auto _ret = self->tabWhatsThis(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -334,7 +334,7 @@ void QTabBar_SetChangeCurrentOnDrag(QTabBar* self, bool change) {
 }
 
 libqt_string QTabBar_AccessibleTabName(const QTabBar* self, int index) {
-    QString _ret = self->accessibleTabName(static_cast<int>(index));
+    auto _ret = self->accessibleTabName(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

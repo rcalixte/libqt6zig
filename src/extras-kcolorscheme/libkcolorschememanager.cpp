@@ -71,7 +71,7 @@ void KColorSchemeManager_SetAutosaveChanges(KColorSchemeManager* self, bool auto
 }
 
 libqt_string KColorSchemeManager_ActiveSchemeId(const KColorSchemeManager* self) {
-    QString _ret = self->activeSchemeId();
+    auto _ret = self->activeSchemeId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -83,7 +83,7 @@ libqt_string KColorSchemeManager_ActiveSchemeId(const KColorSchemeManager* self)
 }
 
 libqt_string KColorSchemeManager_ActiveSchemeName(const KColorSchemeManager* self) {
-    QString _ret = self->activeSchemeName();
+    auto _ret = self->activeSchemeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

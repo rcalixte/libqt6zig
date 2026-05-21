@@ -3630,6 +3630,8 @@ pub const QRasterWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSurfaceFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: QRasterWindow, callback: *const fn () callconv(.c) QSurfaceFormat) void {
         qtc.QRasterWindow_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3677,6 +3679,8 @@ pub const QRasterWindow = extern struct {
     /// ` self: QRasterWindow`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSize(self: QRasterWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.QRasterWindow_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

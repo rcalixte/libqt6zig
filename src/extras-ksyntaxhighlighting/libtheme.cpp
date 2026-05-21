@@ -21,7 +21,7 @@ bool KSyntaxHighlighting__Theme_IsValid(const KSyntaxHighlighting__Theme* self) 
 }
 
 libqt_string KSyntaxHighlighting__Theme_Name(const KSyntaxHighlighting__Theme* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -33,7 +33,7 @@ libqt_string KSyntaxHighlighting__Theme_Name(const KSyntaxHighlighting__Theme* s
 }
 
 libqt_string KSyntaxHighlighting__Theme_TranslatedName(const KSyntaxHighlighting__Theme* self) {
-    QString _ret = self->translatedName();
+    auto _ret = self->translatedName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -49,7 +49,7 @@ bool KSyntaxHighlighting__Theme_IsReadOnly(const KSyntaxHighlighting__Theme* sel
 }
 
 libqt_string KSyntaxHighlighting__Theme_FilePath(const KSyntaxHighlighting__Theme* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

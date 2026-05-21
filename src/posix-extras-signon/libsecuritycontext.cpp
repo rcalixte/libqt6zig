@@ -24,7 +24,7 @@ void SignOn__SecurityContext_SetSystemContext(SignOn__SecurityContext* self, con
 }
 
 libqt_string SignOn__SecurityContext_SystemContext(const SignOn__SecurityContext* self) {
-    QString _ret = self->systemContext();
+    auto _ret = self->systemContext();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -41,7 +41,7 @@ void SignOn__SecurityContext_SetApplicationContext(SignOn__SecurityContext* self
 }
 
 libqt_string SignOn__SecurityContext_ApplicationContext(const SignOn__SecurityContext* self) {
-    QString _ret = self->applicationContext();
+    auto _ret = self->applicationContext();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

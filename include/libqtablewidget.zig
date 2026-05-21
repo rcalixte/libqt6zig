@@ -796,6 +796,8 @@ pub const QTableWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidgetItem, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QTableWidgetItem, callback: *const fn (QTableWidgetItem, i32) callconv(.c) QVariant) void {
         qtc.QTableWidgetItem_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9810,6 +9812,8 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: QTableWidget, callback: *const fn (QTableWidget, QModelIndex) callconv(.c) QRect) void {
         qtc.QTableWidget_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9921,6 +9925,8 @@ pub const QTableWidget = extern struct {
     /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn (self: QTableWidget, p: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: QTableWidget, callback: *const fn (QTableWidget, QPoint) callconv(.c) QModelIndex) void {
         qtc.QTableWidget_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10292,6 +10298,8 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTableWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMoveCursor(self: QTableWidget, callback: *const fn (QTableWidget, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QTableWidget_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10403,6 +10411,8 @@ pub const QTableWidget = extern struct {
     /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn (self: QTableWidget, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: QTableWidget, callback: *const fn (QTableWidget, QItemSelection) callconv(.c) QRegion) void {
         qtc.QTableWidget_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10569,6 +10579,8 @@ pub const QTableWidget = extern struct {
     /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTableWidget_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -11117,6 +11129,8 @@ pub const QTableWidget = extern struct {
     /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn (self: QTableWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QTableWidget, callback: *const fn (QTableWidget, i32) callconv(.c) QVariant) void {
         qtc.QTableWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12822,6 +12836,8 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTableWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12869,6 +12885,8 @@ pub const QTableWidget = extern struct {
     /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QTableWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTableWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15080,6 +15098,8 @@ pub const QTableWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: QTableWidget, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QTableWidget_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -15391,6 +15411,8 @@ pub const QTableWidget = extern struct {
     /// ` self: QTableWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QTableWidget, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QTableWidget_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

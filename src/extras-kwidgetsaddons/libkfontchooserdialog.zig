@@ -5504,6 +5504,8 @@ pub const KFontChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KFontChooserDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFontChooserDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5551,6 +5553,8 @@ pub const KFontChooserDialog = extern struct {
     /// ` self: KFontChooserDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KFontChooserDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KFontChooserDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7837,6 +7841,8 @@ pub const KFontChooserDialog = extern struct {
     /// ` self: KFontChooserDialog`
     ///
     /// ` callback: *const fn (self: KFontChooserDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KFontChooserDialog, callback: *const fn (KFontChooserDialog, i32) callconv(.c) QVariant) void {
         qtc.KFontChooserDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

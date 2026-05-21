@@ -238,7 +238,7 @@ libqt_list /* of libqt_string */ KEncodingFileDialog__Result_FileNames(const KEn
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* fileNames_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (fileNames_ret.size())));
     for (qsizetype i = 0; i < fileNames_ret.size(); ++i) {
-        QString fileNames_lv_ret = fileNames_ret[i];
+        auto fileNames_lv_ret = fileNames_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray fileNames_lv_b = fileNames_lv_ret.toUtf8();
         libqt_string fileNames_lv_str;
@@ -289,7 +289,7 @@ void KEncodingFileDialog__Result_SetURLs(KEncodingFileDialog__Result* self, libq
 }
 
 libqt_string KEncodingFileDialog__Result_Encoding(const KEncodingFileDialog__Result* self) {
-    QString encoding_ret = self->encoding;
+    auto encoding_ret = self->encoding;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray encoding_b = encoding_ret.toUtf8();
     libqt_string encoding_str;

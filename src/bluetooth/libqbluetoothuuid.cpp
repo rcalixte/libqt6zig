@@ -70,7 +70,7 @@ __uint128_t QBluetoothUuid_ToUInt128(const QBluetoothUuid* self) {
 }
 
 libqt_string QBluetoothUuid_ServiceClassToString(int uuid) {
-    QString _ret = QBluetoothUuid::serviceClassToString(static_cast<QBluetoothUuid::ServiceClassUuid>(uuid));
+    auto _ret = QBluetoothUuid::serviceClassToString(static_cast<QBluetoothUuid::ServiceClassUuid>(uuid));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ libqt_string QBluetoothUuid_ServiceClassToString(int uuid) {
 }
 
 libqt_string QBluetoothUuid_ProtocolToString(int uuid) {
-    QString _ret = QBluetoothUuid::protocolToString(static_cast<QBluetoothUuid::ProtocolUuid>(uuid));
+    auto _ret = QBluetoothUuid::protocolToString(static_cast<QBluetoothUuid::ProtocolUuid>(uuid));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -94,7 +94,7 @@ libqt_string QBluetoothUuid_ProtocolToString(int uuid) {
 }
 
 libqt_string QBluetoothUuid_CharacteristicToString(int uuid) {
-    QString _ret = QBluetoothUuid::characteristicToString(static_cast<QBluetoothUuid::CharacteristicType>(uuid));
+    auto _ret = QBluetoothUuid::characteristicToString(static_cast<QBluetoothUuid::CharacteristicType>(uuid));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,7 +106,7 @@ libqt_string QBluetoothUuid_CharacteristicToString(int uuid) {
 }
 
 libqt_string QBluetoothUuid_DescriptorToString(int uuid) {
-    QString _ret = QBluetoothUuid::descriptorToString(static_cast<QBluetoothUuid::DescriptorType>(uuid));
+    auto _ret = QBluetoothUuid::descriptorToString(static_cast<QBluetoothUuid::DescriptorType>(uuid));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

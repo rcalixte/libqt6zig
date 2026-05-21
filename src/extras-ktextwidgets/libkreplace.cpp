@@ -116,7 +116,7 @@ void KReplace_TextReplaced(KReplace* self, const libqt_string text, int replacem
 void KReplace_Connect_TextReplaced(KReplace* self, intptr_t slot) {
     void (*slotFunc)(KReplace*, const char*, int, int, int) = reinterpret_cast<void (*)(KReplace*, const char*, int, int, int)>(slot);
     KReplace::connect(self, &KReplace::textReplaced, [self, slotFunc](const QString& text, int replacementIndex, int replacedLength, int matchedLength) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

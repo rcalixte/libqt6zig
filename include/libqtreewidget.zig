@@ -984,6 +984,8 @@ pub const QTreeWidgetItem = extern struct {
     ///
     /// ` callback: *const fn (self: QTreeWidgetItem, column: i32, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QTreeWidgetItem, callback: *const fn (QTreeWidgetItem, i32, i32) callconv(.c) QVariant) void {
         qtc.QTreeWidgetItem_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10222,6 +10224,8 @@ pub const QTreeWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTreeWidget, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: QTreeWidget, callback: *const fn (QTreeWidget, QModelIndex) callconv(.c) QRect) void {
         qtc.QTreeWidget_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10333,6 +10337,8 @@ pub const QTreeWidget = extern struct {
     /// ` self: QTreeWidget`
     ///
     /// ` callback: *const fn (self: QTreeWidget, p: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: QTreeWidget, callback: *const fn (QTreeWidget, QPoint) callconv(.c) QModelIndex) void {
         qtc.QTreeWidget_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10838,6 +10844,8 @@ pub const QTreeWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QTreeWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMoveCursor(self: QTreeWidget, callback: *const fn (QTreeWidget, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QTreeWidget_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -11045,6 +11053,8 @@ pub const QTreeWidget = extern struct {
     /// ` self: QTreeWidget`
     ///
     /// ` callback: *const fn (self: QTreeWidget, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: QTreeWidget, callback: *const fn (QTreeWidget, QItemSelection) callconv(.c) QRegion) void {
         qtc.QTreeWidget_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -11884,6 +11894,8 @@ pub const QTreeWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnViewportSizeHint(self: QTreeWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTreeWidget_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12319,6 +12331,8 @@ pub const QTreeWidget = extern struct {
     /// ` self: QTreeWidget`
     ///
     /// ` callback: *const fn (self: QTreeWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QTreeWidget, callback: *const fn (QTreeWidget, i32) callconv(.c) QVariant) void {
         qtc.QTreeWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -13408,6 +13422,8 @@ pub const QTreeWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QTreeWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTreeWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -13455,6 +13471,8 @@ pub const QTreeWidget = extern struct {
     /// ` self: QTreeWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QTreeWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTreeWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15702,6 +15720,8 @@ pub const QTreeWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: QTreeWidget, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QTreeWidget_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -16013,6 +16033,8 @@ pub const QTreeWidget = extern struct {
     /// ` self: QTreeWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QTreeWidget, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QTreeWidget_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

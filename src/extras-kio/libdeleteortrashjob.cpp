@@ -327,7 +327,7 @@ void KIO__DeleteOrTrashJob_OnDoResume(KIO__DeleteOrTrashJob* self, intptr_t slot
 libqt_string KIO__DeleteOrTrashJob_ErrorString(const KIO__DeleteOrTrashJob* self) {
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
-        QString _ret = vkiodeleteortrashjob->errorString();
+        auto _ret = vkiodeleteortrashjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -337,7 +337,7 @@ libqt_string KIO__DeleteOrTrashJob_ErrorString(const KIO__DeleteOrTrashJob* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::DeleteOrTrashJob::errorString();
+        auto _ret = self->KIO::DeleteOrTrashJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -354,7 +354,7 @@ libqt_string KIO__DeleteOrTrashJob_SuperErrorString(const KIO__DeleteOrTrashJob*
     auto* vkiodeleteortrashjob = const_cast<VirtualKIODeleteOrTrashJob*>(dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self));
     if (vkiodeleteortrashjob && vkiodeleteortrashjob->isVirtualKIODeleteOrTrashJob) {
         vkiodeleteortrashjob->setKIO__DeleteOrTrashJob_ErrorString_IsBase(true);
-        QString _ret = vkiodeleteortrashjob->errorString();
+        auto _ret = vkiodeleteortrashjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -364,7 +364,7 @@ libqt_string KIO__DeleteOrTrashJob_SuperErrorString(const KIO__DeleteOrTrashJob*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::DeleteOrTrashJob::errorString();
+        auto _ret = self->KIO::DeleteOrTrashJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -11,7 +11,7 @@ bool Poppler__MediaRendition_IsValid(const Poppler__MediaRendition* self) {
 }
 
 libqt_string Poppler__MediaRendition_ContentType(const Poppler__MediaRendition* self) {
-    QString _ret = self->contentType();
+    auto _ret = self->contentType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -23,7 +23,7 @@ libqt_string Poppler__MediaRendition_ContentType(const Poppler__MediaRendition* 
 }
 
 libqt_string Poppler__MediaRendition_FileName(const Poppler__MediaRendition* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

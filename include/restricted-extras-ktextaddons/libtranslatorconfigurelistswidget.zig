@@ -5290,6 +5290,8 @@ pub const TextTranslator__TranslatorConfigureListsWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextTranslator__TranslatorConfigureListsWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureListsWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5337,6 +5339,8 @@ pub const TextTranslator__TranslatorConfigureListsWidget = extern struct {
     /// ` self: TextTranslator__TranslatorConfigureListsWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextTranslator__TranslatorConfigureListsWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureListsWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7271,6 +7275,8 @@ pub const TextTranslator__TranslatorConfigureListsWidget = extern struct {
     /// ` self: TextTranslator__TranslatorConfigureListsWidget`
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureListsWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextTranslator__TranslatorConfigureListsWidget, callback: *const fn (TextTranslator__TranslatorConfigureListsWidget, i32) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorConfigureListsWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

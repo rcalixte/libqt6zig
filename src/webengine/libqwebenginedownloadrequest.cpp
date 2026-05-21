@@ -42,7 +42,7 @@ QUrl* QWebEngineDownloadRequest_Url(const QWebEngineDownloadRequest* self) {
 }
 
 libqt_string QWebEngineDownloadRequest_MimeType(const QWebEngineDownloadRequest* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ int QWebEngineDownloadRequest_InterruptReason(const QWebEngineDownloadRequest* s
 }
 
 libqt_string QWebEngineDownloadRequest_InterruptReasonString(const QWebEngineDownloadRequest* self) {
-    QString _ret = self->interruptReasonString();
+    auto _ret = self->interruptReasonString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ bool QWebEngineDownloadRequest_IsSavePageDownload(const QWebEngineDownloadReques
 }
 
 libqt_string QWebEngineDownloadRequest_SuggestedFileName(const QWebEngineDownloadRequest* self) {
-    QString _ret = self->suggestedFileName();
+    auto _ret = self->suggestedFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ libqt_string QWebEngineDownloadRequest_SuggestedFileName(const QWebEngineDownloa
 }
 
 libqt_string QWebEngineDownloadRequest_DownloadDirectory(const QWebEngineDownloadRequest* self) {
-    QString _ret = self->downloadDirectory();
+    auto _ret = self->downloadDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ void QWebEngineDownloadRequest_SetDownloadDirectory(QWebEngineDownloadRequest* s
 }
 
 libqt_string QWebEngineDownloadRequest_DownloadFileName(const QWebEngineDownloadRequest* self) {
-    QString _ret = self->downloadFileName();
+    auto _ret = self->downloadFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

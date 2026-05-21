@@ -811,6 +811,8 @@ pub const QAbstractSocket = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSocketOption(self: QAbstractSocket, callback: *const fn (QAbstractSocket, i32) callconv(.c) QVariant) void {
         qtc.QAbstractSocket_OnSocketOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

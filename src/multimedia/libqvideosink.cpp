@@ -52,7 +52,7 @@ QSize* QVideoSink_VideoSize(const QVideoSink* self) {
 }
 
 libqt_string QVideoSink_SubtitleText(const QVideoSink* self) {
-    QString _ret = self->subtitleText();
+    auto _ret = self->subtitleText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -98,7 +98,7 @@ void QVideoSink_SubtitleTextChanged(const QVideoSink* self, const libqt_string s
 void QVideoSink_Connect_SubtitleTextChanged(const QVideoSink* self, intptr_t slot) {
     void (*slotFunc)(const QVideoSink*, const char*) = reinterpret_cast<void (*)(const QVideoSink*, const char*)>(slot);
     QVideoSink::connect(self, &QVideoSink::subtitleTextChanged, [self, slotFunc](const QString& subtitleText) {
-        const QString subtitleText_ret = subtitleText;
+        const auto subtitleText_ret = subtitleText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray subtitleText_b = subtitleText_ret.toUtf8();
         auto subtitleText_str_len = subtitleText_b.length();

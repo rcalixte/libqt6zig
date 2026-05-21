@@ -28,6 +28,7 @@ QStringEncoder* QStringEncoder_new3(const char* name);
 QStringEncoder* QStringEncoder_new4(int encoding, int flags);
 QStringEncoder* QStringEncoder_new5(const char* name, int flags);
 ptrdiff_t QStringEncoder_RequiredSpace(const QStringEncoder* self, ptrdiff_t inputLength);
+char* QStringEncoder_AppendToBuffer(QStringEncoder* self, char* out, libqt_string in);
 void QStringEncoder_Delete(QStringEncoder* self);
 
 QStringDecoder* QStringDecoder_new(int encoding);

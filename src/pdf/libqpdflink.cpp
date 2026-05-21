@@ -45,7 +45,7 @@ QUrl* QPdfLink_Url(const QPdfLink* self) {
 }
 
 libqt_string QPdfLink_ContextBefore(const QPdfLink* self) {
-    QString _ret = self->contextBefore();
+    auto _ret = self->contextBefore();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ libqt_string QPdfLink_ContextBefore(const QPdfLink* self) {
 }
 
 libqt_string QPdfLink_ContextAfter(const QPdfLink* self) {
-    QString _ret = self->contextAfter();
+    auto _ret = self->contextAfter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ libqt_list /* of QRectF* */ QPdfLink_Rectangles(const QPdfLink* self) {
 }
 
 libqt_string QPdfLink_ToString(const QPdfLink* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -51,7 +51,7 @@ int Poppler__FormField_Id(const Poppler__FormField* self) {
 }
 
 libqt_string Poppler__FormField_Name(const Poppler__FormField* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -68,7 +68,7 @@ void Poppler__FormField_SetName(const Poppler__FormField* self, const libqt_stri
 }
 
 libqt_string Poppler__FormField_FullyQualifiedName(const Poppler__FormField* self) {
-    QString _ret = self->fullyQualifiedName();
+    auto _ret = self->fullyQualifiedName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -80,7 +80,7 @@ libqt_string Poppler__FormField_FullyQualifiedName(const Poppler__FormField* sel
 }
 
 libqt_string Poppler__FormField_UiName(const Poppler__FormField* self) {
-    QString _ret = self->uiName();
+    auto _ret = self->uiName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -140,7 +140,7 @@ int Poppler__FormFieldButton_ButtonType(const Poppler__FormFieldButton* self) {
 }
 
 libqt_string Poppler__FormFieldButton_Caption(const Poppler__FormFieldButton* self) {
-    QString _ret = self->caption();
+    auto _ret = self->caption();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ int Poppler__FormFieldText_TextType(const Poppler__FormFieldText* self) {
 }
 
 libqt_string Poppler__FormFieldText_Text(const Poppler__FormFieldText* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -259,7 +259,7 @@ libqt_list /* of libqt_string */ Poppler__FormFieldChoice_Choices(const Poppler_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -284,7 +284,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ Poppler__F
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _vv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
         libqt_string* _vv_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        QString _vv_first_ret = _vv_ret.first;
+        auto _vv_first_ret = _vv_ret.first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _vv_first_b = _vv_first_ret.toUtf8();
         libqt_string _vv_first_str;
@@ -293,7 +293,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ Poppler__F
         memcpy((void*)_vv_first_str.data, _vv_first_b.data(), _vv_first_str.len);
         ((char*)_vv_first_str.data)[_vv_first_str.len] = '\0';
         *_vv_first = _vv_first_str;
-        QString _vv_second_ret = _vv_ret.second;
+        auto _vv_second_ret = _vv_ret.second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _vv_second_b = _vv_second_ret.toUtf8();
         libqt_string _vv_second_str;
@@ -345,7 +345,7 @@ void Poppler__FormFieldChoice_SetCurrentChoices(Poppler__FormFieldChoice* self, 
 }
 
 libqt_string Poppler__FormFieldChoice_EditChoice(const Poppler__FormFieldChoice* self) {
-    QString _ret = self->editChoice();
+    auto _ret = self->editChoice();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -404,7 +404,7 @@ libqt_string Poppler__CertificateInfo_SerialNumber(const Poppler__CertificateInf
 }
 
 libqt_string Poppler__CertificateInfo_IssuerInfo(const Poppler__CertificateInfo* self, int key) {
-    QString _ret = self->issuerInfo(static_cast<Poppler::CertificateInfo::EntityInfoKey>(key));
+    auto _ret = self->issuerInfo(static_cast<Poppler::CertificateInfo::EntityInfoKey>(key));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -416,7 +416,7 @@ libqt_string Poppler__CertificateInfo_IssuerInfo(const Poppler__CertificateInfo*
 }
 
 libqt_string Poppler__CertificateInfo_SubjectInfo(const Poppler__CertificateInfo* self, int key) {
-    QString _ret = self->subjectInfo(static_cast<Poppler::CertificateInfo::EntityInfoKey>(key));
+    auto _ret = self->subjectInfo(static_cast<Poppler::CertificateInfo::EntityInfoKey>(key));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -428,7 +428,7 @@ libqt_string Poppler__CertificateInfo_SubjectInfo(const Poppler__CertificateInfo
 }
 
 libqt_string Poppler__CertificateInfo_NickName(const Poppler__CertificateInfo* self) {
-    QString _ret = self->nickName();
+    auto _ret = self->nickName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -519,7 +519,7 @@ int Poppler__SignatureValidationInfo_CertificateStatus(const Poppler__SignatureV
 }
 
 libqt_string Poppler__SignatureValidationInfo_SignerName(const Poppler__SignatureValidationInfo* self) {
-    QString _ret = self->signerName();
+    auto _ret = self->signerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -531,7 +531,7 @@ libqt_string Poppler__SignatureValidationInfo_SignerName(const Poppler__Signatur
 }
 
 libqt_string Poppler__SignatureValidationInfo_SignerSubjectDN(const Poppler__SignatureValidationInfo* self) {
-    QString _ret = self->signerSubjectDN();
+    auto _ret = self->signerSubjectDN();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -543,7 +543,7 @@ libqt_string Poppler__SignatureValidationInfo_SignerSubjectDN(const Poppler__Sig
 }
 
 libqt_string Poppler__SignatureValidationInfo_Location(const Poppler__SignatureValidationInfo* self) {
-    QString _ret = self->location();
+    auto _ret = self->location();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -555,7 +555,7 @@ libqt_string Poppler__SignatureValidationInfo_Location(const Poppler__SignatureV
 }
 
 libqt_string Poppler__SignatureValidationInfo_Reason(const Poppler__SignatureValidationInfo* self) {
-    QString _ret = self->reason();
+    auto _ret = self->reason();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1106,7 +1106,7 @@ libqt_list /* of Poppler__CertificateInfo* */ Poppler_GetAvailableSigningCertifi
 }
 
 libqt_string Poppler_GetNSSDir() {
-    QString _ret = Poppler::getNSSDir();
+    auto _ret = Poppler::getNSSDir();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

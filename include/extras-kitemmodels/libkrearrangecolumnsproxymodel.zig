@@ -334,6 +334,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -384,6 +386,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnParent(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -430,6 +434,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapFromSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -475,6 +481,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapToSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -524,6 +532,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KRearrangeColumnsProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -623,6 +633,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     /// ` self: KRearrangeColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2153,6 +2165,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionFromSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KRearrangeColumnsProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2206,6 +2220,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionToSource(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KRearrangeColumnsProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2901,6 +2917,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, proxyIndex: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KRearrangeColumnsProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3389,6 +3407,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3606,6 +3626,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KRearrangeColumnsProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4687,6 +4709,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4742,6 +4766,8 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     /// ` self: KRearrangeColumnsProxyModel`
     ///
     /// ` callback: *const fn (self: KRearrangeColumnsProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KRearrangeColumnsProxyModel, callback: *const fn (KRearrangeColumnsProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KRearrangeColumnsProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -55,7 +55,7 @@ Poppler__TextBox* Poppler__TextBox_new(const libqt_string text, const QRectF* bB
 }
 
 libqt_string Poppler__TextBox_Text(const Poppler__TextBox* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -95,7 +95,7 @@ Poppler__FontInfo* Poppler__FontInfo_new2(const Poppler__FontInfo* fi) {
 }
 
 libqt_string Poppler__FontInfo_Name(const Poppler__FontInfo* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ libqt_string Poppler__FontInfo_Name(const Poppler__FontInfo* self) {
 }
 
 libqt_string Poppler__FontInfo_SubstituteName(const Poppler__FontInfo* self) {
-    QString _ret = self->substituteName();
+    auto _ret = self->substituteName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ libqt_string Poppler__FontInfo_SubstituteName(const Poppler__FontInfo* self) {
 }
 
 libqt_string Poppler__FontInfo_File(const Poppler__FontInfo* self) {
-    QString _ret = self->file();
+    auto _ret = self->file();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -143,7 +143,7 @@ int Poppler__FontInfo_Type(const Poppler__FontInfo* self) {
 }
 
 libqt_string Poppler__FontInfo_TypeName(const Poppler__FontInfo* self) {
-    QString _ret = self->typeName();
+    auto _ret = self->typeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -188,7 +188,7 @@ void Poppler__FontIterator_Delete(Poppler__FontIterator* self) {
 }
 
 libqt_string Poppler__EmbeddedFile_Name(const Poppler__EmbeddedFile* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -200,7 +200,7 @@ libqt_string Poppler__EmbeddedFile_Name(const Poppler__EmbeddedFile* self) {
 }
 
 libqt_string Poppler__EmbeddedFile_Description(const Poppler__EmbeddedFile* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -233,7 +233,7 @@ libqt_string Poppler__EmbeddedFile_Checksum(const Poppler__EmbeddedFile* self) {
 }
 
 libqt_string Poppler__EmbeddedFile_MimeType(const Poppler__EmbeddedFile* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -287,7 +287,7 @@ QImage* Poppler__Page_Thumbnail(const Poppler__Page* self) {
 }
 
 libqt_string Poppler__Page_Text(const Poppler__Page* self, const QRectF* rect, int textLayout) {
-    QString _ret = self->text(*rect, static_cast<Poppler::Page::TextLayout>(textLayout));
+    auto _ret = self->text(*rect, static_cast<Poppler::Page::TextLayout>(textLayout));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -299,7 +299,7 @@ libqt_string Poppler__Page_Text(const Poppler__Page* self, const QRectF* rect, i
 }
 
 libqt_string Poppler__Page_Text2(const Poppler__Page* self, const QRectF* rect) {
-    QString _ret = self->text(*rect);
+    auto _ret = self->text(*rect);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -452,7 +452,7 @@ double Poppler__Page_Duration(const Poppler__Page* self) {
 }
 
 libqt_string Poppler__Page_Label(const Poppler__Page* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -599,7 +599,7 @@ bool Poppler__OutlineItem_IsNull(const Poppler__OutlineItem* self) {
 }
 
 libqt_string Poppler__OutlineItem_Name(const Poppler__OutlineItem* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -615,7 +615,7 @@ bool Poppler__OutlineItem_IsOpen(const Poppler__OutlineItem* self) {
 }
 
 libqt_string Poppler__OutlineItem_ExternalFileName(const Poppler__OutlineItem* self) {
-    QString _ret = self->externalFileName();
+    auto _ret = self->externalFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -627,7 +627,7 @@ libqt_string Poppler__OutlineItem_ExternalFileName(const Poppler__OutlineItem* s
 }
 
 libqt_string Poppler__OutlineItem_Uri(const Poppler__OutlineItem* self) {
-    QString _ret = self->uri();
+    auto _ret = self->uri();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -753,7 +753,7 @@ bool Poppler__Document_SetModificationDate(Poppler__Document* self, const QDateT
 
 libqt_string Poppler__Document_Info(const Poppler__Document* self, const libqt_string typeVal) {
     QString typeVal_QString = QString::fromUtf8(typeVal.data, typeVal.len);
-    QString _ret = self->info(typeVal_QString);
+    auto _ret = self->info(typeVal_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -771,7 +771,7 @@ bool Poppler__Document_SetInfo(Poppler__Document* self, const libqt_string key, 
 }
 
 libqt_string Poppler__Document_Title(const Poppler__Document* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -788,7 +788,7 @@ bool Poppler__Document_SetTitle(Poppler__Document* self, const libqt_string val)
 }
 
 libqt_string Poppler__Document_Author(const Poppler__Document* self) {
-    QString _ret = self->author();
+    auto _ret = self->author();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -805,7 +805,7 @@ bool Poppler__Document_SetAuthor(Poppler__Document* self, const libqt_string val
 }
 
 libqt_string Poppler__Document_Subject(const Poppler__Document* self) {
-    QString _ret = self->subject();
+    auto _ret = self->subject();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -822,7 +822,7 @@ bool Poppler__Document_SetSubject(Poppler__Document* self, const libqt_string va
 }
 
 libqt_string Poppler__Document_Keywords(const Poppler__Document* self) {
-    QString _ret = self->keywords();
+    auto _ret = self->keywords();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -839,7 +839,7 @@ bool Poppler__Document_SetKeywords(Poppler__Document* self, const libqt_string v
 }
 
 libqt_string Poppler__Document_Creator(const Poppler__Document* self) {
-    QString _ret = self->creator();
+    auto _ret = self->creator();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -856,7 +856,7 @@ bool Poppler__Document_SetCreator(Poppler__Document* self, const libqt_string va
 }
 
 libqt_string Poppler__Document_Producer(const Poppler__Document* self) {
-    QString _ret = self->producer();
+    auto _ret = self->producer();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -881,7 +881,7 @@ libqt_list /* of libqt_string */ Poppler__Document_InfoKeys(const Poppler__Docum
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -1054,7 +1054,7 @@ Poppler__PDFConverter* Poppler__Document_PdfConverter(const Poppler__Document* s
 }
 
 libqt_string Poppler__Document_Metadata(const Poppler__Document* self) {
-    QString _ret = self->metadata();
+    auto _ret = self->metadata();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1082,7 +1082,7 @@ libqt_list /* of libqt_string */ Poppler__Document_Scripts(const Poppler__Docume
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -1197,7 +1197,7 @@ int Poppler__SoundObject_SoundType(const Poppler__SoundObject* self) {
 }
 
 libqt_string Poppler__SoundObject_Url(const Poppler__SoundObject* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1238,7 +1238,7 @@ void Poppler__SoundObject_Delete(Poppler__SoundObject* self) {
 }
 
 libqt_string Poppler__MovieObject_Url(const Poppler__MovieObject* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

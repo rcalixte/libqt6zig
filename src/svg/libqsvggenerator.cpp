@@ -21,7 +21,7 @@ QSvgGenerator* QSvgGenerator_new2(int version) {
 }
 
 libqt_string QSvgGenerator_Title(const QSvgGenerator* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ void QSvgGenerator_SetTitle(QSvgGenerator* self, const libqt_string title) {
 }
 
 libqt_string QSvgGenerator_Description(const QSvgGenerator* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -79,7 +79,7 @@ void QSvgGenerator_SetViewBox2(QSvgGenerator* self, const QRectF* viewBox) {
 }
 
 libqt_string QSvgGenerator_FileName(const QSvgGenerator* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -62,7 +62,7 @@ void KXMessages_GotMessage(KXMessages* self, const libqt_string message) {
 void KXMessages_Connect_GotMessage(KXMessages* self, intptr_t slot) {
     void (*slotFunc)(KXMessages*, const char*) = reinterpret_cast<void (*)(KXMessages*, const char*)>(slot);
     KXMessages::connect(self, &KXMessages::gotMessage, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();

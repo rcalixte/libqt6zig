@@ -7613,6 +7613,8 @@ pub const QFileDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QFileDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFileDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7660,6 +7662,8 @@ pub const QFileDialog = extern struct {
     /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QFileDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFileDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9792,6 +9796,8 @@ pub const QFileDialog = extern struct {
     /// ` self: QFileDialog`
     ///
     /// ` callback: *const fn (self: QFileDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QFileDialog, callback: *const fn (QFileDialog, i32) callconv(.c) QVariant) void {
         qtc.QFileDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

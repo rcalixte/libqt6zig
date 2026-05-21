@@ -5533,6 +5533,8 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapRegionSelectorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5580,6 +5582,8 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPixmapRegionSelectorWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapRegionSelectorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7514,6 +7518,8 @@ pub const KPixmapRegionSelectorWidget = extern struct {
     /// ` self: KPixmapRegionSelectorWidget`
     ///
     /// ` callback: *const fn (self: KPixmapRegionSelectorWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPixmapRegionSelectorWidget, callback: *const fn (KPixmapRegionSelectorWidget, i32) callconv(.c) QVariant) void {
         qtc.KPixmapRegionSelectorWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

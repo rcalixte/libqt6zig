@@ -80,7 +80,7 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         }
         auto setdesktopentryname_cb = kurifiltersearchprovider_setdesktopentryname_callback;
         if (setdesktopentryname_cb) {
-            const QString desktopEntryName_ret = desktopEntryName;
+            const auto desktopEntryName_ret = desktopEntryName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray desktopEntryName_b = desktopEntryName_ret.toUtf8();
             auto desktopEntryName_str_len = desktopEntryName_b.length();
@@ -104,7 +104,7 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         }
         auto seticonname_cb = kurifiltersearchprovider_seticonname_callback;
         if (seticonname_cb) {
-            const QString iconName_ret = iconName;
+            const auto iconName_ret = iconName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iconName_b = iconName_ret.toUtf8();
             auto iconName_str_len = iconName_b.length();
@@ -158,7 +158,7 @@ class VirtualKUriFilterSearchProvider final : public KUriFilterSearchProvider {
         }
         auto setname_cb = kurifiltersearchprovider_setname_callback;
         if (setname_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

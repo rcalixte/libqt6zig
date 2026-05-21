@@ -77,7 +77,7 @@ int QAbstractTextDocumentLayout_HitTest(const QAbstractTextDocumentLayout* self,
 }
 
 libqt_string QAbstractTextDocumentLayout_AnchorAt(const QAbstractTextDocumentLayout* self, const QPointF* pos) {
-    QString _ret = self->anchorAt(*pos);
+    auto _ret = self->anchorAt(*pos);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ libqt_string QAbstractTextDocumentLayout_AnchorAt(const QAbstractTextDocumentLay
 }
 
 libqt_string QAbstractTextDocumentLayout_ImageAt(const QAbstractTextDocumentLayout* self, const QPointF* pos) {
-    QString _ret = self->imageAt(*pos);
+    auto _ret = self->imageAt(*pos);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

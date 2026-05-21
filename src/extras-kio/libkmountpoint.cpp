@@ -16,7 +16,7 @@ KMountPoint__List* KMountPoint_CurrentMountPoints() {
 }
 
 libqt_string KMountPoint_MountedFrom(const KMountPoint* self) {
-    QString _ret = self->mountedFrom();
+    auto _ret = self->mountedFrom();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -36,7 +36,7 @@ dev_t KMountPoint_DeviceId(const KMountPoint* self) {
 }
 
 libqt_string KMountPoint_RealDeviceName(const KMountPoint* self) {
-    QString _ret = self->realDeviceName();
+    auto _ret = self->realDeviceName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string KMountPoint_RealDeviceName(const KMountPoint* self) {
 }
 
 libqt_string KMountPoint_MountPoint(const KMountPoint* self) {
-    QString _ret = self->mountPoint();
+    auto _ret = self->mountPoint();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ libqt_string KMountPoint_MountPoint(const KMountPoint* self) {
 }
 
 libqt_string KMountPoint_MountType(const KMountPoint* self) {
-    QString _ret = self->mountType();
+    auto _ret = self->mountType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,7 +76,7 @@ libqt_list /* of libqt_string */ KMountPoint_MountOptions(const KMountPoint* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

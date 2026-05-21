@@ -25,6 +25,7 @@ libqt_list /* of libqt_string */ KStringHandler_Capwords2(const libqt_list /* of
 libqt_string KStringHandler_Lsqueeze(const libqt_string param1, int param2);
 libqt_string KStringHandler_Csqueeze(const libqt_string param1, int param2);
 libqt_string KStringHandler_Rsqueeze(const libqt_string param1, int param2);
+libqt_list /* of libqt_string */ KStringHandler_PerlSplit(const libqt_string param1, const libqt_string param2, int param3);
 libqt_list /* of libqt_string */ KStringHandler_PerlSplit2(const libqt_string param1, const libqt_string param2, int param3);
 libqt_list /* of libqt_string */ KStringHandler_PerlSplit3(const QChar* param1, const libqt_string param2, int param3);
 libqt_list /* of libqt_string */ KStringHandler_PerlSplit4(const QRegularExpression* param1, const libqt_string param2, int param3);

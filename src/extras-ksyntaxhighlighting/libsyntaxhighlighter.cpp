@@ -2,6 +2,7 @@
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/FoldingRegion>
 #include <KSyntaxHighlighting/Format>
+#include <KSyntaxHighlighting/State>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__SyntaxHighlighter
 #include <KSyntaxHighlighting/Theme>
 #include <QChildEvent>
@@ -804,6 +805,35 @@ void KSyntaxHighlighting__SyntaxHighlighter_OnIsSignalConnected(const KSyntaxHig
     auto* vksyntaxhighlightingsyntaxhighlighter = const_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self));
     if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
         vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_HighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state) {
+    auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+        return new KSyntaxHighlighting::State(vksyntaxhighlightingsyntaxhighlighter->highlightLine(text_QString, *state));
+    }
+    return {};
+}
+
+// Base class handler implementation
+KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state) {
+    auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+        vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_HighlightLine_IsBase(true);
+        return new KSyntaxHighlighting::State(vksyntaxhighlightingsyntaxhighlighter->highlightLine(text_QString, *state));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void KSyntaxHighlighting__SyntaxHighlighter_OnHighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot) {
+    auto* vksyntaxhighlightingsyntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
+    if (vksyntaxhighlightingsyntaxhighlighter && vksyntaxhighlightingsyntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
+        vksyntaxhighlightingsyntaxhighlighter->setKSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback(reinterpret_cast<VirtualKSyntaxHighlightingSyntaxHighlighter::KSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback>(slot));
     }
 }
 

@@ -218,7 +218,7 @@ class VirtualQDesignerWidgetFactoryInterface : public QDesignerWidgetFactoryInte
     virtual QWidget* createWidget(const QString& name, QWidget* parentWidget) const override {
         auto createwidget_cb = qdesignerwidgetfactoryinterface_createwidget_callback;
         if (createwidget_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

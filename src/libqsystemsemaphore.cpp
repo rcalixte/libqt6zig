@@ -51,7 +51,7 @@ void QSystemSemaphore_SetKey(QSystemSemaphore* self, const libqt_string key) {
 }
 
 libqt_string QSystemSemaphore_Key(const QSystemSemaphore* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -75,7 +75,7 @@ int QSystemSemaphore_Error(const QSystemSemaphore* self) {
 }
 
 libqt_string QSystemSemaphore_ErrorString(const QSystemSemaphore* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

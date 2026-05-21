@@ -433,7 +433,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         }
         auto doaction_cb = qaccessiblewidget_doaction_callback;
         if (doaction_cb) {
-            const QString actionName_ret = actionName;
+            const auto actionName_ret = actionName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray actionName_b = actionName_ret.toUtf8();
             auto actionName_str_len = actionName_b.length();
@@ -456,7 +456,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         }
         auto keybindingsforaction_cb = qaccessiblewidget_keybindingsforaction_callback;
         if (keybindingsforaction_cb) {
-            const QString actionName_ret = actionName;
+            const auto actionName_ret = actionName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray actionName_b = actionName_ret.toUtf8();
             auto actionName_str_len = actionName_b.length();
@@ -504,7 +504,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         auto settext_cb = qaccessiblewidget_settext_callback;
         if (settext_cb) {
             int cbval1 = static_cast<int>(t);
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -560,7 +560,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         }
         auto localizedactionname_cb = qaccessiblewidget_localizedactionname_callback;
         if (localizedactionname_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -584,7 +584,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         }
         auto localizedactiondescription_cb = qaccessiblewidget_localizedactiondescription_callback;
         if (localizedactiondescription_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -637,7 +637,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         }
         auto addcontrollingsignal_cb = qaccessiblewidget_addcontrollingsignal_callback;
         if (addcontrollingsignal_cb) {
-            const QString signal_ret = signal;
+            const auto signal_ret = signal;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray signal_b = signal_ret.toUtf8();
             auto signal_str_len = signal_b.length();

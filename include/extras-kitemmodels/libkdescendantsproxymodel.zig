@@ -321,6 +321,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapFromSource(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -366,6 +368,8 @@ pub const KDescendantsProxyModel = extern struct {
     /// ` self: KDescendantsProxyModel `
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapToSource(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -469,6 +473,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KDescendantsProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -565,6 +571,8 @@ pub const KDescendantsProxyModel = extern struct {
     /// ` self: KDescendantsProxyModel `
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KDescendantsProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -791,6 +799,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, param1: i32, param2: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -840,6 +850,8 @@ pub const KDescendantsProxyModel = extern struct {
     /// ` self: KDescendantsProxyModel `
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, param1: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2730,6 +2742,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionToSource(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KDescendantsProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2783,6 +2797,8 @@ pub const KDescendantsProxyModel = extern struct {
     /// ` self: KDescendantsProxyModel`
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KDescendantsProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3306,6 +3322,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3524,6 +3542,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSpan(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KDescendantsProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3585,6 +3605,8 @@ pub const KDescendantsProxyModel = extern struct {
     /// ` self: KDescendantsProxyModel`
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4730,6 +4752,8 @@ pub const KDescendantsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4785,6 +4809,8 @@ pub const KDescendantsProxyModel = extern struct {
     /// ` self: KDescendantsProxyModel`
     ///
     /// ` callback: *const fn (self: KDescendantsProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KDescendantsProxyModel, callback: *const fn (KDescendantsProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KDescendantsProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

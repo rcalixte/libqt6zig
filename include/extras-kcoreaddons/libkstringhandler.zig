@@ -149,6 +149,44 @@ pub const KStringHandler = extern struct {
     ///
     /// ` param3: i32 `
     ///
+    pub fn PerlSplit(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8, param3: i32) []const []const u8 {
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        const param2_str = qtc.libqt_string{
+            .len = param2.len,
+            .data = param2.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KStringHandler_PerlSplit(param1_str, param2_str, @bitCast(param3));
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i|
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstringhandler.PerlSplit: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kstringhandler.html#perlSplit)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` param1: []const u8 `
+    ///
+    /// ` param2: []const u8 `
+    ///
+    /// ` param3: i32 `
+    ///
     pub fn PerlSplit2(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8, param3: i32) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,

@@ -22,7 +22,7 @@ void QFontInfo_Swap(QFontInfo* self, QFontInfo* other) {
 }
 
 libqt_string QFontInfo_Family(const QFontInfo* self) {
-    QString _ret = self->family();
+    auto _ret = self->family();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string QFontInfo_Family(const QFontInfo* self) {
 }
 
 libqt_string QFontInfo_StyleName(const QFontInfo* self) {
-    QString _ret = self->styleName();
+    auto _ret = self->styleName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -5907,6 +5907,8 @@ pub const KPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPasswordDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPasswordDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5954,6 +5956,8 @@ pub const KPasswordDialog = extern struct {
     /// ` self: KPasswordDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPasswordDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPasswordDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8192,6 +8196,8 @@ pub const KPasswordDialog = extern struct {
     /// ` self: KPasswordDialog`
     ///
     /// ` callback: *const fn (self: KPasswordDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPasswordDialog, callback: *const fn (KPasswordDialog, i32) callconv(.c) QVariant) void {
         qtc.KPasswordDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -5709,6 +5709,8 @@ pub const Sonnet__Dialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: Sonnet__Dialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__Dialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5756,6 +5758,8 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: Sonnet__Dialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__Dialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8042,6 +8046,8 @@ pub const Sonnet__Dialog = extern struct {
     /// ` self: Sonnet__Dialog`
     ///
     /// ` callback: *const fn (self: Sonnet__Dialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: Sonnet__Dialog, callback: *const fn (Sonnet__Dialog, i32) callconv(.c) QVariant) void {
         qtc.Sonnet__Dialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

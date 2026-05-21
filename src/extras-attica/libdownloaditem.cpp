@@ -31,7 +31,7 @@ void Attica__DownloadItem_SetMimeType(Attica__DownloadItem* self, const libqt_st
 }
 
 libqt_string Attica__DownloadItem_MimeType(const Attica__DownloadItem* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ void Attica__DownloadItem_SetPackageName(Attica__DownloadItem* self, const libqt
 }
 
 libqt_string Attica__DownloadItem_PackageName(const Attica__DownloadItem* self) {
-    QString _ret = self->packageName();
+    auto _ret = self->packageName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -65,7 +65,7 @@ void Attica__DownloadItem_SetPackageRepository(Attica__DownloadItem* self, const
 }
 
 libqt_string Attica__DownloadItem_PackageRepository(const Attica__DownloadItem* self) {
-    QString _ret = self->packageRepository();
+    auto _ret = self->packageRepository();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ void Attica__DownloadItem_SetGpgFingerprint(Attica__DownloadItem* self, const li
 }
 
 libqt_string Attica__DownloadItem_GpgFingerprint(const Attica__DownloadItem* self) {
-    QString _ret = self->gpgFingerprint();
+    auto _ret = self->gpgFingerprint();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -99,7 +99,7 @@ void Attica__DownloadItem_SetGpgSignature(Attica__DownloadItem* self, const libq
 }
 
 libqt_string Attica__DownloadItem_GpgSignature(const Attica__DownloadItem* self) {
-    QString _ret = self->gpgSignature();
+    auto _ret = self->gpgSignature();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

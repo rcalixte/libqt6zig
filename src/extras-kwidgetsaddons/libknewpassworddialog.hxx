@@ -435,7 +435,7 @@ class VirtualKNewPasswordDialog final : public KNewPasswordDialog {
         }
         auto checkpassword_cb = knewpassworddialog_checkpassword_callback;
         if (checkpassword_cb) {
-            const QString param1_ret = param1;
+            const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();

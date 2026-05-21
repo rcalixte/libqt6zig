@@ -340,6 +340,8 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KContextualHelpButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6011,6 +6013,8 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KContextualHelpButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8302,6 +8306,8 @@ pub const KContextualHelpButton = extern struct {
     /// ` self: KContextualHelpButton`
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) QVariant) void {
         qtc.KContextualHelpButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

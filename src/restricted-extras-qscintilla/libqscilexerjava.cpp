@@ -354,7 +354,7 @@ libqt_list /* of libqt_string */ QsciLexerJava_AutoCompletionWordSeparators(cons
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -373,7 +373,7 @@ libqt_list /* of libqt_string */ QsciLexerJava_AutoCompletionWordSeparators(cons
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -399,7 +399,7 @@ libqt_list /* of libqt_string */ QsciLexerJava_SuperAutoCompletionWordSeparators
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -418,7 +418,7 @@ libqt_list /* of libqt_string */ QsciLexerJava_SuperAutoCompletionWordSeparators
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -766,7 +766,7 @@ void QsciLexerJava_OnDefaultStyle(const QsciLexerJava* self, intptr_t slot) {
 libqt_string QsciLexerJava_Description(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        QString _ret = vqscilexerjava->description(static_cast<int>(style));
+        auto _ret = vqscilexerjava->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -776,7 +776,7 @@ libqt_string QsciLexerJava_Description(const QsciLexerJava* self, int style) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerJava*)self)->description(static_cast<int>(style));
+        auto _ret = ((VirtualQsciLexerJava*)self)->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -793,7 +793,7 @@ libqt_string QsciLexerJava_SuperDescription(const QsciLexerJava* self, int style
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         vqscilexerjava->setQsciLexerJava_Description_IsBase(true);
-        QString _ret = vqscilexerjava->description(static_cast<int>(style));
+        auto _ret = vqscilexerjava->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -803,7 +803,7 @@ libqt_string QsciLexerJava_SuperDescription(const QsciLexerJava* self, int style
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerJava*)self)->description(static_cast<int>(style));
+        auto _ret = ((VirtualQsciLexerJava*)self)->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1549,7 +1549,7 @@ void QsciLexerJava_OnTextAsBytes(const QsciLexerJava* self, intptr_t slot) {
 libqt_string QsciLexerJava_BytesAsText(const QsciLexerJava* self, const char* bytes, int size) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        QString _ret = vqscilexerjava->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerjava->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1559,7 +1559,7 @@ libqt_string QsciLexerJava_BytesAsText(const QsciLexerJava* self, const char* by
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerJava*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerJava*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1576,7 +1576,7 @@ libqt_string QsciLexerJava_SuperBytesAsText(const QsciLexerJava* self, const cha
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         vqscilexerjava->setQsciLexerJava_BytesAsText_IsBase(true);
-        QString _ret = vqscilexerjava->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerjava->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1586,7 +1586,7 @@ libqt_string QsciLexerJava_SuperBytesAsText(const QsciLexerJava* self, const cha
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerJava*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerJava*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

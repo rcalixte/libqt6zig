@@ -577,6 +577,8 @@ pub const QDesignerPropertySheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerPropertySheetExtension, index: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnProperty(self: QDesignerPropertySheetExtension, callback: *const fn (QDesignerPropertySheetExtension, i32) callconv(.c) QVariant) void {
         qtc.QDesignerPropertySheetExtension_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

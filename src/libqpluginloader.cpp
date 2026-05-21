@@ -110,7 +110,7 @@ void QPluginLoader_SetFileName(QPluginLoader* self, const libqt_string fileName)
 }
 
 libqt_string QPluginLoader_FileName(const QPluginLoader* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -122,7 +122,7 @@ libqt_string QPluginLoader_FileName(const QPluginLoader* self) {
 }
 
 libqt_string QPluginLoader_ErrorString(const QPluginLoader* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

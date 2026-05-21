@@ -815,7 +815,7 @@ QCustomPlot* QCPLayer_ParentPlot(const QCPLayer* self) {
 }
 
 libqt_string QCPLayer_Name(const QCPLayer* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -10287,7 +10287,7 @@ int QCPAxisTicker_GetSubTickCount(QCPAxisTicker* self, double tickStep) {
 libqt_string QCPAxisTicker_GetTickLabel(QCPAxisTicker* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
-        QString _ret = vqcpaxisticker->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxisticker->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -10353,7 +10353,7 @@ libqt_list /* of libqt_string */ QCPAxisTicker_CreateLabelVector(QCPAxisTicker* 
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -10452,7 +10452,7 @@ libqt_string QCPAxisTicker_SuperGetTickLabel(QCPAxisTicker* self, double tick, c
     auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
     if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
         vqcpaxisticker->setQCPAxisTicker_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxisticker->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxisticker->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -10462,7 +10462,7 @@ libqt_string QCPAxisTicker_SuperGetTickLabel(QCPAxisTicker* self, double tick, c
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTicker*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTicker*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -10577,7 +10577,7 @@ libqt_list /* of libqt_string */ QCPAxisTicker_SuperCreateLabelVector(QCPAxisTic
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -10596,7 +10596,7 @@ libqt_list /* of libqt_string */ QCPAxisTicker_SuperCreateLabelVector(QCPAxisTic
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -10799,7 +10799,7 @@ QCPAxisTickerDateTime* QCPAxisTickerDateTime_new() {
 }
 
 libqt_string QCPAxisTickerDateTime_DateTimeFormat(const QCPAxisTickerDateTime* self) {
-    QString _ret = self->dateTimeFormat();
+    auto _ret = self->dateTimeFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -10870,7 +10870,7 @@ int QCPAxisTickerDateTime_GetSubTickCount(QCPAxisTickerDateTime* self, double ti
 libqt_string QCPAxisTickerDateTime_GetTickLabel(QCPAxisTickerDateTime* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
-        QString _ret = vqcpaxistickerdatetime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerdatetime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -10947,7 +10947,7 @@ libqt_string QCPAxisTickerDateTime_SuperGetTickLabel(QCPAxisTickerDateTime* self
     auto* vqcpaxistickerdatetime = dynamic_cast<VirtualQCPAxisTickerDateTime*>(self);
     if (vqcpaxistickerdatetime && vqcpaxistickerdatetime->isVirtualQCPAxisTickerDateTime) {
         vqcpaxistickerdatetime->setQCPAxisTickerDateTime_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxistickerdatetime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerdatetime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -10957,7 +10957,7 @@ libqt_string QCPAxisTickerDateTime_SuperGetTickLabel(QCPAxisTickerDateTime* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerDateTime*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerDateTime*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -11172,7 +11172,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerDateTime_CreateLabelVector(QCPAxis
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11191,7 +11191,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerDateTime_CreateLabelVector(QCPAxis
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11223,7 +11223,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerDateTime_SuperCreateLabelVector(QC
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11242,7 +11242,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerDateTime_SuperCreateLabelVector(QC
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11416,7 +11416,7 @@ QCPAxisTickerTime* QCPAxisTickerTime_new() {
 }
 
 libqt_string QCPAxisTickerTime_TimeFormat(const QCPAxisTickerTime* self) {
-    QString _ret = self->timeFormat();
+    auto _ret = self->timeFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -11459,7 +11459,7 @@ int QCPAxisTickerTime_GetSubTickCount(QCPAxisTickerTime* self, double tickStep) 
 libqt_string QCPAxisTickerTime_GetTickLabel(QCPAxisTickerTime* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
-        QString _ret = vqcpaxistickertime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickertime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -11515,7 +11515,7 @@ libqt_string QCPAxisTickerTime_SuperGetTickLabel(QCPAxisTickerTime* self, double
     auto* vqcpaxistickertime = dynamic_cast<VirtualQCPAxisTickerTime*>(self);
     if (vqcpaxistickertime && vqcpaxistickertime->isVirtualQCPAxisTickerTime) {
         vqcpaxistickertime->setQCPAxisTickerTime_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxistickertime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickertime->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -11525,7 +11525,7 @@ libqt_string QCPAxisTickerTime_SuperGetTickLabel(QCPAxisTickerTime* self, double
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerTime*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerTime*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -11768,7 +11768,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerTime_CreateLabelVector(QCPAxisTick
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11787,7 +11787,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerTime_CreateLabelVector(QCPAxisTick
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11819,7 +11819,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerTime_SuperCreateLabelVector(QCPAxi
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -11838,7 +11838,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerTime_SuperCreateLabelVector(QCPAxi
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -12185,7 +12185,7 @@ void QCPAxisTickerFixed_OnGetSubTickCount(QCPAxisTickerFixed* self, intptr_t slo
 libqt_string QCPAxisTickerFixed_GetTickLabel(QCPAxisTickerFixed* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
-        QString _ret = vqcpaxistickerfixed->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerfixed->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -12195,7 +12195,7 @@ libqt_string QCPAxisTickerFixed_GetTickLabel(QCPAxisTickerFixed* self, double ti
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerFixed*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerFixed*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -12212,7 +12212,7 @@ libqt_string QCPAxisTickerFixed_SuperGetTickLabel(QCPAxisTickerFixed* self, doub
     auto* vqcpaxistickerfixed = dynamic_cast<VirtualQCPAxisTickerFixed*>(self);
     if (vqcpaxistickerfixed && vqcpaxistickerfixed->isVirtualQCPAxisTickerFixed) {
         vqcpaxistickerfixed->setQCPAxisTickerFixed_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxistickerfixed->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerfixed->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -12222,7 +12222,7 @@ libqt_string QCPAxisTickerFixed_SuperGetTickLabel(QCPAxisTickerFixed* self, doub
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerFixed*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerFixed*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -12398,7 +12398,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerFixed_CreateLabelVector(QCPAxisTic
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -12417,7 +12417,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerFixed_CreateLabelVector(QCPAxisTic
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -12449,7 +12449,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerFixed_SuperCreateLabelVector(QCPAx
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -12468,7 +12468,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerFixed_SuperCreateLabelVector(QCPAx
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -12649,7 +12649,7 @@ libqt_map /* of double to libqt_string */ QCPAxisTickerText_Ticks(QCPAxisTickerT
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
         _karr[_ctr] = _itr->first;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;
@@ -12759,7 +12759,7 @@ int QCPAxisTickerText_GetSubTickCount(QCPAxisTickerText* self, double tickStep) 
 libqt_string QCPAxisTickerText_GetTickLabel(QCPAxisTickerText* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
-        QString _ret = vqcpaxistickertext->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickertext->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -12832,7 +12832,7 @@ libqt_string QCPAxisTickerText_SuperGetTickLabel(QCPAxisTickerText* self, double
     auto* vqcpaxistickertext = dynamic_cast<VirtualQCPAxisTickerText*>(self);
     if (vqcpaxistickertext && vqcpaxistickertext->isVirtualQCPAxisTickerText) {
         vqcpaxistickertext->setQCPAxisTickerText_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxistickertext->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickertext->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -12842,7 +12842,7 @@ libqt_string QCPAxisTickerText_SuperGetTickLabel(QCPAxisTickerText* self, double
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerText*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerText*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13057,7 +13057,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerText_CreateLabelVector(QCPAxisTick
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13076,7 +13076,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerText_CreateLabelVector(QCPAxisTick
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13108,7 +13108,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerText_SuperCreateLabelVector(QCPAxi
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13127,7 +13127,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerText_SuperCreateLabelVector(QCPAxi
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13301,7 +13301,7 @@ QCPAxisTickerPi* QCPAxisTickerPi_new() {
 }
 
 libqt_string QCPAxisTickerPi_PiSymbol(const QCPAxisTickerPi* self) {
-    QString _ret = self->piSymbol();
+    auto _ret = self->piSymbol();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -13360,7 +13360,7 @@ int QCPAxisTickerPi_GetSubTickCount(QCPAxisTickerPi* self, double tickStep) {
 libqt_string QCPAxisTickerPi_GetTickLabel(QCPAxisTickerPi* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
-        QString _ret = vqcpaxistickerpi->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerpi->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13416,7 +13416,7 @@ libqt_string QCPAxisTickerPi_SuperGetTickLabel(QCPAxisTickerPi* self, double tic
     auto* vqcpaxistickerpi = dynamic_cast<VirtualQCPAxisTickerPi*>(self);
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxistickerpi->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerpi->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13426,7 +13426,7 @@ libqt_string QCPAxisTickerPi_SuperGetTickLabel(QCPAxisTickerPi* self, double tic
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13669,7 +13669,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerPi_CreateLabelVector(QCPAxisTicker
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13688,7 +13688,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerPi_CreateLabelVector(QCPAxisTicker
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13720,7 +13720,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerPi_SuperCreateLabelVector(QCPAxisT
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13739,7 +13739,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerPi_SuperCreateLabelVector(QCPAxisT
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -13797,7 +13797,7 @@ void QCPAxisTickerPi_OnSimplifyFraction(const QCPAxisTickerPi* self, intptr_t sl
 libqt_string QCPAxisTickerPi_FractionToString(const QCPAxisTickerPi* self, int numerator, int denominator) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
-        QString _ret = vqcpaxistickerpi->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = vqcpaxistickerpi->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13807,7 +13807,7 @@ libqt_string QCPAxisTickerPi_FractionToString(const QCPAxisTickerPi* self, int n
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13824,7 +13824,7 @@ libqt_string QCPAxisTickerPi_SuperFractionToString(const QCPAxisTickerPi* self, 
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_FractionToString_IsBase(true);
-        QString _ret = vqcpaxistickerpi->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = vqcpaxistickerpi->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13834,7 +13834,7 @@ libqt_string QCPAxisTickerPi_SuperFractionToString(const QCPAxisTickerPi* self, 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->fractionToString(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13858,7 +13858,7 @@ void QCPAxisTickerPi_OnFractionToString(const QCPAxisTickerPi* self, intptr_t sl
 libqt_string QCPAxisTickerPi_UnicodeFraction(const QCPAxisTickerPi* self, int numerator, int denominator) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
-        QString _ret = vqcpaxistickerpi->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = vqcpaxistickerpi->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13868,7 +13868,7 @@ libqt_string QCPAxisTickerPi_UnicodeFraction(const QCPAxisTickerPi* self, int nu
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13885,7 +13885,7 @@ libqt_string QCPAxisTickerPi_SuperUnicodeFraction(const QCPAxisTickerPi* self, i
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_UnicodeFraction_IsBase(true);
-        QString _ret = vqcpaxistickerpi->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = vqcpaxistickerpi->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13895,7 +13895,7 @@ libqt_string QCPAxisTickerPi_SuperUnicodeFraction(const QCPAxisTickerPi* self, i
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeFraction(static_cast<int>(numerator), static_cast<int>(denominator));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13919,7 +13919,7 @@ void QCPAxisTickerPi_OnUnicodeFraction(const QCPAxisTickerPi* self, intptr_t slo
 libqt_string QCPAxisTickerPi_UnicodeSuperscript(const QCPAxisTickerPi* self, int number) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
-        QString _ret = vqcpaxistickerpi->unicodeSuperscript(static_cast<int>(number));
+        auto _ret = vqcpaxistickerpi->unicodeSuperscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13929,7 +13929,7 @@ libqt_string QCPAxisTickerPi_UnicodeSuperscript(const QCPAxisTickerPi* self, int
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSuperscript(static_cast<int>(number));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSuperscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13946,7 +13946,7 @@ libqt_string QCPAxisTickerPi_SuperUnicodeSuperscript(const QCPAxisTickerPi* self
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_UnicodeSuperscript_IsBase(true);
-        QString _ret = vqcpaxistickerpi->unicodeSuperscript(static_cast<int>(number));
+        auto _ret = vqcpaxistickerpi->unicodeSuperscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13956,7 +13956,7 @@ libqt_string QCPAxisTickerPi_SuperUnicodeSuperscript(const QCPAxisTickerPi* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSuperscript(static_cast<int>(number));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSuperscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13980,7 +13980,7 @@ void QCPAxisTickerPi_OnUnicodeSuperscript(const QCPAxisTickerPi* self, intptr_t 
 libqt_string QCPAxisTickerPi_UnicodeSubscript(const QCPAxisTickerPi* self, int number) {
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
-        QString _ret = vqcpaxistickerpi->unicodeSubscript(static_cast<int>(number));
+        auto _ret = vqcpaxistickerpi->unicodeSubscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -13990,7 +13990,7 @@ libqt_string QCPAxisTickerPi_UnicodeSubscript(const QCPAxisTickerPi* self, int n
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSubscript(static_cast<int>(number));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSubscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14007,7 +14007,7 @@ libqt_string QCPAxisTickerPi_SuperUnicodeSubscript(const QCPAxisTickerPi* self, 
     auto* vqcpaxistickerpi = const_cast<VirtualQCPAxisTickerPi*>(dynamic_cast<const VirtualQCPAxisTickerPi*>(self));
     if (vqcpaxistickerpi && vqcpaxistickerpi->isVirtualQCPAxisTickerPi) {
         vqcpaxistickerpi->setQCPAxisTickerPi_UnicodeSubscript_IsBase(true);
-        QString _ret = vqcpaxistickerpi->unicodeSubscript(static_cast<int>(number));
+        auto _ret = vqcpaxistickerpi->unicodeSubscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14017,7 +14017,7 @@ libqt_string QCPAxisTickerPi_SuperUnicodeSubscript(const QCPAxisTickerPi* self, 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSubscript(static_cast<int>(number));
+        auto _ret = ((VirtualQCPAxisTickerPi*)self)->unicodeSubscript(static_cast<int>(number));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14382,7 +14382,7 @@ void QCPAxisTickerLog_OnGetTickStep(QCPAxisTickerLog* self, intptr_t slot) {
 libqt_string QCPAxisTickerLog_GetTickLabel(QCPAxisTickerLog* self, double tick, const QLocale* locale, QChar* formatChar, int precision) {
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
-        QString _ret = vqcpaxistickerlog->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerlog->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14392,7 +14392,7 @@ libqt_string QCPAxisTickerLog_GetTickLabel(QCPAxisTickerLog* self, double tick, 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerLog*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerLog*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14409,7 +14409,7 @@ libqt_string QCPAxisTickerLog_SuperGetTickLabel(QCPAxisTickerLog* self, double t
     auto* vqcpaxistickerlog = dynamic_cast<VirtualQCPAxisTickerLog*>(self);
     if (vqcpaxistickerlog && vqcpaxistickerlog->isVirtualQCPAxisTickerLog) {
         vqcpaxistickerlog->setQCPAxisTickerLog_GetTickLabel_IsBase(true);
-        QString _ret = vqcpaxistickerlog->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = vqcpaxistickerlog->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14419,7 +14419,7 @@ libqt_string QCPAxisTickerLog_SuperGetTickLabel(QCPAxisTickerLog* self, double t
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQCPAxisTickerLog*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
+        auto _ret = ((VirtualQCPAxisTickerLog*)self)->getTickLabel(static_cast<double>(tick), *locale, *formatChar, static_cast<int>(precision));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -14530,7 +14530,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerLog_CreateLabelVector(QCPAxisTicke
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -14549,7 +14549,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerLog_CreateLabelVector(QCPAxisTicke
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -14581,7 +14581,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerLog_SuperCreateLabelVector(QCPAxis
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -14600,7 +14600,7 @@ libqt_list /* of libqt_string */ QCPAxisTickerLog_SuperCreateLabelVector(QCPAxis
         // Convert QVector<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _vv_ret = _ret[i];
+            auto _vv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _vv_b = _vv_ret.toUtf8();
             libqt_string _vv_str;
@@ -15851,7 +15851,7 @@ int QCPAxis_TickLabelSide(const QCPAxis* self) {
 }
 
 libqt_string QCPAxis_NumberFormat(const QCPAxis* self) {
-    QString _ret = self->numberFormat();
+    auto _ret = self->numberFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -15884,7 +15884,7 @@ libqt_list /* of libqt_string */ QCPAxis_TickVectorLabels(const QCPAxis* self) {
     // Convert QVector<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _vv_ret = _ret[i];
+        auto _vv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _vv_b = _vv_ret.toUtf8();
         libqt_string _vv_str;
@@ -15941,7 +15941,7 @@ QColor* QCPAxis_LabelColor(const QCPAxis* self) {
 }
 
 libqt_string QCPAxis_Label(const QCPAxis* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -17697,7 +17697,7 @@ int QCPAbstractPlottable_Metacall(QCPAbstractPlottable* self, int param1, int pa
 }
 
 libqt_string QCPAbstractPlottable_Name(const QCPAbstractPlottable* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -18895,7 +18895,7 @@ QCPItemAnchor* QCPItemAnchor_new2(QCustomPlot* parentPlot, QCPAbstractItem* pare
 }
 
 libqt_string QCPItemAnchor_Name(const QCPItemAnchor* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -29897,7 +29897,7 @@ int QCPTextElement_Metacall(QCPTextElement* self, int param1, int param2, void**
 }
 
 libqt_string QCPTextElement_Text(const QCPTextElement* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -31182,7 +31182,7 @@ QCPColorGradient* QCPColorScale_Gradient(const QCPColorScale* self) {
 }
 
 libqt_string QCPColorScale_Label(const QCPColorScale* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -49988,7 +49988,7 @@ QFont* QCPItemText_SelectedFont(const QCPItemText* self) {
 }
 
 libqt_string QCPItemText_Text(const QCPItemText* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56019,7 +56019,7 @@ int QCPPolarAxisRadial_TickLabelMode(const QCPPolarAxisRadial* self) {
 }
 
 libqt_string QCPPolarAxisRadial_NumberFormat(const QCPPolarAxisRadial* self) {
-    QString _ret = self->numberFormat();
+    auto _ret = self->numberFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56065,7 +56065,7 @@ libqt_list /* of libqt_string */ QCPPolarAxisRadial_TickVectorLabels(const QCPPo
     // Convert QVector<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _vv_ret = _ret[i];
+        auto _vv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _vv_b = _vv_ret.toUtf8();
         libqt_string _vv_str;
@@ -56122,7 +56122,7 @@ QColor* QCPPolarAxisRadial_LabelColor(const QCPPolarAxisRadial* self) {
 }
 
 libqt_string QCPPolarAxisRadial_Label(const QCPPolarAxisRadial* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57610,7 +57610,7 @@ int QCPPolarAxisAngular_TickLabelMode(const QCPPolarAxisAngular* self) {
 }
 
 libqt_string QCPPolarAxisAngular_NumberFormat(const QCPPolarAxisAngular* self) {
-    QString _ret = self->numberFormat();
+    auto _ret = self->numberFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57643,7 +57643,7 @@ libqt_list /* of libqt_string */ QCPPolarAxisAngular_TickVectorLabels(const QCPP
     // Convert QVector<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _vv_ret = _ret[i];
+        auto _vv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _vv_b = _vv_ret.toUtf8();
         libqt_string _vv_str;
@@ -57700,7 +57700,7 @@ QColor* QCPPolarAxisAngular_LabelColor(const QCPPolarAxisAngular* self) {
 }
 
 libqt_string QCPPolarAxisAngular_Label(const QCPPolarAxisAngular* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61770,7 +61770,7 @@ int QCPPolarGraph_Metacall(QCPPolarGraph* self, int param1, int param2, void** p
 }
 
 libqt_string QCPPolarGraph_Name(const QCPPolarGraph* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

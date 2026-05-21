@@ -1932,7 +1932,7 @@ QKeyCombination* QKeyEvent_KeyCombination(const QKeyEvent* self) {
 }
 
 libqt_string QKeyEvent_Text(const QKeyEvent* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2937,7 +2937,7 @@ libqt_list /* of QInputMethodEvent__Attribute* */ QInputMethodEvent_Attributes(c
 }
 
 libqt_string QInputMethodEvent_PreeditString(const QInputMethodEvent* self) {
-    const QString _ret = self->preeditString();
+    const auto _ret = self->preeditString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2949,7 +2949,7 @@ libqt_string QInputMethodEvent_PreeditString(const QInputMethodEvent* self) {
 }
 
 libqt_string QInputMethodEvent_CommitString(const QInputMethodEvent* self) {
-    const QString _ret = self->commitString();
+    const auto _ret = self->commitString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -3559,7 +3559,7 @@ QStatusTipEvent* QStatusTipEvent_Clone(const QStatusTipEvent* self) {
 }
 
 libqt_string QStatusTipEvent_Tip(const QStatusTipEvent* self) {
-    QString _ret = self->tip();
+    auto _ret = self->tip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -3637,7 +3637,7 @@ QWhatsThisClickedEvent* QWhatsThisClickedEvent_Clone(const QWhatsThisClickedEven
 }
 
 libqt_string QWhatsThisClickedEvent_Href(const QWhatsThisClickedEvent* self) {
-    QString _ret = self->href();
+    auto _ret = self->href();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -3796,7 +3796,7 @@ QFileOpenEvent* QFileOpenEvent_Clone(const QFileOpenEvent* self) {
 }
 
 libqt_string QFileOpenEvent_File(const QFileOpenEvent* self) {
-    QString _ret = self->file();
+    auto _ret = self->file();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

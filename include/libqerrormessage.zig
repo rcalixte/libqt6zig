@@ -5503,6 +5503,8 @@ pub const QErrorMessage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QErrorMessage, callback: *const fn () callconv(.c) QSize) void {
         qtc.QErrorMessage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5550,6 +5552,8 @@ pub const QErrorMessage = extern struct {
     /// ` self: QErrorMessage`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QErrorMessage, callback: *const fn () callconv(.c) QSize) void {
         qtc.QErrorMessage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7730,6 +7734,8 @@ pub const QErrorMessage = extern struct {
     /// ` self: QErrorMessage`
     ///
     /// ` callback: *const fn (self: QErrorMessage, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QErrorMessage, callback: *const fn (QErrorMessage, i32) callconv(.c) QVariant) void {
         qtc.QErrorMessage_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

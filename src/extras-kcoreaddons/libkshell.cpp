@@ -11,7 +11,7 @@ libqt_list /* of libqt_string */ KShell_SplitArgs(const libqt_string param1, int
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -35,7 +35,7 @@ libqt_string KShell_JoinArgs(const libqt_list /* of libqt_string */ param1) {
         QString param1_arr_i_QString = QString::fromUtf8(param1_arr[i].data, param1_arr[i].len);
         param1_QList.push_back(param1_arr_i_QString);
     }
-    QString _ret = KShell::joinArgs(param1_QList);
+    auto _ret = KShell::joinArgs(param1_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string KShell_JoinArgs(const libqt_list /* of libqt_string */ param1) {
 
 libqt_string KShell_QuoteArg(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KShell::quoteArg(param1_QString);
+    auto _ret = KShell::quoteArg(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ libqt_string KShell_QuoteArg(const libqt_string param1) {
 
 libqt_string KShell_TildeExpand(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KShell::tildeExpand(param1_QString);
+    auto _ret = KShell::tildeExpand(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ libqt_string KShell_TildeExpand(const libqt_string param1) {
 
 libqt_string KShell_TildeCollapse(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KShell::tildeCollapse(param1_QString);
+    auto _ret = KShell::tildeCollapse(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

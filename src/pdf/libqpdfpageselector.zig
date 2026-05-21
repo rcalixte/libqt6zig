@@ -5409,6 +5409,8 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QPdfPageSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfPageSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5456,6 +5458,8 @@ pub const QPdfPageSelector = extern struct {
     /// ` self: QPdfPageSelector`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QPdfPageSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfPageSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7390,6 +7394,8 @@ pub const QPdfPageSelector = extern struct {
     /// ` self: QPdfPageSelector`
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) QVariant) void {
         qtc.QPdfPageSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

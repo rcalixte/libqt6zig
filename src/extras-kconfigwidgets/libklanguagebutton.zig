@@ -5548,6 +5548,8 @@ pub const KLanguageButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KLanguageButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KLanguageButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5595,6 +5597,8 @@ pub const KLanguageButton = extern struct {
     /// ` self: KLanguageButton`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KLanguageButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KLanguageButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7529,6 +7533,8 @@ pub const KLanguageButton = extern struct {
     /// ` self: KLanguageButton`
     ///
     /// ` callback: *const fn (self: KLanguageButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KLanguageButton, callback: *const fn (KLanguageButton, i32) callconv(.c) QVariant) void {
         qtc.KLanguageButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

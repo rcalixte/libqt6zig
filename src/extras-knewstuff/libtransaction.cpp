@@ -65,7 +65,7 @@ void KNSCore__Transaction_SignalMessage(KNSCore__Transaction* self, const libqt_
 void KNSCore__Transaction_Connect_SignalMessage(KNSCore__Transaction* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Transaction*, const char*) = reinterpret_cast<void (*)(KNSCore__Transaction*, const char*)>(slot);
     KNSCore::Transaction::connect(self, &KNSCore::Transaction::signalMessage, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -102,7 +102,7 @@ void KNSCore__Transaction_Connect_SignalErrorCode(KNSCore__Transaction* self, in
     void (*slotFunc)(KNSCore__Transaction*, int, const char*, QVariant*) = reinterpret_cast<void (*)(KNSCore__Transaction*, int, const char*, QVariant*)>(slot);
     KNSCore::Transaction::connect(self, &KNSCore::Transaction::signalErrorCode, [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
         int sigval1 = static_cast<int>(errorCode);
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();

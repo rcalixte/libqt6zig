@@ -148,7 +148,7 @@ void QTextDocument_SetMetaInformation(QTextDocument* self, int info, const libqt
 }
 
 libqt_string QTextDocument_MetaInformation(const QTextDocument* self, int info) {
-    QString _ret = self->metaInformation(static_cast<QTextDocument::MetaInformation>(info));
+    auto _ret = self->metaInformation(static_cast<QTextDocument::MetaInformation>(info));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -160,7 +160,7 @@ libqt_string QTextDocument_MetaInformation(const QTextDocument* self, int info) 
 }
 
 libqt_string QTextDocument_ToHtml(const QTextDocument* self) {
-    QString _ret = self->toHtml();
+    auto _ret = self->toHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -177,7 +177,7 @@ void QTextDocument_SetHtml(QTextDocument* self, const libqt_string html) {
 }
 
 libqt_string QTextDocument_ToMarkdown(const QTextDocument* self) {
-    QString _ret = self->toMarkdown();
+    auto _ret = self->toMarkdown();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -194,7 +194,7 @@ void QTextDocument_SetMarkdown(QTextDocument* self, const libqt_string markdown)
 }
 
 libqt_string QTextDocument_ToRawText(const QTextDocument* self) {
-    QString _ret = self->toRawText();
+    auto _ret = self->toRawText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -206,7 +206,7 @@ libqt_string QTextDocument_ToRawText(const QTextDocument* self) {
 }
 
 libqt_string QTextDocument_ToPlainText(const QTextDocument* self) {
-    QString _ret = self->toPlainText();
+    auto _ret = self->toPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -461,7 +461,7 @@ void QTextDocument_SetDefaultStyleSheet(QTextDocument* self, const libqt_string 
 }
 
 libqt_string QTextDocument_DefaultStyleSheet(const QTextDocument* self) {
-    QString _ret = self->defaultStyleSheet();
+    auto _ret = self->defaultStyleSheet();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -676,7 +676,7 @@ QTextDocument* QTextDocument_Clone1(const QTextDocument* self, QObject* parent) 
 }
 
 libqt_string QTextDocument_ToMarkdown1(const QTextDocument* self, int features) {
-    QString _ret = self->toMarkdown(static_cast<QTextDocument::MarkdownFeatures>(features));
+    auto _ret = self->toMarkdown(static_cast<QTextDocument::MarkdownFeatures>(features));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

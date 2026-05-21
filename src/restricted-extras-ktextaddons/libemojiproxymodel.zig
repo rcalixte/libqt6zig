@@ -2440,6 +2440,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2493,6 +2495,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapFromSource(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2548,6 +2552,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, proxySelection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionToSource(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2601,6 +2607,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, sourceSelection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2722,6 +2730,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2775,6 +2785,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2837,6 +2849,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3058,6 +3072,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3181,6 +3197,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3852,6 +3870,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3999,6 +4019,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5598,6 +5620,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5653,6 +5677,8 @@ pub const TextEmoticonsCore__EmojiProxyModel = extern struct {
     /// ` self: TextEmoticonsCore__EmojiProxyModel`
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__EmojiProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: TextEmoticonsCore__EmojiProxyModel, callback: *const fn (TextEmoticonsCore__EmojiProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.TextEmoticonsCore__EmojiProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

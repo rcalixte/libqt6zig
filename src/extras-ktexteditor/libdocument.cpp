@@ -96,7 +96,7 @@ void KTextEditor__Document_Connect_ViewCreated(KTextEditor__Document* self, intp
 }
 
 libqt_string KTextEditor__Document_DocumentName(const KTextEditor__Document* self) {
-    QString _ret = self->documentName();
+    auto _ret = self->documentName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -108,7 +108,7 @@ libqt_string KTextEditor__Document_DocumentName(const KTextEditor__Document* sel
 }
 
 libqt_string KTextEditor__Document_MimeType(KTextEditor__Document* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -182,7 +182,7 @@ bool KTextEditor__Document_SetEncoding(KTextEditor__Document* self, const libqt_
 }
 
 libqt_string KTextEditor__Document_Encoding(const KTextEditor__Document* self) {
-    QString _ret = self->encoding();
+    auto _ret = self->encoding();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -275,7 +275,7 @@ bool KTextEditor__Document_IsEditingTransactionRunning(const KTextEditor__Docume
 }
 
 libqt_string KTextEditor__Document_Text(const KTextEditor__Document* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -287,7 +287,7 @@ libqt_string KTextEditor__Document_Text(const KTextEditor__Document* self) {
 }
 
 libqt_string KTextEditor__Document_Text2(const KTextEditor__Document* self, KTextEditor__Range* range, bool block) {
-    QString _ret = self->text(*range, block);
+    auto _ret = self->text(*range, block);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -303,7 +303,7 @@ QChar* KTextEditor__Document_CharacterAt(const KTextEditor__Document* self, KTex
 }
 
 libqt_string KTextEditor__Document_WordAt(const KTextEditor__Document* self, KTextEditor__Cursor* cursor) {
-    QString _ret = self->wordAt(*cursor);
+    auto _ret = self->wordAt(*cursor);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -327,7 +327,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_TextLines(const KTextEdit
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -344,7 +344,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_TextLines(const KTextEdit
 }
 
 libqt_string KTextEditor__Document_Line(const KTextEditor__Document* self, int line) {
-    QString _ret = self->line(static_cast<int>(line));
+    auto _ret = self->line(static_cast<int>(line));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -553,7 +553,7 @@ void KTextEditor__Document_Connect_TextInserted(KTextEditor__Document* self, int
     KTextEditor::Document::connect(self, &KTextEditor::Document::textInserted, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Cursor position, const QString& text) {
         KTextEditor__Document* sigval1 = document;
         KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -576,7 +576,7 @@ void KTextEditor__Document_Connect_TextRemoved(KTextEditor__Document* self, intp
     KTextEditor::Document::connect(self, &KTextEditor::Document::textRemoved, [self, slotFunc](KTextEditor::Document* document, KTextEditor::Range range, const QString& text) {
         KTextEditor__Document* sigval1 = document;
         KTextEditor__Range* sigval2 = new KTextEditor::Range(range);
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -606,7 +606,7 @@ int KTextEditor__Document_DefaultStyleAt(const KTextEditor__Document* self, KTex
 }
 
 libqt_string KTextEditor__Document_Mode(const KTextEditor__Document* self) {
-    QString _ret = self->mode();
+    auto _ret = self->mode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -618,7 +618,7 @@ libqt_string KTextEditor__Document_Mode(const KTextEditor__Document* self) {
 }
 
 libqt_string KTextEditor__Document_HighlightingMode(const KTextEditor__Document* self) {
-    QString _ret = self->highlightingMode();
+    auto _ret = self->highlightingMode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -634,7 +634,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_EmbeddedHighlightingModes
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -651,7 +651,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_EmbeddedHighlightingModes
 }
 
 libqt_string KTextEditor__Document_HighlightingModeAt(KTextEditor__Document* self, KTextEditor__Cursor* position) {
-    QString _ret = self->highlightingModeAt(*position);
+    auto _ret = self->highlightingModeAt(*position);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -667,7 +667,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_Modes(const KTextEditor__
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -688,7 +688,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_HighlightingModes(const K
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -715,7 +715,7 @@ bool KTextEditor__Document_SetHighlightingMode(KTextEditor__Document* self, cons
 }
 
 libqt_string KTextEditor__Document_HighlightingModeSection(const KTextEditor__Document* self, int index) {
-    QString _ret = self->highlightingModeSection(static_cast<int>(index));
+    auto _ret = self->highlightingModeSection(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -727,7 +727,7 @@ libqt_string KTextEditor__Document_HighlightingModeSection(const KTextEditor__Do
 }
 
 libqt_string KTextEditor__Document_ModeSection(const KTextEditor__Document* self, int index) {
-    QString _ret = self->modeSection(static_cast<int>(index));
+    auto _ret = self->modeSection(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -885,7 +885,7 @@ libqt_list /* of libqt_string */ KTextEditor__Document_ConfigKeys(const KTextEdi
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -985,7 +985,7 @@ void KTextEditor__Document_SetMarkDescription(KTextEditor__Document* self, int m
 }
 
 libqt_string KTextEditor__Document_MarkDescription(const KTextEditor__Document* self, int mark) {
-    QString _ret = self->markDescription(static_cast<KTextEditor::Document::MarkTypes>(mark));
+    auto _ret = self->markDescription(static_cast<KTextEditor::Document::MarkTypes>(mark));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

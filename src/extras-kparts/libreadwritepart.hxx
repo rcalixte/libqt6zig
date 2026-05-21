@@ -806,7 +806,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto setcomponentname_cb = kparts__readwritepart_setcomponentname_callback;
         if (setcomponentname_cb) {
-            const QString componentName_ret = componentName;
+            const auto componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
             auto componentName_str_len = componentName_b.length();
@@ -814,7 +814,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
             memcpy((void*)componentName_str, componentName_b.data(), componentName_str_len);
             ((char*)componentName_str)[componentName_str_len] = '\0';
             const char* cbval1 = componentName_str;
-            const QString componentDisplayName_ret = componentDisplayName;
+            const auto componentDisplayName_ret = componentDisplayName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentDisplayName_b = componentDisplayName_ret.toUtf8();
             auto componentDisplayName_str_len = componentDisplayName_b.length();
@@ -839,7 +839,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto setxmlfile_cb = kparts__readwritepart_setxmlfile_callback;
         if (setxmlfile_cb) {
-            const QString file_ret = file;
+            const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
             auto file_str_len = file_b.length();
@@ -865,7 +865,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto setlocalxmlfile_cb = kparts__readwritepart_setlocalxmlfile_callback;
         if (setlocalxmlfile_cb) {
-            const QString file_ret = file;
+            const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
             auto file_str_len = file_b.length();
@@ -889,7 +889,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto setxml_cb = kparts__readwritepart_setxml_callback;
         if (setxml_cb) {
-            const QString document_ret = document;
+            const auto document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
             auto document_str_len = document_b.length();
@@ -933,7 +933,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto statechanged_cb = kparts__readwritepart_statechanged_callback;
         if (statechanged_cb) {
-            const QString newstate_ret = newstate;
+            const auto newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
             auto newstate_str_len = newstate_b.length();
@@ -1006,7 +1006,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto setlocalfilepath_cb = kparts__readwritepart_setlocalfilepath_callback;
         if (setlocalfilepath_cb) {
-            const QString localFilePath_ret = localFilePath;
+            const auto localFilePath_ret = localFilePath;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray localFilePath_b = localFilePath_ret.toUtf8();
             auto localFilePath_str_len = localFilePath_b.length();
@@ -1029,7 +1029,7 @@ class VirtualKPartsReadWritePart : public KParts::ReadWritePart {
         }
         auto hostcontainer_cb = kparts__readwritepart_hostcontainer_callback;
         if (hostcontainer_cb) {
-            const QString containerName_ret = containerName;
+            const auto containerName_ret = containerName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray containerName_b = containerName_ret.toUtf8();
             auto containerName_str_len = containerName_b.length();

@@ -22,7 +22,7 @@ void Attica__PublisherField_SetName(Attica__PublisherField* self, const libqt_st
 }
 
 libqt_string Attica__PublisherField_Name(const Attica__PublisherField* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void Attica__PublisherField_SetType(Attica__PublisherField* self, const libqt_st
 }
 
 libqt_string Attica__PublisherField_Type(const Attica__PublisherField* self) {
-    QString _ret = self->type();
+    auto _ret = self->type();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56,7 +56,7 @@ void Attica__PublisherField_SetData(Attica__PublisherField* self, const libqt_st
 }
 
 libqt_string Attica__PublisherField_Data(const Attica__PublisherField* self) {
-    QString _ret = self->data();
+    auto _ret = self->data();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

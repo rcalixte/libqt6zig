@@ -91,7 +91,7 @@ int QLineEdit_Metacall(QLineEdit* self, int param1, int param2, void** param3) {
 }
 
 libqt_string QLineEdit_Text(const QLineEdit* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -103,7 +103,7 @@ libqt_string QLineEdit_Text(const QLineEdit* self) {
 }
 
 libqt_string QLineEdit_DisplayText(const QLineEdit* self) {
-    QString _ret = self->displayText();
+    auto _ret = self->displayText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -115,7 +115,7 @@ libqt_string QLineEdit_DisplayText(const QLineEdit* self) {
 }
 
 libqt_string QLineEdit_PlaceholderText(const QLineEdit* self) {
-    QString _ret = self->placeholderText();
+    auto _ret = self->placeholderText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -274,7 +274,7 @@ bool QLineEdit_HasSelectedText(const QLineEdit* self) {
 }
 
 libqt_string QLineEdit_SelectedText(const QLineEdit* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -322,7 +322,7 @@ int QLineEdit_CursorMoveStyle(const QLineEdit* self) {
 }
 
 libqt_string QLineEdit_InputMask(const QLineEdit* self) {
-    QString _ret = self->inputMask();
+    auto _ret = self->inputMask();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -416,7 +416,7 @@ void QLineEdit_TextChanged(QLineEdit* self, const libqt_string param1) {
 void QLineEdit_Connect_TextChanged(QLineEdit* self, intptr_t slot) {
     void (*slotFunc)(QLineEdit*, const char*) = reinterpret_cast<void (*)(QLineEdit*, const char*)>(slot);
     QLineEdit::connect(self, &QLineEdit::textChanged, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -437,7 +437,7 @@ void QLineEdit_TextEdited(QLineEdit* self, const libqt_string param1) {
 void QLineEdit_Connect_TextEdited(QLineEdit* self, intptr_t slot) {
     void (*slotFunc)(QLineEdit*, const char*) = reinterpret_cast<void (*)(QLineEdit*, const char*)>(slot);
     QLineEdit::connect(self, &QLineEdit::textEdited, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

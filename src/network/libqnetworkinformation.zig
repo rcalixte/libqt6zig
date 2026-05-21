@@ -172,6 +172,20 @@ pub const QNetworkInformation = extern struct {
         return qtc.QNetworkInformation_LoadDefaultBackend();
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#loadBackendByName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` backend: []const u8 `
+    ///
+    pub fn LoadBackendByName(backend: []const u8) bool {
+        const backend_str = qtc.libqt_string{
+            .len = backend.len,
+            .data = backend.ptr,
+        };
+        return qtc.QNetworkInformation_LoadBackendByName(backend_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#loadBackendByFeatures)
     ///
     /// ## Parameter(s):
@@ -180,6 +194,20 @@ pub const QNetworkInformation = extern struct {
     ///
     pub fn LoadBackendByFeatures(features: i32) bool {
         return qtc.QNetworkInformation_LoadBackendByFeatures(@bitCast(features));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#load)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` backend: []const u8 `
+    ///
+    pub fn Load(backend: []const u8) bool {
+        const backend_str = qtc.libqt_string{
+            .len = backend.len,
+            .data = backend.ptr,
+        };
+        return qtc.QNetworkInformation_Load(backend_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkinformation.html#load)

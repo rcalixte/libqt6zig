@@ -291,6 +291,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QConcatenateTablesProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -625,6 +627,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -674,6 +678,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     /// ` self: QConcatenateTablesProxyModel `
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -769,6 +775,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     /// ` self: QConcatenateTablesProxyModel `
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QConcatenateTablesProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1118,6 +1126,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     /// ` self: QConcatenateTablesProxyModel `
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QConcatenateTablesProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2520,6 +2530,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3416,6 +3428,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4251,6 +4265,8 @@ pub const QConcatenateTablesProxyModel = extern struct {
     /// ` self: QConcatenateTablesProxyModel`
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

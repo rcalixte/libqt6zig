@@ -100,7 +100,7 @@ void KActionCollection_ClearAssociatedWidgets(KActionCollection* self) {
 }
 
 libqt_string KActionCollection_ConfigGroup(const KActionCollection* self) {
-    QString _ret = self->configGroup();
+    auto _ret = self->configGroup();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -202,7 +202,7 @@ void KActionCollection_SetComponentName(KActionCollection* self, const libqt_str
 }
 
 libqt_string KActionCollection_ComponentName(const KActionCollection* self) {
-    QString _ret = self->componentName();
+    auto _ret = self->componentName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -219,7 +219,7 @@ void KActionCollection_SetComponentDisplayName(KActionCollection* self, const li
 }
 
 libqt_string KActionCollection_ComponentDisplayName(const KActionCollection* self) {
-    QString _ret = self->componentDisplayName();
+    auto _ret = self->componentDisplayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -281,6 +281,8 @@ pub const QStyledItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QStyledItemDelegate, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QStyledItemDelegate, callback: *const fn (QStyledItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.QStyledItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

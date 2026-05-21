@@ -215,7 +215,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
         }
         auto autocompletionselected_cb = qsciapis_autocompletionselected_callback;
         if (autocompletionselected_cb) {
-            const QString sel_ret = sel;
+            const auto sel_ret = sel;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray sel_b = sel_ret.toUtf8();
             auto sel_str_len = sel_b.length();

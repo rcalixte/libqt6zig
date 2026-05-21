@@ -85,7 +85,7 @@ QDBusMessage* QDBusMessage_CreateErrorReply3(const QDBusMessage* self, int typeV
 }
 
 libqt_string QDBusMessage_Service(const QDBusMessage* self) {
-    QString _ret = self->service();
+    auto _ret = self->service();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -97,7 +97,7 @@ libqt_string QDBusMessage_Service(const QDBusMessage* self) {
 }
 
 libqt_string QDBusMessage_Path(const QDBusMessage* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -109,7 +109,7 @@ libqt_string QDBusMessage_Path(const QDBusMessage* self) {
 }
 
 libqt_string QDBusMessage_Interface(const QDBusMessage* self) {
-    QString _ret = self->interface();
+    auto _ret = self->interface();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -121,7 +121,7 @@ libqt_string QDBusMessage_Interface(const QDBusMessage* self) {
 }
 
 libqt_string QDBusMessage_Member(const QDBusMessage* self) {
-    QString _ret = self->member();
+    auto _ret = self->member();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -133,7 +133,7 @@ libqt_string QDBusMessage_Member(const QDBusMessage* self) {
 }
 
 libqt_string QDBusMessage_ErrorName(const QDBusMessage* self) {
-    QString _ret = self->errorName();
+    auto _ret = self->errorName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +145,7 @@ libqt_string QDBusMessage_ErrorName(const QDBusMessage* self) {
 }
 
 libqt_string QDBusMessage_ErrorMessage(const QDBusMessage* self) {
-    QString _ret = self->errorMessage();
+    auto _ret = self->errorMessage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -161,7 +161,7 @@ int QDBusMessage_Type(const QDBusMessage* self) {
 }
 
 libqt_string QDBusMessage_Signature(const QDBusMessage* self) {
-    QString _ret = self->signature();
+    auto _ret = self->signature();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

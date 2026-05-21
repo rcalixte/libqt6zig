@@ -184,7 +184,7 @@ libqt_list /* of libqt_string */ QsciLexerOctave_AutoCompletionWordSeparators(co
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -203,7 +203,7 @@ libqt_list /* of libqt_string */ QsciLexerOctave_AutoCompletionWordSeparators(co
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -229,7 +229,7 @@ libqt_list /* of libqt_string */ QsciLexerOctave_SuperAutoCompletionWordSeparato
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -248,7 +248,7 @@ libqt_list /* of libqt_string */ QsciLexerOctave_SuperAutoCompletionWordSeparato
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -596,7 +596,7 @@ void QsciLexerOctave_OnDefaultStyle(const QsciLexerOctave* self, intptr_t slot) 
 libqt_string QsciLexerOctave_Description(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        QString _ret = vqscilexeroctave->description(static_cast<int>(style));
+        auto _ret = vqscilexeroctave->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -606,7 +606,7 @@ libqt_string QsciLexerOctave_Description(const QsciLexerOctave* self, int style)
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerOctave*)self)->description(static_cast<int>(style));
+        auto _ret = ((VirtualQsciLexerOctave*)self)->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -623,7 +623,7 @@ libqt_string QsciLexerOctave_SuperDescription(const QsciLexerOctave* self, int s
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_Description_IsBase(true);
-        QString _ret = vqscilexeroctave->description(static_cast<int>(style));
+        auto _ret = vqscilexeroctave->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -633,7 +633,7 @@ libqt_string QsciLexerOctave_SuperDescription(const QsciLexerOctave* self, int s
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerOctave*)self)->description(static_cast<int>(style));
+        auto _ret = ((VirtualQsciLexerOctave*)self)->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1379,7 +1379,7 @@ void QsciLexerOctave_OnTextAsBytes(const QsciLexerOctave* self, intptr_t slot) {
 libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char* bytes, int size) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        QString _ret = vqscilexeroctave->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexeroctave->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1389,7 +1389,7 @@ libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerOctave*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerOctave*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1406,7 +1406,7 @@ libqt_string QsciLexerOctave_SuperBytesAsText(const QsciLexerOctave* self, const
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         vqscilexeroctave->setQsciLexerOctave_BytesAsText_IsBase(true);
-        QString _ret = vqscilexeroctave->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexeroctave->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1416,7 +1416,7 @@ libqt_string QsciLexerOctave_SuperBytesAsText(const QsciLexerOctave* self, const
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerOctave*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerOctave*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

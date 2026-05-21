@@ -73,7 +73,7 @@ bool Poppler__LinkDestination_IsChangeZoom(const Poppler__LinkDestination* self)
 }
 
 libqt_string Poppler__LinkDestination_ToString(const Poppler__LinkDestination* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -85,7 +85,7 @@ libqt_string Poppler__LinkDestination_ToString(const Poppler__LinkDestination* s
 }
 
 libqt_string Poppler__LinkDestination_DestinationName(const Poppler__LinkDestination* self) {
-    QString _ret = self->destinationName();
+    auto _ret = self->destinationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -167,7 +167,7 @@ bool Poppler__LinkGoto_IsExternal(const Poppler__LinkGoto* self) {
 }
 
 libqt_string Poppler__LinkGoto_FileName(const Poppler__LinkGoto* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -221,7 +221,7 @@ Poppler__LinkExecute* Poppler__LinkExecute_new(const QRectF* linkArea, const lib
 }
 
 libqt_string Poppler__LinkExecute_FileName(const Poppler__LinkExecute* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -233,7 +233,7 @@ libqt_string Poppler__LinkExecute_FileName(const Poppler__LinkExecute* self) {
 }
 
 libqt_string Poppler__LinkExecute_Parameters(const Poppler__LinkExecute* self) {
-    QString _ret = self->parameters();
+    auto _ret = self->parameters();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -282,7 +282,7 @@ Poppler__LinkBrowse* Poppler__LinkBrowse_new(const QRectF* linkArea, const libqt
 }
 
 libqt_string Poppler__LinkBrowse_Url(const Poppler__LinkBrowse* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -434,7 +434,7 @@ int Poppler__LinkRendition_Action(const Poppler__LinkRendition* self) {
 }
 
 libqt_string Poppler__LinkRendition_Script(const Poppler__LinkRendition* self) {
-    QString _ret = self->script();
+    auto _ret = self->script();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -468,7 +468,7 @@ int Poppler__LinkJavaScript_LinkType(const Poppler__LinkJavaScript* self) {
 }
 
 libqt_string Poppler__LinkJavaScript_Script(const Poppler__LinkJavaScript* self) {
-    QString _ret = self->script();
+    auto _ret = self->script();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -535,7 +535,7 @@ libqt_list /* of libqt_string */ Poppler__LinkHide_Targets(const Poppler__LinkHi
     // Convert QVector<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _vv_ret = _ret[i];
+        auto _vv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _vv_b = _vv_ret.toUtf8();
         libqt_string _vv_str;
@@ -585,7 +585,7 @@ libqt_list /* of int */ Poppler__LinkSubmitForm_GetFieldIds(const Poppler__LinkS
 }
 
 libqt_string Poppler__LinkSubmitForm_GetUrl(const Poppler__LinkSubmitForm* self) {
-    QString _ret = self->getUrl();
+    auto _ret = self->getUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

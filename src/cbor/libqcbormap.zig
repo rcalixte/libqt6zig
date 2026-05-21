@@ -139,9 +139,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn Value2(self: QCborMap, key: []const u8) QCborValue {
+    pub fn Value2(self: QCborMap, key: []u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -196,9 +196,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript2(self: QCborMap, key: []const u8) QCborValue {
+    pub fn OperatorSubscript2(self: QCborMap, key: []u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -253,9 +253,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript6(self: QCborMap, key: []const u8) QCborValueRef {
+    pub fn OperatorSubscript6(self: QCborMap, key: []u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -310,9 +310,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn Take2(self: QCborMap, key: []const u8) QCborValue {
+    pub fn Take2(self: QCborMap, key: []u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -367,9 +367,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn Remove2(self: QCborMap, key: []const u8) void {
+    pub fn Remove2(self: QCborMap, key: []u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -424,9 +424,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn Contains2(self: QCborMap, key: []const u8) bool {
+    pub fn Contains2(self: QCborMap, key: []u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -636,9 +636,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn Find2(self: QCborMap, key: []const u8) QCborMap__Iterator {
+    pub fn Find2(self: QCborMap, key: []u8) QCborMap__Iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -693,9 +693,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn ConstFind2(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
+    pub fn ConstFind2(self: QCborMap, key: []u8) QCborMap__ConstIterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -750,9 +750,9 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
-    pub fn Find6(self: QCborMap, key: []const u8) QCborMap__ConstIterator {
+    pub fn Find6(self: QCborMap, key: []u8) QCborMap__ConstIterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -810,11 +810,11 @@ pub const QCborMap = extern struct {
     ///
     /// ` self: QCborMap `
     ///
-    /// ` key: []const u8 `
+    /// ` key: []u8 `
     ///
     /// ` value_: QCborValue `
     ///
-    pub fn Insert2(self: QCborMap, key: []const u8, value_: anytype) QCborMap__Iterator {
+    pub fn Insert2(self: QCborMap, key: []u8, value_: anytype) QCborMap__Iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

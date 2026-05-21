@@ -1725,6 +1725,8 @@ pub const QTextDocument = extern struct {
     ///
     /// ` callback: *const fn (self: QTextDocument, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: QTextDocument, callback: *const fn (QTextDocument, i32, QUrl) callconv(.c) QVariant) void {
         qtc.QTextDocument_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

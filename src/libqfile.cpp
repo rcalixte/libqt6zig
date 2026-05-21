@@ -62,7 +62,7 @@ int QFile_Metacall(QFile* self, int param1, int param2, void** param3) {
 libqt_string QFile_FileName(const QFile* self) {
     auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
-        QString _ret = self->fileName();
+        auto _ret = self->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -72,7 +72,7 @@ libqt_string QFile_FileName(const QFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQFile*)self)->fileName();
+        auto _ret = ((VirtualQFile*)self)->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -101,7 +101,7 @@ libqt_string QFile_EncodeName(const libqt_string fileName) {
 
 libqt_string QFile_DecodeName(const libqt_string localFileName) {
     QByteArray localFileName_QByteArray(localFileName.data, localFileName.len);
-    QString _ret = QFile::decodeName(localFileName_QByteArray);
+    auto _ret = QFile::decodeName(localFileName_QByteArray);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ libqt_string QFile_DecodeName(const libqt_string localFileName) {
 }
 
 libqt_string QFile_DecodeName2(const char* localFileName) {
-    QString _ret = QFile::decodeName(localFileName);
+    auto _ret = QFile::decodeName(localFileName);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -134,7 +134,7 @@ bool QFile_Exists2(const libqt_string fileName) {
 }
 
 libqt_string QFile_SymLinkTarget(const QFile* self) {
-    QString _ret = self->symLinkTarget();
+    auto _ret = self->symLinkTarget();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -147,7 +147,7 @@ libqt_string QFile_SymLinkTarget(const QFile* self) {
 
 libqt_string QFile_SymLinkTarget2(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString _ret = QFile::symLinkTarget(fileName_QString);
+    auto _ret = QFile::symLinkTarget(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -343,7 +343,7 @@ libqt_string QFile_SuperFileName(const QFile* self) {
     auto* vqfile = const_cast<VirtualQFile*>(dynamic_cast<const VirtualQFile*>(self));
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_FileName_IsBase(true);
-        QString _ret = vqfile->fileName();
+        auto _ret = vqfile->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -353,7 +353,7 @@ libqt_string QFile_SuperFileName(const QFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QFile::fileName();
+        auto _ret = self->QFile::fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

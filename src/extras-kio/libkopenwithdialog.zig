@@ -5720,6 +5720,8 @@ pub const KOpenWithDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KOpenWithDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KOpenWithDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5767,6 +5769,8 @@ pub const KOpenWithDialog = extern struct {
     /// ` self: KOpenWithDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KOpenWithDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KOpenWithDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7945,6 +7949,8 @@ pub const KOpenWithDialog = extern struct {
     /// ` self: KOpenWithDialog`
     ///
     /// ` callback: *const fn (self: KOpenWithDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KOpenWithDialog, callback: *const fn (KOpenWithDialog, i32) callconv(.c) QVariant) void {
         qtc.KOpenWithDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

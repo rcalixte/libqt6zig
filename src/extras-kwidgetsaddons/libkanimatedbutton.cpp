@@ -76,7 +76,7 @@ int KAnimatedButton_Metacall(KAnimatedButton* self, int param1, int param2, void
 }
 
 libqt_string KAnimatedButton_AnimationPath(const KAnimatedButton* self) {
-    QString _ret = self->animationPath();
+    auto _ret = self->animationPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

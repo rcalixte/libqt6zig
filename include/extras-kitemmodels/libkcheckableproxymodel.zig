@@ -303,6 +303,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KCheckableProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2038,6 +2040,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2091,6 +2095,8 @@ pub const KCheckableProxyModel = extern struct {
     /// ` self: KCheckableProxyModel`
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapFromSource(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2146,6 +2152,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2199,6 +2207,8 @@ pub const KCheckableProxyModel = extern struct {
     /// ` self: KCheckableProxyModel`
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2313,6 +2323,8 @@ pub const KCheckableProxyModel = extern struct {
     /// ` self: KCheckableProxyModel`
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KCheckableProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2448,6 +2460,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2502,6 +2516,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionFromSource(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KCheckableProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2555,6 +2571,8 @@ pub const KCheckableProxyModel = extern struct {
     /// ` self: KCheckableProxyModel`
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionToSource(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KCheckableProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3500,6 +3518,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3717,6 +3737,8 @@ pub const KCheckableProxyModel = extern struct {
     /// ` self: KCheckableProxyModel`
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KCheckableProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4754,6 +4776,8 @@ pub const KCheckableProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4809,6 +4833,8 @@ pub const KCheckableProxyModel = extern struct {
     /// ` self: KCheckableProxyModel`
     ///
     /// ` callback: *const fn (self: KCheckableProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KCheckableProxyModel, callback: *const fn (KCheckableProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KCheckableProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

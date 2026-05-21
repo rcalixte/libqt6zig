@@ -20,6 +20,7 @@ typedef KSyntaxHighlighting::AbstractHighlighter KSyntaxHighlighting__AbstractHi
 typedef KSyntaxHighlighting::Definition KSyntaxHighlighting__Definition;
 typedef KSyntaxHighlighting::FoldingRegion KSyntaxHighlighting__FoldingRegion;
 typedef KSyntaxHighlighting::Format KSyntaxHighlighting__Format;
+typedef KSyntaxHighlighting::State KSyntaxHighlighting__State;
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__SyntaxHighlighter)
 typedef KSyntaxHighlighting::SyntaxHighlighter KSyntaxHighlighting__SyntaxHighlighter;
 #endif
@@ -29,6 +30,7 @@ typedef struct KSyntaxHighlighting__AbstractHighlighter KSyntaxHighlighting__Abs
 typedef struct KSyntaxHighlighting__Definition KSyntaxHighlighting__Definition;
 typedef struct KSyntaxHighlighting__FoldingRegion KSyntaxHighlighting__FoldingRegion;
 typedef struct KSyntaxHighlighting__Format KSyntaxHighlighting__Format;
+typedef struct KSyntaxHighlighting__State KSyntaxHighlighting__State;
 typedef struct KSyntaxHighlighting__SyntaxHighlighter KSyntaxHighlighting__SyntaxHighlighter;
 typedef struct KSyntaxHighlighting__Theme KSyntaxHighlighting__Theme;
 typedef struct QChildEvent QChildEvent;
@@ -130,6 +132,9 @@ int KSyntaxHighlighting__SyntaxHighlighter_SuperReceivers(const KSyntaxHighlight
 bool KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
 void KSyntaxHighlighting__SyntaxHighlighter_OnIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
 bool KSyntaxHighlighting__SyntaxHighlighter_SuperIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_HighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state);
+void KSyntaxHighlighting__SyntaxHighlighter_OnHighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightLine(KSyntaxHighlighting__SyntaxHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state);
 void KSyntaxHighlighting__SyntaxHighlighter_Delete(KSyntaxHighlighting__SyntaxHighlighter* self);
 
 #ifdef __cplusplus

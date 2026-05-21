@@ -1695,7 +1695,7 @@ class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
     virtual void activate(const QString& action) override {
         auto activate_cb = konsole__filter__hotspot_activate_callback;
         if (activate_cb) {
-            const QString action_ret = action;
+            const auto action_ret = action;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
             auto action_str_len = action_b.length();
@@ -1796,7 +1796,7 @@ class VirtualKonsoleRegExpFilterHotSpot final : public Konsole::RegExpFilter::Ho
         }
         auto activate_cb = konsole__regexpfilter__hotspot_activate_callback;
         if (activate_cb) {
-            const QString action_ret = action;
+            const auto action_ret = action;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
             auto action_str_len = action_b.length();
@@ -1919,7 +1919,7 @@ class VirtualKonsoleUrlFilterHotSpot final : public Konsole::UrlFilter::HotSpot 
         }
         auto activate_cb = konsole__urlfilter__hotspot_activate_callback;
         if (activate_cb) {
-            const QString action_ret = action;
+            const auto action_ret = action;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray action_b = action_ret.toUtf8();
             auto action_str_len = action_b.length();

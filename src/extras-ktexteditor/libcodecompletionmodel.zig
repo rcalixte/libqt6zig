@@ -391,6 +391,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KTextEditor__CodeCompletionModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -524,6 +526,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     /// ` self: KTextEditor__CodeCompletionModel `
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KTextEditor__CodeCompletionModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2075,6 +2079,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KTextEditor__CodeCompletionModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2186,6 +2192,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KTextEditor__CodeCompletionModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2310,6 +2318,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KTextEditor__CodeCompletionModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3597,6 +3607,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KTextEditor__CodeCompletionModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3744,6 +3756,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KTextEditor__CodeCompletionModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4486,6 +4500,8 @@ pub const KTextEditor__CodeCompletionModel = extern struct {
     /// ` self: KTextEditor__CodeCompletionModel`
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KTextEditor__CodeCompletionModel, callback: *const fn (KTextEditor__CodeCompletionModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KTextEditor__CodeCompletionModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

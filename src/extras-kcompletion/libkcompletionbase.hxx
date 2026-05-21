@@ -133,7 +133,7 @@ class VirtualKCompletionBase : public KCompletionBase {
     virtual void setCompletedText(const QString& text) override {
         auto setcompletedtext_cb = kcompletionbase_setcompletedtext_callback;
         if (setcompletedtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

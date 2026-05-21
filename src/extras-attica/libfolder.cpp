@@ -22,7 +22,7 @@ void Attica__Folder_SetId(Attica__Folder* self, const libqt_string id) {
 }
 
 libqt_string Attica__Folder_Id(const Attica__Folder* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void Attica__Folder_SetName(Attica__Folder* self, const libqt_string name) {
 }
 
 libqt_string Attica__Folder_Name(const Attica__Folder* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ void Attica__Folder_SetType(Attica__Folder* self, const libqt_string typeVal) {
 }
 
 libqt_string Attica__Folder_Type(const Attica__Folder* self) {
-    QString _ret = self->type();
+    auto _ret = self->type();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

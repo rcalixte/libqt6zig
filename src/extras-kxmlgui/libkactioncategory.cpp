@@ -91,7 +91,7 @@ KActionCollection* KActionCategory_Collection(const KActionCategory* self) {
 }
 
 libqt_string KActionCategory_Text(const KActionCategory* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

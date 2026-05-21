@@ -119,7 +119,7 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         }
         auto generateicon_cb = textemoticonscore__customemojiiconmanager_generateicon_callback;
         if (generateicon_cb) {
-            const QString customIdentifier_ret = customIdentifier;
+            const auto customIdentifier_ret = customIdentifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray customIdentifier_b = customIdentifier_ret.toUtf8();
             auto customIdentifier_str_len = customIdentifier_b.length();
@@ -144,7 +144,7 @@ class VirtualTextEmoticonsCoreCustomEmojiIconManager final : public TextEmoticon
         }
         auto filename_cb = textemoticonscore__customemojiiconmanager_filename_callback;
         if (filename_cb) {
-            const QString customIdentifier_ret = customIdentifier;
+            const auto customIdentifier_ret = customIdentifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray customIdentifier_b = customIdentifier_ret.toUtf8();
             auto customIdentifier_str_len = customIdentifier_b.length();

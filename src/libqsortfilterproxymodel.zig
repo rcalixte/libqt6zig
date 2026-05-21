@@ -268,6 +268,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -313,6 +315,8 @@ pub const QSortFilterProxyModel = extern struct {
     /// ` self: QSortFilterProxyModel `
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapFromSource(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -360,6 +364,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, proxySelection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionToSource(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.QSortFilterProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -405,6 +411,8 @@ pub const QSortFilterProxyModel = extern struct {
     /// ` self: QSortFilterProxyModel `
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, sourceSelection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.QSortFilterProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1039,6 +1047,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1089,6 +1099,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnParent(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1138,6 +1150,8 @@ pub const QSortFilterProxyModel = extern struct {
     /// ` self: QSortFilterProxyModel `
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1329,6 +1343,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QSortFilterProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1435,6 +1451,8 @@ pub const QSortFilterProxyModel = extern struct {
     /// ` self: QSortFilterProxyModel `
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QSortFilterProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2021,6 +2039,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2152,6 +2172,8 @@ pub const QSortFilterProxyModel = extern struct {
     /// ` self: QSortFilterProxyModel `
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QSortFilterProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5126,6 +5148,8 @@ pub const QSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5181,6 +5205,8 @@ pub const QSortFilterProxyModel = extern struct {
     /// ` self: QSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: QSortFilterProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QSortFilterProxyModel, callback: *const fn (QSortFilterProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QSortFilterProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

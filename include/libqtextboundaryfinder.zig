@@ -68,15 +68,14 @@ pub const QTextBoundaryFinder = extern struct {
     ///
     /// ` typeVal: qtextboundaryfinder_enums.BoundaryType `
     ///
-    /// ` chars: QChar `
+    /// ` str: []const u8 `
     ///
-    /// ` length: isize `
-    ///
-    /// ` buffer: *u8 `
-    ///
-    pub fn New5(typeVal: i32, chars: anytype, length: isize, buffer: *u8) QTextBoundaryFinder {
-        comptime _ = @TypeOf(chars)._is_QChar;
-        return .{ .ptr = qtc.QTextBoundaryFinder_new5(@bitCast(typeVal), @ptrCast(chars.ptr), @bitCast(length), @ptrCast(buffer)) };
+    pub fn New5(typeVal: i32, str: []const u8) QTextBoundaryFinder {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.QTextBoundaryFinder_new5(@bitCast(typeVal), str_str) };
     }
 
     /// New6 constructs a new QTextBoundaryFinder object.
@@ -91,11 +90,66 @@ pub const QTextBoundaryFinder = extern struct {
     ///
     /// ` buffer: *u8 `
     ///
+    pub fn New6(typeVal: i32, chars: anytype, length: isize, buffer: *u8) QTextBoundaryFinder {
+        comptime _ = @TypeOf(chars)._is_QChar;
+        return .{ .ptr = qtc.QTextBoundaryFinder_new6(@bitCast(typeVal), @ptrCast(chars.ptr), @bitCast(length), @ptrCast(buffer)) };
+    }
+
+    /// New7 constructs a new QTextBoundaryFinder object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qtextboundaryfinder_enums.BoundaryType `
+    ///
+    /// ` chars: QChar `
+    ///
+    /// ` length: isize `
+    ///
+    /// ` buffer: *u8 `
+    ///
     /// ` bufferSize: isize `
     ///
-    pub fn New6(typeVal: i32, chars: anytype, length: isize, buffer: *u8, bufferSize: isize) QTextBoundaryFinder {
+    pub fn New7(typeVal: i32, chars: anytype, length: isize, buffer: *u8, bufferSize: isize) QTextBoundaryFinder {
         comptime _ = @TypeOf(chars)._is_QChar;
-        return .{ .ptr = qtc.QTextBoundaryFinder_new6(@bitCast(typeVal), @ptrCast(chars.ptr), @bitCast(length), @ptrCast(buffer), @bitCast(bufferSize)) };
+        return .{ .ptr = qtc.QTextBoundaryFinder_new7(@bitCast(typeVal), @ptrCast(chars.ptr), @bitCast(length), @ptrCast(buffer), @bitCast(bufferSize)) };
+    }
+
+    /// New8 constructs a new QTextBoundaryFinder object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qtextboundaryfinder_enums.BoundaryType `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` buffer: *u8 `
+    ///
+    pub fn New8(typeVal: i32, str: []const u8, buffer: *u8) QTextBoundaryFinder {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.QTextBoundaryFinder_new8(@bitCast(typeVal), str_str, @ptrCast(buffer)) };
+    }
+
+    /// New9 constructs a new QTextBoundaryFinder object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` typeVal: qtextboundaryfinder_enums.BoundaryType `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` buffer: *u8 `
+    ///
+    /// ` bufferSize: isize `
+    ///
+    pub fn New9(typeVal: i32, str: []const u8, buffer: *u8, bufferSize: isize) QTextBoundaryFinder {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.QTextBoundaryFinder_new9(@bitCast(typeVal), str_str, @ptrCast(buffer), @bitCast(bufferSize)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextboundaryfinder.html#operator-eq)

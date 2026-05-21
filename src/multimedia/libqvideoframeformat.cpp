@@ -151,7 +151,7 @@ void QVideoFrameFormat_SetRotation(QVideoFrameFormat* self, int rotation) {
 }
 
 libqt_string QVideoFrameFormat_VertexShaderFileName(const QVideoFrameFormat* self) {
-    QString _ret = self->vertexShaderFileName();
+    auto _ret = self->vertexShaderFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -163,7 +163,7 @@ libqt_string QVideoFrameFormat_VertexShaderFileName(const QVideoFrameFormat* sel
 }
 
 libqt_string QVideoFrameFormat_FragmentShaderFileName(const QVideoFrameFormat* self) {
-    QString _ret = self->fragmentShaderFileName();
+    auto _ret = self->fragmentShaderFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -191,7 +191,7 @@ int QVideoFrameFormat_ImageFormatFromPixelFormat(int format) {
 }
 
 libqt_string QVideoFrameFormat_PixelFormatToString(int pixelFormat) {
-    QString _ret = QVideoFrameFormat::pixelFormatToString(static_cast<QVideoFrameFormat::PixelFormat>(pixelFormat));
+    auto _ret = QVideoFrameFormat::pixelFormatToString(static_cast<QVideoFrameFormat::PixelFormat>(pixelFormat));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

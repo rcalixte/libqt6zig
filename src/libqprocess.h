@@ -105,6 +105,7 @@ int QProcess_Execute(const libqt_string program);
 bool QProcess_StartDetached2(const libqt_string program);
 libqt_list /* of libqt_string */ QProcess_SystemEnvironment();
 libqt_string QProcess_NullDevice();
+libqt_list /* of libqt_string */ QProcess_SplitCommand(libqt_string command);
 void QProcess_Terminate(QProcess* self);
 void QProcess_Kill(QProcess* self);
 void QProcess_Finished(QProcess* self, int exitCode);

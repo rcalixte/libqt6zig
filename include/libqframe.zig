@@ -306,6 +306,8 @@ pub const QFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QFrame, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFrame_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5706,6 +5708,8 @@ pub const QFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QFrame, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFrame_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7477,6 +7481,8 @@ pub const QFrame = extern struct {
     /// ` self: QFrame`
     ///
     /// ` callback: *const fn (self: QFrame, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QFrame, callback: *const fn (QFrame, i32) callconv(.c) QVariant) void {
         qtc.QFrame_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

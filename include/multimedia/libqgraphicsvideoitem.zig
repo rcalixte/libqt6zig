@@ -327,6 +327,8 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsVideoItem_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -540,6 +542,8 @@ pub const QGraphicsVideoItem = extern struct {
     /// ` self: QGraphicsVideoItem `
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemChange(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsVideoItem_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4594,6 +4598,8 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnShape(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsVideoItem_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4865,6 +4871,8 @@ pub const QGraphicsVideoItem = extern struct {
     /// ` self: QGraphicsVideoItem`
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnOpaqueArea(self: QGraphicsVideoItem, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsVideoItem_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6004,6 +6012,8 @@ pub const QGraphicsVideoItem = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsVideoItem_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6167,6 +6177,8 @@ pub const QGraphicsVideoItem = extern struct {
     /// ` self: QGraphicsVideoItem`
     ///
     /// ` callback: *const fn (self: QGraphicsVideoItem, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsVideoItem, callback: *const fn (QGraphicsVideoItem, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsVideoItem_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

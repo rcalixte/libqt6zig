@@ -9,7 +9,7 @@ KNSCore__CategoryMetadata* KNSCore__CategoryMetadata_new(const KNSCore__Category
 }
 
 libqt_string KNSCore__CategoryMetadata_Id(const KNSCore__CategoryMetadata* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -21,7 +21,7 @@ libqt_string KNSCore__CategoryMetadata_Id(const KNSCore__CategoryMetadata* self)
 }
 
 libqt_string KNSCore__CategoryMetadata_Name(const KNSCore__CategoryMetadata* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -33,7 +33,7 @@ libqt_string KNSCore__CategoryMetadata_Name(const KNSCore__CategoryMetadata* sel
 }
 
 libqt_string KNSCore__CategoryMetadata_DisplayName(const KNSCore__CategoryMetadata* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

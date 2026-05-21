@@ -13,7 +13,7 @@
 
 libqt_string KNSCore_ReplaceBBCode(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KNSCore::replaceBBCode(param1_QString);
+    auto _ret = KNSCore::replaceBBCode(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ void KNSCore__Entry_SetName(KNSCore__Entry* self, const libqt_string name) {
 }
 
 libqt_string KNSCore__Entry_Name(const KNSCore__Entry* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -75,7 +75,7 @@ void KNSCore__Entry_SetUniqueId(KNSCore__Entry* self, const libqt_string id) {
 }
 
 libqt_string KNSCore__Entry_UniqueId(const KNSCore__Entry* self) {
-    QString _ret = self->uniqueId();
+    auto _ret = self->uniqueId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -92,7 +92,7 @@ void KNSCore__Entry_SetCategory(KNSCore__Entry* self, const libqt_string categor
 }
 
 libqt_string KNSCore__Entry_Category(const KNSCore__Entry* self) {
-    QString _ret = self->category();
+    auto _ret = self->category();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -125,7 +125,7 @@ void KNSCore__Entry_SetLicense(KNSCore__Entry* self, const libqt_string license)
 }
 
 libqt_string KNSCore__Entry_License(const KNSCore__Entry* self) {
-    QString _ret = self->license();
+    auto _ret = self->license();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -142,7 +142,7 @@ void KNSCore__Entry_SetSummary(KNSCore__Entry* self, const libqt_string summary)
 }
 
 libqt_string KNSCore__Entry_ShortSummary(const KNSCore__Entry* self) {
-    QString _ret = self->shortSummary();
+    auto _ret = self->shortSummary();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -159,7 +159,7 @@ void KNSCore__Entry_SetShortSummary(KNSCore__Entry* self, const libqt_string sum
 }
 
 libqt_string KNSCore__Entry_Summary(const KNSCore__Entry* self) {
-    QString _ret = self->summary();
+    auto _ret = self->summary();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -176,7 +176,7 @@ void KNSCore__Entry_SetChangelog(KNSCore__Entry* self, const libqt_string change
 }
 
 libqt_string KNSCore__Entry_Changelog(const KNSCore__Entry* self) {
-    QString _ret = self->changelog();
+    auto _ret = self->changelog();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ void KNSCore__Entry_SetVersion(KNSCore__Entry* self, const libqt_string version)
 }
 
 libqt_string KNSCore__Entry_Version(const KNSCore__Entry* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -218,7 +218,7 @@ void KNSCore__Entry_SetUpdateVersion(KNSCore__Entry* self, const libqt_string ve
 }
 
 libqt_string KNSCore__Entry_UpdateVersion(const KNSCore__Entry* self) {
-    QString _ret = self->updateVersion();
+    auto _ret = self->updateVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -243,7 +243,7 @@ void KNSCore__Entry_SetPayload(KNSCore__Entry* self, const libqt_string url) {
 }
 
 libqt_string KNSCore__Entry_Payload(const KNSCore__Entry* self) {
-    QString _ret = self->payload();
+    auto _ret = self->payload();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -260,7 +260,7 @@ void KNSCore__Entry_SetPreviewUrl(KNSCore__Entry* self, const libqt_string url) 
 }
 
 libqt_string KNSCore__Entry_PreviewUrl(const KNSCore__Entry* self) {
-    QString _ret = self->previewUrl();
+    auto _ret = self->previewUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -295,7 +295,7 @@ libqt_list /* of libqt_string */ KNSCore__Entry_InstalledFiles(const KNSCore__En
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -316,7 +316,7 @@ libqt_list /* of libqt_string */ KNSCore__Entry_UninstalledFiles(const KNSCore__
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -373,7 +373,7 @@ void KNSCore__Entry_SetNumberKnowledgebaseEntries(KNSCore__Entry* self, int num)
 }
 
 libqt_string KNSCore__Entry_KnowledgebaseLink(const KNSCore__Entry* self) {
-    QString _ret = self->knowledgebaseLink();
+    auto _ret = self->knowledgebaseLink();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -415,7 +415,7 @@ void KNSCore__Entry_ClearDownloadLinkInformation(KNSCore__Entry* self) {
 }
 
 libqt_string KNSCore__Entry_DonationLink(const KNSCore__Entry* self) {
-    QString _ret = self->donationLink();
+    auto _ret = self->donationLink();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -436,7 +436,7 @@ libqt_list /* of libqt_string */ KNSCore__Entry_Tags(const KNSCore__Entry* self)
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -464,7 +464,7 @@ void KNSCore__Entry_SetTags(KNSCore__Entry* self, const libqt_list /* of libqt_s
 }
 
 libqt_string KNSCore__Entry_ProviderId(const KNSCore__Entry* self) {
-    QString _ret = self->providerId();
+    auto _ret = self->providerId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -518,7 +518,7 @@ void KNSCore__Entry_SetPreviewUrl2(KNSCore__Entry* self, const libqt_string url,
 }
 
 libqt_string KNSCore__Entry_PreviewUrl1(const KNSCore__Entry* self, int typeVal) {
-    QString _ret = self->previewUrl(static_cast<KNSCore::Entry::PreviewType>(typeVal));
+    auto _ret = self->previewUrl(static_cast<KNSCore::Entry::PreviewType>(typeVal));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -546,7 +546,7 @@ KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation
 }
 
 libqt_string KNSCore__Entry__DownloadLinkInformation_Name(const KNSCore__Entry__DownloadLinkInformation* self) {
-    QString name_ret = self->name;
+    auto name_ret = self->name;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray name_b = name_ret.toUtf8();
     libqt_string name_str;
@@ -563,7 +563,7 @@ void KNSCore__Entry__DownloadLinkInformation_SetName(KNSCore__Entry__DownloadLin
 }
 
 libqt_string KNSCore__Entry__DownloadLinkInformation_PriceAmount(const KNSCore__Entry__DownloadLinkInformation* self) {
-    QString priceAmount_ret = self->priceAmount;
+    auto priceAmount_ret = self->priceAmount;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray priceAmount_b = priceAmount_ret.toUtf8();
     libqt_string priceAmount_str;
@@ -580,7 +580,7 @@ void KNSCore__Entry__DownloadLinkInformation_SetPriceAmount(KNSCore__Entry__Down
 }
 
 libqt_string KNSCore__Entry__DownloadLinkInformation_DistributionType(const KNSCore__Entry__DownloadLinkInformation* self) {
-    QString distributionType_ret = self->distributionType;
+    auto distributionType_ret = self->distributionType;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray distributionType_b = distributionType_ret.toUtf8();
     libqt_string distributionType_str;
@@ -597,7 +597,7 @@ void KNSCore__Entry__DownloadLinkInformation_SetDistributionType(KNSCore__Entry_
 }
 
 libqt_string KNSCore__Entry__DownloadLinkInformation_DescriptionLink(const KNSCore__Entry__DownloadLinkInformation* self) {
-    QString descriptionLink_ret = self->descriptionLink;
+    auto descriptionLink_ret = self->descriptionLink;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray descriptionLink_b = descriptionLink_ret.toUtf8();
     libqt_string descriptionLink_str;
@@ -642,7 +642,7 @@ libqt_list /* of libqt_string */ KNSCore__Entry__DownloadLinkInformation_Tags(co
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* tags_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (tags_ret.size())));
     for (qsizetype i = 0; i < tags_ret.size(); ++i) {
-        QString tags_lv_ret = tags_ret[i];
+        auto tags_lv_ret = tags_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray tags_lv_b = tags_lv_ret.toUtf8();
         libqt_string tags_lv_str;

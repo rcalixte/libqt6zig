@@ -315,6 +315,8 @@ pub const QOffscreenSurface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSurfaceFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: QOffscreenSurface, callback: *const fn () callconv(.c) QSurfaceFormat) void {
         qtc.QOffscreenSurface_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -364,6 +366,8 @@ pub const QOffscreenSurface = extern struct {
     /// ` self: QOffscreenSurface `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSize(self: QOffscreenSurface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QOffscreenSurface_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

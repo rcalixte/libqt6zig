@@ -452,6 +452,8 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, name: [*:0]const u8) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBackendProperty(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QNmeaSatelliteInfoSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

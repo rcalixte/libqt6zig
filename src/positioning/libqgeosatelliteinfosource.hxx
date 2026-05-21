@@ -230,7 +230,7 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         }
         auto setbackendproperty_cb = qgeosatelliteinfosource_setbackendproperty_callback;
         if (setbackendproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -256,7 +256,7 @@ class VirtualQGeoSatelliteInfoSource : public QGeoSatelliteInfoSource {
         }
         auto backendproperty_cb = qgeosatelliteinfosource_backendproperty_callback;
         if (backendproperty_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

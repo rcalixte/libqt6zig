@@ -120,7 +120,7 @@ void QUndoView_SetEmptyLabel(QUndoView* self, const libqt_string label) {
 }
 
 libqt_string QUndoView_EmptyLabel(const QUndoView* self) {
-    QString _ret = self->emptyLabel();
+    auto _ret = self->emptyLabel();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

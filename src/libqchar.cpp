@@ -122,7 +122,7 @@ bool QChar_HasMirrored(const QChar* self) {
 }
 
 libqt_string QChar_Decomposition(const QChar* self) {
-    QString _ret = self->decomposition();
+    auto _ret = self->decomposition();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

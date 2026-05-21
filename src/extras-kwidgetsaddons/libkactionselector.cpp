@@ -100,7 +100,7 @@ void KActionSelector_SetKeyboardEnabled(KActionSelector* self, bool enable) {
 }
 
 libqt_string KActionSelector_AvailableLabel(const KActionSelector* self) {
-    QString _ret = self->availableLabel();
+    auto _ret = self->availableLabel();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -117,7 +117,7 @@ void KActionSelector_SetAvailableLabel(KActionSelector* self, const libqt_string
 }
 
 libqt_string KActionSelector_SelectedLabel(const KActionSelector* self) {
-    QString _ret = self->selectedLabel();
+    auto _ret = self->selectedLabel();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

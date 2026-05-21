@@ -419,6 +419,8 @@ pub const QScatterSeries = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnColor(self: QScatterSeries, callback: *const fn () callconv(.c) QColor) void {
         qtc.QScatterSeries_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

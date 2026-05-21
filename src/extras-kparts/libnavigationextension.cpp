@@ -100,7 +100,7 @@ bool KParts__NavigationExtension_IsActionEnabled(const KParts__NavigationExtensi
 }
 
 libqt_string KParts__NavigationExtension_ActionText(const KParts__NavigationExtension* self, const char* name) {
-    QString _ret = self->actionText(name);
+    auto _ret = self->actionText(name);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

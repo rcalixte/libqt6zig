@@ -27,7 +27,7 @@ bool QAuthenticator_OperatorNotEqual(const QAuthenticator* self, const QAuthenti
 }
 
 libqt_string QAuthenticator_User(const QAuthenticator* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -44,7 +44,7 @@ void QAuthenticator_SetUser(QAuthenticator* self, const libqt_string user) {
 }
 
 libqt_string QAuthenticator_Password(const QAuthenticator* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ void QAuthenticator_SetPassword(QAuthenticator* self, const libqt_string passwor
 }
 
 libqt_string QAuthenticator_Realm(const QAuthenticator* self) {
-    QString _ret = self->realm();
+    auto _ret = self->realm();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ libqt_map /* of libqt_string to QVariant* */ QAuthenticator_Options(const QAuthe
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _hashkey_ret = _itr->first;
+        auto _hashkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _hashkey_b = _hashkey_ret.toUtf8();
         libqt_string _hashkey_str;

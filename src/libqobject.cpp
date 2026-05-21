@@ -52,7 +52,7 @@ int QObject_Metacall(QObject* self, int param1, int param2, void** param3) {
 }
 
 libqt_string QObject_Tr(const char* s) {
-    QString _ret = QObject::tr(s);
+    auto _ret = QObject::tr(s);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event) {
 }
 
 libqt_string QObject_ObjectName(const QObject* self) {
-    QString _ret = self->objectName();
+    auto _ret = self->objectName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -299,7 +299,7 @@ void QObject_DisconnectNotify(QObject* self, const QMetaMethod* signal) {
 }
 
 libqt_string QObject_Tr2(const char* s, const char* c) {
-    QString _ret = QObject::tr(s, c);
+    auto _ret = QObject::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -311,7 +311,7 @@ libqt_string QObject_Tr2(const char* s, const char* c) {
 }
 
 libqt_string QObject_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QObject::tr(s, c, static_cast<int>(n));
+    auto _ret = QObject::tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -679,7 +679,7 @@ void QObject_OnIsSignalConnected(const QObject* self, intptr_t slot) {
 void QObject_Connect_ObjectNameChanged(QObject* self, intptr_t slot) {
     void (*slotFunc)(QObject*, const char*) = reinterpret_cast<void (*)(QObject*, const char*)>(slot);
     QObject::connect(self, &QObject::objectNameChanged, [self, slotFunc](const QString& objectName) {
-        const QString objectName_ret = objectName;
+        const auto objectName_ret = objectName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray objectName_b = objectName_ret.toUtf8();
         auto objectName_str_len = objectName_b.length();

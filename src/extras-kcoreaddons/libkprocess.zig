@@ -1375,6 +1375,38 @@ pub const KProcess = extern struct {
 
     /// Inherited from QProcess
     ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#splitCommand)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` command: []const u8 `
+    ///
+    pub fn SplitCommand(allocator: std.mem.Allocator, command: []const u8) []const []const u8 {
+        const command_str = qtc.libqt_string{
+            .len = command.len,
+            .data = command.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.QProcess_SplitCommand(command_str);
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i|
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kprocess.SplitCommand: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kprocess.SplitCommand: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
+    }
+
+    /// Inherited from QProcess
+    ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#terminate)
     ///
     /// ## Parameter(s):

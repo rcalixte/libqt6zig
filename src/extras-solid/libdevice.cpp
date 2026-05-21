@@ -87,7 +87,7 @@ bool Solid__Device_IsValid(const Solid__Device* self) {
 }
 
 libqt_string Solid__Device_Udi(const Solid__Device* self) {
-    QString _ret = self->udi();
+    auto _ret = self->udi();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -99,7 +99,7 @@ libqt_string Solid__Device_Udi(const Solid__Device* self) {
 }
 
 libqt_string Solid__Device_ParentUdi(const Solid__Device* self) {
-    QString _ret = self->parentUdi();
+    auto _ret = self->parentUdi();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -115,7 +115,7 @@ Solid__Device* Solid__Device_Parent(const Solid__Device* self) {
 }
 
 libqt_string Solid__Device_Vendor(const Solid__Device* self) {
-    QString _ret = self->vendor();
+    auto _ret = self->vendor();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -127,7 +127,7 @@ libqt_string Solid__Device_Vendor(const Solid__Device* self) {
 }
 
 libqt_string Solid__Device_Product(const Solid__Device* self) {
-    QString _ret = self->product();
+    auto _ret = self->product();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -139,7 +139,7 @@ libqt_string Solid__Device_Product(const Solid__Device* self) {
 }
 
 libqt_string Solid__Device_Icon(const Solid__Device* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -155,7 +155,7 @@ libqt_list /* of libqt_string */ Solid__Device_Emblems(const Solid__Device* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -172,7 +172,7 @@ libqt_list /* of libqt_string */ Solid__Device_Emblems(const Solid__Device* self
 }
 
 libqt_string Solid__Device_DisplayName(const Solid__Device* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -184,7 +184,7 @@ libqt_string Solid__Device_DisplayName(const Solid__Device* self) {
 }
 
 libqt_string Solid__Device_Description(const Solid__Device* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -56,7 +56,7 @@ QNetworkAccessManager* TextGrammarCheck__LanguageToolManager_NetworkAccessManage
 }
 
 libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolPath(const TextGrammarCheck__LanguageToolManager* self) {
-    QString _ret = self->languageToolPath();
+    auto _ret = self->languageToolPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -81,7 +81,7 @@ void TextGrammarCheck__LanguageToolManager_SaveSettings(TextGrammarCheck__Langua
 }
 
 libqt_string TextGrammarCheck__LanguageToolManager_Language(const TextGrammarCheck__LanguageToolManager* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,7 +106,7 @@ void TextGrammarCheck__LanguageToolManager_SetUseLocalInstance(TextGrammarCheck_
 }
 
 libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolCheckPath(const TextGrammarCheck__LanguageToolManager* self) {
-    QString _ret = self->languageToolCheckPath();
+    auto _ret = self->languageToolCheckPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -118,7 +118,7 @@ libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolCheckPath(const T
 }
 
 libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolLanguagesPath(const TextGrammarCheck__LanguageToolManager* self) {
-    QString _ret = self->languageToolLanguagesPath();
+    auto _ret = self->languageToolLanguagesPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -131,7 +131,7 @@ libqt_string TextGrammarCheck__LanguageToolManager_LanguageToolLanguagesPath(con
 
 libqt_string TextGrammarCheck__LanguageToolManager_ConvertToLanguagePath(const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    QString _ret = TextGrammarCheck::LanguageToolManager::convertToLanguagePath(path_QString);
+    auto _ret = TextGrammarCheck::LanguageToolManager::convertToLanguagePath(path_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

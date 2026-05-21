@@ -367,6 +367,8 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnRect(self: QAccessibleWidget, callback: *const fn () callconv(.c) QRect) void {
         qtc.QAccessibleWidget_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -597,6 +599,8 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QAccessible__State `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnState(self: QAccessibleWidget, callback: *const fn () callconv(.c) QAccessible__State) void {
         qtc.QAccessibleWidget_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -637,6 +641,8 @@ pub const QAccessibleWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnForegroundColor(self: QAccessibleWidget, callback: *const fn () callconv(.c) QColor) void {
         qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -676,6 +682,8 @@ pub const QAccessibleWidget = extern struct {
     /// ` self: QAccessibleWidget `
     ///
     /// ` callback: *const fn () callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBackgroundColor(self: QAccessibleWidget, callback: *const fn () callconv(.c) QColor) void {
         qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

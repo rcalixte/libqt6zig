@@ -266,6 +266,8 @@ pub const KAdjustingScrollArea = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KAdjustingScrollArea, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAdjustingScrollArea_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -305,6 +307,8 @@ pub const KAdjustingScrollArea = extern struct {
     /// ` self: KAdjustingScrollArea `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: KAdjustingScrollArea, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAdjustingScrollArea_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6091,6 +6095,8 @@ pub const KAdjustingScrollArea = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnViewportSizeHint(self: KAdjustingScrollArea, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAdjustingScrollArea_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8179,6 +8185,8 @@ pub const KAdjustingScrollArea = extern struct {
     ///
     /// ` callback: *const fn (self: KAdjustingScrollArea, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: KAdjustingScrollArea, callback: *const fn (KAdjustingScrollArea, i32) callconv(.c) QVariant) void {
         qtc.KAdjustingScrollArea_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8560,6 +8568,8 @@ pub const KAdjustingScrollArea = extern struct {
     /// ` self: KAdjustingScrollArea`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: KAdjustingScrollArea, callback: *const fn () callconv(.c) QMargins) void {
         qtc.KAdjustingScrollArea_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

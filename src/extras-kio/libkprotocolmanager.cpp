@@ -107,7 +107,7 @@ bool KProtocolManager_CanDeleteRecursive(const QUrl* url) {
 }
 
 libqt_string KProtocolManager_DefaultMimetype(const QUrl* url) {
-    QString _ret = KProtocolManager::defaultMimetype(*url);
+    auto _ret = KProtocolManager::defaultMimetype(*url);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -131,7 +131,7 @@ libqt_list /* of libqt_string */ KProtocolManager_Listing(const QUrl* url) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -153,7 +153,7 @@ bool KProtocolManager_IsSourceProtocol(const QUrl* url) {
 
 libqt_string KProtocolManager_ProtocolForArchiveMimetype(const libqt_string mimeType) {
     QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
-    QString _ret = KProtocolManager::protocolForArchiveMimetype(mimeType_QString);
+    auto _ret = KProtocolManager::protocolForArchiveMimetype(mimeType_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -169,7 +169,7 @@ void KProtocolManager_ReparseConfiguration() {
 }
 
 libqt_string KProtocolManager_CharsetFor(const QUrl* url) {
-    QString _ret = KProtocolManager::charsetFor(*url);
+    auto _ret = KProtocolManager::charsetFor(*url);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

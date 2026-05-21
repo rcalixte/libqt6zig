@@ -10,7 +10,7 @@ QLockFile* QLockFile_new(const libqt_string fileName) {
 }
 
 libqt_string QLockFile_FileName(const QLockFile* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

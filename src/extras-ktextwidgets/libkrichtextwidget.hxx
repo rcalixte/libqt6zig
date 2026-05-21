@@ -640,7 +640,7 @@ class VirtualKRichTextWidget final : public KRichTextWidget {
         }
         auto shouldblockbespellchecked_cb = krichtextwidget_shouldblockbespellchecked_callback;
         if (shouldblockbespellchecked_cb) {
-            const QString block_ret = block;
+            const auto block_ret = block;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray block_b = block_ret.toUtf8();
             auto block_str_len = block_b.length();

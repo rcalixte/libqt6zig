@@ -45,7 +45,7 @@ class VirtualTextAutoCorrectionCoreImportAbstractAutocorrection : public TextAut
     virtual bool import(const QString& fileName, QString& errorMessage, TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute loadAttribute) override {
         auto import_cb = textautocorrectioncore__importabstractautocorrection_import_callback;
         if (import_cb) {
-            const QString fileName_ret = fileName;
+            const auto fileName_ret = fileName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
             auto fileName_str_len = fileName_b.length();
@@ -53,7 +53,7 @@ class VirtualTextAutoCorrectionCoreImportAbstractAutocorrection : public TextAut
             memcpy((void*)fileName_str, fileName_b.data(), fileName_str_len);
             ((char*)fileName_str)[fileName_str_len] = '\0';
             const char* cbval1 = fileName_str;
-            QString errorMessage_ret = errorMessage;
+            auto errorMessage_ret = errorMessage;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorMessage_b = errorMessage_ret.toUtf8();
             auto errorMessage_str_len = errorMessage_b.length();

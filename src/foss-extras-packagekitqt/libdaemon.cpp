@@ -36,7 +36,7 @@ PackageKit__Bitfield* PackageKit__Daemon_Roles() {
 }
 
 libqt_string PackageKit__Daemon_BackendName() {
-    QString _ret = PackageKit::Daemon::backendName();
+    auto _ret = PackageKit::Daemon::backendName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string PackageKit__Daemon_BackendName() {
 }
 
 libqt_string PackageKit__Daemon_BackendDescription() {
-    QString _ret = PackageKit::Daemon::backendDescription();
+    auto _ret = PackageKit::Daemon::backendDescription();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ libqt_string PackageKit__Daemon_BackendDescription() {
 }
 
 libqt_string PackageKit__Daemon_BackendAuthor() {
-    QString _ret = PackageKit::Daemon::backendAuthor();
+    auto _ret = PackageKit::Daemon::backendAuthor();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -88,7 +88,7 @@ libqt_list /* of libqt_string */ PackageKit__Daemon_MimeTypes() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -109,7 +109,7 @@ int PackageKit__Daemon_NetworkState() {
 }
 
 libqt_string PackageKit__Daemon_DistroID() {
-    QString _ret = PackageKit::Daemon::distroID();
+    auto _ret = PackageKit::Daemon::distroID();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -153,7 +153,7 @@ libqt_list /* of libqt_string */ PackageKit__Daemon_Hints() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -175,7 +175,7 @@ PackageKit__Offline* PackageKit__Daemon_Offline(const PackageKit__Daemon* self) 
 
 libqt_string PackageKit__Daemon_PackageName(const libqt_string packageID) {
     QString packageID_QString = QString::fromUtf8(packageID.data, packageID.len);
-    QString _ret = PackageKit::Daemon::packageName(packageID_QString);
+    auto _ret = PackageKit::Daemon::packageName(packageID_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -188,7 +188,7 @@ libqt_string PackageKit__Daemon_PackageName(const libqt_string packageID) {
 
 libqt_string PackageKit__Daemon_PackageVersion(const libqt_string packageID) {
     QString packageID_QString = QString::fromUtf8(packageID.data, packageID.len);
-    QString _ret = PackageKit::Daemon::packageVersion(packageID_QString);
+    auto _ret = PackageKit::Daemon::packageVersion(packageID_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -201,7 +201,7 @@ libqt_string PackageKit__Daemon_PackageVersion(const libqt_string packageID) {
 
 libqt_string PackageKit__Daemon_PackageArch(const libqt_string packageID) {
     QString packageID_QString = QString::fromUtf8(packageID.data, packageID.len);
-    QString _ret = PackageKit::Daemon::packageArch(packageID_QString);
+    auto _ret = PackageKit::Daemon::packageArch(packageID_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -214,7 +214,7 @@ libqt_string PackageKit__Daemon_PackageArch(const libqt_string packageID) {
 
 libqt_string PackageKit__Daemon_PackageData(const libqt_string packageID) {
     QString packageID_QString = QString::fromUtf8(packageID.data, packageID.len);
-    QString _ret = PackageKit::Daemon::packageData(packageID_QString);
+    auto _ret = PackageKit::Daemon::packageData(packageID_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -226,7 +226,7 @@ libqt_string PackageKit__Daemon_PackageData(const libqt_string packageID) {
 }
 
 libqt_string PackageKit__Daemon_EnumToString(const QMetaObject* metaObject, int value, const char* enumName) {
-    QString _ret = PackageKit::Daemon::enumToString(*metaObject, static_cast<int>(value), enumName);
+    auto _ret = PackageKit::Daemon::enumToString(*metaObject, static_cast<int>(value), enumName);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

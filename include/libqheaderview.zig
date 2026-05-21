@@ -362,6 +362,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHeaderView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2291,6 +2293,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, logicalIndex: i32) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSectionSizeFromContents(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) QSize) void {
         qtc.QHeaderView_OnSectionSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2622,6 +2626,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: QHeaderView, callback: *const fn (QHeaderView, QModelIndex) callconv(.c) QRect) void {
         qtc.QHeaderView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2718,6 +2724,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, p: QPoint) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndexAt(self: QHeaderView, callback: *const fn (QHeaderView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QHeaderView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2810,6 +2818,8 @@ pub const QHeaderView = extern struct {
     /// ` self: QHeaderView `
     ///
     /// ` callback: *const fn (self: QHeaderView, param1: qabstractitemview_enums.CursorAction, param2: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMoveCursor(self: QHeaderView, callback: *const fn (QHeaderView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QHeaderView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2907,6 +2917,8 @@ pub const QHeaderView = extern struct {
     /// ` self: QHeaderView `
     ///
     /// ` callback: *const fn (self: QHeaderView, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: QHeaderView, callback: *const fn (QHeaderView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QHeaderView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9647,6 +9659,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn (self: QHeaderView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QHeaderView, callback: *const fn (QHeaderView, i32) callconv(.c) QVariant) void {
         qtc.QHeaderView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -11349,6 +11363,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnViewportSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHeaderView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -11396,6 +11412,8 @@ pub const QHeaderView = extern struct {
     /// ` self: QHeaderView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QHeaderView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QHeaderView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -13149,6 +13167,8 @@ pub const QHeaderView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: QHeaderView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QHeaderView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -13460,6 +13480,8 @@ pub const QHeaderView = extern struct {
     /// ` self: QHeaderView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QHeaderView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QHeaderView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

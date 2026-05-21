@@ -891,7 +891,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto findfirst_cb = qsciscintilla_findfirst_callback;
         if (findfirst_cb) {
-            const QString expr_ret = expr;
+            const auto expr_ret = expr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray expr_b = expr_ret.toUtf8();
             auto expr_str_len = expr_b.length();
@@ -924,7 +924,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto findfirstinselection_cb = qsciscintilla_findfirstinselection_callback;
         if (findfirstinselection_cb) {
-            const QString expr_ret = expr;
+            const auto expr_ret = expr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray expr_b = expr_ret.toUtf8();
             auto expr_str_len = expr_b.length();
@@ -986,7 +986,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto replace_cb = qsciscintilla_replace_callback;
         if (replace_cb) {
-            const QString replaceStr_ret = replaceStr;
+            const auto replaceStr_ret = replaceStr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray replaceStr_b = replaceStr_ret.toUtf8();
             auto replaceStr_str_len = replaceStr_b.length();
@@ -1010,7 +1010,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto append_cb = qsciscintilla_append_callback;
         if (append_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -1218,7 +1218,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto insert_cb = qsciscintilla_insert_callback;
         if (insert_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -1242,7 +1242,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto insertat_cb = qsciscintilla_insertat_callback;
         if (insertat_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -1328,7 +1328,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto replaceselectedtext_cb = qsciscintilla_replaceselectedtext_callback;
         if (replaceselectedtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -1965,7 +1965,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         auto setmarginwidth2_cb = qsciscintilla_setmarginwidth2_callback;
         if (setmarginwidth2_cb) {
             int cbval1 = margin;
-            const QString s_ret = s;
+            const auto s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
             auto s_str_len = s_b.length();
@@ -2126,7 +2126,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         }
         auto settext_cb = qsciscintilla_settext_callback;
         if (settext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

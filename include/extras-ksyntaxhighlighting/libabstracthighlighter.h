@@ -20,12 +20,14 @@ typedef KSyntaxHighlighting::AbstractHighlighter KSyntaxHighlighting__AbstractHi
 typedef KSyntaxHighlighting::Definition KSyntaxHighlighting__Definition;
 typedef KSyntaxHighlighting::FoldingRegion KSyntaxHighlighting__FoldingRegion;
 typedef KSyntaxHighlighting::Format KSyntaxHighlighting__Format;
+typedef KSyntaxHighlighting::State KSyntaxHighlighting__State;
 typedef KSyntaxHighlighting::Theme KSyntaxHighlighting__Theme;
 #else
 typedef struct KSyntaxHighlighting__AbstractHighlighter KSyntaxHighlighting__AbstractHighlighter;
 typedef struct KSyntaxHighlighting__Definition KSyntaxHighlighting__Definition;
 typedef struct KSyntaxHighlighting__FoldingRegion KSyntaxHighlighting__FoldingRegion;
 typedef struct KSyntaxHighlighting__Format KSyntaxHighlighting__Format;
+typedef struct KSyntaxHighlighting__State KSyntaxHighlighting__State;
 typedef struct KSyntaxHighlighting__Theme KSyntaxHighlighting__Theme;
 #endif
 

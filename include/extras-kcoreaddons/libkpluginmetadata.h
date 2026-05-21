@@ -54,9 +54,13 @@ libqt_list /* of libqt_string */ KPluginMetaData_MimeTypes(const KPluginMetaData
 bool KPluginMetaData_SupportsMimeType(const KPluginMetaData* self, const libqt_string mimeType);
 libqt_list /* of libqt_string */ KPluginMetaData_FormFactors(const KPluginMetaData* self);
 bool KPluginMetaData_IsEnabledByDefault(const KPluginMetaData* self);
+libqt_string KPluginMetaData_Value(const KPluginMetaData* self, libqt_string key);
 libqt_string KPluginMetaData_Value2(const KPluginMetaData* self, const libqt_string key);
+bool KPluginMetaData_Value3(const KPluginMetaData* self, libqt_string key, bool defaultValue);
 bool KPluginMetaData_Value4(const KPluginMetaData* self, const libqt_string key, bool defaultValue);
+int KPluginMetaData_Value5(const KPluginMetaData* self, libqt_string key, int defaultValue);
 int KPluginMetaData_Value6(const KPluginMetaData* self, const libqt_string key, int defaultValue);
+libqt_list /* of libqt_string */ KPluginMetaData_Value7(const KPluginMetaData* self, libqt_string key, const libqt_list /* of libqt_string */ defaultValue);
 libqt_list /* of libqt_string */ KPluginMetaData_Value8(const KPluginMetaData* self, const libqt_string key, const libqt_list /* of libqt_string */ defaultValue);
 bool KPluginMetaData_OperatorEqual(const KPluginMetaData* self, const KPluginMetaData* other);
 bool KPluginMetaData_OperatorNotEqual(const KPluginMetaData* self, const KPluginMetaData* other);
@@ -64,6 +68,7 @@ bool KPluginMetaData_IsStaticPlugin(const KPluginMetaData* self);
 KPluginMetaData* KPluginMetaData_FindPluginById3(const libqt_string directory, const libqt_string pluginId, int options);
 libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins2(const libqt_string directory, intptr_t filter);
 libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins3(const libqt_string directory, intptr_t filter, int options);
+libqt_string KPluginMetaData_Value22(const KPluginMetaData* self, libqt_string key, const libqt_string defaultValue);
 libqt_string KPluginMetaData_Value23(const KPluginMetaData* self, const libqt_string key, const libqt_string defaultValue);
 void KPluginMetaData_Delete(KPluginMetaData* self);
 

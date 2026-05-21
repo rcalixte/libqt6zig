@@ -42,12 +42,14 @@ pub const QLocale = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` language: qlocale_enums.Language `
+    /// ` name: []const u8 `
     ///
-    /// ` territory: qlocale_enums.Country `
-    ///
-    pub fn New3(language: u16, territory: u16) QLocale {
-        return .{ .ptr = qtc.QLocale_new3(@bitCast(language), @bitCast(territory)) };
+    pub fn New3(name: []const u8) QLocale {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QLocale_new3(name_str) };
     }
 
     /// New4 constructs a new QLocale object.
@@ -56,31 +58,31 @@ pub const QLocale = extern struct {
     ///
     /// ` language: qlocale_enums.Language `
     ///
-    pub fn New4(language: u16) QLocale {
-        return .{ .ptr = qtc.QLocale_new4(@bitCast(language)) };
+    /// ` territory: qlocale_enums.Country `
+    ///
+    pub fn New4(language: u16, territory: u16) QLocale {
+        return .{ .ptr = qtc.QLocale_new4(@bitCast(language), @bitCast(territory)) };
     }
 
     /// New5 constructs a new QLocale object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QLocale `
+    /// ` language: qlocale_enums.Language `
     ///
-    pub fn New5(other: anytype) QLocale {
-        comptime _ = @TypeOf(other)._is_QLocale;
-        return .{ .ptr = qtc.QLocale_new5(@ptrCast(other.ptr)) };
+    pub fn New5(language: u16) QLocale {
+        return .{ .ptr = qtc.QLocale_new5(@bitCast(language)) };
     }
 
     /// New6 constructs a new QLocale object.
     ///
     /// ## Parameter(s):
     ///
-    /// ` language: qlocale_enums.Language `
+    /// ` other: QLocale `
     ///
-    /// ` script: qlocale_enums.Script `
-    ///
-    pub fn New6(language: u16, script: u16) QLocale {
-        return .{ .ptr = qtc.QLocale_new6(@bitCast(language), @bitCast(script)) };
+    pub fn New6(other: anytype) QLocale {
+        comptime _ = @TypeOf(other)._is_QLocale;
+        return .{ .ptr = qtc.QLocale_new6(@ptrCast(other.ptr)) };
     }
 
     /// New7 constructs a new QLocale object.
@@ -91,10 +93,22 @@ pub const QLocale = extern struct {
     ///
     /// ` script: qlocale_enums.Script `
     ///
+    pub fn New7(language: u16, script: u16) QLocale {
+        return .{ .ptr = qtc.QLocale_new7(@bitCast(language), @bitCast(script)) };
+    }
+
+    /// New8 constructs a new QLocale object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` language: qlocale_enums.Language `
+    ///
+    /// ` script: qlocale_enums.Script `
+    ///
     /// ` territory: qlocale_enums.Country `
     ///
-    pub fn New7(language: u16, script: u16, territory: u16) QLocale {
-        return .{ .ptr = qtc.QLocale_new7(@bitCast(language), @bitCast(script), @bitCast(territory)) };
+    pub fn New8(language: u16, script: u16, territory: u16) QLocale {
+        return .{ .ptr = qtc.QLocale_new8(@bitCast(language), @bitCast(script), @bitCast(territory)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#operator-eq)
@@ -419,6 +433,166 @@ pub const QLocale = extern struct {
         return qtc.QLocale_ToDouble(@ptrCast(self.ptr), s_str);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toShort)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToShort2(self: QLocale, s: []const u8) i16 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToShort2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toUShort)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToUShort2(self: QLocale, s: []const u8) u16 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToUShort2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toInt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToInt2(self: QLocale, s: []const u8) i32 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToInt2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toUInt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToUInt2(self: QLocale, s: []const u8) u32 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToUInt2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toLong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToLong2(self: QLocale, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToLong2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toULong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToULong2(self: QLocale, s: []const u8) usize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToULong2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toLongLong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToLongLong2(self: QLocale, s: []const u8) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToLongLong2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toULongLong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToULongLong2(self: QLocale, s: []const u8) usize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToULongLong2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toFloat)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToFloat2(self: QLocale, s: []const u8) f32 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToFloat2(@ptrCast(self.ptr), s_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDouble)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    pub fn ToDouble2(self: QLocale, s: []const u8) f64 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToDouble2(@ptrCast(self.ptr), s_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
     ///
     /// ## Parameter(s):
@@ -684,6 +858,81 @@ pub const QLocale = extern struct {
     ///
     /// ` date: QDate `
     ///
+    /// ` format: []const u8 `
+    ///
+    pub fn ToString14(self: QLocale, allocator: std.mem.Allocator, date: anytype, format: []const u8) []const u8 {
+        comptime _ = @TypeOf(date)._is_QDate;
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        var _str = qtc.QLocale_ToString14(@ptrCast(self.ptr), @ptrCast(date.ptr), format_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString14: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` time: QTime `
+    ///
+    /// ` format: []const u8 `
+    ///
+    pub fn ToString15(self: QLocale, allocator: std.mem.Allocator, time: anytype, format: []const u8) []const u8 {
+        comptime _ = @TypeOf(time)._is_QTime;
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        var _str = qtc.QLocale_ToString15(@ptrCast(self.ptr), @ptrCast(time.ptr), format_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString15: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` dateTime: QDateTime `
+    ///
+    /// ` format: []const u8 `
+    ///
+    pub fn ToString16(self: QLocale, allocator: std.mem.Allocator, dateTime: anytype, format: []const u8) []const u8 {
+        comptime _ = @TypeOf(dateTime)._is_QDateTime;
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        var _str = qtc.QLocale_ToString16(@ptrCast(self.ptr), @ptrCast(dateTime.ptr), format_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString16: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` date: QDate `
+    ///
     pub fn ToString17(self: QLocale, allocator: std.mem.Allocator, date: anytype) []const u8 {
         comptime _ = @TypeOf(date)._is_QDate;
         var _str = qtc.QLocale_ToString17(@ptrCast(self.ptr), @ptrCast(date.ptr));
@@ -741,6 +990,34 @@ pub const QLocale = extern struct {
     ///
     /// ` date: QDate `
     ///
+    /// ` format: []const u8 `
+    ///
+    /// ` cal: QCalendar `
+    ///
+    pub fn ToString20(self: QLocale, allocator: std.mem.Allocator, date: anytype, format: []const u8, cal: anytype) []const u8 {
+        comptime _ = @TypeOf(date)._is_QDate;
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        comptime _ = @TypeOf(cal)._is_QCalendar;
+        var _str = qtc.QLocale_ToString20(@ptrCast(self.ptr), @ptrCast(date.ptr), format_str, @ptrCast(cal.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString20: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` date: QDate `
+    ///
     /// ` format: qlocale_enums.FormatType `
     ///
     /// ` cal: QCalendar `
@@ -775,6 +1052,34 @@ pub const QLocale = extern struct {
         var _str = qtc.QLocale_ToString22(@ptrCast(self.ptr), @ptrCast(dateTime.ptr), @bitCast(format), @ptrCast(cal.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` dateTime: QDateTime `
+    ///
+    /// ` format: []const u8 `
+    ///
+    /// ` cal: QCalendar `
+    ///
+    pub fn ToString23(self: QLocale, allocator: std.mem.Allocator, dateTime: anytype, format: []const u8, cal: anytype) []const u8 {
+        comptime _ = @TypeOf(dateTime)._is_QDateTime;
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        comptime _ = @TypeOf(cal)._is_QCalendar;
+        var _str = qtc.QLocale_ToString23(@ptrCast(self.ptr), @ptrCast(dateTime.ptr), format_str, @ptrCast(cal.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1586,6 +1891,24 @@ pub const QLocale = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#codeToLanguage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` languageCode: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Language `
+    ///
+    pub fn CodeToLanguage(languageCode: []const u8) u16 {
+        const languageCode_str = qtc.libqt_string{
+            .len = languageCode.len,
+            .data = languageCode.ptr,
+        };
+        return qtc.QLocale_CodeToLanguage(languageCode_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#territoryToCode)
     ///
     /// ## Parameter(s):
@@ -1600,6 +1923,24 @@ pub const QLocale = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.TerritoryToCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#codeToTerritory)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` territoryCode: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Country `
+    ///
+    pub fn CodeToTerritory(territoryCode: []const u8) u16 {
+        const territoryCode_str = qtc.libqt_string{
+            .len = territoryCode.len,
+            .data = territoryCode.ptr,
+        };
+        return qtc.QLocale_CodeToTerritory(territoryCode_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#countryToCode)
@@ -1618,6 +1959,24 @@ pub const QLocale = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#codeToCountry)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` countryCode: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Country `
+    ///
+    pub fn CodeToCountry(countryCode: []const u8) u16 {
+        const countryCode_str = qtc.libqt_string{
+            .len = countryCode.len,
+            .data = countryCode.ptr,
+        };
+        return qtc.QLocale_CodeToCountry(countryCode_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#scriptToCode)
     ///
     /// ## Parameter(s):
@@ -1632,6 +1991,24 @@ pub const QLocale = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ScriptToCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#codeToScript)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` scriptCode: []const u8 `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Script `
+    ///
+    pub fn CodeToScript(scriptCode: []const u8) u16 {
+        const scriptCode_str = qtc.libqt_string{
+            .len = scriptCode.len,
+            .data = scriptCode.ptr,
+        };
+        return qtc.QLocale_CodeToScript(scriptCode_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#languageToString)
@@ -1808,6 +2185,28 @@ pub const QLocale = extern struct {
         var _str = qtc.QLocale_QuoteString(@ptrCast(self.ptr), str_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.QuoteString: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#quoteString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn QuoteString2(self: QLocale, allocator: std.mem.Allocator, str: []const u8) []const u8 {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        var _str = qtc.QLocale_QuoteString2(@ptrCast(self.ptr), str_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.QuoteString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2055,6 +2454,186 @@ pub const QLocale = extern struct {
             .data = s.ptr,
         };
         return qtc.QLocale_ToDouble22(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toShort)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToShort23(self: QLocale, s: []const u8, ok: *bool) i16 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToShort23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toUShort)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToUShort23(self: QLocale, s: []const u8, ok: *bool) u16 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToUShort23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toInt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToInt23(self: QLocale, s: []const u8, ok: *bool) i32 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToInt23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toUInt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToUInt23(self: QLocale, s: []const u8, ok: *bool) u32 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToUInt23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toLong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToLong23(self: QLocale, s: []const u8, ok: *bool) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToLong23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toULong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToULong23(self: QLocale, s: []const u8, ok: *bool) usize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToULong23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toLongLong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToLongLong23(self: QLocale, s: []const u8, ok: *bool) isize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToLongLong23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toULongLong)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToULongLong23(self: QLocale, s: []const u8, ok: *bool) usize {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToULongLong23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toFloat)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToFloat23(self: QLocale, s: []const u8, ok: *bool) f32 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToFloat23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDouble)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` s: []const u8 `
+    ///
+    /// ` ok: *bool `
+    ///
+    pub fn ToDouble23(self: QLocale, s: []const u8, ok: *bool) f64 {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return qtc.QLocale_ToDouble23(@ptrCast(self.ptr), s_str, @ptrCast(ok));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toString)
@@ -2930,6 +3509,26 @@ pub const QLocale = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#codeToLanguage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` languageCode: []const u8 `
+    ///
+    /// ` codeTypes: flag of qlocale_enums.LanguageCodeType `
+    ///
+    /// ## Returns:
+    ///
+    /// ` qlocale_enums.Language `
+    ///
+    pub fn CodeToLanguage2(languageCode: []const u8, codeTypes: i32) u16 {
+        const languageCode_str = qtc.libqt_string{
+            .len = languageCode.len,
+            .data = languageCode.ptr,
+        };
+        return qtc.QLocale_CodeToLanguage2(languageCode_str, @bitCast(codeTypes));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#quoteString)
     ///
     /// ## Parameter(s):
@@ -2950,6 +3549,30 @@ pub const QLocale = extern struct {
         var _str = qtc.QLocale_QuoteString22(@ptrCast(self.ptr), str_str, @bitCast(style));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.QuoteString22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#quoteString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QLocale `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` style: qlocale_enums.QuotationStyle `
+    ///
+    pub fn QuoteString23(self: QLocale, allocator: std.mem.Allocator, str: []const u8, style: i32) []const u8 {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        var _str = qtc.QLocale_QuoteString23(@ptrCast(self.ptr), str_str, @bitCast(style));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.QuoteString23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

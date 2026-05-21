@@ -83,7 +83,7 @@ void QPlace_SetSupplier(QPlace* self, const QPlaceSupplier* supplier) {
 }
 
 libqt_string QPlace_Attribution(const QPlace* self) {
-    QString _ret = self->attribution();
+    auto _ret = self->attribution();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -154,7 +154,7 @@ void QPlace_SetTotalContentCount(QPlace* self, int typeVal, int total) {
 }
 
 libqt_string QPlace_Name(const QPlace* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -171,7 +171,7 @@ void QPlace_SetName(QPlace* self, const libqt_string name) {
 }
 
 libqt_string QPlace_PlaceId(const QPlace* self) {
-    QString _ret = self->placeId();
+    auto _ret = self->placeId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -188,7 +188,7 @@ void QPlace_SetPlaceId(QPlace* self, const libqt_string identifier) {
 }
 
 libqt_string QPlace_PrimaryPhone(const QPlace* self) {
-    QString _ret = self->primaryPhone();
+    auto _ret = self->primaryPhone();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -200,7 +200,7 @@ libqt_string QPlace_PrimaryPhone(const QPlace* self) {
 }
 
 libqt_string QPlace_PrimaryFax(const QPlace* self) {
-    QString _ret = self->primaryFax();
+    auto _ret = self->primaryFax();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -212,7 +212,7 @@ libqt_string QPlace_PrimaryFax(const QPlace* self) {
 }
 
 libqt_string QPlace_PrimaryEmail(const QPlace* self) {
-    QString _ret = self->primaryEmail();
+    auto _ret = self->primaryEmail();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -240,7 +240,7 @@ libqt_list /* of libqt_string */ QPlace_ExtendedAttributeTypes(const QPlace* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -276,7 +276,7 @@ libqt_list /* of libqt_string */ QPlace_ContactTypes(const QPlace* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

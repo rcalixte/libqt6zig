@@ -741,6 +741,8 @@ pub const KConfigDialogManager = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigDialogManager, w: QWidget) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnProperty(self: KConfigDialogManager, callback: *const fn (KConfigDialogManager, QWidget) callconv(.c) QVariant) void {
         qtc.KConfigDialogManager_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

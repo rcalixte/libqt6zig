@@ -118,6 +118,8 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModelControllerInterface, view: KTextEditor__View, position: KTextEditor__Cursor) callconv(.c) KTextEditor__Range `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCompletionRange(self: KTextEditor__CodeCompletionModelControllerInterface, callback: *const fn (KTextEditor__CodeCompletionModelControllerInterface, KTextEditor__View, KTextEditor__Cursor) callconv(.c) KTextEditor__Range) void {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnCompletionRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -169,6 +171,8 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
     /// ` self: KTextEditor__CodeCompletionModelControllerInterface `
     ///
     /// ` callback: *const fn (self: KTextEditor__CodeCompletionModelControllerInterface, view: KTextEditor__View, range: KTextEditor__Range) callconv(.c) KTextEditor__Range `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnUpdateCompletionRange(self: KTextEditor__CodeCompletionModelControllerInterface, callback: *const fn (KTextEditor__CodeCompletionModelControllerInterface, KTextEditor__View, KTextEditor__Range) callconv(.c) KTextEditor__Range) void {
         qtc.KTextEditor__CodeCompletionModelControllerInterface_OnUpdateCompletionRange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

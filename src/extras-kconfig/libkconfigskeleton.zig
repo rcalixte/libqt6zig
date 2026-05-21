@@ -4100,6 +4100,8 @@ pub const KConfigSkeleton__ItemColor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnProperty(self: KConfigSkeleton__ItemColor, callback: *const fn () callconv(.c) QVariant) void {
         qtc.KConfigSkeleton__ItemColor_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4353,6 +4355,8 @@ pub const KConfigSkeleton__ItemFont = extern struct {
     /// ` self: KConfigSkeleton__ItemFont `
     ///
     /// ` callback: *const fn () callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnProperty(self: KConfigSkeleton__ItemFont, callback: *const fn () callconv(.c) QVariant) void {
         qtc.KConfigSkeleton__ItemFont_OnProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

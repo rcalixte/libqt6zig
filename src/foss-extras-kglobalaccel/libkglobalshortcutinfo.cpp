@@ -52,7 +52,7 @@ void KGlobalShortcutInfo_OperatorAssign(KGlobalShortcutInfo* self, const KGlobal
 }
 
 libqt_string KGlobalShortcutInfo_ContextFriendlyName(const KGlobalShortcutInfo* self) {
-    QString _ret = self->contextFriendlyName();
+    auto _ret = self->contextFriendlyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ libqt_string KGlobalShortcutInfo_ContextFriendlyName(const KGlobalShortcutInfo* 
 }
 
 libqt_string KGlobalShortcutInfo_ContextUniqueName(const KGlobalShortcutInfo* self) {
-    QString _ret = self->contextUniqueName();
+    auto _ret = self->contextUniqueName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,7 +76,7 @@ libqt_string KGlobalShortcutInfo_ContextUniqueName(const KGlobalShortcutInfo* se
 }
 
 libqt_string KGlobalShortcutInfo_ComponentFriendlyName(const KGlobalShortcutInfo* self) {
-    QString _ret = self->componentFriendlyName();
+    auto _ret = self->componentFriendlyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -88,7 +88,7 @@ libqt_string KGlobalShortcutInfo_ComponentFriendlyName(const KGlobalShortcutInfo
 }
 
 libqt_string KGlobalShortcutInfo_ComponentUniqueName(const KGlobalShortcutInfo* self) {
-    QString _ret = self->componentUniqueName();
+    auto _ret = self->componentUniqueName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_DefaultKeys(const KGlobalS
 }
 
 libqt_string KGlobalShortcutInfo_FriendlyName(const KGlobalShortcutInfo* self) {
-    QString _ret = self->friendlyName();
+    auto _ret = self->friendlyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -138,7 +138,7 @@ libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_Keys(const KGlobalShortcut
 }
 
 libqt_string KGlobalShortcutInfo_UniqueName(const KGlobalShortcutInfo* self) {
-    QString _ret = self->uniqueName();
+    auto _ret = self->uniqueName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

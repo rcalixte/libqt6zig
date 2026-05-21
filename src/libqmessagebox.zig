@@ -8008,6 +8008,8 @@ pub const QMessageBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QMessageBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QMessageBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8055,6 +8057,8 @@ pub const QMessageBox = extern struct {
     /// ` self: QMessageBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QMessageBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QMessageBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10017,6 +10021,8 @@ pub const QMessageBox = extern struct {
     /// ` self: QMessageBox`
     ///
     /// ` callback: *const fn (self: QMessageBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QMessageBox, callback: *const fn (QMessageBox, i32) callconv(.c) QVariant) void {
         qtc.QMessageBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

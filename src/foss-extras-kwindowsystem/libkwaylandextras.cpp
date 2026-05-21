@@ -50,7 +50,7 @@ void KWaylandExtras_Connect_XdgActivationTokenArrived(KWaylandExtras* self, intp
     void (*slotFunc)(KWaylandExtras*, int, const char*) = reinterpret_cast<void (*)(KWaylandExtras*, int, const char*)>(slot);
     KWaylandExtras::connect(self, &KWaylandExtras::xdgActivationTokenArrived, [self, slotFunc](int serial, const QString& token) {
         int sigval1 = serial;
-        const QString token_ret = token;
+        const auto token_ret = token;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray token_b = token_ret.toUtf8();
         auto token_str_len = token_b.length();
@@ -72,7 +72,7 @@ void KWaylandExtras_Connect_WindowExported(KWaylandExtras* self, intptr_t slot) 
     void (*slotFunc)(KWaylandExtras*, QWindow*, const char*) = reinterpret_cast<void (*)(KWaylandExtras*, QWindow*, const char*)>(slot);
     KWaylandExtras::connect(self, &KWaylandExtras::windowExported, [self, slotFunc](QWindow* window, const QString& handle) {
         QWindow* sigval1 = window;
-        const QString handle_ret = handle;
+        const auto handle_ret = handle;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray handle_b = handle_ret.toUtf8();
         auto handle_str_len = handle_b.length();

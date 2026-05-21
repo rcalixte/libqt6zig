@@ -64,7 +64,7 @@ void Solid__OpticalDrive_EjectPressed(Solid__OpticalDrive* self, const libqt_str
 void Solid__OpticalDrive_Connect_EjectPressed(Solid__OpticalDrive* self, intptr_t slot) {
     void (*slotFunc)(Solid__OpticalDrive*, const char*) = reinterpret_cast<void (*)(Solid__OpticalDrive*, const char*)>(slot);
     Solid::OpticalDrive::connect(self, &Solid::OpticalDrive::ejectPressed, [self, slotFunc](const QString& udi) {
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -87,7 +87,7 @@ void Solid__OpticalDrive_Connect_EjectDone(Solid__OpticalDrive* self, intptr_t s
     Solid::OpticalDrive::connect(self, &Solid::OpticalDrive::ejectDone, [self, slotFunc](Solid::ErrorType errorVal, QVariant errorData, const QString& udi) {
         int sigval1 = static_cast<int>(errorVal);
         QVariant* sigval2 = new QVariant(errorData);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -108,7 +108,7 @@ void Solid__OpticalDrive_EjectRequested(Solid__OpticalDrive* self, const libqt_s
 void Solid__OpticalDrive_Connect_EjectRequested(Solid__OpticalDrive* self, intptr_t slot) {
     void (*slotFunc)(Solid__OpticalDrive*, const char*) = reinterpret_cast<void (*)(Solid__OpticalDrive*, const char*)>(slot);
     Solid::OpticalDrive::connect(self, &Solid::OpticalDrive::ejectRequested, [self, slotFunc](const QString& udi) {
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();

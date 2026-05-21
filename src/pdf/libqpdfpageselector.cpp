@@ -86,7 +86,7 @@ int QPdfPageSelector_CurrentPage(const QPdfPageSelector* self) {
 }
 
 libqt_string QPdfPageSelector_CurrentPageLabel(const QPdfPageSelector* self) {
-    QString _ret = self->currentPageLabel();
+    auto _ret = self->currentPageLabel();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -133,7 +133,7 @@ void QPdfPageSelector_CurrentPageLabelChanged(QPdfPageSelector* self, const libq
 void QPdfPageSelector_Connect_CurrentPageLabelChanged(QPdfPageSelector* self, intptr_t slot) {
     void (*slotFunc)(QPdfPageSelector*, const char*) = reinterpret_cast<void (*)(QPdfPageSelector*, const char*)>(slot);
     QPdfPageSelector::connect(self, &QPdfPageSelector::currentPageLabelChanged, [self, slotFunc](const QString& label) {
-        const QString label_ret = label;
+        const auto label_ret = label;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray label_b = label_ret.toUtf8();
         auto label_str_len = label_b.length();

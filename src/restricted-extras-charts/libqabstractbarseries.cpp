@@ -91,7 +91,7 @@ void QAbstractBarSeries_SetLabelsFormat(QAbstractBarSeries* self, const libqt_st
 }
 
 libqt_string QAbstractBarSeries_LabelsFormat(const QAbstractBarSeries* self) {
-    QString _ret = self->labelsFormat();
+    auto _ret = self->labelsFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -222,7 +222,7 @@ void QAbstractBarSeries_LabelsFormatChanged(QAbstractBarSeries* self, const libq
 void QAbstractBarSeries_Connect_LabelsFormatChanged(QAbstractBarSeries* self, intptr_t slot) {
     void (*slotFunc)(QAbstractBarSeries*, const char*) = reinterpret_cast<void (*)(QAbstractBarSeries*, const char*)>(slot);
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::labelsFormatChanged, [self, slotFunc](const QString& format) {
-        const QString format_ret = format;
+        const auto format_ret = format;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray format_b = format_ret.toUtf8();
         auto format_str_len = format_b.length();

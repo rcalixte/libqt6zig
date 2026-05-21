@@ -191,7 +191,7 @@ void KRuler_SetEndLabel(KRuler* self, const libqt_string endLabel) {
 }
 
 libqt_string KRuler_EndLabel(const KRuler* self) {
-    QString _ret = self->endLabel();
+    auto _ret = self->endLabel();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

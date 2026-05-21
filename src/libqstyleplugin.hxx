@@ -156,7 +156,7 @@ class VirtualQStylePlugin : public QStylePlugin {
     virtual QStyle* create(const QString& key) override {
         auto create_cb = qstyleplugin_create_callback;
         if (create_cb) {
-            const QString key_ret = key;
+            const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
             auto key_str_len = key_b.length();

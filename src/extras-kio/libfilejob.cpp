@@ -95,7 +95,7 @@ void KIO__FileJob_Connect_MimeTypeFound(KIO__FileJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__FileJob*, KIO__Job*, const char*) = reinterpret_cast<void (*)(KIO__FileJob*, KIO__Job*, const char*)>(slot);
     KIO::FileJob::connect(self, &KIO::FileJob::mimeTypeFound, [self, slotFunc](KIO::Job* job, const QString& mimeType) {
         KIO__Job* sigval1 = job;
-        const QString mimeType_ret = mimeType;
+        const auto mimeType_ret = mimeType;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray mimeType_b = mimeType_ret.toUtf8();
         auto mimeType_str_len = mimeType_b.length();

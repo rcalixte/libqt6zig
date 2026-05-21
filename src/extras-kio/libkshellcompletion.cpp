@@ -50,7 +50,7 @@ libqt_string KShellCompletion_MakeCompletion(KShellCompletion* self, const libqt
     QString text_QString = QString::fromUtf8(text.data, text.len);
     auto* vkshellcompletion = dynamic_cast<VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
-        QString _ret = self->makeCompletion(text_QString);
+        auto _ret = self->makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -60,7 +60,7 @@ libqt_string KShellCompletion_MakeCompletion(KShellCompletion* self, const libqt
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKShellCompletion*)self)->makeCompletion(text_QString);
+        auto _ret = ((VirtualKShellCompletion*)self)->makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -156,7 +156,7 @@ libqt_string KShellCompletion_SuperMakeCompletion(KShellCompletion* self, const 
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_MakeCompletion_IsBase(true);
-        QString _ret = vkshellcompletion->makeCompletion(text_QString);
+        auto _ret = vkshellcompletion->makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -166,7 +166,7 @@ libqt_string KShellCompletion_SuperMakeCompletion(KShellCompletion* self, const 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KShellCompletion::makeCompletion(text_QString);
+        auto _ret = self->KShellCompletion::makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -525,7 +525,7 @@ void KShellCompletion_OnSetReplaceHome(KShellCompletion* self, intptr_t slot) {
 libqt_string KShellCompletion_LastMatch(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
-        const QString _ret = vkshellcompletion->lastMatch();
+        const auto _ret = vkshellcompletion->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -535,7 +535,7 @@ libqt_string KShellCompletion_LastMatch(const KShellCompletion* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString _ret = self->KShellCompletion::lastMatch();
+        const auto _ret = self->KShellCompletion::lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -552,7 +552,7 @@ libqt_string KShellCompletion_SuperLastMatch(const KShellCompletion* self) {
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_LastMatch_IsBase(true);
-        const QString _ret = vkshellcompletion->lastMatch();
+        const auto _ret = vkshellcompletion->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -562,7 +562,7 @@ libqt_string KShellCompletion_SuperLastMatch(const KShellCompletion* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString _ret = self->KShellCompletion::lastMatch();
+        const auto _ret = self->KShellCompletion::lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

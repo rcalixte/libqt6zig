@@ -149,7 +149,7 @@ double QTextFormat_DoubleProperty(const QTextFormat* self, int propertyId) {
 }
 
 libqt_string QTextFormat_StringProperty(const QTextFormat* self, int propertyId) {
-    QString _ret = self->stringProperty(static_cast<int>(propertyId));
+    auto _ret = self->stringProperty(static_cast<int>(propertyId));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -359,7 +359,7 @@ void QTextCharFormat_SetFontFamily(QTextCharFormat* self, const libqt_string fam
 }
 
 libqt_string QTextCharFormat_FontFamily(const QTextCharFormat* self) {
-    QString _ret = self->fontFamily();
+    auto _ret = self->fontFamily();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -560,7 +560,7 @@ void QTextCharFormat_SetToolTip(QTextCharFormat* self, const libqt_string tip) {
 }
 
 libqt_string QTextCharFormat_ToolTip(const QTextCharFormat* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -609,7 +609,7 @@ void QTextCharFormat_SetAnchorHref(QTextCharFormat* self, const libqt_string val
 }
 
 libqt_string QTextCharFormat_AnchorHref(const QTextCharFormat* self) {
-    QString _ret = self->anchorHref();
+    auto _ret = self->anchorHref();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -636,7 +636,7 @@ libqt_list /* of libqt_string */ QTextCharFormat_AnchorNames(const QTextCharForm
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -857,7 +857,7 @@ void QTextListFormat_SetNumberPrefix(QTextListFormat* self, const libqt_string n
 }
 
 libqt_string QTextListFormat_NumberPrefix(const QTextListFormat* self) {
-    QString _ret = self->numberPrefix();
+    auto _ret = self->numberPrefix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -874,7 +874,7 @@ void QTextListFormat_SetNumberSuffix(QTextListFormat* self, const libqt_string n
 }
 
 libqt_string QTextListFormat_NumberSuffix(const QTextListFormat* self) {
-    QString _ret = self->numberSuffix();
+    auto _ret = self->numberSuffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -915,7 +915,7 @@ void QTextImageFormat_SetName(QTextImageFormat* self, const libqt_string name) {
 }
 
 libqt_string QTextImageFormat_Name(const QTextImageFormat* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

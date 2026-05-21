@@ -27,7 +27,7 @@ QPoint* QWebEngineContextMenuRequest_Position(const QWebEngineContextMenuRequest
 }
 
 libqt_string QWebEngineContextMenuRequest_SelectedText(const QWebEngineContextMenuRequest* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ libqt_string QWebEngineContextMenuRequest_SelectedText(const QWebEngineContextMe
 }
 
 libqt_string QWebEngineContextMenuRequest_LinkText(const QWebEngineContextMenuRequest* self) {
-    QString _ret = self->linkText();
+    auto _ret = self->linkText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,7 +67,7 @@ bool QWebEngineContextMenuRequest_IsContentEditable(const QWebEngineContextMenuR
 }
 
 libqt_string QWebEngineContextMenuRequest_MisspelledWord(const QWebEngineContextMenuRequest* self) {
-    QString _ret = self->misspelledWord();
+    auto _ret = self->misspelledWord();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -83,7 +83,7 @@ libqt_list /* of libqt_string */ QWebEngineContextMenuRequest_SpellCheckerSugges
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

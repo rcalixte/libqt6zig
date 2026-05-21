@@ -77,7 +77,7 @@ bool KPluginMetaData_IsHidden(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_FileName(const KPluginMetaData* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -93,7 +93,7 @@ QJsonObject* KPluginMetaData_RawData(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_Name(const KPluginMetaData* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -105,7 +105,7 @@ libqt_string KPluginMetaData_Name(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_Description(const KPluginMetaData* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -156,7 +156,7 @@ libqt_list /* of KAboutPerson* */ KPluginMetaData_OtherContributors(const KPlugi
 }
 
 libqt_string KPluginMetaData_Category(const KPluginMetaData* self) {
-    QString _ret = self->category();
+    auto _ret = self->category();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -168,7 +168,7 @@ libqt_string KPluginMetaData_Category(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_IconName(const KPluginMetaData* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_string KPluginMetaData_IconName(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_License(const KPluginMetaData* self) {
-    QString _ret = self->license();
+    auto _ret = self->license();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -192,7 +192,7 @@ libqt_string KPluginMetaData_License(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_LicenseText(const KPluginMetaData* self) {
-    QString _ret = self->licenseText();
+    auto _ret = self->licenseText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -204,7 +204,7 @@ libqt_string KPluginMetaData_LicenseText(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_CopyrightText(const KPluginMetaData* self) {
-    QString _ret = self->copyrightText();
+    auto _ret = self->copyrightText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -216,7 +216,7 @@ libqt_string KPluginMetaData_CopyrightText(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_PluginId(const KPluginMetaData* self) {
-    QString _ret = self->pluginId();
+    auto _ret = self->pluginId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -228,7 +228,7 @@ libqt_string KPluginMetaData_PluginId(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_Version(const KPluginMetaData* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -240,7 +240,7 @@ libqt_string KPluginMetaData_Version(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_Website(const KPluginMetaData* self) {
-    QString _ret = self->website();
+    auto _ret = self->website();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -252,7 +252,7 @@ libqt_string KPluginMetaData_Website(const KPluginMetaData* self) {
 }
 
 libqt_string KPluginMetaData_BugReportUrl(const KPluginMetaData* self) {
-    QString _ret = self->bugReportUrl();
+    auto _ret = self->bugReportUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -268,7 +268,7 @@ libqt_list /* of libqt_string */ KPluginMetaData_MimeTypes(const KPluginMetaData
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -294,7 +294,7 @@ libqt_list /* of libqt_string */ KPluginMetaData_FormFactors(const KPluginMetaDa
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -314,9 +314,9 @@ bool KPluginMetaData_IsEnabledByDefault(const KPluginMetaData* self) {
     return self->isEnabledByDefault();
 }
 
-libqt_string KPluginMetaData_Value2(const KPluginMetaData* self, const libqt_string key) {
+libqt_string KPluginMetaData_Value(const KPluginMetaData* self, libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->value(key_QString);
+    auto _ret = self->value(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -327,14 +327,66 @@ libqt_string KPluginMetaData_Value2(const KPluginMetaData* self, const libqt_str
     return _str;
 }
 
+libqt_string KPluginMetaData_Value2(const KPluginMetaData* self, const libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    auto _ret = self->value(key_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+bool KPluginMetaData_Value3(const KPluginMetaData* self, libqt_string key, bool defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->value(key_QString, defaultValue);
+}
+
 bool KPluginMetaData_Value4(const KPluginMetaData* self, const libqt_string key, bool defaultValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->value(key_QString, defaultValue);
 }
 
+int KPluginMetaData_Value5(const KPluginMetaData* self, libqt_string key, int defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->value(key_QString, static_cast<int>(defaultValue));
+}
+
 int KPluginMetaData_Value6(const KPluginMetaData* self, const libqt_string key, int defaultValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->value(key_QString, static_cast<int>(defaultValue));
+}
+
+libqt_list /* of libqt_string */ KPluginMetaData_Value7(const KPluginMetaData* self, libqt_string key, const libqt_list /* of libqt_string */ defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    QList<QString> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    libqt_string* defaultValue_arr = static_cast<libqt_string*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        QString defaultValue_arr_i_QString = QString::fromUtf8(defaultValue_arr[i].data, defaultValue_arr[i].len);
+        defaultValue_QList.push_back(defaultValue_arr_i_QString);
+    }
+    QList<QString> _ret = self->value(key_QString, defaultValue_QList);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_list /* of libqt_string */ KPluginMetaData_Value8(const KPluginMetaData* self, const libqt_string key, const libqt_list /* of libqt_string */ defaultValue) {
@@ -350,7 +402,7 @@ libqt_list /* of libqt_string */ KPluginMetaData_Value8(const KPluginMetaData* s
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -426,10 +478,24 @@ libqt_list /* of KPluginMetaData* */ KPluginMetaData_FindPlugins3(const libqt_st
     return _out;
 }
 
+libqt_string KPluginMetaData_Value22(const KPluginMetaData* self, libqt_string key, const libqt_string defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
+    auto _ret = self->value(key_QString, defaultValue_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 libqt_string KPluginMetaData_Value23(const KPluginMetaData* self, const libqt_string key, const libqt_string defaultValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
-    QString _ret = self->value(key_QString, defaultValue_QString);
+    auto _ret = self->value(key_QString, defaultValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

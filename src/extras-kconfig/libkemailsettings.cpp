@@ -14,7 +14,7 @@ libqt_list /* of libqt_string */ KEMailSettings_Profiles(const KEMailSettings* s
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -36,7 +36,7 @@ void KEMailSettings_SetProfile(KEMailSettings* self, const libqt_string s) {
 }
 
 libqt_string KEMailSettings_DefaultProfileName(const KEMailSettings* self) {
-    QString _ret = self->defaultProfileName();
+    auto _ret = self->defaultProfileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -53,7 +53,7 @@ void KEMailSettings_SetDefault(KEMailSettings* self, const libqt_string def) {
 }
 
 libqt_string KEMailSettings_GetSetting(const KEMailSettings* self, int s) {
-    QString _ret = self->getSetting(static_cast<KEMailSettings::Setting>(s));
+    auto _ret = self->getSetting(static_cast<KEMailSettings::Setting>(s));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

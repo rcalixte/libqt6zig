@@ -62,7 +62,7 @@ void QLocalServer_Close(QLocalServer* self) {
 }
 
 libqt_string QLocalServer_ErrorString(const QLocalServer* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -109,7 +109,7 @@ QLocalSocket* QLocalServer_NextPendingConnection(QLocalServer* self) {
 }
 
 libqt_string QLocalServer_ServerName(const QLocalServer* self) {
-    QString _ret = self->serverName();
+    auto _ret = self->serverName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -121,7 +121,7 @@ libqt_string QLocalServer_ServerName(const QLocalServer* self) {
 }
 
 libqt_string QLocalServer_FullServerName(const QLocalServer* self) {
-    QString _ret = self->fullServerName();
+    auto _ret = self->fullServerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -1932,6 +1932,8 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, from: QVariant, to: QVariant, progress: f64) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInterpolated(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant, QVariant, f64) callconv(.c) QVariant) void {
         qtc.QPropertyAnimation_OnInterpolated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

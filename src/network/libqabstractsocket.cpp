@@ -139,7 +139,7 @@ QHostAddress* QAbstractSocket_PeerAddress(const QAbstractSocket* self) {
 }
 
 libqt_string QAbstractSocket_PeerName(const QAbstractSocket* self) {
-    QString _ret = self->peerName();
+    auto _ret = self->peerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -284,7 +284,7 @@ QNetworkProxy* QAbstractSocket_Proxy(const QAbstractSocket* self) {
 }
 
 libqt_string QAbstractSocket_ProtocolTag(const QAbstractSocket* self) {
-    QString _ret = self->protocolTag();
+    auto _ret = self->protocolTag();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

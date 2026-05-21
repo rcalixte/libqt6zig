@@ -303,6 +303,8 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, mode: fileinfoextension_enums.QueryMode) callconv(.c) KFileItemList `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnQueryFor(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, i32) callconv(.c) KFileItemList) void {
         qtc.KParts__FileInfoExtension_OnQueryFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

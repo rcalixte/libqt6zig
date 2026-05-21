@@ -82,7 +82,7 @@ void QBluetoothServiceInfo_SetServiceName(QBluetoothServiceInfo* self, const lib
 }
 
 libqt_string QBluetoothServiceInfo_ServiceName(const QBluetoothServiceInfo* self) {
-    QString _ret = self->serviceName();
+    auto _ret = self->serviceName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -99,7 +99,7 @@ void QBluetoothServiceInfo_SetServiceDescription(QBluetoothServiceInfo* self, co
 }
 
 libqt_string QBluetoothServiceInfo_ServiceDescription(const QBluetoothServiceInfo* self) {
-    QString _ret = self->serviceDescription();
+    auto _ret = self->serviceDescription();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -116,7 +116,7 @@ void QBluetoothServiceInfo_SetServiceProvider(QBluetoothServiceInfo* self, const
 }
 
 libqt_string QBluetoothServiceInfo_ServiceProvider(const QBluetoothServiceInfo* self) {
-    QString _ret = self->serviceProvider();
+    auto _ret = self->serviceProvider();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

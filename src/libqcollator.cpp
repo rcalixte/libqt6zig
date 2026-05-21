@@ -95,9 +95,32 @@ bool QCollator_OperatorCall(const QCollator* self, const libqt_string s1, const 
     return self->operator()(s1_QString, s2_QString);
 }
 
+int QCollator_Compare3(const QCollator* self, libqt_string s1, libqt_string s2) {
+    QString s1_QString = QString::fromUtf8(s1.data, s1.len);
+    QString s2_QString = QString::fromUtf8(s2.data, s2.len);
+    return self->compare(s1_QString, s2_QString);
+}
+
+bool QCollator_OperatorCall2(const QCollator* self, libqt_string s1, libqt_string s2) {
+    QString s1_QString = QString::fromUtf8(s1.data, s1.len);
+    QString s2_QString = QString::fromUtf8(s2.data, s2.len);
+    return self->operator()(s1_QString, s2_QString);
+}
+
 QCollatorSortKey* QCollator_SortKey(const QCollator* self, const libqt_string stringVal) {
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     return new QCollatorSortKey(self->sortKey(stringVal_QString));
+}
+
+int QCollator_DefaultCompare(libqt_string s1, libqt_string s2) {
+    QString s1_QString = QString::fromUtf8(s1.data, s1.len);
+    QString s2_QString = QString::fromUtf8(s2.data, s2.len);
+    return QCollator::defaultCompare(s1_QString, s2_QString);
+}
+
+QCollatorSortKey* QCollator_DefaultSortKey(libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return new QCollatorSortKey(QCollator::defaultSortKey(key_QString));
 }
 
 void QCollator_Delete(QCollator* self) {

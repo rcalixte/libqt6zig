@@ -1227,6 +1227,8 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCoordinateOffset(self: QPaintEngine, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QPaintEngine_OnCoordinateOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1414,6 +1416,8 @@ pub const QPaintEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPaintEngine, size: QSize) callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreatePixmap(self: QPaintEngine, callback: *const fn (QPaintEngine, QSize) callconv(.c) QPixmap) void {
         qtc.QPaintEngine_OnCreatePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1461,6 +1465,8 @@ pub const QPaintEngine = extern struct {
     /// ` self: QPaintEngine `
     ///
     /// ` callback: *const fn (self: QPaintEngine, image: QImage, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreatePixmapFromImage(self: QPaintEngine, callback: *const fn (QPaintEngine, QImage, i32) callconv(.c) QPixmap) void {
         qtc.QPaintEngine_OnCreatePixmapFromImage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

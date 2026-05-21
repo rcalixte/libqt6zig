@@ -418,6 +418,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSizeF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDocumentSize(self: QAbstractTextDocumentLayout, callback: *const fn () callconv(.c) QSizeF) void {
         qtc.QAbstractTextDocumentLayout_OnDocumentSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -460,6 +462,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     /// ` self: QAbstractTextDocumentLayout `
     ///
     /// ` callback: *const fn (self: QAbstractTextDocumentLayout, frame: QTextFrame) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFrameBoundingRect(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, QTextFrame) callconv(.c) QRectF) void {
         qtc.QAbstractTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -506,6 +510,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     /// ` self: QAbstractTextDocumentLayout `
     ///
     /// ` callback: *const fn (self: QAbstractTextDocumentLayout, block: QTextBlock) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBlockBoundingRect(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, QTextBlock) callconv(.c) QRectF) void {
         qtc.QAbstractTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -995,6 +1001,8 @@ pub const QAbstractTextDocumentLayout = extern struct {
     /// ` self: QAbstractTextDocumentLayout `
     ///
     /// ` callback: *const fn (self: QAbstractTextDocumentLayout, pos: i32) callconv(.c) QTextCharFormat `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFormat(self: QAbstractTextDocumentLayout, callback: *const fn (QAbstractTextDocumentLayout, i32) callconv(.c) QTextCharFormat) void {
         qtc.QAbstractTextDocumentLayout_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

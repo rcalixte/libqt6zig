@@ -19,7 +19,7 @@ QDateTime* KArchiveEntry_Date(const KArchiveEntry* self) {
 }
 
 libqt_string KArchiveEntry_Name(const KArchiveEntry* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -35,7 +35,7 @@ mode_t KArchiveEntry_Permissions(const KArchiveEntry* self) {
 }
 
 libqt_string KArchiveEntry_User(const KArchiveEntry* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -47,7 +47,7 @@ libqt_string KArchiveEntry_User(const KArchiveEntry* self) {
 }
 
 libqt_string KArchiveEntry_Group(const KArchiveEntry* self) {
-    QString _ret = self->group();
+    auto _ret = self->group();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string KArchiveEntry_Group(const KArchiveEntry* self) {
 }
 
 libqt_string KArchiveEntry_SymLinkTarget(const KArchiveEntry* self) {
-    QString _ret = self->symLinkTarget();
+    auto _ret = self->symLinkTarget();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -193,7 +193,7 @@ void KComboBox_ReturnPressed(KComboBox* self, const libqt_string text) {
 void KComboBox_Connect_ReturnPressed(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, const char*) = reinterpret_cast<void (*)(KComboBox*, const char*)>(slot);
     KComboBox::connect(self, &KComboBox::returnPressed, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -214,7 +214,7 @@ void KComboBox_Completion(KComboBox* self, const libqt_string param1) {
 void KComboBox_Connect_Completion(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, const char*) = reinterpret_cast<void (*)(KComboBox*, const char*)>(slot);
     KComboBox::connect(self, &KComboBox::completion, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -235,7 +235,7 @@ void KComboBox_SubstringCompletion(KComboBox* self, const libqt_string param1) {
 void KComboBox_Connect_SubstringCompletion(KComboBox* self, intptr_t slot) {
     void (*slotFunc)(KComboBox*, const char*) = reinterpret_cast<void (*)(KComboBox*, const char*)>(slot);
     KComboBox::connect(self, &KComboBox::substringCompletion, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

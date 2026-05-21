@@ -64,7 +64,7 @@ int QImageCapture_Error(const QImageCapture* self) {
 }
 
 libqt_string QImageCapture_ErrorString(const QImageCapture* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -101,7 +101,7 @@ libqt_list /* of int */ QImageCapture_SupportedFormats() {
 }
 
 libqt_string QImageCapture_FileFormatName(int c) {
-    QString _ret = QImageCapture::fileFormatName(static_cast<QImageCapture::FileFormat>(c));
+    auto _ret = QImageCapture::fileFormatName(static_cast<QImageCapture::FileFormat>(c));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ libqt_string QImageCapture_FileFormatName(int c) {
 }
 
 libqt_string QImageCapture_FileFormatDescription(int c) {
-    QString _ret = QImageCapture::fileFormatDescription(static_cast<QImageCapture::FileFormat>(c));
+    auto _ret = QImageCapture::fileFormatDescription(static_cast<QImageCapture::FileFormat>(c));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -185,7 +185,7 @@ void QImageCapture_Connect_ErrorOccurred(QImageCapture* self, intptr_t slot) {
     QImageCapture::connect(self, &QImageCapture::errorOccurred, [self, slotFunc](int id, QImageCapture::Error errorVal, const QString& errorString) {
         int sigval1 = id;
         int sigval2 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();
@@ -320,7 +320,7 @@ void QImageCapture_Connect_ImageSaved(QImageCapture* self, intptr_t slot) {
     void (*slotFunc)(QImageCapture*, int, const char*) = reinterpret_cast<void (*)(QImageCapture*, int, const char*)>(slot);
     QImageCapture::connect(self, &QImageCapture::imageSaved, [self, slotFunc](int id, const QString& fileName) {
         int sigval1 = id;
-        const QString fileName_ret = fileName;
+        const auto fileName_ret = fileName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray fileName_b = fileName_ret.toUtf8();
         auto fileName_str_len = fileName_b.length();

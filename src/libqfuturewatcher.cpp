@@ -33,7 +33,7 @@ int QFutureWatcherBase_ProgressMaximum(const QFutureWatcherBase* self) {
 }
 
 libqt_string QFutureWatcherBase_ProgressText(const QFutureWatcherBase* self) {
-    QString _ret = self->progressText();
+    auto _ret = self->progressText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -219,7 +219,7 @@ void QFutureWatcherBase_ProgressTextChanged(QFutureWatcherBase* self, const libq
 void QFutureWatcherBase_Connect_ProgressTextChanged(QFutureWatcherBase* self, intptr_t slot) {
     void (*slotFunc)(QFutureWatcherBase*, const char*) = reinterpret_cast<void (*)(QFutureWatcherBase*, const char*)>(slot);
     QFutureWatcherBase::connect(self, &QFutureWatcherBase::progressTextChanged, [self, slotFunc](const QString& progressText) {
-        const QString progressText_ret = progressText;
+        const auto progressText_ret = progressText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray progressText_b = progressText_ret.toUtf8();
         auto progressText_str_len = progressText_b.length();

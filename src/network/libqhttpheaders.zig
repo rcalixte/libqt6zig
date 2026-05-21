@@ -369,11 +369,11 @@ pub const QHttpHeaders = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn NameAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []const u8 {
-        var _str = qtc.QHttpHeaders_NameAt(@ptrCast(self.ptr), @bitCast(i));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhttpheaders.NameAt: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
+    pub fn NameAt(self: QHttpHeaders, allocator: std.mem.Allocator, i: isize) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QHttpHeaders_NameAt(@ptrCast(self.ptr), @bitCast(i));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qhttpheaders.NameAt: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

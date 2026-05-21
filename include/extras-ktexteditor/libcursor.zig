@@ -125,6 +125,20 @@ pub const KTextEditor__Cursor = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#fromString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn FromString(str: []const u8) KTextEditor__Cursor {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.KTextEditor__Cursor_FromString(str_str) };
+    }
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-cursor.html#setPosition)
     ///
     /// ## Parameter(s):

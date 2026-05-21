@@ -60,7 +60,7 @@ bool KBookmarkManager_UpdateAccessMetadata(KBookmarkManager* self, const libqt_s
 }
 
 libqt_string KBookmarkManager_Path(const KBookmarkManager* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -108,7 +108,7 @@ void KBookmarkManager_Changed(KBookmarkManager* self, const libqt_string groupAd
 void KBookmarkManager_Connect_Changed(KBookmarkManager* self, intptr_t slot) {
     void (*slotFunc)(KBookmarkManager*, const char*) = reinterpret_cast<void (*)(KBookmarkManager*, const char*)>(slot);
     KBookmarkManager::connect(self, &KBookmarkManager::changed, [self, slotFunc](const QString& groupAddress) {
-        const QString groupAddress_ret = groupAddress;
+        const auto groupAddress_ret = groupAddress;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray groupAddress_b = groupAddress_ret.toUtf8();
         auto groupAddress_str_len = groupAddress_b.length();
@@ -129,7 +129,7 @@ void KBookmarkManager_Error(KBookmarkManager* self, const libqt_string errorMess
 void KBookmarkManager_Connect_Error(KBookmarkManager* self, intptr_t slot) {
     void (*slotFunc)(KBookmarkManager*, const char*) = reinterpret_cast<void (*)(KBookmarkManager*, const char*)>(slot);
     KBookmarkManager::connect(self, &KBookmarkManager::error, [self, slotFunc](const QString& errorMessage) {
-        const QString errorMessage_ret = errorMessage;
+        const auto errorMessage_ret = errorMessage;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorMessage_b = errorMessage_ret.toUtf8();
         auto errorMessage_str_len = errorMessage_b.length();

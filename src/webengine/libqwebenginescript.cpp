@@ -18,7 +18,7 @@ void QWebEngineScript_OperatorAssign(QWebEngineScript* self, const QWebEngineScr
 }
 
 libqt_string QWebEngineScript_Name(const QWebEngineScript* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,7 +43,7 @@ void QWebEngineScript_SetSourceUrl(QWebEngineScript* self, const QUrl* url) {
 }
 
 libqt_string QWebEngineScript_SourceCode(const QWebEngineScript* self) {
-    QString _ret = self->sourceCode();
+    auto _ret = self->sourceCode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

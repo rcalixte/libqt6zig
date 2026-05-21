@@ -77,6 +77,86 @@ pub const QXmlStreamAttribute = extern struct {
         return .{ .ptr = qtc.QXmlStreamAttribute_new4(@ptrCast(param1.ptr)) };
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#namespaceUri)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttribute `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn NamespaceUri(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamAttribute_NamespaceUri(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.NamespaceUri: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#name)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttribute `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Name(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamAttribute_Name(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.Name: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#qualifiedName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttribute `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QualifiedName(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamAttribute_QualifiedName(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.QualifiedName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#prefix)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttribute `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Prefix(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamAttribute_Prefix(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.Prefix: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttribute `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Value(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamAttribute_Value(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.Value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattribute.html#isDefault)
     ///
     /// ## Parameter(s):
@@ -120,6 +200,44 @@ pub const QXmlStreamAttributes = extern struct {
     ///
     pub fn New() QXmlStreamAttributes {
         return .{ .ptr = qtc.QXmlStreamAttributes_new() };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttributes `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` namespaceUri: []const u8 `
+    ///
+    /// ` name: []const u8 `
+    ///
+    pub fn Value(self: QXmlStreamAttributes, allocator: std.mem.Allocator, namespaceUri: []const u8, name: []const u8) []const u8 {
+        var _str = qtc.QXmlStreamAttributes_Value(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattributes.Value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamAttributes `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` qualifiedName: []const u8 `
+    ///
+    pub fn Value2(self: QXmlStreamAttributes, allocator: std.mem.Allocator, qualifiedName: []const u8) []const u8 {
+        var _str = qtc.QXmlStreamAttributes_Value2(@ptrCast(self.ptr), qualifiedName.ptr);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattributes.Value2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#append)
@@ -262,6 +380,38 @@ pub const QXmlStreamNamespaceDeclaration = extern struct {
         return .{ .ptr = qtc.QXmlStreamNamespaceDeclaration_new3(@ptrCast(param1.ptr)) };
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#prefix)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamNamespaceDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Prefix(self: QXmlStreamNamespaceDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamNamespaceDeclaration_Prefix(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnamespacedeclaration.Prefix: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnamespacedeclaration.html#namespaceUri)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamNamespaceDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn NamespaceUri(self: QXmlStreamNamespaceDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamNamespaceDeclaration_NamespaceUri(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnamespacedeclaration.NamespaceUri: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -306,6 +456,54 @@ pub const QXmlStreamNotationDeclaration = extern struct {
         return .{ .ptr = qtc.QXmlStreamNotationDeclaration_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html#name)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamNotationDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Name(self: QXmlStreamNotationDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamNotationDeclaration_Name(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnotationdeclaration.Name: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html#systemId)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamNotationDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn SystemId(self: QXmlStreamNotationDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamNotationDeclaration_SystemId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnotationdeclaration.SystemId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamnotationdeclaration.html#publicId)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamNotationDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn PublicId(self: QXmlStreamNotationDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamNotationDeclaration_PublicId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnotationdeclaration.PublicId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// ### DEPRECATED: Use `Delete` instead
     ///
     pub const QDelete = Delete;
@@ -348,6 +546,86 @@ pub const QXmlStreamEntityDeclaration = extern struct {
     pub fn New2(param1: anytype) QXmlStreamEntityDeclaration {
         comptime _ = @TypeOf(param1)._is_QXmlStreamEntityDeclaration;
         return .{ .ptr = qtc.QXmlStreamEntityDeclaration_new2(@ptrCast(param1.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#name)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamEntityDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Name(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamEntityDeclaration_Name(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.Name: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#notationName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamEntityDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn NotationName(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamEntityDeclaration_NotationName(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.NotationName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#systemId)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamEntityDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn SystemId(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamEntityDeclaration_SystemId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.SystemId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#publicId)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamEntityDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn PublicId(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamEntityDeclaration_PublicId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.PublicId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamentitydeclaration.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamEntityDeclaration `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Value(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamEntityDeclaration_Value(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.Value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -852,6 +1130,38 @@ pub const QXmlStreamReader = extern struct {
         return qtc.QXmlStreamReader_HasStandaloneDeclaration(@ptrCast(self.ptr));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#documentVersion)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn DocumentVersion(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_DocumentVersion(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DocumentVersion: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#documentEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn DocumentEncoding(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_DocumentEncoding(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DocumentEncoding: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#lineNumber)
     ///
     /// ## Parameter(s):
@@ -904,6 +1214,118 @@ pub const QXmlStreamReader = extern struct {
         var _str = qtc.QXmlStreamReader_ReadElementText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#name)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Name(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_Name(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.Name: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#namespaceUri)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn NamespaceUri(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_NamespaceUri(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.NamespaceUri: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#qualifiedName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn QualifiedName(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_QualifiedName(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.QualifiedName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#prefix)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Prefix(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_Prefix(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.Prefix: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#processingInstructionTarget)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn ProcessingInstructionTarget(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_ProcessingInstructionTarget(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ProcessingInstructionTarget: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#processingInstructionData)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn ProcessingInstructionData(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_ProcessingInstructionData(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ProcessingInstructionData: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#text)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn Text(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_Text(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -988,6 +1410,54 @@ pub const QXmlStreamReader = extern struct {
         const _data: [*]QtC.QXmlStreamEntityDeclaration = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#dtdName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn DtdName(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_DtdName(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DtdName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#dtdPublicId)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn DtdPublicId(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_DtdPublicId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DtdPublicId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#dtdSystemId)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QXmlStreamReader `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn DtdSystemId(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QXmlStreamReader_DtdSystemId(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DtdSystemId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

@@ -552,6 +552,8 @@ pub const QGeoSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoSatelliteInfoSource, name: [*:0]const u8) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBackendProperty(self: QGeoSatelliteInfoSource, callback: *const fn (QGeoSatelliteInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QGeoSatelliteInfoSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

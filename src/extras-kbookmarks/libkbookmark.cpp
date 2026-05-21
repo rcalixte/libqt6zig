@@ -46,7 +46,7 @@ bool KBookmark_HasParent(const KBookmark* self) {
 }
 
 libqt_string KBookmark_Text(const KBookmark* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ libqt_string KBookmark_Text(const KBookmark* self) {
 }
 
 libqt_string KBookmark_FullText(const KBookmark* self) {
-    QString _ret = self->fullText();
+    auto _ret = self->fullText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -83,7 +83,7 @@ void KBookmark_SetUrl(KBookmark* self, const QUrl* url) {
 }
 
 libqt_string KBookmark_Icon(const KBookmark* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -100,7 +100,7 @@ void KBookmark_SetIcon(KBookmark* self, const libqt_string icon) {
 }
 
 libqt_string KBookmark_Description(const KBookmark* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -117,7 +117,7 @@ void KBookmark_SetDescription(KBookmark* self, const libqt_string description) {
 }
 
 libqt_string KBookmark_MimeType(const KBookmark* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -150,7 +150,7 @@ KBookmarkGroup* KBookmark_ToGroup(const KBookmark* self) {
 }
 
 libqt_string KBookmark_Address(const KBookmark* self) {
-    QString _ret = self->address();
+    auto _ret = self->address();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -175,7 +175,7 @@ void KBookmark_UpdateAccessMetadata(KBookmark* self) {
 
 libqt_string KBookmark_ParentAddress(const libqt_string address) {
     QString address_QString = QString::fromUtf8(address.data, address.len);
-    QString _ret = KBookmark::parentAddress(address_QString);
+    auto _ret = KBookmark::parentAddress(address_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ unsigned int KBookmark_PositionInParent2(const libqt_string address) {
 
 libqt_string KBookmark_PreviousAddress(const libqt_string address) {
     QString address_QString = QString::fromUtf8(address.data, address.len);
-    QString _ret = KBookmark::previousAddress(address_QString);
+    auto _ret = KBookmark::previousAddress(address_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -206,7 +206,7 @@ libqt_string KBookmark_PreviousAddress(const libqt_string address) {
 
 libqt_string KBookmark_NextAddress(const libqt_string address) {
     QString address_QString = QString::fromUtf8(address.data, address.len);
-    QString _ret = KBookmark::nextAddress(address_QString);
+    auto _ret = KBookmark::nextAddress(address_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -220,7 +220,7 @@ libqt_string KBookmark_NextAddress(const libqt_string address) {
 libqt_string KBookmark_CommonParent(const libqt_string A, const libqt_string B) {
     QString A_QString = QString::fromUtf8(A.data, A.len);
     QString B_QString = QString::fromUtf8(B.data, B.len);
-    QString _ret = KBookmark::commonParent(A_QString, B_QString);
+    auto _ret = KBookmark::commonParent(A_QString, B_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -238,7 +238,7 @@ QDomNode* KBookmark_MetaData(const KBookmark* self, const libqt_string owner, bo
 
 libqt_string KBookmark_MetaDataItem(const KBookmark* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->metaDataItem(key_QString);
+    auto _ret = self->metaDataItem(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -370,7 +370,7 @@ libqt_list /* of libqt_string */ KBookmark__List_MimeDataTypes() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

@@ -249,6 +249,8 @@ pub const QDesignerSettingsInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerSettingsInterface, key: [*:0]const u8, defaultValue: QVariant) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnValue(self: QDesignerSettingsInterface, callback: *const fn (QDesignerSettingsInterface, [*:0]const u8, QVariant) callconv(.c) QVariant) void {
         qtc.QDesignerSettingsInterface_OnValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

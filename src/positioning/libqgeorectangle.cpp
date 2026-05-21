@@ -130,7 +130,7 @@ void QGeoRectangle_OperatorBitwiseOrAssign(QGeoRectangle* self, const QGeoRectan
 }
 
 libqt_string QGeoRectangle_ToString(const QGeoRectangle* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

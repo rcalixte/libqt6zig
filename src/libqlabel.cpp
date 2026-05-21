@@ -97,7 +97,7 @@ int QLabel_Metacall(QLabel* self, int param1, int param2, void** param3) {
 }
 
 libqt_string QLabel_Text(const QLabel* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -247,7 +247,7 @@ bool QLabel_HasSelectedText(const QLabel* self) {
 }
 
 libqt_string QLabel_SelectedText(const QLabel* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -299,7 +299,7 @@ void QLabel_LinkActivated(QLabel* self, const libqt_string link) {
 void QLabel_Connect_LinkActivated(QLabel* self, intptr_t slot) {
     void (*slotFunc)(QLabel*, const char*) = reinterpret_cast<void (*)(QLabel*, const char*)>(slot);
     QLabel::connect(self, &QLabel::linkActivated, [self, slotFunc](const QString& link) {
-        const QString link_ret = link;
+        const auto link_ret = link;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray link_b = link_ret.toUtf8();
         auto link_str_len = link_b.length();
@@ -320,7 +320,7 @@ void QLabel_LinkHovered(QLabel* self, const libqt_string link) {
 void QLabel_Connect_LinkHovered(QLabel* self, intptr_t slot) {
     void (*slotFunc)(QLabel*, const char*) = reinterpret_cast<void (*)(QLabel*, const char*)>(slot);
     QLabel::connect(self, &QLabel::linkHovered, [self, slotFunc](const QString& link) {
-        const QString link_ret = link;
+        const auto link_ret = link;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray link_b = link_ret.toUtf8();
         auto link_str_len = link_b.length();

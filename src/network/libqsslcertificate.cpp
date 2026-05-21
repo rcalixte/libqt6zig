@@ -102,7 +102,7 @@ libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo(const QSslCertificat
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -124,7 +124,7 @@ libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo2(const QSslCertifica
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -145,7 +145,7 @@ libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo(const QSslCertifica
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -167,7 +167,7 @@ libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo2(const QSslCertific
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -184,7 +184,7 @@ libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo2(const QSslCertific
 }
 
 libqt_string QSslCertificate_IssuerDisplayName(const QSslCertificate* self) {
-    QString _ret = self->issuerDisplayName();
+    auto _ret = self->issuerDisplayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -196,7 +196,7 @@ libqt_string QSslCertificate_IssuerDisplayName(const QSslCertificate* self) {
 }
 
 libqt_string QSslCertificate_SubjectDisplayName(const QSslCertificate* self) {
-    QString _ret = self->subjectDisplayName();
+    auto _ret = self->subjectDisplayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -317,7 +317,7 @@ libqt_string QSslCertificate_ToDer(const QSslCertificate* self) {
 }
 
 libqt_string QSslCertificate_ToText(const QSslCertificate* self) {
-    QString _ret = self->toText();
+    auto _ret = self->toText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

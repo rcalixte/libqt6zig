@@ -143,7 +143,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_ToolBarNames(const KXmlGuiWindow*
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -2008,7 +2008,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_ContainerTags(const KXmlGuiWindow
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2027,7 +2027,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_ContainerTags(const KXmlGuiWindow
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2053,7 +2053,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_SuperContainerTags(const KXmlGuiW
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2072,7 +2072,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_SuperContainerTags(const KXmlGuiW
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2163,7 +2163,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_CustomTags(const KXmlGuiWindow* s
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2182,7 +2182,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_CustomTags(const KXmlGuiWindow* s
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2208,7 +2208,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_SuperCustomTags(const KXmlGuiWind
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2227,7 +2227,7 @@ libqt_list /* of libqt_string */ KXmlGuiWindow_SuperCustomTags(const KXmlGuiWind
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2343,7 +2343,7 @@ void KXmlGuiWindow_OnActionCollection(const KXmlGuiWindow* self, intptr_t slot) 
 libqt_string KXmlGuiWindow_ComponentName(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        QString _ret = vkxmlguiwindow->componentName();
+        auto _ret = vkxmlguiwindow->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2353,7 +2353,7 @@ libqt_string KXmlGuiWindow_ComponentName(const KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KXmlGuiWindow::componentName();
+        auto _ret = self->KXmlGuiWindow::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2370,7 +2370,7 @@ libqt_string KXmlGuiWindow_SuperComponentName(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_ComponentName_IsBase(true);
-        QString _ret = vkxmlguiwindow->componentName();
+        auto _ret = vkxmlguiwindow->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2380,7 +2380,7 @@ libqt_string KXmlGuiWindow_SuperComponentName(const KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KXmlGuiWindow::componentName();
+        auto _ret = self->KXmlGuiWindow::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2433,7 +2433,7 @@ void KXmlGuiWindow_OnDomDocument(const KXmlGuiWindow* self, intptr_t slot) {
 libqt_string KXmlGuiWindow_XmlFile(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        QString _ret = vkxmlguiwindow->xmlFile();
+        auto _ret = vkxmlguiwindow->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2443,7 +2443,7 @@ libqt_string KXmlGuiWindow_XmlFile(const KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KXmlGuiWindow::xmlFile();
+        auto _ret = self->KXmlGuiWindow::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2460,7 +2460,7 @@ libqt_string KXmlGuiWindow_SuperXmlFile(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_XmlFile_IsBase(true);
-        QString _ret = vkxmlguiwindow->xmlFile();
+        auto _ret = vkxmlguiwindow->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2470,7 +2470,7 @@ libqt_string KXmlGuiWindow_SuperXmlFile(const KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KXmlGuiWindow::xmlFile();
+        auto _ret = self->KXmlGuiWindow::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2494,7 +2494,7 @@ void KXmlGuiWindow_OnXmlFile(const KXmlGuiWindow* self, intptr_t slot) {
 libqt_string KXmlGuiWindow_LocalXMLFile(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        QString _ret = vkxmlguiwindow->localXMLFile();
+        auto _ret = vkxmlguiwindow->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2504,7 +2504,7 @@ libqt_string KXmlGuiWindow_LocalXMLFile(const KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KXmlGuiWindow::localXMLFile();
+        auto _ret = self->KXmlGuiWindow::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2521,7 +2521,7 @@ libqt_string KXmlGuiWindow_SuperLocalXMLFile(const KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = const_cast<VirtualKXmlGuiWindow*>(dynamic_cast<const VirtualKXmlGuiWindow*>(self));
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_LocalXMLFile_IsBase(true);
-        QString _ret = vkxmlguiwindow->localXMLFile();
+        auto _ret = vkxmlguiwindow->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2531,7 +2531,7 @@ libqt_string KXmlGuiWindow_SuperLocalXMLFile(const KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KXmlGuiWindow::localXMLFile();
+        auto _ret = self->KXmlGuiWindow::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3176,7 +3176,7 @@ void KXmlGuiWindow_OnGetDecodedMetricF(const KXmlGuiWindow* self, intptr_t slot)
 libqt_string KXmlGuiWindow_StandardsXmlFileLocation(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        QString _ret = vkxmlguiwindow->standardsXmlFileLocation();
+        auto _ret = vkxmlguiwindow->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3186,7 +3186,7 @@ libqt_string KXmlGuiWindow_StandardsXmlFileLocation(KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKXmlGuiWindow*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKXmlGuiWindow*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3203,7 +3203,7 @@ libqt_string KXmlGuiWindow_SuperStandardsXmlFileLocation(KXmlGuiWindow* self) {
     auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
     if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
         vkxmlguiwindow->setKXmlGuiWindow_StandardsXmlFileLocation_IsBase(true);
-        QString _ret = vkxmlguiwindow->standardsXmlFileLocation();
+        auto _ret = vkxmlguiwindow->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -3213,7 +3213,7 @@ libqt_string KXmlGuiWindow_SuperStandardsXmlFileLocation(KXmlGuiWindow* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKXmlGuiWindow*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKXmlGuiWindow*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

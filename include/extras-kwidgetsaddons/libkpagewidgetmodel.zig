@@ -2292,6 +2292,8 @@ pub const KPageWidgetModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KPageWidgetModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2454,6 +2456,8 @@ pub const KPageWidgetModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageWidgetModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2503,6 +2507,8 @@ pub const KPageWidgetModel = extern struct {
     /// ` self: KPageWidgetModel `
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageWidgetModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4004,6 +4010,8 @@ pub const KPageWidgetModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageWidgetModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4117,6 +4125,8 @@ pub const KPageWidgetModel = extern struct {
     /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KPageWidgetModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5434,6 +5444,8 @@ pub const KPageWidgetModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageWidgetModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5581,6 +5593,8 @@ pub const KPageWidgetModel = extern struct {
     /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KPageWidgetModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6323,6 +6337,8 @@ pub const KPageWidgetModel = extern struct {
     /// ` self: KPageWidgetModel`
     ///
     /// ` callback: *const fn (self: KPageWidgetModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KPageWidgetModel, callback: *const fn (KPageWidgetModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KPageWidgetModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -1379,7 +1379,7 @@ class VirtualKCategorizedView final : public KCategorizedView {
         }
         auto keyboardsearch_cb = kcategorizedview_keyboardsearch_callback;
         if (keyboardsearch_cb) {
-            const QString search_ret = search;
+            const auto search_ret = search;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray search_b = search_ret.toUtf8();
             auto search_str_len = search_b.length();

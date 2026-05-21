@@ -400,6 +400,8 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QStackedLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QStackedLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -439,6 +441,8 @@ pub const QStackedLayout = extern struct {
     /// ` self: QStackedLayout `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSize(self: QStackedLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QStackedLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2176,6 +2180,8 @@ pub const QStackedLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGeometry(self: QStackedLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QStackedLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2279,6 +2285,8 @@ pub const QStackedLayout = extern struct {
     /// ` self: QStackedLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QStackedLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QStackedLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3303,6 +3311,8 @@ pub const QStackedLayout = extern struct {
     /// ` self: QStackedLayout`
     ///
     /// ` callback: *const fn (self: QStackedLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QStackedLayout, callback: *const fn (QStackedLayout, QRect) callconv(.c) QRect) void {
         qtc.QStackedLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

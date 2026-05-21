@@ -67,7 +67,7 @@ libqt_list /* of libqt_string */ QDBusServiceWatcher_WatchedServices(const QDBus
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -128,7 +128,7 @@ void QDBusServiceWatcher_ServiceRegistered(QDBusServiceWatcher* self, const libq
 void QDBusServiceWatcher_Connect_ServiceRegistered(QDBusServiceWatcher* self, intptr_t slot) {
     void (*slotFunc)(QDBusServiceWatcher*, const char*) = reinterpret_cast<void (*)(QDBusServiceWatcher*, const char*)>(slot);
     QDBusServiceWatcher::connect(self, &QDBusServiceWatcher::serviceRegistered, [self, slotFunc](const QString& service) {
-        const QString service_ret = service;
+        const auto service_ret = service;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray service_b = service_ret.toUtf8();
         auto service_str_len = service_b.length();
@@ -149,7 +149,7 @@ void QDBusServiceWatcher_ServiceUnregistered(QDBusServiceWatcher* self, const li
 void QDBusServiceWatcher_Connect_ServiceUnregistered(QDBusServiceWatcher* self, intptr_t slot) {
     void (*slotFunc)(QDBusServiceWatcher*, const char*) = reinterpret_cast<void (*)(QDBusServiceWatcher*, const char*)>(slot);
     QDBusServiceWatcher::connect(self, &QDBusServiceWatcher::serviceUnregistered, [self, slotFunc](const QString& service) {
-        const QString service_ret = service;
+        const auto service_ret = service;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray service_b = service_ret.toUtf8();
         auto service_str_len = service_b.length();
@@ -172,7 +172,7 @@ void QDBusServiceWatcher_ServiceOwnerChanged(QDBusServiceWatcher* self, const li
 void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, intptr_t slot) {
     void (*slotFunc)(QDBusServiceWatcher*, const char*, const char*, const char*) = reinterpret_cast<void (*)(QDBusServiceWatcher*, const char*, const char*, const char*)>(slot);
     QDBusServiceWatcher::connect(self, &QDBusServiceWatcher::serviceOwnerChanged, [self, slotFunc](const QString& service, const QString& oldOwner, const QString& newOwner) {
-        const QString service_ret = service;
+        const auto service_ret = service;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray service_b = service_ret.toUtf8();
         auto service_str_len = service_b.length();
@@ -180,7 +180,7 @@ void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, 
         memcpy((void*)service_str, service_b.data(), service_str_len);
         ((char*)service_str)[service_str_len] = '\0';
         const char* sigval1 = service_str;
-        const QString oldOwner_ret = oldOwner;
+        const auto oldOwner_ret = oldOwner;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray oldOwner_b = oldOwner_ret.toUtf8();
         auto oldOwner_str_len = oldOwner_b.length();
@@ -188,7 +188,7 @@ void QDBusServiceWatcher_Connect_ServiceOwnerChanged(QDBusServiceWatcher* self, 
         memcpy((void*)oldOwner_str, oldOwner_b.data(), oldOwner_str_len);
         ((char*)oldOwner_str)[oldOwner_str_len] = '\0';
         const char* sigval2 = oldOwner_str;
-        const QString newOwner_ret = newOwner;
+        const auto newOwner_ret = newOwner;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray newOwner_b = newOwner_ret.toUtf8();
         auto newOwner_str_len = newOwner_b.length();

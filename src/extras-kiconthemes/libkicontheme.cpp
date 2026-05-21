@@ -24,7 +24,7 @@ KIconTheme* KIconTheme_new3(const libqt_string name, const libqt_string appName,
 }
 
 libqt_string KIconTheme_Name(const KIconTheme* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -36,7 +36,7 @@ libqt_string KIconTheme_Name(const KIconTheme* self) {
 }
 
 libqt_string KIconTheme_InternalName(const KIconTheme* self) {
-    QString _ret = self->internalName();
+    auto _ret = self->internalName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string KIconTheme_InternalName(const KIconTheme* self) {
 }
 
 libqt_string KIconTheme_Description(const KIconTheme* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ libqt_string KIconTheme_Description(const KIconTheme* self) {
 }
 
 libqt_string KIconTheme_Example(const KIconTheme* self) {
-    QString _ret = self->example();
+    auto _ret = self->example();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,7 +72,7 @@ libqt_string KIconTheme_Example(const KIconTheme* self) {
 }
 
 libqt_string KIconTheme_Screenshot(const KIconTheme* self) {
-    QString _ret = self->screenshot();
+    auto _ret = self->screenshot();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -84,7 +84,7 @@ libqt_string KIconTheme_Screenshot(const KIconTheme* self) {
 }
 
 libqt_string KIconTheme_Dir(const KIconTheme* self) {
-    QString _ret = self->dir();
+    auto _ret = self->dir();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -100,7 +100,7 @@ libqt_list /* of libqt_string */ KIconTheme_Inherits(const KIconTheme* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -150,7 +150,7 @@ libqt_list /* of libqt_string */ KIconTheme_QueryIcons(const KIconTheme* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -171,7 +171,7 @@ libqt_list /* of libqt_string */ KIconTheme_QueryIcons2(const KIconTheme* self, 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -192,7 +192,7 @@ libqt_list /* of libqt_string */ KIconTheme_QueryIconsByContext(const KIconTheme
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -210,7 +210,7 @@ libqt_list /* of libqt_string */ KIconTheme_QueryIconsByContext(const KIconTheme
 
 libqt_string KIconTheme_IconPath(const KIconTheme* self, const libqt_string name, int size, int match) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPath(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match));
+    auto _ret = self->iconPath(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -223,7 +223,7 @@ libqt_string KIconTheme_IconPath(const KIconTheme* self, const libqt_string name
 
 libqt_string KIconTheme_IconPath2(const KIconTheme* self, const libqt_string name, int size, int match, double scale) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPath(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match), static_cast<qreal>(scale));
+    auto _ret = self->iconPath(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match), static_cast<qreal>(scale));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -236,7 +236,7 @@ libqt_string KIconTheme_IconPath2(const KIconTheme* self, const libqt_string nam
 
 libqt_string KIconTheme_IconPathByName(const KIconTheme* self, const libqt_string name, int size, int match) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPathByName(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match));
+    auto _ret = self->iconPathByName(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -249,7 +249,7 @@ libqt_string KIconTheme_IconPathByName(const KIconTheme* self, const libqt_strin
 
 libqt_string KIconTheme_IconPathByName2(const KIconTheme* self, const libqt_string name, int size, int match, double scale) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPathByName(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match), static_cast<qreal>(scale));
+    auto _ret = self->iconPathByName(name_QString, static_cast<int>(size), static_cast<KIconLoader::MatchType>(match), static_cast<qreal>(scale));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -273,7 +273,7 @@ libqt_list /* of libqt_string */ KIconTheme_List() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -290,7 +290,7 @@ libqt_list /* of libqt_string */ KIconTheme_List() {
 }
 
 libqt_string KIconTheme_Current() {
-    QString _ret = KIconTheme::current();
+    auto _ret = KIconTheme::current();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -311,7 +311,7 @@ void KIconTheme_Reconfigure() {
 }
 
 libqt_string KIconTheme_DefaultThemeName() {
-    QString _ret = KIconTheme::defaultThemeName();
+    auto _ret = KIconTheme::defaultThemeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -331,7 +331,7 @@ libqt_list /* of libqt_string */ KIconTheme_QueryIcons22(const KIconTheme* self,
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -352,7 +352,7 @@ libqt_list /* of libqt_string */ KIconTheme_QueryIconsByContext2(const KIconThem
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

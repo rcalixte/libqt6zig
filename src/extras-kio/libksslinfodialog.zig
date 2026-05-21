@@ -5488,6 +5488,8 @@ pub const KSslInfoDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KSslInfoDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSslInfoDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5535,6 +5537,8 @@ pub const KSslInfoDialog = extern struct {
     /// ` self: KSslInfoDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KSslInfoDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSslInfoDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7821,6 +7825,8 @@ pub const KSslInfoDialog = extern struct {
     /// ` self: KSslInfoDialog`
     ///
     /// ` callback: *const fn (self: KSslInfoDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KSslInfoDialog, callback: *const fn (KSslInfoDialog, i32) callconv(.c) QVariant) void {
         qtc.KSslInfoDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

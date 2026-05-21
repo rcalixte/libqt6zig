@@ -74,7 +74,7 @@ bool QTemporaryFile_Open(QTemporaryFile* self) {
 libqt_string QTemporaryFile_FileName(const QTemporaryFile* self) {
     auto* vqtemporaryfile = dynamic_cast<const VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        QString _ret = self->fileName();
+        auto _ret = self->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -84,7 +84,7 @@ libqt_string QTemporaryFile_FileName(const QTemporaryFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTemporaryFile*)self)->fileName();
+        auto _ret = ((VirtualQTemporaryFile*)self)->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -97,7 +97,7 @@ libqt_string QTemporaryFile_FileName(const QTemporaryFile* self) {
 }
 
 libqt_string QTemporaryFile_FileTemplate(const QTemporaryFile* self) {
-    QString _ret = self->fileTemplate();
+    auto _ret = self->fileTemplate();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,7 +197,7 @@ libqt_string QTemporaryFile_SuperFileName(const QTemporaryFile* self) {
     auto* vqtemporaryfile = const_cast<VirtualQTemporaryFile*>(dynamic_cast<const VirtualQTemporaryFile*>(self));
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_FileName_IsBase(true);
-        QString _ret = vqtemporaryfile->fileName();
+        auto _ret = vqtemporaryfile->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -207,7 +207,7 @@ libqt_string QTemporaryFile_SuperFileName(const QTemporaryFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTemporaryFile::fileName();
+        auto _ret = self->QTemporaryFile::fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

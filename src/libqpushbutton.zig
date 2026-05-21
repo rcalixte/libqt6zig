@@ -331,6 +331,8 @@ pub const QPushButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QPushButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPushButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -370,6 +372,8 @@ pub const QPushButton = extern struct {
     /// ` self: QPushButton `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QPushButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPushButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8081,6 +8085,8 @@ pub const QPushButton = extern struct {
     /// ` self: QPushButton`
     ///
     /// ` callback: *const fn (self: QPushButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QPushButton, callback: *const fn (QPushButton, i32) callconv(.c) QVariant) void {
         qtc.QPushButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

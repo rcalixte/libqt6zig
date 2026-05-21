@@ -123,7 +123,7 @@ void QStyledItemDelegate_SetItemEditorFactory(QStyledItemDelegate* self, QItemEd
 libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
     auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        QString _ret = self->displayText(*value, *locale);
+        auto _ret = self->displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -133,7 +133,7 @@ libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, co
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQStyledItemDelegate*)self)->displayText(*value, *locale);
+        auto _ret = ((VirtualQStyledItemDelegate*)self)->displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -344,7 +344,7 @@ libqt_string QStyledItemDelegate_SuperDisplayText(const QStyledItemDelegate* sel
     auto* vqstyleditemdelegate = const_cast<VirtualQStyledItemDelegate*>(dynamic_cast<const VirtualQStyledItemDelegate*>(self));
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
         vqstyleditemdelegate->setQStyledItemDelegate_DisplayText_IsBase(true);
-        QString _ret = vqstyleditemdelegate->displayText(*value, *locale);
+        auto _ret = vqstyleditemdelegate->displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -354,7 +354,7 @@ libqt_string QStyledItemDelegate_SuperDisplayText(const QStyledItemDelegate* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QStyledItemDelegate::displayText(*value, *locale);
+        auto _ret = self->QStyledItemDelegate::displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

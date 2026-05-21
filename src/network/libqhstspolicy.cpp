@@ -37,7 +37,7 @@ void QHstsPolicy_SetHost(QHstsPolicy* self, const libqt_string host) {
 }
 
 libqt_string QHstsPolicy_Host(const QHstsPolicy* self) {
-    QString _ret = self->host();
+    auto _ret = self->host();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ void QHstsPolicy_SetHost2(QHstsPolicy* self, const libqt_string host, int mode) 
 }
 
 libqt_string QHstsPolicy_Host1(const QHstsPolicy* self, unsigned int options) {
-    QString _ret = self->host(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->host(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

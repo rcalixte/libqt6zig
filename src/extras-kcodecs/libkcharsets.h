@@ -20,11 +20,14 @@ typedef struct QChar QChar;
 #endif
 
 KCharsets* KCharsets_Charsets();
+QChar* KCharsets_FromEntity(libqt_string str);
+QChar* KCharsets_FromEntity2(libqt_string str, int* lenVal);
 libqt_string KCharsets_ToEntity(const QChar* ch);
 libqt_string KCharsets_ResolveEntities(const libqt_string text);
 libqt_list /* of libqt_string */ KCharsets_AvailableEncodingNames(const KCharsets* self);
 libqt_list /* of libqt_string */ KCharsets_DescriptiveEncodingNames(const KCharsets* self);
 libqt_list /* of libqt_list of libqt_string */ KCharsets_EncodingsByScript(const KCharsets* self);
+libqt_string KCharsets_DescriptionForEncoding(const KCharsets* self, libqt_string encoding);
 libqt_string KCharsets_EncodingForName(const KCharsets* self, const libqt_string descriptiveName);
 void KCharsets_Delete(KCharsets* self);
 

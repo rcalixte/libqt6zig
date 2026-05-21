@@ -10,7 +10,7 @@ bool KIO_CanPasteMimeData(const QMimeData* param1) {
 }
 
 libqt_string KIO_PasteActionText(const QMimeData* param1, bool* param2, const KFileItem* param3) {
-    QString _ret = KIO::pasteActionText(param1, param2, *param3);
+    auto _ret = KIO::pasteActionText(param1, param2, *param3);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

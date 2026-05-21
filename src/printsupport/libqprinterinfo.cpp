@@ -24,7 +24,7 @@ void QPrinterInfo_OperatorAssign(QPrinterInfo* self, const QPrinterInfo* other) 
 }
 
 libqt_string QPrinterInfo_PrinterName(const QPrinterInfo* self) {
-    QString _ret = self->printerName();
+    auto _ret = self->printerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -36,7 +36,7 @@ libqt_string QPrinterInfo_PrinterName(const QPrinterInfo* self) {
 }
 
 libqt_string QPrinterInfo_Description(const QPrinterInfo* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string QPrinterInfo_Description(const QPrinterInfo* self) {
 }
 
 libqt_string QPrinterInfo_Location(const QPrinterInfo* self) {
-    QString _ret = self->location();
+    auto _ret = self->location();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ libqt_string QPrinterInfo_Location(const QPrinterInfo* self) {
 }
 
 libqt_string QPrinterInfo_MakeAndModel(const QPrinterInfo* self) {
-    QString _ret = self->makeAndModel();
+    auto _ret = self->makeAndModel();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -168,7 +168,7 @@ libqt_list /* of libqt_string */ QPrinterInfo_AvailablePrinterNames() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -198,7 +198,7 @@ libqt_list /* of QPrinterInfo* */ QPrinterInfo_AvailablePrinters() {
 }
 
 libqt_string QPrinterInfo_DefaultPrinterName() {
-    QString _ret = QPrinterInfo::defaultPrinterName();
+    auto _ret = QPrinterInfo::defaultPrinterName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

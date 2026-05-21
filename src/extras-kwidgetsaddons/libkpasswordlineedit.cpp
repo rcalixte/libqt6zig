@@ -80,7 +80,7 @@ void KPasswordLineEdit_SetPassword(KPasswordLineEdit* self, const libqt_string p
 }
 
 libqt_string KPasswordLineEdit_Password(const KPasswordLineEdit* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -163,7 +163,7 @@ void KPasswordLineEdit_PasswordChanged(KPasswordLineEdit* self, const libqt_stri
 void KPasswordLineEdit_Connect_PasswordChanged(KPasswordLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KPasswordLineEdit*, const char*) = reinterpret_cast<void (*)(KPasswordLineEdit*, const char*)>(slot);
     KPasswordLineEdit::connect(self, &KPasswordLineEdit::passwordChanged, [self, slotFunc](const QString& password) {
-        const QString password_ret = password;
+        const auto password_ret = password;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray password_b = password_ret.toUtf8();
         auto password_str_len = password_b.length();

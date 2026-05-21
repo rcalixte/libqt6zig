@@ -22,7 +22,7 @@ void QSslCertificateExtension_Swap(QSslCertificateExtension* self, QSslCertifica
 }
 
 libqt_string QSslCertificateExtension_Oid(const QSslCertificateExtension* self) {
-    QString _ret = self->oid();
+    auto _ret = self->oid();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string QSslCertificateExtension_Oid(const QSslCertificateExtension* self) 
 }
 
 libqt_string QSslCertificateExtension_Name(const QSslCertificateExtension* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

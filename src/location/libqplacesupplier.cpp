@@ -23,7 +23,7 @@ void QPlaceSupplier_Swap(QPlaceSupplier* self, QPlaceSupplier* other) {
 }
 
 libqt_string QPlaceSupplier_Name(const QPlaceSupplier* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ void QPlaceSupplier_SetName(QPlaceSupplier* self, const libqt_string data) {
 }
 
 libqt_string QPlaceSupplier_SupplierId(const QPlaceSupplier* self) {
-    QString _ret = self->supplierId();
+    auto _ret = self->supplierId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -20,7 +20,7 @@ void KFileMetaData__UserMetaData_OperatorAssign(KFileMetaData__UserMetaData* sel
 }
 
 libqt_string KFileMetaData__UserMetaData_FilePath(const KFileMetaData__UserMetaData* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -51,7 +51,7 @@ libqt_list /* of libqt_string */ KFileMetaData__UserMetaData_Tags(const KFileMet
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -76,7 +76,7 @@ int KFileMetaData__UserMetaData_SetRating(KFileMetaData__UserMetaData* self, int
 }
 
 libqt_string KFileMetaData__UserMetaData_UserComment(const KFileMetaData__UserMetaData* self) {
-    QString _ret = self->userComment();
+    auto _ret = self->userComment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -101,7 +101,7 @@ int KFileMetaData__UserMetaData_SetOriginUrl(KFileMetaData__UserMetaData* self, 
 }
 
 libqt_string KFileMetaData__UserMetaData_OriginEmailSubject(const KFileMetaData__UserMetaData* self) {
-    QString _ret = self->originEmailSubject();
+    auto _ret = self->originEmailSubject();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -118,7 +118,7 @@ int KFileMetaData__UserMetaData_SetOriginEmailSubject(KFileMetaData__UserMetaDat
 }
 
 libqt_string KFileMetaData__UserMetaData_OriginEmailSender(const KFileMetaData__UserMetaData* self) {
-    QString _ret = self->originEmailSender();
+    auto _ret = self->originEmailSender();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -135,7 +135,7 @@ int KFileMetaData__UserMetaData_SetOriginEmailSender(KFileMetaData__UserMetaData
 }
 
 libqt_string KFileMetaData__UserMetaData_OriginEmailMessageId(const KFileMetaData__UserMetaData* self) {
-    QString _ret = self->originEmailMessageId();
+    auto _ret = self->originEmailMessageId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -153,7 +153,7 @@ int KFileMetaData__UserMetaData_SetOriginEmailMessageId(KFileMetaData__UserMetaD
 
 libqt_string KFileMetaData__UserMetaData_Attribute(KFileMetaData__UserMetaData* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->attribute(name_QString);
+    auto _ret = self->attribute(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -166,7 +166,7 @@ libqt_string KFileMetaData__UserMetaData_Attribute(KFileMetaData__UserMetaData* 
 
 libqt_string KFileMetaData__UserMetaData_Attribute2(const KFileMetaData__UserMetaData* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->attribute(name_QString);
+    auto _ret = self->attribute(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

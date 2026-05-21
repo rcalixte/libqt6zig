@@ -159,7 +159,7 @@ void QSslSocket_SetPeerVerifyDepth(QSslSocket* self, int depth) {
 }
 
 libqt_string QSslSocket_PeerVerifyName(const QSslSocket* self) {
-    QString _ret = self->peerVerifyName();
+    auto _ret = self->peerVerifyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -394,7 +394,7 @@ long QSslSocket_SslLibraryVersionNumber() {
 }
 
 libqt_string QSslSocket_SslLibraryVersionString() {
-    QString _ret = QSslSocket::sslLibraryVersionString();
+    auto _ret = QSslSocket::sslLibraryVersionString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -410,7 +410,7 @@ long QSslSocket_SslLibraryBuildVersionNumber() {
 }
 
 libqt_string QSslSocket_SslLibraryBuildVersionString() {
-    QString _ret = QSslSocket::sslLibraryBuildVersionString();
+    auto _ret = QSslSocket::sslLibraryBuildVersionString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -426,7 +426,7 @@ libqt_list /* of libqt_string */ QSslSocket_AvailableBackends() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -443,7 +443,7 @@ libqt_list /* of libqt_string */ QSslSocket_AvailableBackends() {
 }
 
 libqt_string QSslSocket_ActiveBackend() {
-    QString _ret = QSslSocket::activeBackend();
+    auto _ret = QSslSocket::activeBackend();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -646,7 +646,7 @@ void QSslSocket_Connect_AlertSent(QSslSocket* self, intptr_t slot) {
     QSslSocket::connect(self, &QSslSocket::alertSent, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
         int sigval1 = static_cast<int>(level);
         int sigval2 = static_cast<int>(typeVal);
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();
@@ -669,7 +669,7 @@ void QSslSocket_Connect_AlertReceived(QSslSocket* self, intptr_t slot) {
     QSslSocket::connect(self, &QSslSocket::alertReceived, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
         int sigval1 = static_cast<int>(level);
         int sigval2 = static_cast<int>(typeVal);
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();

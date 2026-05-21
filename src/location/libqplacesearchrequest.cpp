@@ -25,7 +25,7 @@ void QPlaceSearchRequest_Swap(QPlaceSearchRequest* self, QPlaceSearchRequest* ot
 }
 
 libqt_string QPlaceSearchRequest_SearchTerm(const QPlaceSearchRequest* self) {
-    QString _ret = self->searchTerm();
+    auto _ret = self->searchTerm();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -77,7 +77,7 @@ void QPlaceSearchRequest_SetSearchArea(QPlaceSearchRequest* self, const QGeoShap
 }
 
 libqt_string QPlaceSearchRequest_RecommendationId(const QPlaceSearchRequest* self) {
-    QString _ret = self->recommendationId();
+    auto _ret = self->recommendationId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

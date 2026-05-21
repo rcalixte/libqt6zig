@@ -283,7 +283,7 @@ void KEMailClientLauncherJob_OnDoResume(KEMailClientLauncherJob* self, intptr_t 
 libqt_string KEMailClientLauncherJob_ErrorString(const KEMailClientLauncherJob* self) {
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        QString _ret = vkemailclientlauncherjob->errorString();
+        auto _ret = vkemailclientlauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -293,7 +293,7 @@ libqt_string KEMailClientLauncherJob_ErrorString(const KEMailClientLauncherJob* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KEMailClientLauncherJob::errorString();
+        auto _ret = self->KEMailClientLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -310,7 +310,7 @@ libqt_string KEMailClientLauncherJob_SuperErrorString(const KEMailClientLauncher
     auto* vkemailclientlauncherjob = const_cast<VirtualKEMailClientLauncherJob*>(dynamic_cast<const VirtualKEMailClientLauncherJob*>(self));
     if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
         vkemailclientlauncherjob->setKEMailClientLauncherJob_ErrorString_IsBase(true);
-        QString _ret = vkemailclientlauncherjob->errorString();
+        auto _ret = vkemailclientlauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -320,7 +320,7 @@ libqt_string KEMailClientLauncherJob_SuperErrorString(const KEMailClientLauncher
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KEMailClientLauncherJob::errorString();
+        auto _ret = self->KEMailClientLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

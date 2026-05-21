@@ -91,7 +91,7 @@ int KMessageWidget_Position(const KMessageWidget* self) {
 }
 
 libqt_string KMessageWidget_Text(const KMessageWidget* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -214,7 +214,7 @@ void KMessageWidget_LinkActivated(KMessageWidget* self, const libqt_string conte
 void KMessageWidget_Connect_LinkActivated(KMessageWidget* self, intptr_t slot) {
     void (*slotFunc)(KMessageWidget*, const char*) = reinterpret_cast<void (*)(KMessageWidget*, const char*)>(slot);
     KMessageWidget::connect(self, &KMessageWidget::linkActivated, [self, slotFunc](const QString& contents) {
-        const QString contents_ret = contents;
+        const auto contents_ret = contents;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray contents_b = contents_ret.toUtf8();
         auto contents_str_len = contents_b.length();
@@ -235,7 +235,7 @@ void KMessageWidget_LinkHovered(KMessageWidget* self, const libqt_string content
 void KMessageWidget_Connect_LinkHovered(KMessageWidget* self, intptr_t slot) {
     void (*slotFunc)(KMessageWidget*, const char*) = reinterpret_cast<void (*)(KMessageWidget*, const char*)>(slot);
     KMessageWidget::connect(self, &KMessageWidget::linkHovered, [self, slotFunc](const QString& contents) {
-        const QString contents_ret = contents;
+        const auto contents_ret = contents;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray contents_b = contents_ret.toUtf8();
         auto contents_str_len = contents_b.length();

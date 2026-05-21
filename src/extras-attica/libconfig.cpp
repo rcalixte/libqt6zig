@@ -17,7 +17,7 @@ void Attica__Config_OperatorAssign(Attica__Config* self, const Attica__Config* o
 }
 
 libqt_string Attica__Config_Contact(const Attica__Config* self) {
-    QString _ret = self->contact();
+    auto _ret = self->contact();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -29,7 +29,7 @@ libqt_string Attica__Config_Contact(const Attica__Config* self) {
 }
 
 libqt_string Attica__Config_Host(const Attica__Config* self) {
-    QString _ret = self->host();
+    auto _ret = self->host();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -41,7 +41,7 @@ libqt_string Attica__Config_Host(const Attica__Config* self) {
 }
 
 libqt_string Attica__Config_Version(const Attica__Config* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ bool Attica__Config_Ssl(const Attica__Config* self) {
 }
 
 libqt_string Attica__Config_Website(const Attica__Config* self) {
-    QString _ret = self->website();
+    auto _ret = self->website();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

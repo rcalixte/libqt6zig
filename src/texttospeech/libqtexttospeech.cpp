@@ -90,7 +90,7 @@ bool QTextToSpeech_SetEngine(QTextToSpeech* self, const libqt_string engine) {
 }
 
 libqt_string QTextToSpeech_Engine(const QTextToSpeech* self) {
-    QString _ret = self->engine();
+    auto _ret = self->engine();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -114,7 +114,7 @@ int QTextToSpeech_ErrorReason(const QTextToSpeech* self) {
 }
 
 libqt_string QTextToSpeech_ErrorString(const QTextToSpeech* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -176,7 +176,7 @@ libqt_list /* of libqt_string */ QTextToSpeech_AvailableEngines() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -242,7 +242,7 @@ void QTextToSpeech_EngineChanged(QTextToSpeech* self, const libqt_string engine)
 void QTextToSpeech_Connect_EngineChanged(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, const char*) = reinterpret_cast<void (*)(QTextToSpeech*, const char*)>(slot);
     QTextToSpeech::connect(self, &QTextToSpeech::engineChanged, [self, slotFunc](const QString& engine) {
-        const QString engine_ret = engine;
+        const auto engine_ret = engine;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray engine_b = engine_ret.toUtf8();
         auto engine_str_len = engine_b.length();
@@ -276,7 +276,7 @@ void QTextToSpeech_Connect_ErrorOccurred(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, int, const char*) = reinterpret_cast<void (*)(QTextToSpeech*, int, const char*)>(slot);
     QTextToSpeech::connect(self, &QTextToSpeech::errorOccurred, [self, slotFunc](QTextToSpeech::ErrorReason errorVal, const QString& errorString) {
         int sigval1 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();
@@ -361,7 +361,7 @@ void QTextToSpeech_SayingWord(QTextToSpeech* self, const libqt_string word, ptrd
 void QTextToSpeech_Connect_SayingWord(QTextToSpeech* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeech*, const char*, ptrdiff_t, ptrdiff_t, ptrdiff_t) = reinterpret_cast<void (*)(QTextToSpeech*, const char*, ptrdiff_t, ptrdiff_t, ptrdiff_t)>(slot);
     QTextToSpeech::connect(self, &QTextToSpeech::sayingWord, [self, slotFunc](const QString& word, qsizetype id, qsizetype start, qsizetype length) {
-        const QString word_ret = word;
+        const auto word_ret = word;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray word_b = word_ret.toUtf8();
         auto word_str_len = word_b.length();

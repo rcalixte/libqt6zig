@@ -44,6 +44,10 @@ int KFuzzyMatcher__Range_Length(const KFuzzyMatcher__Range* self);
 void KFuzzyMatcher__Range_SetLength(KFuzzyMatcher__Range* self, int length);
 void KFuzzyMatcher__Range_Delete(KFuzzyMatcher__Range* self);
 
+bool KFuzzyMatcher_MatchSimple(libqt_string param1, libqt_string param2);
+KFuzzyMatcher__Result* KFuzzyMatcher_Match(libqt_string param1, libqt_string param2);
+libqt_list /* of KFuzzyMatcher__Range* */ KFuzzyMatcher_MatchedRanges(libqt_string param1, libqt_string param2, unsigned char param3);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

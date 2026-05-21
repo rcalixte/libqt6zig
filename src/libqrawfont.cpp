@@ -63,7 +63,7 @@ bool QRawFont_OperatorNotEqual(const QRawFont* self, const QRawFont* other) {
 }
 
 libqt_string QRawFont_FamilyName(const QRawFont* self) {
-    QString _ret = self->familyName();
+    auto _ret = self->familyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -75,7 +75,7 @@ libqt_string QRawFont_FamilyName(const QRawFont* self) {
 }
 
 libqt_string QRawFont_StyleName(const QRawFont* self) {
-    QString _ret = self->styleName();
+    auto _ret = self->styleName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

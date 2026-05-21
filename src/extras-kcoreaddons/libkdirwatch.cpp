@@ -142,7 +142,7 @@ void KDirWatch_Dirty(KDirWatch* self, const libqt_string path) {
 void KDirWatch_Connect_Dirty(KDirWatch* self, intptr_t slot) {
     void (*slotFunc)(KDirWatch*, const char*) = reinterpret_cast<void (*)(KDirWatch*, const char*)>(slot);
     KDirWatch::connect(self, &KDirWatch::dirty, [self, slotFunc](const QString& path) {
-        const QString path_ret = path;
+        const auto path_ret = path;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
         auto path_str_len = path_b.length();
@@ -163,7 +163,7 @@ void KDirWatch_Created(KDirWatch* self, const libqt_string path) {
 void KDirWatch_Connect_Created(KDirWatch* self, intptr_t slot) {
     void (*slotFunc)(KDirWatch*, const char*) = reinterpret_cast<void (*)(KDirWatch*, const char*)>(slot);
     KDirWatch::connect(self, &KDirWatch::created, [self, slotFunc](const QString& path) {
-        const QString path_ret = path;
+        const auto path_ret = path;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
         auto path_str_len = path_b.length();
@@ -184,7 +184,7 @@ void KDirWatch_Deleted(KDirWatch* self, const libqt_string path) {
 void KDirWatch_Connect_Deleted(KDirWatch* self, intptr_t slot) {
     void (*slotFunc)(KDirWatch*, const char*) = reinterpret_cast<void (*)(KDirWatch*, const char*)>(slot);
     KDirWatch::connect(self, &KDirWatch::deleted, [self, slotFunc](const QString& path) {
-        const QString path_ret = path;
+        const auto path_ret = path;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
         auto path_str_len = path_b.length();

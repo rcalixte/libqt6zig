@@ -55,7 +55,7 @@ bool TextGrammarCheck__GrammalecteResultJob_CanStart(TextGrammarCheck__Grammalec
 }
 
 libqt_string TextGrammarCheck__GrammalecteResultJob_Text(const TextGrammarCheck__GrammalecteResultJob* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,7 +72,7 @@ void TextGrammarCheck__GrammalecteResultJob_SetText(TextGrammarCheck__Grammalect
 }
 
 libqt_string TextGrammarCheck__GrammalecteResultJob_PythonPath(const TextGrammarCheck__GrammalecteResultJob* self) {
-    QString _ret = self->pythonPath();
+    auto _ret = self->pythonPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ void TextGrammarCheck__GrammalecteResultJob_SetPythonPath(TextGrammarCheck__Gram
 }
 
 libqt_string TextGrammarCheck__GrammalecteResultJob_GrammarlecteCliPath(const TextGrammarCheck__GrammalecteResultJob* self) {
-    QString _ret = self->grammarlecteCliPath();
+    auto _ret = self->grammarlecteCliPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -110,7 +110,7 @@ libqt_list /* of libqt_string */ TextGrammarCheck__GrammalecteResultJob_Argument
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -145,7 +145,7 @@ void TextGrammarCheck__GrammalecteResultJob_Finished(TextGrammarCheck__Grammalec
 void TextGrammarCheck__GrammalecteResultJob_Connect_Finished(TextGrammarCheck__GrammalecteResultJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__GrammalecteResultJob*, const char*) = reinterpret_cast<void (*)(TextGrammarCheck__GrammalecteResultJob*, const char*)>(slot);
     TextGrammarCheck::GrammalecteResultJob::connect(self, &TextGrammarCheck::GrammalecteResultJob::finished, [self, slotFunc](const QString& result) {
-        const QString result_ret = result;
+        const auto result_ret = result;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray result_b = result_ret.toUtf8();
         auto result_str_len = result_b.length();

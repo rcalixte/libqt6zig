@@ -36,10 +36,13 @@ uint16_t KCountry_Country(const KCountry* self);
 libqt_list /* of const char* */ KCountry_TimeZoneIds(const KCountry* self);
 libqt_string KCountry_CurrencyCode(const KCountry* self);
 libqt_list /* of KCountrySubdivision* */ KCountry_Subdivisions(const KCountry* self);
+KCountry* KCountry_FromAlpha2(libqt_string alpha2Code);
 KCountry* KCountry_FromAlpha22(const char* alpha2Code);
+KCountry* KCountry_FromAlpha3(libqt_string alpha3Code);
 KCountry* KCountry_FromAlpha32(const char* alpha3Code);
 KCountry* KCountry_FromLocation(float latitude, float longitude);
 KCountry* KCountry_FromQLocale(uint16_t country);
+KCountry* KCountry_FromName(libqt_string name);
 libqt_list /* of KCountry* */ KCountry_AllCountries();
 void KCountry_Delete(KCountry* self);
 

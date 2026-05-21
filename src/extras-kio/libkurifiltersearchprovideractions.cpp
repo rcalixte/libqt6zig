@@ -47,7 +47,7 @@ int KIO__KUriFilterSearchProviderActions_Metacall(KIO__KUriFilterSearchProviderA
 }
 
 libqt_string KIO__KUriFilterSearchProviderActions_SelectedText(const KIO__KUriFilterSearchProviderActions* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -78,7 +78,7 @@ void KTitleWidget_SetWidget(KTitleWidget* self, QWidget* widget) {
 }
 
 libqt_string KTitleWidget_Text(const KTitleWidget* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ libqt_string KTitleWidget_Text(const KTitleWidget* self) {
 }
 
 libqt_string KTitleWidget_Comment(const KTitleWidget* self) {
-    QString _ret = self->comment();
+    auto _ret = self->comment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

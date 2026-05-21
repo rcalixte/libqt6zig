@@ -33,7 +33,7 @@ int Solid__StorageVolume_Usage(const Solid__StorageVolume* self) {
 }
 
 libqt_string Solid__StorageVolume_FsType(const Solid__StorageVolume* self) {
-    QString _ret = self->fsType();
+    auto _ret = self->fsType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -45,7 +45,7 @@ libqt_string Solid__StorageVolume_FsType(const Solid__StorageVolume* self) {
 }
 
 libqt_string Solid__StorageVolume_Label(const Solid__StorageVolume* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ libqt_string Solid__StorageVolume_Label(const Solid__StorageVolume* self) {
 }
 
 libqt_string Solid__StorageVolume_Uuid(const Solid__StorageVolume* self) {
-    QString _ret = self->uuid();
+    auto _ret = self->uuid();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

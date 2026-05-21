@@ -60,7 +60,7 @@ int QPlaceIdReply_OperationType(const QPlaceIdReply* self) {
 }
 
 libqt_string QPlaceIdReply_Id(const QPlaceIdReply* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

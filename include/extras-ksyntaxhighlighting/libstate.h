@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__State)
 typedef KSyntaxHighlighting::State KSyntaxHighlighting__State;
-#endif
 #else
 typedef struct KSyntaxHighlighting KSyntaxHighlighting;
 typedef struct KSyntaxHighlighting__State KSyntaxHighlighting__State;

@@ -448,6 +448,8 @@ pub const KIO__ThumbnailCreator = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ThumbnailCreator, request: KIO__ThumbnailRequest) callconv(.c) KIO__ThumbnailResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreate(self: KIO__ThumbnailCreator, callback: *const fn (KIO__ThumbnailCreator, KIO__ThumbnailRequest) callconv(.c) KIO__ThumbnailResult) void {
         qtc.KIO__ThumbnailCreator_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

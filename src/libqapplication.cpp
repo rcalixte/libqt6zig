@@ -252,7 +252,7 @@ void QApplication_Connect_FocusChanged(QApplication* self, intptr_t slot) {
 }
 
 libqt_string QApplication_StyleSheet(const QApplication* self) {
-    QString _ret = self->styleSheet();
+    auto _ret = self->styleSheet();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

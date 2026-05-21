@@ -36,7 +36,7 @@ void Attica__Metadata_SetStatusCode(Attica__Metadata* self, int code) {
 }
 
 libqt_string Attica__Metadata_StatusString(const Attica__Metadata* self) {
-    QString _ret = self->statusString();
+    auto _ret = self->statusString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -53,7 +53,7 @@ void Attica__Metadata_SetStatusString(Attica__Metadata* self, const libqt_string
 }
 
 libqt_string Attica__Metadata_Message(Attica__Metadata* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -86,7 +86,7 @@ void Attica__Metadata_SetItemsPerPage(Attica__Metadata* self, int itemsPerPage) 
 }
 
 libqt_string Attica__Metadata_ResultingId(Attica__Metadata* self) {
-    QString _ret = self->resultingId();
+    auto _ret = self->resultingId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

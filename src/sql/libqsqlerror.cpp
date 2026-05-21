@@ -53,7 +53,7 @@ void QSqlError_Swap(QSqlError* self, QSqlError* other) {
 }
 
 libqt_string QSqlError_DriverText(const QSqlError* self) {
-    QString _ret = self->driverText();
+    auto _ret = self->driverText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -65,7 +65,7 @@ libqt_string QSqlError_DriverText(const QSqlError* self) {
 }
 
 libqt_string QSqlError_DatabaseText(const QSqlError* self) {
-    QString _ret = self->databaseText();
+    auto _ret = self->databaseText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -81,7 +81,7 @@ int QSqlError_Type(const QSqlError* self) {
 }
 
 libqt_string QSqlError_NativeErrorCode(const QSqlError* self) {
-    QString _ret = self->nativeErrorCode();
+    auto _ret = self->nativeErrorCode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -93,7 +93,7 @@ libqt_string QSqlError_NativeErrorCode(const QSqlError* self) {
 }
 
 libqt_string QSqlError_Text(const QSqlError* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

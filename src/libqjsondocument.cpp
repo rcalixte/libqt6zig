@@ -27,7 +27,7 @@ void QJsonParseError_MoveAssign(QJsonParseError* self, QJsonParseError* other) {
 }
 
 libqt_string QJsonParseError_ErrorString(const QJsonParseError* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,9 +137,14 @@ QJsonValue* QJsonDocument_OperatorSubscript(const QJsonDocument* self, const lib
     return new QJsonValue(self->operator[](key_QString));
 }
 
-QJsonValue* QJsonDocument_OperatorSubscript3(const QJsonDocument* self, libqt_string key) {
-    QLatin1StringView key_QString = QLatin1StringView(key.data, key.len);
+QJsonValue* QJsonDocument_OperatorSubscript2(const QJsonDocument* self, libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QJsonValue(self->operator[](key_QString));
+}
+
+QJsonValue* QJsonDocument_OperatorSubscript3(const QJsonDocument* self, libqt_string key) {
+    QLatin1StringView key_QLatin1StringView(key.data, key.len);
+    return new QJsonValue(self->operator[](key_QLatin1StringView));
 }
 
 QJsonValue* QJsonDocument_OperatorSubscript4(const QJsonDocument* self, ptrdiff_t i) {

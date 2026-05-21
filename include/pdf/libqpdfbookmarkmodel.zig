@@ -244,6 +244,8 @@ pub const QPdfBookmarkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QPdfBookmarkModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -296,6 +298,8 @@ pub const QPdfBookmarkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfBookmarkModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -345,6 +349,8 @@ pub const QPdfBookmarkModel = extern struct {
     /// ` self: QPdfBookmarkModel `
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfBookmarkModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1954,6 +1960,8 @@ pub const QPdfBookmarkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfBookmarkModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2131,6 +2139,8 @@ pub const QPdfBookmarkModel = extern struct {
     /// ` self: QPdfBookmarkModel`
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QPdfBookmarkModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3510,6 +3520,8 @@ pub const QPdfBookmarkModel = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QPdfBookmarkModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3657,6 +3669,8 @@ pub const QPdfBookmarkModel = extern struct {
     /// ` self: QPdfBookmarkModel`
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QPdfBookmarkModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4301,6 +4315,8 @@ pub const QPdfBookmarkModel = extern struct {
     /// ` self: QPdfBookmarkModel`
     ///
     /// ` callback: *const fn (self: QPdfBookmarkModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QPdfBookmarkModel, callback: *const fn (QPdfBookmarkModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QPdfBookmarkModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -45,7 +45,7 @@ uint32_t QOpenGLDebugMessage_Id(const QOpenGLDebugMessage* self) {
 }
 
 libqt_string QOpenGLDebugMessage_Message(const QOpenGLDebugMessage* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

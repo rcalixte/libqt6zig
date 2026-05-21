@@ -26,7 +26,7 @@ void Attica__PrivateData_SetAttribute(Attica__PrivateData* self, const libqt_str
 
 libqt_string Attica__PrivateData_Attribute(const Attica__PrivateData* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->attribute(key_QString);
+    auto _ret = self->attribute(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -52,7 +52,7 @@ libqt_list /* of libqt_string */ Attica__PrivateData_Keys(const Attica__PrivateD
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

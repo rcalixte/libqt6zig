@@ -5312,6 +5312,8 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5359,6 +5361,8 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7293,6 +7297,8 @@ pub const TextGrammarCheck__LanguageToolConfigWidget = extern struct {
     /// ` self: TextGrammarCheck__LanguageToolConfigWidget`
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolConfigWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextGrammarCheck__LanguageToolConfigWidget, callback: *const fn (TextGrammarCheck__LanguageToolConfigWidget, i32) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__LanguageToolConfigWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

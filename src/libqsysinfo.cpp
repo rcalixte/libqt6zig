@@ -22,7 +22,7 @@ void QSysInfo_MoveAssign(QSysInfo* self, QSysInfo* other) {
 }
 
 libqt_string QSysInfo_BuildCpuArchitecture() {
-    QString _ret = QSysInfo::buildCpuArchitecture();
+    auto _ret = QSysInfo::buildCpuArchitecture();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string QSysInfo_BuildCpuArchitecture() {
 }
 
 libqt_string QSysInfo_CurrentCpuArchitecture() {
-    QString _ret = QSysInfo::currentCpuArchitecture();
+    auto _ret = QSysInfo::currentCpuArchitecture();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,7 +46,7 @@ libqt_string QSysInfo_CurrentCpuArchitecture() {
 }
 
 libqt_string QSysInfo_BuildAbi() {
-    QString _ret = QSysInfo::buildAbi();
+    auto _ret = QSysInfo::buildAbi();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ libqt_string QSysInfo_BuildAbi() {
 }
 
 libqt_string QSysInfo_KernelType() {
-    QString _ret = QSysInfo::kernelType();
+    auto _ret = QSysInfo::kernelType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ libqt_string QSysInfo_KernelType() {
 }
 
 libqt_string QSysInfo_KernelVersion() {
-    QString _ret = QSysInfo::kernelVersion();
+    auto _ret = QSysInfo::kernelVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ libqt_string QSysInfo_KernelVersion() {
 }
 
 libqt_string QSysInfo_ProductType() {
-    QString _ret = QSysInfo::productType();
+    auto _ret = QSysInfo::productType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -94,7 +94,7 @@ libqt_string QSysInfo_ProductType() {
 }
 
 libqt_string QSysInfo_ProductVersion() {
-    QString _ret = QSysInfo::productVersion();
+    auto _ret = QSysInfo::productVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,7 +106,7 @@ libqt_string QSysInfo_ProductVersion() {
 }
 
 libqt_string QSysInfo_PrettyProductName() {
-    QString _ret = QSysInfo::prettyProductName();
+    auto _ret = QSysInfo::prettyProductName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -118,7 +118,7 @@ libqt_string QSysInfo_PrettyProductName() {
 }
 
 libqt_string QSysInfo_MachineHostName() {
-    QString _ret = QSysInfo::machineHostName();
+    auto _ret = QSysInfo::machineHostName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

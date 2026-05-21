@@ -78,6 +78,26 @@ pub const QStringEncoder = extern struct {
         return qtc.QStringEncoder_RequiredSpace(@ptrCast(self.ptr), @bitCast(inputLength));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#appendToBuffer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringEncoder `
+    ///
+    /// ` out: [:0]u8 `
+    ///
+    /// ` in: []const u8 `
+    ///
+    pub fn AppendToBuffer(self: QStringEncoder, out: [:0]u8, in: []const u8) [:0]u8 {
+        const out_Cstring = out.ptr;
+        const in_str = qtc.libqt_string{
+            .len = in.len,
+            .data = in.ptr,
+        };
+        const _ret = qtc.QStringEncoder_AppendToBuffer(@ptrCast(self.ptr), out_Cstring, in_str);
+        return std.mem.span(_ret);
+    }
+
     /// Inherited from QStringConverter
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#isValid)

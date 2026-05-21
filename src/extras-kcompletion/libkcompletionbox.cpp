@@ -107,7 +107,7 @@ libqt_list /* of libqt_string */ KCompletionBox_Items(const KCompletionBox* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -128,7 +128,7 @@ bool KCompletionBox_IsTabHandling(const KCompletionBox* self) {
 }
 
 libqt_string KCompletionBox_CancelledText(const KCompletionBox* self) {
-    QString _ret = self->cancelledText();
+    auto _ret = self->cancelledText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -224,7 +224,7 @@ void KCompletionBox_TextActivated(KCompletionBox* self, const libqt_string text)
 void KCompletionBox_Connect_TextActivated(KCompletionBox* self, intptr_t slot) {
     void (*slotFunc)(KCompletionBox*, const char*) = reinterpret_cast<void (*)(KCompletionBox*, const char*)>(slot);
     KCompletionBox::connect(self, &KCompletionBox::textActivated, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -245,7 +245,7 @@ void KCompletionBox_UserCancelled(KCompletionBox* self, const libqt_string param
 void KCompletionBox_Connect_UserCancelled(KCompletionBox* self, intptr_t slot) {
     void (*slotFunc)(KCompletionBox*, const char*) = reinterpret_cast<void (*)(KCompletionBox*, const char*)>(slot);
     KCompletionBox::connect(self, &KCompletionBox::userCancelled, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -557,7 +557,7 @@ libqt_list /* of libqt_string */ KCompletionBox_MimeTypes(const KCompletionBox* 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -576,7 +576,7 @@ libqt_list /* of libqt_string */ KCompletionBox_MimeTypes(const KCompletionBox* 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -602,7 +602,7 @@ libqt_list /* of libqt_string */ KCompletionBox_SuperMimeTypes(const KCompletion
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -621,7 +621,7 @@ libqt_list /* of libqt_string */ KCompletionBox_SuperMimeTypes(const KCompletion
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

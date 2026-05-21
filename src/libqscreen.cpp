@@ -27,7 +27,7 @@ int QScreen_Metacall(QScreen* self, int param1, int param2, void** param3) {
 }
 
 libqt_string QScreen_Name(const QScreen* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ libqt_string QScreen_Name(const QScreen* self) {
 }
 
 libqt_string QScreen_Manufacturer(const QScreen* self) {
-    QString _ret = self->manufacturer();
+    auto _ret = self->manufacturer();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -51,7 +51,7 @@ libqt_string QScreen_Manufacturer(const QScreen* self) {
 }
 
 libqt_string QScreen_Model(const QScreen* self) {
-    QString _ret = self->model();
+    auto _ret = self->model();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -63,7 +63,7 @@ libqt_string QScreen_Model(const QScreen* self) {
 }
 
 libqt_string QScreen_SerialNumber(const QScreen* self) {
-    QString _ret = self->serialNumber();
+    auto _ret = self->serialNumber();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

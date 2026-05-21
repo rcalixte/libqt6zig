@@ -6312,6 +6312,8 @@ pub const QAbstractButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QAbstractButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6359,6 +6361,8 @@ pub const QAbstractButton = extern struct {
     /// ` self: QAbstractButton`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QAbstractButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7753,6 +7757,8 @@ pub const QAbstractButton = extern struct {
     /// ` self: QAbstractButton`
     ///
     /// ` callback: *const fn (self: QAbstractButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QAbstractButton, callback: *const fn (QAbstractButton, i32) callconv(.c) QVariant) void {
         qtc.QAbstractButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

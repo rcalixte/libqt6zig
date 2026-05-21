@@ -180,7 +180,7 @@ QUrl* KPropertiesDialog_CurrentDir(const KPropertiesDialog* self) {
 }
 
 libqt_string KPropertiesDialog_DefaultName(const KPropertiesDialog* self) {
-    QString _ret = self->defaultName();
+    auto _ret = self->defaultName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

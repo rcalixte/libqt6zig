@@ -1719,6 +1719,8 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` callback: *const fn (self: QsciScintillaBase, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, i32) callconv(.c) QVariant) void {
         qtc.QsciScintillaBase_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7540,6 +7542,8 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QsciScintillaBase, callback: *const fn () callconv(.c) QSize) void {
         qtc.QsciScintillaBase_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7587,6 +7591,8 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QsciScintillaBase, callback: *const fn () callconv(.c) QSize) void {
         qtc.QsciScintillaBase_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7911,6 +7917,8 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QsciScintillaBase, callback: *const fn () callconv(.c) QSize) void {
         qtc.QsciScintillaBase_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9357,6 +9365,8 @@ pub const QsciScintillaBase = extern struct {
     /// ` self: QsciScintillaBase`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QsciScintillaBase, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QsciScintillaBase_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

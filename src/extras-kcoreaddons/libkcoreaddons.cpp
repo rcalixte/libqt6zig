@@ -5,7 +5,7 @@
 #include "libkcoreaddons.hxx"
 
 libqt_string KCoreAddons_VersionString() {
-    QString _ret = KCoreAddons::versionString();
+    auto _ret = KCoreAddons::versionString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -31,7 +31,7 @@ libqt_list /* of libqt_string */ KIO__DesktopExecParser_ResultingArguments(const
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -48,7 +48,7 @@ libqt_list /* of libqt_string */ KIO__DesktopExecParser_ResultingArguments(const
 }
 
 libqt_string KIO__DesktopExecParser_ErrorMessage(const KIO__DesktopExecParser* self) {
-    QString _ret = self->errorMessage();
+    auto _ret = self->errorMessage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ libqt_list /* of libqt_string */ KIO__DesktopExecParser_SupportedProtocols(const
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -97,7 +97,7 @@ bool KIO__DesktopExecParser_HasSchemeHandler(const QUrl* url) {
 
 libqt_string KIO__DesktopExecParser_ExecutableName(const libqt_string execLine) {
     QString execLine_QString = QString::fromUtf8(execLine.data, execLine.len);
-    QString _ret = KIO::DesktopExecParser::executableName(execLine_QString);
+    auto _ret = KIO::DesktopExecParser::executableName(execLine_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -110,7 +110,7 @@ libqt_string KIO__DesktopExecParser_ExecutableName(const libqt_string execLine) 
 
 libqt_string KIO__DesktopExecParser_ExecutablePath(const libqt_string execLine) {
     QString execLine_QString = QString::fromUtf8(execLine.data, execLine.len);
-    QString _ret = KIO::DesktopExecParser::executablePath(execLine_QString);
+    auto _ret = KIO::DesktopExecParser::executablePath(execLine_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

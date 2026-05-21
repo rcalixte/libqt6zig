@@ -144,7 +144,7 @@ void QShortcut_SetWhatsThis(QShortcut* self, const libqt_string text) {
 }
 
 libqt_string QShortcut_WhatsThis(const QShortcut* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

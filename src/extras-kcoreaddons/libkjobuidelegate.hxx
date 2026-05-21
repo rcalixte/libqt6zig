@@ -207,7 +207,7 @@ class VirtualKJobUiDelegate final : public KJobUiDelegate {
         auto slotwarning_cb = kjobuidelegate_slotwarning_callback;
         if (slotwarning_cb) {
             KJob* cbval1 = job;
-            const QString message_ret = message;
+            const auto message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
             auto message_str_len = message_b.length();

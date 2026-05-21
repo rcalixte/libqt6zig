@@ -407,7 +407,7 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         }
         auto updatesearch_cb = klistwidgetsearchline_updatesearch_callback;
         if (updatesearch_cb) {
-            const QString s_ret = s;
+            const auto s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
             auto s_str_len = s_b.length();
@@ -431,7 +431,7 @@ class VirtualKListWidgetSearchLine final : public KListWidgetSearchLine {
         auto itemmatches_cb = klistwidgetsearchline_itemmatches_callback;
         if (itemmatches_cb) {
             QListWidgetItem* cbval1 = (QListWidgetItem*)item;
-            const QString s_ret = s;
+            const auto s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
             auto s_str_len = s_b.length();

@@ -8126,7 +8126,7 @@ class VirtualQCPAxisTickerTime final : public QCPAxisTickerTime {
         }
         auto replaceunit_cb = qcpaxistickertime_replaceunit_callback;
         if (replaceunit_cb) {
-            QString text_ret = text;
+            auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -13566,7 +13566,7 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         }
         auto createposition_cb = qcpabstractitem_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -13589,7 +13589,7 @@ class VirtualQCPAbstractItem : public QCPAbstractItem {
         }
         auto createanchor_cb = qcpabstractitem_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -31269,7 +31269,7 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         }
         auto createposition_cb = qcpitemstraightline_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -31292,7 +31292,7 @@ class VirtualQCPItemStraightLine final : public QCPItemStraightLine {
         }
         auto createanchor_cb = qcpitemstraightline_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -32179,7 +32179,7 @@ class VirtualQCPItemLine final : public QCPItemLine {
         }
         auto createposition_cb = qcpitemline_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -32202,7 +32202,7 @@ class VirtualQCPItemLine final : public QCPItemLine {
         }
         auto createanchor_cb = qcpitemline_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -33059,7 +33059,7 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         }
         auto createposition_cb = qcpitemcurve_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -33082,7 +33082,7 @@ class VirtualQCPItemCurve final : public QCPItemCurve {
         }
         auto createanchor_cb = qcpitemcurve_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -33959,7 +33959,7 @@ class VirtualQCPItemRect final : public QCPItemRect {
         }
         auto createposition_cb = qcpitemrect_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -33982,7 +33982,7 @@ class VirtualQCPItemRect final : public QCPItemRect {
         }
         auto createanchor_cb = qcpitemrect_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -34931,7 +34931,7 @@ class VirtualQCPItemText final : public QCPItemText {
         }
         auto createposition_cb = qcpitemtext_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -34954,7 +34954,7 @@ class VirtualQCPItemText final : public QCPItemText {
         }
         auto createanchor_cb = qcpitemtext_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -35839,7 +35839,7 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         }
         auto createposition_cb = qcpitemellipse_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -35862,7 +35862,7 @@ class VirtualQCPItemEllipse final : public QCPItemEllipse {
         }
         auto createanchor_cb = qcpitemellipse_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -36872,7 +36872,7 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         }
         auto createposition_cb = qcpitempixmap_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -36895,7 +36895,7 @@ class VirtualQCPItemPixmap final : public QCPItemPixmap {
         }
         auto createanchor_cb = qcpitempixmap_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -37785,7 +37785,7 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         }
         auto createposition_cb = qcpitemtracer_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -37808,7 +37808,7 @@ class VirtualQCPItemTracer final : public QCPItemTracer {
         }
         auto createanchor_cb = qcpitemtracer_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -38666,7 +38666,7 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         }
         auto createposition_cb = qcpitembracket_createposition_callback;
         if (createposition_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -38689,7 +38689,7 @@ class VirtualQCPItemBracket final : public QCPItemBracket {
         }
         auto createanchor_cb = qcpitembracket_createanchor_callback;
         if (createanchor_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

@@ -484,7 +484,7 @@ void KIO__SpecialJob_OnStart(KIO__SpecialJob* self, intptr_t slot) {
 libqt_string KIO__SpecialJob_ErrorString(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
-        QString _ret = vkiospecialjob->errorString();
+        auto _ret = vkiospecialjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -494,7 +494,7 @@ libqt_string KIO__SpecialJob_ErrorString(const KIO__SpecialJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::SpecialJob::errorString();
+        auto _ret = self->KIO::SpecialJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -511,7 +511,7 @@ libqt_string KIO__SpecialJob_SuperErrorString(const KIO__SpecialJob* self) {
     auto* vkiospecialjob = const_cast<VirtualKIOSpecialJob*>(dynamic_cast<const VirtualKIOSpecialJob*>(self));
     if (vkiospecialjob && vkiospecialjob->isVirtualKIOSpecialJob) {
         vkiospecialjob->setKIO__SpecialJob_ErrorString_IsBase(true);
-        QString _ret = vkiospecialjob->errorString();
+        auto _ret = vkiospecialjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -521,7 +521,7 @@ libqt_string KIO__SpecialJob_SuperErrorString(const KIO__SpecialJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::SpecialJob::errorString();
+        auto _ret = self->KIO::SpecialJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

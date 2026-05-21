@@ -50,7 +50,7 @@ int QNetworkDiskCache_Metacall(QNetworkDiskCache* self, int param1, int param2, 
 }
 
 libqt_string QNetworkDiskCache_CacheDirectory(const QNetworkDiskCache* self) {
-    QString _ret = self->cacheDirectory();
+    auto _ret = self->cacheDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

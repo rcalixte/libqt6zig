@@ -2525,6 +2525,8 @@ pub const QsciLexerJavaScript = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerJavaScript, style: i32) callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnColor(self: QsciLexerJavaScript, callback: *const fn (QsciLexerJavaScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerJavaScript_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2628,6 +2630,8 @@ pub const QsciLexerJavaScript = extern struct {
     /// ` self: QsciLexerJavaScript`
     ///
     /// ` callback: *const fn (self: QsciLexerJavaScript, style: i32) callconv(.c) QFont `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFont(self: QsciLexerJavaScript, callback: *const fn (QsciLexerJavaScript, i32) callconv(.c) QFont) void {
         qtc.QsciLexerJavaScript_OnFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2777,6 +2781,8 @@ pub const QsciLexerJavaScript = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerJavaScript, style: i32) callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPaper(self: QsciLexerJavaScript, callback: *const fn (QsciLexerJavaScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerJavaScript_OnPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2828,6 +2834,8 @@ pub const QsciLexerJavaScript = extern struct {
     /// ` self: QsciLexerJavaScript`
     ///
     /// ` callback: *const fn (self: QsciLexerJavaScript, style: i32) callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDefaultColor2(self: QsciLexerJavaScript, callback: *const fn (QsciLexerJavaScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerJavaScript_OnDefaultColor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2881,6 +2889,8 @@ pub const QsciLexerJavaScript = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerJavaScript, style: i32) callconv(.c) QFont `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDefaultFont2(self: QsciLexerJavaScript, callback: *const fn (QsciLexerJavaScript, i32) callconv(.c) QFont) void {
         qtc.QsciLexerJavaScript_OnDefaultFont2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2932,6 +2942,8 @@ pub const QsciLexerJavaScript = extern struct {
     /// ` self: QsciLexerJavaScript`
     ///
     /// ` callback: *const fn (self: QsciLexerJavaScript, style: i32) callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDefaultPaper2(self: QsciLexerJavaScript, callback: *const fn (QsciLexerJavaScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerJavaScript_OnDefaultPaper2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

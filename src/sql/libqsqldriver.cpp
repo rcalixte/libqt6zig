@@ -99,7 +99,7 @@ libqt_list /* of libqt_string */ QSqlDriver_Tables(const QSqlDriver* self, int t
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -118,7 +118,7 @@ libqt_list /* of libqt_string */ QSqlDriver_Tables(const QSqlDriver* self, int t
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -158,7 +158,7 @@ QSqlRecord* QSqlDriver_Record(const QSqlDriver* self, const libqt_string tableNa
 libqt_string QSqlDriver_FormatValue(const QSqlDriver* self, const QSqlField* field, bool trimStrings) {
     auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        QString _ret = self->formatValue(*field, trimStrings);
+        auto _ret = self->formatValue(*field, trimStrings);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -168,7 +168,7 @@ libqt_string QSqlDriver_FormatValue(const QSqlDriver* self, const QSqlField* fie
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlDriver*)self)->formatValue(*field, trimStrings);
+        auto _ret = ((VirtualQSqlDriver*)self)->formatValue(*field, trimStrings);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -184,7 +184,7 @@ libqt_string QSqlDriver_EscapeIdentifier(const QSqlDriver* self, const libqt_str
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        QString _ret = self->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = self->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -194,7 +194,7 @@ libqt_string QSqlDriver_EscapeIdentifier(const QSqlDriver* self, const libqt_str
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlDriver*)self)->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = ((VirtualQSqlDriver*)self)->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -210,7 +210,7 @@ libqt_string QSqlDriver_SqlStatement(const QSqlDriver* self, int typeVal, const 
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        QString _ret = self->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
+        auto _ret = self->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -220,7 +220,7 @@ libqt_string QSqlDriver_SqlStatement(const QSqlDriver* self, int typeVal, const 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlDriver*)self)->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
+        auto _ret = ((VirtualQSqlDriver*)self)->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -313,7 +313,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SubscribedToNotifications(const QSql
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -332,7 +332,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SubscribedToNotifications(const QSql
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -363,7 +363,7 @@ libqt_string QSqlDriver_StripDelimiters(const QSqlDriver* self, const libqt_stri
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        QString _ret = self->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = self->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -373,7 +373,7 @@ libqt_string QSqlDriver_StripDelimiters(const QSqlDriver* self, const libqt_stri
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlDriver*)self)->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = ((VirtualQSqlDriver*)self)->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -423,7 +423,7 @@ void QSqlDriver_Notification(QSqlDriver* self, const libqt_string name, int sour
 void QSqlDriver_Connect_Notification(QSqlDriver* self, intptr_t slot) {
     void (*slotFunc)(QSqlDriver*, const char*, int, QVariant*) = reinterpret_cast<void (*)(QSqlDriver*, const char*, int, QVariant*)>(slot);
     QSqlDriver::connect(self, &QSqlDriver::notification, [self, slotFunc](const QString& name, QSqlDriver::NotificationSource source, const QVariant& payload) {
-        const QString name_ret = name;
+        const auto name_ret = name;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
         auto name_str_len = name_b.length();
@@ -603,7 +603,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SuperTables(const QSqlDriver* self, 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -622,7 +622,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SuperTables(const QSqlDriver* self, 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -692,7 +692,7 @@ libqt_string QSqlDriver_SuperFormatValue(const QSqlDriver* self, const QSqlField
     auto* vqsqldriver = const_cast<VirtualQSqlDriver*>(dynamic_cast<const VirtualQSqlDriver*>(self));
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_FormatValue_IsBase(true);
-        QString _ret = vqsqldriver->formatValue(*field, trimStrings);
+        auto _ret = vqsqldriver->formatValue(*field, trimStrings);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -702,7 +702,7 @@ libqt_string QSqlDriver_SuperFormatValue(const QSqlDriver* self, const QSqlField
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QSqlDriver::formatValue(*field, trimStrings);
+        auto _ret = self->QSqlDriver::formatValue(*field, trimStrings);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -728,7 +728,7 @@ libqt_string QSqlDriver_SuperEscapeIdentifier(const QSqlDriver* self, const libq
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_EscapeIdentifier_IsBase(true);
-        QString _ret = vqsqldriver->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = vqsqldriver->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -738,7 +738,7 @@ libqt_string QSqlDriver_SuperEscapeIdentifier(const QSqlDriver* self, const libq
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QSqlDriver::escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = self->QSqlDriver::escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -764,7 +764,7 @@ libqt_string QSqlDriver_SuperSqlStatement(const QSqlDriver* self, int typeVal, c
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_SqlStatement_IsBase(true);
-        QString _ret = vqsqldriver->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
+        auto _ret = vqsqldriver->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -774,7 +774,7 @@ libqt_string QSqlDriver_SuperSqlStatement(const QSqlDriver* self, int typeVal, c
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QSqlDriver::sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
+        auto _ret = self->QSqlDriver::sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -943,7 +943,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SuperSubscribedToNotifications(const
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -962,7 +962,7 @@ libqt_list /* of libqt_string */ QSqlDriver_SuperSubscribedToNotifications(const
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1013,7 +1013,7 @@ libqt_string QSqlDriver_SuperStripDelimiters(const QSqlDriver* self, const libqt
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
     if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
         vqsqldriver->setQSqlDriver_StripDelimiters_IsBase(true);
-        QString _ret = vqsqldriver->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = vqsqldriver->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1023,7 +1023,7 @@ libqt_string QSqlDriver_SuperStripDelimiters(const QSqlDriver* self, const libqt
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QSqlDriver::stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+        auto _ret = self->QSqlDriver::stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

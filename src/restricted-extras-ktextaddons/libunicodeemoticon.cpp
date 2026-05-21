@@ -14,7 +14,7 @@ TextEmoticonsCore__UnicodeEmoticon* TextEmoticonsCore__UnicodeEmoticon_new2(cons
 }
 
 libqt_string TextEmoticonsCore__UnicodeEmoticon_Identifier(const TextEmoticonsCore__UnicodeEmoticon* self) {
-    QString _ret = self->identifier();
+    auto _ret = self->identifier();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -31,7 +31,7 @@ void TextEmoticonsCore__UnicodeEmoticon_SetIdentifier(TextEmoticonsCore__Unicode
 }
 
 libqt_string TextEmoticonsCore__UnicodeEmoticon_Unicode(const TextEmoticonsCore__UnicodeEmoticon* self) {
-    QString _ret = self->unicode();
+    auto _ret = self->unicode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,7 +43,7 @@ libqt_string TextEmoticonsCore__UnicodeEmoticon_Unicode(const TextEmoticonsCore_
 }
 
 libqt_string TextEmoticonsCore__UnicodeEmoticon_UnicodeDisplay(const TextEmoticonsCore__UnicodeEmoticon* self) {
-    QString _ret = self->unicodeDisplay();
+    auto _ret = self->unicodeDisplay();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ void TextEmoticonsCore__UnicodeEmoticon_SetUnicode(TextEmoticonsCore__UnicodeEmo
 }
 
 libqt_string TextEmoticonsCore__UnicodeEmoticon_Category(const TextEmoticonsCore__UnicodeEmoticon* self) {
-    QString _ret = self->category();
+    auto _ret = self->category();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -81,7 +81,7 @@ libqt_list /* of libqt_string */ TextEmoticonsCore__UnicodeEmoticon_Aliases(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -126,7 +126,7 @@ void TextEmoticonsCore__UnicodeEmoticon_SetOrder(TextEmoticonsCore__UnicodeEmoti
 }
 
 libqt_string TextEmoticonsCore__UnicodeEmoticon_Key(const TextEmoticonsCore__UnicodeEmoticon* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -55,7 +55,7 @@ KTextEditor__Range* KTextEditor__Range_Invalid() {
 }
 
 libqt_string KTextEditor__Range_ToString(const KTextEditor__Range* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,6 +64,11 @@ libqt_string KTextEditor__Range_ToString(const KTextEditor__Range* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+KTextEditor__Range* KTextEditor__Range_FromString(libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    return new KTextEditor::Range(KTextEditor::Range::fromString(str_QString));
 }
 
 KTextEditor__Cursor* KTextEditor__Range_Start(const KTextEditor__Range* self) {

@@ -46,7 +46,7 @@ void QUrlQuery_Clear(QUrlQuery* self) {
 }
 
 libqt_string QUrlQuery_Query(const QUrlQuery* self) {
-    QString _ret = self->query();
+    auto _ret = self->query();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -63,7 +63,7 @@ void QUrlQuery_SetQuery(QUrlQuery* self, const libqt_string queryString) {
 }
 
 libqt_string QUrlQuery_ToString(const QUrlQuery* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -95,7 +95,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _lv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
         libqt_string* _lv_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        QString _lv_first_ret = _lv_ret.first;
+        auto _lv_first_ret = _lv_ret.first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_first_b = _lv_first_ret.toUtf8();
         libqt_string _lv_first_str;
@@ -104,7 +104,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_
         memcpy((void*)_lv_first_str.data, _lv_first_b.data(), _lv_first_str.len);
         ((char*)_lv_first_str.data)[_lv_first_str.len] = '\0';
         *_lv_first = _lv_first_str;
-        QString _lv_second_ret = _lv_ret.second;
+        auto _lv_second_ret = _lv_ret.second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_second_b = _lv_second_ret.toUtf8();
         libqt_string _lv_second_str;
@@ -142,7 +142,7 @@ void QUrlQuery_RemoveQueryItem(QUrlQuery* self, const libqt_string key) {
 
 libqt_string QUrlQuery_QueryItemValue(const QUrlQuery* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->queryItemValue(key_QString);
+    auto _ret = self->queryItemValue(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -159,7 +159,7 @@ libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues(const QUrlQuery* s
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -181,7 +181,7 @@ void QUrlQuery_RemoveAllQueryItems(QUrlQuery* self, const libqt_string key) {
 }
 
 libqt_string QUrlQuery_Query1(const QUrlQuery* self, unsigned int encoding) {
-    QString _ret = self->query(static_cast<QUrl::ComponentFormattingOptions>(encoding));
+    auto _ret = self->query(static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ libqt_string QUrlQuery_Query1(const QUrlQuery* self, unsigned int encoding) {
 }
 
 libqt_string QUrlQuery_ToString1(const QUrlQuery* self, unsigned int encoding) {
-    QString _ret = self->toString(static_cast<QUrl::ComponentFormattingOptions>(encoding));
+    auto _ret = self->toString(static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -213,7 +213,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _lv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
         libqt_string* _lv_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        QString _lv_first_ret = _lv_ret.first;
+        auto _lv_first_ret = _lv_ret.first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_first_b = _lv_first_ret.toUtf8();
         libqt_string _lv_first_str;
@@ -222,7 +222,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_
         memcpy((void*)_lv_first_str.data, _lv_first_b.data(), _lv_first_str.len);
         ((char*)_lv_first_str.data)[_lv_first_str.len] = '\0';
         *_lv_first = _lv_first_str;
-        QString _lv_second_ret = _lv_ret.second;
+        auto _lv_second_ret = _lv_ret.second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_second_b = _lv_second_ret.toUtf8();
         libqt_string _lv_second_str;
@@ -244,7 +244,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and libqt_string */ QUrlQuery_
 
 libqt_string QUrlQuery_QueryItemValue2(const QUrlQuery* self, const libqt_string key, unsigned int encoding) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->queryItemValue(key_QString, static_cast<QUrl::ComponentFormattingOptions>(encoding));
+    auto _ret = self->queryItemValue(key_QString, static_cast<QUrl::ComponentFormattingOptions>(encoding));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -261,7 +261,7 @@ libqt_list /* of libqt_string */ QUrlQuery_AllQueryItemValues2(const QUrlQuery* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

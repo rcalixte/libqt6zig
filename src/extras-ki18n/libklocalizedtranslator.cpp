@@ -49,7 +49,7 @@ int KLocalizedTranslator_Metacall(KLocalizedTranslator* self, int param1, int pa
 libqt_string KLocalizedTranslator_Translate(const KLocalizedTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
     auto* vklocalizedtranslator = dynamic_cast<const VirtualKLocalizedTranslator*>(self);
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        QString _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string KLocalizedTranslator_Translate(const KLocalizedTranslator* self, co
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKLocalizedTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = ((VirtualKLocalizedTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -148,7 +148,7 @@ libqt_string KLocalizedTranslator_SuperTranslate(const KLocalizedTranslator* sel
     auto* vklocalizedtranslator = const_cast<VirtualKLocalizedTranslator*>(dynamic_cast<const VirtualKLocalizedTranslator*>(self));
     if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
         vklocalizedtranslator->setKLocalizedTranslator_Translate_IsBase(true);
-        QString _ret = vklocalizedtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = vklocalizedtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -158,7 +158,7 @@ libqt_string KLocalizedTranslator_SuperTranslate(const KLocalizedTranslator* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KLocalizedTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = self->KLocalizedTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -662,7 +662,7 @@ class VirtualQPolarChart final : public QPolarChart {
         }
         auto propertychange_cb = qpolarchart_propertychange_callback;
         if (propertychange_cb) {
-            const QString propertyName_ret = propertyName;
+            const auto propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
             auto propertyName_str_len = propertyName_b.length();

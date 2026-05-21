@@ -66,7 +66,7 @@ void QProcessEnvironment_Remove(QProcessEnvironment* self, const libqt_string na
 
 libqt_string QProcessEnvironment_Value(const QProcessEnvironment* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->value(name_QString);
+    auto _ret = self->value(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ libqt_list /* of libqt_string */ QProcessEnvironment_ToStringList(const QProcess
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -103,7 +103,7 @@ libqt_list /* of libqt_string */ QProcessEnvironment_Keys(const QProcessEnvironm
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -130,7 +130,7 @@ QProcessEnvironment* QProcessEnvironment_SystemEnvironment() {
 libqt_string QProcessEnvironment_Value2(const QProcessEnvironment* self, const libqt_string name, const libqt_string defaultValue) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
-    QString _ret = self->value(name_QString, defaultValue_QString);
+    auto _ret = self->value(name_QString, defaultValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -208,7 +208,7 @@ bool QProcess_Open(QProcess* self, int mode) {
 }
 
 libqt_string QProcess_Program(const QProcess* self) {
-    QString _ret = self->program();
+    auto _ret = self->program();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -229,7 +229,7 @@ libqt_list /* of libqt_string */ QProcess_Arguments(const QProcess* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -331,7 +331,7 @@ void QProcess_SetUnixProcessParameters2(QProcess* self, uint32_t flagsOnly) {
 }
 
 libqt_string QProcess_WorkingDirectory(const QProcess* self) {
-    QString _ret = self->workingDirectory();
+    auto _ret = self->workingDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -363,7 +363,7 @@ libqt_list /* of libqt_string */ QProcess_Environment(const QProcess* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -493,7 +493,7 @@ libqt_list /* of libqt_string */ QProcess_SystemEnvironment() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -510,7 +510,7 @@ libqt_list /* of libqt_string */ QProcess_SystemEnvironment() {
 }
 
 libqt_string QProcess_NullDevice() {
-    QString _ret = QProcess::nullDevice();
+    auto _ret = QProcess::nullDevice();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -519,6 +519,28 @@ libqt_string QProcess_NullDevice() {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+libqt_list /* of libqt_string */ QProcess_SplitCommand(libqt_string command) {
+    QString command_QString = QString::fromUtf8(command.data, command.len);
+    QList<QString> _ret = QProcess::splitCommand(command_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QProcess_Terminate(QProcess* self) {

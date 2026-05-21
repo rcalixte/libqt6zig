@@ -374,7 +374,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
         }
         auto connecttohost_cb = qabstractsocket_connecttohost_callback;
         if (connecttohost_cb) {
-            const QString hostName_ret = hostName;
+            const auto hostName_ret = hostName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray hostName_b = hostName_ret.toUtf8();
             auto hostName_str_len = hostName_b.length();
@@ -995,7 +995,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
         }
         auto setpeername_cb = qabstractsocket_setpeername_callback;
         if (setpeername_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -1035,7 +1035,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
         }
         auto seterrorstring_cb = qabstractsocket_seterrorstring_callback;
         if (seterrorstring_cb) {
-            const QString errorString_ret = errorString;
+            const auto errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
             auto errorString_str_len = errorString_b.length();

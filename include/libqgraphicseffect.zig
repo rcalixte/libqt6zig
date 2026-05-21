@@ -216,6 +216,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, sourceRect: QRectF) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRectFor(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -495,6 +497,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourceBoundingRect(self: QGraphicsEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -581,6 +585,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourcePixmap(self: QGraphicsEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -665,6 +671,8 @@ pub const QGraphicsEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourceBoundingRect1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QRectF) void {
         qtc.QGraphicsEffect_OnSourceBoundingRect1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -708,6 +716,8 @@ pub const QGraphicsEffect = extern struct {
     /// ` self: QGraphicsEffect `
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap1(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32) callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -755,6 +765,8 @@ pub const QGraphicsEffect = extern struct {
     /// ` self: QGraphicsEffect `
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QPoint) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap2(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint) callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -807,6 +819,8 @@ pub const QGraphicsEffect = extern struct {
     /// ` self: QGraphicsEffect `
     ///
     /// ` callback: *const fn (self: QGraphicsEffect, system: qnamespace_enums.CoordinateSystem, offset: QPoint, mode: qgraphicseffect_enums.PixmapPadMode) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap3(self: QGraphicsEffect, callback: *const fn (QGraphicsEffect, i32, QPoint, i32) callconv(.c) QPixmap) void {
         qtc.QGraphicsEffect_OnSourcePixmap3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3476,6 +3490,8 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsColorizeEffect, sourceRect: QRectF) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRectFor(self: QGraphicsColorizeEffect, callback: *const fn (QGraphicsColorizeEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsColorizeEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4056,6 +4072,8 @@ pub const QGraphicsColorizeEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourceBoundingRect(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsColorizeEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4157,6 +4175,8 @@ pub const QGraphicsColorizeEffect = extern struct {
     /// ` self: QGraphicsColorizeEffect`
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap(self: QGraphicsColorizeEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsColorizeEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4593,6 +4613,8 @@ pub const QGraphicsBlurEffect = extern struct {
     /// ` self: QGraphicsBlurEffect `
     ///
     /// ` callback: *const fn (self: QGraphicsBlurEffect, rect: QRectF) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBoundingRectFor(self: QGraphicsBlurEffect, callback: *const fn (QGraphicsBlurEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsBlurEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6224,6 +6246,8 @@ pub const QGraphicsBlurEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourceBoundingRect(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsBlurEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6325,6 +6349,8 @@ pub const QGraphicsBlurEffect = extern struct {
     /// ` self: QGraphicsBlurEffect`
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap(self: QGraphicsBlurEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsBlurEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6761,6 +6787,8 @@ pub const QGraphicsDropShadowEffect = extern struct {
     /// ` self: QGraphicsDropShadowEffect `
     ///
     /// ` callback: *const fn (self: QGraphicsDropShadowEffect, rect: QRectF) callconv(.c) QRectF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBoundingRectFor(self: QGraphicsDropShadowEffect, callback: *const fn (QGraphicsDropShadowEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsDropShadowEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8508,6 +8536,8 @@ pub const QGraphicsDropShadowEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourceBoundingRect(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsDropShadowEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8609,6 +8639,8 @@ pub const QGraphicsDropShadowEffect = extern struct {
     /// ` self: QGraphicsDropShadowEffect`
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap(self: QGraphicsDropShadowEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsDropShadowEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10102,6 +10134,8 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsOpacityEffect, sourceRect: QRectF) callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRectFor(self: QGraphicsOpacityEffect, callback: *const fn (QGraphicsOpacityEffect, QRectF) callconv(.c) QRectF) void {
         qtc.QGraphicsOpacityEffect_OnBoundingRectFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10682,6 +10716,8 @@ pub const QGraphicsOpacityEffect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSourceBoundingRect(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsOpacityEffect_OnSourceBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10783,6 +10819,8 @@ pub const QGraphicsOpacityEffect = extern struct {
     /// ` self: QGraphicsOpacityEffect`
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSourcePixmap(self: QGraphicsOpacityEffect, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QGraphicsOpacityEffect_OnSourcePixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

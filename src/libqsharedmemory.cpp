@@ -70,7 +70,7 @@ void QSharedMemory_SetKey(QSharedMemory* self, const libqt_string key) {
 }
 
 libqt_string QSharedMemory_Key(const QSharedMemory* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -91,7 +91,7 @@ void QSharedMemory_SetNativeKey2(QSharedMemory* self, const libqt_string key) {
 }
 
 libqt_string QSharedMemory_NativeKey(const QSharedMemory* self) {
-    QString _ret = self->nativeKey();
+    auto _ret = self->nativeKey();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -151,7 +151,7 @@ int QSharedMemory_Error(const QSharedMemory* self) {
 }
 
 libqt_string QSharedMemory_ErrorString(const QSharedMemory* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -526,7 +526,7 @@ class VirtualKComboBox final : public KComboBox {
         }
         auto setcompletedtext_cb = kcombobox_setcompletedtext_callback;
         if (setcompletedtext_cb) {
-            const QString completedText_ret = completedText;
+            const auto completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
             auto completedText_str_len = completedText_b.length();
@@ -581,7 +581,7 @@ class VirtualKComboBox final : public KComboBox {
         }
         auto makecompletion_cb = kcombobox_makecompletion_callback;
         if (makecompletion_cb) {
-            const QString param1_ret = param1;
+            const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -605,7 +605,7 @@ class VirtualKComboBox final : public KComboBox {
         }
         auto setcompletedtext2_cb = kcombobox_setcompletedtext2_callback;
         if (setcompletedtext2_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

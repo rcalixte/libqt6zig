@@ -12,7 +12,7 @@ Attica__Field* Attica__Field_new(const Attica__Field* param1) {
 }
 
 libqt_string Attica__Field_Type(const Attica__Field* self) {
-    QString type_ret = self->type;
+    auto type_ret = self->type;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray type_b = type_ret.toUtf8();
     libqt_string type_str;
@@ -29,7 +29,7 @@ void Attica__Field_SetType(Attica__Field* self, libqt_string type) {
 }
 
 libqt_string Attica__Field_Name(const Attica__Field* self) {
-    QString name_ret = self->name;
+    auto name_ret = self->name;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray name_b = name_ret.toUtf8();
     libqt_string name_str;
@@ -66,7 +66,7 @@ libqt_list /* of libqt_string */ Attica__Field_Options(const Attica__Field* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* options_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (options_ret.size())));
     for (qsizetype i = 0; i < options_ret.size(); ++i) {
-        QString options_lv_ret = options_ret[i];
+        auto options_lv_ret = options_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray options_lv_b = options_lv_ret.toUtf8();
         libqt_string options_lv_str;
@@ -119,7 +119,7 @@ void Attica__Publisher_SetId(Attica__Publisher* self, const libqt_string id) {
 }
 
 libqt_string Attica__Publisher_Id(const Attica__Publisher* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -136,7 +136,7 @@ void Attica__Publisher_SetName(Attica__Publisher* self, const libqt_string name)
 }
 
 libqt_string Attica__Publisher_Name(const Attica__Publisher* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -153,7 +153,7 @@ void Attica__Publisher_SetUrl(Attica__Publisher* self, const libqt_string url) {
 }
 
 libqt_string Attica__Publisher_Url(const Attica__Publisher* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -93,6 +93,8 @@ pub const QTest__QTouchEventWidgetSequence = extern struct {
     ///
     /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QTest__QTouchEventWidgetSequence `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnStationary(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QTest__QTouchEventWidgetSequence) void {
         qtc.QTest__QTouchEventWidgetSequence_OnStationary(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -261,6 +263,8 @@ pub const QTest__QTouchEventWidgetSequence = extern struct {
     ///
     /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QEventPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPoint(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QEventPoint) void {
         qtc.QTest__QTouchEventWidgetSequence_OnPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -312,6 +316,8 @@ pub const QTest__QTouchEventWidgetSequence = extern struct {
     /// ` self: QTest__QTouchEventWidgetSequence`
     ///
     /// ` callback: *const fn (self: QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QEventPoint `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPointOrPreviousPoint(self: QTest__QTouchEventWidgetSequence, callback: *const fn (QTest__QTouchEventWidgetSequence, i32) callconv(.c) QEventPoint) void {
         qtc.QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

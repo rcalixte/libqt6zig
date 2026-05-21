@@ -11,7 +11,7 @@
 #include "libabstractlanguage.hxx"
 
 libqt_string QDesignerLanguageExtension_Name(const QDesignerLanguageExtension* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ bool QDesignerLanguageExtension_IsLanguageResource(const QDesignerLanguageExtens
 }
 
 libqt_string QDesignerLanguageExtension_ClassNameOf(const QDesignerLanguageExtension* self, QObject* object) {
-    QString _ret = self->classNameOf(object);
+    auto _ret = self->classNameOf(object);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ bool QDesignerLanguageExtension_SignalMatchesSlot(const QDesignerLanguageExtensi
 }
 
 libqt_string QDesignerLanguageExtension_WidgetBoxContents(const QDesignerLanguageExtension* self) {
-    QString _ret = self->widgetBoxContents();
+    auto _ret = self->widgetBoxContents();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ libqt_string QDesignerLanguageExtension_WidgetBoxContents(const QDesignerLanguag
 }
 
 libqt_string QDesignerLanguageExtension_UiExtension(const QDesignerLanguageExtension* self) {
-    QString _ret = self->uiExtension();
+    auto _ret = self->uiExtension();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -21,7 +21,7 @@ QDesignerMetaDataBaseItemInterface* QDesignerMetaDataBaseItemInterface_new() {
 libqt_string QDesignerMetaDataBaseItemInterface_Name(const QDesignerMetaDataBaseItemInterface* self) {
     auto* vqdesignermetadatabaseiteminterface = dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self);
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        QString _ret = vqdesignermetadatabaseiteminterface->name();
+        auto _ret = vqdesignermetadatabaseiteminterface->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -31,7 +31,7 @@ libqt_string QDesignerMetaDataBaseItemInterface_Name(const QDesignerMetaDataBase
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->name();
+        auto _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -118,7 +118,7 @@ libqt_string QDesignerMetaDataBaseItemInterface_SuperName(const QDesignerMetaDat
     auto* vqdesignermetadatabaseiteminterface = const_cast<VirtualQDesignerMetaDataBaseItemInterface*>(dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self));
     if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
         vqdesignermetadatabaseiteminterface->setQDesignerMetaDataBaseItemInterface_Name_IsBase(true);
-        QString _ret = vqdesignermetadatabaseiteminterface->name();
+        auto _ret = vqdesignermetadatabaseiteminterface->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -128,7 +128,7 @@ libqt_string QDesignerMetaDataBaseItemInterface_SuperName(const QDesignerMetaDat
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->name();
+        auto _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -61,7 +61,7 @@ void Sonnet__BackgroundChecker_SetText(Sonnet__BackgroundChecker* self, const li
 }
 
 libqt_string Sonnet__BackgroundChecker_Text(const Sonnet__BackgroundChecker* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -73,7 +73,7 @@ libqt_string Sonnet__BackgroundChecker_Text(const Sonnet__BackgroundChecker* sel
 }
 
 libqt_string Sonnet__BackgroundChecker_CurrentContext(const Sonnet__BackgroundChecker* self) {
-    QString _ret = self->currentContext();
+    auto _ret = self->currentContext();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -103,7 +103,7 @@ libqt_list /* of libqt_string */ Sonnet__BackgroundChecker_Suggest(const Sonnet_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -183,7 +183,7 @@ void Sonnet__BackgroundChecker_Misspelling(Sonnet__BackgroundChecker* self, cons
 void Sonnet__BackgroundChecker_Connect_Misspelling(Sonnet__BackgroundChecker* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__BackgroundChecker*, const char*, int) = reinterpret_cast<void (*)(Sonnet__BackgroundChecker*, const char*, int)>(slot);
     Sonnet::BackgroundChecker::connect(self, &Sonnet::BackgroundChecker::misspelling, [self, slotFunc](const QString& word, int start) {
-        const QString word_ret = word;
+        const auto word_ret = word;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray word_b = word_ret.toUtf8();
         auto word_str_len = word_b.length();
@@ -211,7 +211,7 @@ void Sonnet__BackgroundChecker_Connect_Done(Sonnet__BackgroundChecker* self, int
 libqt_string Sonnet__BackgroundChecker_FetchMoreText(Sonnet__BackgroundChecker* self) {
     auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        QString _ret = vsonnet__backgroundchecker->fetchMoreText();
+        auto _ret = vsonnet__backgroundchecker->fetchMoreText();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -350,7 +350,7 @@ libqt_string Sonnet__BackgroundChecker_SuperFetchMoreText(Sonnet__BackgroundChec
     auto* vsonnetbackgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
     if (vsonnetbackgroundchecker && vsonnetbackgroundchecker->isVirtualSonnetBackgroundChecker) {
         vsonnetbackgroundchecker->setSonnet__BackgroundChecker_FetchMoreText_IsBase(true);
-        QString _ret = vsonnetbackgroundchecker->fetchMoreText();
+        auto _ret = vsonnetbackgroundchecker->fetchMoreText();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -360,7 +360,7 @@ libqt_string Sonnet__BackgroundChecker_SuperFetchMoreText(Sonnet__BackgroundChec
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualSonnetBackgroundChecker*)self)->fetchMoreText();
+        auto _ret = ((VirtualSonnetBackgroundChecker*)self)->fetchMoreText();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

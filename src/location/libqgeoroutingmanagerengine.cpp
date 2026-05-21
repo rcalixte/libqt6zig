@@ -67,7 +67,7 @@ int QGeoRoutingManagerEngine_Metacall(QGeoRoutingManagerEngine* self, int param1
 }
 
 libqt_string QGeoRoutingManagerEngine_ManagerName(const QGeoRoutingManagerEngine* self) {
-    QString _ret = self->managerName();
+    auto _ret = self->managerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -175,7 +175,7 @@ void QGeoRoutingManagerEngine_Connect_ErrorOccurred3(QGeoRoutingManagerEngine* s
     QGeoRoutingManagerEngine::connect(self, &QGeoRoutingManagerEngine::errorOccurred, [self, slotFunc](QGeoRouteReply* reply, QGeoRouteReply::Error errorVal, const QString& errorString) {
         QGeoRouteReply* sigval1 = reply;
         int sigval2 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();

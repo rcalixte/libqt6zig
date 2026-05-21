@@ -62,7 +62,7 @@ int KStatusNotifierItem_Metacall(KStatusNotifierItem* self, int param1, int para
 }
 
 libqt_string KStatusNotifierItem_Id(const KStatusNotifierItem* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -87,7 +87,7 @@ void KStatusNotifierItem_SetTitle(KStatusNotifierItem* self, const libqt_string 
 }
 
 libqt_string KStatusNotifierItem_Title(const KStatusNotifierItem* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -112,7 +112,7 @@ void KStatusNotifierItem_SetIconByName(KStatusNotifierItem* self, const libqt_st
 }
 
 libqt_string KStatusNotifierItem_IconName(const KStatusNotifierItem* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ void KStatusNotifierItem_SetOverlayIconByName(KStatusNotifierItem* self, const l
 }
 
 libqt_string KStatusNotifierItem_OverlayIconName(const KStatusNotifierItem* self) {
-    QString _ret = self->overlayIconName();
+    auto _ret = self->overlayIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -162,7 +162,7 @@ void KStatusNotifierItem_SetAttentionIconByName(KStatusNotifierItem* self, const
 }
 
 libqt_string KStatusNotifierItem_AttentionIconName(const KStatusNotifierItem* self) {
-    QString _ret = self->attentionIconName();
+    auto _ret = self->attentionIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -187,7 +187,7 @@ void KStatusNotifierItem_SetAttentionMovieByName(KStatusNotifierItem* self, cons
 }
 
 libqt_string KStatusNotifierItem_AttentionMovieName(const KStatusNotifierItem* self) {
-    QString _ret = self->attentionMovieName();
+    auto _ret = self->attentionMovieName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -217,7 +217,7 @@ void KStatusNotifierItem_SetToolTipIconByName(KStatusNotifierItem* self, const l
 }
 
 libqt_string KStatusNotifierItem_ToolTipIconName(const KStatusNotifierItem* self) {
-    QString _ret = self->toolTipIconName();
+    auto _ret = self->toolTipIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -242,7 +242,7 @@ void KStatusNotifierItem_SetToolTipTitle(KStatusNotifierItem* self, const libqt_
 }
 
 libqt_string KStatusNotifierItem_ToolTipTitle(const KStatusNotifierItem* self) {
-    QString _ret = self->toolTipTitle();
+    auto _ret = self->toolTipTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -259,7 +259,7 @@ void KStatusNotifierItem_SetToolTipSubTitle(KStatusNotifierItem* self, const lib
 }
 
 libqt_string KStatusNotifierItem_ToolTipSubTitle(const KStatusNotifierItem* self) {
-    QString _ret = self->toolTipSubTitle();
+    auto _ret = self->toolTipSubTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -330,7 +330,7 @@ void KStatusNotifierItem_ShowMessage(KStatusNotifierItem* self, const libqt_stri
 }
 
 libqt_string KStatusNotifierItem_ProvidedToken(const KStatusNotifierItem* self) {
-    QString _ret = self->providedToken();
+    auto _ret = self->providedToken();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

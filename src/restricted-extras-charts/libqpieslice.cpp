@@ -66,7 +66,7 @@ void QPieSlice_SetLabel(QPieSlice* self, libqt_string label) {
 }
 
 libqt_string QPieSlice_Label(const QPieSlice* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

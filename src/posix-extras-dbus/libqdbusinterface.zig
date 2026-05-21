@@ -1844,6 +1844,8 @@ pub const QDBusInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusInterface, propname: [*:0]const u8) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInternalPropGet(self: QDBusInterface, callback: *const fn (QDBusInterface, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QDBusInterface_OnInternalPropGet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1967,6 +1969,8 @@ pub const QDBusInterface = extern struct {
     /// ` self: QDBusInterface`
     ///
     /// ` callback: *const fn (self: QDBusInterface, mode: qdbusconnection_enums.CallMode, method: [*:0]const u8) callconv(.c) QDBusMessage `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInternalConstCall(self: QDBusInterface, callback: *const fn (QDBusInterface, i32, [*:0]const u8) callconv(.c) QDBusMessage) void {
         qtc.QDBusInterface_OnInternalConstCall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

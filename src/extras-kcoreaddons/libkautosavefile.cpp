@@ -238,7 +238,7 @@ void KAutoSaveFile_OnOpen(KAutoSaveFile* self, intptr_t slot) {
 libqt_string KAutoSaveFile_FileName(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        QString _ret = vkautosavefile->fileName();
+        auto _ret = vkautosavefile->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -248,7 +248,7 @@ libqt_string KAutoSaveFile_FileName(const KAutoSaveFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KAutoSaveFile::fileName();
+        auto _ret = self->KAutoSaveFile::fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -265,7 +265,7 @@ libqt_string KAutoSaveFile_SuperFileName(const KAutoSaveFile* self) {
     auto* vkautosavefile = const_cast<VirtualKAutoSaveFile*>(dynamic_cast<const VirtualKAutoSaveFile*>(self));
     if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
         vkautosavefile->setKAutoSaveFile_FileName_IsBase(true);
-        QString _ret = vkautosavefile->fileName();
+        auto _ret = vkautosavefile->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -275,7 +275,7 @@ libqt_string KAutoSaveFile_SuperFileName(const KAutoSaveFile* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KAutoSaveFile::fileName();
+        auto _ret = self->KAutoSaveFile::fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

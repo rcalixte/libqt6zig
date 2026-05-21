@@ -47,7 +47,7 @@
 #include "libpoppler_annotation.hxx"
 
 libqt_string Poppler__Annotation_Author(const Poppler__Annotation* self) {
-    QString _ret = self->author();
+    auto _ret = self->author();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ void Poppler__Annotation_SetAuthor(Poppler__Annotation* self, const libqt_string
 }
 
 libqt_string Poppler__Annotation_Contents(const Poppler__Annotation* self) {
-    QString _ret = self->contents();
+    auto _ret = self->contents();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -81,7 +81,7 @@ void Poppler__Annotation_SetContents(Poppler__Annotation* self, const libqt_stri
 }
 
 libqt_string Poppler__Annotation_UniqueName(const Poppler__Annotation* self) {
-    QString _ret = self->uniqueName();
+    auto _ret = self->uniqueName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -200,7 +200,7 @@ int Poppler__TextAnnotation_TextType(const Poppler__TextAnnotation* self) {
 }
 
 libqt_string Poppler__TextAnnotation_TextIcon(const Poppler__TextAnnotation* self) {
-    QString _ret = self->textIcon();
+    auto _ret = self->textIcon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -558,7 +558,7 @@ int Poppler__StampAnnotation_SubType(const Poppler__StampAnnotation* self) {
 }
 
 libqt_string Poppler__StampAnnotation_StampIconName(const Poppler__StampAnnotation* self) {
-    QString _ret = self->stampIconName();
+    auto _ret = self->stampIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -673,7 +673,7 @@ void Poppler__SignatureAnnotation_SetBackgroundColor(Poppler__SignatureAnnotatio
 }
 
 libqt_string Poppler__SignatureAnnotation_ImagePath(const Poppler__SignatureAnnotation* self) {
-    QString _ret = self->imagePath();
+    auto _ret = self->imagePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -690,7 +690,7 @@ void Poppler__SignatureAnnotation_SetImagePath(Poppler__SignatureAnnotation* sel
 }
 
 libqt_string Poppler__SignatureAnnotation_FieldPartialName(const Poppler__SignatureAnnotation* self) {
-    QString _ret = self->fieldPartialName();
+    auto _ret = self->fieldPartialName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -885,7 +885,7 @@ int Poppler__FileAttachmentAnnotation_SubType(const Poppler__FileAttachmentAnnot
 }
 
 libqt_string Poppler__FileAttachmentAnnotation_FileIconName(const Poppler__FileAttachmentAnnotation* self) {
-    QString _ret = self->fileIconName();
+    auto _ret = self->fileIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -918,7 +918,7 @@ int Poppler__SoundAnnotation_SubType(const Poppler__SoundAnnotation* self) {
 }
 
 libqt_string Poppler__SoundAnnotation_SoundIconName(const Poppler__SoundAnnotation* self) {
-    QString _ret = self->soundIconName();
+    auto _ret = self->soundIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -959,7 +959,7 @@ void Poppler__MovieAnnotation_SetMovie(Poppler__MovieAnnotation* self, Poppler__
 }
 
 libqt_string Poppler__MovieAnnotation_MovieTitle(const Poppler__MovieAnnotation* self) {
-    QString _ret = self->movieTitle();
+    auto _ret = self->movieTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -992,7 +992,7 @@ void Poppler__ScreenAnnotation_SetAction(Poppler__ScreenAnnotation* self, Popple
 }
 
 libqt_string Poppler__ScreenAnnotation_ScreenTitle(const Poppler__ScreenAnnotation* self) {
-    QString _ret = self->screenTitle();
+    auto _ret = self->screenTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1176,7 +1176,7 @@ void Poppler__Annotation__Popup_SetGeometry(Poppler__Annotation__Popup* self, co
 }
 
 libqt_string Poppler__Annotation__Popup_Title(const Poppler__Annotation__Popup* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1193,7 +1193,7 @@ void Poppler__Annotation__Popup_SetTitle(Poppler__Annotation__Popup* self, const
 }
 
 libqt_string Poppler__Annotation__Popup_Summary(const Poppler__Annotation__Popup* self) {
-    QString _ret = self->summary();
+    auto _ret = self->summary();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1210,7 +1210,7 @@ void Poppler__Annotation__Popup_SetSummary(Poppler__Annotation__Popup* self, con
 }
 
 libqt_string Poppler__Annotation__Popup_Text(const Poppler__Annotation__Popup* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1263,7 +1263,7 @@ Poppler__RichMediaAnnotation__Params* Poppler__RichMediaAnnotation__Params_new()
 }
 
 libqt_string Poppler__RichMediaAnnotation__Params_FlashVars(const Poppler__RichMediaAnnotation__Params* self) {
-    QString _ret = self->flashVars();
+    auto _ret = self->flashVars();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1303,7 +1303,7 @@ int Poppler__RichMediaAnnotation__Configuration_Type(const Poppler__RichMediaAnn
 }
 
 libqt_string Poppler__RichMediaAnnotation__Configuration_Name(const Poppler__RichMediaAnnotation__Configuration* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1336,7 +1336,7 @@ Poppler__RichMediaAnnotation__Asset* Poppler__RichMediaAnnotation__Asset_new() {
 }
 
 libqt_string Poppler__RichMediaAnnotation__Asset_Name(const Poppler__RichMediaAnnotation__Asset* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

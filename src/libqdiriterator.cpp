@@ -72,7 +72,7 @@ QDirIterator* QDirIterator_new9(const libqt_string path, const libqt_list /* of 
 }
 
 libqt_string QDirIterator_Next(QDirIterator* self) {
-    QString _ret = self->next();
+    auto _ret = self->next();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -92,7 +92,7 @@ bool QDirIterator_HasNext(const QDirIterator* self) {
 }
 
 libqt_string QDirIterator_FileName(const QDirIterator* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -104,7 +104,7 @@ libqt_string QDirIterator_FileName(const QDirIterator* self) {
 }
 
 libqt_string QDirIterator_FilePath(const QDirIterator* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ QFileInfo* QDirIterator_FileInfo(const QDirIterator* self) {
 }
 
 libqt_string QDirIterator_Path(const QDirIterator* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

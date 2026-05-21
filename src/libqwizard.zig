@@ -850,6 +850,8 @@ pub const QWizard = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QWizard, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWizard_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6391,6 +6393,8 @@ pub const QWizard = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QWizard, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWizard_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8463,6 +8467,8 @@ pub const QWizard = extern struct {
     ///
     /// ` callback: *const fn (self: QWizard, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QWizard, callback: *const fn (QWizard, i32) callconv(.c) QVariant) void {
         qtc.QWizard_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10025,6 +10031,8 @@ pub const QWizardPage = extern struct {
     /// ` self: QWizardPage `
     ///
     /// ` callback: *const fn (self: QWizardPage, name: [*:0]const u8) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnField(self: QWizardPage, callback: *const fn (QWizardPage, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QWizardPage_OnField(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15315,6 +15323,8 @@ pub const QWizardPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QWizardPage, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWizardPage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -15362,6 +15372,8 @@ pub const QWizardPage = extern struct {
     /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QWizardPage, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWizardPage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -17296,6 +17308,8 @@ pub const QWizardPage = extern struct {
     /// ` self: QWizardPage`
     ///
     /// ` callback: *const fn (self: QWizardPage, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QWizardPage, callback: *const fn (QWizardPage, i32) callconv(.c) QVariant) void {
         qtc.QWizardPage_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

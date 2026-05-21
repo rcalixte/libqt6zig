@@ -1156,6 +1156,8 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsWidget, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsWidget_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1195,6 +1197,8 @@ pub const QGraphicsWidget = extern struct {
     /// ` self: QGraphicsWidget `
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsWidget, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsWidget_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1341,6 +1345,8 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsWidget, which: qnamespace_enums.SizeHint, constraint: QSizeF) callconv(.c) QSizeF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, i32, QSizeF) callconv(.c) QSizeF) void {
         qtc.QGraphicsWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1431,6 +1437,8 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsWidget, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemChange(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsWidget_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1484,6 +1492,8 @@ pub const QGraphicsWidget = extern struct {
     /// ` self: QGraphicsWidget `
     ///
     /// ` callback: *const fn (self: QGraphicsWidget, propertyName: [*:0]const u8, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPropertyChange(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, [*:0]const u8, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsWidget_OnPropertyChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7207,6 +7217,8 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsWidget, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsWidget_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8075,6 +8087,8 @@ pub const QGraphicsWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8238,6 +8252,8 @@ pub const QGraphicsWidget = extern struct {
     /// ` self: QGraphicsWidget`
     ///
     /// ` callback: *const fn (self: QGraphicsWidget, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsWidget, callback: *const fn (QGraphicsWidget, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsWidget_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
