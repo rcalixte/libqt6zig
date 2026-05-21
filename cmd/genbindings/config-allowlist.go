@@ -659,6 +659,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if strings.Contains(p.ParameterType, "::DataPointer") {
 		return ErrTooComplex // Qt 6 qbytearray.h. This could probably be made to work
 	}
+	if strings.HasPrefix(p.ParameterType, "DecodedData<") {
+		return ErrTooComplex // Qt 6 qstringconverter.h
+	}
 	if strings.HasPrefix(p.ParameterType, "QSharedPointer<") {
 		return ErrTooComplex // Qt 6 qwebengineclientcertificateselection.h
 	}
@@ -757,7 +760,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	case
 		"QPolygon", "QPolygonF", // QPolygon extends a template type
 		"QGenericMatrix", "QMatrix3x3", // extends a template type
-		"QLatin1String", "QStringView", // e.g. QColor constructors and QColor::SetNamedColor() overloads. These are usually optional alternatives to QString
 		"QUtf8StringView",                 // Qt 6 - used in qdebug
 		"QStringRef",                      // e.g. QLocale::toLongLong and similar overloads. As above
 		"qfloat16",                        // e.g. QDataStream - there is no such half-float type in C or Go
@@ -907,6 +909,7 @@ func AllowInnerClassDef(className string) bool {
 		"KSyntaxHighlighting::Definition",    // Qt 6 KSyntaxHighlighting, definition.h
 		"KSyntaxHighlighting::FoldingRegion", // Qt 6 KSyntaxHighlighting, foldingregion.h
 		"KSyntaxHighlighting::Format",        // Qt 6 KSyntaxHighlighting, format.h
+		"KSyntaxHighlighting::State",         // Qt 6 KSyntaxHighlighting, syntaxhighlighter.h
 		"KSyntaxHighlighting::Theme",         // Qt 6 KSyntaxHighlighting, theme.h
 		"KTextEditor::Application",           // Qt 6 KTextEditor, application.h
 		"KTextEditor::Cursor",                // Qt 6 KTextEditor, cursor.h
