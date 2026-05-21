@@ -285,10 +285,11 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		return strings.Repeat("[]"+maybeConst, p.PointerCount-1) + "[:0]" + maybeConst + "u8"
 	}
 	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" || p.ParameterType == "QStringView" ||
-		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
+		p.ParameterType == "SignOn::MethodName" {
 		return "[]const u8"
 	}
-	if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
+	if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
+		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" {
 		return "[]u8"
 	}
 
@@ -597,6 +598,8 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 			returnStr = "\n/// ## Callback Returns:\n///\n/// ` C ABI representation of " + ret + " `\n///\n"
 			ret = "qtc.libqt_list"
 			hasWarning = true
+		} else if !p.Pointer && IsKnownClass(p.ParameterType) {
+			returnStr = "\n/// **Warning:** Memory for the returned type of the callback is freed by the library.\n///\n"
 		} else {
 			// C calling convention limitations
 			switch ret {
@@ -631,7 +634,7 @@ func (p CppParameter) parameterTypeZig() string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
 		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
 		p.ParameterType == "QStringView" || p.ParameterType == "SignOn::MethodName" ||
-		p.ParameterType == "QLatin1StringView" {
+		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" {
 		return "qtc.libqt_string"
 	}
 
@@ -1008,7 +1011,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	lowerClass := strings.ToLower(zfs.currentClassName)
 
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" {
+		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" || p.ParameterType == "QStringView" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
 
@@ -1019,7 +1022,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		rvalue = nameprefix + "_str"
 
-	} else if p.ParameterType == "QAnyStringView" || p.ParameterType == "QStringView" {
+	} else if p.ParameterType == "QAnyStringView" {
 		rvalue = p.ParameterName + ".ptr"
 
 	} else if t, _, ok := p.QListOf(); ok {
@@ -1492,7 +1495,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
 	} else if rt.ParameterType == "QString" || rt.ParameterType == "QStringView" ||
-		rt.ParameterType == "SignOn::MethodName" || rt.ParameterType == "QLatin1StringView" {
+		rt.ParameterType == "SignOn::MethodName" {
 		zfs.imports["std"] = struct{}{}
 
 		shouldReturn = "var " + namePrefix + "_str ="
@@ -1502,7 +1505,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if rt.ParameterType == "QByteArray" || rt.ParameterType == "QByteArrayView" {
+	} else if rt.ParameterType == "QByteArray" || rt.ParameterType == "QByteArrayView" ||
+		rt.ParameterType == "QLatin1String" || rt.ParameterType == "QLatin1StringView" {
 		// We receive the C ABI type of a libqt_string. Convert it into []byte
 		// We must free the libqt_string data pointer - this is a data copy,
 		// not an alias.
