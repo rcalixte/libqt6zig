@@ -450,7 +450,7 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         }
         auto validate_cb = kpluralhandlingspinbox_validate_callback;
         if (validate_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -474,7 +474,7 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         }
         auto valuefromtext_cb = kpluralhandlingspinbox_valuefromtext_callback;
         if (valuefromtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -514,7 +514,7 @@ class VirtualKPluralHandlingSpinBox final : public KPluralHandlingSpinBox {
         }
         auto fixup_cb = kpluralhandlingspinbox_fixup_callback;
         if (fixup_cb) {
-            QString str_ret = str;
+            auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();

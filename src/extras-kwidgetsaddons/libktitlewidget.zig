@@ -5690,6 +5690,8 @@ pub const KTitleWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KTitleWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTitleWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5737,6 +5739,8 @@ pub const KTitleWidget = extern struct {
     /// ` self: KTitleWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KTitleWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTitleWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7563,6 +7567,8 @@ pub const KTitleWidget = extern struct {
     /// ` self: KTitleWidget`
     ///
     /// ` callback: *const fn (self: KTitleWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KTitleWidget, callback: *const fn (KTitleWidget, i32) callconv(.c) QVariant) void {
         qtc.KTitleWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

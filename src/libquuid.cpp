@@ -52,7 +52,7 @@ QUuid* QUuid_FromString(const char* stringVal) {
 }
 
 libqt_string QUuid_ToString(const QUuid* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +145,7 @@ void QUuid_SetData3(QUuid* self, uint16_t data3) {
 }
 
 libqt_string QUuid_ToString1(const QUuid* self, int mode) {
-    QString _ret = self->toString(static_cast<QUuid::StringFormat>(mode));
+    auto _ret = self->toString(static_cast<QUuid::StringFormat>(mode));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

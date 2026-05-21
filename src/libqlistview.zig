@@ -648,6 +648,8 @@ pub const QListView = extern struct {
     ///
     /// ` callback: *const fn (self: QListView, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: QListView, callback: *const fn (QListView, QModelIndex) callconv(.c) QRect) void {
         qtc.QListView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -743,6 +745,8 @@ pub const QListView = extern struct {
     /// ` self: QListView `
     ///
     /// ` callback: *const fn (self: QListView, p: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: QListView, callback: *const fn (QListView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QListView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1082,6 +1086,8 @@ pub const QListView = extern struct {
     /// ` self: QListView `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnContentsSize(self: QListView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QListView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1883,6 +1889,8 @@ pub const QListView = extern struct {
     ///
     /// ` callback: *const fn (self: QListView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMoveCursor(self: QListView, callback: *const fn (QListView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QListView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1929,6 +1937,8 @@ pub const QListView = extern struct {
     /// ` self: QListView `
     ///
     /// ` callback: *const fn (self: QListView, index: QModelIndex) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRectForIndex(self: QListView, callback: *const fn (QListView, QModelIndex) callconv(.c) QRect) void {
         qtc.QListView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2077,6 +2087,8 @@ pub const QListView = extern struct {
     /// ` self: QListView `
     ///
     /// ` callback: *const fn (self: QListView, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: QListView, callback: *const fn (QListView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QListView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2372,6 +2384,8 @@ pub const QListView = extern struct {
     /// ` self: QListView `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QListView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QListView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9067,6 +9081,8 @@ pub const QListView = extern struct {
     ///
     /// ` callback: *const fn (self: QListView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QListView, callback: *const fn (QListView, i32) callconv(.c) QVariant) void {
         qtc.QListView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10309,6 +10325,8 @@ pub const QListView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QListView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QListView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10356,6 +10374,8 @@ pub const QListView = extern struct {
     /// ` self: QListView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QListView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QListView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12161,6 +12181,8 @@ pub const QListView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: QListView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QListView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12472,6 +12494,8 @@ pub const QListView = extern struct {
     /// ` self: QListView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QListView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QListView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

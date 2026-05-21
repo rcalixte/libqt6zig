@@ -95,7 +95,7 @@ bool QAbstractSpinBox_HasAcceptableInput(const QAbstractSpinBox* self) {
 }
 
 libqt_string QAbstractSpinBox_Text(const QAbstractSpinBox* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ libqt_string QAbstractSpinBox_Text(const QAbstractSpinBox* self) {
 }
 
 libqt_string QAbstractSpinBox_SpecialValueText(const QAbstractSpinBox* self) {
-    QString _ret = self->specialValueText();
+    auto _ret = self->specialValueText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

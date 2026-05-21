@@ -187,7 +187,7 @@ class VirtualQCompleter final : public QCompleter {
         }
         auto splitpath_cb = qcompleter_splitpath_callback;
         if (splitpath_cb) {
-            const QString path_ret = path;
+            const auto path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
             auto path_str_len = path_b.length();

@@ -75,7 +75,7 @@ void Sonnet__ConfigDialog_SetLanguage(Sonnet__ConfigDialog* self, const libqt_st
 }
 
 libqt_string Sonnet__ConfigDialog_Language(const Sonnet__ConfigDialog* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -108,7 +108,7 @@ void Sonnet__ConfigDialog_LanguageChanged(Sonnet__ConfigDialog* self, const libq
 void Sonnet__ConfigDialog_Connect_LanguageChanged(Sonnet__ConfigDialog* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__ConfigDialog*, const char*) = reinterpret_cast<void (*)(Sonnet__ConfigDialog*, const char*)>(slot);
     Sonnet::ConfigDialog::connect(self, &Sonnet::ConfigDialog::languageChanged, [self, slotFunc](const QString& language) {
-        const QString language_ret = language;
+        const auto language_ret = language;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray language_b = language_ret.toUtf8();
         auto language_str_len = language_b.length();

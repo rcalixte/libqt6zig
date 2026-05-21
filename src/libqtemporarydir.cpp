@@ -22,7 +22,7 @@ bool QTemporaryDir_IsValid(const QTemporaryDir* self) {
 }
 
 libqt_string QTemporaryDir_ErrorString(const QTemporaryDir* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,7 +46,7 @@ bool QTemporaryDir_Remove(QTemporaryDir* self) {
 }
 
 libqt_string QTemporaryDir_Path(const QTemporaryDir* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string QTemporaryDir_Path(const QTemporaryDir* self) {
 
 libqt_string QTemporaryDir_FilePath(const QTemporaryDir* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    QString _ret = self->filePath(fileName_QString);
+    auto _ret = self->filePath(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -31,7 +31,7 @@ bool QTextDocumentFragment_IsEmpty(const QTextDocumentFragment* self) {
 }
 
 libqt_string QTextDocumentFragment_ToPlainText(const QTextDocumentFragment* self) {
-    QString _ret = self->toPlainText();
+    auto _ret = self->toPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,7 +43,7 @@ libqt_string QTextDocumentFragment_ToPlainText(const QTextDocumentFragment* self
 }
 
 libqt_string QTextDocumentFragment_ToRawText(const QTextDocumentFragment* self) {
-    QString _ret = self->toRawText();
+    auto _ret = self->toRawText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,7 +55,7 @@ libqt_string QTextDocumentFragment_ToRawText(const QTextDocumentFragment* self) 
 }
 
 libqt_string QTextDocumentFragment_ToHtml(const QTextDocumentFragment* self) {
-    QString _ret = self->toHtml();
+    auto _ret = self->toHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,7 +67,7 @@ libqt_string QTextDocumentFragment_ToHtml(const QTextDocumentFragment* self) {
 }
 
 libqt_string QTextDocumentFragment_ToMarkdown(const QTextDocumentFragment* self) {
-    QString _ret = self->toMarkdown();
+    auto _ret = self->toMarkdown();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -94,7 +94,7 @@ QTextDocumentFragment* QTextDocumentFragment_FromMarkdown(const libqt_string mar
 }
 
 libqt_string QTextDocumentFragment_ToMarkdown1(const QTextDocumentFragment* self, int features) {
-    QString _ret = self->toMarkdown(static_cast<QTextDocument::MarkdownFeatures>(features));
+    auto _ret = self->toMarkdown(static_cast<QTextDocument::MarkdownFeatures>(features));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

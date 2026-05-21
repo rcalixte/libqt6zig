@@ -124,7 +124,7 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
     virtual int indexOf(const QString& name) const override {
         auto indexof_cb = qdesignerpropertysheetextension_indexof_callback;
         if (indexof_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -168,7 +168,7 @@ class VirtualQDesignerPropertySheetExtension : public QDesignerPropertySheetExte
         auto setpropertygroup_cb = qdesignerpropertysheetextension_setpropertygroup_callback;
         if (setpropertygroup_cb) {
             int cbval1 = index;
-            const QString group_ret = group;
+            const auto group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
             auto group_str_len = group_b.length();

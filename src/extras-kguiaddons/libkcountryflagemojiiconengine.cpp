@@ -29,7 +29,7 @@ QIconEngine* KCountryFlagEmojiIconEngine_Clone(const KCountryFlagEmojiIconEngine
 libqt_string KCountryFlagEmojiIconEngine_Key(const KCountryFlagEmojiIconEngine* self) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        QString _ret = self->key();
+        auto _ret = self->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -39,7 +39,7 @@ libqt_string KCountryFlagEmojiIconEngine_Key(const KCountryFlagEmojiIconEngine* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKCountryFlagEmojiIconEngine*)self)->key();
+        auto _ret = ((VirtualKCountryFlagEmojiIconEngine*)self)->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -115,7 +115,7 @@ libqt_string KCountryFlagEmojiIconEngine_SuperKey(const KCountryFlagEmojiIconEng
     auto* vkcountryflagemojiiconengine = const_cast<VirtualKCountryFlagEmojiIconEngine*>(dynamic_cast<const VirtualKCountryFlagEmojiIconEngine*>(self));
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_Key_IsBase(true);
-        QString _ret = vkcountryflagemojiiconengine->key();
+        auto _ret = vkcountryflagemojiiconengine->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -125,7 +125,7 @@ libqt_string KCountryFlagEmojiIconEngine_SuperKey(const KCountryFlagEmojiIconEng
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KCountryFlagEmojiIconEngine::key();
+        auto _ret = self->KCountryFlagEmojiIconEngine::key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -437,7 +437,7 @@ void KCountryFlagEmojiIconEngine_OnAvailableSizes(KCountryFlagEmojiIconEngine* s
 libqt_string KCountryFlagEmojiIconEngine_IconName(KCountryFlagEmojiIconEngine* self) {
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
-        QString _ret = vkcountryflagemojiiconengine->iconName();
+        auto _ret = vkcountryflagemojiiconengine->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -447,7 +447,7 @@ libqt_string KCountryFlagEmojiIconEngine_IconName(KCountryFlagEmojiIconEngine* s
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KCountryFlagEmojiIconEngine::iconName();
+        auto _ret = self->KCountryFlagEmojiIconEngine::iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -464,7 +464,7 @@ libqt_string KCountryFlagEmojiIconEngine_SuperIconName(KCountryFlagEmojiIconEngi
     auto* vkcountryflagemojiiconengine = dynamic_cast<VirtualKCountryFlagEmojiIconEngine*>(self);
     if (vkcountryflagemojiiconengine && vkcountryflagemojiiconengine->isVirtualKCountryFlagEmojiIconEngine) {
         vkcountryflagemojiiconengine->setKCountryFlagEmojiIconEngine_IconName_IsBase(true);
-        QString _ret = vkcountryflagemojiiconengine->iconName();
+        auto _ret = vkcountryflagemojiiconengine->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -474,7 +474,7 @@ libqt_string KCountryFlagEmojiIconEngine_SuperIconName(KCountryFlagEmojiIconEngi
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KCountryFlagEmojiIconEngine::iconName();
+        auto _ret = self->KCountryFlagEmojiIconEngine::iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

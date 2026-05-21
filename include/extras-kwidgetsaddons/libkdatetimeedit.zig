@@ -6628,6 +6628,8 @@ pub const KDateTimeEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KDateTimeEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDateTimeEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6675,6 +6677,8 @@ pub const KDateTimeEdit = extern struct {
     /// ` self: KDateTimeEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KDateTimeEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDateTimeEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8447,6 +8451,8 @@ pub const KDateTimeEdit = extern struct {
     /// ` self: KDateTimeEdit`
     ///
     /// ` callback: *const fn (self: KDateTimeEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KDateTimeEdit, callback: *const fn (KDateTimeEdit, i32) callconv(.c) QVariant) void {
         qtc.KDateTimeEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

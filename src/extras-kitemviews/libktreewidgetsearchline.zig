@@ -6970,6 +6970,8 @@ pub const KTreeWidgetSearchLine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTreeWidgetSearchLine_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7017,6 +7019,8 @@ pub const KTreeWidgetSearchLine = extern struct {
     /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTreeWidgetSearchLine_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7933,6 +7937,8 @@ pub const KTreeWidgetSearchLine = extern struct {
     /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn (self: KTreeWidgetSearchLine, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KTreeWidgetSearchLine, callback: *const fn (KTreeWidgetSearchLine, i32) callconv(.c) QVariant) void {
         qtc.KTreeWidgetSearchLine_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9427,6 +9433,8 @@ pub const KTreeWidgetSearchLine = extern struct {
     /// ` self: KTreeWidgetSearchLine`
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCursorRect(self: KTreeWidgetSearchLine, callback: *const fn () callconv(.c) QRect) void {
         qtc.KTreeWidgetSearchLine_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

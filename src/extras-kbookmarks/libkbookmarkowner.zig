@@ -97,6 +97,8 @@ pub const KBookmarkOwner = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QUrl `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCurrentUrl(self: KBookmarkOwner, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KBookmarkOwner_OnCurrentUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

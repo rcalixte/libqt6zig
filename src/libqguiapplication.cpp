@@ -65,7 +65,7 @@ void QGuiApplication_SetApplicationDisplayName(const libqt_string name) {
 }
 
 libqt_string QGuiApplication_ApplicationDisplayName() {
-    QString _ret = QGuiApplication::applicationDisplayName();
+    auto _ret = QGuiApplication::applicationDisplayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -86,7 +86,7 @@ void QGuiApplication_SetDesktopFileName(const libqt_string name) {
 }
 
 libqt_string QGuiApplication_DesktopFileName() {
-    QString _ret = QGuiApplication::desktopFileName();
+    auto _ret = QGuiApplication::desktopFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -136,7 +136,7 @@ QIcon* QGuiApplication_WindowIcon() {
 }
 
 libqt_string QGuiApplication_PlatformName() {
-    QString _ret = QGuiApplication::platformName();
+    auto _ret = QGuiApplication::platformName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -307,7 +307,7 @@ bool QGuiApplication_IsSessionRestored(const QGuiApplication* self) {
 }
 
 libqt_string QGuiApplication_SessionId(const QGuiApplication* self) {
-    QString _ret = self->sessionId();
+    auto _ret = self->sessionId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -319,7 +319,7 @@ libqt_string QGuiApplication_SessionId(const QGuiApplication* self) {
 }
 
 libqt_string QGuiApplication_SessionKey(const QGuiApplication* self) {
-    QString _ret = self->sessionKey();
+    auto _ret = self->sessionKey();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

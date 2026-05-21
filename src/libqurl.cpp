@@ -45,7 +45,7 @@ void QUrl_SetUrl(QUrl* self, const libqt_string url) {
 }
 
 libqt_string QUrl_Url(const QUrl* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ libqt_string QUrl_Url(const QUrl* self) {
 }
 
 libqt_string QUrl_ToString(const QUrl* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -69,7 +69,7 @@ libqt_string QUrl_ToString(const QUrl* self) {
 }
 
 libqt_string QUrl_ToDisplayString(const QUrl* self) {
-    QString _ret = self->toDisplayString();
+    auto _ret = self->toDisplayString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -104,7 +104,7 @@ bool QUrl_IsValid(const QUrl* self) {
 }
 
 libqt_string QUrl_ErrorString(const QUrl* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -129,7 +129,7 @@ void QUrl_SetScheme(QUrl* self, const libqt_string scheme) {
 }
 
 libqt_string QUrl_Scheme(const QUrl* self) {
-    QString _ret = self->scheme();
+    auto _ret = self->scheme();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -146,7 +146,7 @@ void QUrl_SetAuthority(QUrl* self, const libqt_string authority) {
 }
 
 libqt_string QUrl_Authority(const QUrl* self) {
-    QString _ret = self->authority();
+    auto _ret = self->authority();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -163,7 +163,7 @@ void QUrl_SetUserInfo(QUrl* self, const libqt_string userInfo) {
 }
 
 libqt_string QUrl_UserInfo(const QUrl* self) {
-    QString _ret = self->userInfo();
+    auto _ret = self->userInfo();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ void QUrl_SetUserName(QUrl* self, const libqt_string userName) {
 }
 
 libqt_string QUrl_UserName(const QUrl* self) {
-    QString _ret = self->userName();
+    auto _ret = self->userName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,7 +197,7 @@ void QUrl_SetPassword(QUrl* self, const libqt_string password) {
 }
 
 libqt_string QUrl_Password(const QUrl* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -214,7 +214,7 @@ void QUrl_SetHost(QUrl* self, const libqt_string host) {
 }
 
 libqt_string QUrl_Host(const QUrl* self) {
-    QString _ret = self->host();
+    auto _ret = self->host();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -239,7 +239,7 @@ void QUrl_SetPath(QUrl* self, const libqt_string path) {
 }
 
 libqt_string QUrl_Path(const QUrl* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -251,7 +251,7 @@ libqt_string QUrl_Path(const QUrl* self) {
 }
 
 libqt_string QUrl_FileName(const QUrl* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -276,7 +276,7 @@ void QUrl_SetQuery2(QUrl* self, const QUrlQuery* query) {
 }
 
 libqt_string QUrl_Query(const QUrl* self) {
-    QString _ret = self->query();
+    auto _ret = self->query();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -292,7 +292,7 @@ bool QUrl_HasFragment(const QUrl* self) {
 }
 
 libqt_string QUrl_Fragment(const QUrl* self) {
-    QString _ret = self->fragment();
+    auto _ret = self->fragment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -330,7 +330,7 @@ QUrl* QUrl_FromLocalFile(const libqt_string localfile) {
 }
 
 libqt_string QUrl_ToLocalFile(const QUrl* self) {
-    QString _ret = self->toLocalFile();
+    auto _ret = self->toLocalFile();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -351,7 +351,7 @@ bool QUrl_IsDetached(const QUrl* self) {
 
 libqt_string QUrl_FromPercentEncoding(const libqt_string param1) {
     QByteArray param1_QByteArray(param1.data, param1.len);
-    QString _ret = QUrl::fromPercentEncoding(param1_QByteArray);
+    auto _ret = QUrl::fromPercentEncoding(param1_QByteArray);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -374,7 +374,7 @@ libqt_string QUrl_ToPercentEncoding(const libqt_string param1) {
 
 libqt_string QUrl_FromAce(const libqt_string domain) {
     QByteArray domain_QByteArray(domain.data, domain.len);
-    QString _ret = QUrl::fromAce(domain_QByteArray);
+    auto _ret = QUrl::fromAce(domain_QByteArray);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -400,7 +400,7 @@ libqt_list /* of libqt_string */ QUrl_IdnWhitelist() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -427,7 +427,7 @@ libqt_list /* of libqt_string */ QUrl_ToStringList(const libqt_list /* of QUrl* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -502,7 +502,7 @@ void QUrl_SetAuthority2(QUrl* self, const libqt_string authority, int mode) {
 }
 
 libqt_string QUrl_Authority1(const QUrl* self, unsigned int options) {
-    QString _ret = self->authority(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->authority(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -519,7 +519,7 @@ void QUrl_SetUserInfo2(QUrl* self, const libqt_string userInfo, int mode) {
 }
 
 libqt_string QUrl_UserInfo1(const QUrl* self, unsigned int options) {
-    QString _ret = self->userInfo(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->userInfo(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -536,7 +536,7 @@ void QUrl_SetUserName2(QUrl* self, const libqt_string userName, int mode) {
 }
 
 libqt_string QUrl_UserName1(const QUrl* self, unsigned int options) {
-    QString _ret = self->userName(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->userName(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -553,7 +553,7 @@ void QUrl_SetPassword2(QUrl* self, const libqt_string password, int mode) {
 }
 
 libqt_string QUrl_Password1(const QUrl* self, unsigned int param1) {
-    QString _ret = self->password(static_cast<QUrl::ComponentFormattingOptions>(param1));
+    auto _ret = self->password(static_cast<QUrl::ComponentFormattingOptions>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -570,7 +570,7 @@ void QUrl_SetHost2(QUrl* self, const libqt_string host, int mode) {
 }
 
 libqt_string QUrl_Host1(const QUrl* self, unsigned int param1) {
-    QString _ret = self->host(static_cast<QUrl::ComponentFormattingOptions>(param1));
+    auto _ret = self->host(static_cast<QUrl::ComponentFormattingOptions>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -591,7 +591,7 @@ void QUrl_SetPath2(QUrl* self, const libqt_string path, int mode) {
 }
 
 libqt_string QUrl_Path1(const QUrl* self, unsigned int options) {
-    QString _ret = self->path(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->path(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -603,7 +603,7 @@ libqt_string QUrl_Path1(const QUrl* self, unsigned int options) {
 }
 
 libqt_string QUrl_FileName1(const QUrl* self, unsigned int options) {
-    QString _ret = self->fileName(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->fileName(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -620,7 +620,7 @@ void QUrl_SetQuery22(QUrl* self, const libqt_string query, int mode) {
 }
 
 libqt_string QUrl_Query1(const QUrl* self, unsigned int param1) {
-    QString _ret = self->query(static_cast<QUrl::ComponentFormattingOptions>(param1));
+    auto _ret = self->query(static_cast<QUrl::ComponentFormattingOptions>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -632,7 +632,7 @@ libqt_string QUrl_Query1(const QUrl* self, unsigned int param1) {
 }
 
 libqt_string QUrl_Fragment1(const QUrl* self, unsigned int options) {
-    QString _ret = self->fragment(static_cast<QUrl::ComponentFormattingOptions>(options));
+    auto _ret = self->fragment(static_cast<QUrl::ComponentFormattingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -673,7 +673,7 @@ libqt_string QUrl_ToPercentEncoding3(const libqt_string param1, const libqt_stri
 
 libqt_string QUrl_FromAce2(const libqt_string domain, unsigned int options) {
     QByteArray domain_QByteArray(domain.data, domain.len);
-    QString _ret = QUrl::fromAce(domain_QByteArray, static_cast<QUrl::AceProcessingOptions>(options));
+    auto _ret = QUrl::fromAce(domain_QByteArray, static_cast<QUrl::AceProcessingOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

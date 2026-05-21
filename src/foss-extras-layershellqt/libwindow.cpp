@@ -83,7 +83,7 @@ void LayerShellQt__Window_SetScope(LayerShellQt__Window* self, const libqt_strin
 }
 
 libqt_string LayerShellQt__Window_Scope(const LayerShellQt__Window* self) {
-    QString _ret = self->scope();
+    auto _ret = self->scope();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

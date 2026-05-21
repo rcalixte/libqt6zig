@@ -357,7 +357,7 @@ void QStyleOptionHeader_SetSection(QStyleOptionHeader* self, int section) {
 }
 
 libqt_string QStyleOptionHeader_Text(const QStyleOptionHeader* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -494,7 +494,7 @@ void QStyleOptionButton_SetFeatures(QStyleOptionButton* self, int features) {
 }
 
 libqt_string QStyleOptionButton_Text(const QStyleOptionButton* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -551,7 +551,7 @@ void QStyleOptionTab_SetShape(QStyleOptionTab* self, int shape) {
 }
 
 libqt_string QStyleOptionTab_Text(const QStyleOptionTab* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -760,7 +760,7 @@ void QStyleOptionProgressBar_SetProgress(QStyleOptionProgressBar* self, int prog
 }
 
 libqt_string QStyleOptionProgressBar_Text(const QStyleOptionProgressBar* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -865,7 +865,7 @@ void QStyleOptionMenuItem_SetMenuRect(QStyleOptionMenuItem* self, QRect* menuRec
 }
 
 libqt_string QStyleOptionMenuItem_Text(const QStyleOptionMenuItem* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -930,7 +930,7 @@ QStyleOptionDockWidget* QStyleOptionDockWidget_new2(const QStyleOptionDockWidget
 }
 
 libqt_string QStyleOptionDockWidget_Title(const QStyleOptionDockWidget* self) {
-    QString title_ret = self->title;
+    auto title_ret = self->title;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray title_b = title_ret.toUtf8();
     libqt_string title_str;
@@ -1099,7 +1099,7 @@ void QStyleOptionViewItem_SetIcon(QStyleOptionViewItem* self, QIcon* icon) {
 }
 
 libqt_string QStyleOptionViewItem_Text(const QStyleOptionViewItem* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -1148,7 +1148,7 @@ QStyleOptionToolBox* QStyleOptionToolBox_new2(const QStyleOptionToolBox* other) 
 }
 
 libqt_string QStyleOptionToolBox_Text(const QStyleOptionToolBox* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -1461,7 +1461,7 @@ void QStyleOptionToolButton_SetIconSize(QStyleOptionToolButton* self, QSize* ico
 }
 
 libqt_string QStyleOptionToolButton_Text(const QStyleOptionToolButton* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -1550,7 +1550,7 @@ void QStyleOptionComboBox_SetFrame(QStyleOptionComboBox* self, bool frame) {
 }
 
 libqt_string QStyleOptionComboBox_CurrentText(const QStyleOptionComboBox* self) {
-    QString currentText_ret = self->currentText;
+    auto currentText_ret = self->currentText;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray currentText_b = currentText_ret.toUtf8();
     libqt_string currentText_str;
@@ -1607,7 +1607,7 @@ QStyleOptionTitleBar* QStyleOptionTitleBar_new2(const QStyleOptionTitleBar* othe
 }
 
 libqt_string QStyleOptionTitleBar_Text(const QStyleOptionTitleBar* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;
@@ -1672,7 +1672,7 @@ void QStyleOptionGroupBox_SetFeatures(QStyleOptionGroupBox* self, int features) 
 }
 
 libqt_string QStyleOptionGroupBox_Text(const QStyleOptionGroupBox* self) {
-    QString text_ret = self->text;
+    auto text_ret = self->text;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray text_b = text_ret.toUtf8();
     libqt_string text_str;

@@ -572,6 +572,8 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QWebEngineView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWebEngineView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6706,6 +6708,8 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QWebEngineView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWebEngineView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8153,6 +8157,8 @@ pub const QWebEngineView = extern struct {
     /// ` self: QWebEngineView`
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) QVariant) void {
         qtc.QWebEngineView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

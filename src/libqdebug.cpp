@@ -190,9 +190,16 @@ QDebug* QDebug_OperatorShiftLeft19(QDebug* self, const libqt_string t) {
     return &_ret;
 }
 
+QDebug* QDebug_OperatorShiftLeft20(QDebug* self, libqt_string s) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    QDebug& _ret = self->operator<<(s_QString);
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
 QDebug* QDebug_OperatorShiftLeft22(QDebug* self, libqt_string t) {
-    QLatin1StringView t_QString = QLatin1StringView(t.data, t.len);
-    QDebug& _ret = self->operator<<(t_QString);
+    QLatin1StringView t_QLatin1StringView(t.data, t.len);
+    QDebug& _ret = self->operator<<(t_QLatin1StringView);
     // Cast returned reference into pointer
     return &_ret;
 }

@@ -297,6 +297,8 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSqueezedTextLabel_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -336,6 +338,8 @@ pub const KSqueezedTextLabel = extern struct {
     /// ` self: KSqueezedTextLabel `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSqueezedTextLabel_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8212,6 +8216,8 @@ pub const KSqueezedTextLabel = extern struct {
     /// ` self: KSqueezedTextLabel`
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) QVariant) void {
         qtc.KSqueezedTextLabel_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

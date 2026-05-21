@@ -22,7 +22,7 @@ void QPlaceCategory_Swap(QPlaceCategory* self, QPlaceCategory* other) {
 }
 
 libqt_string QPlaceCategory_CategoryId(const QPlaceCategory* self) {
-    QString _ret = self->categoryId();
+    auto _ret = self->categoryId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void QPlaceCategory_SetCategoryId(QPlaceCategory* self, const libqt_string ident
 }
 
 libqt_string QPlaceCategory_Name(const QPlaceCategory* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

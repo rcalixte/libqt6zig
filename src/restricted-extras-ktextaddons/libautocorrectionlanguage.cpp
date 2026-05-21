@@ -45,7 +45,7 @@ TextAutoCorrectionWidgets__AutoCorrectionLanguage* TextAutoCorrectionWidgets__Au
 }
 
 libqt_string TextAutoCorrectionWidgets__AutoCorrectionLanguage_Language(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self, int index) {
-    QString _ret = self->language(static_cast<int>(index));
+    auto _ret = self->language(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ libqt_string TextAutoCorrectionWidgets__AutoCorrectionLanguage_Language(const Te
 }
 
 libqt_string TextAutoCorrectionWidgets__AutoCorrectionLanguage_Language2(const TextAutoCorrectionWidgets__AutoCorrectionLanguage* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

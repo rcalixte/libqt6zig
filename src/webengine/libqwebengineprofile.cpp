@@ -69,7 +69,7 @@ int QWebEngineProfile_Metacall(QWebEngineProfile* self, int param1, int param2, 
 }
 
 libqt_string QWebEngineProfile_StorageName(const QWebEngineProfile* self) {
-    QString _ret = self->storageName();
+    auto _ret = self->storageName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -85,7 +85,7 @@ bool QWebEngineProfile_IsOffTheRecord(const QWebEngineProfile* self) {
 }
 
 libqt_string QWebEngineProfile_PersistentStoragePath(const QWebEngineProfile* self) {
-    QString _ret = self->persistentStoragePath();
+    auto _ret = self->persistentStoragePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ void QWebEngineProfile_SetPersistentStoragePath(QWebEngineProfile* self, const l
 }
 
 libqt_string QWebEngineProfile_CachePath(const QWebEngineProfile* self) {
-    QString _ret = self->cachePath();
+    auto _ret = self->cachePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ void QWebEngineProfile_SetCachePath(QWebEngineProfile* self, const libqt_string 
 }
 
 libqt_string QWebEngineProfile_HttpUserAgent(const QWebEngineProfile* self) {
-    QString _ret = self->httpUserAgent();
+    auto _ret = self->httpUserAgent();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -149,7 +149,7 @@ void QWebEngineProfile_SetHttpAcceptLanguage(QWebEngineProfile* self, const libq
 }
 
 libqt_string QWebEngineProfile_HttpAcceptLanguage(const QWebEngineProfile* self) {
-    QString _ret = self->httpAcceptLanguage();
+    auto _ret = self->httpAcceptLanguage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -265,7 +265,7 @@ libqt_list /* of libqt_string */ QWebEngineProfile_SpellCheckLanguages(const QWe
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -290,7 +290,7 @@ bool QWebEngineProfile_IsSpellCheckEnabled(const QWebEngineProfile* self) {
 }
 
 libqt_string QWebEngineProfile_DownloadPath(const QWebEngineProfile* self) {
-    QString _ret = self->downloadPath();
+    auto _ret = self->downloadPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -559,7 +559,7 @@ class VirtualQDesignerWidgetBoxInterface : public QDesignerWidgetBoxInterface {
     virtual void setFileName(const QString& file_name) override {
         auto setfilename_cb = qdesignerwidgetboxinterface_setfilename_callback;
         if (setfilename_cb) {
-            const QString file_name_ret = file_name;
+            const auto file_name_ret = file_name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_name_b = file_name_ret.toUtf8();
             auto file_name_str_len = file_name_b.length();

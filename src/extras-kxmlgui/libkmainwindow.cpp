@@ -87,7 +87,7 @@ bool KMainWindow_CanBeRestored(int numberOfInstances) {
 }
 
 libqt_string KMainWindow_ClassNameOfToplevel(int instanceNumber) {
-    const QString _ret = KMainWindow::classNameOfToplevel(static_cast<int>(instanceNumber));
+    const auto _ret = KMainWindow::classNameOfToplevel(static_cast<int>(instanceNumber));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -153,7 +153,7 @@ bool KMainWindow_AutoSaveSettings(const KMainWindow* self) {
 }
 
 libqt_string KMainWindow_AutoSaveGroup(const KMainWindow* self) {
-    QString _ret = self->autoSaveGroup();
+    auto _ret = self->autoSaveGroup();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -191,7 +191,7 @@ void KMainWindow_SaveMainWindowSettings(KMainWindow* self, KConfigGroup* config)
 }
 
 libqt_string KMainWindow_DbusName(const KMainWindow* self) {
-    QString _ret = self->dbusName();
+    auto _ret = self->dbusName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

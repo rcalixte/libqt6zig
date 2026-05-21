@@ -79,7 +79,7 @@ void QStandardItem_ClearData(QStandardItem* self) {
 }
 
 libqt_string QStandardItem_Text(const QStandardItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -104,7 +104,7 @@ void QStandardItem_SetIcon(QStandardItem* self, const QIcon* icon) {
 }
 
 libqt_string QStandardItem_ToolTip(const QStandardItem* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -121,7 +121,7 @@ void QStandardItem_SetToolTip(QStandardItem* self, const libqt_string toolTip) {
 }
 
 libqt_string QStandardItem_StatusTip(const QStandardItem* self) {
-    QString _ret = self->statusTip();
+    auto _ret = self->statusTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -138,7 +138,7 @@ void QStandardItem_SetStatusTip(QStandardItem* self, const libqt_string statusTi
 }
 
 libqt_string QStandardItem_WhatsThis(const QStandardItem* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -203,7 +203,7 @@ void QStandardItem_SetCheckState(QStandardItem* self, int checkState) {
 }
 
 libqt_string QStandardItem_AccessibleText(const QStandardItem* self) {
-    QString _ret = self->accessibleText();
+    auto _ret = self->accessibleText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -220,7 +220,7 @@ void QStandardItem_SetAccessibleText(QStandardItem* self, const libqt_string acc
 }
 
 libqt_string QStandardItem_AccessibleDescription(const QStandardItem* self) {
-    QString _ret = self->accessibleDescription();
+    auto _ret = self->accessibleDescription();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1278,7 +1278,7 @@ libqt_list /* of libqt_string */ QStandardItemModel_MimeTypes(const QStandardIte
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1297,7 +1297,7 @@ libqt_list /* of libqt_string */ QStandardItemModel_MimeTypes(const QStandardIte
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1931,7 +1931,7 @@ libqt_list /* of libqt_string */ QStandardItemModel_SuperMimeTypes(const QStanda
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1950,7 +1950,7 @@ libqt_list /* of libqt_string */ QStandardItemModel_SuperMimeTypes(const QStanda
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

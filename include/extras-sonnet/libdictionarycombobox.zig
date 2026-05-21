@@ -6732,6 +6732,8 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__DictionaryComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6779,6 +6781,8 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     /// ` self: Sonnet__DictionaryComboBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: Sonnet__DictionaryComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__DictionaryComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6981,6 +6985,8 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     /// ` self: Sonnet__DictionaryComboBox`
     ///
     /// ` callback: *const fn (self: Sonnet__DictionaryComboBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: Sonnet__DictionaryComboBox, callback: *const fn (Sonnet__DictionaryComboBox, i32) callconv(.c) QVariant) void {
         qtc.Sonnet__DictionaryComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

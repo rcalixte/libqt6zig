@@ -88,7 +88,7 @@ bool KFontRequester_IsFixedOnly(const KFontRequester* self) {
 }
 
 libqt_string KFontRequester_SampleText(const KFontRequester* self) {
-    QString _ret = self->sampleText();
+    auto _ret = self->sampleText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -100,7 +100,7 @@ libqt_string KFontRequester_SampleText(const KFontRequester* self) {
 }
 
 libqt_string KFontRequester_Title(const KFontRequester* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

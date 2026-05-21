@@ -18,6 +18,8 @@ extern "C" {
 
 #endif
 
+bool KSyntaxHighlighting__WildcardMatcher_ExactMatch(libqt_string param1, libqt_string param2);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

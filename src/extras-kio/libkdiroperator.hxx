@@ -2009,7 +2009,7 @@ class VirtualKDirOperator final : public KDirOperator {
         }
         auto slotcompletionmatch_cb = kdiroperator_slotcompletionmatch_callback;
         if (slotcompletionmatch_cb) {
-            const QString match_ret = match;
+            const auto match_ret = match;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray match_b = match_ret.toUtf8();
             auto match_str_len = match_b.length();

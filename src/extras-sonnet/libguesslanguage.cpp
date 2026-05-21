@@ -15,7 +15,7 @@ void Sonnet__GuessLanguage_SetLimits(Sonnet__GuessLanguage* self, int maxItems, 
 
 libqt_string Sonnet__GuessLanguage_Identify(const Sonnet__GuessLanguage* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->identify(text_QString);
+    auto _ret = self->identify(text_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -35,7 +35,7 @@ libqt_string Sonnet__GuessLanguage_Identify2(const Sonnet__GuessLanguage* self, 
         QString suggestions_arr_i_QString = QString::fromUtf8(suggestions_arr[i].data, suggestions_arr[i].len);
         suggestions_QList.push_back(suggestions_arr_i_QString);
     }
-    QString _ret = self->identify(text_QString, suggestions_QList);
+    auto _ret = self->identify(text_QString, suggestions_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

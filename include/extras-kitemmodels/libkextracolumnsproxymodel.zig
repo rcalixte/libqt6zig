@@ -250,6 +250,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, row: i32, extraColumn: i32, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnExtraColumnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KExtraColumnsProxyModel_OnExtraColumnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -459,6 +461,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -504,6 +508,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     /// ` self: KExtraColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionToSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KExtraColumnsProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -598,6 +604,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     /// ` self: KExtraColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KExtraColumnsProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -707,6 +715,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -756,6 +766,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     /// ` self: KExtraColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBuddy(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -906,6 +918,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnHeaderData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KExtraColumnsProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -959,6 +973,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1008,6 +1024,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     /// ` self: KExtraColumnsProxyModel `
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2454,6 +2472,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapFromSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2633,6 +2653,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     /// ` self: KExtraColumnsProxyModel`
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KExtraColumnsProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3742,6 +3764,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSpan(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KExtraColumnsProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4822,6 +4846,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4877,6 +4903,8 @@ pub const KExtraColumnsProxyModel = extern struct {
     /// ` self: KExtraColumnsProxyModel`
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

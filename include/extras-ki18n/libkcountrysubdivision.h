@@ -31,6 +31,7 @@ KCountry* KCountrySubdivision_Country(const KCountrySubdivision* self);
 KCountrySubdivision* KCountrySubdivision_Parent(const KCountrySubdivision* self);
 libqt_list /* of const char* */ KCountrySubdivision_TimeZoneIds(const KCountrySubdivision* self);
 libqt_list /* of KCountrySubdivision* */ KCountrySubdivision_Subdivisions(const KCountrySubdivision* self);
+KCountrySubdivision* KCountrySubdivision_FromCode(libqt_string code);
 KCountrySubdivision* KCountrySubdivision_FromCode2(const char* code);
 KCountrySubdivision* KCountrySubdivision_FromLocation(float latitude, float longitude);
 void KCountrySubdivision_Delete(KCountrySubdivision* self);

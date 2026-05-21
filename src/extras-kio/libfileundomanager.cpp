@@ -57,7 +57,7 @@ bool KIO__FileUndoManager_IsUndoAvailable(const KIO__FileUndoManager* self) {
 }
 
 libqt_string KIO__FileUndoManager_UndoText(const KIO__FileUndoManager* self) {
-    QString _ret = self->undoText();
+    auto _ret = self->undoText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -100,7 +100,7 @@ void KIO__FileUndoManager_UndoTextChanged(KIO__FileUndoManager* self, const libq
 void KIO__FileUndoManager_Connect_UndoTextChanged(KIO__FileUndoManager* self, intptr_t slot) {
     void (*slotFunc)(KIO__FileUndoManager*, const char*) = reinterpret_cast<void (*)(KIO__FileUndoManager*, const char*)>(slot);
     KIO::FileUndoManager::connect(self, &KIO::FileUndoManager::undoTextChanged, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

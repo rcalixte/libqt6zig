@@ -10,7 +10,7 @@
 #include "libcustomwidget.hxx"
 
 libqt_string QDesignerCustomWidgetInterface_Name(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -22,7 +22,7 @@ libqt_string QDesignerCustomWidgetInterface_Name(const QDesignerCustomWidgetInte
 }
 
 libqt_string QDesignerCustomWidgetInterface_Group(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->group();
+    auto _ret = self->group();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string QDesignerCustomWidgetInterface_Group(const QDesignerCustomWidgetInt
 }
 
 libqt_string QDesignerCustomWidgetInterface_ToolTip(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,7 +46,7 @@ libqt_string QDesignerCustomWidgetInterface_ToolTip(const QDesignerCustomWidgetI
 }
 
 libqt_string QDesignerCustomWidgetInterface_WhatsThis(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ libqt_string QDesignerCustomWidgetInterface_WhatsThis(const QDesignerCustomWidge
 }
 
 libqt_string QDesignerCustomWidgetInterface_IncludeFile(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->includeFile();
+    auto _ret = self->includeFile();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ void QDesignerCustomWidgetInterface_Initialize(QDesignerCustomWidgetInterface* s
 }
 
 libqt_string QDesignerCustomWidgetInterface_DomXml(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->domXml();
+    auto _ret = self->domXml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ libqt_string QDesignerCustomWidgetInterface_DomXml(const QDesignerCustomWidgetIn
 }
 
 libqt_string QDesignerCustomWidgetInterface_CodeTemplate(const QDesignerCustomWidgetInterface* self) {
-    QString _ret = self->codeTemplate();
+    auto _ret = self->codeTemplate();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -175,7 +175,7 @@ void TextCustomEditor__PlainTextEditor_SetSpellCheckingConfigFileName(TextCustom
 }
 
 libqt_string TextCustomEditor__PlainTextEditor_SpellCheckingConfigFileName(const TextCustomEditor__PlainTextEditor* self) {
-    QString _ret = self->spellCheckingConfigFileName();
+    auto _ret = self->spellCheckingConfigFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -187,7 +187,7 @@ libqt_string TextCustomEditor__PlainTextEditor_SpellCheckingConfigFileName(const
 }
 
 libqt_string TextCustomEditor__PlainTextEditor_SpellCheckingLanguage(const TextCustomEditor__PlainTextEditor* self) {
-    const QString _ret = self->spellCheckingLanguage();
+    const auto _ret = self->spellCheckingLanguage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -324,7 +324,7 @@ void TextCustomEditor__PlainTextEditor_SpellCheckerAutoCorrect(TextCustomEditor_
 void TextCustomEditor__PlainTextEditor_Connect_SpellCheckerAutoCorrect(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__PlainTextEditor*, const char*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__PlainTextEditor*, const char*, const char*)>(slot);
     TextCustomEditor::PlainTextEditor::connect(self, &TextCustomEditor::PlainTextEditor::spellCheckerAutoCorrect, [self, slotFunc](const QString& currentWord, const QString& autoCorrectWord) {
-        const QString currentWord_ret = currentWord;
+        const auto currentWord_ret = currentWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray currentWord_b = currentWord_ret.toUtf8();
         auto currentWord_str_len = currentWord_b.length();
@@ -332,7 +332,7 @@ void TextCustomEditor__PlainTextEditor_Connect_SpellCheckerAutoCorrect(TextCusto
         memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_str_len);
         ((char*)currentWord_str)[currentWord_str_len] = '\0';
         const char* sigval1 = currentWord_str;
-        const QString autoCorrectWord_ret = autoCorrectWord;
+        const auto autoCorrectWord_ret = autoCorrectWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray autoCorrectWord_b = autoCorrectWord_ret.toUtf8();
         auto autoCorrectWord_str_len = autoCorrectWord_b.length();
@@ -366,7 +366,7 @@ void TextCustomEditor__PlainTextEditor_LanguageChanged(TextCustomEditor__PlainTe
 void TextCustomEditor__PlainTextEditor_Connect_LanguageChanged(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__PlainTextEditor*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__PlainTextEditor*, const char*)>(slot);
     TextCustomEditor::PlainTextEditor::connect(self, &TextCustomEditor::PlainTextEditor::languageChanged, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -387,7 +387,7 @@ void TextCustomEditor__PlainTextEditor_SpellCheckStatus(TextCustomEditor__PlainT
 void TextCustomEditor__PlainTextEditor_Connect_SpellCheckStatus(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__PlainTextEditor*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__PlainTextEditor*, const char*)>(slot);
     TextCustomEditor::PlainTextEditor::connect(self, &TextCustomEditor::PlainTextEditor::spellCheckStatus, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -408,7 +408,7 @@ void TextCustomEditor__PlainTextEditor_Say(TextCustomEditor__PlainTextEditor* se
 void TextCustomEditor__PlainTextEditor_Connect_Say(TextCustomEditor__PlainTextEditor* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__PlainTextEditor*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__PlainTextEditor*, const char*)>(slot);
     TextCustomEditor::PlainTextEditor::connect(self, &TextCustomEditor::PlainTextEditor::say, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

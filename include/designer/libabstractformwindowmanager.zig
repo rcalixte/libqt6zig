@@ -747,6 +747,8 @@ pub const QDesignerFormWindowManagerInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreatePreviewPixmap(self: QDesignerFormWindowManagerInterface, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.QDesignerFormWindowManagerInterface_OnCreatePreviewPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

@@ -257,7 +257,7 @@ class VirtualKCountryFlagEmojiIconEngine final : public KCountryFlagEmojiIconEng
         }
         auto addfile_cb = kcountryflagemojiiconengine_addfile_callback;
         if (addfile_cb) {
-            const QString fileName_ret = fileName;
+            const auto fileName_ret = fileName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray fileName_b = fileName_ret.toUtf8();
             auto fileName_str_len = fileName_b.length();

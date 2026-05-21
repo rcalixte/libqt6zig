@@ -90,7 +90,7 @@ libqt_list /* set of int */ Solid__Predicate_UsedTypes(const Solid__Predicate* s
 }
 
 libqt_string Solid__Predicate_ToString(const Solid__Predicate* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -115,7 +115,7 @@ int Solid__Predicate_InterfaceType(const Solid__Predicate* self) {
 }
 
 libqt_string Solid__Predicate_PropertyName(const Solid__Predicate* self) {
-    QString _ret = self->propertyName();
+    auto _ret = self->propertyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

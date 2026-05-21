@@ -432,6 +432,8 @@ pub const QSplitter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QSplitter, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSplitter_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -471,6 +473,8 @@ pub const QSplitter = extern struct {
     /// ` self: QSplitter `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QSplitter, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSplitter_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8044,6 +8048,8 @@ pub const QSplitter = extern struct {
     ///
     /// ` callback: *const fn (self: QSplitter, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QSplitter, callback: *const fn (QSplitter, i32) callconv(.c) QVariant) void {
         qtc.QSplitter_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9197,6 +9203,8 @@ pub const QSplitterHandle = extern struct {
     /// ` self: QSplitterHandle `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QSplitterHandle, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSplitterHandle_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -14613,6 +14621,8 @@ pub const QSplitterHandle = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QSplitterHandle, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSplitterHandle_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -16222,6 +16232,8 @@ pub const QSplitterHandle = extern struct {
     /// ` self: QSplitterHandle`
     ///
     /// ` callback: *const fn (self: QSplitterHandle, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QSplitterHandle, callback: *const fn (QSplitterHandle, i32) callconv(.c) QVariant) void {
         qtc.QSplitterHandle_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

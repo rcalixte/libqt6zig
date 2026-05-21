@@ -7483,6 +7483,8 @@ pub const KTimeComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTimeComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7530,6 +7532,8 @@ pub const KTimeComboBox = extern struct {
     /// ` self: KTimeComboBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KTimeComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTimeComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7636,6 +7640,8 @@ pub const KTimeComboBox = extern struct {
     /// ` self: KTimeComboBox`
     ///
     /// ` callback: *const fn (self: KTimeComboBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KTimeComboBox, callback: *const fn (KTimeComboBox, i32) callconv(.c) QVariant) void {
         qtc.KTimeComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

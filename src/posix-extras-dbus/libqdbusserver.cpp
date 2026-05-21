@@ -66,7 +66,7 @@ QDBusError* QDBusServer_LastError(const QDBusServer* self) {
 }
 
 libqt_string QDBusServer_Address(const QDBusServer* self) {
-    QString _ret = self->address();
+    auto _ret = self->address();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

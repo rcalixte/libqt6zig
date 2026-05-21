@@ -6673,6 +6673,8 @@ pub const KRuler = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KRuler, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRuler_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6720,6 +6722,8 @@ pub const KRuler = extern struct {
     /// ` self: KRuler`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KRuler, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRuler_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8384,6 +8388,8 @@ pub const KRuler = extern struct {
     /// ` self: KRuler`
     ///
     /// ` callback: *const fn (self: KRuler, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KRuler, callback: *const fn (KRuler, i32) callconv(.c) QVariant) void {
         qtc.KRuler_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -37,7 +37,7 @@ bool KConfigGroup_IsValid(const KConfigGroup* self) {
 }
 
 libqt_string KConfigGroup_Name(const KConfigGroup* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ libqt_list /* of libqt_string */ KConfigGroup_GroupList(const KConfigGroup* self
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -139,7 +139,7 @@ libqt_list /* of libqt_string */ KConfigGroup_GroupList(const KConfigGroup* self
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -161,7 +161,7 @@ libqt_list /* of libqt_string */ KConfigGroup_KeyList(const KConfigGroup* self) 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -193,7 +193,7 @@ QVariant* KConfigGroup_ReadEntry2(const KConfigGroup* self, const char* key, con
 libqt_string KConfigGroup_ReadEntry3(const KConfigGroup* self, const libqt_string key, const libqt_string aDefault) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString aDefault_QString = QString::fromUtf8(aDefault.data, aDefault.len);
-    QString _ret = self->readEntry(key_QString, aDefault_QString);
+    auto _ret = self->readEntry(key_QString, aDefault_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -206,7 +206,7 @@ libqt_string KConfigGroup_ReadEntry3(const KConfigGroup* self, const libqt_strin
 
 libqt_string KConfigGroup_ReadEntry4(const KConfigGroup* self, const char* key, const libqt_string aDefault) {
     QString aDefault_QString = QString::fromUtf8(aDefault.data, aDefault.len);
-    QString _ret = self->readEntry(key, aDefault_QString);
+    auto _ret = self->readEntry(key, aDefault_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -219,7 +219,7 @@ libqt_string KConfigGroup_ReadEntry4(const KConfigGroup* self, const char* key, 
 
 libqt_string KConfigGroup_ReadEntry5(const KConfigGroup* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->readEntry(key_QString);
+    auto _ret = self->readEntry(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -231,7 +231,7 @@ libqt_string KConfigGroup_ReadEntry5(const KConfigGroup* self, const libqt_strin
 }
 
 libqt_string KConfigGroup_ReadEntry6(const KConfigGroup* self, const char* key) {
-    QString _ret = self->readEntry(key);
+    auto _ret = self->readEntry(key);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -294,7 +294,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadEntry9(const KConfigGroup* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -322,7 +322,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadEntry10(const KConfigGroup* se
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -344,7 +344,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry(const KConfigGrou
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -365,7 +365,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry2(const KConfigGro
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -384,7 +384,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry2(const KConfigGro
 libqt_string KConfigGroup_ReadPathEntry(const KConfigGroup* self, const libqt_string pKey, const libqt_string aDefault) {
     QString pKey_QString = QString::fromUtf8(pKey.data, pKey.len);
     QString aDefault_QString = QString::fromUtf8(aDefault.data, aDefault.len);
-    QString _ret = self->readPathEntry(pKey_QString, aDefault_QString);
+    auto _ret = self->readPathEntry(pKey_QString, aDefault_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -397,7 +397,7 @@ libqt_string KConfigGroup_ReadPathEntry(const KConfigGroup* self, const libqt_st
 
 libqt_string KConfigGroup_ReadPathEntry2(const KConfigGroup* self, const char* key, const libqt_string aDefault) {
     QString aDefault_QString = QString::fromUtf8(aDefault.data, aDefault.len);
-    QString _ret = self->readPathEntry(key, aDefault_QString);
+    auto _ret = self->readPathEntry(key, aDefault_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -421,7 +421,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadPathEntry3(const KConfigGroup*
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -449,7 +449,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadPathEntry4(const KConfigGroup*
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -467,7 +467,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadPathEntry4(const KConfigGroup*
 
 libqt_string KConfigGroup_ReadEntryUntranslated(const KConfigGroup* self, const libqt_string pKey) {
     QString pKey_QString = QString::fromUtf8(pKey.data, pKey.len);
-    QString _ret = self->readEntryUntranslated(pKey_QString);
+    auto _ret = self->readEntryUntranslated(pKey_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -479,7 +479,7 @@ libqt_string KConfigGroup_ReadEntryUntranslated(const KConfigGroup* self, const 
 }
 
 libqt_string KConfigGroup_ReadEntryUntranslated2(const KConfigGroup* self, const char* key) {
-    QString _ret = self->readEntryUntranslated(key);
+    auto _ret = self->readEntryUntranslated(key);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -692,7 +692,7 @@ libqt_map /* of libqt_string to libqt_string */ KConfigGroup_EntryMap(const KCon
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -701,7 +701,7 @@ libqt_map /* of libqt_string to libqt_string */ KConfigGroup_EntryMap(const KCon
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;
@@ -791,7 +791,7 @@ void KConfigGroup_DeleteGroup1(KConfigGroup* self, int pFlags) {
 
 libqt_string KConfigGroup_ReadEntry22(const KConfigGroup* self, const libqt_string key, const char* aDefault) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->readEntry(key_QString, aDefault);
+    auto _ret = self->readEntry(key_QString, aDefault);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -803,7 +803,7 @@ libqt_string KConfigGroup_ReadEntry22(const KConfigGroup* self, const libqt_stri
 }
 
 libqt_string KConfigGroup_ReadEntry23(const KConfigGroup* self, const char* key, const char* aDefault) {
-    QString _ret = self->readEntry(key, aDefault);
+    auto _ret = self->readEntry(key, aDefault);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -827,7 +827,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry22(const KConfigGr
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -855,7 +855,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry23(const KConfigGr
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -874,7 +874,7 @@ libqt_list /* of libqt_string */ KConfigGroup_ReadXdgListEntry23(const KConfigGr
 libqt_string KConfigGroup_ReadEntryUntranslated22(const KConfigGroup* self, const libqt_string pKey, const libqt_string aDefault) {
     QString pKey_QString = QString::fromUtf8(pKey.data, pKey.len);
     QString aDefault_QString = QString::fromUtf8(aDefault.data, aDefault.len);
-    QString _ret = self->readEntryUntranslated(pKey_QString, aDefault_QString);
+    auto _ret = self->readEntryUntranslated(pKey_QString, aDefault_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -887,7 +887,7 @@ libqt_string KConfigGroup_ReadEntryUntranslated22(const KConfigGroup* self, cons
 
 libqt_string KConfigGroup_ReadEntryUntranslated23(const KConfigGroup* self, const char* key, const libqt_string aDefault) {
     QString aDefault_QString = QString::fromUtf8(aDefault.data, aDefault.len);
-    QString _ret = self->readEntryUntranslated(key, aDefault_QString);
+    auto _ret = self->readEntryUntranslated(key, aDefault_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1123,7 +1123,7 @@ libqt_list /* of libqt_string */ KConfigGroup_SuperGroupList(const KConfigGroup*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1142,7 +1142,7 @@ libqt_list /* of libqt_string */ KConfigGroup_SuperGroupList(const KConfigGroup*
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

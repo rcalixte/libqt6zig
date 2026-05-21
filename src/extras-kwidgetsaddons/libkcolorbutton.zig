@@ -389,6 +389,8 @@ pub const KColorButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KColorButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KColorButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -428,6 +430,8 @@ pub const KColorButton = extern struct {
     /// ` self: KColorButton `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KColorButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KColorButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8198,6 +8202,8 @@ pub const KColorButton = extern struct {
     /// ` self: KColorButton`
     ///
     /// ` callback: *const fn (self: KColorButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KColorButton, callback: *const fn (KColorButton, i32) callconv(.c) QVariant) void {
         qtc.KColorButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

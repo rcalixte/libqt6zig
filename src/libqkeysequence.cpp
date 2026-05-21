@@ -70,7 +70,7 @@ bool QKeySequence_IsEmpty(const QKeySequence* self) {
 }
 
 libqt_string QKeySequence_ToString(const QKeySequence* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ libqt_string QKeySequence_ListToString(const libqt_list /* of QKeySequence* */ l
     for (size_t i = 0; i < list.len; ++i) {
         list_QList.push_back(*(list_arr[i]));
     }
-    QString _ret = QKeySequence::listToString(list_QList);
+    auto _ret = QKeySequence::listToString(list_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -185,7 +185,7 @@ bool QKeySequence_IsDetached(const QKeySequence* self) {
 }
 
 libqt_string QKeySequence_ToString1(const QKeySequence* self, int format) {
-    QString _ret = self->toString(static_cast<QKeySequence::SequenceFormat>(format));
+    auto _ret = self->toString(static_cast<QKeySequence::SequenceFormat>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -222,7 +222,7 @@ libqt_string QKeySequence_ListToString2(const libqt_list /* of QKeySequence* */ 
     for (size_t i = 0; i < list.len; ++i) {
         list_QList.push_back(*(list_arr[i]));
     }
-    QString _ret = QKeySequence::listToString(list_QList, static_cast<QKeySequence::SequenceFormat>(format));
+    auto _ret = QKeySequence::listToString(list_QList, static_cast<QKeySequence::SequenceFormat>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

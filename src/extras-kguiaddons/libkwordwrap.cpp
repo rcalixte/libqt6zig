@@ -21,7 +21,7 @@ QRect* KWordWrap_BoundingRect(const KWordWrap* self) {
 }
 
 libqt_string KWordWrap_WrappedString(const KWordWrap* self) {
-    QString _ret = self->wrappedString();
+    auto _ret = self->wrappedString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -33,7 +33,7 @@ libqt_string KWordWrap_WrappedString(const KWordWrap* self) {
 }
 
 libqt_string KWordWrap_TruncatedString(const KWordWrap* self) {
-    QString _ret = self->truncatedString();
+    auto _ret = self->truncatedString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -68,7 +68,7 @@ KWordWrap* KWordWrap_FormatText5(QFontMetrics* fm, const QRect* r, int flags, co
 }
 
 libqt_string KWordWrap_TruncatedString1(const KWordWrap* self, bool dots) {
-    QString _ret = self->truncatedString(dots);
+    auto _ret = self->truncatedString(dots);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

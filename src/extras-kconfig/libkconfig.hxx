@@ -178,7 +178,7 @@ class VirtualKConfig final : public KConfig {
         }
         auto hasgroupimpl_cb = kconfig_hasgroupimpl_callback;
         if (hasgroupimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -201,7 +201,7 @@ class VirtualKConfig final : public KConfig {
         }
         auto groupimpl_cb = kconfig_groupimpl_callback;
         if (groupimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -226,7 +226,7 @@ class VirtualKConfig final : public KConfig {
         }
         auto groupimpl2_cb = kconfig_groupimpl2_callback;
         if (groupimpl2_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -252,7 +252,7 @@ class VirtualKConfig final : public KConfig {
         }
         auto deletegroupimpl_cb = kconfig_deletegroupimpl_callback;
         if (deletegroupimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();
@@ -276,7 +276,7 @@ class VirtualKConfig final : public KConfig {
         }
         auto isgroupimmutableimpl_cb = kconfig_isgroupimmutableimpl_callback;
         if (isgroupimmutableimpl_cb) {
-            const QString groupName_ret = groupName;
+            const auto groupName_ret = groupName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray groupName_b = groupName_ret.toUtf8();
             auto groupName_str_len = groupName_b.length();

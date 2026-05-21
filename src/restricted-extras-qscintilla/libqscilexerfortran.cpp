@@ -213,7 +213,7 @@ libqt_list /* of libqt_string */ QsciLexerFortran_AutoCompletionWordSeparators(c
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -232,7 +232,7 @@ libqt_list /* of libqt_string */ QsciLexerFortran_AutoCompletionWordSeparators(c
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -258,7 +258,7 @@ libqt_list /* of libqt_string */ QsciLexerFortran_SuperAutoCompletionWordSeparat
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -277,7 +277,7 @@ libqt_list /* of libqt_string */ QsciLexerFortran_SuperAutoCompletionWordSeparat
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -625,7 +625,7 @@ void QsciLexerFortran_OnDefaultStyle(const QsciLexerFortran* self, intptr_t slot
 libqt_string QsciLexerFortran_Description(const QsciLexerFortran* self, int style) {
     auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
     if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        QString _ret = vqscilexerfortran->description(static_cast<int>(style));
+        auto _ret = vqscilexerfortran->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -635,7 +635,7 @@ libqt_string QsciLexerFortran_Description(const QsciLexerFortran* self, int styl
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerFortran*)self)->description(static_cast<int>(style));
+        auto _ret = ((VirtualQsciLexerFortran*)self)->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -652,7 +652,7 @@ libqt_string QsciLexerFortran_SuperDescription(const QsciLexerFortran* self, int
     auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
     if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
         vqscilexerfortran->setQsciLexerFortran_Description_IsBase(true);
-        QString _ret = vqscilexerfortran->description(static_cast<int>(style));
+        auto _ret = vqscilexerfortran->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -662,7 +662,7 @@ libqt_string QsciLexerFortran_SuperDescription(const QsciLexerFortran* self, int
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerFortran*)self)->description(static_cast<int>(style));
+        auto _ret = ((VirtualQsciLexerFortran*)self)->description(static_cast<int>(style));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1408,7 +1408,7 @@ void QsciLexerFortran_OnTextAsBytes(const QsciLexerFortran* self, intptr_t slot)
 libqt_string QsciLexerFortran_BytesAsText(const QsciLexerFortran* self, const char* bytes, int size) {
     auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
     if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
-        QString _ret = vqscilexerfortran->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerfortran->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1418,7 +1418,7 @@ libqt_string QsciLexerFortran_BytesAsText(const QsciLexerFortran* self, const ch
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerFortran*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerFortran*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1435,7 +1435,7 @@ libqt_string QsciLexerFortran_SuperBytesAsText(const QsciLexerFortran* self, con
     auto* vqscilexerfortran = const_cast<VirtualQsciLexerFortran*>(dynamic_cast<const VirtualQsciLexerFortran*>(self));
     if (vqscilexerfortran && vqscilexerfortran->isVirtualQsciLexerFortran) {
         vqscilexerfortran->setQsciLexerFortran_BytesAsText_IsBase(true);
-        QString _ret = vqscilexerfortran->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerfortran->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1445,7 +1445,7 @@ libqt_string QsciLexerFortran_SuperBytesAsText(const QsciLexerFortran* self, con
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerFortran*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerFortran*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

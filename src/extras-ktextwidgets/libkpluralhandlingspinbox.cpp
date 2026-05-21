@@ -233,7 +233,7 @@ void KPluralHandlingSpinBox_OnValueFromText(const KPluralHandlingSpinBox* self, 
 libqt_string KPluralHandlingSpinBox_TextFromValue(const KPluralHandlingSpinBox* self, int val) {
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
-        QString _ret = vkpluralhandlingspinbox->textFromValue(static_cast<int>(val));
+        auto _ret = vkpluralhandlingspinbox->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -243,7 +243,7 @@ libqt_string KPluralHandlingSpinBox_TextFromValue(const KPluralHandlingSpinBox* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPluralHandlingSpinBox*)self)->textFromValue(static_cast<int>(val));
+        auto _ret = ((VirtualKPluralHandlingSpinBox*)self)->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -260,7 +260,7 @@ libqt_string KPluralHandlingSpinBox_SuperTextFromValue(const KPluralHandlingSpin
     auto* vkpluralhandlingspinbox = const_cast<VirtualKPluralHandlingSpinBox*>(dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self));
     if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
         vkpluralhandlingspinbox->setKPluralHandlingSpinBox_TextFromValue_IsBase(true);
-        QString _ret = vkpluralhandlingspinbox->textFromValue(static_cast<int>(val));
+        auto _ret = vkpluralhandlingspinbox->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -270,7 +270,7 @@ libqt_string KPluralHandlingSpinBox_SuperTextFromValue(const KPluralHandlingSpin
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPluralHandlingSpinBox*)self)->textFromValue(static_cast<int>(val));
+        auto _ret = ((VirtualKPluralHandlingSpinBox*)self)->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

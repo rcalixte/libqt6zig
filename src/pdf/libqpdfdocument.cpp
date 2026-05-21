@@ -73,7 +73,7 @@ void QPdfDocument_SetPassword(QPdfDocument* self, const libqt_string password) {
 }
 
 libqt_string QPdfDocument_Password(const QPdfDocument* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -105,7 +105,7 @@ QSizeF* QPdfDocument_PagePointSize(const QPdfDocument* self, int page) {
 }
 
 libqt_string QPdfDocument_PageLabel(QPdfDocument* self, int page) {
-    QString _ret = self->pageLabel(static_cast<int>(page));
+    auto _ret = self->pageLabel(static_cast<int>(page));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

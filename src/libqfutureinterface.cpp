@@ -85,7 +85,7 @@ void QFutureInterfaceBase_SetProgressValueAndText(QFutureInterfaceBase* self, in
 }
 
 libqt_string QFutureInterfaceBase_ProgressText(const QFutureInterfaceBase* self) {
-    QString _ret = self->progressText();
+    auto _ret = self->progressText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

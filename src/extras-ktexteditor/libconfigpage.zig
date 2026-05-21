@@ -361,6 +361,8 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QIcon `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIcon(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QIcon) void {
         qtc.KTextEditor__ConfigPage_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5554,6 +5556,8 @@ pub const KTextEditor__ConfigPage = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTextEditor__ConfigPage_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5601,6 +5605,8 @@ pub const KTextEditor__ConfigPage = extern struct {
     /// ` self: KTextEditor__ConfigPage`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KTextEditor__ConfigPage, callback: *const fn () callconv(.c) QSize) void {
         qtc.KTextEditor__ConfigPage_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7535,6 +7541,8 @@ pub const KTextEditor__ConfigPage = extern struct {
     /// ` self: KTextEditor__ConfigPage`
     ///
     /// ` callback: *const fn (self: KTextEditor__ConfigPage, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KTextEditor__ConfigPage, callback: *const fn (KTextEditor__ConfigPage, i32) callconv(.c) QVariant) void {
         qtc.KTextEditor__ConfigPage_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

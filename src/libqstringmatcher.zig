@@ -51,14 +51,28 @@ pub const QStringMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` other: QStringMatcher `
+    /// ` pattern: []const u8 `
     ///
-    pub fn New4(other: anytype) QStringMatcher {
-        comptime _ = @TypeOf(other)._is_QStringMatcher;
-        return .{ .ptr = qtc.QStringMatcher_new4(@ptrCast(other.ptr)) };
+    pub fn New4(pattern: []const u8) QStringMatcher {
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
+        };
+        return .{ .ptr = qtc.QStringMatcher_new4(pattern_str) };
     }
 
     /// New5 constructs a new QStringMatcher object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QStringMatcher `
+    ///
+    pub fn New5(other: anytype) QStringMatcher {
+        comptime _ = @TypeOf(other)._is_QStringMatcher;
+        return .{ .ptr = qtc.QStringMatcher_new5(@ptrCast(other.ptr)) };
+    }
+
+    /// New6 constructs a new QStringMatcher object.
     ///
     /// ## Parameter(s):
     ///
@@ -66,15 +80,15 @@ pub const QStringMatcher = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn New5(pattern: []const u8, cs: i32) QStringMatcher {
+    pub fn New6(pattern: []const u8, cs: i32) QStringMatcher {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
-        return .{ .ptr = qtc.QStringMatcher_new5(pattern_str, @bitCast(cs)) };
+        return .{ .ptr = qtc.QStringMatcher_new6(pattern_str, @bitCast(cs)) };
     }
 
-    /// New6 constructs a new QStringMatcher object.
+    /// New7 constructs a new QStringMatcher object.
     ///
     /// ## Parameter(s):
     ///
@@ -84,9 +98,25 @@ pub const QStringMatcher = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn New6(uc: anytype, lenVal: isize, cs: i32) QStringMatcher {
+    pub fn New7(uc: anytype, lenVal: isize, cs: i32) QStringMatcher {
         comptime _ = @TypeOf(uc)._is_QChar;
-        return .{ .ptr = qtc.QStringMatcher_new6(@ptrCast(uc.ptr), @bitCast(lenVal), @bitCast(cs)) };
+        return .{ .ptr = qtc.QStringMatcher_new7(@ptrCast(uc.ptr), @bitCast(lenVal), @bitCast(cs)) };
+    }
+
+    /// New8 constructs a new QStringMatcher object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` pattern: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn New8(pattern: []const u8, cs: i32) QStringMatcher {
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
+        };
+        return .{ .ptr = qtc.QStringMatcher_new8(pattern_str, @bitCast(cs)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#operator-eq)
@@ -161,6 +191,22 @@ pub const QStringMatcher = extern struct {
         return qtc.QStringMatcher_IndexIn2(@ptrCast(self.ptr), @ptrCast(str.ptr), @bitCast(length));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringMatcher `
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn IndexIn3(self: QStringMatcher, str: []const u8) isize {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return qtc.QStringMatcher_IndexIn3(@ptrCast(self.ptr), str_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#pattern)
     ///
     /// ## Parameter(s):
@@ -173,6 +219,22 @@ pub const QStringMatcher = extern struct {
         var _str = qtc.QStringMatcher_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstringmatcher.Pattern: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#patternView)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringMatcher `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn PatternView(self: QStringMatcher, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.QStringMatcher_PatternView(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstringmatcher.PatternView: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -224,6 +286,24 @@ pub const QStringMatcher = extern struct {
     pub fn IndexIn32(self: QStringMatcher, str: anytype, length: isize, from: isize) isize {
         comptime _ = @TypeOf(str)._is_QChar;
         return qtc.QStringMatcher_IndexIn32(@ptrCast(self.ptr), @ptrCast(str.ptr), @bitCast(length), @bitCast(from));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStringMatcher `
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` from: isize `
+    ///
+    pub fn IndexIn23(self: QStringMatcher, str: []const u8, from: isize) isize {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return qtc.QStringMatcher_IndexIn23(@ptrCast(self.ptr), str_str, @bitCast(from));
     }
 
     /// ### DEPRECATED: Use `Delete` instead

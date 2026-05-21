@@ -691,6 +691,8 @@ pub const KParts__PartBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDomDocument `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDomDocument(self: KParts__PartBase, callback: *const fn () callconv(.c) QDomDocument) void {
         qtc.KParts__PartBase_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

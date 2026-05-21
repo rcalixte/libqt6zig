@@ -64,7 +64,7 @@ void QIconEngine_AddFile(QIconEngine* self, const libqt_string fileName, const Q
 libqt_string QIconEngine_Key(const QIconEngine* self) {
     auto* vqiconengine = dynamic_cast<const VirtualQIconEngine*>(self);
     if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        QString _ret = self->key();
+        auto _ret = self->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -74,7 +74,7 @@ libqt_string QIconEngine_Key(const QIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQIconEngine*)self)->key();
+        auto _ret = ((VirtualQIconEngine*)self)->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -143,7 +143,7 @@ libqt_list /* of QSize* */ QIconEngine_AvailableSizes(QIconEngine* self, int mod
 libqt_string QIconEngine_IconName(QIconEngine* self) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
     if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        QString _ret = self->iconName();
+        auto _ret = self->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -153,7 +153,7 @@ libqt_string QIconEngine_IconName(QIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQIconEngine*)self)->iconName();
+        auto _ret = ((VirtualQIconEngine*)self)->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -293,7 +293,7 @@ libqt_string QIconEngine_SuperKey(const QIconEngine* self) {
     auto* vqiconengine = const_cast<VirtualQIconEngine*>(dynamic_cast<const VirtualQIconEngine*>(self));
     if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
         vqiconengine->setQIconEngine_Key_IsBase(true);
-        QString _ret = vqiconengine->key();
+        auto _ret = vqiconengine->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -303,7 +303,7 @@ libqt_string QIconEngine_SuperKey(const QIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QIconEngine::key();
+        auto _ret = self->QIconEngine::key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -422,7 +422,7 @@ libqt_string QIconEngine_SuperIconName(QIconEngine* self) {
     auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
     if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
         vqiconengine->setQIconEngine_IconName_IsBase(true);
-        QString _ret = vqiconengine->iconName();
+        auto _ret = vqiconengine->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -432,7 +432,7 @@ libqt_string QIconEngine_SuperIconName(QIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QIconEngine::iconName();
+        auto _ret = self->QIconEngine::iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

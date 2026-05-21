@@ -132,7 +132,7 @@ libqt_list /* of libqt_string */ QFileDialog_SelectedFiles(const QFileDialog* se
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -186,7 +186,7 @@ libqt_list /* of libqt_string */ QFileDialog_NameFilters(const QFileDialog* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -208,7 +208,7 @@ void QFileDialog_SelectNameFilter(QFileDialog* self, const libqt_string filter) 
 }
 
 libqt_string QFileDialog_SelectedMimeTypeFilter(const QFileDialog* self) {
-    QString _ret = self->selectedMimeTypeFilter();
+    auto _ret = self->selectedMimeTypeFilter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -220,7 +220,7 @@ libqt_string QFileDialog_SelectedMimeTypeFilter(const QFileDialog* self) {
 }
 
 libqt_string QFileDialog_SelectedNameFilter(const QFileDialog* self) {
-    QString _ret = self->selectedNameFilter();
+    auto _ret = self->selectedNameFilter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -247,7 +247,7 @@ libqt_list /* of libqt_string */ QFileDialog_MimeTypeFilters(const QFileDialog* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -343,7 +343,7 @@ void QFileDialog_SetDefaultSuffix(QFileDialog* self, const libqt_string suffix) 
 }
 
 libqt_string QFileDialog_DefaultSuffix(const QFileDialog* self) {
-    QString _ret = self->defaultSuffix();
+    auto _ret = self->defaultSuffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -370,7 +370,7 @@ libqt_list /* of libqt_string */ QFileDialog_History(const QFileDialog* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -408,7 +408,7 @@ void QFileDialog_SetLabelText(QFileDialog* self, int label, const libqt_string t
 }
 
 libqt_string QFileDialog_LabelText(const QFileDialog* self, int label) {
-    QString _ret = self->labelText(static_cast<QFileDialog::DialogLabel>(label));
+    auto _ret = self->labelText(static_cast<QFileDialog::DialogLabel>(label));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -435,7 +435,7 @@ libqt_list /* of libqt_string */ QFileDialog_SupportedSchemes(const QFileDialog*
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -492,7 +492,7 @@ void QFileDialog_FileSelected(QFileDialog* self, const libqt_string file) {
 void QFileDialog_Connect_FileSelected(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::fileSelected, [self, slotFunc](const QString& file) {
-        const QString file_ret = file;
+        const auto file_ret = file;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray file_b = file_ret.toUtf8();
         auto file_str_len = file_b.length();
@@ -546,7 +546,7 @@ void QFileDialog_CurrentChanged(QFileDialog* self, const libqt_string path) {
 void QFileDialog_Connect_CurrentChanged(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::currentChanged, [self, slotFunc](const QString& path) {
-        const QString path_ret = path;
+        const auto path_ret = path;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
         auto path_str_len = path_b.length();
@@ -567,7 +567,7 @@ void QFileDialog_DirectoryEntered(QFileDialog* self, const libqt_string director
 void QFileDialog_Connect_DirectoryEntered(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::directoryEntered, [self, slotFunc](const QString& directory) {
-        const QString directory_ret = directory;
+        const auto directory_ret = directory;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray directory_b = directory_ret.toUtf8();
         auto directory_str_len = directory_b.length();
@@ -658,7 +658,7 @@ void QFileDialog_FilterSelected(QFileDialog* self, const libqt_string filter) {
 void QFileDialog_Connect_FilterSelected(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::filterSelected, [self, slotFunc](const QString& filter) {
-        const QString filter_ret = filter;
+        const auto filter_ret = filter;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filter_b = filter_ret.toUtf8();
         auto filter_str_len = filter_b.length();
@@ -672,7 +672,7 @@ void QFileDialog_Connect_FilterSelected(QFileDialog* self, intptr_t slot) {
 }
 
 libqt_string QFileDialog_GetOpenFileName() {
-    QString _ret = QFileDialog::getOpenFileName();
+    auto _ret = QFileDialog::getOpenFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -688,7 +688,7 @@ QUrl* QFileDialog_GetOpenFileUrl() {
 }
 
 libqt_string QFileDialog_GetSaveFileName() {
-    QString _ret = QFileDialog::getSaveFileName();
+    auto _ret = QFileDialog::getSaveFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -704,7 +704,7 @@ QUrl* QFileDialog_GetSaveFileUrl() {
 }
 
 libqt_string QFileDialog_GetExistingDirectory() {
-    QString _ret = QFileDialog::getExistingDirectory();
+    auto _ret = QFileDialog::getExistingDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -724,7 +724,7 @@ libqt_list /* of libqt_string */ QFileDialog_GetOpenFileNames() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -756,7 +756,7 @@ libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls() {
 void QFileDialog_GetOpenFileContent(const libqt_string nameFilter, intptr_t fileContentsReady) {
     QString nameFilter_QString = QString::fromUtf8(nameFilter.data, nameFilter.len);
     auto fileContentsReady_func = [fileContentsReady](const QString& funcparam1_fp, const QByteArray& funcparam2_fp) -> void {
-        const QString funcparam1_ret = funcparam1_fp;
+        const auto funcparam1_ret = funcparam1_fp;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray funcparam1_b = funcparam1_ret.toUtf8();
         auto funcparam1_str_len = funcparam1_b.length();
@@ -807,7 +807,7 @@ void QFileDialog_SetOption2(QFileDialog* self, int option, bool on) {
 }
 
 libqt_string QFileDialog_GetOpenFileName1(QWidget* parent) {
-    QString _ret = QFileDialog::getOpenFileName(parent);
+    auto _ret = QFileDialog::getOpenFileName(parent);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -820,7 +820,7 @@ libqt_string QFileDialog_GetOpenFileName1(QWidget* parent) {
 
 libqt_string QFileDialog_GetOpenFileName2(QWidget* parent, const libqt_string caption) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    QString _ret = QFileDialog::getOpenFileName(parent, caption_QString);
+    auto _ret = QFileDialog::getOpenFileName(parent, caption_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -834,7 +834,7 @@ libqt_string QFileDialog_GetOpenFileName2(QWidget* parent, const libqt_string ca
 libqt_string QFileDialog_GetOpenFileName3(QWidget* parent, const libqt_string caption, const libqt_string dir) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
-    QString _ret = QFileDialog::getOpenFileName(parent, caption_QString, dir_QString);
+    auto _ret = QFileDialog::getOpenFileName(parent, caption_QString, dir_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -849,7 +849,7 @@ libqt_string QFileDialog_GetOpenFileName4(QWidget* parent, const libqt_string ca
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
     QString filter_QString = QString::fromUtf8(filter.data, filter.len);
-    QString _ret = QFileDialog::getOpenFileName(parent, caption_QString, dir_QString, filter_QString);
+    auto _ret = QFileDialog::getOpenFileName(parent, caption_QString, dir_QString, filter_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -881,7 +881,7 @@ QUrl* QFileDialog_GetOpenFileUrl4(QWidget* parent, const libqt_string caption, c
 }
 
 libqt_string QFileDialog_GetSaveFileName1(QWidget* parent) {
-    QString _ret = QFileDialog::getSaveFileName(parent);
+    auto _ret = QFileDialog::getSaveFileName(parent);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -894,7 +894,7 @@ libqt_string QFileDialog_GetSaveFileName1(QWidget* parent) {
 
 libqt_string QFileDialog_GetSaveFileName2(QWidget* parent, const libqt_string caption) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    QString _ret = QFileDialog::getSaveFileName(parent, caption_QString);
+    auto _ret = QFileDialog::getSaveFileName(parent, caption_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -908,7 +908,7 @@ libqt_string QFileDialog_GetSaveFileName2(QWidget* parent, const libqt_string ca
 libqt_string QFileDialog_GetSaveFileName3(QWidget* parent, const libqt_string caption, const libqt_string dir) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
-    QString _ret = QFileDialog::getSaveFileName(parent, caption_QString, dir_QString);
+    auto _ret = QFileDialog::getSaveFileName(parent, caption_QString, dir_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -923,7 +923,7 @@ libqt_string QFileDialog_GetSaveFileName4(QWidget* parent, const libqt_string ca
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
     QString filter_QString = QString::fromUtf8(filter.data, filter.len);
-    QString _ret = QFileDialog::getSaveFileName(parent, caption_QString, dir_QString, filter_QString);
+    auto _ret = QFileDialog::getSaveFileName(parent, caption_QString, dir_QString, filter_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -955,7 +955,7 @@ QUrl* QFileDialog_GetSaveFileUrl4(QWidget* parent, const libqt_string caption, c
 }
 
 libqt_string QFileDialog_GetExistingDirectory1(QWidget* parent) {
-    QString _ret = QFileDialog::getExistingDirectory(parent);
+    auto _ret = QFileDialog::getExistingDirectory(parent);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -968,7 +968,7 @@ libqt_string QFileDialog_GetExistingDirectory1(QWidget* parent) {
 
 libqt_string QFileDialog_GetExistingDirectory2(QWidget* parent, const libqt_string caption) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    QString _ret = QFileDialog::getExistingDirectory(parent, caption_QString);
+    auto _ret = QFileDialog::getExistingDirectory(parent, caption_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -982,7 +982,7 @@ libqt_string QFileDialog_GetExistingDirectory2(QWidget* parent, const libqt_stri
 libqt_string QFileDialog_GetExistingDirectory3(QWidget* parent, const libqt_string caption, const libqt_string dir) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
-    QString _ret = QFileDialog::getExistingDirectory(parent, caption_QString, dir_QString);
+    auto _ret = QFileDialog::getExistingDirectory(parent, caption_QString, dir_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -996,7 +996,7 @@ libqt_string QFileDialog_GetExistingDirectory3(QWidget* parent, const libqt_stri
 libqt_string QFileDialog_GetExistingDirectory4(QWidget* parent, const libqt_string caption, const libqt_string dir, int options) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
-    QString _ret = QFileDialog::getExistingDirectory(parent, caption_QString, dir_QString, static_cast<QFileDialog::Options>(options));
+    auto _ret = QFileDialog::getExistingDirectory(parent, caption_QString, dir_QString, static_cast<QFileDialog::Options>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1043,7 +1043,7 @@ libqt_list /* of libqt_string */ QFileDialog_GetOpenFileNames1(QWidget* parent) 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -1065,7 +1065,7 @@ libqt_list /* of libqt_string */ QFileDialog_GetOpenFileNames2(QWidget* parent, 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -1088,7 +1088,7 @@ libqt_list /* of libqt_string */ QFileDialog_GetOpenFileNames3(QWidget* parent, 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -1112,7 +1112,7 @@ libqt_list /* of libqt_string */ QFileDialog_GetOpenFileNames4(QWidget* parent, 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -1187,7 +1187,7 @@ libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls4(QWidget* parent, const li
 void QFileDialog_GetOpenFileContent3(const libqt_string nameFilter, intptr_t fileContentsReady, QWidget* parent) {
     QString nameFilter_QString = QString::fromUtf8(nameFilter.data, nameFilter.len);
     auto fileContentsReady_func = [fileContentsReady](const QString& funcparam1_fp, const QByteArray& funcparam2_fp) -> void {
-        const QString funcparam1_ret = funcparam1_fp;
+        const auto funcparam1_ret = funcparam1_fp;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray funcparam1_b = funcparam1_ret.toUtf8();
         auto funcparam1_str_len = funcparam1_b.length();

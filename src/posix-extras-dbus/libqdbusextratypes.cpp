@@ -16,8 +16,8 @@ QDBusObjectPath* QDBusObjectPath_new2(const char* path) {
 }
 
 QDBusObjectPath* QDBusObjectPath_new3(libqt_string path) {
-    QLatin1StringView path_QString = QLatin1StringView(path.data, path.len);
-    return new QDBusObjectPath(path_QString);
+    QLatin1StringView path_QLatin1StringView(path.data, path.len);
+    return new QDBusObjectPath(path_QLatin1StringView);
 }
 
 QDBusObjectPath* QDBusObjectPath_new4(const libqt_string path) {
@@ -39,7 +39,7 @@ void QDBusObjectPath_SetPath(QDBusObjectPath* self, const libqt_string path) {
 }
 
 libqt_string QDBusObjectPath_Path(const QDBusObjectPath* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,8 +67,8 @@ QDBusSignature* QDBusSignature_new2(const char* signature) {
 }
 
 QDBusSignature* QDBusSignature_new3(libqt_string signature) {
-    QLatin1StringView signature_QString = QLatin1StringView(signature.data, signature.len);
-    return new QDBusSignature(signature_QString);
+    QLatin1StringView signature_QLatin1StringView(signature.data, signature.len);
+    return new QDBusSignature(signature_QLatin1StringView);
 }
 
 QDBusSignature* QDBusSignature_new4(const libqt_string signature) {
@@ -90,7 +90,7 @@ void QDBusSignature_SetSignature(QDBusSignature* self, const libqt_string signat
 }
 
 libqt_string QDBusSignature_Signature(const QDBusSignature* self) {
-    QString _ret = self->signature();
+    auto _ret = self->signature();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

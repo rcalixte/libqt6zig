@@ -156,7 +156,7 @@ class VirtualQIconEnginePlugin : public QIconEnginePlugin {
     virtual QIconEngine* create(const QString& filename) override {
         auto create_cb = qiconengineplugin_create_callback;
         if (create_cb) {
-            const QString filename_ret = filename;
+            const auto filename_ret = filename;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filename_b = filename_ret.toUtf8();
             auto filename_str_len = filename_b.length();

@@ -5887,6 +5887,8 @@ pub const KPageDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPageDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPageDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5934,6 +5936,8 @@ pub const KPageDialog = extern struct {
     /// ` self: KPageDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPageDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPageDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8220,6 +8224,8 @@ pub const KPageDialog = extern struct {
     /// ` self: KPageDialog`
     ///
     /// ` callback: *const fn (self: KPageDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPageDialog, callback: *const fn (KPageDialog, i32) callconv(.c) QVariant) void {
         qtc.KPageDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

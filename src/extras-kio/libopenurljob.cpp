@@ -112,7 +112,7 @@ void KIO__OpenUrlJob_MimeTypeFound(KIO__OpenUrlJob* self, const libqt_string mim
 void KIO__OpenUrlJob_Connect_MimeTypeFound(KIO__OpenUrlJob* self, intptr_t slot) {
     void (*slotFunc)(KIO__OpenUrlJob*, const char*) = reinterpret_cast<void (*)(KIO__OpenUrlJob*, const char*)>(slot);
     KIO::OpenUrlJob::connect(self, &KIO::OpenUrlJob::mimeTypeFound, [self, slotFunc](const QString& mimeType) {
-        const QString mimeType_ret = mimeType;
+        const auto mimeType_ret = mimeType;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray mimeType_b = mimeType_ret.toUtf8();
         auto mimeType_str_len = mimeType_b.length();
@@ -379,7 +379,7 @@ void KIO__OpenUrlJob_OnDoResume(KIO__OpenUrlJob* self, intptr_t slot) {
 libqt_string KIO__OpenUrlJob_ErrorString(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
-        QString _ret = vkioopenurljob->errorString();
+        auto _ret = vkioopenurljob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -389,7 +389,7 @@ libqt_string KIO__OpenUrlJob_ErrorString(const KIO__OpenUrlJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::OpenUrlJob::errorString();
+        auto _ret = self->KIO::OpenUrlJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -406,7 +406,7 @@ libqt_string KIO__OpenUrlJob_SuperErrorString(const KIO__OpenUrlJob* self) {
     auto* vkioopenurljob = const_cast<VirtualKIOOpenUrlJob*>(dynamic_cast<const VirtualKIOOpenUrlJob*>(self));
     if (vkioopenurljob && vkioopenurljob->isVirtualKIOOpenUrlJob) {
         vkioopenurljob->setKIO__OpenUrlJob_ErrorString_IsBase(true);
-        QString _ret = vkioopenurljob->errorString();
+        auto _ret = vkioopenurljob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -416,7 +416,7 @@ libqt_string KIO__OpenUrlJob_SuperErrorString(const KIO__OpenUrlJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::OpenUrlJob::errorString();
+        auto _ret = self->KIO::OpenUrlJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

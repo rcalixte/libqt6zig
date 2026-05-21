@@ -13,7 +13,7 @@ KSambaShareData* KSambaShareData_new2(const KSambaShareData* other) {
 }
 
 libqt_string KSambaShareData_Name(const KSambaShareData* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -25,7 +25,7 @@ libqt_string KSambaShareData_Name(const KSambaShareData* self) {
 }
 
 libqt_string KSambaShareData_Path(const KSambaShareData* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -37,7 +37,7 @@ libqt_string KSambaShareData_Path(const KSambaShareData* self) {
 }
 
 libqt_string KSambaShareData_Comment(const KSambaShareData* self) {
-    QString _ret = self->comment();
+    auto _ret = self->comment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -49,7 +49,7 @@ libqt_string KSambaShareData_Comment(const KSambaShareData* self) {
 }
 
 libqt_string KSambaShareData_Acl(const KSambaShareData* self) {
-    QString _ret = self->acl();
+    auto _ret = self->acl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

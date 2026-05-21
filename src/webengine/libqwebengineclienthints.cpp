@@ -22,7 +22,7 @@ int QWebEngineClientHints_Metacall(QWebEngineClientHints* self, int param1, int 
 }
 
 libqt_string QWebEngineClientHints_Arch(const QWebEngineClientHints* self) {
-    QString _ret = self->arch();
+    auto _ret = self->arch();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string QWebEngineClientHints_Arch(const QWebEngineClientHints* self) {
 }
 
 libqt_string QWebEngineClientHints_Platform(const QWebEngineClientHints* self) {
-    QString _ret = self->platform();
+    auto _ret = self->platform();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,7 +46,7 @@ libqt_string QWebEngineClientHints_Platform(const QWebEngineClientHints* self) {
 }
 
 libqt_string QWebEngineClientHints_Model(const QWebEngineClientHints* self) {
-    QString _ret = self->model();
+    auto _ret = self->model();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -62,7 +62,7 @@ bool QWebEngineClientHints_IsMobile(const QWebEngineClientHints* self) {
 }
 
 libqt_string QWebEngineClientHints_FullVersion(const QWebEngineClientHints* self) {
-    QString _ret = self->fullVersion();
+    auto _ret = self->fullVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ libqt_string QWebEngineClientHints_FullVersion(const QWebEngineClientHints* self
 }
 
 libqt_string QWebEngineClientHints_PlatformVersion(const QWebEngineClientHints* self) {
-    QString _ret = self->platformVersion();
+    auto _ret = self->platformVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -86,7 +86,7 @@ libqt_string QWebEngineClientHints_PlatformVersion(const QWebEngineClientHints* 
 }
 
 libqt_string QWebEngineClientHints_Bitness(const QWebEngineClientHints* self) {
-    QString _ret = self->bitness();
+    auto _ret = self->bitness();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -104,7 +104,7 @@ libqt_map /* of libqt_string to QVariant* */ QWebEngineClientHints_FullVersionLi
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;

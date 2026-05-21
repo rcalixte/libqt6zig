@@ -5602,6 +5602,8 @@ pub const QRubberBand = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QRubberBand, callback: *const fn () callconv(.c) QSize) void {
         qtc.QRubberBand_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5649,6 +5651,8 @@ pub const QRubberBand = extern struct {
     /// ` self: QRubberBand`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QRubberBand, callback: *const fn () callconv(.c) QSize) void {
         qtc.QRubberBand_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7259,6 +7263,8 @@ pub const QRubberBand = extern struct {
     /// ` self: QRubberBand`
     ///
     /// ` callback: *const fn (self: QRubberBand, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QRubberBand, callback: *const fn (QRubberBand, i32) callconv(.c) QVariant) void {
         qtc.QRubberBand_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

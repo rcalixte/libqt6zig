@@ -288,6 +288,8 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDatePicker_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6505,6 +6507,8 @@ pub const KDatePicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KDatePicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDatePicker_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8222,6 +8226,8 @@ pub const KDatePicker = extern struct {
     /// ` self: KDatePicker`
     ///
     /// ` callback: *const fn (self: KDatePicker, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KDatePicker, callback: *const fn (KDatePicker, i32) callconv(.c) QVariant) void {
         qtc.KDatePicker_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

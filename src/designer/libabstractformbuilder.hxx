@@ -142,7 +142,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         }
         auto createwidget_cb = qabstractformbuilder_createwidget_callback;
         if (createwidget_cb) {
-            const QString widgetName_ret = widgetName;
+            const auto widgetName_ret = widgetName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray widgetName_b = widgetName_ret.toUtf8();
             auto widgetName_str_len = widgetName_b.length();
@@ -151,7 +151,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             ((char*)widgetName_str)[widgetName_str_len] = '\0';
             const char* cbval1 = widgetName_str;
             QWidget* cbval2 = parentWidget;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -175,7 +175,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         }
         auto createlayout_cb = qabstractformbuilder_createlayout_callback;
         if (createlayout_cb) {
-            const QString layoutName_ret = layoutName;
+            const auto layoutName_ret = layoutName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray layoutName_b = layoutName_ret.toUtf8();
             auto layoutName_str_len = layoutName_b.length();
@@ -184,7 +184,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
             ((char*)layoutName_str)[layoutName_str_len] = '\0';
             const char* cbval1 = layoutName_str;
             QObject* cbval2 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -209,7 +209,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         auto createaction_cb = qabstractformbuilder_createaction_callback;
         if (createaction_cb) {
             QObject* cbval1 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -233,7 +233,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         auto createactiongroup_cb = qabstractformbuilder_createactiongroup_callback;
         if (createactiongroup_cb) {
             QObject* cbval1 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -257,7 +257,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         auto checkproperty_cb = qabstractformbuilder_checkproperty_callback;
         if (checkproperty_cb) {
             QObject* cbval1 = obj;
-            const QString prop_ret = prop;
+            const auto prop_ret = prop;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prop_b = prop_ret.toUtf8();
             auto prop_str_len = prop_b.length();
@@ -281,7 +281,7 @@ class VirtualQAbstractFormBuilder final : public QAbstractFormBuilder {
         auto applypropertyinternally_cb = qabstractformbuilder_applypropertyinternally_callback;
         if (applypropertyinternally_cb) {
             QObject* cbval1 = o;
-            const QString propertyName_ret = propertyName;
+            const auto propertyName_ret = propertyName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray propertyName_b = propertyName_ret.toUtf8();
             auto propertyName_str_len = propertyName_b.length();

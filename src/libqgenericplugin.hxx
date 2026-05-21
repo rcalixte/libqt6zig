@@ -156,7 +156,7 @@ class VirtualQGenericPlugin : public QGenericPlugin {
     virtual QObject* create(const QString& name, const QString& spec) override {
         auto create_cb = qgenericplugin_create_callback;
         if (create_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -164,7 +164,7 @@ class VirtualQGenericPlugin : public QGenericPlugin {
             memcpy((void*)name_str, name_b.data(), name_str_len);
             ((char*)name_str)[name_str_len] = '\0';
             const char* cbval1 = name_str;
-            const QString spec_ret = spec;
+            const auto spec_ret = spec;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray spec_b = spec_ret.toUtf8();
             auto spec_str_len = spec_b.length();

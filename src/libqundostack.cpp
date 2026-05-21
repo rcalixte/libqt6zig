@@ -49,7 +49,7 @@ void QUndoCommand_Redo(QUndoCommand* self) {
 }
 
 libqt_string QUndoCommand_Text(const QUndoCommand* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ libqt_string QUndoCommand_Text(const QUndoCommand* self) {
 }
 
 libqt_string QUndoCommand_ActionText(const QUndoCommand* self) {
-    QString _ret = self->actionText();
+    auto _ret = self->actionText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -243,7 +243,7 @@ bool QUndoStack_CanRedo(const QUndoStack* self) {
 }
 
 libqt_string QUndoStack_UndoText(const QUndoStack* self) {
-    QString _ret = self->undoText();
+    auto _ret = self->undoText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -255,7 +255,7 @@ libqt_string QUndoStack_UndoText(const QUndoStack* self) {
 }
 
 libqt_string QUndoStack_RedoText(const QUndoStack* self) {
-    QString _ret = self->redoText();
+    auto _ret = self->redoText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -275,7 +275,7 @@ int QUndoStack_Index(const QUndoStack* self) {
 }
 
 libqt_string QUndoStack_Text(const QUndoStack* self, int idx) {
-    QString _ret = self->text(static_cast<int>(idx));
+    auto _ret = self->text(static_cast<int>(idx));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -407,7 +407,7 @@ void QUndoStack_UndoTextChanged(QUndoStack* self, const libqt_string undoText) {
 void QUndoStack_Connect_UndoTextChanged(QUndoStack* self, intptr_t slot) {
     void (*slotFunc)(QUndoStack*, const char*) = reinterpret_cast<void (*)(QUndoStack*, const char*)>(slot);
     QUndoStack::connect(self, &QUndoStack::undoTextChanged, [self, slotFunc](const QString& undoText) {
-        const QString undoText_ret = undoText;
+        const auto undoText_ret = undoText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray undoText_b = undoText_ret.toUtf8();
         auto undoText_str_len = undoText_b.length();
@@ -428,7 +428,7 @@ void QUndoStack_RedoTextChanged(QUndoStack* self, const libqt_string redoText) {
 void QUndoStack_Connect_RedoTextChanged(QUndoStack* self, intptr_t slot) {
     void (*slotFunc)(QUndoStack*, const char*) = reinterpret_cast<void (*)(QUndoStack*, const char*)>(slot);
     QUndoStack::connect(self, &QUndoStack::redoTextChanged, [self, slotFunc](const QString& redoText) {
-        const QString redoText_ret = redoText;
+        const auto redoText_ret = redoText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray redoText_b = redoText_ret.toUtf8();
         auto redoText_str_len = redoText_b.length();

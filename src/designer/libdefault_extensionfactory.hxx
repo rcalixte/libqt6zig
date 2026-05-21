@@ -166,7 +166,7 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         auto extension_cb = qextensionfactory_extension_callback;
         if (extension_cb) {
             QObject* cbval1 = object;
-            const QString iid_ret = iid;
+            const auto iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iid_b = iid_ret.toUtf8();
             auto iid_str_len = iid_b.length();
@@ -190,7 +190,7 @@ class VirtualQExtensionFactory final : public QExtensionFactory {
         auto createextension_cb = qextensionfactory_createextension_callback;
         if (createextension_cb) {
             QObject* cbval1 = object;
-            const QString iid_ret = iid;
+            const auto iid_ret = iid;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray iid_b = iid_ret.toUtf8();
             auto iid_str_len = iid_b.length();

@@ -5494,6 +5494,8 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5541,6 +5543,8 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7367,6 +7371,8 @@ pub const TextCustomEditor__TextGoToLineWidget = extern struct {
     /// ` self: TextCustomEditor__TextGoToLineWidget`
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextGoToLineWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextCustomEditor__TextGoToLineWidget, callback: *const fn (TextCustomEditor__TextGoToLineWidget, i32) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__TextGoToLineWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -185,7 +185,7 @@ void QDesignerWidgetBoxInterface_SetFileName(QDesignerWidgetBoxInterface* self, 
 libqt_string QDesignerWidgetBoxInterface_FileName(const QDesignerWidgetBoxInterface* self) {
     auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        QString _ret = vqdesignerwidgetboxinterface->fileName();
+        auto _ret = vqdesignerwidgetboxinterface->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -195,7 +195,7 @@ libqt_string QDesignerWidgetBoxInterface_FileName(const QDesignerWidgetBoxInterf
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerWidgetBoxInterface*)self)->fileName();
+        auto _ret = ((VirtualQDesignerWidgetBoxInterface*)self)->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -484,7 +484,7 @@ libqt_string QDesignerWidgetBoxInterface_SuperFileName(const QDesignerWidgetBoxI
     auto* vqdesignerwidgetboxinterface = const_cast<VirtualQDesignerWidgetBoxInterface*>(dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self));
     if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
         vqdesignerwidgetboxinterface->setQDesignerWidgetBoxInterface_FileName_IsBase(true);
-        QString _ret = vqdesignerwidgetboxinterface->fileName();
+        auto _ret = vqdesignerwidgetboxinterface->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -494,7 +494,7 @@ libqt_string QDesignerWidgetBoxInterface_SuperFileName(const QDesignerWidgetBoxI
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerWidgetBoxInterface*)self)->fileName();
+        auto _ret = ((VirtualQDesignerWidgetBoxInterface*)self)->fileName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2249,7 +2249,7 @@ void QDesignerWidgetBoxInterface__Widget_OperatorAssign(QDesignerWidgetBoxInterf
 }
 
 libqt_string QDesignerWidgetBoxInterface__Widget_Name(const QDesignerWidgetBoxInterface__Widget* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2266,7 +2266,7 @@ void QDesignerWidgetBoxInterface__Widget_SetName(QDesignerWidgetBoxInterface__Wi
 }
 
 libqt_string QDesignerWidgetBoxInterface__Widget_DomXml(const QDesignerWidgetBoxInterface__Widget* self) {
-    QString _ret = self->domXml();
+    auto _ret = self->domXml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2283,7 +2283,7 @@ void QDesignerWidgetBoxInterface__Widget_SetDomXml(QDesignerWidgetBoxInterface__
 }
 
 libqt_string QDesignerWidgetBoxInterface__Widget_IconName(const QDesignerWidgetBoxInterface__Widget* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2334,7 +2334,7 @@ QDesignerWidgetBoxInterface__Category* QDesignerWidgetBoxInterface__Category_new
 }
 
 libqt_string QDesignerWidgetBoxInterface__Category_Name(const QDesignerWidgetBoxInterface__Category* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -81,7 +81,7 @@ void QNetworkCookie_SetExpirationDate(QNetworkCookie* self, const QDateTime* dat
 }
 
 libqt_string QNetworkCookie_Domain(const QNetworkCookie* self) {
-    QString _ret = self->domain();
+    auto _ret = self->domain();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -98,7 +98,7 @@ void QNetworkCookie_SetDomain(QNetworkCookie* self, const libqt_string domain) {
 }
 
 libqt_string QNetworkCookie_Path(const QNetworkCookie* self) {
-    QString _ret = self->path();
+    auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

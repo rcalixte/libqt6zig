@@ -403,9 +403,25 @@ pub const QDebug = extern struct {
     ///
     /// ` self: QDebug `
     ///
-    /// ` t: []const u8 `
+    /// ` s: []const u8 `
     ///
-    pub fn OperatorShiftLeft22(self: QDebug, t: []const u8) QDebug {
+    pub fn OperatorShiftLeft20(self: QDebug, s: []const u8) QDebug {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return .{ .ptr = qtc.QDebug_OperatorShiftLeft20(@ptrCast(self.ptr), s_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDebug `
+    ///
+    /// ` t: []u8 `
+    ///
+    pub fn OperatorShiftLeft22(self: QDebug, t: []u8) QDebug {
         const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,

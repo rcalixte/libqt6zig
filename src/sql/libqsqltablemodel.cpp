@@ -77,7 +77,7 @@ void QSqlTableModel_SetTable(QSqlTableModel* self, const libqt_string tableName)
 }
 
 libqt_string QSqlTableModel_TableName(const QSqlTableModel* self) {
-    QString _ret = self->tableName();
+    auto _ret = self->tableName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -203,7 +203,7 @@ void QSqlTableModel_SetSort(QSqlTableModel* self, int column, int order) {
 }
 
 libqt_string QSqlTableModel_Filter(const QSqlTableModel* self) {
-    QString _ret = self->filter();
+    auto _ret = self->filter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -404,7 +404,7 @@ bool QSqlTableModel_DeleteRowFromTable(QSqlTableModel* self, int row) {
 libqt_string QSqlTableModel_OrderByClause(const QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        QString _ret = vqsqltablemodel->orderByClause();
+        auto _ret = vqsqltablemodel->orderByClause();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -420,7 +420,7 @@ libqt_string QSqlTableModel_OrderByClause(const QSqlTableModel* self) {
 libqt_string QSqlTableModel_SelectStatement(const QSqlTableModel* self) {
     auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        QString _ret = vqsqltablemodel->selectStatement();
+        auto _ret = vqsqltablemodel->selectStatement();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -942,7 +942,7 @@ libqt_string QSqlTableModel_SuperOrderByClause(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_OrderByClause_IsBase(true);
-        QString _ret = vqsqltablemodel->orderByClause();
+        auto _ret = vqsqltablemodel->orderByClause();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -952,7 +952,7 @@ libqt_string QSqlTableModel_SuperOrderByClause(const QSqlTableModel* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlTableModel*)self)->orderByClause();
+        auto _ret = ((VirtualQSqlTableModel*)self)->orderByClause();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -977,7 +977,7 @@ libqt_string QSqlTableModel_SuperSelectStatement(const QSqlTableModel* self) {
     auto* vqsqltablemodel = const_cast<VirtualQSqlTableModel*>(dynamic_cast<const VirtualQSqlTableModel*>(self));
     if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
         vqsqltablemodel->setQSqlTableModel_SelectStatement_IsBase(true);
-        QString _ret = vqsqltablemodel->selectStatement();
+        auto _ret = vqsqltablemodel->selectStatement();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -987,7 +987,7 @@ libqt_string QSqlTableModel_SuperSelectStatement(const QSqlTableModel* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSqlTableModel*)self)->selectStatement();
+        auto _ret = ((VirtualQSqlTableModel*)self)->selectStatement();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1525,7 +1525,7 @@ libqt_list /* of libqt_string */ QSqlTableModel_MimeTypes(const QSqlTableModel* 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1544,7 +1544,7 @@ libqt_list /* of libqt_string */ QSqlTableModel_MimeTypes(const QSqlTableModel* 
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1570,7 +1570,7 @@ libqt_list /* of libqt_string */ QSqlTableModel_SuperMimeTypes(const QSqlTableMo
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1589,7 +1589,7 @@ libqt_list /* of libqt_string */ QSqlTableModel_SuperMimeTypes(const QSqlTableMo
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

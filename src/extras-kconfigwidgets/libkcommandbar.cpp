@@ -1868,7 +1868,7 @@ KCommandBar__ActionGroup* KCommandBar__ActionGroup_new2() {
 }
 
 libqt_string KCommandBar__ActionGroup_Name(const KCommandBar__ActionGroup* self) {
-    QString name_ret = self->name;
+    auto name_ret = self->name;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray name_b = name_ret.toUtf8();
     libqt_string name_str;

@@ -102,7 +102,7 @@ void KIconButton_ResetIcon(KIconButton* self) {
 }
 
 libqt_string KIconButton_Icon(const KIconButton* self) {
-    const QString _ret = self->icon();
+    const auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ void KIconButton_IconChanged(KIconButton* self, const libqt_string icon) {
 void KIconButton_Connect_IconChanged(KIconButton* self, intptr_t slot) {
     void (*slotFunc)(KIconButton*, const char*) = reinterpret_cast<void (*)(KIconButton*, const char*)>(slot);
     KIconButton::connect(self, &KIconButton::iconChanged, [self, slotFunc](const QString& icon) {
-        const QString icon_ret = icon;
+        const auto icon_ret = icon;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray icon_b = icon_ret.toUtf8();
         auto icon_str_len = icon_b.length();

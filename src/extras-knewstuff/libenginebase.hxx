@@ -165,7 +165,7 @@ class VirtualKNSCoreEngineBase final : public KNSCore::EngineBase {
         }
         auto init_cb = knscore__enginebase_init_callback;
         if (init_cb) {
-            const QString configfile_ret = configfile;
+            const auto configfile_ret = configfile;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray configfile_b = configfile_ret.toUtf8();
             auto configfile_str_len = configfile_b.length();

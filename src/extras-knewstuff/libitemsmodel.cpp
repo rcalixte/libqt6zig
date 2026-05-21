@@ -103,7 +103,7 @@ void KNSCore__ItemsModel_Connect_JobStarted(KNSCore__ItemsModel* self, intptr_t 
     void (*slotFunc)(KNSCore__ItemsModel*, KJob*, const char*) = reinterpret_cast<void (*)(KNSCore__ItemsModel*, KJob*, const char*)>(slot);
     KNSCore::ItemsModel::connect(self, &KNSCore::ItemsModel::jobStarted, [self, slotFunc](KJob* param1, const QString& label) {
         KJob* sigval1 = param1;
-        const QString label_ret = label;
+        const auto label_ret = label;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray label_b = label_ret.toUtf8();
         auto label_str_len = label_b.length();
@@ -614,7 +614,7 @@ libqt_list /* of libqt_string */ KNSCore__ItemsModel_MimeTypes(const KNSCore__It
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -633,7 +633,7 @@ libqt_list /* of libqt_string */ KNSCore__ItemsModel_MimeTypes(const KNSCore__It
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -659,7 +659,7 @@ libqt_list /* of libqt_string */ KNSCore__ItemsModel_SuperMimeTypes(const KNSCor
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -678,7 +678,7 @@ libqt_list /* of libqt_string */ KNSCore__ItemsModel_SuperMimeTypes(const KNSCor
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

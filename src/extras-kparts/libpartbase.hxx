@@ -201,7 +201,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         }
         auto setcomponentname_cb = kparts__partbase_setcomponentname_callback;
         if (setcomponentname_cb) {
-            const QString componentName_ret = componentName;
+            const auto componentName_ret = componentName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentName_b = componentName_ret.toUtf8();
             auto componentName_str_len = componentName_b.length();
@@ -209,7 +209,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
             memcpy((void*)componentName_str, componentName_b.data(), componentName_str_len);
             ((char*)componentName_str)[componentName_str_len] = '\0';
             const char* cbval1 = componentName_str;
-            const QString componentDisplayName_ret = componentDisplayName;
+            const auto componentDisplayName_ret = componentDisplayName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray componentDisplayName_b = componentDisplayName_ret.toUtf8();
             auto componentDisplayName_str_len = componentDisplayName_b.length();
@@ -234,7 +234,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         }
         auto setxmlfile_cb = kparts__partbase_setxmlfile_callback;
         if (setxmlfile_cb) {
-            const QString file_ret = file;
+            const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
             auto file_str_len = file_b.length();
@@ -260,7 +260,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         }
         auto setlocalxmlfile_cb = kparts__partbase_setlocalxmlfile_callback;
         if (setlocalxmlfile_cb) {
-            const QString file_ret = file;
+            const auto file_ret = file;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray file_b = file_ret.toUtf8();
             auto file_str_len = file_b.length();
@@ -284,7 +284,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         }
         auto setxml_cb = kparts__partbase_setxml_callback;
         if (setxml_cb) {
-            const QString document_ret = document;
+            const auto document_ret = document;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray document_b = document_ret.toUtf8();
             auto document_str_len = document_b.length();
@@ -328,7 +328,7 @@ class VirtualKPartsPartBase final : public KParts::PartBase {
         }
         auto statechanged_cb = kparts__partbase_statechanged_callback;
         if (statechanged_cb) {
-            const QString newstate_ret = newstate;
+            const auto newstate_ret = newstate;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray newstate_b = newstate_ret.toUtf8();
             auto newstate_str_len = newstate_b.length();

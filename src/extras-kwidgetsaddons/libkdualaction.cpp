@@ -88,7 +88,7 @@ void KDualAction_SetActiveText(KDualAction* self, const libqt_string activeText)
 }
 
 libqt_string KDualAction_ActiveText(const KDualAction* self) {
-    QString _ret = self->activeText();
+    auto _ret = self->activeText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -105,7 +105,7 @@ void KDualAction_SetInactiveText(KDualAction* self, const libqt_string inactiveT
 }
 
 libqt_string KDualAction_InactiveText(const KDualAction* self) {
-    QString _ret = self->inactiveText();
+    auto _ret = self->inactiveText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -122,7 +122,7 @@ void KDualAction_SetActiveToolTip(KDualAction* self, const libqt_string activeTo
 }
 
 libqt_string KDualAction_ActiveToolTip(const KDualAction* self) {
-    QString _ret = self->activeToolTip();
+    auto _ret = self->activeToolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -139,7 +139,7 @@ void KDualAction_SetInactiveToolTip(KDualAction* self, const libqt_string inacti
 }
 
 libqt_string KDualAction_InactiveToolTip(const KDualAction* self) {
-    QString _ret = self->inactiveToolTip();
+    auto _ret = self->inactiveToolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

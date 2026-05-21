@@ -22,7 +22,7 @@ void Attica__BuildServiceJob_SetId(Attica__BuildServiceJob* self, const libqt_st
 }
 
 libqt_string Attica__BuildServiceJob_Id(const Attica__BuildServiceJob* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void Attica__BuildServiceJob_SetName(Attica__BuildServiceJob* self, const libqt_
 }
 
 libqt_string Attica__BuildServiceJob_Name(const Attica__BuildServiceJob* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56,7 +56,7 @@ void Attica__BuildServiceJob_SetUrl(Attica__BuildServiceJob* self, const libqt_s
 }
 
 libqt_string Attica__BuildServiceJob_Url(const Attica__BuildServiceJob* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -73,7 +73,7 @@ void Attica__BuildServiceJob_SetProjectId(Attica__BuildServiceJob* self, const l
 }
 
 libqt_string Attica__BuildServiceJob_ProjectId(const Attica__BuildServiceJob* self) {
-    QString _ret = self->projectId();
+    auto _ret = self->projectId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ void Attica__BuildServiceJob_SetBuildServiceId(Attica__BuildServiceJob* self, co
 }
 
 libqt_string Attica__BuildServiceJob_BuildServiceId(const Attica__BuildServiceJob* self) {
-    QString _ret = self->buildServiceId();
+    auto _ret = self->buildServiceId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ void Attica__BuildServiceJob_SetMessage(Attica__BuildServiceJob* self, const lib
 }
 
 libqt_string Attica__BuildServiceJob_Message(const Attica__BuildServiceJob* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -124,7 +124,7 @@ void Attica__BuildServiceJob_SetTarget(Attica__BuildServiceJob* self, const libq
 }
 
 libqt_string Attica__BuildServiceJob_Target(const Attica__BuildServiceJob* self) {
-    QString _ret = self->target();
+    auto _ret = self->target();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

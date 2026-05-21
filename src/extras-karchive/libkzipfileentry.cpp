@@ -53,7 +53,7 @@ void KZipFileEntry_SetCRC32(KZipFileEntry* self, unsigned long crc32) {
 }
 
 libqt_string KZipFileEntry_Path(const KZipFileEntry* self) {
-    const QString _ret = self->path();
+    const auto _ret = self->path();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -6170,6 +6170,8 @@ pub const KRecentFilesMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRecentFilesMenu_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7131,6 +7133,8 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KRecentFilesMenu, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRecentFilesMenu_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8417,6 +8421,8 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu`
     ///
     /// ` callback: *const fn (self: KRecentFilesMenu, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KRecentFilesMenu, callback: *const fn (KRecentFilesMenu, i32) callconv(.c) QVariant) void {
         qtc.KRecentFilesMenu_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

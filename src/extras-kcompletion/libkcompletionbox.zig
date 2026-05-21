@@ -280,6 +280,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -672,6 +674,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCalculateGeometry(self: KCompletionBox, callback: *const fn () callconv(.c) QRect) void {
         qtc.KCompletionBox_OnCalculateGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -803,6 +807,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox `
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGlobalPositionHint(self: KCompletionBox, callback: *const fn () callconv(.c) QPoint) void {
         qtc.KCompletionBox_OnGlobalPositionHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8997,6 +9003,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QRect) void {
         qtc.KCompletionBox_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9108,6 +9116,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox`
     ///
     /// ` callback: *const fn (self: KCompletionBox, p: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: KCompletionBox, callback: *const fn (KCompletionBox, QPoint) callconv(.c) QModelIndex) void {
         qtc.KCompletionBox_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10201,6 +10211,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn (self: KCompletionBox, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMoveCursor(self: KCompletionBox, callback: *const fn (KCompletionBox, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KCompletionBox_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10312,6 +10324,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox`
     ///
     /// ` callback: *const fn (self: KCompletionBox, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: KCompletionBox, callback: *const fn (KCompletionBox, QItemSelection) callconv(.c) QRegion) void {
         qtc.KCompletionBox_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10653,6 +10667,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnViewportSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10922,6 +10938,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox`
     ///
     /// ` callback: *const fn (self: KCompletionBox, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KCompletionBox, callback: *const fn (KCompletionBox, i32) callconv(.c) QVariant) void {
         qtc.KCompletionBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12104,6 +12122,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -13599,6 +13619,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnContentsSize(self: KCompletionBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCompletionBox_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -13652,6 +13674,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox`
     ///
     /// ` callback: *const fn (self: KCompletionBox, index: QModelIndex) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRectForIndex(self: KCompletionBox, callback: *const fn (KCompletionBox, QModelIndex) callconv(.c) QRect) void {
         qtc.KCompletionBox_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -14075,6 +14099,8 @@ pub const KCompletionBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: KCompletionBox, callback: *const fn () callconv(.c) QPoint) void {
         qtc.KCompletionBox_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -14386,6 +14412,8 @@ pub const KCompletionBox = extern struct {
     /// ` self: KCompletionBox`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: KCompletionBox, callback: *const fn () callconv(.c) QMargins) void {
         qtc.KCompletionBox_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

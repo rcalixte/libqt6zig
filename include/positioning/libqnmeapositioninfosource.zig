@@ -323,6 +323,8 @@ pub const QNmeaPositionInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaPositionInfoSource, fromSatellitePositioningMethodsOnly: bool) callconv(.c) QGeoPositionInfo `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLastKnownPosition(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, bool) callconv(.c) QGeoPositionInfo) void {
         qtc.QNmeaPositionInfoSource_OnLastKnownPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2022,6 +2024,8 @@ pub const QNmeaPositionInfoSource = extern struct {
     /// ` self: QNmeaPositionInfoSource`
     ///
     /// ` callback: *const fn (self: QNmeaPositionInfoSource, name: [*:0]const u8) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBackendProperty(self: QNmeaPositionInfoSource, callback: *const fn (QNmeaPositionInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QNmeaPositionInfoSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

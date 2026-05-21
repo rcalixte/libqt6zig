@@ -64,7 +64,7 @@ void QPrinter_SetPrinterName(QPrinter* self, const libqt_string printerName) {
 }
 
 libqt_string QPrinter_PrinterName(const QPrinter* self) {
-    QString _ret = self->printerName();
+    auto _ret = self->printerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -85,7 +85,7 @@ void QPrinter_SetOutputFileName(QPrinter* self, const libqt_string outputFileNam
 }
 
 libqt_string QPrinter_OutputFileName(const QPrinter* self) {
-    QString _ret = self->outputFileName();
+    auto _ret = self->outputFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ void QPrinter_SetPrintProgram(QPrinter* self, const libqt_string printProgram) {
 }
 
 libqt_string QPrinter_PrintProgram(const QPrinter* self) {
-    QString _ret = self->printProgram();
+    auto _ret = self->printProgram();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ void QPrinter_SetDocName(QPrinter* self, const libqt_string docName) {
 }
 
 libqt_string QPrinter_DocName(const QPrinter* self) {
-    QString _ret = self->docName();
+    auto _ret = self->docName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -136,7 +136,7 @@ void QPrinter_SetCreator(QPrinter* self, const libqt_string creator) {
 }
 
 libqt_string QPrinter_Creator(const QPrinter* self) {
-    QString _ret = self->creator();
+    auto _ret = self->creator();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -245,7 +245,7 @@ QRectF* QPrinter_PageRect(const QPrinter* self, int param1) {
 }
 
 libqt_string QPrinter_PrinterSelectionOption(const QPrinter* self) {
-    QString _ret = self->printerSelectionOption();
+    auto _ret = self->printerSelectionOption();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

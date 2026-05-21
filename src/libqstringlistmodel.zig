@@ -318,6 +318,8 @@ pub const QStringListModel = extern struct {
     ///
     /// ` callback: *const fn (self: QStringListModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSibling(self: QStringListModel, callback: *const fn (QStringListModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QStringListModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -369,6 +371,8 @@ pub const QStringListModel = extern struct {
     /// ` self: QStringListModel `
     ///
     /// ` callback: *const fn (self: QStringListModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnData(self: QStringListModel, callback: *const fn (QStringListModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QStringListModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1126,6 +1130,8 @@ pub const QStringListModel = extern struct {
     /// ` self: QStringListModel `
     ///
     /// ` callback: *const fn (self: QStringListModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QStringListModel, callback: *const fn (QStringListModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2576,6 +2582,8 @@ pub const QStringListModel = extern struct {
     ///
     /// ` callback: *const fn (self: QStringListModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QStringListModel, callback: *const fn (QStringListModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QStringListModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2707,6 +2715,8 @@ pub const QStringListModel = extern struct {
     /// ` self: QStringListModel`
     ///
     /// ` callback: *const fn (self: QStringListModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: QStringListModel, callback: *const fn (QStringListModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QStringListModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3402,6 +3412,8 @@ pub const QStringListModel = extern struct {
     ///
     /// ` callback: *const fn (self: QStringListModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QStringListModel, callback: *const fn (QStringListModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QStringListModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3549,6 +3561,8 @@ pub const QStringListModel = extern struct {
     /// ` self: QStringListModel`
     ///
     /// ` callback: *const fn (self: QStringListModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QStringListModel, callback: *const fn (QStringListModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QStringListModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4291,6 +4305,8 @@ pub const QStringListModel = extern struct {
     /// ` self: QStringListModel`
     ///
     /// ` callback: *const fn (self: QStringListModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QStringListModel, callback: *const fn (QStringListModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QStringListModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

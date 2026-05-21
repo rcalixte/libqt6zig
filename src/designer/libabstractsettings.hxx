@@ -64,7 +64,7 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual void beginGroup(const QString& prefix) override {
         auto begingroup_cb = qdesignersettingsinterface_begingroup_callback;
         if (begingroup_cb) {
-            const QString prefix_ret = prefix;
+            const auto prefix_ret = prefix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
             auto prefix_str_len = prefix_b.length();
@@ -89,7 +89,7 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual bool contains(const QString& key) const override {
         auto contains_cb = qdesignersettingsinterface_contains_callback;
         if (contains_cb) {
-            const QString key_ret = key;
+            const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
             auto key_str_len = key_b.length();
@@ -108,7 +108,7 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual void setValue(const QString& key, const QVariant& value) override {
         auto setvalue_cb = qdesignersettingsinterface_setvalue_callback;
         if (setvalue_cb) {
-            const QString key_ret = key;
+            const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
             auto key_str_len = key_b.length();
@@ -128,7 +128,7 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual QVariant value(const QString& key, const QVariant& defaultValue) const override {
         auto value_cb = qdesignersettingsinterface_value_callback;
         if (value_cb) {
-            const QString key_ret = key;
+            const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
             auto key_str_len = key_b.length();
@@ -152,7 +152,7 @@ class VirtualQDesignerSettingsInterface : public QDesignerSettingsInterface {
     virtual void remove(const QString& key) override {
         auto remove_cb = qdesignersettingsinterface_remove_callback;
         if (remove_cb) {
-            const QString key_ret = key;
+            const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
             auto key_str_len = key_b.length();

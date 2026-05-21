@@ -27,7 +27,7 @@ bool KFileMetaData__WriteData_OperatorEqual(const KFileMetaData__WriteData* self
 }
 
 libqt_string KFileMetaData__WriteData_InputUrl(const KFileMetaData__WriteData* self) {
-    QString _ret = self->inputUrl();
+    auto _ret = self->inputUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ libqt_string KFileMetaData__WriteData_InputUrl(const KFileMetaData__WriteData* s
 }
 
 libqt_string KFileMetaData__WriteData_InputMimetype(const KFileMetaData__WriteData* self) {
-    QString _ret = self->inputMimetype();
+    auto _ret = self->inputMimetype();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

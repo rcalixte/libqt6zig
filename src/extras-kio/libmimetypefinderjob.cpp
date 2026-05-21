@@ -59,7 +59,7 @@ void KIO__MimeTypeFinderJob_SetSuggestedFileName(KIO__MimeTypeFinderJob* self, c
 }
 
 libqt_string KIO__MimeTypeFinderJob_SuggestedFileName(const KIO__MimeTypeFinderJob* self) {
-    QString _ret = self->suggestedFileName();
+    auto _ret = self->suggestedFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -88,7 +88,7 @@ void KIO__MimeTypeFinderJob_Start(KIO__MimeTypeFinderJob* self) {
 }
 
 libqt_string KIO__MimeTypeFinderJob_MimeType(const KIO__MimeTypeFinderJob* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -379,7 +379,7 @@ void KIO__MimeTypeFinderJob_OnDoResume(KIO__MimeTypeFinderJob* self, intptr_t sl
 libqt_string KIO__MimeTypeFinderJob_ErrorString(const KIO__MimeTypeFinderJob* self) {
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
-        QString _ret = vkiomimetypefinderjob->errorString();
+        auto _ret = vkiomimetypefinderjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -389,7 +389,7 @@ libqt_string KIO__MimeTypeFinderJob_ErrorString(const KIO__MimeTypeFinderJob* se
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::MimeTypeFinderJob::errorString();
+        auto _ret = self->KIO::MimeTypeFinderJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -406,7 +406,7 @@ libqt_string KIO__MimeTypeFinderJob_SuperErrorString(const KIO__MimeTypeFinderJo
     auto* vkiomimetypefinderjob = const_cast<VirtualKIOMimeTypeFinderJob*>(dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self));
     if (vkiomimetypefinderjob && vkiomimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
         vkiomimetypefinderjob->setKIO__MimeTypeFinderJob_ErrorString_IsBase(true);
-        QString _ret = vkiomimetypefinderjob->errorString();
+        auto _ret = vkiomimetypefinderjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -416,7 +416,7 @@ libqt_string KIO__MimeTypeFinderJob_SuperErrorString(const KIO__MimeTypeFinderJo
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::MimeTypeFinderJob::errorString();
+        auto _ret = self->KIO::MimeTypeFinderJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

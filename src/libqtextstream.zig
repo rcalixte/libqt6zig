@@ -883,7 +883,23 @@ pub const QTextStream = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn OperatorShiftLeft16(self: QTextStream, s: []const u8) QTextStream {
+    pub fn OperatorShiftLeft15(self: QTextStream, s: []const u8) QTextStream {
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+        return .{ .ptr = qtc.QTextStream_OperatorShiftLeft15(@ptrCast(self.ptr), s_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextstream.html#operator-lt-lt)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QTextStream `
+    ///
+    /// ` s: []u8 `
+    ///
+    pub fn OperatorShiftLeft16(self: QTextStream, s: []u8) QTextStream {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,

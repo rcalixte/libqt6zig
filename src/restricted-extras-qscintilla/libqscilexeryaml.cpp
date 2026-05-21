@@ -78,7 +78,7 @@ const char* QsciLexerYAML_Keywords(const QsciLexerYAML* self, int set) {
 }
 
 libqt_string QsciLexerYAML_Description(const QsciLexerYAML* self, int style) {
-    QString _ret = self->description(static_cast<int>(style));
+    auto _ret = self->description(static_cast<int>(style));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -248,7 +248,7 @@ libqt_list /* of libqt_string */ QsciLexerYAML_AutoCompletionWordSeparators(cons
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -267,7 +267,7 @@ libqt_list /* of libqt_string */ QsciLexerYAML_AutoCompletionWordSeparators(cons
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -293,7 +293,7 @@ libqt_list /* of libqt_string */ QsciLexerYAML_SuperAutoCompletionWordSeparators
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -312,7 +312,7 @@ libqt_list /* of libqt_string */ QsciLexerYAML_SuperAutoCompletionWordSeparators
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1324,7 +1324,7 @@ void QsciLexerYAML_OnTextAsBytes(const QsciLexerYAML* self, intptr_t slot) {
 libqt_string QsciLexerYAML_BytesAsText(const QsciLexerYAML* self, const char* bytes, int size) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        QString _ret = vqscilexeryaml->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexeryaml->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1334,7 +1334,7 @@ libqt_string QsciLexerYAML_BytesAsText(const QsciLexerYAML* self, const char* by
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerYAML*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerYAML*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1351,7 +1351,7 @@ libqt_string QsciLexerYAML_SuperBytesAsText(const QsciLexerYAML* self, const cha
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         vqscilexeryaml->setQsciLexerYAML_BytesAsText_IsBase(true);
-        QString _ret = vqscilexeryaml->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexeryaml->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1361,7 +1361,7 @@ libqt_string QsciLexerYAML_SuperBytesAsText(const QsciLexerYAML* self, const cha
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerYAML*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerYAML*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

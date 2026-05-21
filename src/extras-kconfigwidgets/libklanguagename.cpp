@@ -7,7 +7,7 @@
 
 libqt_string KLanguageName_NameForCode(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KLanguageName::nameForCode(param1_QString);
+    auto _ret = KLanguageName::nameForCode(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -21,7 +21,7 @@ libqt_string KLanguageName_NameForCode(const libqt_string param1) {
 libqt_string KLanguageName_NameForCodeInLocale(const libqt_string param1, const libqt_string param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString _ret = KLanguageName::nameForCodeInLocale(param1_QString, param2_QString);
+    auto _ret = KLanguageName::nameForCodeInLocale(param1_QString, param2_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -37,7 +37,7 @@ libqt_list /* of libqt_string */ KLanguageName_AllLanguageCodes() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

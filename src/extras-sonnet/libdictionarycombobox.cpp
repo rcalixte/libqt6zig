@@ -80,7 +80,7 @@ void Sonnet__DictionaryComboBox_ReloadCombo(Sonnet__DictionaryComboBox* self) {
 }
 
 libqt_string Sonnet__DictionaryComboBox_CurrentDictionaryName(const Sonnet__DictionaryComboBox* self) {
-    QString _ret = self->currentDictionaryName();
+    auto _ret = self->currentDictionaryName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -92,7 +92,7 @@ libqt_string Sonnet__DictionaryComboBox_CurrentDictionaryName(const Sonnet__Dict
 }
 
 libqt_string Sonnet__DictionaryComboBox_CurrentDictionary(const Sonnet__DictionaryComboBox* self) {
-    QString _ret = self->currentDictionary();
+    auto _ret = self->currentDictionary();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -131,7 +131,7 @@ void Sonnet__DictionaryComboBox_DictionaryChanged(Sonnet__DictionaryComboBox* se
 void Sonnet__DictionaryComboBox_Connect_DictionaryChanged(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__DictionaryComboBox*, const char*) = reinterpret_cast<void (*)(Sonnet__DictionaryComboBox*, const char*)>(slot);
     Sonnet::DictionaryComboBox::connect(self, &Sonnet::DictionaryComboBox::dictionaryChanged, [self, slotFunc](const QString& dictionary) {
-        const QString dictionary_ret = dictionary;
+        const auto dictionary_ret = dictionary;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray dictionary_b = dictionary_ret.toUtf8();
         auto dictionary_str_len = dictionary_b.length();
@@ -152,7 +152,7 @@ void Sonnet__DictionaryComboBox_DictionaryNameChanged(Sonnet__DictionaryComboBox
 void Sonnet__DictionaryComboBox_Connect_DictionaryNameChanged(Sonnet__DictionaryComboBox* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__DictionaryComboBox*, const char*) = reinterpret_cast<void (*)(Sonnet__DictionaryComboBox*, const char*)>(slot);
     Sonnet::DictionaryComboBox::connect(self, &Sonnet::DictionaryComboBox::dictionaryNameChanged, [self, slotFunc](const QString& dictionaryName) {
-        const QString dictionaryName_ret = dictionaryName;
+        const auto dictionaryName_ret = dictionaryName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray dictionaryName_b = dictionaryName_ret.toUtf8();
         auto dictionaryName_str_len = dictionaryName_b.length();

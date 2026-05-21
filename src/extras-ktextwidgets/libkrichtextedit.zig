@@ -8667,6 +8667,8 @@ pub const KRichTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KRichTextEdit, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: KRichTextEdit, callback: *const fn (KRichTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.KRichTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8718,6 +8720,8 @@ pub const KRichTextEdit = extern struct {
     /// ` self: KRichTextEdit`
     ///
     /// ` callback: *const fn (self: KRichTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KRichTextEdit, callback: *const fn (KRichTextEdit, i32) callconv(.c) QVariant) void {
         qtc.KRichTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10003,6 +10007,8 @@ pub const KRichTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KRichTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRichTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10050,6 +10056,8 @@ pub const KRichTextEdit = extern struct {
     /// ` self: KRichTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: KRichTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRichTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10266,6 +10274,8 @@ pub const KRichTextEdit = extern struct {
     /// ` self: KRichTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: KRichTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRichTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -11986,6 +11996,8 @@ pub const KRichTextEdit = extern struct {
     /// ` self: KRichTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: KRichTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.KRichTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

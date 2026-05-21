@@ -513,7 +513,7 @@ void QWidget_SetStyleSheet(QWidget* self, const libqt_string styleSheet) {
 }
 
 libqt_string QWidget_StyleSheet(const QWidget* self) {
-    QString _ret = self->styleSheet();
+    auto _ret = self->styleSheet();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -525,7 +525,7 @@ libqt_string QWidget_StyleSheet(const QWidget* self) {
 }
 
 libqt_string QWidget_WindowTitle(const QWidget* self) {
-    QString _ret = self->windowTitle();
+    auto _ret = self->windowTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -550,7 +550,7 @@ void QWidget_SetWindowIconText(QWidget* self, const libqt_string windowIconText)
 }
 
 libqt_string QWidget_WindowIconText(const QWidget* self) {
-    QString _ret = self->windowIconText();
+    auto _ret = self->windowIconText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -567,7 +567,7 @@ void QWidget_SetWindowRole(QWidget* self, const libqt_string windowRole) {
 }
 
 libqt_string QWidget_WindowRole(const QWidget* self) {
-    QString _ret = self->windowRole();
+    auto _ret = self->windowRole();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -584,7 +584,7 @@ void QWidget_SetWindowFilePath(QWidget* self, const libqt_string filePath) {
 }
 
 libqt_string QWidget_WindowFilePath(const QWidget* self) {
-    QString _ret = self->windowFilePath();
+    auto _ret = self->windowFilePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -613,7 +613,7 @@ void QWidget_SetToolTip(QWidget* self, const libqt_string toolTip) {
 }
 
 libqt_string QWidget_ToolTip(const QWidget* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -638,7 +638,7 @@ void QWidget_SetStatusTip(QWidget* self, const libqt_string statusTip) {
 }
 
 libqt_string QWidget_StatusTip(const QWidget* self) {
-    QString _ret = self->statusTip();
+    auto _ret = self->statusTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -655,7 +655,7 @@ void QWidget_SetWhatsThis(QWidget* self, const libqt_string whatsThis) {
 }
 
 libqt_string QWidget_WhatsThis(const QWidget* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -667,7 +667,7 @@ libqt_string QWidget_WhatsThis(const QWidget* self) {
 }
 
 libqt_string QWidget_AccessibleName(const QWidget* self) {
-    QString _ret = self->accessibleName();
+    auto _ret = self->accessibleName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -684,7 +684,7 @@ void QWidget_SetAccessibleName(QWidget* self, const libqt_string name) {
 }
 
 libqt_string QWidget_AccessibleDescription(const QWidget* self) {
-    QString _ret = self->accessibleDescription();
+    auto _ret = self->accessibleDescription();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1285,7 +1285,7 @@ void QWidget_WindowTitleChanged(QWidget* self, const libqt_string title) {
 void QWidget_Connect_WindowTitleChanged(QWidget* self, intptr_t slot) {
     void (*slotFunc)(QWidget*, const char*) = reinterpret_cast<void (*)(QWidget*, const char*)>(slot);
     QWidget::connect(self, &QWidget::windowTitleChanged, [self, slotFunc](const QString& title) {
-        const QString title_ret = title;
+        const auto title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
         auto title_str_len = title_b.length();
@@ -1320,7 +1320,7 @@ void QWidget_WindowIconTextChanged(QWidget* self, const libqt_string iconText) {
 void QWidget_Connect_WindowIconTextChanged(QWidget* self, intptr_t slot) {
     void (*slotFunc)(QWidget*, const char*) = reinterpret_cast<void (*)(QWidget*, const char*)>(slot);
     QWidget::connect(self, &QWidget::windowIconTextChanged, [self, slotFunc](const QString& iconText) {
-        const QString iconText_ret = iconText;
+        const auto iconText_ret = iconText;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray iconText_b = iconText_ret.toUtf8();
         auto iconText_str_len = iconText_b.length();

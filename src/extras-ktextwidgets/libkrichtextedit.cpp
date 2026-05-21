@@ -103,7 +103,7 @@ int KRichTextEdit_TextMode(const KRichTextEdit* self) {
 }
 
 libqt_string KRichTextEdit_TextOrHtml(const KRichTextEdit* self) {
-    QString _ret = self->textOrHtml();
+    auto _ret = self->textOrHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ void KRichTextEdit_SetTextOrHtml(KRichTextEdit* self, const libqt_string text) {
 }
 
 libqt_string KRichTextEdit_CurrentLinkText(const KRichTextEdit* self) {
-    QString _ret = self->currentLinkText();
+    auto _ret = self->currentLinkText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -132,7 +132,7 @@ libqt_string KRichTextEdit_CurrentLinkText(const KRichTextEdit* self) {
 }
 
 libqt_string KRichTextEdit_CurrentLinkUrl(const KRichTextEdit* self) {
-    QString _ret = self->currentLinkUrl();
+    auto _ret = self->currentLinkUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -247,7 +247,7 @@ void KRichTextEdit_SwitchToPlainText(KRichTextEdit* self) {
 }
 
 libqt_string KRichTextEdit_ToCleanHtml(const KRichTextEdit* self) {
-    QString _ret = self->toCleanHtml();
+    auto _ret = self->toCleanHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

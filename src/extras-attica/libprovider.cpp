@@ -49,7 +49,7 @@ void Attica__Provider_SetAdditionalAgentInformation(Attica__Provider* self, cons
 }
 
 libqt_string Attica__Provider_AdditionalAgentInformation(const Attica__Provider* self) {
-    QString _ret = self->additionalAgentInformation();
+    auto _ret = self->additionalAgentInformation();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -65,7 +65,7 @@ QUrl* Attica__Provider_BaseUrl(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_Name(const Attica__Provider* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -85,7 +85,7 @@ bool Attica__Provider_HasPersonService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_PersonServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->personServiceVersion();
+    auto _ret = self->personServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -101,7 +101,7 @@ bool Attica__Provider_HasFriendService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_FriendServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->friendServiceVersion();
+    auto _ret = self->friendServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -117,7 +117,7 @@ bool Attica__Provider_HasMessageService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_MessageServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->messageServiceVersion();
+    auto _ret = self->messageServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -133,7 +133,7 @@ bool Attica__Provider_HasAchievementService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_AchievementServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->achievementServiceVersion();
+    auto _ret = self->achievementServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -149,7 +149,7 @@ bool Attica__Provider_HasActivityService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_ActivityServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->activityServiceVersion();
+    auto _ret = self->activityServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -165,7 +165,7 @@ bool Attica__Provider_HasContentService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_ContentServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->contentServiceVersion();
+    auto _ret = self->contentServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -181,7 +181,7 @@ bool Attica__Provider_HasFanService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_FanServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->fanServiceVersion();
+    auto _ret = self->fanServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,7 +197,7 @@ bool Attica__Provider_HasForumService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_ForumServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->forumServiceVersion();
+    auto _ret = self->forumServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -213,7 +213,7 @@ bool Attica__Provider_HasKnowledgebaseService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_KnowledgebaseServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->knowledgebaseServiceVersion();
+    auto _ret = self->knowledgebaseServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -229,7 +229,7 @@ bool Attica__Provider_HasCommentService(const Attica__Provider* self) {
 }
 
 libqt_string Attica__Provider_CommentServiceVersion(const Attica__Provider* self) {
-    QString _ret = self->commentServiceVersion();
+    auto _ret = self->commentServiceVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -446,7 +446,7 @@ Attica__PostJob* Attica__Provider_PostTopic(Attica__Provider* self, const libqt_
 }
 
 libqt_string Attica__Provider_GetRegisterAccountUrl(const Attica__Provider* self) {
-    const QString _ret = self->getRegisterAccountUrl();
+    const auto _ret = self->getRegisterAccountUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

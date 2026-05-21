@@ -441,6 +441,8 @@ pub const QWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSurfaceFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: QWindow, callback: *const fn () callconv(.c) QSurfaceFormat) void {
         qtc.QWindow_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -972,6 +974,8 @@ pub const QWindow = extern struct {
     /// ` self: QWindow `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSize(self: QWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWindow_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

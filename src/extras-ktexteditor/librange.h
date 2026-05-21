@@ -41,6 +41,7 @@ void KTextEditor__Range_MoveAssign(KTextEditor__Range* self, KTextEditor__Range*
 bool KTextEditor__Range_IsValid(const KTextEditor__Range* self);
 KTextEditor__Range* KTextEditor__Range_Invalid();
 libqt_string KTextEditor__Range_ToString(const KTextEditor__Range* self);
+KTextEditor__Range* KTextEditor__Range_FromString(libqt_string str);
 KTextEditor__Cursor* KTextEditor__Range_Start(const KTextEditor__Range* self);
 KTextEditor__Cursor* KTextEditor__Range_End(const KTextEditor__Range* self);
 KTextEditor__LineRange* KTextEditor__Range_ToLineRange(const KTextEditor__Range* self);

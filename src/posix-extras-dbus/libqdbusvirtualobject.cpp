@@ -51,7 +51,7 @@ libqt_string QDBusVirtualObject_Introspect(const QDBusVirtualObject* self, const
     QString path_QString = QString::fromUtf8(path.data, path.len);
     auto* vqdbusvirtualobject = dynamic_cast<const VirtualQDBusVirtualObject*>(self);
     if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
-        QString _ret = vqdbusvirtualobject->introspect(path_QString);
+        auto _ret = vqdbusvirtualobject->introspect(path_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -61,7 +61,7 @@ libqt_string QDBusVirtualObject_Introspect(const QDBusVirtualObject* self, const
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDBusVirtualObject*)self)->introspect(path_QString);
+        auto _ret = ((VirtualQDBusVirtualObject*)self)->introspect(path_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -145,7 +145,7 @@ libqt_string QDBusVirtualObject_SuperIntrospect(const QDBusVirtualObject* self, 
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
         vqdbusvirtualobject->setQDBusVirtualObject_Introspect_IsBase(true);
-        QString _ret = vqdbusvirtualobject->introspect(path_QString);
+        auto _ret = vqdbusvirtualobject->introspect(path_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -155,7 +155,7 @@ libqt_string QDBusVirtualObject_SuperIntrospect(const QDBusVirtualObject* self, 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDBusVirtualObject*)self)->introspect(path_QString);
+        auto _ret = ((VirtualQDBusVirtualObject*)self)->introspect(path_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -478,6 +478,8 @@ pub const QSyntaxHighlighter = extern struct {
     ///
     /// ` callback: *const fn (self: QSyntaxHighlighter, pos: i32) callconv(.c) QTextCharFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: QSyntaxHighlighter, callback: *const fn (QSyntaxHighlighter, i32) callconv(.c) QTextCharFormat) void {
         qtc.QSyntaxHighlighter_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -729,6 +731,8 @@ pub const QSyntaxHighlighter = extern struct {
     /// ` self: QSyntaxHighlighter `
     ///
     /// ` callback: *const fn () callconv(.c) QTextBlock `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCurrentBlock(self: QSyntaxHighlighter, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.QSyntaxHighlighter_OnCurrentBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

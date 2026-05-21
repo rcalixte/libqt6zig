@@ -22,7 +22,7 @@ void Attica__AccountBalance_SetCurrency(Attica__AccountBalance* self, const libq
 }
 
 libqt_string Attica__AccountBalance_Currency(const Attica__AccountBalance* self) {
-    QString _ret = self->currency();
+    auto _ret = self->currency();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void Attica__AccountBalance_SetBalance(Attica__AccountBalance* self, const libqt
 }
 
 libqt_string Attica__AccountBalance_Balance(const Attica__AccountBalance* self) {
-    QString _ret = self->balance();
+    auto _ret = self->balance();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -30,7 +30,7 @@ void QGeoAreaMonitorInfo_Swap(QGeoAreaMonitorInfo* self, QGeoAreaMonitorInfo* ot
 }
 
 libqt_string QGeoAreaMonitorInfo_Name(const QGeoAreaMonitorInfo* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -47,7 +47,7 @@ void QGeoAreaMonitorInfo_SetName(QGeoAreaMonitorInfo* self, const libqt_string n
 }
 
 libqt_string QGeoAreaMonitorInfo_Identifier(const QGeoAreaMonitorInfo* self) {
-    QString _ret = self->identifier();
+    auto _ret = self->identifier();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -93,7 +93,7 @@ libqt_map /* of libqt_string to QVariant* */ QGeoAreaMonitorInfo_NotificationPar
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;

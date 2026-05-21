@@ -240,7 +240,7 @@ void KTerminalLauncherJob_OnDoResume(KTerminalLauncherJob* self, intptr_t slot) 
 libqt_string KTerminalLauncherJob_ErrorString(const KTerminalLauncherJob* self) {
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
-        QString _ret = vkterminallauncherjob->errorString();
+        auto _ret = vkterminallauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -250,7 +250,7 @@ libqt_string KTerminalLauncherJob_ErrorString(const KTerminalLauncherJob* self) 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KTerminalLauncherJob::errorString();
+        auto _ret = self->KTerminalLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -267,7 +267,7 @@ libqt_string KTerminalLauncherJob_SuperErrorString(const KTerminalLauncherJob* s
     auto* vkterminallauncherjob = const_cast<VirtualKTerminalLauncherJob*>(dynamic_cast<const VirtualKTerminalLauncherJob*>(self));
     if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
         vkterminallauncherjob->setKTerminalLauncherJob_ErrorString_IsBase(true);
-        QString _ret = vkterminallauncherjob->errorString();
+        auto _ret = vkterminallauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -277,7 +277,7 @@ libqt_string KTerminalLauncherJob_SuperErrorString(const KTerminalLauncherJob* s
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KTerminalLauncherJob::errorString();
+        auto _ret = self->KTerminalLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

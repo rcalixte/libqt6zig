@@ -2173,6 +2173,8 @@ pub const Sonnet__Highlighter = extern struct {
     ///
     /// ` callback: *const fn (self: Sonnet__Highlighter, pos: i32) callconv(.c) QTextCharFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: Sonnet__Highlighter, callback: *const fn (Sonnet__Highlighter, i32) callconv(.c) QTextCharFormat) void {
         qtc.Sonnet__Highlighter_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2470,6 +2472,8 @@ pub const Sonnet__Highlighter = extern struct {
     /// ` self: Sonnet__Highlighter`
     ///
     /// ` callback: *const fn () callconv(.c) QTextBlock `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCurrentBlock(self: Sonnet__Highlighter, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.Sonnet__Highlighter_OnCurrentBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

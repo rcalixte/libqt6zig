@@ -58,7 +58,7 @@ int KNotificationAction_Metacall(KNotificationAction* self, int param1, int para
 }
 
 libqt_string KNotificationAction_Label(const KNotificationAction* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -93,7 +93,7 @@ void KNotificationAction_LabelChanged(KNotificationAction* self, const libqt_str
 void KNotificationAction_Connect_LabelChanged(KNotificationAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationAction*, const char*) = reinterpret_cast<void (*)(KNotificationAction*, const char*)>(slot);
     KNotificationAction::connect(self, &KNotificationAction::labelChanged, [self, slotFunc](const QString& label) {
-        const QString label_ret = label;
+        const auto label_ret = label;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray label_b = label_ret.toUtf8();
         auto label_str_len = label_b.length();
@@ -529,7 +529,7 @@ int KNotification_Metacall(KNotification* self, int param1, int param2, void** p
 }
 
 libqt_string KNotification_EventId(const KNotification* self) {
-    QString _ret = self->eventId();
+    auto _ret = self->eventId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -546,7 +546,7 @@ void KNotification_SetEventId(KNotification* self, const libqt_string eventId) {
 }
 
 libqt_string KNotification_Title(const KNotification* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -563,7 +563,7 @@ void KNotification_SetTitle(KNotification* self, const libqt_string title) {
 }
 
 libqt_string KNotification_Text(const KNotification* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -580,7 +580,7 @@ void KNotification_SetText(KNotification* self, const libqt_string text) {
 }
 
 libqt_string KNotification_IconName(const KNotification* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -639,7 +639,7 @@ void KNotification_SetFlags(KNotification* self, const int* flags) {
 }
 
 libqt_string KNotification_ComponentName(const KNotification* self) {
-    QString _ret = self->componentName();
+    auto _ret = self->componentName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -695,7 +695,7 @@ QWindow* KNotification_Window(const KNotification* self) {
 }
 
 libqt_string KNotification_AppName(const KNotification* self) {
-    QString _ret = self->appName();
+    auto _ret = self->appName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -715,7 +715,7 @@ void KNotification_SetAutoDelete(KNotification* self, bool autoDelete) {
 }
 
 libqt_string KNotification_XdgActivationToken(const KNotification* self) {
-    QString _ret = self->xdgActivationToken();
+    auto _ret = self->xdgActivationToken();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -911,7 +911,7 @@ libqt_map /* of libqt_string to QVariant* */ KNotification_Hints(const KNotifica
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;

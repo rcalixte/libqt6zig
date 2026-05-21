@@ -41,6 +41,8 @@ libqt_string KCodecs_Base64Encode(libqt_string param1);
 void KCodecs_Base64Encode2(libqt_string param1, libqt_string param2, bool param3);
 libqt_string KCodecs_Base64Decode(libqt_string param1);
 void KCodecs_Base64Decode2(libqt_string param1, libqt_string param2);
+libqt_string KCodecs_DecodeRFC2047String(libqt_string param1);
+libqt_string KCodecs_EncodeRFC2047String(libqt_string param1, const libqt_string param2);
 libqt_string KCodecs_Base45Decode(libqt_string param1);
 
 KCodecs__Codec* KCodecs__Codec_CodecForName(libqt_string name);

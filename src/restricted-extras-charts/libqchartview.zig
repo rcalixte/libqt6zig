@@ -7302,6 +7302,8 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QChartView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7353,6 +7355,8 @@ pub const QChartView = extern struct {
     /// ` self: QChartView`
     ///
     /// ` callback: *const fn (self: QChartView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QChartView, callback: *const fn (QChartView, i32) callconv(.c) QVariant) void {
         qtc.QChartView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8616,6 +8620,8 @@ pub const QChartView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QChartView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8723,6 +8729,8 @@ pub const QChartView = extern struct {
     /// ` self: QChartView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QChartView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QChartView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10115,6 +10123,8 @@ pub const QChartView = extern struct {
     /// ` self: QChartView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QChartView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QChartView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

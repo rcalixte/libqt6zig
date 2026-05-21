@@ -243,7 +243,7 @@ void QTermWidget_SetWorkingDirectory(QTermWidget* self, const libqt_string dir) 
 libqt_string QTermWidget_WorkingDirectory(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QString _ret = self->workingDirectory();
+        auto _ret = self->workingDirectory();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -253,7 +253,7 @@ libqt_string QTermWidget_WorkingDirectory(QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTermWidget*)self)->workingDirectory();
+        auto _ret = ((VirtualQTermWidget*)self)->workingDirectory();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -298,7 +298,7 @@ libqt_list /* of libqt_string */ QTermWidget_GetAvailableColorSchemes(QTermWidge
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -317,7 +317,7 @@ libqt_list /* of libqt_string */ QTermWidget_GetAvailableColorSchemes(QTermWidge
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -339,7 +339,7 @@ libqt_list /* of libqt_string */ QTermWidget_AvailableColorSchemes() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -447,7 +447,7 @@ libqt_list /* of libqt_string */ QTermWidget_AvailableKeyBindings() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -466,7 +466,7 @@ libqt_list /* of libqt_string */ QTermWidget_AvailableKeyBindings() {
 libqt_string QTermWidget_KeyBindings(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QString _ret = self->keyBindings();
+        auto _ret = self->keyBindings();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -476,7 +476,7 @@ libqt_string QTermWidget_KeyBindings(QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTermWidget*)self)->keyBindings();
+        auto _ret = ((VirtualQTermWidget*)self)->keyBindings();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -563,7 +563,7 @@ void QTermWidget_GetSelectionEnd(QTermWidget* self, int* row, int* column) {
 libqt_string QTermWidget_SelectedText(QTermWidget* self, bool preserveLineBreaks) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QString _ret = self->selectedText(preserveLineBreaks);
+        auto _ret = self->selectedText(preserveLineBreaks);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -573,7 +573,7 @@ libqt_string QTermWidget_SelectedText(QTermWidget* self, bool preserveLineBreaks
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTermWidget*)self)->selectedText(preserveLineBreaks);
+        auto _ret = ((VirtualQTermWidget*)self)->selectedText(preserveLineBreaks);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -699,7 +699,7 @@ void QTermWidget_SetAutoClose(QTermWidget* self, bool autoClose) {
 libqt_string QTermWidget_Title(const QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QString _ret = self->title();
+        auto _ret = self->title();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -709,7 +709,7 @@ libqt_string QTermWidget_Title(const QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTermWidget*)self)->title();
+        auto _ret = ((VirtualQTermWidget*)self)->title();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -724,7 +724,7 @@ libqt_string QTermWidget_Title(const QTermWidget* self) {
 libqt_string QTermWidget_Icon(const QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QString _ret = self->icon();
+        auto _ret = self->icon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -734,7 +734,7 @@ libqt_string QTermWidget_Icon(const QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTermWidget*)self)->icon();
+        auto _ret = ((VirtualQTermWidget*)self)->icon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -840,7 +840,7 @@ void QTermWidget_SetTrimPastedTrailingNewlines(QTermWidget* self, bool trimPaste
 libqt_string QTermWidget_WordCharacters(const QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QString _ret = self->wordCharacters();
+        auto _ret = self->wordCharacters();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -850,7 +850,7 @@ libqt_string QTermWidget_WordCharacters(const QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTermWidget*)self)->wordCharacters();
+        auto _ret = ((VirtualQTermWidget*)self)->wordCharacters();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -961,7 +961,7 @@ void QTermWidget_Bell(QTermWidget* self, const libqt_string message) {
 void QTermWidget_Connect_Bell(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*) = reinterpret_cast<void (*)(QTermWidget*, const char*)>(slot);
     QTermWidget::connect(self, &QTermWidget::bell, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -1017,7 +1017,7 @@ void QTermWidget_ProfileChanged(QTermWidget* self, const libqt_string profile) {
 void QTermWidget_Connect_ProfileChanged(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*) = reinterpret_cast<void (*)(QTermWidget*, const char*)>(slot);
     QTermWidget::connect(self, &QTermWidget::profileChanged, [self, slotFunc](const QString& profile) {
-        const QString profile_ret = profile;
+        const auto profile_ret = profile;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray profile_b = profile_ret.toUtf8();
         auto profile_str_len = profile_b.length();
@@ -1049,7 +1049,7 @@ void QTermWidget_ReceivedData(QTermWidget* self, const libqt_string text) {
 void QTermWidget_Connect_ReceivedData(QTermWidget* self, intptr_t slot) {
     void (*slotFunc)(QTermWidget*, const char*) = reinterpret_cast<void (*)(QTermWidget*, const char*)>(slot);
     QTermWidget::connect(self, &QTermWidget::receivedData, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -1487,7 +1487,7 @@ libqt_string QTermWidget_SuperWorkingDirectory(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_WorkingDirectory_IsBase(true);
-        QString _ret = vqtermwidget->workingDirectory();
+        auto _ret = vqtermwidget->workingDirectory();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1497,7 +1497,7 @@ libqt_string QTermWidget_SuperWorkingDirectory(QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTermWidget::workingDirectory();
+        auto _ret = self->QTermWidget::workingDirectory();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1572,7 +1572,7 @@ libqt_list /* of libqt_string */ QTermWidget_SuperGetAvailableColorSchemes(QTerm
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1591,7 +1591,7 @@ libqt_list /* of libqt_string */ QTermWidget_SuperGetAvailableColorSchemes(QTerm
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1793,7 +1793,7 @@ libqt_string QTermWidget_SuperKeyBindings(QTermWidget* self) {
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_KeyBindings_IsBase(true);
-        QString _ret = vqtermwidget->keyBindings();
+        auto _ret = vqtermwidget->keyBindings();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1803,7 +1803,7 @@ libqt_string QTermWidget_SuperKeyBindings(QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTermWidget::keyBindings();
+        auto _ret = self->QTermWidget::keyBindings();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1980,7 +1980,7 @@ libqt_string QTermWidget_SuperSelectedText(QTermWidget* self, bool preserveLineB
     auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_SelectedText_IsBase(true);
-        QString _ret = vqtermwidget->selectedText(preserveLineBreaks);
+        auto _ret = vqtermwidget->selectedText(preserveLineBreaks);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1990,7 +1990,7 @@ libqt_string QTermWidget_SuperSelectedText(QTermWidget* self, bool preserveLineB
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTermWidget::selectedText(preserveLineBreaks);
+        auto _ret = self->QTermWidget::selectedText(preserveLineBreaks);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2204,7 +2204,7 @@ libqt_string QTermWidget_SuperTitle(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Title_IsBase(true);
-        QString _ret = vqtermwidget->title();
+        auto _ret = vqtermwidget->title();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2214,7 +2214,7 @@ libqt_string QTermWidget_SuperTitle(const QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTermWidget::title();
+        auto _ret = self->QTermWidget::title();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2239,7 +2239,7 @@ libqt_string QTermWidget_SuperIcon(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_Icon_IsBase(true);
-        QString _ret = vqtermwidget->icon();
+        auto _ret = vqtermwidget->icon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2249,7 +2249,7 @@ libqt_string QTermWidget_SuperIcon(const QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTermWidget::icon();
+        auto _ret = self->QTermWidget::icon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2465,7 +2465,7 @@ libqt_string QTermWidget_SuperWordCharacters(const QTermWidget* self) {
     auto* vqtermwidget = const_cast<VirtualQTermWidget*>(dynamic_cast<const VirtualQTermWidget*>(self));
     if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
         vqtermwidget->setQTermWidget_WordCharacters_IsBase(true);
-        QString _ret = vqtermwidget->wordCharacters();
+        auto _ret = vqtermwidget->wordCharacters();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2475,7 +2475,7 @@ libqt_string QTermWidget_SuperWordCharacters(const QTermWidget* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTermWidget::wordCharacters();
+        auto _ret = self->QTermWidget::wordCharacters();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

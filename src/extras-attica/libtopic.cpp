@@ -23,7 +23,7 @@ void Attica__Topic_SetId(Attica__Topic* self, const libqt_string id) {
 }
 
 libqt_string Attica__Topic_Id(const Attica__Topic* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ void Attica__Topic_SetForumId(Attica__Topic* self, const libqt_string forumId) {
 }
 
 libqt_string Attica__Topic_ForumId(const Attica__Topic* self) {
-    QString _ret = self->forumId();
+    auto _ret = self->forumId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ void Attica__Topic_SetUser(Attica__Topic* self, const libqt_string user) {
 }
 
 libqt_string Attica__Topic_User(const Attica__Topic* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ void Attica__Topic_SetSubject(Attica__Topic* self, const libqt_string subject) {
 }
 
 libqt_string Attica__Topic_Subject(const Attica__Topic* self) {
-    QString _ret = self->subject();
+    auto _ret = self->subject();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -99,7 +99,7 @@ void Attica__Topic_SetContent(Attica__Topic* self, const libqt_string content) {
 }
 
 libqt_string Attica__Topic_Content(const Attica__Topic* self) {
-    QString _ret = self->content();
+    auto _ret = self->content();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -59,7 +59,7 @@ int QPlaceReply_Type(const QPlaceReply* self) {
 }
 
 libqt_string QPlaceReply_ErrorString(const QPlaceReply* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ void QPlaceReply_Connect_ErrorOccurred2(QPlaceReply* self, intptr_t slot) {
     void (*slotFunc)(QPlaceReply*, int, const char*) = reinterpret_cast<void (*)(QPlaceReply*, int, const char*)>(slot);
     QPlaceReply::connect(self, &QPlaceReply::errorOccurred, [self, slotFunc](QPlaceReply::Error errorVal, const QString& errorString) {
         int sigval1 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();

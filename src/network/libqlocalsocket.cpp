@@ -66,7 +66,7 @@ void QLocalSocket_SetServerName(QLocalSocket* self, const libqt_string name) {
 }
 
 libqt_string QLocalSocket_ServerName(const QLocalSocket* self) {
-    QString _ret = self->serverName();
+    auto _ret = self->serverName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -78,7 +78,7 @@ libqt_string QLocalSocket_ServerName(const QLocalSocket* self) {
 }
 
 libqt_string QLocalSocket_FullServerName(const QLocalSocket* self) {
-    QString _ret = self->fullServerName();
+    auto _ret = self->fullServerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

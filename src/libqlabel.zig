@@ -550,6 +550,8 @@ pub const QLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLabel_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -589,6 +591,8 @@ pub const QLabel = extern struct {
     /// ` self: QLabel `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLabel_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7979,6 +7983,8 @@ pub const QLabel = extern struct {
     /// ` self: QLabel`
     ///
     /// ` callback: *const fn (self: QLabel, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QLabel, callback: *const fn (QLabel, i32) callconv(.c) QVariant) void {
         qtc.QLabel_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

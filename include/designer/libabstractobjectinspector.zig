@@ -5365,6 +5365,8 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerObjectInspectorInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5412,6 +5414,8 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     /// ` self: QDesignerObjectInspectorInterface`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QDesignerObjectInspectorInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerObjectInspectorInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7346,6 +7350,8 @@ pub const QDesignerObjectInspectorInterface = extern struct {
     /// ` self: QDesignerObjectInspectorInterface`
     ///
     /// ` callback: *const fn (self: QDesignerObjectInspectorInterface, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QDesignerObjectInspectorInterface, callback: *const fn (QDesignerObjectInspectorInterface, i32) callconv(.c) QVariant) void {
         qtc.QDesignerObjectInspectorInterface_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

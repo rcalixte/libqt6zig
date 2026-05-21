@@ -10,7 +10,7 @@ void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, const
 }
 
 libqt_string QWebEngineSettings_FontFamily(const QWebEngineSettings* self, int which) {
-    QString _ret = self->fontFamily(static_cast<QWebEngineSettings::FontFamily>(which));
+    auto _ret = self->fontFamily(static_cast<QWebEngineSettings::FontFamily>(which));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,7 +55,7 @@ void QWebEngineSettings_SetDefaultTextEncoding(QWebEngineSettings* self, const l
 }
 
 libqt_string QWebEngineSettings_DefaultTextEncoding(const QWebEngineSettings* self) {
-    QString _ret = self->defaultTextEncoding();
+    auto _ret = self->defaultTextEncoding();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

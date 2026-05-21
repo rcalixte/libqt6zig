@@ -50,7 +50,7 @@ int KTextEditor__View_ViewMode(const KTextEditor__View* self) {
 }
 
 libqt_string KTextEditor__View_ViewModeHuman(const KTextEditor__View* self) {
-    QString _ret = self->viewModeHuman();
+    auto _ret = self->viewModeHuman();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ int KTextEditor__View_ViewInputMode(const KTextEditor__View* self) {
 }
 
 libqt_string KTextEditor__View_ViewInputModeHuman(const KTextEditor__View* self) {
-    QString _ret = self->viewInputModeHuman();
+    auto _ret = self->viewInputModeHuman();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +145,7 @@ void KTextEditor__View_Connect_TextInserted(KTextEditor__View* self, intptr_t sl
     KTextEditor::View::connect(self, &KTextEditor::View::textInserted, [self, slotFunc](KTextEditor::View* view, KTextEditor::Cursor position, const QString& text) {
         KTextEditor__View* sigval1 = view;
         KTextEditor__Cursor* sigval2 = new KTextEditor::Cursor(position);
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -325,7 +325,7 @@ libqt_list /* of KTextEditor__Range* */ KTextEditor__View_SelectionRanges(const 
 }
 
 libqt_string KTextEditor__View_SelectionText(const KTextEditor__View* self) {
-    QString _ret = self->selectionText();
+    auto _ret = self->selectionText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -499,7 +499,7 @@ libqt_list /* of libqt_string */ KTextEditor__View_ConfigKeys(const KTextEditor_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

@@ -22,7 +22,7 @@ void Attica__Category_SetId(Attica__Category* self, const libqt_string id) {
 }
 
 libqt_string Attica__Category_Id(const Attica__Category* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void Attica__Category_SetName(Attica__Category* self, const libqt_string name) {
 }
 
 libqt_string Attica__Category_Name(const Attica__Category* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ void Attica__Category_SetDisplayName(Attica__Category* self, const libqt_string 
 }
 
 libqt_string Attica__Category_DisplayName(const Attica__Category* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

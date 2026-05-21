@@ -261,6 +261,8 @@ pub const QImageIOHandler = extern struct {
     ///
     /// ` callback: *const fn (self: QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOption(self: QImageIOHandler, callback: *const fn (QImageIOHandler, i32) callconv(.c) QVariant) void {
         qtc.QImageIOHandler_OnOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -640,6 +642,8 @@ pub const QImageIOHandler = extern struct {
     /// ` self: QImageIOHandler `
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCurrentImageRect(self: QImageIOHandler, callback: *const fn () callconv(.c) QRect) void {
         qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

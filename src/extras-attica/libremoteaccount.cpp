@@ -22,7 +22,7 @@ void Attica__RemoteAccount_SetId(Attica__RemoteAccount* self, const libqt_string
 }
 
 libqt_string Attica__RemoteAccount_Id(const Attica__RemoteAccount* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ void Attica__RemoteAccount_SetType(Attica__RemoteAccount* self, const libqt_stri
 }
 
 libqt_string Attica__RemoteAccount_Type(const Attica__RemoteAccount* self) {
-    QString _ret = self->type();
+    auto _ret = self->type();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56,7 +56,7 @@ void Attica__RemoteAccount_SetRemoteServiceId(Attica__RemoteAccount* self, const
 }
 
 libqt_string Attica__RemoteAccount_RemoteServiceId(const Attica__RemoteAccount* self) {
-    QString _ret = self->remoteServiceId();
+    auto _ret = self->remoteServiceId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -73,7 +73,7 @@ void Attica__RemoteAccount_SetData(Attica__RemoteAccount* self, const libqt_stri
 }
 
 libqt_string Attica__RemoteAccount_Data(const Attica__RemoteAccount* self) {
-    QString _ret = self->data();
+    auto _ret = self->data();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ void Attica__RemoteAccount_SetLogin(Attica__RemoteAccount* self, const libqt_str
 }
 
 libqt_string Attica__RemoteAccount_Login(const Attica__RemoteAccount* self) {
-    QString _ret = self->login();
+    auto _ret = self->login();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ void Attica__RemoteAccount_SetPassword(Attica__RemoteAccount* self, const libqt_
 }
 
 libqt_string Attica__RemoteAccount_Password(const Attica__RemoteAccount* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

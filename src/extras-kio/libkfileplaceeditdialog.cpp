@@ -101,7 +101,7 @@ QUrl* KFilePlaceEditDialog_Url(const KFilePlaceEditDialog* self) {
 }
 
 libqt_string KFilePlaceEditDialog_Label(const KFilePlaceEditDialog* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ libqt_string KFilePlaceEditDialog_Label(const KFilePlaceEditDialog* self) {
 }
 
 libqt_string KFilePlaceEditDialog_Icon(const KFilePlaceEditDialog* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

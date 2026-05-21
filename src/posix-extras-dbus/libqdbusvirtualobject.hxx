@@ -161,7 +161,7 @@ class VirtualQDBusVirtualObject : public QDBusVirtualObject {
     virtual QString introspect(const QString& path) const override {
         auto introspect_cb = qdbusvirtualobject_introspect_callback;
         if (introspect_cb) {
-            const QString path_ret = path;
+            const auto path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
             auto path_str_len = path_b.length();

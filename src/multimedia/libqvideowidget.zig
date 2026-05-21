@@ -284,6 +284,8 @@ pub const QVideoWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QVideoWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QVideoWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5637,6 +5639,8 @@ pub const QVideoWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QVideoWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QVideoWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7300,6 +7304,8 @@ pub const QVideoWidget = extern struct {
     /// ` self: QVideoWidget`
     ///
     /// ` callback: *const fn (self: QVideoWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QVideoWidget, callback: *const fn (QVideoWidget, i32) callconv(.c) QVariant) void {
         qtc.QVideoWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

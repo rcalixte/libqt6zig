@@ -345,6 +345,8 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, r: qstyle_enums.SubElement, opt: QStyleOption, widget: QWidget) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSubElementRect(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnSubElementRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -535,6 +537,8 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QStyleOptionComplex, sc: qstyle_enums.SubControl, w: QWidget) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSubControlRect(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOptionComplex, i32, QWidget) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnSubControlRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -595,6 +599,8 @@ pub const QCommonStyle = extern struct {
     /// ` self: QCommonStyle `
     ///
     /// ` callback: *const fn (self: QCommonStyle, ct: qstyle_enums.ContentsType, opt: QStyleOption, contentsSize: QSize, widget: QWidget) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeFromContents(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QSize, QWidget) callconv(.c) QSize) void {
         qtc.QCommonStyle_OnSizeFromContents(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -773,6 +779,8 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, standardIcon: qstyle_enums.StandardPixmap, opt: QStyleOption, widget: QWidget) callconv(.c) QIcon `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnStandardIcon(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QIcon) void {
         qtc.QCommonStyle_OnStandardIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -829,6 +837,8 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, sp: qstyle_enums.StandardPixmap, opt: QStyleOption, widget: QWidget) callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnStandardPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QStyleOption, QWidget) callconv(.c) QPixmap) void {
         qtc.QCommonStyle_OnStandardPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -884,6 +894,8 @@ pub const QCommonStyle = extern struct {
     /// ` self: QCommonStyle `
     ///
     /// ` callback: *const fn (self: QCommonStyle, iconMode: qicon_enums.Mode, pixmap: QPixmap, opt: QStyleOption) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGeneratedIconPixmap(self: QCommonStyle, callback: *const fn (QCommonStyle, i32, QPixmap, QStyleOption) callconv(.c) QPixmap) void {
         qtc.QCommonStyle_OnGeneratedIconPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2337,6 +2349,8 @@ pub const QCommonStyle = extern struct {
     ///
     /// ` callback: *const fn (self: QCommonStyle, fm: QFontMetrics, r: QRect, flags: i32, enabled: bool, text: [*:0]const u8) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemTextRect(self: QCommonStyle, callback: *const fn (QCommonStyle, QFontMetrics, QRect, i32, bool, [*:0]const u8) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnItemTextRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2400,6 +2414,8 @@ pub const QCommonStyle = extern struct {
     /// ` self: QCommonStyle`
     ///
     /// ` callback: *const fn (self: QCommonStyle, r: QRect, flags: i32, pixmap: QPixmap) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnItemPixmapRect(self: QCommonStyle, callback: *const fn (QCommonStyle, QRect, i32, QPixmap) callconv(.c) QRect) void {
         qtc.QCommonStyle_OnItemPixmapRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2608,6 +2624,8 @@ pub const QCommonStyle = extern struct {
     /// ` self: QCommonStyle`
     ///
     /// ` callback: *const fn () callconv(.c) QPalette `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnStandardPalette(self: QCommonStyle, callback: *const fn () callconv(.c) QPalette) void {
         qtc.QCommonStyle_OnStandardPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

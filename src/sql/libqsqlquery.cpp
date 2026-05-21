@@ -66,7 +66,7 @@ int QSqlQuery_At(const QSqlQuery* self) {
 }
 
 libqt_string QSqlQuery_LastQuery(const QSqlQuery* self) {
-    QString _ret = self->lastQuery();
+    auto _ret = self->lastQuery();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -219,7 +219,7 @@ libqt_list /* of libqt_string */ QSqlQuery_BoundValueNames(const QSqlQuery* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -236,7 +236,7 @@ libqt_list /* of libqt_string */ QSqlQuery_BoundValueNames(const QSqlQuery* self
 }
 
 libqt_string QSqlQuery_BoundValueName(const QSqlQuery* self, int pos) {
-    QString _ret = self->boundValueName(static_cast<int>(pos));
+    auto _ret = self->boundValueName(static_cast<int>(pos));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -248,7 +248,7 @@ libqt_string QSqlQuery_BoundValueName(const QSqlQuery* self, int pos) {
 }
 
 libqt_string QSqlQuery_ExecutedQuery(const QSqlQuery* self) {
-    QString _ret = self->executedQuery();
+    auto _ret = self->executedQuery();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

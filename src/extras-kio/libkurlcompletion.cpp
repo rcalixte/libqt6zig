@@ -53,7 +53,7 @@ libqt_string KUrlCompletion_MakeCompletion(KUrlCompletion* self, const libqt_str
     QString text_QString = QString::fromUtf8(text.data, text.len);
     auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        QString _ret = self->makeCompletion(text_QString);
+        auto _ret = self->makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -63,7 +63,7 @@ libqt_string KUrlCompletion_MakeCompletion(KUrlCompletion* self, const libqt_str
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKUrlCompletion*)self)->makeCompletion(text_QString);
+        auto _ret = ((VirtualKUrlCompletion*)self)->makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -167,7 +167,7 @@ void KUrlCompletion_SetReplaceHome(KUrlCompletion* self, bool replace) {
 
 libqt_string KUrlCompletion_ReplacedPath(const KUrlCompletion* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->replacedPath(text_QString);
+    auto _ret = self->replacedPath(text_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_string KUrlCompletion_ReplacedPath(const KUrlCompletion* self, const libqt
 
 libqt_string KUrlCompletion_ReplacedPath2(const libqt_string text, bool replaceHome) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = KUrlCompletion::replacedPath(text_QString, replaceHome);
+    auto _ret = KUrlCompletion::replacedPath(text_QString, replaceHome);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -207,7 +207,7 @@ libqt_list /* of libqt_string */ KUrlCompletion_MimeTypeFilters(const KUrlComple
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -246,7 +246,7 @@ void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionM
 
 libqt_string KUrlCompletion_ReplacedPath3(const libqt_string text, bool replaceHome, bool replaceEnv) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = KUrlCompletion::replacedPath(text_QString, replaceHome, replaceEnv);
+    auto _ret = KUrlCompletion::replacedPath(text_QString, replaceHome, replaceEnv);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -320,7 +320,7 @@ libqt_string KUrlCompletion_SuperMakeCompletion(KUrlCompletion* self, const libq
     QString text_QString = QString::fromUtf8(text.data, text.len);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_MakeCompletion_IsBase(true);
-        QString _ret = vkurlcompletion->makeCompletion(text_QString);
+        auto _ret = vkurlcompletion->makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -330,7 +330,7 @@ libqt_string KUrlCompletion_SuperMakeCompletion(KUrlCompletion* self, const libq
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KUrlCompletion::makeCompletion(text_QString);
+        auto _ret = self->KUrlCompletion::makeCompletion(text_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -589,7 +589,7 @@ void KUrlCompletion_OnPostProcessMatches2(const KUrlCompletion* self, intptr_t s
 libqt_string KUrlCompletion_LastMatch(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        const QString _ret = vkurlcompletion->lastMatch();
+        const auto _ret = vkurlcompletion->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -599,7 +599,7 @@ libqt_string KUrlCompletion_LastMatch(const KUrlCompletion* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString _ret = self->KUrlCompletion::lastMatch();
+        const auto _ret = self->KUrlCompletion::lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -616,7 +616,7 @@ libqt_string KUrlCompletion_SuperLastMatch(const KUrlCompletion* self) {
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_LastMatch_IsBase(true);
-        const QString _ret = vkurlcompletion->lastMatch();
+        const auto _ret = vkurlcompletion->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -626,7 +626,7 @@ libqt_string KUrlCompletion_SuperLastMatch(const KUrlCompletion* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString _ret = self->KUrlCompletion::lastMatch();
+        const auto _ret = self->KUrlCompletion::lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

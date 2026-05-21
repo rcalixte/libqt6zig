@@ -171,7 +171,7 @@ bool QGraphicsItem_IsBlockedByModalPanel(const QGraphicsItem* self) {
 }
 
 libqt_string QGraphicsItem_ToolTip(const QGraphicsItem* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -11628,7 +11628,7 @@ int QGraphicsTextItem_Metacall(QGraphicsTextItem* self, int param1, int param2, 
 }
 
 libqt_string QGraphicsTextItem_ToHtml(const QGraphicsTextItem* self) {
-    QString _ret = self->toHtml();
+    auto _ret = self->toHtml();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -11645,7 +11645,7 @@ void QGraphicsTextItem_SetHtml(QGraphicsTextItem* self, const libqt_string html)
 }
 
 libqt_string QGraphicsTextItem_ToPlainText(const QGraphicsTextItem* self) {
-    QString _ret = self->toPlainText();
+    auto _ret = self->toPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -11800,7 +11800,7 @@ void QGraphicsTextItem_LinkActivated(QGraphicsTextItem* self, const libqt_string
 void QGraphicsTextItem_Connect_LinkActivated(QGraphicsTextItem* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsTextItem*, const char*) = reinterpret_cast<void (*)(QGraphicsTextItem*, const char*)>(slot);
     QGraphicsTextItem::connect(self, &QGraphicsTextItem::linkActivated, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -11821,7 +11821,7 @@ void QGraphicsTextItem_LinkHovered(QGraphicsTextItem* self, const libqt_string p
 void QGraphicsTextItem_Connect_LinkHovered(QGraphicsTextItem* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsTextItem*, const char*) = reinterpret_cast<void (*)(QGraphicsTextItem*, const char*)>(slot);
     QGraphicsTextItem::connect(self, &QGraphicsTextItem::linkHovered, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -13233,7 +13233,7 @@ void QGraphicsSimpleTextItem_SetText(QGraphicsSimpleTextItem* self, const libqt_
 }
 
 libqt_string QGraphicsSimpleTextItem_Text(const QGraphicsSimpleTextItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

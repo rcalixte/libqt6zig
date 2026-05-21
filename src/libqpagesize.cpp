@@ -65,7 +65,7 @@ bool QPageSize_IsValid(const QPageSize* self) {
 }
 
 libqt_string QPageSize_Key(const QPageSize* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -77,7 +77,7 @@ libqt_string QPageSize_Key(const QPageSize* self) {
 }
 
 libqt_string QPageSize_Name(const QPageSize* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -129,7 +129,7 @@ QRect* QPageSize_RectPixels(const QPageSize* self, int resolution) {
 }
 
 libqt_string QPageSize_Key2(int pageSizeId) {
-    QString _ret = QPageSize::key(static_cast<QPageSize::PageSizeId>(pageSizeId));
+    auto _ret = QPageSize::key(static_cast<QPageSize::PageSizeId>(pageSizeId));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -141,7 +141,7 @@ libqt_string QPageSize_Key2(int pageSizeId) {
 }
 
 libqt_string QPageSize_Name2(int pageSizeId) {
-    QString _ret = QPageSize::name(static_cast<QPageSize::PageSizeId>(pageSizeId));
+    auto _ret = QPageSize::name(static_cast<QPageSize::PageSizeId>(pageSizeId));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

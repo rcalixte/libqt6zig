@@ -39,7 +39,7 @@ void QSqlIndex_SetCursorName(QSqlIndex* self, const libqt_string cursorName) {
 }
 
 libqt_string QSqlIndex_CursorName(const QSqlIndex* self) {
-    QString _ret = self->cursorName();
+    auto _ret = self->cursorName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56,7 +56,7 @@ void QSqlIndex_SetName(QSqlIndex* self, const libqt_string name) {
 }
 
 libqt_string QSqlIndex_Name(const QSqlIndex* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

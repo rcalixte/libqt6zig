@@ -74,7 +74,7 @@ QSize* QIcon_ActualSize2(const QIcon* self, QWindow* window, const QSize* size) 
 }
 
 libqt_string QIcon_Name(const QIcon* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -171,7 +171,7 @@ libqt_list /* of libqt_string */ QIcon_ThemeSearchPaths() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -203,7 +203,7 @@ libqt_list /* of libqt_string */ QIcon_FallbackSearchPaths() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -231,7 +231,7 @@ void QIcon_SetFallbackSearchPaths(const libqt_list /* of libqt_string */ paths) 
 }
 
 libqt_string QIcon_ThemeName() {
-    QString _ret = QIcon::themeName();
+    auto _ret = QIcon::themeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -248,7 +248,7 @@ void QIcon_SetThemeName(const libqt_string path) {
 }
 
 libqt_string QIcon_FallbackThemeName() {
-    QString _ret = QIcon::fallbackThemeName();
+    auto _ret = QIcon::fallbackThemeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

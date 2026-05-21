@@ -136,7 +136,7 @@ QSize* QProgressDialog_SizeHint(const QProgressDialog* self) {
 }
 
 libqt_string QProgressDialog_LabelText(const QProgressDialog* self) {
-    QString _ret = self->labelText();
+    auto _ret = self->labelText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

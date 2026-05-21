@@ -34,7 +34,7 @@ QImage* QWebEngineNotification_Icon(const QWebEngineNotification* self) {
 }
 
 libqt_string QWebEngineNotification_Title(const QWebEngineNotification* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,7 +46,7 @@ libqt_string QWebEngineNotification_Title(const QWebEngineNotification* self) {
 }
 
 libqt_string QWebEngineNotification_Message(const QWebEngineNotification* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ libqt_string QWebEngineNotification_Message(const QWebEngineNotification* self) 
 }
 
 libqt_string QWebEngineNotification_Tag(const QWebEngineNotification* self) {
-    QString _ret = self->tag();
+    auto _ret = self->tag();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ libqt_string QWebEngineNotification_Tag(const QWebEngineNotification* self) {
 }
 
 libqt_string QWebEngineNotification_Language(const QWebEngineNotification* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

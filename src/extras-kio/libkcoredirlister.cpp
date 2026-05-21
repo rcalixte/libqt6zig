@@ -154,7 +154,7 @@ void KCoreDirLister_SetNameFilter(KCoreDirLister* self, const libqt_string filte
 }
 
 libqt_string KCoreDirLister_NameFilter(const KCoreDirLister* self) {
-    QString _ret = self->nameFilter();
+    auto _ret = self->nameFilter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -196,7 +196,7 @@ libqt_list /* of libqt_string */ KCoreDirLister_MimeFilters(const KCoreDirLister
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -405,7 +405,7 @@ void KCoreDirLister_InfoMessage(KCoreDirLister* self, const libqt_string msg) {
 void KCoreDirLister_Connect_InfoMessage(KCoreDirLister* self, intptr_t slot) {
     void (*slotFunc)(KCoreDirLister*, const char*) = reinterpret_cast<void (*)(KCoreDirLister*, const char*)>(slot);
     KCoreDirLister::connect(self, &KCoreDirLister::infoMessage, [self, slotFunc](const QString& msg) {
-        const QString msg_ret = msg;
+        const auto msg_ret = msg;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray msg_b = msg_ret.toUtf8();
         auto msg_str_len = msg_b.length();

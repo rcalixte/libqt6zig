@@ -101,7 +101,7 @@ QIPv6Address* QHostAddress_ToIPv6Address(const QHostAddress* self) {
 }
 
 libqt_string QHostAddress_ToString(const QHostAddress* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ libqt_string QHostAddress_ToString(const QHostAddress* self) {
 }
 
 libqt_string QHostAddress_ScopeId(const QHostAddress* self) {
-    QString _ret = self->scopeId();
+    auto _ret = self->scopeId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -82,7 +82,7 @@ void QDateTimeAxis_SetFormat(QDateTimeAxis* self, libqt_string format) {
 }
 
 libqt_string QDateTimeAxis_Format(const QDateTimeAxis* self) {
-    QString _ret = self->format();
+    auto _ret = self->format();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -146,7 +146,7 @@ void QDateTimeAxis_FormatChanged(QDateTimeAxis* self, libqt_string format) {
 void QDateTimeAxis_Connect_FormatChanged(QDateTimeAxis* self, intptr_t slot) {
     void (*slotFunc)(QDateTimeAxis*, const char*) = reinterpret_cast<void (*)(QDateTimeAxis*, const char*)>(slot);
     QDateTimeAxis::connect(self, &QDateTimeAxis::formatChanged, [self, slotFunc](QString format) {
-        QString format_ret = format;
+        auto format_ret = format;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray format_b = format_ret.toUtf8();
         auto format_str_len = format_b.length();

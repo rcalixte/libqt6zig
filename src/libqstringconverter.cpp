@@ -31,6 +31,11 @@ ptrdiff_t QStringEncoder_RequiredSpace(const QStringEncoder* self, ptrdiff_t inp
     return static_cast<ptrdiff_t>(self->requiredSpace((qsizetype)(inputLength)));
 }
 
+char* QStringEncoder_AppendToBuffer(QStringEncoder* self, char* out, libqt_string in) {
+    QString in_QString = QString::fromUtf8(in.data, in.len);
+    return self->appendToBuffer(out, in_QString);
+}
+
 void QStringEncoder_Delete(QStringEncoder* self) {
     delete self;
 }

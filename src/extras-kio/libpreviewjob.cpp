@@ -102,7 +102,7 @@ libqt_list /* of libqt_string */ KIO__PreviewJob_AvailablePlugins() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -136,7 +136,7 @@ libqt_list /* of libqt_string */ KIO__PreviewJob_DefaultPlugins() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -157,7 +157,7 @@ libqt_list /* of libqt_string */ KIO__PreviewJob_SupportedMimeTypes() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -415,7 +415,7 @@ void KIO__PreviewJob_OnDoResume(KIO__PreviewJob* self, intptr_t slot) {
 libqt_string KIO__PreviewJob_ErrorString(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
-        QString _ret = vkiopreviewjob->errorString();
+        auto _ret = vkiopreviewjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -425,7 +425,7 @@ libqt_string KIO__PreviewJob_ErrorString(const KIO__PreviewJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::PreviewJob::errorString();
+        auto _ret = self->KIO::PreviewJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -442,7 +442,7 @@ libqt_string KIO__PreviewJob_SuperErrorString(const KIO__PreviewJob* self) {
     auto* vkiopreviewjob = const_cast<VirtualKIOPreviewJob*>(dynamic_cast<const VirtualKIOPreviewJob*>(self));
     if (vkiopreviewjob && vkiopreviewjob->isVirtualKIOPreviewJob) {
         vkiopreviewjob->setKIO__PreviewJob_ErrorString_IsBase(true);
-        QString _ret = vkiopreviewjob->errorString();
+        auto _ret = vkiopreviewjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -452,7 +452,7 @@ libqt_string KIO__PreviewJob_SuperErrorString(const KIO__PreviewJob* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::PreviewJob::errorString();
+        auto _ret = self->KIO::PreviewJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

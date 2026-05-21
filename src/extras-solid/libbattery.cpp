@@ -93,7 +93,7 @@ double Solid__Battery_Temperature(const Solid__Battery* self) {
 }
 
 libqt_string Solid__Battery_Serial(const Solid__Battery* self) {
-    QString _ret = self->serial();
+    auto _ret = self->serial();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -117,7 +117,7 @@ void Solid__Battery_Connect_PresentStateChanged(Solid__Battery* self, intptr_t s
     void (*slotFunc)(Solid__Battery*, bool, const char*) = reinterpret_cast<void (*)(Solid__Battery*, bool, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::presentStateChanged, [self, slotFunc](bool newState, const QString& udi) {
         bool sigval1 = newState;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -139,7 +139,7 @@ void Solid__Battery_Connect_ChargePercentChanged(Solid__Battery* self, intptr_t 
     void (*slotFunc)(Solid__Battery*, int, const char*) = reinterpret_cast<void (*)(Solid__Battery*, int, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::chargePercentChanged, [self, slotFunc](int value, const QString& udi) {
         int sigval1 = value;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -161,7 +161,7 @@ void Solid__Battery_Connect_CapacityChanged(Solid__Battery* self, intptr_t slot)
     void (*slotFunc)(Solid__Battery*, int, const char*) = reinterpret_cast<void (*)(Solid__Battery*, int, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::capacityChanged, [self, slotFunc](int value, const QString& udi) {
         int sigval1 = value;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -183,7 +183,7 @@ void Solid__Battery_Connect_CycleCountChanged(Solid__Battery* self, intptr_t slo
     void (*slotFunc)(Solid__Battery*, int, const char*) = reinterpret_cast<void (*)(Solid__Battery*, int, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::cycleCountChanged, [self, slotFunc](int value, const QString& udi) {
         int sigval1 = value;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -205,7 +205,7 @@ void Solid__Battery_Connect_PowerSupplyStateChanged(Solid__Battery* self, intptr
     void (*slotFunc)(Solid__Battery*, bool, const char*) = reinterpret_cast<void (*)(Solid__Battery*, bool, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::powerSupplyStateChanged, [self, slotFunc](bool newState, const QString& udi) {
         bool sigval1 = newState;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -239,7 +239,7 @@ void Solid__Battery_Connect_TimeToEmptyChanged(Solid__Battery* self, intptr_t sl
     void (*slotFunc)(Solid__Battery*, long long, const char*) = reinterpret_cast<void (*)(Solid__Battery*, long long, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::timeToEmptyChanged, [self, slotFunc](qlonglong time, const QString& udi) {
         long long sigval1 = static_cast<long long>(time);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -261,7 +261,7 @@ void Solid__Battery_Connect_TimeToFullChanged(Solid__Battery* self, intptr_t slo
     void (*slotFunc)(Solid__Battery*, long long, const char*) = reinterpret_cast<void (*)(Solid__Battery*, long long, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::timeToFullChanged, [self, slotFunc](qlonglong time, const QString& udi) {
         long long sigval1 = static_cast<long long>(time);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -283,7 +283,7 @@ void Solid__Battery_Connect_EnergyChanged(Solid__Battery* self, intptr_t slot) {
     void (*slotFunc)(Solid__Battery*, double, const char*) = reinterpret_cast<void (*)(Solid__Battery*, double, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::energyChanged, [self, slotFunc](double energy, const QString& udi) {
         double sigval1 = energy;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -305,7 +305,7 @@ void Solid__Battery_Connect_EnergyFullChanged(Solid__Battery* self, intptr_t slo
     void (*slotFunc)(Solid__Battery*, double, const char*) = reinterpret_cast<void (*)(Solid__Battery*, double, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::energyFullChanged, [self, slotFunc](double energy, const QString& udi) {
         double sigval1 = energy;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -327,7 +327,7 @@ void Solid__Battery_Connect_EnergyFullDesignChanged(Solid__Battery* self, intptr
     void (*slotFunc)(Solid__Battery*, double, const char*) = reinterpret_cast<void (*)(Solid__Battery*, double, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::energyFullDesignChanged, [self, slotFunc](double energy, const QString& udi) {
         double sigval1 = energy;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -349,7 +349,7 @@ void Solid__Battery_Connect_EnergyRateChanged(Solid__Battery* self, intptr_t slo
     void (*slotFunc)(Solid__Battery*, double, const char*) = reinterpret_cast<void (*)(Solid__Battery*, double, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::energyRateChanged, [self, slotFunc](double energyRate, const QString& udi) {
         double sigval1 = energyRate;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -371,7 +371,7 @@ void Solid__Battery_Connect_VoltageChanged(Solid__Battery* self, intptr_t slot) 
     void (*slotFunc)(Solid__Battery*, double, const char*) = reinterpret_cast<void (*)(Solid__Battery*, double, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::voltageChanged, [self, slotFunc](double voltage, const QString& udi) {
         double sigval1 = voltage;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -393,7 +393,7 @@ void Solid__Battery_Connect_TemperatureChanged(Solid__Battery* self, intptr_t sl
     void (*slotFunc)(Solid__Battery*, double, const char*) = reinterpret_cast<void (*)(Solid__Battery*, double, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::temperatureChanged, [self, slotFunc](double temperature, const QString& udi) {
         double sigval1 = temperature;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -415,7 +415,7 @@ void Solid__Battery_Connect_RemainingTimeChanged(Solid__Battery* self, intptr_t 
     void (*slotFunc)(Solid__Battery*, long long, const char*) = reinterpret_cast<void (*)(Solid__Battery*, long long, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::remainingTimeChanged, [self, slotFunc](qlonglong time, const QString& udi) {
         long long sigval1 = static_cast<long long>(time);
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();
@@ -437,7 +437,7 @@ void Solid__Battery_Connect_ChargeStateChanged2(Solid__Battery* self, intptr_t s
     void (*slotFunc)(Solid__Battery*, int, const char*) = reinterpret_cast<void (*)(Solid__Battery*, int, const char*)>(slot);
     Solid::Battery::connect(self, &Solid::Battery::chargeStateChanged, [self, slotFunc](int newState, const QString& udi) {
         int sigval1 = newState;
-        const QString udi_ret = udi;
+        const auto udi_ret = udi;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray udi_b = udi_ret.toUtf8();
         auto udi_str_len = udi_b.length();

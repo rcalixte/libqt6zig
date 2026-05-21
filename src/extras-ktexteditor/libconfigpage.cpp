@@ -72,7 +72,7 @@ int KTextEditor__ConfigPage_Metacall(KTextEditor__ConfigPage* self, int param1, 
 libqt_string KTextEditor__ConfigPage_Name(const KTextEditor__ConfigPage* self) {
     auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
     if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        QString _ret = vktexteditor__configpage->name();
+        auto _ret = vktexteditor__configpage->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -82,7 +82,7 @@ libqt_string KTextEditor__ConfigPage_Name(const KTextEditor__ConfigPage* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKTextEditorConfigPage*)self)->name();
+        auto _ret = ((VirtualKTextEditorConfigPage*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -97,7 +97,7 @@ libqt_string KTextEditor__ConfigPage_Name(const KTextEditor__ConfigPage* self) {
 libqt_string KTextEditor__ConfigPage_FullName(const KTextEditor__ConfigPage* self) {
     auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
     if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        QString _ret = self->fullName();
+        auto _ret = self->fullName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -107,7 +107,7 @@ libqt_string KTextEditor__ConfigPage_FullName(const KTextEditor__ConfigPage* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKTextEditorConfigPage*)self)->fullName();
+        auto _ret = ((VirtualKTextEditorConfigPage*)self)->fullName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -228,7 +228,7 @@ libqt_string KTextEditor__ConfigPage_SuperName(const KTextEditor__ConfigPage* se
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_Name_IsBase(true);
-        QString _ret = vktexteditorconfigpage->name();
+        auto _ret = vktexteditorconfigpage->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -238,7 +238,7 @@ libqt_string KTextEditor__ConfigPage_SuperName(const KTextEditor__ConfigPage* se
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKTextEditorConfigPage*)self)->name();
+        auto _ret = ((VirtualKTextEditorConfigPage*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -263,7 +263,7 @@ libqt_string KTextEditor__ConfigPage_SuperFullName(const KTextEditor__ConfigPage
     auto* vktexteditorconfigpage = const_cast<VirtualKTextEditorConfigPage*>(dynamic_cast<const VirtualKTextEditorConfigPage*>(self));
     if (vktexteditorconfigpage && vktexteditorconfigpage->isVirtualKTextEditorConfigPage) {
         vktexteditorconfigpage->setKTextEditor__ConfigPage_FullName_IsBase(true);
-        QString _ret = vktexteditorconfigpage->fullName();
+        auto _ret = vktexteditorconfigpage->fullName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -273,7 +273,7 @@ libqt_string KTextEditor__ConfigPage_SuperFullName(const KTextEditor__ConfigPage
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KTextEditor::ConfigPage::fullName();
+        auto _ret = self->KTextEditor::ConfigPage::fullName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

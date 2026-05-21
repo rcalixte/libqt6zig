@@ -5408,6 +5408,8 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAboutApplicationDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5455,6 +5457,8 @@ pub const KAboutApplicationDialog = extern struct {
     /// ` self: KAboutApplicationDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAboutApplicationDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7741,6 +7745,8 @@ pub const KAboutApplicationDialog = extern struct {
     /// ` self: KAboutApplicationDialog`
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) QVariant) void {
         qtc.KAboutApplicationDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

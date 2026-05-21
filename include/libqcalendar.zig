@@ -1,7 +1,9 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QDate = @import("libqt6").QDate;
+const QDateTime = @import("libqt6").QDateTime;
 const QLocale = @import("libqt6").QLocale;
+const QTime = @import("libqt6").QTime;
 const qcalendar_enums = enums;
 const qlocale_enums = @import("libqlocale.zig").enums;
 const std = @import("std");
@@ -429,6 +431,40 @@ pub const QCalendar = extern struct {
         var _str = qtc.QCalendar_StandaloneWeekDayName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneWeekDayName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateTimeToString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCalendar `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` format: []const u8 `
+    ///
+    /// ` datetime: QDateTime `
+    ///
+    /// ` dateOnly: QDate `
+    ///
+    /// ` timeOnly: QTime `
+    ///
+    /// ` locale: QLocale `
+    ///
+    pub fn DateTimeToString(self: QCalendar, allocator: std.mem.Allocator, format: []const u8, datetime: anytype, dateOnly: anytype, timeOnly: anytype, locale: anytype) []const u8 {
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        comptime _ = @TypeOf(datetime)._is_QDateTime;
+        comptime _ = @TypeOf(dateOnly)._is_QDate;
+        comptime _ = @TypeOf(timeOnly)._is_QTime;
+        comptime _ = @TypeOf(locale)._is_QLocale;
+        var _str = qtc.QCalendar_DateTimeToString(@ptrCast(self.ptr), format_str, @ptrCast(datetime.ptr), @ptrCast(dateOnly.ptr), @ptrCast(timeOnly.ptr), @ptrCast(locale.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.DateTimeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

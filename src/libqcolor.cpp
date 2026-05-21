@@ -40,32 +40,37 @@ QColor* QColor_new8(const libqt_string name) {
     return new QColor(name_QString);
 }
 
-QColor* QColor_new9(const char* aname) {
-    return new QColor(aname);
-}
-
-QColor* QColor_new10(libqt_string name) {
-    QLatin1StringView name_QString = QLatin1StringView(name.data, name.len);
+QColor* QColor_new9(libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
     return new QColor(name_QString);
 }
 
-QColor* QColor_new11(int spec) {
+QColor* QColor_new10(const char* aname) {
+    return new QColor(aname);
+}
+
+QColor* QColor_new11(libqt_string name) {
+    QLatin1StringView name_QLatin1StringView(name.data, name.len);
+    return new QColor(name_QLatin1StringView);
+}
+
+QColor* QColor_new12(int spec) {
     return new QColor(static_cast<QColor::Spec>(spec));
 }
 
-QColor* QColor_new12(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4) {
+QColor* QColor_new13(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4) {
     return new QColor(static_cast<QColor::Spec>(spec), static_cast<ushort>(a1), static_cast<ushort>(a2), static_cast<ushort>(a3), static_cast<ushort>(a4));
 }
 
-QColor* QColor_new13(const QColor* param1) {
+QColor* QColor_new14(const QColor* param1) {
     return new QColor(*param1);
 }
 
-QColor* QColor_new14(int r, int g, int b, int a) {
+QColor* QColor_new15(int r, int g, int b, int a) {
     return new QColor(static_cast<int>(r), static_cast<int>(g), static_cast<int>(b), static_cast<int>(a));
 }
 
-QColor* QColor_new15(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4, uint16_t a5) {
+QColor* QColor_new16(int spec, uint16_t a1, uint16_t a2, uint16_t a3, uint16_t a4, uint16_t a5) {
     return new QColor(static_cast<QColor::Spec>(spec), static_cast<ushort>(a1), static_cast<ushort>(a2), static_cast<ushort>(a3), static_cast<ushort>(a4), static_cast<ushort>(a5));
 }
 
@@ -90,7 +95,7 @@ bool QColor_IsValid(const QColor* self) {
 }
 
 libqt_string QColor_Name(const QColor* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,9 +111,14 @@ void QColor_SetNamedColor(QColor* self, const libqt_string name) {
     self->setNamedColor(name_QString);
 }
 
-void QColor_SetNamedColor3(QColor* self, libqt_string name) {
-    QLatin1StringView name_QString = QLatin1StringView(name.data, name.len);
+void QColor_SetNamedColor2(QColor* self, libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
     self->setNamedColor(name_QString);
+}
+
+void QColor_SetNamedColor3(QColor* self, libqt_string name) {
+    QLatin1StringView name_QLatin1StringView(name.data, name.len);
+    self->setNamedColor(name_QLatin1StringView);
 }
 
 libqt_list /* of libqt_string */ QColor_ColorNames() {
@@ -116,7 +126,7 @@ libqt_list /* of libqt_string */ QColor_ColorNames() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -481,12 +491,22 @@ bool QColor_IsValidColor(const libqt_string name) {
     return QColor::isValidColor(name_QString);
 }
 
+bool QColor_IsValidColor2(libqt_string param1) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    return QColor::isValidColor(param1_QString);
+}
+
+bool QColor_IsValidColor3(libqt_string param1) {
+    QLatin1String param1_QLatin1String(param1.data, param1.len);
+    return QColor::isValidColor(param1_QLatin1String);
+}
+
 bool QColor_IsValidColorName(const char* param1) {
     return QColor::isValidColorName(QAnyStringView(param1));
 }
 
 libqt_string QColor_Name1(const QColor* self, int format) {
-    QString _ret = self->name(static_cast<QColor::NameFormat>(format));
+    auto _ret = self->name(static_cast<QColor::NameFormat>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

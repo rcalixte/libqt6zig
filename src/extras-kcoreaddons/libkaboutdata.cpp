@@ -65,7 +65,7 @@ void KAboutPerson_OperatorAssign(KAboutPerson* self, const KAboutPerson* other) 
 }
 
 libqt_string KAboutPerson_Name(const KAboutPerson* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -77,7 +77,7 @@ libqt_string KAboutPerson_Name(const KAboutPerson* self) {
 }
 
 libqt_string KAboutPerson_Task(const KAboutPerson* self) {
-    QString _ret = self->task();
+    auto _ret = self->task();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ libqt_string KAboutPerson_Task(const KAboutPerson* self) {
 }
 
 libqt_string KAboutPerson_EmailAddress(const KAboutPerson* self) {
-    QString _ret = self->emailAddress();
+    auto _ret = self->emailAddress();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -101,7 +101,7 @@ libqt_string KAboutPerson_EmailAddress(const KAboutPerson* self) {
 }
 
 libqt_string KAboutPerson_WebAddress(const KAboutPerson* self) {
-    QString _ret = self->webAddress();
+    auto _ret = self->webAddress();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ void KAboutLicense_OperatorAssign(KAboutLicense* self, const KAboutLicense* othe
 }
 
 libqt_string KAboutLicense_Text(const KAboutLicense* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -149,7 +149,7 @@ libqt_string KAboutLicense_Text(const KAboutLicense* self) {
 }
 
 libqt_string KAboutLicense_Name(const KAboutLicense* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -165,7 +165,7 @@ int KAboutLicense_Key(const KAboutLicense* self) {
 }
 
 libqt_string KAboutLicense_Spdx(const KAboutLicense* self) {
-    QString _ret = self->spdx();
+    auto _ret = self->spdx();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -182,7 +182,7 @@ KAboutLicense* KAboutLicense_ByKeyword(const libqt_string keyword) {
 }
 
 libqt_string KAboutLicense_Name1(const KAboutLicense* self, int formatName) {
-    QString _ret = self->name(static_cast<KAboutLicense::NameFormat>(formatName));
+    auto _ret = self->name(static_cast<KAboutLicense::NameFormat>(formatName));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -253,7 +253,7 @@ void KAboutComponent_OperatorAssign(KAboutComponent* self, const KAboutComponent
 }
 
 libqt_string KAboutComponent_Name(const KAboutComponent* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -265,7 +265,7 @@ libqt_string KAboutComponent_Name(const KAboutComponent* self) {
 }
 
 libqt_string KAboutComponent_Description(const KAboutComponent* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -277,7 +277,7 @@ libqt_string KAboutComponent_Description(const KAboutComponent* self) {
 }
 
 libqt_string KAboutComponent_Version(const KAboutComponent* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -289,7 +289,7 @@ libqt_string KAboutComponent_Version(const KAboutComponent* self) {
 }
 
 libqt_string KAboutComponent_WebAddress(const KAboutComponent* self) {
-    QString _ret = self->webAddress();
+    auto _ret = self->webAddress();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -605,7 +605,7 @@ KAboutData* KAboutData_SetProductName(KAboutData* self, const libqt_string name)
 }
 
 libqt_string KAboutData_ComponentName(const KAboutData* self) {
-    QString _ret = self->componentName();
+    auto _ret = self->componentName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -617,7 +617,7 @@ libqt_string KAboutData_ComponentName(const KAboutData* self) {
 }
 
 libqt_string KAboutData_ProductName(const KAboutData* self) {
-    QString _ret = self->productName();
+    auto _ret = self->productName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -633,7 +633,7 @@ const char* KAboutData_InternalProductName(const KAboutData* self) {
 }
 
 libqt_string KAboutData_DisplayName(const KAboutData* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -645,7 +645,7 @@ libqt_string KAboutData_DisplayName(const KAboutData* self) {
 }
 
 libqt_string KAboutData_OrganizationDomain(const KAboutData* self) {
-    QString _ret = self->organizationDomain();
+    auto _ret = self->organizationDomain();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -665,7 +665,7 @@ QVariant* KAboutData_ProgramLogo(const KAboutData* self) {
 }
 
 libqt_string KAboutData_Version(const KAboutData* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -681,7 +681,7 @@ const char* KAboutData_InternalVersion(const KAboutData* self) {
 }
 
 libqt_string KAboutData_ShortDescription(const KAboutData* self) {
-    QString _ret = self->shortDescription();
+    auto _ret = self->shortDescription();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -693,7 +693,7 @@ libqt_string KAboutData_ShortDescription(const KAboutData* self) {
 }
 
 libqt_string KAboutData_Homepage(const KAboutData* self) {
-    QString _ret = self->homepage();
+    auto _ret = self->homepage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -705,7 +705,7 @@ libqt_string KAboutData_Homepage(const KAboutData* self) {
 }
 
 libqt_string KAboutData_BugAddress(const KAboutData* self) {
-    QString _ret = self->bugAddress();
+    auto _ret = self->bugAddress();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -760,7 +760,7 @@ libqt_list /* of KAboutPerson* */ KAboutData_Translators(const KAboutData* self)
 }
 
 libqt_string KAboutData_AboutTranslationTeam() {
-    QString _ret = KAboutData::aboutTranslationTeam();
+    auto _ret = KAboutData::aboutTranslationTeam();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -785,7 +785,7 @@ libqt_list /* of KAboutComponent* */ KAboutData_Components(const KAboutData* sel
 }
 
 libqt_string KAboutData_OtherText(const KAboutData* self) {
-    QString _ret = self->otherText();
+    auto _ret = self->otherText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -810,7 +810,7 @@ libqt_list /* of KAboutLicense* */ KAboutData_Licenses(const KAboutData* self) {
 }
 
 libqt_string KAboutData_CopyrightStatement(const KAboutData* self) {
-    QString _ret = self->copyrightStatement();
+    auto _ret = self->copyrightStatement();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -822,7 +822,7 @@ libqt_string KAboutData_CopyrightStatement(const KAboutData* self) {
 }
 
 libqt_string KAboutData_CustomAuthorPlainText(const KAboutData* self) {
-    QString _ret = self->customAuthorPlainText();
+    auto _ret = self->customAuthorPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -834,7 +834,7 @@ libqt_string KAboutData_CustomAuthorPlainText(const KAboutData* self) {
 }
 
 libqt_string KAboutData_CustomAuthorRichText(const KAboutData* self) {
-    QString _ret = self->customAuthorRichText();
+    auto _ret = self->customAuthorRichText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -879,7 +879,7 @@ KAboutData* KAboutData_SetDesktopFileName(KAboutData* self, const libqt_string d
 }
 
 libqt_string KAboutData_DesktopFileName(const KAboutData* self) {
-    QString _ret = self->desktopFileName();
+    auto _ret = self->desktopFileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

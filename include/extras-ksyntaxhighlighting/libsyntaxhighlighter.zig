@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const KSyntaxHighlighting__Definition = @import("libqt6").KSyntaxHighlighting__Definition;
 const KSyntaxHighlighting__FoldingRegion = @import("libqt6").KSyntaxHighlighting__FoldingRegion;
 const KSyntaxHighlighting__Format = @import("libqt6").KSyntaxHighlighting__Format;
+const KSyntaxHighlighting__State = @import("libqt6").KSyntaxHighlighting__State;
 const KSyntaxHighlighting__Theme = @import("libqt6").KSyntaxHighlighting__Theme;
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
@@ -1867,6 +1868,8 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, pos: i32) callconv(.c) QTextCharFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, i32) callconv(.c) QTextCharFormat) void {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2165,6 +2168,8 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QTextBlock `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCurrentBlock(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2371,6 +2376,74 @@ pub const KSyntaxHighlighting__SyntaxHighlighter = extern struct {
     ///
     pub fn OnIsSignalConnected(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, QMetaMethod) callconv(.c) bool) void {
         qtc.KSyntaxHighlighting__SyntaxHighlighter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
+    ///
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` state: KSyntaxHighlighting__State `
+    ///
+    pub fn HighlightLine(self: KSyntaxHighlighting__SyntaxHighlighter, text: []const u8, state: anytype) KSyntaxHighlighting__State {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
+        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_HighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `SuperHighlightLine` instead
+    ///
+    pub const QBaseHighlightLine = SuperHighlightLine;
+
+    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
+    ///
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSyntaxHighlighting__SyntaxHighlighter `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` state: KSyntaxHighlighting__State `
+    ///
+    pub fn SuperHighlightLine(self: KSyntaxHighlighting__SyntaxHighlighter, text: []const u8, state: anytype) KSyntaxHighlighting__State {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
+        return .{ .ptr = qtc.KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
+    }
+
+    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
+    ///
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: KSyntaxHighlighting__SyntaxHighlighter`
+    ///
+    /// ` callback: *const fn (self: KSyntaxHighlighting__SyntaxHighlighter, text: [*:0]const u8, state: KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn OnHighlightLine(self: KSyntaxHighlighting__SyntaxHighlighter, callback: *const fn (KSyntaxHighlighting__SyntaxHighlighter, [*:0]const u8, KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State) void {
+        qtc.KSyntaxHighlighting__SyntaxHighlighter_OnHighlightLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

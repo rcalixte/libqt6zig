@@ -34,7 +34,7 @@ int KIO__WorkerResult_Error(const KIO__WorkerResult* self) {
 }
 
 libqt_string KIO__WorkerResult_ErrorString(const KIO__WorkerResult* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -198,7 +198,7 @@ bool KIO__WorkerBase_HasMetaData(const KIO__WorkerBase* self, const libqt_string
 
 libqt_string KIO__WorkerBase_MetaData(const KIO__WorkerBase* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->metaData(key_QString);
+    auto _ret = self->metaData(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -220,7 +220,7 @@ libqt_map /* of libqt_string to QVariant* */ KIO__WorkerBase_MapConfig(const KIO
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -251,7 +251,7 @@ int KIO__WorkerBase_ConfigValue2(const KIO__WorkerBase* self, const libqt_string
 
 libqt_string KIO__WorkerBase_ConfigValue3(const KIO__WorkerBase* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->configValue(key_QString);
+    auto _ret = self->configValue(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -665,7 +665,7 @@ int KIO__WorkerBase_MessageBox6(KIO__WorkerBase* self, const libqt_string text, 
 libqt_string KIO__WorkerBase_ConfigValue22(const KIO__WorkerBase* self, const libqt_string key, const libqt_string defaultValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
-    QString _ret = self->configValue(key_QString, defaultValue_QString);
+    auto _ret = self->configValue(key_QString, defaultValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1218,7 +1218,7 @@ void KIO__WorkerBase_Delete(KIO__WorkerBase* self) {
 
 libqt_string KIO_UnsupportedActionErrorString(const libqt_string param1, int param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = KIO::unsupportedActionErrorString(param1_QString, static_cast<int>(param2));
+    auto _ret = KIO::unsupportedActionErrorString(param1_QString, static_cast<int>(param2));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

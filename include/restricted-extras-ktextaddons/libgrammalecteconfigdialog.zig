@@ -5382,6 +5382,8 @@ pub const TextGrammarCheck__GrammalecteConfigDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextGrammarCheck__GrammalecteConfigDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammalecteConfigDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5429,6 +5431,8 @@ pub const TextGrammarCheck__GrammalecteConfigDialog = extern struct {
     /// ` self: TextGrammarCheck__GrammalecteConfigDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextGrammarCheck__GrammalecteConfigDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__GrammalecteConfigDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7715,6 +7719,8 @@ pub const TextGrammarCheck__GrammalecteConfigDialog = extern struct {
     /// ` self: TextGrammarCheck__GrammalecteConfigDialog`
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__GrammalecteConfigDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextGrammarCheck__GrammalecteConfigDialog, callback: *const fn (TextGrammarCheck__GrammalecteConfigDialog, i32) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__GrammalecteConfigDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

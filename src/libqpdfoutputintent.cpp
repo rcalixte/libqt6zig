@@ -23,7 +23,7 @@ void QPdfOutputIntent_Swap(QPdfOutputIntent* self, QPdfOutputIntent* other) {
 }
 
 libqt_string QPdfOutputIntent_OutputConditionIdentifier(const QPdfOutputIntent* self) {
-    QString _ret = self->outputConditionIdentifier();
+    auto _ret = self->outputConditionIdentifier();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ void QPdfOutputIntent_SetOutputConditionIdentifier(QPdfOutputIntent* self, const
 }
 
 libqt_string QPdfOutputIntent_OutputCondition(const QPdfOutputIntent* self) {
-    QString _ret = self->outputCondition();
+    auto _ret = self->outputCondition();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

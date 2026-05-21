@@ -39,7 +39,7 @@ QSize* KIO__ThumbnailRequest_TargetSize(const KIO__ThumbnailRequest* self) {
 }
 
 libqt_string KIO__ThumbnailRequest_MimeType(const KIO__ThumbnailRequest* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

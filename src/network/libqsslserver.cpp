@@ -149,7 +149,7 @@ void QSslServer_Connect_AlertSent(QSslServer* self, intptr_t slot) {
         QSslSocket* sigval1 = socket;
         int sigval2 = static_cast<int>(level);
         int sigval3 = static_cast<int>(typeVal);
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();
@@ -173,7 +173,7 @@ void QSslServer_Connect_AlertReceived(QSslServer* self, intptr_t slot) {
         QSslSocket* sigval1 = socket;
         int sigval2 = static_cast<int>(level);
         int sigval3 = static_cast<int>(typeVal);
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();

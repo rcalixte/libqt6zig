@@ -94,7 +94,7 @@ void KConfigDialog_SettingsChanged(KConfigDialog* self, const libqt_string dialo
 void KConfigDialog_Connect_SettingsChanged(KConfigDialog* self, intptr_t slot) {
     void (*slotFunc)(KConfigDialog*, const char*) = reinterpret_cast<void (*)(KConfigDialog*, const char*)>(slot);
     KConfigDialog::connect(self, &KConfigDialog::settingsChanged, [self, slotFunc](const QString& dialogName) {
-        const QString dialogName_ret = dialogName;
+        const auto dialogName_ret = dialogName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray dialogName_b = dialogName_ret.toUtf8();
         auto dialogName_str_len = dialogName_b.length();

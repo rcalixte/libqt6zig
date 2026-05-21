@@ -2,6 +2,7 @@
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/FoldingRegion>
 #include <KSyntaxHighlighting/Format>
+#include <KSyntaxHighlighting/State>
 #include <KSyntaxHighlighting/Theme>
 #include <abstracthighlighter.h>
 #include "libabstracthighlighter.h"

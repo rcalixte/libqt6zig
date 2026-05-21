@@ -145,14 +145,11 @@ libqt_string QHttpHeaders_ValueAt(const QHttpHeaders* self, ptrdiff_t i) {
 }
 
 libqt_string QHttpHeaders_NameAt(const QHttpHeaders* self, ptrdiff_t i) {
-    QString _ret = self->nameAt((qsizetype)(i));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
+    QLatin1StringView _qb = self->nameAt((qsizetype)(i));
     libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
     return _str;
 }
 

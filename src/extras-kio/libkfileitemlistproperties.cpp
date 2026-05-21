@@ -68,7 +68,7 @@ bool KFileItemListProperties_IsFile(const KFileItemListProperties* self) {
 }
 
 libqt_string KFileItemListProperties_MimeType(const KFileItemListProperties* self) {
-    QString _ret = self->mimeType();
+    auto _ret = self->mimeType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -80,7 +80,7 @@ libqt_string KFileItemListProperties_MimeType(const KFileItemListProperties* sel
 }
 
 libqt_string KFileItemListProperties_MimeGroup(const KFileItemListProperties* self) {
-    QString _ret = self->mimeGroup();
+    auto _ret = self->mimeGroup();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

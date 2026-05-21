@@ -26,7 +26,7 @@ void KDesktopFileAction_OperatorAssign(KDesktopFileAction* self, const KDesktopF
 }
 
 libqt_string KDesktopFileAction_ActionsKey(const KDesktopFileAction* self) {
-    QString _ret = self->actionsKey();
+    auto _ret = self->actionsKey();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ libqt_string KDesktopFileAction_ActionsKey(const KDesktopFileAction* self) {
 }
 
 libqt_string KDesktopFileAction_DesktopFilePath(const KDesktopFileAction* self) {
-    QString _ret = self->desktopFilePath();
+    auto _ret = self->desktopFilePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -50,7 +50,7 @@ libqt_string KDesktopFileAction_DesktopFilePath(const KDesktopFileAction* self) 
 }
 
 libqt_string KDesktopFileAction_Name(const KDesktopFileAction* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -62,7 +62,7 @@ libqt_string KDesktopFileAction_Name(const KDesktopFileAction* self) {
 }
 
 libqt_string KDesktopFileAction_Icon(const KDesktopFileAction* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ libqt_string KDesktopFileAction_Icon(const KDesktopFileAction* self) {
 }
 
 libqt_string KDesktopFileAction_Exec(const KDesktopFileAction* self) {
-    QString _ret = self->exec();
+    auto _ret = self->exec();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

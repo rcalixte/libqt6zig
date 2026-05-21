@@ -7277,6 +7277,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7328,6 +7330,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionTextEdit, i32) callconv(.c) QVariant) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8775,6 +8779,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8822,6 +8828,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9038,6 +9046,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10374,6 +10384,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

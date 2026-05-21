@@ -5649,6 +5649,8 @@ pub const KBookmarkDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KBookmarkDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KBookmarkDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5696,6 +5698,8 @@ pub const KBookmarkDialog = extern struct {
     /// ` self: KBookmarkDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KBookmarkDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KBookmarkDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7934,6 +7938,8 @@ pub const KBookmarkDialog = extern struct {
     /// ` self: KBookmarkDialog`
     ///
     /// ` callback: *const fn (self: KBookmarkDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KBookmarkDialog, callback: *const fn (KBookmarkDialog, i32) callconv(.c) QVariant) void {
         qtc.KBookmarkDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

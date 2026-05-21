@@ -118,7 +118,7 @@ void KLanguageButton_Clear(KLanguageButton* self) {
 }
 
 libqt_string KLanguageButton_Current(const KLanguageButton* self) {
-    QString _ret = self->current();
+    auto _ret = self->current();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -147,7 +147,7 @@ void KLanguageButton_Activated(KLanguageButton* self, const libqt_string languag
 void KLanguageButton_Connect_Activated(KLanguageButton* self, intptr_t slot) {
     void (*slotFunc)(KLanguageButton*, const char*) = reinterpret_cast<void (*)(KLanguageButton*, const char*)>(slot);
     KLanguageButton::connect(self, &KLanguageButton::activated, [self, slotFunc](const QString& languageCode) {
-        const QString languageCode_ret = languageCode;
+        const auto languageCode_ret = languageCode;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray languageCode_b = languageCode_ret.toUtf8();
         auto languageCode_str_len = languageCode_b.length();
@@ -168,7 +168,7 @@ void KLanguageButton_Highlighted(KLanguageButton* self, const libqt_string langu
 void KLanguageButton_Connect_Highlighted(KLanguageButton* self, intptr_t slot) {
     void (*slotFunc)(KLanguageButton*, const char*) = reinterpret_cast<void (*)(KLanguageButton*, const char*)>(slot);
     KLanguageButton::connect(self, &KLanguageButton::highlighted, [self, slotFunc](const QString& languageCode) {
-        const QString languageCode_ret = languageCode;
+        const auto languageCode_ret = languageCode;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray languageCode_b = languageCode_ret.toUtf8();
         auto languageCode_str_len = languageCode_b.length();

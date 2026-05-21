@@ -7223,6 +7223,8 @@ pub const QUndoView = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoView, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: QUndoView, callback: *const fn (QUndoView, QModelIndex) callconv(.c) QRect) void {
         qtc.QUndoView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7334,6 +7336,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn (self: QUndoView, p: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: QUndoView, callback: *const fn (QUndoView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QUndoView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8535,6 +8539,8 @@ pub const QUndoView = extern struct {
     ///
     /// ` callback: *const fn (self: QUndoView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMoveCursor(self: QUndoView, callback: *const fn (QUndoView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QUndoView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8646,6 +8652,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn (self: QUndoView, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: QUndoView, callback: *const fn (QUndoView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QUndoView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8986,6 +8994,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QUndoView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9364,6 +9374,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn (self: QUndoView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QUndoView, callback: *const fn (QUndoView, i32) callconv(.c) QVariant) void {
         qtc.QUndoView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10607,6 +10619,8 @@ pub const QUndoView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QUndoView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10654,6 +10668,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QUndoView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12201,6 +12217,8 @@ pub const QUndoView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnContentsSize(self: QUndoView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QUndoView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12254,6 +12272,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn (self: QUndoView, index: QModelIndex) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRectForIndex(self: QUndoView, callback: *const fn (QUndoView, QModelIndex) callconv(.c) QRect) void {
         qtc.QUndoView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12677,6 +12697,8 @@ pub const QUndoView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: QUndoView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QUndoView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12988,6 +13010,8 @@ pub const QUndoView = extern struct {
     /// ` self: QUndoView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QUndoView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QUndoView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

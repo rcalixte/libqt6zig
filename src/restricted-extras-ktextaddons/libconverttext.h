@@ -18,6 +18,7 @@ extern "C" {
 typedef struct QTextCursor QTextCursor;
 #endif
 
+libqt_string TextUtils__ConvertText_Normalize(libqt_string param1);
 void TextUtils__ConvertText_UpperCase(QTextCursor* param1);
 void TextUtils__ConvertText_LowerCase(QTextCursor* param1);
 void TextUtils__ConvertText_SentenceCase(QTextCursor* param1);

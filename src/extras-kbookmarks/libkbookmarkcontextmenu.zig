@@ -688,6 +688,8 @@ pub const KBookmarkContextMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KBookmark `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBookmark(self: KBookmarkContextMenu, callback: *const fn () callconv(.c) KBookmark) void {
         qtc.KBookmarkContextMenu_OnBookmark(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6411,6 +6413,8 @@ pub const KBookmarkContextMenu = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KBookmarkContextMenu, callback: *const fn () callconv(.c) QSize) void {
         qtc.KBookmarkContextMenu_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7372,6 +7376,8 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KBookmarkContextMenu, callback: *const fn () callconv(.c) QSize) void {
         qtc.KBookmarkContextMenu_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8658,6 +8664,8 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu`
     ///
     /// ` callback: *const fn (self: KBookmarkContextMenu, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KBookmarkContextMenu, callback: *const fn (KBookmarkContextMenu, i32) callconv(.c) QVariant) void {
         qtc.KBookmarkContextMenu_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

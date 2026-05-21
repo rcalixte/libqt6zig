@@ -50,7 +50,7 @@ void QDirListing_Swap(QDirListing* self, QDirListing* other) {
 }
 
 libqt_string QDirListing_IteratorPath(const QDirListing* self) {
-    QString _ret = self->iteratorPath();
+    auto _ret = self->iteratorPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ libqt_list /* of libqt_string */ QDirListing_NameFilters(const QDirListing* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -139,7 +139,7 @@ void QDirListing__DirEntry_MoveAssign(QDirListing__DirEntry* self, QDirListing__
 }
 
 libqt_string QDirListing__DirEntry_FileName(const QDirListing__DirEntry* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -151,7 +151,7 @@ libqt_string QDirListing__DirEntry_FileName(const QDirListing__DirEntry* self) {
 }
 
 libqt_string QDirListing__DirEntry_BaseName(const QDirListing__DirEntry* self) {
-    QString _ret = self->baseName();
+    auto _ret = self->baseName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -163,7 +163,7 @@ libqt_string QDirListing__DirEntry_BaseName(const QDirListing__DirEntry* self) {
 }
 
 libqt_string QDirListing__DirEntry_CompleteBaseName(const QDirListing__DirEntry* self) {
-    QString _ret = self->completeBaseName();
+    auto _ret = self->completeBaseName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -175,7 +175,7 @@ libqt_string QDirListing__DirEntry_CompleteBaseName(const QDirListing__DirEntry*
 }
 
 libqt_string QDirListing__DirEntry_Suffix(const QDirListing__DirEntry* self) {
-    QString _ret = self->suffix();
+    auto _ret = self->suffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -187,7 +187,7 @@ libqt_string QDirListing__DirEntry_Suffix(const QDirListing__DirEntry* self) {
 }
 
 libqt_string QDirListing__DirEntry_BundleName(const QDirListing__DirEntry* self) {
-    QString _ret = self->bundleName();
+    auto _ret = self->bundleName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -199,7 +199,7 @@ libqt_string QDirListing__DirEntry_BundleName(const QDirListing__DirEntry* self)
 }
 
 libqt_string QDirListing__DirEntry_CompleteSuffix(const QDirListing__DirEntry* self) {
-    QString _ret = self->completeSuffix();
+    auto _ret = self->completeSuffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -211,7 +211,7 @@ libqt_string QDirListing__DirEntry_CompleteSuffix(const QDirListing__DirEntry* s
 }
 
 libqt_string QDirListing__DirEntry_FilePath(const QDirListing__DirEntry* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -259,7 +259,7 @@ QFileInfo* QDirListing__DirEntry_FileInfo(const QDirListing__DirEntry* self) {
 }
 
 libqt_string QDirListing__DirEntry_CanonicalFilePath(const QDirListing__DirEntry* self) {
-    QString _ret = self->canonicalFilePath();
+    auto _ret = self->canonicalFilePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -271,7 +271,7 @@ libqt_string QDirListing__DirEntry_CanonicalFilePath(const QDirListing__DirEntry
 }
 
 libqt_string QDirListing__DirEntry_AbsoluteFilePath(const QDirListing__DirEntry* self) {
-    QString _ret = self->absoluteFilePath();
+    auto _ret = self->absoluteFilePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -283,7 +283,7 @@ libqt_string QDirListing__DirEntry_AbsoluteFilePath(const QDirListing__DirEntry*
 }
 
 libqt_string QDirListing__DirEntry_AbsolutePath(const QDirListing__DirEntry* self) {
-    QString _ret = self->absolutePath();
+    auto _ret = self->absolutePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

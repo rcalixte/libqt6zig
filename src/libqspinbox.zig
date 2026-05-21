@@ -6115,6 +6115,8 @@ pub const QSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QSpinBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSpinBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6162,6 +6164,8 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QSpinBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSpinBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6214,6 +6218,8 @@ pub const QSpinBox = extern struct {
     /// ` self: QSpinBox`
     ///
     /// ` callback: *const fn (self: QSpinBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QSpinBox, callback: *const fn (QSpinBox, i32) callconv(.c) QVariant) void {
         qtc.QSpinBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15373,6 +15379,8 @@ pub const QDoubleSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QDoubleSpinBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDoubleSpinBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -15420,6 +15428,8 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QDoubleSpinBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDoubleSpinBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15526,6 +15536,8 @@ pub const QDoubleSpinBox = extern struct {
     /// ` self: QDoubleSpinBox`
     ///
     /// ` callback: *const fn (self: QDoubleSpinBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QDoubleSpinBox, callback: *const fn (QDoubleSpinBox, i32) callconv(.c) QVariant) void {
         qtc.QDoubleSpinBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

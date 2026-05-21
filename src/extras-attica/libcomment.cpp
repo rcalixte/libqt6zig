@@ -15,7 +15,7 @@ Attica__Comment* Attica__Comment_new2(const Attica__Comment* other) {
 }
 
 libqt_string Attica__Comment_CommentTypeToString(const int typeVal) {
-    QString _ret = Attica::Comment::commentTypeToString(static_cast<const Attica::Comment::Type>(typeVal));
+    auto _ret = Attica::Comment::commentTypeToString(static_cast<const Attica::Comment::Type>(typeVal));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -36,7 +36,7 @@ void Attica__Comment_SetId(Attica__Comment* self, const libqt_string id) {
 }
 
 libqt_string Attica__Comment_Id(const Attica__Comment* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -53,7 +53,7 @@ void Attica__Comment_SetSubject(Attica__Comment* self, const libqt_string subjec
 }
 
 libqt_string Attica__Comment_Subject(const Attica__Comment* self) {
-    QString _ret = self->subject();
+    auto _ret = self->subject();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ void Attica__Comment_SetText(Attica__Comment* self, const libqt_string text) {
 }
 
 libqt_string Attica__Comment_Text(const Attica__Comment* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -95,7 +95,7 @@ void Attica__Comment_SetUser(Attica__Comment* self, const libqt_string user) {
 }
 
 libqt_string Attica__Comment_User(const Attica__Comment* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

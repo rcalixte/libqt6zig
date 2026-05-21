@@ -175,7 +175,7 @@ class VirtualQUiLoader final : public QUiLoader {
         }
         auto createwidget_cb = quiloader_createwidget_callback;
         if (createwidget_cb) {
-            const QString className_ret = className;
+            const auto className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
             auto className_str_len = className_b.length();
@@ -184,7 +184,7 @@ class VirtualQUiLoader final : public QUiLoader {
             ((char*)className_str)[className_str_len] = '\0';
             const char* cbval1 = className_str;
             QWidget* cbval2 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -208,7 +208,7 @@ class VirtualQUiLoader final : public QUiLoader {
         }
         auto createlayout_cb = quiloader_createlayout_callback;
         if (createlayout_cb) {
-            const QString className_ret = className;
+            const auto className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
             auto className_str_len = className_b.length();
@@ -217,7 +217,7 @@ class VirtualQUiLoader final : public QUiLoader {
             ((char*)className_str)[className_str_len] = '\0';
             const char* cbval1 = className_str;
             QObject* cbval2 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -242,7 +242,7 @@ class VirtualQUiLoader final : public QUiLoader {
         auto createactiongroup_cb = quiloader_createactiongroup_callback;
         if (createactiongroup_cb) {
             QObject* cbval1 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -266,7 +266,7 @@ class VirtualQUiLoader final : public QUiLoader {
         auto createaction_cb = quiloader_createaction_callback;
         if (createaction_cb) {
             QObject* cbval1 = parent;
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

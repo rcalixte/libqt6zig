@@ -66,7 +66,7 @@ KUnitConversion__Unit* KUnitConversion__Value_Unit(const KUnitConversion__Value*
 }
 
 libqt_string KUnitConversion__Value_ToString(const KUnitConversion__Value* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -78,7 +78,7 @@ libqt_string KUnitConversion__Value_ToString(const KUnitConversion__Value* self)
 }
 
 libqt_string KUnitConversion__Value_ToSymbolString(const KUnitConversion__Value* self) {
-    QString _ret = self->toSymbolString();
+    auto _ret = self->toSymbolString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -109,7 +109,7 @@ KUnitConversion__Value* KUnitConversion__Value_ConvertTo3(const KUnitConversion_
 }
 
 libqt_string KUnitConversion__Value_ToString1(const KUnitConversion__Value* self, int fieldWidth) {
-    QString _ret = self->toString(static_cast<int>(fieldWidth));
+    auto _ret = self->toString(static_cast<int>(fieldWidth));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -121,7 +121,7 @@ libqt_string KUnitConversion__Value_ToString1(const KUnitConversion__Value* self
 }
 
 libqt_string KUnitConversion__Value_ToString2(const KUnitConversion__Value* self, int fieldWidth, char format) {
-    QString _ret = self->toString(static_cast<int>(fieldWidth), static_cast<char>(format));
+    auto _ret = self->toString(static_cast<int>(fieldWidth), static_cast<char>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -133,7 +133,7 @@ libqt_string KUnitConversion__Value_ToString2(const KUnitConversion__Value* self
 }
 
 libqt_string KUnitConversion__Value_ToString3(const KUnitConversion__Value* self, int fieldWidth, char format, int precision) {
-    QString _ret = self->toString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision));
+    auto _ret = self->toString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +145,7 @@ libqt_string KUnitConversion__Value_ToString3(const KUnitConversion__Value* self
 }
 
 libqt_string KUnitConversion__Value_ToString4(const KUnitConversion__Value* self, int fieldWidth, char format, int precision, const QChar* fillChar) {
-    QString _ret = self->toString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision), *fillChar);
+    auto _ret = self->toString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision), *fillChar);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -157,7 +157,7 @@ libqt_string KUnitConversion__Value_ToString4(const KUnitConversion__Value* self
 }
 
 libqt_string KUnitConversion__Value_ToSymbolString1(const KUnitConversion__Value* self, int fieldWidth) {
-    QString _ret = self->toSymbolString(static_cast<int>(fieldWidth));
+    auto _ret = self->toSymbolString(static_cast<int>(fieldWidth));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -169,7 +169,7 @@ libqt_string KUnitConversion__Value_ToSymbolString1(const KUnitConversion__Value
 }
 
 libqt_string KUnitConversion__Value_ToSymbolString2(const KUnitConversion__Value* self, int fieldWidth, char format) {
-    QString _ret = self->toSymbolString(static_cast<int>(fieldWidth), static_cast<char>(format));
+    auto _ret = self->toSymbolString(static_cast<int>(fieldWidth), static_cast<char>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -181,7 +181,7 @@ libqt_string KUnitConversion__Value_ToSymbolString2(const KUnitConversion__Value
 }
 
 libqt_string KUnitConversion__Value_ToSymbolString3(const KUnitConversion__Value* self, int fieldWidth, char format, int precision) {
-    QString _ret = self->toSymbolString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision));
+    auto _ret = self->toSymbolString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ libqt_string KUnitConversion__Value_ToSymbolString3(const KUnitConversion__Value
 }
 
 libqt_string KUnitConversion__Value_ToSymbolString4(const KUnitConversion__Value* self, int fieldWidth, char format, int precision, const QChar* fillChar) {
-    QString _ret = self->toSymbolString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision), *fillChar);
+    auto _ret = self->toSymbolString(static_cast<int>(fieldWidth), static_cast<char>(format), static_cast<int>(precision), *fillChar);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

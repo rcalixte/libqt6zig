@@ -285,6 +285,8 @@ pub const QScrollBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QScrollBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.QScrollBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6442,6 +6444,8 @@ pub const QScrollBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QScrollBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.QScrollBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7835,6 +7839,8 @@ pub const QScrollBar = extern struct {
     /// ` self: QScrollBar`
     ///
     /// ` callback: *const fn (self: QScrollBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QScrollBar, callback: *const fn (QScrollBar, i32) callconv(.c) QVariant) void {
         qtc.QScrollBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

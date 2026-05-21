@@ -18,7 +18,7 @@ void Attica__HomePageEntry_OperatorAssign(Attica__HomePageEntry* self, const Att
 }
 
 libqt_string Attica__HomePageEntry_Type(const Attica__HomePageEntry* self) {
-    QString _ret = self->type();
+    auto _ret = self->type();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

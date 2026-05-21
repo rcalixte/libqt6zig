@@ -14,7 +14,7 @@ KNSCore__SearchRequest* KNSCore__SearchPreset_Request(const KNSCore__SearchPrese
 }
 
 libqt_string KNSCore__SearchPreset_DisplayName(const KNSCore__SearchPreset* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -26,7 +26,7 @@ libqt_string KNSCore__SearchPreset_DisplayName(const KNSCore__SearchPreset* self
 }
 
 libqt_string KNSCore__SearchPreset_IconName(const KNSCore__SearchPreset* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -42,7 +42,7 @@ int KNSCore__SearchPreset_Type(const KNSCore__SearchPreset* self) {
 }
 
 libqt_string KNSCore__SearchPreset_ProviderId(const KNSCore__SearchPreset* self) {
-    QString _ret = self->providerId();
+    auto _ret = self->providerId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

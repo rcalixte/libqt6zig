@@ -77,7 +77,7 @@ QDesignerResourceBrowserInterface* QDesignerIntegrationInterface_CreateResourceB
 libqt_string QDesignerIntegrationInterface_HeaderSuffix(const QDesignerIntegrationInterface* self) {
     auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
     if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        QString _ret = vqdesignerintegrationinterface->headerSuffix();
+        auto _ret = vqdesignerintegrationinterface->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -87,7 +87,7 @@ libqt_string QDesignerIntegrationInterface_HeaderSuffix(const QDesignerIntegrati
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerIntegrationInterface*)self)->headerSuffix();
+        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -161,7 +161,7 @@ void QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour(QDesignerInte
 libqt_string QDesignerIntegrationInterface_ContextHelpId(const QDesignerIntegrationInterface* self) {
     auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
     if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        QString _ret = vqdesignerintegrationinterface->contextHelpId();
+        auto _ret = vqdesignerintegrationinterface->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -171,7 +171,7 @@ libqt_string QDesignerIntegrationInterface_ContextHelpId(const QDesignerIntegrat
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerIntegrationInterface*)self)->contextHelpId();
+        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -443,7 +443,7 @@ libqt_string QDesignerIntegrationInterface_SuperHeaderSuffix(const QDesignerInte
     auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
     if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
         vqdesignerintegrationinterface->setQDesignerIntegrationInterface_HeaderSuffix_IsBase(true);
-        QString _ret = vqdesignerintegrationinterface->headerSuffix();
+        auto _ret = vqdesignerintegrationinterface->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -453,7 +453,7 @@ libqt_string QDesignerIntegrationInterface_SuperHeaderSuffix(const QDesignerInte
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerIntegrationInterface*)self)->headerSuffix();
+        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -593,7 +593,7 @@ libqt_string QDesignerIntegrationInterface_SuperContextHelpId(const QDesignerInt
     auto* vqdesignerintegrationinterface = const_cast<VirtualQDesignerIntegrationInterface*>(dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self));
     if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
         vqdesignerintegrationinterface->setQDesignerIntegrationInterface_ContextHelpId_IsBase(true);
-        QString _ret = vqdesignerintegrationinterface->contextHelpId();
+        auto _ret = vqdesignerintegrationinterface->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -603,7 +603,7 @@ libqt_string QDesignerIntegrationInterface_SuperContextHelpId(const QDesignerInt
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerIntegrationInterface*)self)->contextHelpId();
+        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1179,7 +1179,7 @@ int QDesignerIntegration_Metacall(QDesignerIntegration* self, int param1, int pa
 libqt_string QDesignerIntegration_HeaderSuffix(const QDesignerIntegration* self) {
     auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
     if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        QString _ret = self->headerSuffix();
+        auto _ret = self->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1189,7 +1189,7 @@ libqt_string QDesignerIntegration_HeaderSuffix(const QDesignerIntegration* self)
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerIntegration*)self)->headerSuffix();
+        auto _ret = ((VirtualQDesignerIntegration*)self)->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1290,7 +1290,7 @@ QDesignerResourceBrowserInterface* QDesignerIntegration_CreateResourceBrowser(QD
 libqt_string QDesignerIntegration_ContextHelpId(const QDesignerIntegration* self) {
     auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
     if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        QString _ret = self->contextHelpId();
+        auto _ret = self->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1300,7 +1300,7 @@ libqt_string QDesignerIntegration_ContextHelpId(const QDesignerIntegration* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerIntegration*)self)->contextHelpId();
+        auto _ret = ((VirtualQDesignerIntegration*)self)->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1460,7 +1460,7 @@ libqt_string QDesignerIntegration_SuperHeaderSuffix(const QDesignerIntegration* 
     auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
     if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
         vqdesignerintegration->setQDesignerIntegration_HeaderSuffix_IsBase(true);
-        QString _ret = vqdesignerintegration->headerSuffix();
+        auto _ret = vqdesignerintegration->headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1470,7 +1470,7 @@ libqt_string QDesignerIntegration_SuperHeaderSuffix(const QDesignerIntegration* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QDesignerIntegration::headerSuffix();
+        auto _ret = self->QDesignerIntegration::headerSuffix();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1667,7 +1667,7 @@ libqt_string QDesignerIntegration_SuperContextHelpId(const QDesignerIntegration*
     auto* vqdesignerintegration = const_cast<VirtualQDesignerIntegration*>(dynamic_cast<const VirtualQDesignerIntegration*>(self));
     if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
         vqdesignerintegration->setQDesignerIntegration_ContextHelpId_IsBase(true);
-        QString _ret = vqdesignerintegration->contextHelpId();
+        auto _ret = vqdesignerintegration->contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1677,7 +1677,7 @@ libqt_string QDesignerIntegration_SuperContextHelpId(const QDesignerIntegration*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QDesignerIntegration::contextHelpId();
+        auto _ret = self->QDesignerIntegration::contextHelpId();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

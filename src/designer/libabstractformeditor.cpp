@@ -114,7 +114,7 @@ QDesignerSettingsInterface* QDesignerFormEditorInterface_SettingsManager(const Q
 }
 
 libqt_string QDesignerFormEditorInterface_ResourceLocation(const QDesignerFormEditorInterface* self) {
-    QString _ret = self->resourceLocation();
+    auto _ret = self->resourceLocation();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

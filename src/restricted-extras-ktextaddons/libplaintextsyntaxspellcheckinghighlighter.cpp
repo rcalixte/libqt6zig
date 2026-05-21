@@ -2,6 +2,7 @@
 #include <KSyntaxHighlighting/Definition>
 #include <KSyntaxHighlighting/FoldingRegion>
 #include <KSyntaxHighlighting/Format>
+#include <KSyntaxHighlighting/State>
 #include <KSyntaxHighlighting/Theme>
 #include <QChildEvent>
 #include <QColor>
@@ -917,6 +918,35 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnIsSignalConnect
     auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = const_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(dynamic_cast<const VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self));
     if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
         vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+KSyntaxHighlighting__State* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state) {
+    auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+        return new KSyntaxHighlighting::State(vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->highlightLine(text_QString, *state));
+    }
+    return {};
+}
+
+// Base class handler implementation
+KSyntaxHighlighting__State* TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperHighlightLine(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state) {
+    auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+        vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_IsBase(true);
+        return new KSyntaxHighlighting::State(vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->highlightLine(text_QString, *state));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnHighlightLine(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, intptr_t slot) {
+    auto* vtextcustomeditorplaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
+    if (vtextcustomeditorplaintextsyntaxspellcheckinghighlighter && vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
+        vtextcustomeditorplaintextsyntaxspellcheckinghighlighter->setTextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback(reinterpret_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter::TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine_Callback>(slot));
     }
 }
 

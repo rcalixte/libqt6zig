@@ -6233,6 +6233,8 @@ pub const QMainWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QMainWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.QMainWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6280,6 +6282,8 @@ pub const QMainWindow = extern struct {
     /// ` self: QMainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QMainWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.QMainWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8106,6 +8110,8 @@ pub const QMainWindow = extern struct {
     /// ` self: QMainWindow`
     ///
     /// ` callback: *const fn (self: QMainWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QMainWindow, callback: *const fn (QMainWindow, i32) callconv(.c) QVariant) void {
         qtc.QMainWindow_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

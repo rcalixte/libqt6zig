@@ -305,6 +305,8 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapSequenceWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5381,6 +5383,8 @@ pub const KPixmapSequenceWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KPixmapSequenceWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPixmapSequenceWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7314,6 +7318,8 @@ pub const KPixmapSequenceWidget = extern struct {
     /// ` self: KPixmapSequenceWidget`
     ///
     /// ` callback: *const fn (self: KPixmapSequenceWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPixmapSequenceWidget, callback: *const fn (KPixmapSequenceWidget, i32) callconv(.c) QVariant) void {
         qtc.KPixmapSequenceWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

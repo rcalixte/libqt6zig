@@ -89,7 +89,7 @@ mode_t KFileItem_Permissions(const KFileItem* self) {
 }
 
 libqt_string KFileItem_PermissionsString(const KFileItem* self) {
-    QString _ret = self->permissionsString();
+    auto _ret = self->permissionsString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -125,7 +125,7 @@ int KFileItem_GroupId(const KFileItem* self) {
 }
 
 libqt_string KFileItem_User(const KFileItem* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ libqt_string KFileItem_User(const KFileItem* self) {
 }
 
 libqt_string KFileItem_Group(const KFileItem* self) {
-    QString _ret = self->group();
+    auto _ret = self->group();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -181,7 +181,7 @@ bool KFileItem_IsDesktopFile(const KFileItem* self) {
 }
 
 libqt_string KFileItem_LinkDest(const KFileItem* self) {
-    QString _ret = self->linkDest();
+    auto _ret = self->linkDest();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,7 +197,7 @@ QUrl* KFileItem_TargetUrl(const KFileItem* self) {
 }
 
 libqt_string KFileItem_LocalPath(const KFileItem* self) {
-    QString _ret = self->localPath();
+    auto _ret = self->localPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -221,7 +221,7 @@ QDateTime* KFileItem_Time(const KFileItem* self, int which) {
 }
 
 libqt_string KFileItem_TimeString(const KFileItem* self) {
-    QString _ret = self->timeString();
+    auto _ret = self->timeString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -237,7 +237,7 @@ bool KFileItem_IsLocalFile(const KFileItem* self) {
 }
 
 libqt_string KFileItem_Text(const KFileItem* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -249,7 +249,7 @@ libqt_string KFileItem_Text(const KFileItem* self) {
 }
 
 libqt_string KFileItem_Name(const KFileItem* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -261,7 +261,7 @@ libqt_string KFileItem_Name(const KFileItem* self) {
 }
 
 libqt_string KFileItem_Mimetype(const KFileItem* self) {
-    QString _ret = self->mimetype();
+    auto _ret = self->mimetype();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -289,7 +289,7 @@ bool KFileItem_IsMimeTypeKnown(const KFileItem* self) {
 }
 
 libqt_string KFileItem_MimeComment(const KFileItem* self) {
-    QString _ret = self->mimeComment();
+    auto _ret = self->mimeComment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -301,7 +301,7 @@ libqt_string KFileItem_MimeComment(const KFileItem* self) {
 }
 
 libqt_string KFileItem_IconName(const KFileItem* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -317,7 +317,7 @@ libqt_list /* of libqt_string */ KFileItem_Overlays(const KFileItem* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -334,7 +334,7 @@ libqt_list /* of libqt_string */ KFileItem_Overlays(const KFileItem* self) {
 }
 
 libqt_string KFileItem_Comment(const KFileItem* self) {
-    QString _ret = self->comment();
+    auto _ret = self->comment();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -346,7 +346,7 @@ libqt_string KFileItem_Comment(const KFileItem* self) {
 }
 
 libqt_string KFileItem_GetStatusBarInfo(const KFileItem* self) {
-    QString _ret = self->getStatusBarInfo();
+    auto _ret = self->getStatusBarInfo();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -366,7 +366,7 @@ bool KFileItem_IsRegularFile(const KFileItem* self) {
 }
 
 libqt_string KFileItem_Suffix(const KFileItem* self) {
-    QString _ret = self->suffix();
+    auto _ret = self->suffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -422,7 +422,7 @@ bool KFileItem_IsExecutable(const KFileItem* self) {
 }
 
 libqt_string KFileItem_TimeString1(const KFileItem* self, int which) {
-    QString _ret = self->timeString(static_cast<KFileItem::FileTimes>(which));
+    auto _ret = self->timeString(static_cast<KFileItem::FileTimes>(which));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -434,7 +434,7 @@ libqt_string KFileItem_TimeString1(const KFileItem* self, int which) {
 }
 
 libqt_string KFileItem_Name1(const KFileItem* self, bool lowerCase) {
-    QString _ret = self->name(lowerCase);
+    auto _ret = self->name(lowerCase);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

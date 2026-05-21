@@ -178,7 +178,7 @@ void QDBusArgument_AppendVariant(QDBusArgument* self, const QVariant* v) {
 }
 
 libqt_string QDBusArgument_CurrentSignature(const QDBusArgument* self) {
-    QString _ret = self->currentSignature();
+    auto _ret = self->currentSignature();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

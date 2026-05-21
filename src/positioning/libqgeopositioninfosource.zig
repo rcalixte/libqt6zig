@@ -316,6 +316,8 @@ pub const QGeoPositionInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoPositionInfoSource, fromSatellitePositioningMethodsOnly: bool) callconv(.c) QGeoPositionInfo `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLastKnownPosition(self: QGeoPositionInfoSource, callback: *const fn (QGeoPositionInfoSource, bool) callconv(.c) QGeoPositionInfo) void {
         qtc.QGeoPositionInfoSource_OnLastKnownPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -525,6 +527,8 @@ pub const QGeoPositionInfoSource = extern struct {
     /// ` self: QGeoPositionInfoSource `
     ///
     /// ` callback: *const fn (self: QGeoPositionInfoSource, name: [*:0]const u8) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnBackendProperty(self: QGeoPositionInfoSource, callback: *const fn (QGeoPositionInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QGeoPositionInfoSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

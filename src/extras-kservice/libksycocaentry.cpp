@@ -18,7 +18,7 @@ int KSycocaEntry_SycocaType(const KSycocaEntry* self) {
 }
 
 libqt_string KSycocaEntry_Name(const KSycocaEntry* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -30,7 +30,7 @@ libqt_string KSycocaEntry_Name(const KSycocaEntry* self) {
 }
 
 libqt_string KSycocaEntry_EntryPath(const KSycocaEntry* self) {
-    QString _ret = self->entryPath();
+    auto _ret = self->entryPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -42,7 +42,7 @@ libqt_string KSycocaEntry_EntryPath(const KSycocaEntry* self) {
 }
 
 libqt_string KSycocaEntry_StorageId(const KSycocaEntry* self) {
-    QString _ret = self->storageId();
+    auto _ret = self->storageId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

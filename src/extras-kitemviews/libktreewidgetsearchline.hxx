@@ -428,7 +428,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
         }
         auto updatesearch_cb = ktreewidgetsearchline_updatesearch_callback;
         if (updatesearch_cb) {
-            const QString pattern_ret = pattern;
+            const auto pattern_ret = pattern;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray pattern_b = pattern_ret.toUtf8();
             auto pattern_str_len = pattern_b.length();
@@ -452,7 +452,7 @@ class VirtualKTreeWidgetSearchLine final : public KTreeWidgetSearchLine {
         auto itemmatches_cb = ktreewidgetsearchline_itemmatches_callback;
         if (itemmatches_cb) {
             QTreeWidgetItem* cbval1 = (QTreeWidgetItem*)item;
-            const QString pattern_ret = pattern;
+            const auto pattern_ret = pattern;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray pattern_b = pattern_ret.toUtf8();
             auto pattern_str_len = pattern_b.length();

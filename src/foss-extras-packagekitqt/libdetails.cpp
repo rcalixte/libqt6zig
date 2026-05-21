@@ -22,7 +22,7 @@ PackageKit__Details* PackageKit__Details_new2(const libqt_map /* of libqt_string
 }
 
 libqt_string PackageKit__Details_PackageId(const PackageKit__Details* self) {
-    QString _ret = self->packageId();
+    auto _ret = self->packageId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string PackageKit__Details_PackageId(const PackageKit__Details* self) {
 }
 
 libqt_string PackageKit__Details_Description(const PackageKit__Details* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -50,7 +50,7 @@ int PackageKit__Details_Group(const PackageKit__Details* self) {
 }
 
 libqt_string PackageKit__Details_Summary(const PackageKit__Details* self) {
-    QString _ret = self->summary();
+    auto _ret = self->summary();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -62,7 +62,7 @@ libqt_string PackageKit__Details_Summary(const PackageKit__Details* self) {
 }
 
 libqt_string PackageKit__Details_Url(const PackageKit__Details* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ libqt_string PackageKit__Details_Url(const PackageKit__Details* self) {
 }
 
 libqt_string PackageKit__Details_License(const PackageKit__Details* self) {
-    QString _ret = self->license();
+    auto _ret = self->license();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

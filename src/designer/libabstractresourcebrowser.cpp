@@ -85,7 +85,7 @@ void QDesignerResourceBrowserInterface_SetCurrentPath(QDesignerResourceBrowserIn
 libqt_string QDesignerResourceBrowserInterface_CurrentPath(const QDesignerResourceBrowserInterface* self) {
     auto* vqdesignerresourcebrowserinterface = dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self);
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
-        QString _ret = vqdesignerresourcebrowserinterface->currentPath();
+        auto _ret = vqdesignerresourcebrowserinterface->currentPath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -95,7 +95,7 @@ libqt_string QDesignerResourceBrowserInterface_CurrentPath(const QDesignerResour
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerResourceBrowserInterface*)self)->currentPath();
+        auto _ret = ((VirtualQDesignerResourceBrowserInterface*)self)->currentPath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -115,7 +115,7 @@ void QDesignerResourceBrowserInterface_CurrentPathChanged(QDesignerResourceBrows
 void QDesignerResourceBrowserInterface_Connect_CurrentPathChanged(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerResourceBrowserInterface*, const char*) = reinterpret_cast<void (*)(QDesignerResourceBrowserInterface*, const char*)>(slot);
     QDesignerResourceBrowserInterface::connect(self, &QDesignerResourceBrowserInterface::currentPathChanged, [self, slotFunc](const QString& filePath) {
-        const QString filePath_ret = filePath;
+        const auto filePath_ret = filePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
         auto filePath_str_len = filePath_b.length();
@@ -136,7 +136,7 @@ void QDesignerResourceBrowserInterface_PathActivated(QDesignerResourceBrowserInt
 void QDesignerResourceBrowserInterface_Connect_PathActivated(QDesignerResourceBrowserInterface* self, intptr_t slot) {
     void (*slotFunc)(QDesignerResourceBrowserInterface*, const char*) = reinterpret_cast<void (*)(QDesignerResourceBrowserInterface*, const char*)>(slot);
     QDesignerResourceBrowserInterface::connect(self, &QDesignerResourceBrowserInterface::pathActivated, [self, slotFunc](const QString& filePath) {
-        const QString filePath_ret = filePath;
+        const auto filePath_ret = filePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
         auto filePath_str_len = filePath_b.length();
@@ -231,7 +231,7 @@ libqt_string QDesignerResourceBrowserInterface_SuperCurrentPath(const QDesignerR
     auto* vqdesignerresourcebrowserinterface = const_cast<VirtualQDesignerResourceBrowserInterface*>(dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self));
     if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
         vqdesignerresourcebrowserinterface->setQDesignerResourceBrowserInterface_CurrentPath_IsBase(true);
-        QString _ret = vqdesignerresourcebrowserinterface->currentPath();
+        auto _ret = vqdesignerresourcebrowserinterface->currentPath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -241,7 +241,7 @@ libqt_string QDesignerResourceBrowserInterface_SuperCurrentPath(const QDesignerR
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerResourceBrowserInterface*)self)->currentPath();
+        auto _ret = ((VirtualQDesignerResourceBrowserInterface*)self)->currentPath();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

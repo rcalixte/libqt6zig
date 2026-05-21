@@ -23,7 +23,7 @@ void KNSCore__Author_SetId(KNSCore__Author* self, const libqt_string id) {
 }
 
 libqt_string KNSCore__Author_Id(const KNSCore__Author* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ void KNSCore__Author_SetName(KNSCore__Author* self, const libqt_string name) {
 }
 
 libqt_string KNSCore__Author_Name(const KNSCore__Author* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ void KNSCore__Author_SetEmail(KNSCore__Author* self, const libqt_string email) {
 }
 
 libqt_string KNSCore__Author_Email(const KNSCore__Author* self) {
-    QString _ret = self->email();
+    auto _ret = self->email();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,7 +74,7 @@ void KNSCore__Author_SetJabber(KNSCore__Author* self, const libqt_string jabber)
 }
 
 libqt_string KNSCore__Author_Jabber(const KNSCore__Author* self) {
-    QString _ret = self->jabber();
+    auto _ret = self->jabber();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -91,7 +91,7 @@ void KNSCore__Author_SetHomepage(KNSCore__Author* self, const libqt_string homep
 }
 
 libqt_string KNSCore__Author_Homepage(const KNSCore__Author* self) {
-    QString _ret = self->homepage();
+    auto _ret = self->homepage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -108,7 +108,7 @@ void KNSCore__Author_SetProfilepage(KNSCore__Author* self, const libqt_string pr
 }
 
 libqt_string KNSCore__Author_Profilepage(const KNSCore__Author* self) {
-    QString _ret = self->profilepage();
+    auto _ret = self->profilepage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -128,7 +128,7 @@ QUrl* KNSCore__Author_AvatarUrl(const KNSCore__Author* self) {
 }
 
 libqt_string KNSCore__Author_Description(const KNSCore__Author* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

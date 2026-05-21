@@ -595,6 +595,8 @@ pub const QMimeData = extern struct {
     ///
     /// ` callback: *const fn (self: QMimeData, mimetype: [*:0]const u8, preferredType: QMetaType) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnRetrieveData(self: QMimeData, callback: *const fn (QMimeData, [*:0]const u8, QMetaType) callconv(.c) QVariant) void {
         qtc.QMimeData_OnRetrieveData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

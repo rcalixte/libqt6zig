@@ -6377,6 +6377,8 @@ pub const KConfigDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KConfigDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KConfigDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6424,6 +6426,8 @@ pub const KConfigDialog = extern struct {
     /// ` self: KConfigDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KConfigDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KConfigDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8656,6 +8660,8 @@ pub const KConfigDialog = extern struct {
     /// ` self: KConfigDialog`
     ///
     /// ` callback: *const fn (self: KConfigDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KConfigDialog, callback: *const fn (KConfigDialog, i32) callconv(.c) QVariant) void {
         qtc.KConfigDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

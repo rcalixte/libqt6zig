@@ -262,7 +262,7 @@ void KIO__OpenFileManagerWindowJob_OnDoResume(KIO__OpenFileManagerWindowJob* sel
 libqt_string KIO__OpenFileManagerWindowJob_ErrorString(const KIO__OpenFileManagerWindowJob* self) {
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
-        QString _ret = vkioopenfilemanagerwindowjob->errorString();
+        auto _ret = vkioopenfilemanagerwindowjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -272,7 +272,7 @@ libqt_string KIO__OpenFileManagerWindowJob_ErrorString(const KIO__OpenFileManage
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::OpenFileManagerWindowJob::errorString();
+        auto _ret = self->KIO::OpenFileManagerWindowJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -289,7 +289,7 @@ libqt_string KIO__OpenFileManagerWindowJob_SuperErrorString(const KIO__OpenFileM
     auto* vkioopenfilemanagerwindowjob = const_cast<VirtualKIOOpenFileManagerWindowJob*>(dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self));
     if (vkioopenfilemanagerwindowjob && vkioopenfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
         vkioopenfilemanagerwindowjob->setKIO__OpenFileManagerWindowJob_ErrorString_IsBase(true);
-        QString _ret = vkioopenfilemanagerwindowjob->errorString();
+        auto _ret = vkioopenfilemanagerwindowjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -299,7 +299,7 @@ libqt_string KIO__OpenFileManagerWindowJob_SuperErrorString(const KIO__OpenFileM
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::OpenFileManagerWindowJob::errorString();
+        auto _ret = self->KIO::OpenFileManagerWindowJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -812,7 +812,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto changedir_cb = qtermwidget_changedir_callback;
         if (changedir_cb) {
-            const QString dir_ret = dir;
+            const auto dir_ret = dir;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dir_b = dir_ret.toUtf8();
             auto dir_str_len = dir_b.length();
@@ -886,7 +886,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto setterminalbackgroundimage_cb = qtermwidget_setterminalbackgroundimage_callback;
         if (setterminalbackgroundimage_cb) {
-            const QString backgroundImage_ret = backgroundImage;
+            const auto backgroundImage_ret = backgroundImage;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray backgroundImage_b = backgroundImage_ret.toUtf8();
             auto backgroundImage_str_len = backgroundImage_b.length();
@@ -956,7 +956,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto setshellprogram_cb = qtermwidget_setshellprogram_callback;
         if (setshellprogram_cb) {
-            const QString program_ret = program;
+            const auto program_ret = program;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray program_b = program_ret.toUtf8();
             auto program_str_len = program_b.length();
@@ -980,7 +980,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto setworkingdirectory_cb = qtermwidget_setworkingdirectory_callback;
         if (setworkingdirectory_cb) {
-            const QString dir_ret = dir;
+            const auto dir_ret = dir;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dir_b = dir_ret.toUtf8();
             auto dir_str_len = dir_b.length();
@@ -1049,7 +1049,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto setcolorscheme_cb = qtermwidget_setcolorscheme_callback;
         if (setcolorscheme_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -1157,7 +1157,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto sendtext_cb = qtermwidget_sendtext_callback;
         if (sendtext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -1592,7 +1592,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto brackettext_cb = qtermwidget_brackettext_callback;
         if (brackettext_cb) {
-            QString text_ret = text;
+            auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -1755,7 +1755,7 @@ class VirtualQTermWidget final : public QTermWidget {
         }
         auto setwordcharacters_cb = qtermwidget_setwordcharacters_callback;
         if (setwordcharacters_cb) {
-            const QString chars_ret = chars;
+            const auto chars_ret = chars;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray chars_b = chars_ret.toUtf8();
             auto chars_str_len = chars_b.length();

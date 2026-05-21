@@ -119,6 +119,20 @@ pub const KTextEditor__LineRange = extern struct {
         return _ret;
     }
 
+    /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#fromString)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn FromString(str: []const u8) KTextEditor__LineRange {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.KTextEditor__LineRange_FromString(str_str) };
+    }
+
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-linerange.html#start)
     ///
     /// ## Parameter(s):

@@ -165,7 +165,7 @@ class VirtualKDateValidator final : public KDateValidator {
         }
         auto validate_cb = kdatevalidator_validate_callback;
         if (validate_cb) {
-            QString text_ret = text;
+            auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -190,7 +190,7 @@ class VirtualKDateValidator final : public KDateValidator {
         }
         auto fixup_cb = kdatevalidator_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();

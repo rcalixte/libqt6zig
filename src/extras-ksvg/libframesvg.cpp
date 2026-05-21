@@ -125,7 +125,7 @@ bool KSvg__FrameSvg_HasElementPrefix2(const KSvg__FrameSvg* self, int location) 
 }
 
 libqt_string KSvg__FrameSvg_Prefix(KSvg__FrameSvg* self) {
-    QString _ret = self->prefix();
+    auto _ret = self->prefix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -169,7 +169,7 @@ void KSvg__FrameSvg_PaintFrame2(KSvg__FrameSvg* self, QPainter* painter) {
 }
 
 libqt_string KSvg__FrameSvg_ActualPrefix(const KSvg__FrameSvg* self) {
-    QString _ret = self->actualPrefix();
+    auto _ret = self->actualPrefix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

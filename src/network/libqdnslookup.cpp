@@ -37,7 +37,7 @@ void QDnsDomainNameRecord_Swap(QDnsDomainNameRecord* self, QDnsDomainNameRecord*
 }
 
 libqt_string QDnsDomainNameRecord_Name(const QDnsDomainNameRecord* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -53,7 +53,7 @@ unsigned int QDnsDomainNameRecord_TimeToLive(const QDnsDomainNameRecord* self) {
 }
 
 libqt_string QDnsDomainNameRecord_Value(const QDnsDomainNameRecord* self) {
-    QString _ret = self->value();
+    auto _ret = self->value();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -85,7 +85,7 @@ void QDnsHostAddressRecord_Swap(QDnsHostAddressRecord* self, QDnsHostAddressReco
 }
 
 libqt_string QDnsHostAddressRecord_Name(const QDnsHostAddressRecord* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -125,7 +125,7 @@ void QDnsMailExchangeRecord_Swap(QDnsMailExchangeRecord* self, QDnsMailExchangeR
 }
 
 libqt_string QDnsMailExchangeRecord_Exchange(const QDnsMailExchangeRecord* self) {
-    QString _ret = self->exchange();
+    auto _ret = self->exchange();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ libqt_string QDnsMailExchangeRecord_Exchange(const QDnsMailExchangeRecord* self)
 }
 
 libqt_string QDnsMailExchangeRecord_Name(const QDnsMailExchangeRecord* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -177,7 +177,7 @@ void QDnsServiceRecord_Swap(QDnsServiceRecord* self, QDnsServiceRecord* other) {
 }
 
 libqt_string QDnsServiceRecord_Name(const QDnsServiceRecord* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,7 +197,7 @@ uint16_t QDnsServiceRecord_Priority(const QDnsServiceRecord* self) {
 }
 
 libqt_string QDnsServiceRecord_Target(const QDnsServiceRecord* self) {
-    QString _ret = self->target();
+    auto _ret = self->target();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -237,7 +237,7 @@ void QDnsTextRecord_Swap(QDnsTextRecord* self, QDnsTextRecord* other) {
 }
 
 libqt_string QDnsTextRecord_Name(const QDnsTextRecord* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -291,7 +291,7 @@ void QDnsTlsAssociationRecord_Swap(QDnsTlsAssociationRecord* self, QDnsTlsAssoci
 }
 
 libqt_string QDnsTlsAssociationRecord_Name(const QDnsTlsAssociationRecord* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -420,7 +420,7 @@ int QDnsLookup_Error(const QDnsLookup* self) {
 }
 
 libqt_string QDnsLookup_ErrorString(const QDnsLookup* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -436,7 +436,7 @@ bool QDnsLookup_IsFinished(const QDnsLookup* self) {
 }
 
 libqt_string QDnsLookup_Name(const QDnsLookup* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -639,7 +639,7 @@ void QDnsLookup_NameChanged(QDnsLookup* self, const libqt_string name) {
 void QDnsLookup_Connect_NameChanged(QDnsLookup* self, intptr_t slot) {
     void (*slotFunc)(QDnsLookup*, const char*) = reinterpret_cast<void (*)(QDnsLookup*, const char*)>(slot);
     QDnsLookup::connect(self, &QDnsLookup::nameChanged, [self, slotFunc](const QString& name) {
-        const QString name_ret = name;
+        const auto name_ret = name;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
         auto name_str_len = name_b.length();

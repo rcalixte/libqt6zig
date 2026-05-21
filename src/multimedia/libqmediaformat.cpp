@@ -98,7 +98,7 @@ libqt_list /* of int */ QMediaFormat_SupportedAudioCodecs(QMediaFormat* self, in
 }
 
 libqt_string QMediaFormat_FileFormatName(int fileFormat) {
-    QString _ret = QMediaFormat::fileFormatName(static_cast<QMediaFormat::FileFormat>(fileFormat));
+    auto _ret = QMediaFormat::fileFormatName(static_cast<QMediaFormat::FileFormat>(fileFormat));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -110,7 +110,7 @@ libqt_string QMediaFormat_FileFormatName(int fileFormat) {
 }
 
 libqt_string QMediaFormat_AudioCodecName(int codec) {
-    QString _ret = QMediaFormat::audioCodecName(static_cast<QMediaFormat::AudioCodec>(codec));
+    auto _ret = QMediaFormat::audioCodecName(static_cast<QMediaFormat::AudioCodec>(codec));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -122,7 +122,7 @@ libqt_string QMediaFormat_AudioCodecName(int codec) {
 }
 
 libqt_string QMediaFormat_VideoCodecName(int codec) {
-    QString _ret = QMediaFormat::videoCodecName(static_cast<QMediaFormat::VideoCodec>(codec));
+    auto _ret = QMediaFormat::videoCodecName(static_cast<QMediaFormat::VideoCodec>(codec));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -134,7 +134,7 @@ libqt_string QMediaFormat_VideoCodecName(int codec) {
 }
 
 libqt_string QMediaFormat_FileFormatDescription(int fileFormat) {
-    QString _ret = QMediaFormat::fileFormatDescription(static_cast<QMediaFormat::FileFormat>(fileFormat));
+    auto _ret = QMediaFormat::fileFormatDescription(static_cast<QMediaFormat::FileFormat>(fileFormat));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -146,7 +146,7 @@ libqt_string QMediaFormat_FileFormatDescription(int fileFormat) {
 }
 
 libqt_string QMediaFormat_AudioCodecDescription(int codec) {
-    QString _ret = QMediaFormat::audioCodecDescription(static_cast<QMediaFormat::AudioCodec>(codec));
+    auto _ret = QMediaFormat::audioCodecDescription(static_cast<QMediaFormat::AudioCodec>(codec));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -158,7 +158,7 @@ libqt_string QMediaFormat_AudioCodecDescription(int codec) {
 }
 
 libqt_string QMediaFormat_VideoCodecDescription(int codec) {
-    QString _ret = QMediaFormat::videoCodecDescription(static_cast<QMediaFormat::VideoCodec>(codec));
+    auto _ret = QMediaFormat::videoCodecDescription(static_cast<QMediaFormat::VideoCodec>(codec));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

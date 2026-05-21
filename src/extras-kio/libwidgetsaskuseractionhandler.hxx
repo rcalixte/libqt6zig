@@ -182,7 +182,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
         auto askuserrename_cb = kio__widgetsaskuseractionhandler_askuserrename_callback;
         if (askuserrename_cb) {
             KJob* cbval1 = job;
-            const QString title_ret = title;
+            const auto title_ret = title;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray title_b = title_ret.toUtf8();
             auto title_str_len = title_b.length();
@@ -229,7 +229,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
         if (askuserskip_cb) {
             KJob* cbval1 = job;
             int cbval2 = static_cast<int>(options);
-            const QString error_text_ret = error_text;
+            const auto error_text_ret = error_text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray error_text_b = error_text_ret.toUtf8();
             auto error_text_str_len = error_text_b.length();
@@ -283,7 +283,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
         auto requestusermessagebox_cb = kio__widgetsaskuseractionhandler_requestusermessagebox_callback;
         if (requestusermessagebox_cb) {
             int cbval1 = static_cast<int>(typeVal);
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -291,7 +291,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)text_str, text_b.data(), text_str_len);
             ((char*)text_str)[text_str_len] = '\0';
             const char* cbval2 = text_str;
-            const QString title_ret = title;
+            const auto title_ret = title;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray title_b = title_ret.toUtf8();
             auto title_str_len = title_b.length();
@@ -299,7 +299,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)title_str, title_b.data(), title_str_len);
             ((char*)title_str)[title_str_len] = '\0';
             const char* cbval3 = title_str;
-            const QString primaryActionText_ret = primaryActionText;
+            const auto primaryActionText_ret = primaryActionText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray primaryActionText_b = primaryActionText_ret.toUtf8();
             auto primaryActionText_str_len = primaryActionText_b.length();
@@ -307,7 +307,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)primaryActionText_str, primaryActionText_b.data(), primaryActionText_str_len);
             ((char*)primaryActionText_str)[primaryActionText_str_len] = '\0';
             const char* cbval4 = primaryActionText_str;
-            const QString secondaryActionText_ret = secondaryActionText;
+            const auto secondaryActionText_ret = secondaryActionText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray secondaryActionText_b = secondaryActionText_ret.toUtf8();
             auto secondaryActionText_str_len = secondaryActionText_b.length();
@@ -315,7 +315,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)secondaryActionText_str, secondaryActionText_b.data(), secondaryActionText_str_len);
             ((char*)secondaryActionText_str)[secondaryActionText_str_len] = '\0';
             const char* cbval5 = secondaryActionText_str;
-            const QString primaryActionIconName_ret = primaryActionIconName;
+            const auto primaryActionIconName_ret = primaryActionIconName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray primaryActionIconName_b = primaryActionIconName_ret.toUtf8();
             auto primaryActionIconName_str_len = primaryActionIconName_b.length();
@@ -323,7 +323,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)primaryActionIconName_str, primaryActionIconName_b.data(), primaryActionIconName_str_len);
             ((char*)primaryActionIconName_str)[primaryActionIconName_str_len] = '\0';
             const char* cbval6 = primaryActionIconName_str;
-            const QString secondaryActionIconName_ret = secondaryActionIconName;
+            const auto secondaryActionIconName_ret = secondaryActionIconName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray secondaryActionIconName_b = secondaryActionIconName_ret.toUtf8();
             auto secondaryActionIconName_str_len = secondaryActionIconName_b.length();
@@ -331,7 +331,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)secondaryActionIconName_str, secondaryActionIconName_b.data(), secondaryActionIconName_str_len);
             ((char*)secondaryActionIconName_str)[secondaryActionIconName_str_len] = '\0';
             const char* cbval7 = secondaryActionIconName_str;
-            const QString dontAskAgainName_ret = dontAskAgainName;
+            const auto dontAskAgainName_ret = dontAskAgainName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray dontAskAgainName_b = dontAskAgainName_ret.toUtf8();
             auto dontAskAgainName_str_len = dontAskAgainName_b.length();
@@ -339,7 +339,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             memcpy((void*)dontAskAgainName_str, dontAskAgainName_b.data(), dontAskAgainName_str_len);
             ((char*)dontAskAgainName_str)[dontAskAgainName_str_len] = '\0';
             const char* cbval8 = dontAskAgainName_str;
-            const QString details_ret = details;
+            const auto details_ret = details;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray details_b = details_ret.toUtf8();
             auto details_str_len = details_b.length();
@@ -377,7 +377,7 @@ class VirtualKIOWidgetsAskUserActionHandler final : public KIO::WidgetsAskUserAc
             QVariant** sslErrorData_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * sslErrorData_ret.size()));
             int sslErrorData_ctr = 0;
             for (auto sslErrorData_itr = sslErrorData_ret.keyValueBegin(); sslErrorData_itr != sslErrorData_ret.keyValueEnd(); ++sslErrorData_itr) {
-                QString sslErrorData_mapkey_ret = sslErrorData_itr->first;
+                auto sslErrorData_mapkey_ret = sslErrorData_itr->first;
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray sslErrorData_mapkey_b = sslErrorData_mapkey_ret.toUtf8();
                 libqt_string sslErrorData_mapkey_str;

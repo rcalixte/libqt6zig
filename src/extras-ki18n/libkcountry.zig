@@ -245,11 +245,39 @@ pub const KCountry = extern struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` alpha2Code: []const u8 `
+    ///
+    pub fn FromAlpha2(alpha2Code: []const u8) KCountry {
+        const alpha2Code_str = qtc.libqt_string{
+            .len = alpha2Code.len,
+            .data = alpha2Code.ptr,
+        };
+        return .{ .ptr = qtc.KCountry_FromAlpha2(alpha2Code_str) };
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcountry.html#fromAlpha2)
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` alpha2Code: [:0]const u8 `
     ///
     pub fn FromAlpha22(alpha2Code: [:0]const u8) KCountry {
         const alpha2Code_Cstring = alpha2Code.ptr;
         return .{ .ptr = qtc.KCountry_FromAlpha22(alpha2Code_Cstring) };
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcountry.html#fromAlpha3)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` alpha3Code: []const u8 `
+    ///
+    pub fn FromAlpha3(alpha3Code: []const u8) KCountry {
+        const alpha3Code_str = qtc.libqt_string{
+            .len = alpha3Code.len,
+            .data = alpha3Code.ptr,
+        };
+        return .{ .ptr = qtc.KCountry_FromAlpha3(alpha3Code_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountry.html#fromAlpha3)
@@ -283,6 +311,20 @@ pub const KCountry = extern struct {
     ///
     pub fn FromQLocale(country: u16) KCountry {
         return .{ .ptr = qtc.KCountry_FromQLocale(@bitCast(country)) };
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcountry.html#fromName)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` name: []const u8 `
+    ///
+    pub fn FromName(name: []const u8) KCountry {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.KCountry_FromName(name_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcountry.html#allCountries)

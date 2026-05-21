@@ -297,7 +297,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QUrl& securityOrigin_ret = securityOrigin;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&securityOrigin_ret);
-            const QString msg_ret = msg;
+            const auto msg_ret = msg;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
             auto msg_str_len = msg_b.length();
@@ -323,7 +323,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QUrl& securityOrigin_ret = securityOrigin;
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&securityOrigin_ret);
-            const QString msg_ret = msg;
+            const auto msg_ret = msg;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
             auto msg_str_len = msg_b.length();
@@ -348,7 +348,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         auto javascriptconsolemessage_cb = qwebenginepage_javascriptconsolemessage_callback;
         if (javascriptconsolemessage_cb) {
             int cbval1 = static_cast<int>(level);
-            const QString message_ret = message;
+            const auto message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
             auto message_str_len = message_b.length();
@@ -357,7 +357,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             ((char*)message_str)[message_str_len] = '\0';
             const char* cbval2 = message_str;
             int cbval3 = lineNumber;
-            const QString sourceID_ret = sourceID;
+            const auto sourceID_ret = sourceID;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray sourceID_b = sourceID_ret.toUtf8();
             auto sourceID_str_len = sourceID_b.length();

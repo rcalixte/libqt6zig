@@ -1827,6 +1827,8 @@ pub const QImage = extern struct {
     ///
     /// ` callback: *const fn (self: QImage, horizontal: bool, vertical: bool) callconv(.c) QImage `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMirroredHelper(self: QImage, callback: *const fn (QImage, bool, bool) callconv(.c) QImage) void {
         qtc.QImage_OnMirroredHelper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1870,6 +1872,8 @@ pub const QImage = extern struct {
     /// ` self: QImage `
     ///
     /// ` callback: *const fn () callconv(.c) QImage `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRgbSwappedHelper(self: QImage, callback: *const fn () callconv(.c) QImage) void {
         qtc.QImage_OnRgbSwappedHelper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2003,6 +2007,8 @@ pub const QImage = extern struct {
     ///
     /// ` callback: *const fn (self: QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QImage `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnConvertToFormatHelper(self: QImage, callback: *const fn (QImage, i32, i32) callconv(.c) QImage) void {
         qtc.QImage_OnConvertToFormatHelper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2098,6 +2104,8 @@ pub const QImage = extern struct {
     /// ` self: QImage `
     ///
     /// ` callback: *const fn (self: QImage, w: i32, h: i32) callconv(.c) QImage `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSmoothScaled(self: QImage, callback: *const fn (QImage, i32, i32) callconv(.c) QImage) void {
         qtc.QImage_OnSmoothScaled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

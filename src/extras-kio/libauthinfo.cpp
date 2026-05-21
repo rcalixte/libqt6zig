@@ -35,7 +35,7 @@ void KIO__AuthInfo_SetUrl(KIO__AuthInfo* self, QUrl* url) {
 }
 
 libqt_string KIO__AuthInfo_Username(const KIO__AuthInfo* self) {
-    QString username_ret = self->username;
+    auto username_ret = self->username;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray username_b = username_ret.toUtf8();
     libqt_string username_str;
@@ -52,7 +52,7 @@ void KIO__AuthInfo_SetUsername(KIO__AuthInfo* self, libqt_string username) {
 }
 
 libqt_string KIO__AuthInfo_Password(const KIO__AuthInfo* self) {
-    QString password_ret = self->password;
+    auto password_ret = self->password;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray password_b = password_ret.toUtf8();
     libqt_string password_str;
@@ -69,7 +69,7 @@ void KIO__AuthInfo_SetPassword(KIO__AuthInfo* self, libqt_string password) {
 }
 
 libqt_string KIO__AuthInfo_Prompt(const KIO__AuthInfo* self) {
-    QString prompt_ret = self->prompt;
+    auto prompt_ret = self->prompt;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray prompt_b = prompt_ret.toUtf8();
     libqt_string prompt_str;
@@ -86,7 +86,7 @@ void KIO__AuthInfo_SetPrompt(KIO__AuthInfo* self, libqt_string prompt) {
 }
 
 libqt_string KIO__AuthInfo_Caption(const KIO__AuthInfo* self) {
-    QString caption_ret = self->caption;
+    auto caption_ret = self->caption;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray caption_b = caption_ret.toUtf8();
     libqt_string caption_str;
@@ -103,7 +103,7 @@ void KIO__AuthInfo_SetCaption(KIO__AuthInfo* self, libqt_string caption) {
 }
 
 libqt_string KIO__AuthInfo_Comment(const KIO__AuthInfo* self) {
-    QString comment_ret = self->comment;
+    auto comment_ret = self->comment;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray comment_b = comment_ret.toUtf8();
     libqt_string comment_str;
@@ -120,7 +120,7 @@ void KIO__AuthInfo_SetComment(KIO__AuthInfo* self, libqt_string comment) {
 }
 
 libqt_string KIO__AuthInfo_CommentLabel(const KIO__AuthInfo* self) {
-    QString commentLabel_ret = self->commentLabel;
+    auto commentLabel_ret = self->commentLabel;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray commentLabel_b = commentLabel_ret.toUtf8();
     libqt_string commentLabel_str;
@@ -137,7 +137,7 @@ void KIO__AuthInfo_SetCommentLabel(KIO__AuthInfo* self, libqt_string commentLabe
 }
 
 libqt_string KIO__AuthInfo_RealmValue(const KIO__AuthInfo* self) {
-    QString realmValue_ret = self->realmValue;
+    auto realmValue_ret = self->realmValue;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray realmValue_b = realmValue_ret.toUtf8();
     libqt_string realmValue_str;
@@ -154,7 +154,7 @@ void KIO__AuthInfo_SetRealmValue(KIO__AuthInfo* self, libqt_string realmValue) {
 }
 
 libqt_string KIO__AuthInfo_DigestInfo(const KIO__AuthInfo* self) {
-    QString digestInfo_ret = self->digestInfo;
+    auto digestInfo_ret = self->digestInfo;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray digestInfo_b = digestInfo_ret.toUtf8();
     libqt_string digestInfo_str;

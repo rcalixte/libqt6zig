@@ -16,7 +16,7 @@ KUriFilterSearchProvider* KUriFilterSearchProvider_new2(const KUriFilterSearchPr
 }
 
 libqt_string KUriFilterSearchProvider_DesktopEntryName(const KUriFilterSearchProvider* self) {
-    QString _ret = self->desktopEntryName();
+    auto _ret = self->desktopEntryName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -28,7 +28,7 @@ libqt_string KUriFilterSearchProvider_DesktopEntryName(const KUriFilterSearchPro
 }
 
 libqt_string KUriFilterSearchProvider_Name(const KUriFilterSearchProvider* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -42,7 +42,7 @@ libqt_string KUriFilterSearchProvider_Name(const KUriFilterSearchProvider* self)
 libqt_string KUriFilterSearchProvider_IconName(const KUriFilterSearchProvider* self) {
     auto* vkurifiltersearchprovider = dynamic_cast<const VirtualKUriFilterSearchProvider*>(self);
     if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
-        QString _ret = self->iconName();
+        auto _ret = self->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -52,7 +52,7 @@ libqt_string KUriFilterSearchProvider_IconName(const KUriFilterSearchProvider* s
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKUriFilterSearchProvider*)self)->iconName();
+        auto _ret = ((VirtualKUriFilterSearchProvider*)self)->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -69,7 +69,7 @@ libqt_list /* of libqt_string */ KUriFilterSearchProvider_Keys(const KUriFilterS
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -86,7 +86,7 @@ libqt_list /* of libqt_string */ KUriFilterSearchProvider_Keys(const KUriFilterS
 }
 
 libqt_string KUriFilterSearchProvider_DefaultKey(const KUriFilterSearchProvider* self) {
-    QString _ret = self->defaultKey();
+    auto _ret = self->defaultKey();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,7 +106,7 @@ libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvid
     auto* vkurifiltersearchprovider = const_cast<VirtualKUriFilterSearchProvider*>(dynamic_cast<const VirtualKUriFilterSearchProvider*>(self));
     if (vkurifiltersearchprovider && vkurifiltersearchprovider->isVirtualKUriFilterSearchProvider) {
         vkurifiltersearchprovider->setKUriFilterSearchProvider_IconName_IsBase(true);
-        QString _ret = vkurifiltersearchprovider->iconName();
+        auto _ret = vkurifiltersearchprovider->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -116,7 +116,7 @@ libqt_string KUriFilterSearchProvider_SuperIconName(const KUriFilterSearchProvid
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KUriFilterSearchProvider::iconName();
+        auto _ret = self->KUriFilterSearchProvider::iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -298,7 +298,7 @@ QUrl* KUriFilterData_Uri(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_ErrorMsg(const KUriFilterData* self) {
-    QString _ret = self->errorMsg();
+    auto _ret = self->errorMsg();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -314,7 +314,7 @@ int KUriFilterData_UriType(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_AbsolutePath(const KUriFilterData* self) {
-    QString _ret = self->absolutePath();
+    auto _ret = self->absolutePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -330,7 +330,7 @@ bool KUriFilterData_HasAbsolutePath(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_ArgsAndOptions(const KUriFilterData* self) {
-    QString _ret = self->argsAndOptions();
+    auto _ret = self->argsAndOptions();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -350,7 +350,7 @@ bool KUriFilterData_CheckForExecutables(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_TypedString(const KUriFilterData* self) {
-    QString _ret = self->typedString();
+    auto _ret = self->typedString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -362,7 +362,7 @@ libqt_string KUriFilterData_TypedString(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_SearchTerm(const KUriFilterData* self) {
-    QString _ret = self->searchTerm();
+    auto _ret = self->searchTerm();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -378,7 +378,7 @@ QChar* KUriFilterData_SearchTermSeparator(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_SearchProvider(const KUriFilterData* self) {
-    QString _ret = self->searchProvider();
+    auto _ret = self->searchProvider();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -394,7 +394,7 @@ libqt_list /* of libqt_string */ KUriFilterData_PreferredSearchProviders(const K
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -417,7 +417,7 @@ KUriFilterSearchProvider* KUriFilterData_QueryForSearchProvider(const KUriFilter
 
 libqt_string KUriFilterData_QueryForPreferredSearchProvider(const KUriFilterData* self, const libqt_string provider) {
     QString provider_QString = QString::fromUtf8(provider.data, provider.len);
-    QString _ret = self->queryForPreferredSearchProvider(provider_QString);
+    auto _ret = self->queryForPreferredSearchProvider(provider_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -434,7 +434,7 @@ libqt_list /* of libqt_string */ KUriFilterData_AllQueriesForSearchProvider(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -452,7 +452,7 @@ libqt_list /* of libqt_string */ KUriFilterData_AllQueriesForSearchProvider(cons
 
 libqt_string KUriFilterData_IconNameForPreferredSearchProvider(const KUriFilterData* self, const libqt_string provider) {
     QString provider_QString = QString::fromUtf8(provider.data, provider.len);
-    QString _ret = self->iconNameForPreferredSearchProvider(provider_QString);
+    auto _ret = self->iconNameForPreferredSearchProvider(provider_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -468,7 +468,7 @@ libqt_list /* of libqt_string */ KUriFilterData_AlternateSearchProviders(const K
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -485,7 +485,7 @@ libqt_list /* of libqt_string */ KUriFilterData_AlternateSearchProviders(const K
 }
 
 libqt_string KUriFilterData_AlternateDefaultSearchProvider(const KUriFilterData* self) {
-    QString _ret = self->alternateDefaultSearchProvider();
+    auto _ret = self->alternateDefaultSearchProvider();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -497,7 +497,7 @@ libqt_string KUriFilterData_AlternateDefaultSearchProvider(const KUriFilterData*
 }
 
 libqt_string KUriFilterData_DefaultUrlScheme(const KUriFilterData* self) {
-    QString _ret = self->defaultUrlScheme();
+    auto _ret = self->defaultUrlScheme();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -513,7 +513,7 @@ int KUriFilterData_SearchFilteringOptions(const KUriFilterData* self) {
 }
 
 libqt_string KUriFilterData_IconName(KUriFilterData* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -603,7 +603,7 @@ QUrl* KUriFilter_FilteredUri(KUriFilter* self, const QUrl* uri) {
 
 libqt_string KUriFilter_FilteredUri2(KUriFilter* self, const libqt_string uri) {
     QString uri_QString = QString::fromUtf8(uri.data, uri.len);
-    QString _ret = self->filteredUri(uri_QString);
+    auto _ret = self->filteredUri(uri_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -623,7 +623,7 @@ libqt_list /* of libqt_string */ KUriFilter_PluginNames(const KUriFilter* self) 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -693,7 +693,7 @@ libqt_string KUriFilter_FilteredUri23(KUriFilter* self, const libqt_string uri, 
         QString filters_arr_i_QString = QString::fromUtf8(filters_arr[i].data, filters_arr[i].len);
         filters_QList.push_back(filters_arr_i_QString);
     }
-    QString _ret = self->filteredUri(uri_QString, filters_QList);
+    auto _ret = self->filteredUri(uri_QString, filters_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

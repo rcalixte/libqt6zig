@@ -55,7 +55,7 @@ void TextGrammarCheck__LanguageToolGetListOfLanguageJob_Start(TextGrammarCheck__
 }
 
 libqt_string TextGrammarCheck__LanguageToolGetListOfLanguageJob_ListOfLanguagePath(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    QString _ret = self->listOfLanguagePath();
+    auto _ret = self->listOfLanguagePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -80,7 +80,7 @@ void TextGrammarCheck__LanguageToolGetListOfLanguageJob_SetNetworkAccessManager(
 }
 
 libqt_string TextGrammarCheck__LanguageToolGetListOfLanguageJob_Url(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -104,7 +104,7 @@ void TextGrammarCheck__LanguageToolGetListOfLanguageJob_Finished(TextGrammarChec
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_Connect_Finished(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__LanguageToolGetListOfLanguageJob*, const char*) = reinterpret_cast<void (*)(TextGrammarCheck__LanguageToolGetListOfLanguageJob*, const char*)>(slot);
     TextGrammarCheck::LanguageToolGetListOfLanguageJob::connect(self, &TextGrammarCheck::LanguageToolGetListOfLanguageJob::finished, [self, slotFunc](const QString& result) {
-        const QString result_ret = result;
+        const auto result_ret = result;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray result_b = result_ret.toUtf8();
         auto result_str_len = result_b.length();
@@ -125,7 +125,7 @@ void TextGrammarCheck__LanguageToolGetListOfLanguageJob_Error(TextGrammarCheck__
 void TextGrammarCheck__LanguageToolGetListOfLanguageJob_Connect_Error(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, intptr_t slot) {
     void (*slotFunc)(TextGrammarCheck__LanguageToolGetListOfLanguageJob*, const char*) = reinterpret_cast<void (*)(TextGrammarCheck__LanguageToolGetListOfLanguageJob*, const char*)>(slot);
     TextGrammarCheck::LanguageToolGetListOfLanguageJob::connect(self, &TextGrammarCheck::LanguageToolGetListOfLanguageJob::error, [self, slotFunc](const QString& errorStr) {
-        const QString errorStr_ret = errorStr;
+        const auto errorStr_ret = errorStr;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorStr_b = errorStr_ret.toUtf8();
         auto errorStr_str_len = errorStr_b.length();

@@ -463,6 +463,8 @@ pub const QGraphicsProxyWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsProxyWidget, change: qgraphicsitem_enums.GraphicsItemChange, value: QVariant) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnItemChange(self: QGraphicsProxyWidget, callback: *const fn (QGraphicsProxyWidget, i32, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsProxyWidget_OnItemChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1618,6 +1620,8 @@ pub const QGraphicsProxyWidget = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsProxyWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QGraphicsProxyWidget, callback: *const fn (QGraphicsProxyWidget, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsProxyWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1710,6 +1714,8 @@ pub const QGraphicsProxyWidget = extern struct {
     /// ` self: QGraphicsProxyWidget `
     ///
     /// ` callback: *const fn (self: QGraphicsProxyWidget, which: qnamespace_enums.SizeHint, constraint: QSizeF) callconv(.c) QSizeF `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QGraphicsProxyWidget, callback: *const fn (QGraphicsProxyWidget, i32, QSizeF) callconv(.c) QSizeF) void {
         qtc.QGraphicsProxyWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6930,6 +6936,8 @@ pub const QGraphicsProxyWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRectF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBoundingRect(self: QGraphicsProxyWidget, callback: *const fn () callconv(.c) QRectF) void {
         qtc.QGraphicsProxyWidget_OnBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6977,6 +6985,8 @@ pub const QGraphicsProxyWidget = extern struct {
     /// ` self: QGraphicsProxyWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnShape(self: QGraphicsProxyWidget, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsProxyWidget_OnShape(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7145,6 +7155,8 @@ pub const QGraphicsProxyWidget = extern struct {
     /// ` self: QGraphicsProxyWidget`
     ///
     /// ` callback: *const fn (self: QGraphicsProxyWidget, propertyName: [*:0]const u8, value: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPropertyChange(self: QGraphicsProxyWidget, callback: *const fn (QGraphicsProxyWidget, [*:0]const u8, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsProxyWidget_OnPropertyChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8228,6 +8240,8 @@ pub const QGraphicsProxyWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainterPath `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpaqueArea(self: QGraphicsProxyWidget, callback: *const fn () callconv(.c) QPainterPath) void {
         qtc.QGraphicsProxyWidget_OnOpaqueArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8451,6 +8465,8 @@ pub const QGraphicsProxyWidget = extern struct {
     /// ` self: QGraphicsProxyWidget`
     ///
     /// ` callback: *const fn (self: QGraphicsProxyWidget, variant: QVariant) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnExtension(self: QGraphicsProxyWidget, callback: *const fn (QGraphicsProxyWidget, QVariant) callconv(.c) QVariant) void {
         qtc.QGraphicsProxyWidget_OnExtension(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

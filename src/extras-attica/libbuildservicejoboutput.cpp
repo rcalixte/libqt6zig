@@ -22,7 +22,7 @@ void Attica__BuildServiceJobOutput_SetOutput(Attica__BuildServiceJobOutput* self
 }
 
 libqt_string Attica__BuildServiceJobOutput_Output(const Attica__BuildServiceJobOutput* self) {
-    QString _ret = self->output();
+    auto _ret = self->output();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -5368,6 +5368,8 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextEmoticonsWidgets__EmoticonTextEditSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextEmoticonsWidgets__EmoticonTextEditSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5415,6 +5417,8 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextEmoticonsWidgets__EmoticonTextEditSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextEmoticonsWidgets__EmoticonTextEditSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7349,6 +7353,8 @@ pub const TextEmoticonsWidgets__EmoticonTextEditSelector = extern struct {
     /// ` self: TextEmoticonsWidgets__EmoticonTextEditSelector`
     ///
     /// ` callback: *const fn (self: TextEmoticonsWidgets__EmoticonTextEditSelector, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextEmoticonsWidgets__EmoticonTextEditSelector, callback: *const fn (TextEmoticonsWidgets__EmoticonTextEditSelector, i32) callconv(.c) QVariant) void {
         qtc.TextEmoticonsWidgets__EmoticonTextEditSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

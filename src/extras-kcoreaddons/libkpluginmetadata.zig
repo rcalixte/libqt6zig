@@ -537,6 +537,28 @@ pub const KPluginMetaData = extern struct {
     ///
     /// ` key: []const u8 `
     ///
+    pub fn Value(self: KPluginMetaData, allocator: std.mem.Allocator, key: []const u8) []const u8 {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        var _str = qtc.KPluginMetaData_Value(@ptrCast(self.ptr), key_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPluginMetaData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` key: []const u8 `
+    ///
     pub fn Value2(self: KPluginMetaData, allocator: std.mem.Allocator, key: []const u8) []const u8 {
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -547,6 +569,24 @@ pub const KPluginMetaData = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPluginMetaData `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` defaultValue: bool `
+    ///
+    pub fn Value3(self: KPluginMetaData, key: []const u8, defaultValue: bool) bool {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KPluginMetaData_Value3(@ptrCast(self.ptr), key_str, defaultValue);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
@@ -577,12 +617,75 @@ pub const KPluginMetaData = extern struct {
     ///
     /// ` defaultValue: i32 `
     ///
+    pub fn Value5(self: KPluginMetaData, key: []const u8, defaultValue: i32) i32 {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KPluginMetaData_Value5(@ptrCast(self.ptr), key_str, @bitCast(defaultValue));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPluginMetaData `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` defaultValue: i32 `
+    ///
     pub fn Value6(self: KPluginMetaData, key: []const u8, defaultValue: i32) i32 {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return qtc.KPluginMetaData_Value6(@ptrCast(self.ptr), key_str, @bitCast(defaultValue));
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPluginMetaData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` defaultValue: []const []const u8 `
+    ///
+    pub fn Value7(self: KPluginMetaData, allocator: std.mem.Allocator, key: []const u8, defaultValue: []const []const u8) []const []const u8 {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kpluginmetadata.Value7: Memory allocation failed");
+        defer allocator.free(defaultValue_arr);
+        for (defaultValue, 0..defaultValue.len) |item, i|
+            defaultValue_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue_arr.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.KPluginMetaData_Value7(@ptrCast(self.ptr), key_str, defaultValue_list);
+        var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i|
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpluginmetadata.Value7: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("kpluginmetadata.Value7: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
     }
 
     /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
@@ -735,6 +838,34 @@ pub const KPluginMetaData = extern struct {
         const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kpluginmetadata.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPluginMetaData `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` key: []const u8 `
+    ///
+    /// ` defaultValue: []const u8 `
+    ///
+    pub fn Value22(self: KPluginMetaData, allocator: std.mem.Allocator, key: []const u8, defaultValue: []const u8) []const u8 {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        var _str = qtc.KPluginMetaData_Value22(@ptrCast(self.ptr), key_str, defaultValue_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value22: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

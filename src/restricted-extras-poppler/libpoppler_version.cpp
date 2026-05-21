@@ -5,7 +5,7 @@
 #include "libpoppler_version.hxx"
 
 libqt_string Poppler__Version_String() {
-    QString _ret = Poppler::Version::string();
+    auto _ret = Poppler::Version::string();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

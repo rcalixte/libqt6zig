@@ -26,7 +26,7 @@ QUrl* QWebEngineRegisterProtocolHandlerRequest_Origin(const QWebEngineRegisterPr
 }
 
 libqt_string QWebEngineRegisterProtocolHandlerRequest_Scheme(const QWebEngineRegisterProtocolHandlerRequest* self) {
-    QString _ret = self->scheme();
+    auto _ret = self->scheme();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

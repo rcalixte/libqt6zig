@@ -41,7 +41,7 @@ libqt_list /* of libqt_string */ SignOn__SessionData_PropertyNames(const SignOn_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -67,7 +67,7 @@ libqt_list /* of libqt_string */ SignOn__SessionData_GetAccessControlTokens(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -90,7 +90,7 @@ libqt_map /* of libqt_string to QVariant* */ SignOn__SessionData_ToMap(const Sig
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -115,7 +115,7 @@ void SignOn__SessionData_SetSecret(SignOn__SessionData* self, const libqt_string
 }
 
 libqt_string SignOn__SessionData_Secret(const SignOn__SessionData* self) {
-    QString _ret = self->Secret();
+    auto _ret = self->Secret();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -132,7 +132,7 @@ void SignOn__SessionData_SetUserName(SignOn__SessionData* self, const libqt_stri
 }
 
 libqt_string SignOn__SessionData_UserName(const SignOn__SessionData* self) {
-    QString _ret = self->UserName();
+    auto _ret = self->UserName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -149,7 +149,7 @@ void SignOn__SessionData_SetRealm(SignOn__SessionData* self, const libqt_string 
 }
 
 libqt_string SignOn__SessionData_Realm(const SignOn__SessionData* self) {
-    QString _ret = self->Realm();
+    auto _ret = self->Realm();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -166,7 +166,7 @@ void SignOn__SessionData_SetNetworkProxy(SignOn__SessionData* self, const libqt_
 }
 
 libqt_string SignOn__SessionData_NetworkProxy(const SignOn__SessionData* self) {
-    QString _ret = self->NetworkProxy();
+    auto _ret = self->NetworkProxy();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -191,7 +191,7 @@ void SignOn__SessionData_SetCaption(SignOn__SessionData* self, const libqt_strin
 }
 
 libqt_string SignOn__SessionData_Caption(const SignOn__SessionData* self) {
-    QString _ret = self->Caption();
+    auto _ret = self->Caption();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

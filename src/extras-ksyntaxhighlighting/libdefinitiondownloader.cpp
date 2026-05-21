@@ -58,7 +58,7 @@ void KSyntaxHighlighting__DefinitionDownloader_InformationMessage(KSyntaxHighlig
 void KSyntaxHighlighting__DefinitionDownloader_Connect_InformationMessage(KSyntaxHighlighting__DefinitionDownloader* self, intptr_t slot) {
     void (*slotFunc)(KSyntaxHighlighting__DefinitionDownloader*, const char*) = reinterpret_cast<void (*)(KSyntaxHighlighting__DefinitionDownloader*, const char*)>(slot);
     KSyntaxHighlighting::DefinitionDownloader::connect(self, &KSyntaxHighlighting::DefinitionDownloader::informationMessage, [self, slotFunc](const QString& msg) {
-        const QString msg_ret = msg;
+        const auto msg_ret = msg;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray msg_b = msg_ret.toUtf8();
         auto msg_str_len = msg_b.length();

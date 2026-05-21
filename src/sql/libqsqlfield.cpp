@@ -71,7 +71,7 @@ void QSqlField_SetName(QSqlField* self, const libqt_string name) {
 }
 
 libqt_string QSqlField_Name(const QSqlField* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -88,7 +88,7 @@ void QSqlField_SetTableName(QSqlField* self, const libqt_string tableName) {
 }
 
 libqt_string QSqlField_TableName(const QSqlField* self) {
-    QString _ret = self->tableName();
+    auto _ret = self->tableName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

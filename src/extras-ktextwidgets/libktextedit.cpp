@@ -165,7 +165,7 @@ void KTextEdit_EnableFindReplace(KTextEdit* self, bool enabled) {
 }
 
 libqt_string KTextEdit_SpellCheckingLanguage(const KTextEdit* self) {
-    const QString _ret = self->spellCheckingLanguage();
+    const auto _ret = self->spellCheckingLanguage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -208,7 +208,7 @@ void KTextEdit_SpellCheckStatus(KTextEdit* self, const libqt_string param1) {
 void KTextEdit_Connect_SpellCheckStatus(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, const char*) = reinterpret_cast<void (*)(KTextEdit*, const char*)>(slot);
     KTextEdit::connect(self, &KTextEdit::spellCheckStatus, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -229,7 +229,7 @@ void KTextEdit_LanguageChanged(KTextEdit* self, const libqt_string language) {
 void KTextEdit_Connect_LanguageChanged(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, const char*) = reinterpret_cast<void (*)(KTextEdit*, const char*)>(slot);
     KTextEdit::connect(self, &KTextEdit::languageChanged, [self, slotFunc](const QString& language) {
-        const QString language_ret = language;
+        const auto language_ret = language;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray language_b = language_ret.toUtf8();
         auto language_str_len = language_b.length();
@@ -263,7 +263,7 @@ void KTextEdit_SpellCheckerAutoCorrect(KTextEdit* self, const libqt_string curre
 void KTextEdit_Connect_SpellCheckerAutoCorrect(KTextEdit* self, intptr_t slot) {
     void (*slotFunc)(KTextEdit*, const char*, const char*) = reinterpret_cast<void (*)(KTextEdit*, const char*, const char*)>(slot);
     KTextEdit::connect(self, &KTextEdit::spellCheckerAutoCorrect, [self, slotFunc](const QString& currentWord, const QString& autoCorrectWord) {
-        const QString currentWord_ret = currentWord;
+        const auto currentWord_ret = currentWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray currentWord_b = currentWord_ret.toUtf8();
         auto currentWord_str_len = currentWord_b.length();
@@ -271,7 +271,7 @@ void KTextEdit_Connect_SpellCheckerAutoCorrect(KTextEdit* self, intptr_t slot) {
         memcpy((void*)currentWord_str, currentWord_b.data(), currentWord_str_len);
         ((char*)currentWord_str)[currentWord_str_len] = '\0';
         const char* sigval1 = currentWord_str;
-        const QString autoCorrectWord_ret = autoCorrectWord;
+        const auto autoCorrectWord_ret = autoCorrectWord;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray autoCorrectWord_b = autoCorrectWord_ret.toUtf8();
         auto autoCorrectWord_str_len = autoCorrectWord_b.length();

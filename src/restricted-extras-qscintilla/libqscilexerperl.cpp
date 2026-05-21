@@ -62,7 +62,7 @@ libqt_list /* of libqt_string */ QsciLexerPerl_AutoCompletionWordSeparators(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -115,7 +115,7 @@ const char* QsciLexerPerl_Keywords(const QsciLexerPerl* self, int set) {
 }
 
 libqt_string QsciLexerPerl_Description(const QsciLexerPerl* self, int style) {
-    QString _ret = self->description(static_cast<int>(style));
+    auto _ret = self->description(static_cast<int>(style));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1212,7 +1212,7 @@ void QsciLexerPerl_OnTextAsBytes(const QsciLexerPerl* self, intptr_t slot) {
 libqt_string QsciLexerPerl_BytesAsText(const QsciLexerPerl* self, const char* bytes, int size) {
     auto* vqscilexerperl = const_cast<VirtualQsciLexerPerl*>(dynamic_cast<const VirtualQsciLexerPerl*>(self));
     if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        QString _ret = vqscilexerperl->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerperl->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1222,7 +1222,7 @@ libqt_string QsciLexerPerl_BytesAsText(const QsciLexerPerl* self, const char* by
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerPerl*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerPerl*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1239,7 +1239,7 @@ libqt_string QsciLexerPerl_SuperBytesAsText(const QsciLexerPerl* self, const cha
     auto* vqscilexerperl = const_cast<VirtualQsciLexerPerl*>(dynamic_cast<const VirtualQsciLexerPerl*>(self));
     if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
         vqscilexerperl->setQsciLexerPerl_BytesAsText_IsBase(true);
-        QString _ret = vqscilexerperl->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerperl->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1249,7 +1249,7 @@ libqt_string QsciLexerPerl_SuperBytesAsText(const QsciLexerPerl* self, const cha
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerPerl*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerPerl*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

@@ -32,7 +32,7 @@ int QDesignerMemberSheetExtension_IndexOf(const QDesignerMemberSheetExtension* s
 libqt_string QDesignerMemberSheetExtension_MemberName(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        QString _ret = vqdesignermembersheetextension->memberName(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->memberName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -42,7 +42,7 @@ libqt_string QDesignerMemberSheetExtension_MemberName(const QDesignerMemberSheet
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberName(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -57,7 +57,7 @@ libqt_string QDesignerMemberSheetExtension_MemberName(const QDesignerMemberSheet
 libqt_string QDesignerMemberSheetExtension_MemberGroup(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        QString _ret = vqdesignermembersheetextension->memberGroup(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->memberGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -67,7 +67,7 @@ libqt_string QDesignerMemberSheetExtension_MemberGroup(const QDesignerMemberShee
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberGroup(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -137,7 +137,7 @@ bool QDesignerMemberSheetExtension_InheritedFromWidget(const QDesignerMemberShee
 libqt_string QDesignerMemberSheetExtension_DeclaredInClass(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        QString _ret = vqdesignermembersheetextension->declaredInClass(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->declaredInClass(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -147,7 +147,7 @@ libqt_string QDesignerMemberSheetExtension_DeclaredInClass(const QDesignerMember
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->declaredInClass(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->declaredInClass(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -162,7 +162,7 @@ libqt_string QDesignerMemberSheetExtension_DeclaredInClass(const QDesignerMember
 libqt_string QDesignerMemberSheetExtension_Signature(const QDesignerMemberSheetExtension* self, int index) {
     auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        QString _ret = vqdesignermembersheetextension->signature(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->signature(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -172,7 +172,7 @@ libqt_string QDesignerMemberSheetExtension_Signature(const QDesignerMemberSheetE
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->signature(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->signature(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -302,7 +302,7 @@ libqt_string QDesignerMemberSheetExtension_SuperMemberName(const QDesignerMember
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_MemberName_IsBase(true);
-        QString _ret = vqdesignermembersheetextension->memberName(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->memberName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -312,7 +312,7 @@ libqt_string QDesignerMemberSheetExtension_SuperMemberName(const QDesignerMember
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberName(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -337,7 +337,7 @@ libqt_string QDesignerMemberSheetExtension_SuperMemberGroup(const QDesignerMembe
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_MemberGroup_IsBase(true);
-        QString _ret = vqdesignermembersheetextension->memberGroup(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->memberGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -347,7 +347,7 @@ libqt_string QDesignerMemberSheetExtension_SuperMemberGroup(const QDesignerMembe
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberGroup(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -487,7 +487,7 @@ libqt_string QDesignerMemberSheetExtension_SuperDeclaredInClass(const QDesignerM
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_DeclaredInClass_IsBase(true);
-        QString _ret = vqdesignermembersheetextension->declaredInClass(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->declaredInClass(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -497,7 +497,7 @@ libqt_string QDesignerMemberSheetExtension_SuperDeclaredInClass(const QDesignerM
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->declaredInClass(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->declaredInClass(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -522,7 +522,7 @@ libqt_string QDesignerMemberSheetExtension_SuperSignature(const QDesignerMemberS
     auto* vqdesignermembersheetextension = const_cast<VirtualQDesignerMemberSheetExtension*>(dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self));
     if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
         vqdesignermembersheetextension->setQDesignerMemberSheetExtension_Signature_IsBase(true);
-        QString _ret = vqdesignermembersheetextension->signature(static_cast<int>(index));
+        auto _ret = vqdesignermembersheetextension->signature(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -532,7 +532,7 @@ libqt_string QDesignerMemberSheetExtension_SuperSignature(const QDesignerMemberS
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerMemberSheetExtension*)self)->signature(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->signature(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

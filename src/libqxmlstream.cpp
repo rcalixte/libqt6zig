@@ -34,6 +34,66 @@ QXmlStreamAttribute* QXmlStreamAttribute_new4(const QXmlStreamAttribute* param1)
     return new QXmlStreamAttribute(*param1);
 }
 
+libqt_string QXmlStreamAttribute_NamespaceUri(const QXmlStreamAttribute* self) {
+    auto _ret = self->namespaceUri();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamAttribute_Name(const QXmlStreamAttribute* self) {
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamAttribute_QualifiedName(const QXmlStreamAttribute* self) {
+    auto _ret = self->qualifiedName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamAttribute_Prefix(const QXmlStreamAttribute* self) {
+    auto _ret = self->prefix();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamAttribute_Value(const QXmlStreamAttribute* self) {
+    auto _ret = self->value();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 bool QXmlStreamAttribute_IsDefault(const QXmlStreamAttribute* self) {
     return self->isDefault();
 }
@@ -44,6 +104,30 @@ void QXmlStreamAttribute_Delete(QXmlStreamAttribute* self) {
 
 QXmlStreamAttributes* QXmlStreamAttributes_new() {
     return new QXmlStreamAttributes();
+}
+
+libqt_string QXmlStreamAttributes_Value(const QXmlStreamAttributes* self, const char* namespaceUri, const char* name) {
+    auto _ret = self->value(QAnyStringView(namespaceUri), QAnyStringView(name));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamAttributes_Value2(const QXmlStreamAttributes* self, const char* qualifiedName) {
+    auto _ret = self->value(QAnyStringView(qualifiedName));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QXmlStreamAttributes_Append(QXmlStreamAttributes* self, const libqt_string namespaceUri, const libqt_string name, const libqt_string value) {
@@ -85,6 +169,30 @@ QXmlStreamNamespaceDeclaration* QXmlStreamNamespaceDeclaration_new3(const QXmlSt
     return new QXmlStreamNamespaceDeclaration(*param1);
 }
 
+libqt_string QXmlStreamNamespaceDeclaration_Prefix(const QXmlStreamNamespaceDeclaration* self) {
+    auto _ret = self->prefix();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamNamespaceDeclaration_NamespaceUri(const QXmlStreamNamespaceDeclaration* self) {
+    auto _ret = self->namespaceUri();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QXmlStreamNamespaceDeclaration_Delete(QXmlStreamNamespaceDeclaration* self) {
     delete self;
 }
@@ -97,6 +205,42 @@ QXmlStreamNotationDeclaration* QXmlStreamNotationDeclaration_new2(const QXmlStre
     return new QXmlStreamNotationDeclaration(*param1);
 }
 
+libqt_string QXmlStreamNotationDeclaration_Name(const QXmlStreamNotationDeclaration* self) {
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamNotationDeclaration_SystemId(const QXmlStreamNotationDeclaration* self) {
+    auto _ret = self->systemId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamNotationDeclaration_PublicId(const QXmlStreamNotationDeclaration* self) {
+    auto _ret = self->publicId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QXmlStreamNotationDeclaration_Delete(QXmlStreamNotationDeclaration* self) {
     delete self;
 }
@@ -107,6 +251,66 @@ QXmlStreamEntityDeclaration* QXmlStreamEntityDeclaration_new() {
 
 QXmlStreamEntityDeclaration* QXmlStreamEntityDeclaration_new2(const QXmlStreamEntityDeclaration* param1) {
     return new QXmlStreamEntityDeclaration(*param1);
+}
+
+libqt_string QXmlStreamEntityDeclaration_Name(const QXmlStreamEntityDeclaration* self) {
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamEntityDeclaration_NotationName(const QXmlStreamEntityDeclaration* self) {
+    auto _ret = self->notationName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamEntityDeclaration_SystemId(const QXmlStreamEntityDeclaration* self) {
+    auto _ret = self->systemId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamEntityDeclaration_PublicId(const QXmlStreamEntityDeclaration* self) {
+    auto _ret = self->publicId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamEntityDeclaration_Value(const QXmlStreamEntityDeclaration* self) {
+    auto _ret = self->value();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QXmlStreamEntityDeclaration_Delete(QXmlStreamEntityDeclaration* self) {
@@ -122,7 +326,7 @@ libqt_string QXmlStreamEntityResolver_ResolveEntity(QXmlStreamEntityResolver* se
     QString systemId_QString = QString::fromUtf8(systemId.data, systemId.len);
     auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
-        QString _ret = self->resolveEntity(publicId_QString, systemId_QString);
+        auto _ret = self->resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -132,7 +336,7 @@ libqt_string QXmlStreamEntityResolver_ResolveEntity(QXmlStreamEntityResolver* se
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveEntity(publicId_QString, systemId_QString);
+        auto _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -148,7 +352,7 @@ libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityRe
     QString name_QString = QString::fromUtf8(name.data, name.len);
     auto* vqxmlstreamentityresolver = dynamic_cast<VirtualQXmlStreamEntityResolver*>(self);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
-        QString _ret = self->resolveUndeclaredEntity(name_QString);
+        auto _ret = self->resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -158,7 +362,7 @@ libqt_string QXmlStreamEntityResolver_ResolveUndeclaredEntity(QXmlStreamEntityRe
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveUndeclaredEntity(name_QString);
+        auto _ret = ((VirtualQXmlStreamEntityResolver*)self)->resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -177,7 +381,7 @@ libqt_string QXmlStreamEntityResolver_SuperResolveEntity(QXmlStreamEntityResolve
     QString systemId_QString = QString::fromUtf8(systemId.data, systemId.len);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
         vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveEntity_IsBase(true);
-        QString _ret = vqxmlstreamentityresolver->resolveEntity(publicId_QString, systemId_QString);
+        auto _ret = vqxmlstreamentityresolver->resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -187,7 +391,7 @@ libqt_string QXmlStreamEntityResolver_SuperResolveEntity(QXmlStreamEntityResolve
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QXmlStreamEntityResolver::resolveEntity(publicId_QString, systemId_QString);
+        auto _ret = self->QXmlStreamEntityResolver::resolveEntity(publicId_QString, systemId_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -213,7 +417,7 @@ libqt_string QXmlStreamEntityResolver_SuperResolveUndeclaredEntity(QXmlStreamEnt
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqxmlstreamentityresolver && vqxmlstreamentityresolver->isVirtualQXmlStreamEntityResolver) {
         vqxmlstreamentityresolver->setQXmlStreamEntityResolver_ResolveUndeclaredEntity_IsBase(true);
-        QString _ret = vqxmlstreamentityresolver->resolveUndeclaredEntity(name_QString);
+        auto _ret = vqxmlstreamentityresolver->resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -223,7 +427,7 @@ libqt_string QXmlStreamEntityResolver_SuperResolveUndeclaredEntity(QXmlStreamEnt
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QXmlStreamEntityResolver::resolveUndeclaredEntity(name_QString);
+        auto _ret = self->QXmlStreamEntityResolver::resolveUndeclaredEntity(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -296,7 +500,7 @@ int QXmlStreamReader_TokenType(const QXmlStreamReader* self) {
 }
 
 libqt_string QXmlStreamReader_TokenString(const QXmlStreamReader* self) {
-    QString _ret = self->tokenString();
+    auto _ret = self->tokenString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -367,6 +571,30 @@ bool QXmlStreamReader_HasStandaloneDeclaration(const QXmlStreamReader* self) {
     return self->hasStandaloneDeclaration();
 }
 
+libqt_string QXmlStreamReader_DocumentVersion(const QXmlStreamReader* self) {
+    auto _ret = self->documentVersion();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_DocumentEncoding(const QXmlStreamReader* self) {
+    auto _ret = self->documentEncoding();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 long long QXmlStreamReader_LineNumber(const QXmlStreamReader* self) {
     return static_cast<long long>(self->lineNumber());
 }
@@ -384,7 +612,91 @@ QXmlStreamAttributes* QXmlStreamReader_Attributes(const QXmlStreamReader* self) 
 }
 
 libqt_string QXmlStreamReader_ReadElementText(QXmlStreamReader* self) {
-    QString _ret = self->readElementText();
+    auto _ret = self->readElementText();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_Name(const QXmlStreamReader* self) {
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_NamespaceUri(const QXmlStreamReader* self) {
+    auto _ret = self->namespaceUri();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_QualifiedName(const QXmlStreamReader* self) {
+    auto _ret = self->qualifiedName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_Prefix(const QXmlStreamReader* self) {
+    auto _ret = self->prefix();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_ProcessingInstructionTarget(const QXmlStreamReader* self) {
+    auto _ret = self->processingInstructionTarget();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_ProcessingInstructionData(const QXmlStreamReader* self) {
+    auto _ret = self->processingInstructionData();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_Text(const QXmlStreamReader* self) {
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -448,6 +760,42 @@ libqt_list /* of QXmlStreamEntityDeclaration* */ QXmlStreamReader_EntityDeclarat
     return _out;
 }
 
+libqt_string QXmlStreamReader_DtdName(const QXmlStreamReader* self) {
+    auto _ret = self->dtdName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_DtdPublicId(const QXmlStreamReader* self) {
+    auto _ret = self->dtdPublicId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QXmlStreamReader_DtdSystemId(const QXmlStreamReader* self) {
+    auto _ret = self->dtdSystemId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 int QXmlStreamReader_EntityExpansionLimit(const QXmlStreamReader* self) {
     return self->entityExpansionLimit();
 }
@@ -461,7 +809,7 @@ void QXmlStreamReader_RaiseError(QXmlStreamReader* self) {
 }
 
 libqt_string QXmlStreamReader_ErrorString(const QXmlStreamReader* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -489,7 +837,7 @@ QXmlStreamEntityResolver* QXmlStreamReader_EntityResolver(const QXmlStreamReader
 }
 
 libqt_string QXmlStreamReader_ReadElementText1(QXmlStreamReader* self, int behaviour) {
-    QString _ret = self->readElementText(static_cast<QXmlStreamReader::ReadElementTextBehaviour>(behaviour));
+    auto _ret = self->readElementText(static_cast<QXmlStreamReader::ReadElementTextBehaviour>(behaviour));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -25,7 +25,7 @@ void Attica__KnowledgeBaseEntry_SetId(Attica__KnowledgeBaseEntry* self, libqt_st
 }
 
 libqt_string Attica__KnowledgeBaseEntry_Id(const Attica__KnowledgeBaseEntry* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -50,7 +50,7 @@ void Attica__KnowledgeBaseEntry_SetUser(Attica__KnowledgeBaseEntry* self, const 
 }
 
 libqt_string Attica__KnowledgeBaseEntry_User(const Attica__KnowledgeBaseEntry* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,7 +67,7 @@ void Attica__KnowledgeBaseEntry_SetStatus(Attica__KnowledgeBaseEntry* self, cons
 }
 
 libqt_string Attica__KnowledgeBaseEntry_Status(const Attica__KnowledgeBaseEntry* self) {
-    QString _ret = self->status();
+    auto _ret = self->status();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -92,7 +92,7 @@ void Attica__KnowledgeBaseEntry_SetName(Attica__KnowledgeBaseEntry* self, const 
 }
 
 libqt_string Attica__KnowledgeBaseEntry_Name(const Attica__KnowledgeBaseEntry* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -109,7 +109,7 @@ void Attica__KnowledgeBaseEntry_SetDescription(Attica__KnowledgeBaseEntry* self,
 }
 
 libqt_string Attica__KnowledgeBaseEntry_Description(const Attica__KnowledgeBaseEntry* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -126,7 +126,7 @@ void Attica__KnowledgeBaseEntry_SetAnswer(Attica__KnowledgeBaseEntry* self, cons
 }
 
 libqt_string Attica__KnowledgeBaseEntry_Answer(const Attica__KnowledgeBaseEntry* self) {
-    QString _ret = self->answer();
+    auto _ret = self->answer();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -161,7 +161,7 @@ void Attica__KnowledgeBaseEntry_AddExtendedAttribute(Attica__KnowledgeBaseEntry*
 
 libqt_string Attica__KnowledgeBaseEntry_ExtendedAttribute(const Attica__KnowledgeBaseEntry* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->extendedAttribute(key_QString);
+    auto _ret = self->extendedAttribute(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -179,7 +179,7 @@ libqt_map /* of libqt_string to libqt_string */ Attica__KnowledgeBaseEntry_Exten
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -188,7 +188,7 @@ libqt_map /* of libqt_string to libqt_string */ Attica__KnowledgeBaseEntry_Exten
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;

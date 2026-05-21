@@ -152,7 +152,7 @@ QObject* QMetaObject_Cast2(const QMetaObject* self, const QObject* obj) {
 }
 
 libqt_string QMetaObject_Tr(const QMetaObject* self, const char* s, const char* c) {
-    QString _ret = self->tr(s, c);
+    auto _ret = self->tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -346,7 +346,7 @@ void QMetaObject_SetD(QMetaObject* self, QMetaObject__Data* d) {
 }
 
 libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char* c, int n) {
-    QString _ret = self->tr(s, c, static_cast<int>(n));
+    auto _ret = self->tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

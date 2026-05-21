@@ -55,7 +55,7 @@ bool QsciMacro_Load(QsciMacro* self, const libqt_string asc) {
 }
 
 libqt_string QsciMacro_Save(const QsciMacro* self) {
-    QString _ret = self->save();
+    auto _ret = self->save();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

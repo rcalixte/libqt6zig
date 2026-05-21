@@ -82,7 +82,7 @@ unsigned char QDtlsClientVerifier_DtlsError(const QDtlsClientVerifier* self) {
 }
 
 libqt_string QDtlsClientVerifier_DtlsErrorString(const QDtlsClientVerifier* self) {
-    QString _ret = self->dtlsErrorString();
+    auto _ret = self->dtlsErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -526,7 +526,7 @@ uint16_t QDtls_PeerPort(const QDtls* self) {
 }
 
 libqt_string QDtls_PeerVerificationName(const QDtls* self) {
-    QString _ret = self->peerVerificationName();
+    auto _ret = self->peerVerificationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -621,7 +621,7 @@ unsigned char QDtls_DtlsError(const QDtls* self) {
 }
 
 libqt_string QDtls_DtlsErrorString(const QDtls* self) {
-    QString _ret = self->dtlsErrorString();
+    auto _ret = self->dtlsErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

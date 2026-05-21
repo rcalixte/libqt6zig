@@ -98,7 +98,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and uint16_t */ KACL_AllUserPe
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _lv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
         uint16_t* _lv_second = static_cast<uint16_t*>(malloc(sizeof(uint16_t)));
-        QString _lv_first_ret = _lv_ret.first;
+        auto _lv_first_ret = _lv_ret.first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_first_b = _lv_first_ret.toUtf8();
         libqt_string _lv_first_str;
@@ -138,7 +138,7 @@ libqt_list /* of libqt_pair tuple of libqt_string and uint16_t */ KACL_AllGroupP
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _lv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
         uint16_t* _lv_second = static_cast<uint16_t*>(malloc(sizeof(uint16_t)));
-        QString _lv_first_ret = _lv_ret.first;
+        auto _lv_first_ret = _lv_ret.first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_first_b = _lv_first_ret.toUtf8();
         libqt_string _lv_first_str;
@@ -165,7 +165,7 @@ bool KACL_SetACL(KACL* self, const libqt_string aclStr) {
 }
 
 libqt_string KACL_AsString(const KACL* self) {
-    QString _ret = self->asString();
+    auto _ret = self->asString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

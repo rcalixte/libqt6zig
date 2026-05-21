@@ -54,7 +54,7 @@ bool QMediaMetaData_IsEmpty(const QMediaMetaData* self) {
 }
 
 libqt_string QMediaMetaData_StringValue(const QMediaMetaData* self, int k) {
-    QString _ret = self->stringValue(static_cast<QMediaMetaData::Key>(k));
+    auto _ret = self->stringValue(static_cast<QMediaMetaData::Key>(k));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -66,7 +66,7 @@ libqt_string QMediaMetaData_StringValue(const QMediaMetaData* self, int k) {
 }
 
 libqt_string QMediaMetaData_MetaDataKeyToString(int k) {
-    QString _ret = QMediaMetaData::metaDataKeyToString(static_cast<QMediaMetaData::Key>(k));
+    auto _ret = QMediaMetaData::metaDataKeyToString(static_cast<QMediaMetaData::Key>(k));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

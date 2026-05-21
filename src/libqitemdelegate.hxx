@@ -394,7 +394,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QRect& rect_ret = rect;
             // Cast returned reference into pointer
             QRect* cbval3 = const_cast<QRect*>(&rect_ret);
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -829,7 +829,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
             const QFont& font_ret = font;
             // Cast returned reference into pointer
             QFont* cbval3 = const_cast<QFont*>(&font_ret);
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

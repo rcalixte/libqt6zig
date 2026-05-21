@@ -49,7 +49,7 @@ int QTranslator_Metacall(QTranslator* self, int param1, int param2, void** param
 libqt_string QTranslator_Translate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
     auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        QString _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string QTranslator_Translate(const QTranslator* self, const char* context,
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = ((VirtualQTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -81,7 +81,7 @@ bool QTranslator_IsEmpty(const QTranslator* self) {
 }
 
 libqt_string QTranslator_Language(const QTranslator* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -93,7 +93,7 @@ libqt_string QTranslator_Language(const QTranslator* self) {
 }
 
 libqt_string QTranslator_FilePath(const QTranslator* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -227,7 +227,7 @@ libqt_string QTranslator_SuperTranslate(const QTranslator* self, const char* con
     auto* vqtranslator = const_cast<VirtualQTranslator*>(dynamic_cast<const VirtualQTranslator*>(self));
     if (vqtranslator && vqtranslator->isVirtualQTranslator) {
         vqtranslator->setQTranslator_Translate_IsBase(true);
-        QString _ret = vqtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = vqtranslator->translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -237,7 +237,7 @@ libqt_string QTranslator_SuperTranslate(const QTranslator* self, const char* con
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
+        auto _ret = self->QTranslator::translate(context, sourceText, disambiguation, static_cast<int>(n));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

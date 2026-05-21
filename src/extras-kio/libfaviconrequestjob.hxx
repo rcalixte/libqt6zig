@@ -318,7 +318,7 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         auto slotinfomessage_cb = kio__faviconrequestjob_slotinfomessage_callback;
         if (slotinfomessage_cb) {
             KJob* cbval1 = job;
-            const QString message_ret = message;
+            const auto message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
             auto message_str_len = message_b.length();
@@ -610,7 +610,7 @@ class VirtualKIOFavIconRequestJob final : public KIO::FavIconRequestJob {
         }
         auto seterrortext_cb = kio__faviconrequestjob_seterrortext_callback;
         if (seterrortext_cb) {
-            const QString errorText_ret = errorText;
+            const auto errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
             auto errorText_str_len = errorText_b.length();

@@ -78,7 +78,7 @@ void TextTranslator__TranslatorMenu_Translate(TextTranslator__TranslatorMenu* se
 void TextTranslator__TranslatorMenu_Connect_Translate(TextTranslator__TranslatorMenu* self, intptr_t slot) {
     void (*slotFunc)(TextTranslator__TranslatorMenu*, const char*, const char*, QPersistentModelIndex*) = reinterpret_cast<void (*)(TextTranslator__TranslatorMenu*, const char*, const char*, QPersistentModelIndex*)>(slot);
     TextTranslator::TranslatorMenu::connect(self, &TextTranslator::TranslatorMenu::translate, [self, slotFunc](const QString& from, const QString& to, const QPersistentModelIndex& modelIndex) {
-        const QString from_ret = from;
+        const auto from_ret = from;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray from_b = from_ret.toUtf8();
         auto from_str_len = from_b.length();
@@ -86,7 +86,7 @@ void TextTranslator__TranslatorMenu_Connect_Translate(TextTranslator__Translator
         memcpy((void*)from_str, from_b.data(), from_str_len);
         ((char*)from_str)[from_str_len] = '\0';
         const char* sigval1 = from_str;
-        const QString to_ret = to;
+        const auto to_ret = to;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray to_b = to_ret.toUtf8();
         auto to_str_len = to_b.length();

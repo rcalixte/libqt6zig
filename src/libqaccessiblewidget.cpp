@@ -140,7 +140,7 @@ QAccessibleInterface* QAccessibleWidget_Child(const QAccessibleWidget* self, int
 libqt_string QAccessibleWidget_Text(const QAccessibleWidget* self, int t) {
     auto* vqaccessiblewidget = dynamic_cast<const VirtualQAccessibleWidget*>(self);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        QString _ret = self->text(static_cast<QAccessible::Text>(t));
+        auto _ret = self->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -150,7 +150,7 @@ libqt_string QAccessibleWidget_Text(const QAccessibleWidget* self, int t) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQAccessibleWidget*)self)->text(static_cast<QAccessible::Text>(t));
+        auto _ret = ((VirtualQAccessibleWidget*)self)->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -214,7 +214,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_ActionNames(const QAccessible
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -233,7 +233,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_ActionNames(const QAccessible
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -268,7 +268,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -287,7 +287,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -508,7 +508,7 @@ libqt_string QAccessibleWidget_SuperText(const QAccessibleWidget* self, int t) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Text_IsBase(true);
-        QString _ret = vqaccessiblewidget->text(static_cast<QAccessible::Text>(t));
+        auto _ret = vqaccessiblewidget->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -518,7 +518,7 @@ libqt_string QAccessibleWidget_SuperText(const QAccessibleWidget* self, int t) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleWidget::text(static_cast<QAccessible::Text>(t));
+        auto _ret = self->QAccessibleWidget::text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -642,7 +642,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_SuperActionNames(const QAcces
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -661,7 +661,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_SuperActionNames(const QAcces
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -716,7 +716,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_SuperKeyBindingsForAction(con
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -735,7 +735,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_SuperKeyBindingsForAction(con
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -883,7 +883,7 @@ libqt_string QAccessibleWidget_LocalizedActionName(const QAccessibleWidget* self
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        QString _ret = vqaccessiblewidget->localizedActionName(name_QString);
+        auto _ret = vqaccessiblewidget->localizedActionName(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -893,7 +893,7 @@ libqt_string QAccessibleWidget_LocalizedActionName(const QAccessibleWidget* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleWidget::localizedActionName(name_QString);
+        auto _ret = self->QAccessibleWidget::localizedActionName(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -911,7 +911,7 @@ libqt_string QAccessibleWidget_SuperLocalizedActionName(const QAccessibleWidget*
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_LocalizedActionName_IsBase(true);
-        QString _ret = vqaccessiblewidget->localizedActionName(name_QString);
+        auto _ret = vqaccessiblewidget->localizedActionName(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -921,7 +921,7 @@ libqt_string QAccessibleWidget_SuperLocalizedActionName(const QAccessibleWidget*
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleWidget::localizedActionName(name_QString);
+        auto _ret = self->QAccessibleWidget::localizedActionName(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -946,7 +946,7 @@ libqt_string QAccessibleWidget_LocalizedActionDescription(const QAccessibleWidge
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        QString _ret = vqaccessiblewidget->localizedActionDescription(name_QString);
+        auto _ret = vqaccessiblewidget->localizedActionDescription(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -956,7 +956,7 @@ libqt_string QAccessibleWidget_LocalizedActionDescription(const QAccessibleWidge
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
+        auto _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -974,7 +974,7 @@ libqt_string QAccessibleWidget_SuperLocalizedActionDescription(const QAccessible
     QString name_QString = QString::fromUtf8(name.data, name.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_LocalizedActionDescription_IsBase(true);
-        QString _ret = vqaccessiblewidget->localizedActionDescription(name_QString);
+        auto _ret = vqaccessiblewidget->localizedActionDescription(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -984,7 +984,7 @@ libqt_string QAccessibleWidget_SuperLocalizedActionDescription(const QAccessible
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
+        auto _ret = self->QAccessibleWidget::localizedActionDescription(name_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

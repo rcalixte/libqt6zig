@@ -113,7 +113,7 @@ void KDirOperator_SetNameFilter(KDirOperator* self, const libqt_string filter) {
 }
 
 libqt_string KDirOperator_NameFilter(const KDirOperator* self) {
-    QString _ret = self->nameFilter();
+    auto _ret = self->nameFilter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -140,7 +140,7 @@ libqt_list /* of libqt_string */ KDirOperator_MimeFilter(const KDirOperator* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -172,7 +172,7 @@ libqt_list /* of libqt_string */ KDirOperator_NewFileMenuSupportedMimeTypes(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -483,7 +483,7 @@ libqt_list /* of libqt_string */ KDirOperator_SupportedSchemes(const KDirOperato
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -624,7 +624,7 @@ void KDirOperator_UpdateSelectionDependentActions(KDirOperator* self) {
 
 libqt_string KDirOperator_MakeCompletion(KDirOperator* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = self->makeCompletion(param1_QString);
+    auto _ret = self->makeCompletion(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -637,7 +637,7 @@ libqt_string KDirOperator_MakeCompletion(KDirOperator* self, const libqt_string 
 
 libqt_string KDirOperator_MakeDirCompletion(KDirOperator* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = self->makeDirCompletion(param1_QString);
+    auto _ret = self->makeDirCompletion(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -718,7 +718,7 @@ void KDirOperator_Completion(KDirOperator* self, const libqt_string param1) {
 void KDirOperator_Connect_Completion(KDirOperator* self, intptr_t slot) {
     void (*slotFunc)(KDirOperator*, const char*) = reinterpret_cast<void (*)(KDirOperator*, const char*)>(slot);
     KDirOperator::connect(self, &KDirOperator::completion, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

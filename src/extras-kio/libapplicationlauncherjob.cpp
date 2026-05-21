@@ -287,7 +287,7 @@ void KIO__ApplicationLauncherJob_OnDoResume(KIO__ApplicationLauncherJob* self, i
 libqt_string KIO__ApplicationLauncherJob_ErrorString(const KIO__ApplicationLauncherJob* self) {
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
-        QString _ret = vkioapplicationlauncherjob->errorString();
+        auto _ret = vkioapplicationlauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -297,7 +297,7 @@ libqt_string KIO__ApplicationLauncherJob_ErrorString(const KIO__ApplicationLaunc
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::ApplicationLauncherJob::errorString();
+        auto _ret = self->KIO::ApplicationLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -314,7 +314,7 @@ libqt_string KIO__ApplicationLauncherJob_SuperErrorString(const KIO__Application
     auto* vkioapplicationlauncherjob = const_cast<VirtualKIOApplicationLauncherJob*>(dynamic_cast<const VirtualKIOApplicationLauncherJob*>(self));
     if (vkioapplicationlauncherjob && vkioapplicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
         vkioapplicationlauncherjob->setKIO__ApplicationLauncherJob_ErrorString_IsBase(true);
-        QString _ret = vkioapplicationlauncherjob->errorString();
+        auto _ret = vkioapplicationlauncherjob->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -324,7 +324,7 @@ libqt_string KIO__ApplicationLauncherJob_SuperErrorString(const KIO__Application
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIO::ApplicationLauncherJob::errorString();
+        auto _ret = self->KIO::ApplicationLauncherJob::errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

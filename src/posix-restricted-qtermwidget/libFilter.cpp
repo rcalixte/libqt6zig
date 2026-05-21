@@ -385,7 +385,7 @@ void Konsole__Filter_OnAddHotSpot(Konsole__Filter* self, intptr_t slot) {
 libqt_string Konsole__Filter_Buffer(Konsole__Filter* self) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
-        const QString* _ret = vkonsolefilter->buffer();
+        const auto _ret = vkonsolefilter->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -395,7 +395,7 @@ libqt_string Konsole__Filter_Buffer(Konsole__Filter* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString* _ret = ((VirtualKonsoleFilter*)self)->buffer();
+        const auto _ret = ((VirtualKonsoleFilter*)self)->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -412,7 +412,7 @@ libqt_string Konsole__Filter_SuperBuffer(Konsole__Filter* self) {
     auto* vkonsolefilter = dynamic_cast<VirtualKonsoleFilter*>(self);
     if (vkonsolefilter && vkonsolefilter->isVirtualKonsoleFilter) {
         vkonsolefilter->setKonsole__Filter_Buffer_IsBase(true);
-        const QString* _ret = vkonsolefilter->buffer();
+        const auto _ret = vkonsolefilter->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -422,7 +422,7 @@ libqt_string Konsole__Filter_SuperBuffer(Konsole__Filter* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString* _ret = ((VirtualKonsoleFilter*)self)->buffer();
+        const auto _ret = ((VirtualKonsoleFilter*)self)->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -981,7 +981,7 @@ void Konsole__RegExpFilter_OnAddHotSpot(Konsole__RegExpFilter* self, intptr_t sl
 libqt_string Konsole__RegExpFilter_Buffer(Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
-        const QString* _ret = vkonsoleregexpfilter->buffer();
+        const auto _ret = vkonsoleregexpfilter->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -991,7 +991,7 @@ libqt_string Konsole__RegExpFilter_Buffer(Konsole__RegExpFilter* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString* _ret = ((VirtualKonsoleRegExpFilter*)self)->buffer();
+        const auto _ret = ((VirtualKonsoleRegExpFilter*)self)->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -1008,7 +1008,7 @@ libqt_string Konsole__RegExpFilter_SuperBuffer(Konsole__RegExpFilter* self) {
     auto* vkonsoleregexpfilter = dynamic_cast<VirtualKonsoleRegExpFilter*>(self);
     if (vkonsoleregexpfilter && vkonsoleregexpfilter->isVirtualKonsoleRegExpFilter) {
         vkonsoleregexpfilter->setKonsole__RegExpFilter_Buffer_IsBase(true);
-        const QString* _ret = vkonsoleregexpfilter->buffer();
+        const auto _ret = vkonsoleregexpfilter->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -1018,7 +1018,7 @@ libqt_string Konsole__RegExpFilter_SuperBuffer(Konsole__RegExpFilter* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString* _ret = ((VirtualKonsoleRegExpFilter*)self)->buffer();
+        const auto _ret = ((VirtualKonsoleRegExpFilter*)self)->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -1582,7 +1582,7 @@ void Konsole__UrlFilter_OnAddHotSpot(Konsole__UrlFilter* self, intptr_t slot) {
 libqt_string Konsole__UrlFilter_Buffer(Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
-        const QString* _ret = vkonsoleurlfilter->buffer();
+        const auto _ret = vkonsoleurlfilter->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -1592,7 +1592,7 @@ libqt_string Konsole__UrlFilter_Buffer(Konsole__UrlFilter* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString* _ret = ((VirtualKonsoleUrlFilter*)self)->buffer();
+        const auto _ret = ((VirtualKonsoleUrlFilter*)self)->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -1609,7 +1609,7 @@ libqt_string Konsole__UrlFilter_SuperBuffer(Konsole__UrlFilter* self) {
     auto* vkonsoleurlfilter = dynamic_cast<VirtualKonsoleUrlFilter*>(self);
     if (vkonsoleurlfilter && vkonsoleurlfilter->isVirtualKonsoleUrlFilter) {
         vkonsoleurlfilter->setKonsole__UrlFilter_Buffer_IsBase(true);
-        const QString* _ret = vkonsoleurlfilter->buffer();
+        const auto _ret = vkonsoleurlfilter->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -1619,7 +1619,7 @@ libqt_string Konsole__UrlFilter_SuperBuffer(Konsole__UrlFilter* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString* _ret = ((VirtualKonsoleUrlFilter*)self)->buffer();
+        const auto _ret = ((VirtualKonsoleUrlFilter*)self)->buffer();
         // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret->toUtf8();
         libqt_string _str;
@@ -2476,7 +2476,7 @@ libqt_list /* of libqt_string */ Konsole__RegExpFilter__HotSpot_CapturedTexts(co
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

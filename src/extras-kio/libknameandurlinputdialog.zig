@@ -5450,6 +5450,8 @@ pub const KNameAndUrlInputDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KNameAndUrlInputDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5497,6 +5499,8 @@ pub const KNameAndUrlInputDialog = extern struct {
     /// ` self: KNameAndUrlInputDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KNameAndUrlInputDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KNameAndUrlInputDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7783,6 +7787,8 @@ pub const KNameAndUrlInputDialog = extern struct {
     /// ` self: KNameAndUrlInputDialog`
     ///
     /// ` callback: *const fn (self: KNameAndUrlInputDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KNameAndUrlInputDialog, callback: *const fn (KNameAndUrlInputDialog, i32) callconv(.c) QVariant) void {
         qtc.KNameAndUrlInputDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

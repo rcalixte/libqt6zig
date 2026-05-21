@@ -175,7 +175,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setName(const QString& name) override {
         auto setname_cb = qdesignerwidgetdatabaseiteminterface_setname_callback;
         if (setname_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -203,7 +203,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setGroup(const QString& group) override {
         auto setgroup_cb = qdesignerwidgetdatabaseiteminterface_setgroup_callback;
         if (setgroup_cb) {
-            const QString group_ret = group;
+            const auto group_ret = group;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray group_b = group_ret.toUtf8();
             auto group_str_len = group_b.length();
@@ -231,7 +231,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setToolTip(const QString& toolTip) override {
         auto settooltip_cb = qdesignerwidgetdatabaseiteminterface_settooltip_callback;
         if (settooltip_cb) {
-            const QString toolTip_ret = toolTip;
+            const auto toolTip_ret = toolTip;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray toolTip_b = toolTip_ret.toUtf8();
             auto toolTip_str_len = toolTip_b.length();
@@ -259,7 +259,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setWhatsThis(const QString& whatsThis) override {
         auto setwhatsthis_cb = qdesignerwidgetdatabaseiteminterface_setwhatsthis_callback;
         if (setwhatsthis_cb) {
-            const QString whatsThis_ret = whatsThis;
+            const auto whatsThis_ret = whatsThis;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray whatsThis_b = whatsThis_ret.toUtf8();
             auto whatsThis_str_len = whatsThis_b.length();
@@ -287,7 +287,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setIncludeFile(const QString& includeFile) override {
         auto setincludefile_cb = qdesignerwidgetdatabaseiteminterface_setincludefile_callback;
         if (setincludefile_cb) {
-            const QString includeFile_ret = includeFile;
+            const auto includeFile_ret = includeFile;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray includeFile_b = includeFile_ret.toUtf8();
             auto includeFile_str_len = includeFile_b.length();
@@ -395,7 +395,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setPluginPath(const QString& path) override {
         auto setpluginpath_cb = qdesignerwidgetdatabaseiteminterface_setpluginpath_callback;
         if (setpluginpath_cb) {
-            const QString path_ret = path;
+            const auto path_ret = path;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray path_b = path_ret.toUtf8();
             auto path_str_len = path_b.length();
@@ -442,7 +442,7 @@ class VirtualQDesignerWidgetDataBaseItemInterface : public QDesignerWidgetDataBa
     virtual void setExtends(const QString& s) override {
         auto setextends_cb = qdesignerwidgetdatabaseiteminterface_setextends_callback;
         if (setextends_cb) {
-            const QString s_ret = s;
+            const auto s_ret = s;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray s_b = s_ret.toUtf8();
             auto s_str_len = s_b.length();
@@ -771,7 +771,7 @@ class VirtualQDesignerWidgetDataBaseInterface final : public QDesignerWidgetData
         }
         auto indexofclassname_cb = qdesignerwidgetdatabaseinterface_indexofclassname_callback;
         if (indexofclassname_cb) {
-            const QString className_ret = className;
+            const auto className_ret = className;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray className_b = className_ret.toUtf8();
             auto className_str_len = className_b.length();

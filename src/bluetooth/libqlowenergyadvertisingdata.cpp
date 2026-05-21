@@ -25,7 +25,7 @@ void QLowEnergyAdvertisingData_SetLocalName(QLowEnergyAdvertisingData* self, con
 }
 
 libqt_string QLowEnergyAdvertisingData_LocalName(const QLowEnergyAdvertisingData* self) {
-    QString _ret = self->localName();
+    auto _ret = self->localName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

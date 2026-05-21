@@ -943,6 +943,8 @@ pub const QFormBuilder = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaEnum `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnToolBarAreaMetaEnum(self: QFormBuilder, callback: *const fn () callconv(.c) QMetaEnum) void {
         qtc.QFormBuilder_OnToolBarAreaMetaEnum(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

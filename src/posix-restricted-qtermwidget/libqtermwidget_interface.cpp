@@ -80,7 +80,7 @@ void QTermWidgetInterface_SetWorkingDirectory(QTermWidgetInterface* self, const 
 }
 
 libqt_string QTermWidgetInterface_WorkingDirectory(QTermWidgetInterface* self) {
-    QString _ret = self->workingDirectory();
+    auto _ret = self->workingDirectory();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -112,7 +112,7 @@ libqt_list /* of libqt_string */ QTermWidgetInterface_GetAvailableColorSchemes(Q
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -166,7 +166,7 @@ void QTermWidgetInterface_SetFlowControlWarningEnabled(QTermWidgetInterface* sel
 }
 
 libqt_string QTermWidgetInterface_KeyBindings(QTermWidgetInterface* self) {
-    QString _ret = self->keyBindings();
+    auto _ret = self->keyBindings();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -210,7 +210,7 @@ void QTermWidgetInterface_GetSelectionEnd(QTermWidgetInterface* self, int* row, 
 }
 
 libqt_string QTermWidgetInterface_SelectedText(QTermWidgetInterface* self, bool preserveLineBreaks) {
-    QString _ret = self->selectedText(preserveLineBreaks);
+    auto _ret = self->selectedText(preserveLineBreaks);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -267,7 +267,7 @@ void QTermWidgetInterface_SetAutoClose(QTermWidgetInterface* self, bool autoClos
 }
 
 libqt_string QTermWidgetInterface_Title(const QTermWidgetInterface* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -279,7 +279,7 @@ libqt_string QTermWidgetInterface_Title(const QTermWidgetInterface* self) {
 }
 
 libqt_string QTermWidgetInterface_Icon(const QTermWidgetInterface* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -332,7 +332,7 @@ void QTermWidgetInterface_SetTrimPastedTrailingNewlines(QTermWidgetInterface* se
 }
 
 libqt_string QTermWidgetInterface_WordCharacters(const QTermWidgetInterface* self) {
-    QString _ret = self->wordCharacters();
+    auto _ret = self->wordCharacters();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -421,7 +421,7 @@ class VirtualKFontRequester final : public KFontRequester {
         }
         auto setsampletext_cb = kfontrequester_setsampletext_callback;
         if (setsampletext_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -445,7 +445,7 @@ class VirtualKFontRequester final : public KFontRequester {
         }
         auto settitle_cb = kfontrequester_settitle_callback;
         if (settitle_cb) {
-            const QString title_ret = title;
+            const auto title_ret = title;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray title_b = title_ret.toUtf8();
             auto title_str_len = title_b.length();

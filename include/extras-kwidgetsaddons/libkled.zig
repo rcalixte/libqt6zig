@@ -446,6 +446,8 @@ pub const KLed = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KLed, callback: *const fn () callconv(.c) QSize) void {
         qtc.KLed_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -485,6 +487,8 @@ pub const KLed = extern struct {
     /// ` self: KLed `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KLed, callback: *const fn () callconv(.c) QSize) void {
         qtc.KLed_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7436,6 +7440,8 @@ pub const KLed = extern struct {
     /// ` self: KLed`
     ///
     /// ` callback: *const fn (self: KLed, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KLed, callback: *const fn (KLed, i32) callconv(.c) QVariant) void {
         qtc.KLed_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

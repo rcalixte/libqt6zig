@@ -5744,6 +5744,8 @@ pub const KIO__RenameDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KIO__RenameDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KIO__RenameDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5791,6 +5793,8 @@ pub const KIO__RenameDialog = extern struct {
     /// ` self: KIO__RenameDialog`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KIO__RenameDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KIO__RenameDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8077,6 +8081,8 @@ pub const KIO__RenameDialog = extern struct {
     /// ` self: KIO__RenameDialog`
     ///
     /// ` callback: *const fn (self: KIO__RenameDialog, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KIO__RenameDialog, callback: *const fn (KIO__RenameDialog, i32) callconv(.c) QVariant) void {
         qtc.KIO__RenameDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -353,6 +353,8 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedView, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: KCategorizedView, callback: *const fn (KCategorizedView, QModelIndex) callconv(.c) QRect) void {
         qtc.KCategorizedView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -532,6 +534,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView `
     ///
     /// ` callback: *const fn (self: KCategorizedView, point: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: KCategorizedView, callback: *const fn (KCategorizedView, QPoint) callconv(.c) QModelIndex) void {
         qtc.KCategorizedView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1245,6 +1249,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView `
     ///
     /// ` callback: *const fn (self: KCategorizedView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMoveCursor(self: KCategorizedView, callback: *const fn (KCategorizedView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KCategorizedView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8900,6 +8906,8 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedView, selection: QItemSelection) callconv(.c) QRegion `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRegionForSelection(self: KCategorizedView, callback: *const fn (KCategorizedView, QItemSelection) callconv(.c) QRegion) void {
         qtc.KCategorizedView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9131,6 +9139,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCategorizedView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9455,6 +9465,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView`
     ///
     /// ` callback: *const fn (self: KCategorizedView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KCategorizedView, callback: *const fn (KCategorizedView, i32) callconv(.c) QVariant) void {
         qtc.KCategorizedView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10590,6 +10602,8 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCategorizedView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -10637,6 +10651,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCategorizedView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12130,6 +12146,8 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnContentsSize(self: KCategorizedView, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCategorizedView_OnContentsSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12183,6 +12201,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView`
     ///
     /// ` callback: *const fn (self: KCategorizedView, index: QModelIndex) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRectForIndex(self: KCategorizedView, callback: *const fn (KCategorizedView, QModelIndex) callconv(.c) QRect) void {
         qtc.KCategorizedView_OnRectForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -12606,6 +12626,8 @@ pub const KCategorizedView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDirtyRegionOffset(self: KCategorizedView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.KCategorizedView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -12917,6 +12939,8 @@ pub const KCategorizedView = extern struct {
     /// ` self: KCategorizedView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: KCategorizedView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.KCategorizedView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

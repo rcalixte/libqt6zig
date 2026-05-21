@@ -302,6 +302,50 @@ pub const QCollator = extern struct {
         return qtc.QCollator_OperatorCall(@ptrCast(self.ptr), s1_str, s2_str);
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCollator `
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    pub fn Compare3(self: QCollator, s1: []const u8, s2: []const u8) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QCollator_Compare3(@ptrCast(self.ptr), s1_str, s2_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-28-29)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCollator `
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    pub fn OperatorCall2(self: QCollator, s1: []const u8, s2: []const u8) bool {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QCollator_OperatorCall2(@ptrCast(self.ptr), s1_str, s2_str);
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#sortKey)
     ///
     /// ## Parameter(s):
@@ -316,6 +360,40 @@ pub const QCollator = extern struct {
             .data = stringVal.ptr,
         };
         return .{ .ptr = qtc.QCollator_SortKey(@ptrCast(self.ptr), stringVal_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#defaultCompare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    pub fn DefaultCompare(s1: []const u8, s2: []const u8) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QCollator_DefaultCompare(s1_str, s2_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#defaultSortKey)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` key: []const u8 `
+    ///
+    pub fn DefaultSortKey(key: []const u8) QCollatorSortKey {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QCollator_DefaultSortKey(key_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

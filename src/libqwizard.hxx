@@ -2845,7 +2845,7 @@ class VirtualQWizardPage final : public QWizardPage {
         }
         auto setfield_cb = qwizardpage_setfield_callback;
         if (setfield_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -2871,7 +2871,7 @@ class VirtualQWizardPage final : public QWizardPage {
         }
         auto field_cb = qwizardpage_field_callback;
         if (field_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -2897,7 +2897,7 @@ class VirtualQWizardPage final : public QWizardPage {
         }
         auto registerfield_cb = qwizardpage_registerfield_callback;
         if (registerfield_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -2936,7 +2936,7 @@ class VirtualQWizardPage final : public QWizardPage {
         }
         auto registerfield3_cb = qwizardpage_registerfield3_callback;
         if (registerfield3_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();
@@ -2962,7 +2962,7 @@ class VirtualQWizardPage final : public QWizardPage {
         }
         auto registerfield4_cb = qwizardpage_registerfield4_callback;
         if (registerfield4_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

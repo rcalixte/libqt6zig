@@ -112,7 +112,7 @@ void KParts__Part_SetWindowCaption(KParts__Part* self, const libqt_string captio
 void KParts__Part_Connect_SetWindowCaption(KParts__Part* self, intptr_t slot) {
     void (*slotFunc)(KParts__Part*, const char*) = reinterpret_cast<void (*)(KParts__Part*, const char*)>(slot);
     KParts::Part::connect(self, &KParts::Part::setWindowCaption, [self, slotFunc](const QString& caption) {
-        const QString caption_ret = caption;
+        const auto caption_ret = caption;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray caption_b = caption_ret.toUtf8();
         auto caption_str_len = caption_b.length();
@@ -133,7 +133,7 @@ void KParts__Part_SetStatusBarText(KParts__Part* self, const libqt_string text) 
 void KParts__Part_Connect_SetStatusBarText(KParts__Part* self, intptr_t slot) {
     void (*slotFunc)(KParts__Part*, const char*) = reinterpret_cast<void (*)(KParts__Part*, const char*)>(slot);
     KParts::Part::connect(self, &KParts::Part::setStatusBarText, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -600,7 +600,7 @@ void KParts__Part_OnActionCollection(const KParts__Part* self, intptr_t slot) {
 libqt_string KParts__Part_ComponentName(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
-        QString _ret = vkpartspart->componentName();
+        auto _ret = vkpartspart->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -610,7 +610,7 @@ libqt_string KParts__Part_ComponentName(const KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::Part::componentName();
+        auto _ret = self->KParts::Part::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -627,7 +627,7 @@ libqt_string KParts__Part_SuperComponentName(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_ComponentName_IsBase(true);
-        QString _ret = vkpartspart->componentName();
+        auto _ret = vkpartspart->componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -637,7 +637,7 @@ libqt_string KParts__Part_SuperComponentName(const KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::Part::componentName();
+        auto _ret = self->KParts::Part::componentName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -690,7 +690,7 @@ void KParts__Part_OnDomDocument(const KParts__Part* self, intptr_t slot) {
 libqt_string KParts__Part_XmlFile(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
-        QString _ret = vkpartspart->xmlFile();
+        auto _ret = vkpartspart->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -700,7 +700,7 @@ libqt_string KParts__Part_XmlFile(const KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::Part::xmlFile();
+        auto _ret = self->KParts::Part::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -717,7 +717,7 @@ libqt_string KParts__Part_SuperXmlFile(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_XmlFile_IsBase(true);
-        QString _ret = vkpartspart->xmlFile();
+        auto _ret = vkpartspart->xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -727,7 +727,7 @@ libqt_string KParts__Part_SuperXmlFile(const KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::Part::xmlFile();
+        auto _ret = self->KParts::Part::xmlFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -751,7 +751,7 @@ void KParts__Part_OnXmlFile(const KParts__Part* self, intptr_t slot) {
 libqt_string KParts__Part_LocalXMLFile(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
-        QString _ret = vkpartspart->localXMLFile();
+        auto _ret = vkpartspart->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -761,7 +761,7 @@ libqt_string KParts__Part_LocalXMLFile(const KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::Part::localXMLFile();
+        auto _ret = self->KParts::Part::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -778,7 +778,7 @@ libqt_string KParts__Part_SuperLocalXMLFile(const KParts__Part* self) {
     auto* vkpartspart = const_cast<VirtualKPartsPart*>(dynamic_cast<const VirtualKPartsPart*>(self));
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_LocalXMLFile_IsBase(true);
-        QString _ret = vkpartspart->localXMLFile();
+        auto _ret = vkpartspart->localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -788,7 +788,7 @@ libqt_string KParts__Part_SuperLocalXMLFile(const KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KParts::Part::localXMLFile();
+        auto _ret = self->KParts::Part::localXMLFile();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1174,7 +1174,7 @@ void KParts__Part_OnIsSignalConnected(const KParts__Part* self, intptr_t slot) {
 libqt_string KParts__Part_StandardsXmlFileLocation(KParts__Part* self) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
-        QString _ret = vkpartspart->standardsXmlFileLocation();
+        auto _ret = vkpartspart->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1184,7 +1184,7 @@ libqt_string KParts__Part_StandardsXmlFileLocation(KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsPart*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKPartsPart*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1201,7 +1201,7 @@ libqt_string KParts__Part_SuperStandardsXmlFileLocation(KParts__Part* self) {
     auto* vkpartspart = dynamic_cast<VirtualKPartsPart*>(self);
     if (vkpartspart && vkpartspart->isVirtualKPartsPart) {
         vkpartspart->setKParts__Part_StandardsXmlFileLocation_IsBase(true);
-        QString _ret = vkpartspart->standardsXmlFileLocation();
+        auto _ret = vkpartspart->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1211,7 +1211,7 @@ libqt_string KParts__Part_SuperStandardsXmlFileLocation(KParts__Part* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKPartsPart*)self)->standardsXmlFileLocation();
+        auto _ret = ((VirtualKPartsPart*)self)->standardsXmlFileLocation();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

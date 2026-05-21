@@ -5348,6 +5348,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5395,6 +5397,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionWidget = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextAutoCorrectionWidgets__AutoCorrectionWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7329,6 +7333,8 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionWidget = extern struct {
     /// ` self: TextAutoCorrectionWidgets__AutoCorrectionWidget`
     ///
     /// ` callback: *const fn (self: TextAutoCorrectionWidgets__AutoCorrectionWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextAutoCorrectionWidgets__AutoCorrectionWidget, callback: *const fn (TextAutoCorrectionWidgets__AutoCorrectionWidget, i32) callconv(.c) QVariant) void {
         qtc.TextAutoCorrectionWidgets__AutoCorrectionWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

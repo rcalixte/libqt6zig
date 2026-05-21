@@ -156,7 +156,7 @@ class VirtualKSvgSvg final : public KSvg::Svg {
         }
         auto setimagepath_cb = ksvg__svg_setimagepath_callback;
         if (setimagepath_cb) {
-            const QString svgFilePath_ret = svgFilePath;
+            const auto svgFilePath_ret = svgFilePath;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray svgFilePath_b = svgFilePath_ret.toUtf8();
             auto svgFilePath_str_len = svgFilePath_b.length();

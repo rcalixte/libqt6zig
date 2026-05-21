@@ -33,7 +33,7 @@ bool KSyntaxHighlighting__Definition_IsValid(const KSyntaxHighlighting__Definiti
 }
 
 libqt_string KSyntaxHighlighting__Definition_FilePath(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->filePath();
+    auto _ret = self->filePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -45,7 +45,7 @@ libqt_string KSyntaxHighlighting__Definition_FilePath(const KSyntaxHighlighting_
 }
 
 libqt_string KSyntaxHighlighting__Definition_Name(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,7 +61,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_AlternativeName
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -78,7 +78,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_AlternativeName
 }
 
 libqt_string KSyntaxHighlighting__Definition_TranslatedName(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->translatedName();
+    auto _ret = self->translatedName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ libqt_string KSyntaxHighlighting__Definition_TranslatedName(const KSyntaxHighlig
 }
 
 libqt_string KSyntaxHighlighting__Definition_Section(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->section();
+    auto _ret = self->section();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ libqt_string KSyntaxHighlighting__Definition_Section(const KSyntaxHighlighting__
 }
 
 libqt_string KSyntaxHighlighting__Definition_TranslatedSection(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->translatedSection();
+    auto _ret = self->translatedSection();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -118,7 +118,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_MimeTypes(const
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -139,7 +139,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_Extensions(cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -168,7 +168,7 @@ bool KSyntaxHighlighting__Definition_IsHidden(const KSyntaxHighlighting__Definit
 }
 
 libqt_string KSyntaxHighlighting__Definition_Style(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->style();
+    auto _ret = self->style();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_string KSyntaxHighlighting__Definition_Style(const KSyntaxHighlighting__De
 }
 
 libqt_string KSyntaxHighlighting__Definition_Indenter(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->indenter();
+    auto _ret = self->indenter();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -192,7 +192,7 @@ libqt_string KSyntaxHighlighting__Definition_Indenter(const KSyntaxHighlighting_
 }
 
 libqt_string KSyntaxHighlighting__Definition_Author(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->author();
+    auto _ret = self->author();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -204,7 +204,7 @@ libqt_string KSyntaxHighlighting__Definition_Author(const KSyntaxHighlighting__D
 }
 
 libqt_string KSyntaxHighlighting__Definition_License(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->license();
+    auto _ret = self->license();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -236,7 +236,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_FoldingIgnoreLi
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -257,7 +257,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_KeywordLists(co
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -279,7 +279,7 @@ libqt_list /* of libqt_string */ KSyntaxHighlighting__Definition_KeywordList(con
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -334,7 +334,7 @@ libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Defini
 }
 
 libqt_string KSyntaxHighlighting__Definition_SingleLineCommentMarker(const KSyntaxHighlighting__Definition* self) {
-    QString _ret = self->singleLineCommentMarker();
+    auto _ret = self->singleLineCommentMarker();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -354,7 +354,7 @@ libqt_pair /* tuple of libqt_string and libqt_string */ KSyntaxHighlighting__Def
     // Convert QPair<> from C++ memory to manually-managed C memory
     libqt_string* _first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
     libqt_string* _second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-    QString _first_ret = _ret.first;
+    auto _first_ret = _ret.first;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _first_b = _first_ret.toUtf8();
     libqt_string _first_str;
@@ -363,7 +363,7 @@ libqt_pair /* tuple of libqt_string and libqt_string */ KSyntaxHighlighting__Def
     memcpy((void*)_first_str.data, _first_b.data(), _first_str.len);
     ((char*)_first_str.data)[_first_str.len] = '\0';
     *_first = _first_str;
-    QString _second_ret = _ret.second;
+    auto _second_ret = _ret.second;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _second_b = _second_ret.toUtf8();
     libqt_string _second_str;
@@ -388,7 +388,7 @@ libqt_list /* of libqt_pair tuple of QChar* and libqt_string */ KSyntaxHighlight
         QChar** _lv_first = static_cast<QChar**>(malloc(sizeof(QChar*)));
         libqt_string* _lv_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
         *_lv_first = new QChar(_lv_ret.first);
-        QString _lv_second_ret = _lv_ret.second;
+        auto _lv_second_ret = _lv_ret.second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_second_b = _lv_second_ret.toUtf8();
         libqt_string _lv_second_str;

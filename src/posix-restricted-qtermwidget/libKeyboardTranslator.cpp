@@ -21,7 +21,7 @@ Konsole__KeyboardTranslator* Konsole__KeyboardTranslator_new2(const Konsole__Key
 }
 
 libqt_string Konsole__KeyboardTranslator_Name(const Konsole__KeyboardTranslator* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ void Konsole__KeyboardTranslator_SetName(Konsole__KeyboardTranslator* self, cons
 }
 
 libqt_string Konsole__KeyboardTranslator_Description(const Konsole__KeyboardTranslator* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -96,7 +96,7 @@ Konsole__KeyboardTranslatorReader* Konsole__KeyboardTranslatorReader_new(QIODevi
 }
 
 libqt_string Konsole__KeyboardTranslatorReader_Description(const Konsole__KeyboardTranslatorReader* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -173,7 +173,7 @@ libqt_list /* of libqt_string */ Konsole__KeyboardTranslatorManager_AllTranslato
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -285,7 +285,7 @@ void Konsole__KeyboardTranslator__Entry_SetStateMask(Konsole__KeyboardTranslator
 }
 
 libqt_string Konsole__KeyboardTranslator__Entry_ConditionToString(const Konsole__KeyboardTranslator__Entry* self) {
-    QString _ret = self->conditionToString();
+    auto _ret = self->conditionToString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -297,7 +297,7 @@ libqt_string Konsole__KeyboardTranslator__Entry_ConditionToString(const Konsole_
 }
 
 libqt_string Konsole__KeyboardTranslator__Entry_ResultToString(const Konsole__KeyboardTranslator__Entry* self) {
-    QString _ret = self->resultToString();
+    auto _ret = self->resultToString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -353,7 +353,7 @@ libqt_string Konsole__KeyboardTranslator__Entry_EscapedText2(const Konsole__Keyb
 }
 
 libqt_string Konsole__KeyboardTranslator__Entry_ResultToString1(const Konsole__KeyboardTranslator__Entry* self, bool expandWildCards) {
-    QString _ret = self->resultToString(expandWildCards);
+    auto _ret = self->resultToString(expandWildCards);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -365,7 +365,7 @@ libqt_string Konsole__KeyboardTranslator__Entry_ResultToString1(const Konsole__K
 }
 
 libqt_string Konsole__KeyboardTranslator__Entry_ResultToString2(const Konsole__KeyboardTranslator__Entry* self, bool expandWildCards, int modifiers) {
-    QString _ret = self->resultToString(expandWildCards, static_cast<Qt::KeyboardModifiers>(modifiers));
+    auto _ret = self->resultToString(expandWildCards, static_cast<Qt::KeyboardModifiers>(modifiers));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

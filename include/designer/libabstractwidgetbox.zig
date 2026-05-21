@@ -316,6 +316,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat_idx: i32) callconv(.c) QDesignerWidgetBoxInterface__Category `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) QDesignerWidgetBoxInterface__Category) void {
         qtc.QDesignerWidgetBoxInterface_OnCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -495,6 +497,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     /// ` self: QDesignerWidgetBoxInterface `
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) callconv(.c) QDesignerWidgetBoxInterface__Widget `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) QDesignerWidgetBoxInterface__Widget) void {
         qtc.QDesignerWidgetBoxInterface_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5909,6 +5913,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerWidgetBoxInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5956,6 +5962,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     /// ` self: QDesignerWidgetBoxInterface`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerWidgetBoxInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7890,6 +7898,8 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     /// ` self: QDesignerWidgetBoxInterface`
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) QVariant) void {
         qtc.QDesignerWidgetBoxInterface_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

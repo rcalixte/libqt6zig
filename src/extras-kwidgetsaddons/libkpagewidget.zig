@@ -5805,6 +5805,8 @@ pub const KPageWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPageWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPageWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5852,6 +5854,8 @@ pub const KPageWidget = extern struct {
     /// ` self: KPageWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPageWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPageWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7786,6 +7790,8 @@ pub const KPageWidget = extern struct {
     /// ` self: KPageWidget`
     ///
     /// ` callback: *const fn (self: KPageWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPageWidget, callback: *const fn (KPageWidget, i32) callconv(.c) QVariant) void {
         qtc.KPageWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

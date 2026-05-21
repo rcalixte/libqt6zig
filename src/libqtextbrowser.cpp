@@ -94,7 +94,7 @@ libqt_list /* of libqt_string */ QTextBrowser_SearchPaths(const QTextBrowser* se
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -143,7 +143,7 @@ void QTextBrowser_ClearHistory(QTextBrowser* self) {
 }
 
 libqt_string QTextBrowser_HistoryTitle(const QTextBrowser* self, int param1) {
-    QString _ret = self->historyTitle(static_cast<int>(param1));
+    auto _ret = self->historyTitle(static_cast<int>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

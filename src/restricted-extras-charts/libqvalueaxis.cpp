@@ -121,7 +121,7 @@ void QValueAxis_SetLabelFormat(QValueAxis* self, const libqt_string format) {
 }
 
 libqt_string QValueAxis_LabelFormat(const QValueAxis* self) {
-    QString _ret = self->labelFormat();
+    auto _ret = self->labelFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -205,7 +205,7 @@ void QValueAxis_LabelFormatChanged(QValueAxis* self, const libqt_string format) 
 void QValueAxis_Connect_LabelFormatChanged(QValueAxis* self, intptr_t slot) {
     void (*slotFunc)(QValueAxis*, const char*) = reinterpret_cast<void (*)(QValueAxis*, const char*)>(slot);
     QValueAxis::connect(self, &QValueAxis::labelFormatChanged, [self, slotFunc](const QString& format) {
-        const QString format_ret = format;
+        const auto format_ret = format;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray format_b = format_ret.toUtf8();
         auto format_str_len = format_b.length();

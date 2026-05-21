@@ -300,6 +300,8 @@ pub const QGraphicsView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QGraphicsView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGraphicsView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1189,6 +1191,8 @@ pub const QGraphicsView = extern struct {
     /// ` self: QGraphicsView `
     ///
     /// ` callback: *const fn (self: QGraphicsView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QGraphicsView, callback: *const fn (QGraphicsView, i32) callconv(.c) QVariant) void {
         qtc.QGraphicsView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8190,6 +8194,8 @@ pub const QGraphicsView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QGraphicsView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGraphicsView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8297,6 +8303,8 @@ pub const QGraphicsView = extern struct {
     /// ` self: QGraphicsView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QGraphicsView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QGraphicsView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9689,6 +9697,8 @@ pub const QGraphicsView = extern struct {
     /// ` self: QGraphicsView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QGraphicsView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QGraphicsView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

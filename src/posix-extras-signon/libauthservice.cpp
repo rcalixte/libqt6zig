@@ -128,7 +128,7 @@ void SignOn__AuthService_MechanismsAvailable(SignOn__AuthService* self, const li
 void SignOn__AuthService_Connect_MechanismsAvailable(SignOn__AuthService* self, intptr_t slot) {
     void (*slotFunc)(SignOn__AuthService*, const char*, const char**) = reinterpret_cast<void (*)(SignOn__AuthService*, const char*, const char**)>(slot);
     SignOn::AuthService::connect(self, &SignOn::AuthService::mechanismsAvailable, [self, slotFunc](const QString& method, const QList<QString>& mechanisms) {
-        const QString method_ret = method;
+        const auto method_ret = method;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray method_b = method_ret.toUtf8();
         auto method_str_len = method_b.length();
@@ -589,7 +589,7 @@ bool SignOn__AuthService__IdentityRegExp_IsValid(const SignOn__AuthService__Iden
 }
 
 libqt_string SignOn__AuthService__IdentityRegExp_Pattern(const SignOn__AuthService__IdentityRegExp* self) {
-    QString _ret = self->pattern();
+    auto _ret = self->pattern();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

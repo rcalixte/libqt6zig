@@ -272,7 +272,7 @@ int QTextToSpeechEngine_ErrorReason(const QTextToSpeechEngine* self) {
 libqt_string QTextToSpeechEngine_ErrorString(const QTextToSpeechEngine* self) {
     auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
     if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        QString _ret = vqtexttospeechengine->errorString();
+        auto _ret = vqtexttospeechengine->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -282,7 +282,7 @@ libqt_string QTextToSpeechEngine_ErrorString(const QTextToSpeechEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTextToSpeechEngine*)self)->errorString();
+        auto _ret = ((VirtualQTextToSpeechEngine*)self)->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -315,7 +315,7 @@ void QTextToSpeechEngine_Connect_ErrorOccurred(QTextToSpeechEngine* self, intptr
     void (*slotFunc)(QTextToSpeechEngine*, int, const char*) = reinterpret_cast<void (*)(QTextToSpeechEngine*, int, const char*)>(slot);
     QTextToSpeechEngine::connect(self, &QTextToSpeechEngine::errorOccurred, [self, slotFunc](QTextToSpeech::ErrorReason errorVal, const QString& errorString) {
         int sigval1 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();
@@ -336,7 +336,7 @@ void QTextToSpeechEngine_SayingWord(QTextToSpeechEngine* self, const libqt_strin
 void QTextToSpeechEngine_Connect_SayingWord(QTextToSpeechEngine* self, intptr_t slot) {
     void (*slotFunc)(QTextToSpeechEngine*, const char*, ptrdiff_t, ptrdiff_t) = reinterpret_cast<void (*)(QTextToSpeechEngine*, const char*, ptrdiff_t, ptrdiff_t)>(slot);
     QTextToSpeechEngine::connect(self, &QTextToSpeechEngine::sayingWord, [self, slotFunc](const QString& word, qsizetype start, qsizetype length) {
-        const QString word_ret = word;
+        const auto word_ret = word;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray word_b = word_ret.toUtf8();
         auto word_str_len = word_b.length();
@@ -853,7 +853,7 @@ libqt_string QTextToSpeechEngine_SuperErrorString(const QTextToSpeechEngine* sel
     auto* vqtexttospeechengine = const_cast<VirtualQTextToSpeechEngine*>(dynamic_cast<const VirtualQTextToSpeechEngine*>(self));
     if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
         vqtexttospeechengine->setQTextToSpeechEngine_ErrorString_IsBase(true);
-        QString _ret = vqtexttospeechengine->errorString();
+        auto _ret = vqtexttospeechengine->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -863,7 +863,7 @@ libqt_string QTextToSpeechEngine_SuperErrorString(const QTextToSpeechEngine* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQTextToSpeechEngine*)self)->errorString();
+        auto _ret = ((VirtualQTextToSpeechEngine*)self)->errorString();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

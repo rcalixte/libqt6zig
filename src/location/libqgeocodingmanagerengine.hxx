@@ -190,7 +190,7 @@ class VirtualQGeoCodingManagerEngine final : public QGeoCodingManagerEngine {
         }
         auto geocode2_cb = qgeocodingmanagerengine_geocode2_callback;
         if (geocode2_cb) {
-            const QString address_ret = address;
+            const auto address_ret = address;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray address_b = address_ret.toUtf8();
             auto address_str_len = address_b.length();

@@ -116,7 +116,7 @@ void QMovie_SetFileName(QMovie* self, const libqt_string fileName) {
 }
 
 libqt_string QMovie_FileName(const QMovie* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -174,7 +174,7 @@ int QMovie_LastError(const QMovie* self) {
 }
 
 libqt_string QMovie_LastErrorString(const QMovie* self) {
-    QString _ret = self->lastErrorString();
+    auto _ret = self->lastErrorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

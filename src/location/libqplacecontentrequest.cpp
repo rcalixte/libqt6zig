@@ -30,7 +30,7 @@ void QPlaceContentRequest_SetContentType(QPlaceContentRequest* self, int typeVal
 }
 
 libqt_string QPlaceContentRequest_PlaceId(const QPlaceContentRequest* self) {
-    QString _ret = self->placeId();
+    auto _ret = self->placeId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

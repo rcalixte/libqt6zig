@@ -313,7 +313,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Value3(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn Value2(self: QJsonObject, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Value2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#value)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn Value3(self: QJsonObject, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -329,7 +345,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript4(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn OperatorSubscript3(self: QJsonObject, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn OperatorSubscript4(self: QJsonObject, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -345,7 +377,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript6(self: QJsonObject, key: []const u8) QJsonValueRef {
+    pub fn OperatorSubscript5(self: QJsonObject, key: []const u8) QJsonValueRef {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_OperatorSubscript5(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn OperatorSubscript6(self: QJsonObject, key: []u8) QJsonValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -409,7 +457,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Remove3(self: QJsonObject, key: []const u8) void {
+    pub fn Remove2(self: QJsonObject, key: []const u8) void {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QJsonObject_Remove2(@ptrCast(self.ptr), key_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#remove)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn Remove3(self: QJsonObject, key: []u8) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -425,7 +489,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Take3(self: QJsonObject, key: []const u8) QJsonValue {
+    pub fn Take2(self: QJsonObject, key: []const u8) QJsonValue {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Take2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#take)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn Take3(self: QJsonObject, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -441,7 +521,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Contains3(self: QJsonObject, key: []const u8) bool {
+    pub fn Contains2(self: QJsonObject, key: []const u8) bool {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QJsonObject_Contains2(@ptrCast(self.ptr), key_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#contains)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn Contains3(self: QJsonObject, key: []u8) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -597,7 +693,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Find4(self: QJsonObject, key: []const u8) QJsonObject__iterator {
+    pub fn Find3(self: QJsonObject, key: []const u8) QJsonObject__iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Find3(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn Find4(self: QJsonObject, key: []u8) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -613,7 +725,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Find6(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+    pub fn Find5(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_Find5(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#find)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn Find6(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -629,7 +757,23 @@ pub const QJsonObject = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn ConstFind3(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+    pub fn ConstFind2(self: QJsonObject, key: []const u8) QJsonObject__const_iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QJsonObject_ConstFind2(@ptrCast(self.ptr), key_str) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#constFind)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    pub fn ConstFind3(self: QJsonObject, key: []u8) QJsonObject__const_iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -647,7 +791,26 @@ pub const QJsonObject = extern struct {
     ///
     /// ` value: QJsonValue `
     ///
-    pub fn Insert3(self: QJsonObject, key: []const u8, value: anytype) QJsonObject__iterator {
+    pub fn Insert2(self: QJsonObject, key: []const u8, value: anytype) QJsonObject__iterator {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        comptime _ = @TypeOf(value)._is_QJsonValue;
+        return .{ .ptr = qtc.QJsonObject_Insert2(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonobject.html#insert)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonObject `
+    ///
+    /// ` key: []u8 `
+    ///
+    /// ` value: QJsonValue `
+    ///
+    pub fn Insert3(self: QJsonObject, key: []u8, value: anytype) QJsonObject__iterator {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

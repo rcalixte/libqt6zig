@@ -68,7 +68,7 @@ QIODevice* QTextStream_Device(const QTextStream* self) {
 }
 
 libqt_string QTextStream_String(const QTextStream* self) {
-    QString* _ret = self->string();
+    auto _ret = self->string();
     // Convert QString pointer from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret->toUtf8();
     libqt_string _str;
@@ -116,7 +116,7 @@ void QTextStream_SkipWhiteSpace(QTextStream* self) {
 }
 
 libqt_string QTextStream_ReadLine(QTextStream* self) {
-    QString _ret = self->readLine();
+    auto _ret = self->readLine();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -128,7 +128,7 @@ libqt_string QTextStream_ReadLine(QTextStream* self) {
 }
 
 libqt_string QTextStream_ReadAll(QTextStream* self) {
-    QString _ret = self->readAll();
+    auto _ret = self->readAll();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -140,7 +140,7 @@ libqt_string QTextStream_ReadAll(QTextStream* self) {
 }
 
 libqt_string QTextStream_Read(QTextStream* self, long long maxlen) {
-    QString _ret = self->read(static_cast<qint64>(maxlen));
+    auto _ret = self->read(static_cast<qint64>(maxlen));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -378,9 +378,16 @@ QTextStream* QTextStream_OperatorShiftLeft14(QTextStream* self, const libqt_stri
     return &_ret;
 }
 
-QTextStream* QTextStream_OperatorShiftLeft16(QTextStream* self, libqt_string s) {
-    QLatin1StringView s_QString = QLatin1StringView(s.data, s.len);
+QTextStream* QTextStream_OperatorShiftLeft15(QTextStream* self, libqt_string s) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
     QTextStream& _ret = self->operator<<(s_QString);
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
+QTextStream* QTextStream_OperatorShiftLeft16(QTextStream* self, libqt_string s) {
+    QLatin1StringView s_QLatin1StringView(s.data, s.len);
+    QTextStream& _ret = self->operator<<(s_QLatin1StringView);
     // Cast returned reference into pointer
     return &_ret;
 }
@@ -405,7 +412,7 @@ QTextStream* QTextStream_OperatorShiftLeft19(QTextStream* self, const void* ptr)
 }
 
 libqt_string QTextStream_ReadLine1(QTextStream* self, long long maxlen) {
-    QString _ret = self->readLine(static_cast<qint64>(maxlen));
+    auto _ret = self->readLine(static_cast<qint64>(maxlen));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

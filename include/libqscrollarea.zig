@@ -320,6 +320,8 @@ pub const QScrollArea = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QScrollArea, callback: *const fn () callconv(.c) QSize) void {
         qtc.QScrollArea_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -648,6 +650,8 @@ pub const QScrollArea = extern struct {
     /// ` self: QScrollArea `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QScrollArea, callback: *const fn () callconv(.c) QSize) void {
         qtc.QScrollArea_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6092,6 +6096,8 @@ pub const QScrollArea = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QScrollArea, callback: *const fn () callconv(.c) QSize) void {
         qtc.QScrollArea_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8180,6 +8186,8 @@ pub const QScrollArea = extern struct {
     ///
     /// ` callback: *const fn (self: QScrollArea, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QScrollArea, callback: *const fn (QScrollArea, i32) callconv(.c) QVariant) void {
         qtc.QScrollArea_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8561,6 +8569,8 @@ pub const QScrollArea = extern struct {
     /// ` self: QScrollArea`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QScrollArea, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QScrollArea_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

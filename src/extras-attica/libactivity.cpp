@@ -25,7 +25,7 @@ void Attica__Activity_SetId(Attica__Activity* self, const libqt_string id) {
 }
 
 libqt_string Attica__Activity_Id(const Attica__Activity* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ void Attica__Activity_SetMessage(Attica__Activity* self, const libqt_string mess
 }
 
 libqt_string Attica__Activity_Message(const Attica__Activity* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

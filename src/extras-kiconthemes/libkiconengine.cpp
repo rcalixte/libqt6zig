@@ -90,7 +90,7 @@ QPixmap* KIconEngine_ScaledPixmap(KIconEngine* self, const QSize* size, int mode
 libqt_string KIconEngine_IconName(KIconEngine* self) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
-        QString _ret = self->iconName();
+        auto _ret = self->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -100,7 +100,7 @@ libqt_string KIconEngine_IconName(KIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKIconEngine*)self)->iconName();
+        auto _ret = ((VirtualKIconEngine*)self)->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -151,7 +151,7 @@ bool KIconEngine_IsNull(KIconEngine* self) {
 libqt_string KIconEngine_Key(const KIconEngine* self) {
     auto* vkiconengine = dynamic_cast<const VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
-        QString _ret = self->key();
+        auto _ret = self->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -161,7 +161,7 @@ libqt_string KIconEngine_Key(const KIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKIconEngine*)self)->key();
+        auto _ret = ((VirtualKIconEngine*)self)->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -281,7 +281,7 @@ libqt_string KIconEngine_SuperIconName(KIconEngine* self) {
     auto* vkiconengine = dynamic_cast<VirtualKIconEngine*>(self);
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_IconName_IsBase(true);
-        QString _ret = vkiconengine->iconName();
+        auto _ret = vkiconengine->iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -291,7 +291,7 @@ libqt_string KIconEngine_SuperIconName(KIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIconEngine::iconName();
+        auto _ret = self->KIconEngine::iconName();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -372,7 +372,7 @@ libqt_string KIconEngine_SuperKey(const KIconEngine* self) {
     auto* vkiconengine = const_cast<VirtualKIconEngine*>(dynamic_cast<const VirtualKIconEngine*>(self));
     if (vkiconengine && vkiconengine->isVirtualKIconEngine) {
         vkiconengine->setKIconEngine_Key_IsBase(true);
-        QString _ret = vkiconengine->key();
+        auto _ret = vkiconengine->key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -382,7 +382,7 @@ libqt_string KIconEngine_SuperKey(const KIconEngine* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KIconEngine::key();
+        auto _ret = self->KIconEngine::key();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

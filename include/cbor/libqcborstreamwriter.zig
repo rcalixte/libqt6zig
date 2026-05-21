@@ -105,14 +105,30 @@ pub const QCborStreamWriter = extern struct {
     ///
     /// ` self: QCborStreamWriter `
     ///
-    /// ` str: []const u8 `
+    /// ` str: []u8 `
     ///
-    pub fn Append5(self: QCborStreamWriter, str: []const u8) void {
+    pub fn Append5(self: QCborStreamWriter, str: []u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         qtc.QCborStreamWriter_Append5(@ptrCast(self.ptr), str_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborStreamWriter `
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn Append6(self: QCborStreamWriter, str: []const u8) void {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        qtc.QCborStreamWriter_Append6(@ptrCast(self.ptr), str_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)

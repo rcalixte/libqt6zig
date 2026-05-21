@@ -36,7 +36,7 @@ void KPlotAxis_SetLabel(KPlotAxis* self, const libqt_string label) {
 }
 
 libqt_string KPlotAxis_Label(const KPlotAxis* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string KPlotAxis_Label(const KPlotAxis* self) {
 }
 
 libqt_string KPlotAxis_TickLabel(const KPlotAxis* self, double value) {
-    QString _ret = self->tickLabel(static_cast<double>(value));
+    auto _ret = self->tickLabel(static_cast<double>(value));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

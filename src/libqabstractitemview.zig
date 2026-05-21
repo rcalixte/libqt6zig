@@ -889,6 +889,8 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractItemView, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnVisualRect(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QModelIndex) callconv(.c) QRect) void {
         qtc.QAbstractItemView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -984,6 +986,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn (self: QAbstractItemView, point: QPoint) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndexAt(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1311,6 +1315,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn (self: QAbstractItemView, query: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32) callconv(.c) QVariant) void {
         qtc.QAbstractItemView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2479,6 +2485,8 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMoveCursor(self: QAbstractItemView, callback: *const fn (QAbstractItemView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2701,6 +2709,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn (self: QAbstractItemView, selection: QItemSelection) callconv(.c) QRegion `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRegionForSelection(self: QAbstractItemView, callback: *const fn (QAbstractItemView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QAbstractItemView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3278,6 +3288,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) QPoint `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDirtyRegionOffset(self: QAbstractItemView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QAbstractItemView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4318,6 +4330,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractItemView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9684,6 +9698,8 @@ pub const QAbstractItemView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractItemView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9731,6 +9747,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QAbstractItemView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractItemView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -11449,6 +11467,8 @@ pub const QAbstractItemView = extern struct {
     /// ` self: QAbstractItemView`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QAbstractItemView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QAbstractItemView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

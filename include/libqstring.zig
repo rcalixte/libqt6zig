@@ -206,9 +206,9 @@ pub const QString = extern struct {
     ///
     /// ` s1: []const u8 `
     ///
-    /// ` s2: []const u8 `
+    /// ` s2: []u8 `
     ///
-    pub fn Compare6(s1: []const u8, s2: []const u8) i32 {
+    pub fn Compare6(s1: []const u8, s2: []u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -224,11 +224,11 @@ pub const QString = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s1: []const u8 `
+    /// ` s1: []u8 `
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn Compare7(s1: []const u8, s2: []const u8) i32 {
+    pub fn Compare7(s1: []u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -238,6 +238,46 @@ pub const QString = extern struct {
             .data = s2.ptr,
         };
         return qtc.QString_Compare7(s1_str, s2_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    pub fn Compare8(s1: []const u8, s2: []const u8) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QString_Compare8(s1_str, s2_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    pub fn Compare9(s1: []const u8, s2: []const u8) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QString_Compare9(s1_str, s2_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#localeAwareCompare)
@@ -258,6 +298,26 @@ pub const QString = extern struct {
             .data = s2.ptr,
         };
         return qtc.QString_LocaleAwareCompare3(s1_str, s2_str);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#localeAwareCompare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    pub fn LocaleAwareCompare4(s1: []const u8, s2: []const u8) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QString_LocaleAwareCompare4(s1_str, s2_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#number)
@@ -436,11 +496,11 @@ pub const QString = extern struct {
     ///
     /// ` s1: []const u8 `
     ///
-    /// ` s2: []const u8 `
+    /// ` s2: []u8 `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn Compare33(s1: []const u8, s2: []const u8, cs: i32) i32 {
+    pub fn Compare33(s1: []const u8, s2: []u8, cs: i32) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -456,13 +516,13 @@ pub const QString = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` s1: []const u8 `
+    /// ` s1: []u8 `
     ///
     /// ` s2: []const u8 `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn Compare34(s1: []const u8, s2: []const u8, cs: i32) i32 {
+    pub fn Compare34(s1: []u8, s2: []const u8, cs: i32) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -472,6 +532,50 @@ pub const QString = extern struct {
             .data = s2.ptr,
         };
         return qtc.QString_Compare34(s1_str, s2_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Compare35(s1: []const u8, s2: []const u8, cs: i32) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QString_Compare35(s1_str, s2_str, @bitCast(cs));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#compare)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` s1: []const u8 `
+    ///
+    /// ` s2: []const u8 `
+    ///
+    /// ` cs: qnamespace_enums.CaseSensitivity `
+    ///
+    pub fn Compare36(s1: []const u8, s2: []const u8, cs: i32) i32 {
+        const s1_str = qtc.libqt_string{
+            .len = s1.len,
+            .data = s1.ptr,
+        };
+        const s2_str = qtc.libqt_string{
+            .len = s2.len,
+            .data = s2.ptr,
+        };
+        return qtc.QString_Compare36(s1_str, s2_str, @bitCast(cs));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstring.html#number)

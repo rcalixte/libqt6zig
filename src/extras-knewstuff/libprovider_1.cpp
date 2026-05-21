@@ -52,7 +52,7 @@ int KNSCore__Provider_Metacall(KNSCore__Provider* self, int param1, int param2, 
 libqt_string KNSCore__Provider_Id(const KNSCore__Provider* self) {
     auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
     if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        QString _ret = vknscore__provider->id();
+        auto _ret = vknscore__provider->id();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -62,7 +62,7 @@ libqt_string KNSCore__Provider_Id(const KNSCore__Provider* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKNSCoreProvider*)self)->id();
+        auto _ret = ((VirtualKNSCoreProvider*)self)->id();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -110,7 +110,7 @@ void KNSCore__Provider_SetCachedEntries(KNSCore__Provider* self, const libqt_lis
 libqt_string KNSCore__Provider_Name(const KNSCore__Provider* self) {
     auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
     if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        QString _ret = self->name();
+        auto _ret = self->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -120,7 +120,7 @@ libqt_string KNSCore__Provider_Name(const KNSCore__Provider* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKNSCoreProvider*)self)->name();
+        auto _ret = ((VirtualKNSCoreProvider*)self)->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -197,7 +197,7 @@ void KNSCore__Provider_LoadBasics(KNSCore__Provider* self) {
 }
 
 libqt_string KNSCore__Provider_Version(const KNSCore__Provider* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -230,7 +230,7 @@ void KNSCore__Provider_SetHost(KNSCore__Provider* self, const QUrl* host) {
 }
 
 libqt_string KNSCore__Provider_ContactEmail(const KNSCore__Provider* self) {
-    QString _ret = self->contactEmail();
+    auto _ret = self->contactEmail();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -306,7 +306,7 @@ libqt_list /* of libqt_string */ KNSCore__Provider_TagFilter(const KNSCore__Prov
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -338,7 +338,7 @@ libqt_list /* of libqt_string */ KNSCore__Provider_DownloadTagFilter(const KNSCo
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -486,7 +486,7 @@ void KNSCore__Provider_SignalInformation(KNSCore__Provider* self, const libqt_st
 void KNSCore__Provider_Connect_SignalInformation(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, const char*) = reinterpret_cast<void (*)(KNSCore__Provider*, const char*)>(slot);
     KNSCore::Provider::connect(self, &KNSCore::Provider::signalInformation, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -507,7 +507,7 @@ void KNSCore__Provider_SignalError(KNSCore__Provider* self, const libqt_string p
 void KNSCore__Provider_Connect_SignalError(KNSCore__Provider* self, intptr_t slot) {
     void (*slotFunc)(KNSCore__Provider*, const char*) = reinterpret_cast<void (*)(KNSCore__Provider*, const char*)>(slot);
     KNSCore::Provider::connect(self, &KNSCore::Provider::signalError, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -529,7 +529,7 @@ void KNSCore__Provider_Connect_SignalErrorCode(KNSCore__Provider* self, intptr_t
     void (*slotFunc)(KNSCore__Provider*, int, const char*, QVariant*) = reinterpret_cast<void (*)(KNSCore__Provider*, int, const char*, QVariant*)>(slot);
     KNSCore::Provider::connect(self, &KNSCore::Provider::signalErrorCode, [self, slotFunc](KNSCore::ErrorCode::ErrorCode errorCode, const QString& message, const QVariant& metadata) {
         int sigval1 = static_cast<int>(errorCode);
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -657,7 +657,7 @@ libqt_string KNSCore__Provider_SuperId(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Id_IsBase(true);
-        QString _ret = vknscoreprovider->id();
+        auto _ret = vknscoreprovider->id();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -667,7 +667,7 @@ libqt_string KNSCore__Provider_SuperId(const KNSCore__Provider* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKNSCoreProvider*)self)->id();
+        auto _ret = ((VirtualKNSCoreProvider*)self)->id();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -755,7 +755,7 @@ libqt_string KNSCore__Provider_SuperName(const KNSCore__Provider* self) {
     auto* vknscoreprovider = const_cast<VirtualKNSCoreProvider*>(dynamic_cast<const VirtualKNSCoreProvider*>(self));
     if (vknscoreprovider && vknscoreprovider->isVirtualKNSCoreProvider) {
         vknscoreprovider->setKNSCore__Provider_Name_IsBase(true);
-        QString _ret = vknscoreprovider->name();
+        auto _ret = vknscoreprovider->name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -765,7 +765,7 @@ libqt_string KNSCore__Provider_SuperName(const KNSCore__Provider* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KNSCore::Provider::name();
+        auto _ret = self->KNSCore::Provider::name();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1452,7 +1452,7 @@ void KNSCore__Provider__SearchRequest_SetFilter(KNSCore__Provider__SearchRequest
 }
 
 libqt_string KNSCore__Provider__SearchRequest_SearchTerm(const KNSCore__Provider__SearchRequest* self) {
-    QString searchTerm_ret = self->searchTerm;
+    auto searchTerm_ret = self->searchTerm;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray searchTerm_b = searchTerm_ret.toUtf8();
     libqt_string searchTerm_str;
@@ -1473,7 +1473,7 @@ libqt_list /* of libqt_string */ KNSCore__Provider__SearchRequest_Categories(con
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* categories_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (categories_ret.size())));
     for (qsizetype i = 0; i < categories_ret.size(); ++i) {
-        QString categories_lv_ret = categories_ret[i];
+        auto categories_lv_ret = categories_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray categories_lv_b = categories_lv_ret.toUtf8();
         libqt_string categories_lv_str;
@@ -1517,7 +1517,7 @@ void KNSCore__Provider__SearchRequest_SetPageSize(KNSCore__Provider__SearchReque
 }
 
 libqt_string KNSCore__Provider__SearchRequest_HashForRequest(const KNSCore__Provider__SearchRequest* self) {
-    QString _ret = self->hashForRequest();
+    auto _ret = self->hashForRequest();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1545,7 +1545,7 @@ KNSCore__Provider__CategoryMetadata* KNSCore__Provider__CategoryMetadata_new(con
 }
 
 libqt_string KNSCore__Provider__CategoryMetadata_Id(const KNSCore__Provider__CategoryMetadata* self) {
-    QString id_ret = self->id;
+    auto id_ret = self->id;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray id_b = id_ret.toUtf8();
     libqt_string id_str;
@@ -1562,7 +1562,7 @@ void KNSCore__Provider__CategoryMetadata_SetId(KNSCore__Provider__CategoryMetada
 }
 
 libqt_string KNSCore__Provider__CategoryMetadata_Name(const KNSCore__Provider__CategoryMetadata* self) {
-    QString name_ret = self->name;
+    auto name_ret = self->name;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray name_b = name_ret.toUtf8();
     libqt_string name_str;
@@ -1579,7 +1579,7 @@ void KNSCore__Provider__CategoryMetadata_SetName(KNSCore__Provider__CategoryMeta
 }
 
 libqt_string KNSCore__Provider__CategoryMetadata_DisplayName(const KNSCore__Provider__CategoryMetadata* self) {
-    QString displayName_ret = self->displayName;
+    auto displayName_ret = self->displayName;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray displayName_b = displayName_ret.toUtf8();
     libqt_string displayName_str;
@@ -1616,7 +1616,7 @@ void KNSCore__Provider__SearchPreset_SetRequest(KNSCore__Provider__SearchPreset*
 }
 
 libqt_string KNSCore__Provider__SearchPreset_DisplayName(const KNSCore__Provider__SearchPreset* self) {
-    QString displayName_ret = self->displayName;
+    auto displayName_ret = self->displayName;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray displayName_b = displayName_ret.toUtf8();
     libqt_string displayName_str;
@@ -1633,7 +1633,7 @@ void KNSCore__Provider__SearchPreset_SetDisplayName(KNSCore__Provider__SearchPre
 }
 
 libqt_string KNSCore__Provider__SearchPreset_IconName(const KNSCore__Provider__SearchPreset* self) {
-    QString iconName_ret = self->iconName;
+    auto iconName_ret = self->iconName;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray iconName_b = iconName_ret.toUtf8();
     libqt_string iconName_str;
@@ -1658,7 +1658,7 @@ void KNSCore__Provider__SearchPreset_SetType(KNSCore__Provider__SearchPreset* se
 }
 
 libqt_string KNSCore__Provider__SearchPreset_ProviderId(const KNSCore__Provider__SearchPreset* self) {
-    QString providerId_ret = self->providerId;
+    auto providerId_ret = self->providerId;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray providerId_b = providerId_ret.toUtf8();
     libqt_string providerId_str;

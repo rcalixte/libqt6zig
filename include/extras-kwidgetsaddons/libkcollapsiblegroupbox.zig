@@ -313,6 +313,8 @@ pub const KCollapsibleGroupBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCollapsibleGroupBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -352,6 +354,8 @@ pub const KCollapsibleGroupBox = extern struct {
     /// ` self: KCollapsibleGroupBox `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KCollapsibleGroupBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCollapsibleGroupBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7307,6 +7311,8 @@ pub const KCollapsibleGroupBox = extern struct {
     /// ` self: KCollapsibleGroupBox`
     ///
     /// ` callback: *const fn (self: KCollapsibleGroupBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KCollapsibleGroupBox, callback: *const fn (KCollapsibleGroupBox, i32) callconv(.c) QVariant) void {
         qtc.KCollapsibleGroupBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

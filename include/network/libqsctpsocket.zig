@@ -2945,6 +2945,8 @@ pub const QSctpSocket = extern struct {
     ///
     /// ` callback: *const fn (self: QSctpSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSocketOption(self: QSctpSocket, callback: *const fn (QSctpSocket, i32) callconv(.c) QVariant) void {
         qtc.QSctpSocket_OnSocketOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

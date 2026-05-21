@@ -25,7 +25,7 @@ bool KLocalizedString_IsEmpty(const KLocalizedString* self) {
 }
 
 libqt_string KLocalizedString_ToString(const KLocalizedString* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -44,7 +44,7 @@ libqt_string KLocalizedString_ToString2(const KLocalizedString* self, const libq
         QString languages_arr_i_QString = QString::fromUtf8(languages_arr[i].data, languages_arr[i].len);
         languages_QList.push_back(languages_arr_i_QString);
     }
-    QString _ret = self->toString(languages_QList);
+    auto _ret = self->toString(languages_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56,7 +56,7 @@ libqt_string KLocalizedString_ToString2(const KLocalizedString* self, const libq
 }
 
 libqt_string KLocalizedString_ToString3(const KLocalizedString* self, const char* domain) {
-    QString _ret = self->toString(domain);
+    auto _ret = self->toString(domain);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -68,7 +68,7 @@ libqt_string KLocalizedString_ToString3(const KLocalizedString* self, const char
 }
 
 libqt_string KLocalizedString_ToString4(const KLocalizedString* self, int format) {
-    QString _ret = self->toString(static_cast<Kuit::VisualFormat>(format));
+    auto _ret = self->toString(static_cast<Kuit::VisualFormat>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -181,7 +181,7 @@ libqt_list /* of libqt_string */ KLocalizedString_Languages() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -224,7 +224,7 @@ libqt_list /* set of libqt_string */ KLocalizedString_AvailableApplicationTransl
     int _ctr = 0;
     QSetIterator<QString> _itr(_ret);
     while (_itr.hasNext()) {
-        QString _sv_ret = _itr.next();
+        auto _sv_ret = _itr.next();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _sv_b = _sv_ret.toUtf8();
         libqt_string _sv_str;
@@ -248,7 +248,7 @@ libqt_list /* set of libqt_string */ KLocalizedString_AvailableDomainTranslation
     int _ctr = 0;
     QSetIterator<QString> _itr(_ret);
     while (_itr.hasNext()) {
-        QString _sv_ret = _itr.next();
+        auto _sv_ret = _itr.next();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _sv_b = _sv_ret.toUtf8();
         libqt_string _sv_str;
@@ -272,7 +272,7 @@ void KLocalizedString_AddDomainLocaleDir(const libqt_string domain, const libqt_
 
 libqt_string KLocalizedString_LocalizedFilePath(const libqt_string filePath) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
-    QString _ret = KLocalizedString::localizedFilePath(filePath_QString);
+    auto _ret = KLocalizedString::localizedFilePath(filePath_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -285,7 +285,7 @@ libqt_string KLocalizedString_LocalizedFilePath(const libqt_string filePath) {
 
 libqt_string KLocalizedString_RemoveAcceleratorMarker(const libqt_string label) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QString _ret = KLocalizedString::removeAcceleratorMarker(label_QString);
+    auto _ret = KLocalizedString::removeAcceleratorMarker(label_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

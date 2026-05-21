@@ -2467,6 +2467,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2520,6 +2522,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapFromSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2575,6 +2579,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, proxySelection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionToSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2628,6 +2634,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, sourceSelection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KCategorizedSortFilterProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2807,6 +2815,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2860,6 +2870,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2922,6 +2934,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3143,6 +3157,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KCategorizedSortFilterProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3266,6 +3282,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KCategorizedSortFilterProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3937,6 +3955,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4084,6 +4104,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KCategorizedSortFilterProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5627,6 +5649,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5682,6 +5706,8 @@ pub const KCategorizedSortFilterProxyModel = extern struct {
     /// ` self: KCategorizedSortFilterProxyModel`
     ///
     /// ` callback: *const fn (self: KCategorizedSortFilterProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KCategorizedSortFilterProxyModel, callback: *const fn (KCategorizedSortFilterProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KCategorizedSortFilterProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

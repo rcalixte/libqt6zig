@@ -19,7 +19,7 @@ libqt_list /* of libqt_string */ QWebEngineGlobalSettings__DnsMode_ServerTemplat
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* serverTemplates_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (serverTemplates_ret.size())));
     for (qsizetype i = 0; i < serverTemplates_ret.size(); ++i) {
-        QString serverTemplates_lv_ret = serverTemplates_ret[i];
+        auto serverTemplates_lv_ret = serverTemplates_ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray serverTemplates_lv_b = serverTemplates_lv_ret.toUtf8();
         libqt_string serverTemplates_lv_str;

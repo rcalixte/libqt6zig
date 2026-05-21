@@ -8406,6 +8406,8 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__RichTextEditor_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8457,6 +8459,8 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     /// ` self: TextCustomEditor__RichTextEditor`
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__RichTextEditor_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9688,6 +9692,8 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditor_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9735,6 +9741,8 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     /// ` self: TextCustomEditor__RichTextEditor`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditor_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9951,6 +9959,8 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     /// ` self: TextCustomEditor__RichTextEditor`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditor_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -11287,6 +11297,8 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     /// ` self: TextCustomEditor__RichTextEditor`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextCustomEditor__RichTextEditor_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -90,7 +90,7 @@ void QFont_Swap(QFont* self, QFont* other) {
 }
 
 libqt_string QFont_Family(const QFont* self) {
-    QString _ret = self->family();
+    auto _ret = self->family();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -111,7 +111,7 @@ libqt_list /* of libqt_string */ QFont_Families(const QFont* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -139,7 +139,7 @@ void QFont_SetFamilies(QFont* self, const libqt_list /* of libqt_string */ famil
 }
 
 libqt_string QFont_StyleName(const QFont* self) {
-    QString _ret = self->styleName();
+    auto _ret = self->styleName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -406,7 +406,7 @@ bool QFont_IsCopyOf(const QFont* self, const QFont* param1) {
 }
 
 libqt_string QFont_Key(const QFont* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -418,7 +418,7 @@ libqt_string QFont_Key(const QFont* self) {
 }
 
 libqt_string QFont_ToString(const QFont* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -436,7 +436,7 @@ bool QFont_FromString(QFont* self, const libqt_string param1) {
 
 libqt_string QFont_Substitute(const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString _ret = QFont::substitute(param1_QString);
+    auto _ret = QFont::substitute(param1_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -453,7 +453,7 @@ libqt_list /* of libqt_string */ QFont_Substitutes(const libqt_string param1) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -474,7 +474,7 @@ libqt_list /* of libqt_string */ QFont_Substitutions() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -526,7 +526,7 @@ void QFont_CacheStatistics() {
 }
 
 libqt_string QFont_DefaultFamily(const QFont* self) {
-    QString _ret = self->defaultFamily();
+    auto _ret = self->defaultFamily();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

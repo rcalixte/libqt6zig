@@ -363,7 +363,7 @@ void KExtendableItemDelegate_OnUpdateEditorGeometry(const KExtendableItemDelegat
 libqt_string KExtendableItemDelegate_DisplayText(const KExtendableItemDelegate* self, const QVariant* value, const QLocale* locale) {
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
     if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        QString _ret = vkextendableitemdelegate->displayText(*value, *locale);
+        auto _ret = vkextendableitemdelegate->displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -373,7 +373,7 @@ libqt_string KExtendableItemDelegate_DisplayText(const KExtendableItemDelegate* 
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
+        auto _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -390,7 +390,7 @@ libqt_string KExtendableItemDelegate_SuperDisplayText(const KExtendableItemDeleg
     auto* vkextendableitemdelegate = const_cast<VirtualKExtendableItemDelegate*>(dynamic_cast<const VirtualKExtendableItemDelegate*>(self));
     if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
         vkextendableitemdelegate->setKExtendableItemDelegate_DisplayText_IsBase(true);
-        QString _ret = vkextendableitemdelegate->displayText(*value, *locale);
+        auto _ret = vkextendableitemdelegate->displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -400,7 +400,7 @@ libqt_string KExtendableItemDelegate_SuperDisplayText(const KExtendableItemDeleg
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
+        auto _ret = self->KExtendableItemDelegate::displayText(*value, *locale);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

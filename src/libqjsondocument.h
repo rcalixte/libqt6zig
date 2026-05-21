@@ -52,6 +52,7 @@ QJsonArray* QJsonDocument_Array(const QJsonDocument* self);
 void QJsonDocument_SetObject(QJsonDocument* self, const QJsonObject* object);
 void QJsonDocument_SetArray(QJsonDocument* self, const QJsonArray* array);
 QJsonValue* QJsonDocument_OperatorSubscript(const QJsonDocument* self, const libqt_string key);
+QJsonValue* QJsonDocument_OperatorSubscript2(const QJsonDocument* self, libqt_string key);
 QJsonValue* QJsonDocument_OperatorSubscript3(const QJsonDocument* self, libqt_string key);
 QJsonValue* QJsonDocument_OperatorSubscript4(const QJsonDocument* self, ptrdiff_t i);
 bool QJsonDocument_IsNull(const QJsonDocument* self);

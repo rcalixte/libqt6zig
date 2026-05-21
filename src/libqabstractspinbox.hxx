@@ -489,7 +489,7 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         }
         auto validate_cb = qabstractspinbox_validate_callback;
         if (validate_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -514,7 +514,7 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
         }
         auto fixup_cb = qabstractspinbox_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();

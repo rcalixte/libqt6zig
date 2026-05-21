@@ -137,7 +137,7 @@ Poppler__PDFConverter__NewSignatureData* Poppler__PDFConverter__NewSignatureData
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_CertNickname(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->certNickname();
+    auto _ret = self->certNickname();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -154,7 +154,7 @@ void Poppler__PDFConverter__NewSignatureData_SetCertNickname(Poppler__PDFConvert
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_Password(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -187,7 +187,7 @@ void Poppler__PDFConverter__NewSignatureData_SetBoundingRectangle(Poppler__PDFCo
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_SignatureText(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->signatureText();
+    auto _ret = self->signatureText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -204,7 +204,7 @@ void Poppler__PDFConverter__NewSignatureData_SetSignatureText(Poppler__PDFConver
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_SignatureLeftText(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->signatureLeftText();
+    auto _ret = self->signatureLeftText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -221,7 +221,7 @@ void Poppler__PDFConverter__NewSignatureData_SetSignatureLeftText(Poppler__PDFCo
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_Reason(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->reason();
+    auto _ret = self->reason();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -238,7 +238,7 @@ void Poppler__PDFConverter__NewSignatureData_SetReason(Poppler__PDFConverter__Ne
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_Location(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->location();
+    auto _ret = self->location();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -303,7 +303,7 @@ void Poppler__PDFConverter__NewSignatureData_SetBackgroundColor(Poppler__PDFConv
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_FieldPartialName(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->fieldPartialName();
+    auto _ret = self->fieldPartialName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -348,7 +348,7 @@ void Poppler__PDFConverter__NewSignatureData_SetDocumentUserPassword(Poppler__PD
 }
 
 libqt_string Poppler__PDFConverter__NewSignatureData_ImagePath(const Poppler__PDFConverter__NewSignatureData* self) {
-    QString _ret = self->imagePath();
+    auto _ret = self->imagePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

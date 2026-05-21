@@ -30,7 +30,7 @@ int Accounts__Error_Type(const Accounts__Error* self) {
 }
 
 libqt_string Accounts__Error_Message(const Accounts__Error* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

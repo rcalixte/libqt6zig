@@ -78,7 +78,7 @@ void Sonnet__ConfigWidget_SetLanguage(Sonnet__ConfigWidget* self, const libqt_st
 }
 
 libqt_string Sonnet__ConfigWidget_Language(const Sonnet__ConfigWidget* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

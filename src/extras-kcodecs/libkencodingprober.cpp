@@ -58,7 +58,7 @@ int KEncodingProber_ProberTypeForName(const libqt_string lang) {
 }
 
 libqt_string KEncodingProber_NameForProberType(int proberType) {
-    QString _ret = KEncodingProber::nameForProberType(static_cast<KEncodingProber::ProberType>(proberType));
+    auto _ret = KEncodingProber::nameForProberType(static_cast<KEncodingProber::ProberType>(proberType));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

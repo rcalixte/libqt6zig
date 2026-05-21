@@ -1,6 +1,7 @@
 #include <KFuzzyMatcher>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KFuzzyMatcher__Range
 #define WORKAROUND_INNER_CLASS_DEFINITION_KFuzzyMatcher__Result
+#include <QList>
 #include <kfuzzymatcher.h>
 #include "libkfuzzymatcher.h"
 #include "libkfuzzymatcher.hxx"
@@ -67,4 +68,31 @@ void KFuzzyMatcher__Range_SetLength(KFuzzyMatcher__Range* self, int length) {
 
 void KFuzzyMatcher__Range_Delete(KFuzzyMatcher__Range* self) {
     delete self;
+}
+
+bool KFuzzyMatcher_MatchSimple(libqt_string param1, libqt_string param2) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
+    return KFuzzyMatcher::matchSimple(param1_QString, param2_QString);
+}
+
+KFuzzyMatcher__Result* KFuzzyMatcher_Match(libqt_string param1, libqt_string param2) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
+    return new KFuzzyMatcher::Result(KFuzzyMatcher::match(param1_QString, param2_QString));
+}
+
+libqt_list /* of KFuzzyMatcher__Range* */ KFuzzyMatcher_MatchedRanges(libqt_string param1, libqt_string param2, unsigned char param3) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
+    QList<KFuzzyMatcher::Range> _ret = KFuzzyMatcher::matchedRanges(param1_QString, param2_QString, static_cast<KFuzzyMatcher::RangeType>(param3));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    KFuzzyMatcher__Range** _arr = static_cast<KFuzzyMatcher__Range**>(malloc(sizeof(KFuzzyMatcher__Range*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new KFuzzyMatcher::Range(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }

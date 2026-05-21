@@ -506,6 +506,8 @@ pub const QLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGeometry(self: QLayout, callback: *const fn () callconv(.c) QRect) void {
         qtc.QLayout_OnGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -699,6 +701,8 @@ pub const QLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSize(self: QLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLayout_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -738,6 +742,8 @@ pub const QLayout = extern struct {
     /// ` self: QLayout `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMaximumSize(self: QLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLayout_OnMaximumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1551,6 +1557,8 @@ pub const QLayout = extern struct {
     /// ` self: QLayout `
     ///
     /// ` callback: *const fn (self: QLayout, param1: QRect) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnAlignmentRect(self: QLayout, callback: *const fn (QLayout, QRect) callconv(.c) QRect) void {
         qtc.QLayout_OnAlignmentRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2775,6 +2783,8 @@ pub const QLayout = extern struct {
     /// ` self: QLayout`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QLayout, callback: *const fn () callconv(.c) QSize) void {
         qtc.QLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

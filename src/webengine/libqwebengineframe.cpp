@@ -16,7 +16,7 @@ bool QWebEngineFrame_IsValid(const QWebEngineFrame* self) {
 }
 
 libqt_string QWebEngineFrame_Name(const QWebEngineFrame* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -28,7 +28,7 @@ libqt_string QWebEngineFrame_Name(const QWebEngineFrame* self) {
 }
 
 libqt_string QWebEngineFrame_HtmlName(const QWebEngineFrame* self) {
-    QString _ret = self->htmlName();
+    auto _ret = self->htmlName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

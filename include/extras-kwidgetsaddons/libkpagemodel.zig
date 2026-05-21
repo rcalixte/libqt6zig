@@ -1573,6 +1573,8 @@ pub const KPageModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KPageModel, callback: *const fn (KPageModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1626,6 +1628,8 @@ pub const KPageModel = extern struct {
     /// ` self: KPageModel`
     ///
     /// ` callback: *const fn (self: KPageModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KPageModel, callback: *const fn (KPageModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1688,6 +1692,8 @@ pub const KPageModel = extern struct {
     /// ` self: KPageModel`
     ///
     /// ` callback: *const fn (self: KPageModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KPageModel, callback: *const fn (KPageModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1909,6 +1915,8 @@ pub const KPageModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KPageModel, callback: *const fn (KPageModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KPageModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2032,6 +2040,8 @@ pub const KPageModel = extern struct {
     /// ` self: KPageModel`
     ///
     /// ` callback: *const fn (self: KPageModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KPageModel, callback: *const fn (KPageModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KPageModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3411,6 +3421,8 @@ pub const KPageModel = extern struct {
     ///
     /// ` callback: *const fn (self: KPageModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KPageModel, callback: *const fn (KPageModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KPageModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3558,6 +3570,8 @@ pub const KPageModel = extern struct {
     /// ` self: KPageModel`
     ///
     /// ` callback: *const fn (self: KPageModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KPageModel, callback: *const fn (KPageModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KPageModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4300,6 +4314,8 @@ pub const KPageModel = extern struct {
     /// ` self: KPageModel`
     ///
     /// ` callback: *const fn (self: KPageModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KPageModel, callback: *const fn (KPageModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KPageModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

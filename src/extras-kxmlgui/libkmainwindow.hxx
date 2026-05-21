@@ -475,7 +475,7 @@ class VirtualKMainWindow final : public KMainWindow {
         }
         auto setcaption_cb = kmainwindow_setcaption_callback;
         if (setcaption_cb) {
-            const QString caption_ret = caption;
+            const auto caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
             auto caption_str_len = caption_b.length();
@@ -499,7 +499,7 @@ class VirtualKMainWindow final : public KMainWindow {
         }
         auto setcaption2_cb = kmainwindow_setcaption2_callback;
         if (setcaption2_cb) {
-            const QString caption_ret = caption;
+            const auto caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
             auto caption_str_len = caption_b.length();
@@ -524,7 +524,7 @@ class VirtualKMainWindow final : public KMainWindow {
         }
         auto setplaincaption_cb = kmainwindow_setplaincaption_callback;
         if (setplaincaption_cb) {
-            const QString caption_ret = caption;
+            const auto caption_ret = caption;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray caption_b = caption_ret.toUtf8();
             auto caption_str_len = caption_b.length();

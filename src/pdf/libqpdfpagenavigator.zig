@@ -478,6 +478,8 @@ pub const QPdfPageNavigator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPdfLink `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCurrentLink(self: QPdfPageNavigator, callback: *const fn () callconv(.c) QPdfLink) void {
         qtc.QPdfPageNavigator_OnCurrentLink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

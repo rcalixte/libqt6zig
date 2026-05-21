@@ -92,7 +92,7 @@ libqt_map /* of int to libqt_list of QVariant* */ KFileMetaData__SimpleExtractio
 }
 
 libqt_string KFileMetaData__SimpleExtractionResult_Text(const KFileMetaData__SimpleExtractionResult* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

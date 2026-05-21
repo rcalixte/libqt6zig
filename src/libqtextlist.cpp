@@ -60,7 +60,7 @@ int QTextList_ItemNumber(const QTextList* self, const QTextBlock* param1) {
 }
 
 libqt_string QTextList_ItemText(const QTextList* self, const QTextBlock* param1) {
-    QString _ret = self->itemText(*param1);
+    auto _ret = self->itemText(*param1);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

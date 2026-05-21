@@ -5942,6 +5942,8 @@ pub const QOpenGLWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QOpenGLWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QOpenGLWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5989,6 +5991,8 @@ pub const QOpenGLWidget = extern struct {
     /// ` self: QOpenGLWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QOpenGLWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.QOpenGLWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7607,6 +7611,8 @@ pub const QOpenGLWidget = extern struct {
     /// ` self: QOpenGLWidget`
     ///
     /// ` callback: *const fn (self: QOpenGLWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QOpenGLWidget, callback: *const fn (QOpenGLWidget, i32) callconv(.c) QVariant) void {
         qtc.QOpenGLWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

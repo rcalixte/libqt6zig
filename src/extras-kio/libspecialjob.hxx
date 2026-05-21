@@ -400,7 +400,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         }
         auto slotmimetype_cb = kio__specialjob_slotmimetype_callback;
         if (slotmimetype_cb) {
-            const QString mimetype_ret = mimetype;
+            const auto mimetype_ret = mimetype;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray mimetype_b = mimetype_ret.toUtf8();
             auto mimetype_str_len = mimetype_b.length();
@@ -467,7 +467,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         }
         auto slotwarning_cb = kio__specialjob_slotwarning_callback;
         if (slotwarning_cb) {
-            const QString param1_ret = param1;
+            const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -586,7 +586,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         auto slotinfomessage_cb = kio__specialjob_slotinfomessage_callback;
         if (slotinfomessage_cb) {
             KJob* cbval1 = job;
-            const QString message_ret = message;
+            const auto message_ret = message;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray message_b = message_ret.toUtf8();
             auto message_str_len = message_b.length();
@@ -821,7 +821,7 @@ class VirtualKIOSpecialJob final : public KIO::SpecialJob {
         }
         auto seterrortext_cb = kio__specialjob_seterrortext_callback;
         if (seterrortext_cb) {
-            const QString errorText_ret = errorText;
+            const auto errorText_ret = errorText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorText_b = errorText_ret.toUtf8();
             auto errorText_str_len = errorText_b.length();

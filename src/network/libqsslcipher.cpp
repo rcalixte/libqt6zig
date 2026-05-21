@@ -43,7 +43,7 @@ bool QSslCipher_IsNull(const QSslCipher* self) {
 }
 
 libqt_string QSslCipher_Name(const QSslCipher* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -63,7 +63,7 @@ int QSslCipher_UsedBits(const QSslCipher* self) {
 }
 
 libqt_string QSslCipher_KeyExchangeMethod(const QSslCipher* self) {
-    QString _ret = self->keyExchangeMethod();
+    auto _ret = self->keyExchangeMethod();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -75,7 +75,7 @@ libqt_string QSslCipher_KeyExchangeMethod(const QSslCipher* self) {
 }
 
 libqt_string QSslCipher_AuthenticationMethod(const QSslCipher* self) {
-    QString _ret = self->authenticationMethod();
+    auto _ret = self->authenticationMethod();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -87,7 +87,7 @@ libqt_string QSslCipher_AuthenticationMethod(const QSslCipher* self) {
 }
 
 libqt_string QSslCipher_EncryptionMethod(const QSslCipher* self) {
-    QString _ret = self->encryptionMethod();
+    auto _ret = self->encryptionMethod();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -99,7 +99,7 @@ libqt_string QSslCipher_EncryptionMethod(const QSslCipher* self) {
 }
 
 libqt_string QSslCipher_ProtocolString(const QSslCipher* self) {
-    QString _ret = self->protocolString();
+    auto _ret = self->protocolString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

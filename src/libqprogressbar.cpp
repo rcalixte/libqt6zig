@@ -88,7 +88,7 @@ int QProgressBar_Value(const QProgressBar* self) {
 libqt_string QProgressBar_Text(const QProgressBar* self) {
     auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        QString _ret = self->text();
+        auto _ret = self->text();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -98,7 +98,7 @@ libqt_string QProgressBar_Text(const QProgressBar* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQProgressBar*)self)->text();
+        auto _ret = ((VirtualQProgressBar*)self)->text();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -174,7 +174,7 @@ void QProgressBar_ResetFormat(QProgressBar* self) {
 }
 
 libqt_string QProgressBar_Format(const QProgressBar* self) {
-    QString _ret = self->format();
+    auto _ret = self->format();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -305,7 +305,7 @@ libqt_string QProgressBar_SuperText(const QProgressBar* self) {
     auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
     if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
         vqprogressbar->setQProgressBar_Text_IsBase(true);
-        QString _ret = vqprogressbar->text();
+        auto _ret = vqprogressbar->text();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -315,7 +315,7 @@ libqt_string QProgressBar_SuperText(const QProgressBar* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QProgressBar::text();
+        auto _ret = self->QProgressBar::text();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

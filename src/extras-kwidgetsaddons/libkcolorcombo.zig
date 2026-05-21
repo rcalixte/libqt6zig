@@ -6688,6 +6688,8 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KColorCombo, callback: *const fn () callconv(.c) QSize) void {
         qtc.KColorCombo_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6735,6 +6737,8 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KColorCombo, callback: *const fn () callconv(.c) QSize) void {
         qtc.KColorCombo_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6937,6 +6941,8 @@ pub const KColorCombo = extern struct {
     /// ` self: KColorCombo`
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) QVariant) void {
         qtc.KColorCombo_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

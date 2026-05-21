@@ -76,7 +76,7 @@ void KFileCopyToMenu_Connect_Error(KFileCopyToMenu* self, intptr_t slot) {
     void (*slotFunc)(KFileCopyToMenu*, int, const char*) = reinterpret_cast<void (*)(KFileCopyToMenu*, int, const char*)>(slot);
     KFileCopyToMenu::connect(self, &KFileCopyToMenu::error, [self, slotFunc](int errorCode, const QString& message) {
         int sigval1 = errorCode;
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();

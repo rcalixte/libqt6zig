@@ -48,7 +48,7 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
         }
         auto resolveentity_cb = qxmlstreamentityresolver_resolveentity_callback;
         if (resolveentity_cb) {
-            const QString publicId_ret = publicId;
+            const auto publicId_ret = publicId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray publicId_b = publicId_ret.toUtf8();
             auto publicId_str_len = publicId_b.length();
@@ -56,7 +56,7 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             memcpy((void*)publicId_str, publicId_b.data(), publicId_str_len);
             ((char*)publicId_str)[publicId_str_len] = '\0';
             const char* cbval1 = publicId_str;
-            const QString systemId_ret = systemId;
+            const auto systemId_ret = systemId;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray systemId_b = systemId_ret.toUtf8();
             auto systemId_str_len = systemId_b.length();
@@ -81,7 +81,7 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
         }
         auto resolveundeclaredentity_cb = qxmlstreamentityresolver_resolveundeclaredentity_callback;
         if (resolveundeclaredentity_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

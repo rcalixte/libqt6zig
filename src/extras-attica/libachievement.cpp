@@ -21,7 +21,7 @@ int Attica__Achievement_StringToAchievementType(const libqt_string achievementTy
 }
 
 libqt_string Attica__Achievement_AchievementTypeToString(const int typeVal) {
-    QString _ret = Attica::Achievement::achievementTypeToString(static_cast<const Attica::Achievement::Type>(typeVal));
+    auto _ret = Attica::Achievement::achievementTypeToString(static_cast<const Attica::Achievement::Type>(typeVal));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ int Attica__Achievement_StringToAchievementVisibility(const libqt_string achieve
 }
 
 libqt_string Attica__Achievement_AchievementVisibilityToString(const int visibility) {
-    QString _ret = Attica::Achievement::achievementVisibilityToString(static_cast<const Attica::Achievement::Visibility>(visibility));
+    auto _ret = Attica::Achievement::achievementVisibilityToString(static_cast<const Attica::Achievement::Visibility>(visibility));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,7 +59,7 @@ void Attica__Achievement_SetId(Attica__Achievement* self, const libqt_string id)
 }
 
 libqt_string Attica__Achievement_Id(const Attica__Achievement* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,7 +76,7 @@ void Attica__Achievement_SetContentId(Attica__Achievement* self, const libqt_str
 }
 
 libqt_string Attica__Achievement_ContentId(const Attica__Achievement* self) {
-    QString _ret = self->contentId();
+    auto _ret = self->contentId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -93,7 +93,7 @@ void Attica__Achievement_SetName(Attica__Achievement* self, const libqt_string n
 }
 
 libqt_string Attica__Achievement_Name(const Attica__Achievement* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -110,7 +110,7 @@ void Attica__Achievement_SetDescription(Attica__Achievement* self, const libqt_s
 }
 
 libqt_string Attica__Achievement_Description(const Attica__Achievement* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -127,7 +127,7 @@ void Attica__Achievement_SetExplanation(Attica__Achievement* self, const libqt_s
 }
 
 libqt_string Attica__Achievement_Explanation(const Attica__Achievement* self) {
-    QString _ret = self->explanation();
+    auto _ret = self->explanation();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_list /* of libqt_string */ Attica__Achievement_Dependencies(const Attica__
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -238,7 +238,7 @@ libqt_list /* of libqt_string */ Attica__Achievement_Options(const Attica__Achie
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

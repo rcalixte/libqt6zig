@@ -81,7 +81,7 @@ void TextGrammarCheck__LanguageToolComboBox_SetLanguage(TextGrammarCheck__Langua
 }
 
 libqt_string TextGrammarCheck__LanguageToolComboBox_Language(const TextGrammarCheck__LanguageToolComboBox* self) {
-    QString _ret = self->language();
+    auto _ret = self->language();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

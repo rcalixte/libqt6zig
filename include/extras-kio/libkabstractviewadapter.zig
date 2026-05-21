@@ -102,6 +102,8 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIconSize(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAbstractViewAdapter_OnIconSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -142,6 +144,8 @@ pub const KAbstractViewAdapter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPalette `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPalette(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QPalette) void {
         qtc.KAbstractViewAdapter_OnPalette(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -181,6 +185,8 @@ pub const KAbstractViewAdapter = extern struct {
     /// ` self: KAbstractViewAdapter `
     ///
     /// ` callback: *const fn () callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisibleArea(self: KAbstractViewAdapter, callback: *const fn () callconv(.c) QRect) void {
         qtc.KAbstractViewAdapter_OnVisibleArea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -224,6 +230,8 @@ pub const KAbstractViewAdapter = extern struct {
     /// ` self: KAbstractViewAdapter `
     ///
     /// ` callback: *const fn (self: KAbstractViewAdapter, index: QModelIndex) callconv(.c) QRect `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnVisualRect(self: KAbstractViewAdapter, callback: *const fn (KAbstractViewAdapter, QModelIndex) callconv(.c) QRect) void {
         qtc.KAbstractViewAdapter_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

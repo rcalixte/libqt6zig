@@ -42,7 +42,7 @@ void QRegularExpression_Swap(QRegularExpression* self, QRegularExpression* other
 }
 
 libqt_string QRegularExpression_Pattern(const QRegularExpression* self) {
-    QString _ret = self->pattern();
+    auto _ret = self->pattern();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -67,7 +67,7 @@ ptrdiff_t QRegularExpression_PatternErrorOffset(const QRegularExpression* self) 
 }
 
 libqt_string QRegularExpression_ErrorString(const QRegularExpression* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -87,7 +87,7 @@ libqt_list /* of libqt_string */ QRegularExpression_NamedCaptureGroups(const QRe
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -108,9 +108,29 @@ QRegularExpressionMatch* QRegularExpression_Match(const QRegularExpression* self
     return new QRegularExpressionMatch(self->match(subject_QString));
 }
 
+QRegularExpressionMatch* QRegularExpression_Match2(const QRegularExpression* self, libqt_string subjectView) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->match(subjectView_QString));
+}
+
+QRegularExpressionMatch* QRegularExpression_MatchView(const QRegularExpression* self, libqt_string subjectView) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->matchView(subjectView_QString));
+}
+
 QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch(const QRegularExpression* self, const libqt_string subject) {
     QString subject_QString = QString::fromUtf8(subject.data, subject.len);
     return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch2(const QRegularExpression* self, libqt_string subjectView) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatch(subjectView_QString));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatchView(const QRegularExpression* self, libqt_string subjectView) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatchView(subjectView_QString));
 }
 
 void QRegularExpression_Optimize(const QRegularExpression* self) {
@@ -119,7 +139,7 @@ void QRegularExpression_Optimize(const QRegularExpression* self) {
 
 libqt_string QRegularExpression_Escape(const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QString _ret = QRegularExpression::escape(str_QString);
+    auto _ret = QRegularExpression::escape(str_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -132,7 +152,7 @@ libqt_string QRegularExpression_Escape(const libqt_string str) {
 
 libqt_string QRegularExpression_WildcardToRegularExpression(const libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QString _ret = QRegularExpression::wildcardToRegularExpression(str_QString);
+    auto _ret = QRegularExpression::wildcardToRegularExpression(str_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +165,7 @@ libqt_string QRegularExpression_WildcardToRegularExpression(const libqt_string s
 
 libqt_string QRegularExpression_AnchoredPattern(const libqt_string expression) {
     QString expression_QString = QString::fromUtf8(expression.data, expression.len);
-    QString _ret = QRegularExpression::anchoredPattern(expression_QString);
+    auto _ret = QRegularExpression::anchoredPattern(expression_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -154,6 +174,50 @@ libqt_string QRegularExpression_AnchoredPattern(const libqt_string expression) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+libqt_string QRegularExpression_Escape2(libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = QRegularExpression::escape(str_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QRegularExpression_WildcardToRegularExpression2(libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = QRegularExpression::wildcardToRegularExpression(str_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QRegularExpression_AnchoredPattern2(libqt_string expression) {
+    QString expression_QString = QString::fromUtf8(expression.data, expression.len);
+    auto _ret = QRegularExpression::anchoredPattern(expression_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+QRegularExpression* QRegularExpression_FromWildcard(libqt_string pattern) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    return new QRegularExpression(QRegularExpression::fromWildcard(pattern_QString));
 }
 
 QRegularExpressionMatch* QRegularExpression_Match22(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset) {
@@ -171,6 +235,36 @@ QRegularExpressionMatch* QRegularExpression_Match4(const QRegularExpression* sel
     return new QRegularExpressionMatch(self->match(subject_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
 }
 
+QRegularExpressionMatch* QRegularExpression_Match23(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->match(subjectView_QString, (qsizetype)(offset)));
+}
+
+QRegularExpressionMatch* QRegularExpression_Match32(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->match(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType)));
+}
+
+QRegularExpressionMatch* QRegularExpression_Match42(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType, int matchOptions) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->match(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
+}
+
+QRegularExpressionMatch* QRegularExpression_MatchView2(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->matchView(subjectView_QString, (qsizetype)(offset)));
+}
+
+QRegularExpressionMatch* QRegularExpression_MatchView3(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->matchView(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType)));
+}
+
+QRegularExpressionMatch* QRegularExpression_MatchView4(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType, int matchOptions) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatch(self->matchView(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
+}
+
 QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch22(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset) {
     QString subject_QString = QString::fromUtf8(subject.data, subject.len);
     return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString, (qsizetype)(offset)));
@@ -186,9 +280,39 @@ QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch4(const QRegularE
     return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
 }
 
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch23(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatch(subjectView_QString, (qsizetype)(offset)));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch32(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatch(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType)));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch42(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType, int matchOptions) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatch(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatchView2(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatchView(subjectView_QString, (qsizetype)(offset)));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatchView3(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatchView(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType)));
+}
+
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatchView4(const QRegularExpression* self, libqt_string subjectView, ptrdiff_t offset, int matchType, int matchOptions) {
+    QString subjectView_QString = QString::fromUtf8(subjectView.data, subjectView.len);
+    return new QRegularExpressionMatchIterator(self->globalMatchView(subjectView_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
+}
+
 libqt_string QRegularExpression_WildcardToRegularExpression22(const libqt_string str, int options) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    QString _ret = QRegularExpression::wildcardToRegularExpression(str_QString, static_cast<QRegularExpression::WildcardConversionOptions>(options));
+    auto _ret = QRegularExpression::wildcardToRegularExpression(str_QString, static_cast<QRegularExpression::WildcardConversionOptions>(options));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -197,6 +321,29 @@ libqt_string QRegularExpression_WildcardToRegularExpression22(const libqt_string
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+libqt_string QRegularExpression_WildcardToRegularExpression23(libqt_string str, int options) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = QRegularExpression::wildcardToRegularExpression(str_QString, static_cast<QRegularExpression::WildcardConversionOptions>(options));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+QRegularExpression* QRegularExpression_FromWildcard2(libqt_string pattern, int cs) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    return new QRegularExpression(QRegularExpression::fromWildcard(pattern_QString, static_cast<Qt::CaseSensitivity>(cs)));
+}
+
+QRegularExpression* QRegularExpression_FromWildcard3(libqt_string pattern, int cs, int options) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    return new QRegularExpression(QRegularExpression::fromWildcard(pattern_QString, static_cast<Qt::CaseSensitivity>(cs), static_cast<QRegularExpression::WildcardConversionOptions>(options)));
 }
 
 void QRegularExpression_Delete(QRegularExpression* self) {
@@ -256,7 +403,19 @@ bool QRegularExpressionMatch_HasCaptured2(const QRegularExpressionMatch* self, i
 }
 
 libqt_string QRegularExpressionMatch_Captured(const QRegularExpressionMatch* self) {
-    QString _ret = self->captured();
+    auto _ret = self->captured();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QRegularExpressionMatch_CapturedView(const QRegularExpressionMatch* self) {
+    auto _ret = self->capturedView();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -268,7 +427,19 @@ libqt_string QRegularExpressionMatch_Captured(const QRegularExpressionMatch* sel
 }
 
 libqt_string QRegularExpressionMatch_Captured2(const QRegularExpressionMatch* self, const char* name) {
-    QString _ret = self->captured(QAnyStringView(name));
+    auto _ret = self->captured(QAnyStringView(name));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QRegularExpressionMatch_CapturedView2(const QRegularExpressionMatch* self, const char* name) {
+    auto _ret = self->capturedView(QAnyStringView(name));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -284,7 +455,7 @@ libqt_list /* of libqt_string */ QRegularExpressionMatch_CapturedTexts(const QRe
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -325,7 +496,19 @@ ptrdiff_t QRegularExpressionMatch_CapturedEnd2(const QRegularExpressionMatch* se
 }
 
 libqt_string QRegularExpressionMatch_Captured1(const QRegularExpressionMatch* self, int nth) {
-    QString _ret = self->captured(static_cast<int>(nth));
+    auto _ret = self->captured(static_cast<int>(nth));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QRegularExpressionMatch_CapturedView1(const QRegularExpressionMatch* self, int nth) {
+    auto _ret = self->capturedView(static_cast<int>(nth));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

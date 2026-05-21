@@ -117,7 +117,7 @@ libqt_list /* of libqt_string */ KHistoryComboBox_HistoryItems(const KHistoryCom
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -140,7 +140,7 @@ bool KHistoryComboBox_RemoveFromHistory(KHistoryComboBox* self, const libqt_stri
 
 void KHistoryComboBox_SetIconProvider(KHistoryComboBox* self, intptr_t providerFunction) {
     auto providerFunction_func = [providerFunction](const QString& funcparam1_fp) -> QIcon {
-        const QString funcparam1_ret = funcparam1_fp;
+        const auto funcparam1_ret = funcparam1_fp;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray funcparam1_b = funcparam1_ret.toUtf8();
         auto funcparam1_str_len = funcparam1_b.length();

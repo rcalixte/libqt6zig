@@ -5920,6 +5920,8 @@ pub const KAnimatedButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KAnimatedButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAnimatedButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5967,6 +5969,8 @@ pub const KAnimatedButton = extern struct {
     /// ` self: KAnimatedButton`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KAnimatedButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAnimatedButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8259,6 +8263,8 @@ pub const KAnimatedButton = extern struct {
     /// ` self: KAnimatedButton`
     ///
     /// ` callback: *const fn (self: KAnimatedButton, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KAnimatedButton, callback: *const fn (KAnimatedButton, i32) callconv(.c) QVariant) void {
         qtc.KAnimatedButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

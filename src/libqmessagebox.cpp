@@ -199,7 +199,7 @@ QAbstractButton* QMessageBox_ClickedButton(const QMessageBox* self) {
 }
 
 libqt_string QMessageBox_Text(const QMessageBox* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -382,7 +382,7 @@ int QMessageBox_Critical4(QWidget* parent, const libqt_string title, const libqt
 }
 
 libqt_string QMessageBox_ButtonText(const QMessageBox* self, int button) {
-    QString _ret = self->buttonText(static_cast<int>(button));
+    auto _ret = self->buttonText(static_cast<int>(button));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -399,7 +399,7 @@ void QMessageBox_SetButtonText(QMessageBox* self, int button, const libqt_string
 }
 
 libqt_string QMessageBox_InformativeText(const QMessageBox* self) {
-    QString _ret = self->informativeText();
+    auto _ret = self->informativeText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -416,7 +416,7 @@ void QMessageBox_SetInformativeText(QMessageBox* self, const libqt_string text) 
 }
 
 libqt_string QMessageBox_DetailedText(const QMessageBox* self) {
-    QString _ret = self->detailedText();
+    auto _ret = self->detailedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

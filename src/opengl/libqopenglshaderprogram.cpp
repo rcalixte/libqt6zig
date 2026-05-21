@@ -96,7 +96,7 @@ bool QOpenGLShader_IsCompiled(const QOpenGLShader* self) {
 }
 
 libqt_string QOpenGLShader_Log(const QOpenGLShader* self) {
-    QString _ret = self->log();
+    auto _ret = self->log();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -611,7 +611,7 @@ bool QOpenGLShaderProgram_IsLinked(const QOpenGLShaderProgram* self) {
 }
 
 libqt_string QOpenGLShaderProgram_Log(const QOpenGLShaderProgram* self) {
-    QString _ret = self->log();
+    auto _ret = self->log();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

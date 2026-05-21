@@ -39,7 +39,7 @@ QSslEllipticCurve* QSslEllipticCurve_FromLongName(const libqt_string name) {
 }
 
 libqt_string QSslEllipticCurve_ShortName(const QSslEllipticCurve* self) {
-    QString _ret = self->shortName();
+    auto _ret = self->shortName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -51,7 +51,7 @@ libqt_string QSslEllipticCurve_ShortName(const QSslEllipticCurve* self) {
 }
 
 libqt_string QSslEllipticCurve_LongName(const QSslEllipticCurve* self) {
-    QString _ret = self->longName();
+    auto _ret = self->longName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

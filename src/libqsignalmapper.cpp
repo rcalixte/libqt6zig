@@ -95,7 +95,7 @@ void QSignalMapper_MappedString(QSignalMapper* self, const libqt_string param1) 
 void QSignalMapper_Connect_MappedString(QSignalMapper* self, intptr_t slot) {
     void (*slotFunc)(QSignalMapper*, const char*) = reinterpret_cast<void (*)(QSignalMapper*, const char*)>(slot);
     QSignalMapper::connect(self, &QSignalMapper::mappedString, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

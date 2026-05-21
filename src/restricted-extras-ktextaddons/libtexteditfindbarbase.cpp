@@ -74,7 +74,7 @@ int TextCustomEditor__TextEditFindBarBase_Metacall(TextCustomEditor__TextEditFin
 }
 
 libqt_string TextCustomEditor__TextEditFindBarBase_Text(const TextCustomEditor__TextEditFindBarBase* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -114,7 +114,7 @@ void TextCustomEditor__TextEditFindBarBase_DisplayMessageIndicator(TextCustomEdi
 void TextCustomEditor__TextEditFindBarBase_Connect_DisplayMessageIndicator(TextCustomEditor__TextEditFindBarBase* self, intptr_t slot) {
     void (*slotFunc)(TextCustomEditor__TextEditFindBarBase*, const char*) = reinterpret_cast<void (*)(TextCustomEditor__TextEditFindBarBase*, const char*)>(slot);
     TextCustomEditor::TextEditFindBarBase::connect(self, &TextCustomEditor::TextEditFindBarBase::displayMessageIndicator, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();

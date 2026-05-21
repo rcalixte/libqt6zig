@@ -13,7 +13,7 @@ TextEmoticonsCore__EmoticonCategory* TextEmoticonsCore__EmoticonCategory_new2(co
 }
 
 libqt_string TextEmoticonsCore__EmoticonCategory_Name(const TextEmoticonsCore__EmoticonCategory* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -30,7 +30,7 @@ void TextEmoticonsCore__EmoticonCategory_SetName(TextEmoticonsCore__EmoticonCate
 }
 
 libqt_string TextEmoticonsCore__EmoticonCategory_Category(const TextEmoticonsCore__EmoticonCategory* self) {
-    QString _ret = self->category();
+    auto _ret = self->category();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -47,7 +47,7 @@ void TextEmoticonsCore__EmoticonCategory_SetCategory(TextEmoticonsCore__Emoticon
 }
 
 libqt_string TextEmoticonsCore__EmoticonCategory_I18nName(const TextEmoticonsCore__EmoticonCategory* self) {
-    const QString _ret = self->i18nName();
+    const auto _ret = self->i18nName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

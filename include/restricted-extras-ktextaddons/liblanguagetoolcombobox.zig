@@ -6602,6 +6602,8 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6649,6 +6651,8 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     /// ` self: TextGrammarCheck__LanguageToolComboBox`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6851,6 +6855,8 @@ pub const TextGrammarCheck__LanguageToolComboBox = extern struct {
     /// ` self: TextGrammarCheck__LanguageToolComboBox`
     ///
     /// ` callback: *const fn (self: TextGrammarCheck__LanguageToolComboBox, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextGrammarCheck__LanguageToolComboBox, callback: *const fn (TextGrammarCheck__LanguageToolComboBox, i32) callconv(.c) QVariant) void {
         qtc.TextGrammarCheck__LanguageToolComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

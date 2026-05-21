@@ -41,7 +41,7 @@ void QGeoManeuver_SetInstructionText(QGeoManeuver* self, const libqt_string inst
 }
 
 libqt_string QGeoManeuver_InstructionText(const QGeoManeuver* self) {
-    QString _ret = self->instructionText();
+    auto _ret = self->instructionText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,7 +102,7 @@ libqt_map /* of libqt_string to QVariant* */ QGeoManeuver_ExtendedAttributes(con
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;

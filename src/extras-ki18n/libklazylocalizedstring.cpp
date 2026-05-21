@@ -40,7 +40,7 @@ const char* KLazyLocalizedString_UntranslatedText(const KLazyLocalizedString* se
 }
 
 libqt_string KLazyLocalizedString_ToString(const KLazyLocalizedString* self) {
-    QString _ret = self->toString();
+    auto _ret = self->toString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string KLazyLocalizedString_ToString2(const KLazyLocalizedString* self, co
         QString languages_arr_i_QString = QString::fromUtf8(languages_arr[i].data, languages_arr[i].len);
         languages_QList.push_back(languages_arr_i_QString);
     }
-    QString _ret = self->toString(languages_QList);
+    auto _ret = self->toString(languages_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -71,7 +71,7 @@ libqt_string KLazyLocalizedString_ToString2(const KLazyLocalizedString* self, co
 }
 
 libqt_string KLazyLocalizedString_ToString3(const KLazyLocalizedString* self, const char* domain) {
-    QString _ret = self->toString(domain);
+    auto _ret = self->toString(domain);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -83,7 +83,7 @@ libqt_string KLazyLocalizedString_ToString3(const KLazyLocalizedString* self, co
 }
 
 libqt_string KLazyLocalizedString_ToString4(const KLazyLocalizedString* self, int format) {
-    QString _ret = self->toString(static_cast<Kuit::VisualFormat>(format));
+    auto _ret = self->toString(static_cast<Kuit::VisualFormat>(format));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

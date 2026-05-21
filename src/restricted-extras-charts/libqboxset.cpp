@@ -92,7 +92,7 @@ void QBoxSet_SetLabel(QBoxSet* self, const libqt_string label) {
 }
 
 libqt_string QBoxSet_Label(const QBoxSet* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

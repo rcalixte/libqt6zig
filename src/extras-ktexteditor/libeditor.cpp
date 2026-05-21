@@ -79,7 +79,7 @@ KAboutData* KTextEditor__Editor_AboutData(const KTextEditor__Editor* self) {
 }
 
 libqt_string KTextEditor__Editor_DefaultEncoding(const KTextEditor__Editor* self) {
-    QString _ret = self->defaultEncoding();
+    auto _ret = self->defaultEncoding();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -163,7 +163,7 @@ libqt_list /* of libqt_string */ KTextEditor__Editor_CommandList(const KTextEdit
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -192,7 +192,7 @@ bool KTextEditor__Editor_ExpandVariable(const KTextEditor__Editor* self, const l
 
 libqt_string KTextEditor__Editor_ExpandText(const KTextEditor__Editor* self, const libqt_string text, KTextEditor__View* view) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    QString _ret = self->expandText(text_QString, view);
+    auto _ret = self->expandText(text_QString, view);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

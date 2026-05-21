@@ -73,7 +73,7 @@ int KCodecAction_Metacall(KCodecAction* self, int param1, int param2, void** par
 }
 
 libqt_string KCodecAction_CurrentCodecName(const KCodecAction* self) {
-    QString _ret = self->currentCodecName();
+    auto _ret = self->currentCodecName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

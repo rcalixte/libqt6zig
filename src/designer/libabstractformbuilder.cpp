@@ -44,7 +44,7 @@ void QAbstractFormBuilder_Save(QAbstractFormBuilder* self, QIODevice* dev, QWidg
 }
 
 libqt_string QAbstractFormBuilder_ErrorString(const QAbstractFormBuilder* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

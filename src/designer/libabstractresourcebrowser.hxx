@@ -391,7 +391,7 @@ class VirtualQDesignerResourceBrowserInterface : public QDesignerResourceBrowser
     virtual void setCurrentPath(const QString& filePath) override {
         auto setcurrentpath_cb = qdesignerresourcebrowserinterface_setcurrentpath_callback;
         if (setcurrentpath_cb) {
-            const QString filePath_ret = filePath;
+            const auto filePath_ret = filePath;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filePath_b = filePath_ret.toUtf8();
             auto filePath_str_len = filePath_b.length();

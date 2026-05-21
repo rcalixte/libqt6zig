@@ -180,6 +180,20 @@ pub const KCountrySubdivision = extern struct {
     ///
     /// ## Parameter(s):
     ///
+    /// ` code: []const u8 `
+    ///
+    pub fn FromCode(code: []const u8) KCountrySubdivision {
+        const code_str = qtc.libqt_string{
+            .len = code.len,
+            .data = code.ptr,
+        };
+        return .{ .ptr = qtc.KCountrySubdivision_FromCode(code_str) };
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcountrysubdivision.html#fromCode)
+    ///
+    /// ## Parameter(s):
+    ///
     /// ` code: [:0]const u8 `
     ///
     pub fn FromCode2(code: [:0]const u8) KCountrySubdivision {

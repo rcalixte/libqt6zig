@@ -5470,6 +5470,8 @@ pub const Sonnet__ConfigView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: Sonnet__ConfigView, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__ConfigView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5517,6 +5519,8 @@ pub const Sonnet__ConfigView = extern struct {
     /// ` self: Sonnet__ConfigView`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: Sonnet__ConfigView, callback: *const fn () callconv(.c) QSize) void {
         qtc.Sonnet__ConfigView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7451,6 +7455,8 @@ pub const Sonnet__ConfigView = extern struct {
     /// ` self: Sonnet__ConfigView`
     ///
     /// ` callback: *const fn (self: Sonnet__ConfigView, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: Sonnet__ConfigView, callback: *const fn (Sonnet__ConfigView, i32) callconv(.c) QVariant) void {
         qtc.Sonnet__ConfigView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

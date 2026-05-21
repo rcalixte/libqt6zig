@@ -24,7 +24,7 @@ void Attica__Project_SetId(Attica__Project* self, const libqt_string id) {
 }
 
 libqt_string Attica__Project_Id(const Attica__Project* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -41,7 +41,7 @@ void Attica__Project_SetName(Attica__Project* self, const libqt_string name) {
 }
 
 libqt_string Attica__Project_Name(const Attica__Project* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ void Attica__Project_SetVersion(Attica__Project* self, const libqt_string versio
 }
 
 libqt_string Attica__Project_Version(const Attica__Project* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -75,7 +75,7 @@ void Attica__Project_SetUrl(Attica__Project* self, const libqt_string url) {
 }
 
 libqt_string Attica__Project_Url(const Attica__Project* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -92,7 +92,7 @@ void Attica__Project_SetLicense(Attica__Project* self, const libqt_string licens
 }
 
 libqt_string Attica__Project_License(const Attica__Project* self) {
-    QString _ret = self->license();
+    auto _ret = self->license();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -109,7 +109,7 @@ void Attica__Project_SetSummary(Attica__Project* self, const libqt_string summar
 }
 
 libqt_string Attica__Project_Summary(const Attica__Project* self) {
-    QString _ret = self->summary();
+    auto _ret = self->summary();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -126,7 +126,7 @@ void Attica__Project_SetDescription(Attica__Project* self, const libqt_string de
 }
 
 libqt_string Attica__Project_Description(const Attica__Project* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -153,7 +153,7 @@ libqt_list /* of libqt_string */ Attica__Project_Developers(const Attica__Projec
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -175,7 +175,7 @@ void Attica__Project_SetRequirements(Attica__Project* self, const libqt_string r
 }
 
 libqt_string Attica__Project_Requirements(const Attica__Project* self) {
-    QString _ret = self->requirements();
+    auto _ret = self->requirements();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -192,7 +192,7 @@ void Attica__Project_SetSpecFile(Attica__Project* self, const libqt_string specF
 }
 
 libqt_string Attica__Project_SpecFile(const Attica__Project* self) {
-    QString _ret = self->specFile();
+    auto _ret = self->specFile();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -211,7 +211,7 @@ void Attica__Project_AddExtendedAttribute(Attica__Project* self, const libqt_str
 
 libqt_string Attica__Project_ExtendedAttribute(const Attica__Project* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->extendedAttribute(key_QString);
+    auto _ret = self->extendedAttribute(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -229,7 +229,7 @@ libqt_map /* of libqt_string to libqt_string */ Attica__Project_ExtendedAttribut
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -238,7 +238,7 @@ libqt_map /* of libqt_string to libqt_string */ Attica__Project_ExtendedAttribut
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
-        QString _mapval_ret = _itr->second;
+        auto _mapval_ret = _itr->second;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapval_b = _mapval_ret.toUtf8();
         libqt_string _mapval_str;

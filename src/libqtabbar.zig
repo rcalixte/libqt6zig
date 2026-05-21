@@ -700,6 +700,8 @@ pub const QTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QTabBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTabBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -739,6 +741,8 @@ pub const QTabBar = extern struct {
     /// ` self: QTabBar `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QTabBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTabBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1208,6 +1212,8 @@ pub const QTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: QTabBar, index: i32) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnTabSizeHint(self: QTabBar, callback: *const fn (QTabBar, i32) callconv(.c) QSize) void {
         qtc.QTabBar_OnTabSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1251,6 +1257,8 @@ pub const QTabBar = extern struct {
     /// ` self: QTabBar `
     ///
     /// ` callback: *const fn (self: QTabBar, index: i32) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumTabSizeHint(self: QTabBar, callback: *const fn (QTabBar, i32) callconv(.c) QSize) void {
         qtc.QTabBar_OnMinimumTabSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8318,6 +8326,8 @@ pub const QTabBar = extern struct {
     /// ` self: QTabBar`
     ///
     /// ` callback: *const fn (self: QTabBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QTabBar, callback: *const fn (QTabBar, i32) callconv(.c) QVariant) void {
         qtc.QTabBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

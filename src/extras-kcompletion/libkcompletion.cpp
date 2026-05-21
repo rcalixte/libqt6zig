@@ -49,7 +49,7 @@ libqt_list /* of libqt_string */ KCompletion_SubstringCompletion(const KCompleti
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -68,7 +68,7 @@ libqt_list /* of libqt_string */ KCompletion_SubstringCompletion(const KCompleti
 libqt_string KCompletion_LastMatch(const KCompletion* self) {
     auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        const QString _ret = self->lastMatch();
+        const auto _ret = self->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -78,7 +78,7 @@ libqt_string KCompletion_LastMatch(const KCompletion* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString _ret = ((VirtualKCompletion*)self)->lastMatch();
+        const auto _ret = ((VirtualKCompletion*)self)->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -95,7 +95,7 @@ libqt_list /* of libqt_string */ KCompletion_Items(const KCompletion* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -163,7 +163,7 @@ libqt_list /* of libqt_string */ KCompletion_AllMatches(KCompletion* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -185,7 +185,7 @@ libqt_list /* of libqt_string */ KCompletion_AllMatches2(KCompletion* self, cons
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -231,7 +231,7 @@ libqt_string KCompletion_MakeCompletion(KCompletion* self, const libqt_string st
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        QString _ret = self->makeCompletion(stringVal_QString);
+        auto _ret = self->makeCompletion(stringVal_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -241,7 +241,7 @@ libqt_string KCompletion_MakeCompletion(KCompletion* self, const libqt_string st
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKCompletion*)self)->makeCompletion(stringVal_QString);
+        auto _ret = ((VirtualKCompletion*)self)->makeCompletion(stringVal_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -254,7 +254,7 @@ libqt_string KCompletion_MakeCompletion(KCompletion* self, const libqt_string st
 }
 
 libqt_string KCompletion_PreviousMatch(KCompletion* self) {
-    QString _ret = self->previousMatch();
+    auto _ret = self->previousMatch();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -266,7 +266,7 @@ libqt_string KCompletion_PreviousMatch(KCompletion* self) {
 }
 
 libqt_string KCompletion_NextMatch(KCompletion* self) {
-    QString _ret = self->nextMatch();
+    auto _ret = self->nextMatch();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -336,7 +336,7 @@ void KCompletion_Match(KCompletion* self, const libqt_string item) {
 void KCompletion_Connect_Match(KCompletion* self, intptr_t slot) {
     void (*slotFunc)(KCompletion*, const char*) = reinterpret_cast<void (*)(KCompletion*, const char*)>(slot);
     KCompletion::connect(self, &KCompletion::match, [self, slotFunc](const QString& item) {
-        const QString item_ret = item;
+        const auto item_ret = item;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray item_b = item_ret.toUtf8();
         auto item_str_len = item_b.length();
@@ -476,7 +476,7 @@ libqt_string KCompletion_SuperLastMatch(const KCompletion* self) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_LastMatch_IsBase(true);
-        const QString _ret = vkcompletion->lastMatch();
+        const auto _ret = vkcompletion->lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -486,7 +486,7 @@ libqt_string KCompletion_SuperLastMatch(const KCompletion* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        const QString _ret = self->KCompletion::lastMatch();
+        const auto _ret = self->KCompletion::lastMatch();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -588,7 +588,7 @@ libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_stri
     QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_MakeCompletion_IsBase(true);
-        QString _ret = vkcompletion->makeCompletion(stringVal_QString);
+        auto _ret = vkcompletion->makeCompletion(stringVal_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -598,7 +598,7 @@ libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_stri
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KCompletion::makeCompletion(stringVal_QString);
+        auto _ret = self->KCompletion::makeCompletion(stringVal_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

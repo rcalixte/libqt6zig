@@ -137,7 +137,7 @@ QWebEngineHistory* QWebEngineView_History(const QWebEngineView* self) {
 }
 
 libqt_string QWebEngineView_Title(const QWebEngineView* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -169,7 +169,7 @@ bool QWebEngineView_HasSelection(const QWebEngineView* self) {
 }
 
 libqt_string QWebEngineView_SelectedText(const QWebEngineView* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -303,7 +303,7 @@ void QWebEngineView_TitleChanged(QWebEngineView* self, const libqt_string title)
 void QWebEngineView_Connect_TitleChanged(QWebEngineView* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineView*, const char*) = reinterpret_cast<void (*)(QWebEngineView*, const char*)>(slot);
     QWebEngineView::connect(self, &QWebEngineView::titleChanged, [self, slotFunc](const QString& title) {
-        const QString title_ret = title;
+        const auto title_ret = title;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
         auto title_str_len = title_b.length();
@@ -390,7 +390,7 @@ void QWebEngineView_PdfPrintingFinished(QWebEngineView* self, const libqt_string
 void QWebEngineView_Connect_PdfPrintingFinished(QWebEngineView* self, intptr_t slot) {
     void (*slotFunc)(QWebEngineView*, const char*, bool) = reinterpret_cast<void (*)(QWebEngineView*, const char*, bool)>(slot);
     QWebEngineView::connect(self, &QWebEngineView::pdfPrintingFinished, [self, slotFunc](const QString& filePath, bool success) {
-        const QString filePath_ret = filePath;
+        const auto filePath_ret = filePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
         auto filePath_str_len = filePath_b.length();

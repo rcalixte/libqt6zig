@@ -185,7 +185,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         }
         auto supportsrange_cb = ktexteditor__command_supportsrange_callback;
         if (supportsrange_cb) {
-            const QString cmd_ret = cmd;
+            const auto cmd_ret = cmd;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmd_b = cmd_ret.toUtf8();
             auto cmd_str_len = cmd_b.length();
@@ -205,7 +205,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto exec_cb = ktexteditor__command_exec_callback;
         if (exec_cb) {
             KTextEditor__View* cbval1 = view;
-            const QString cmd_ret = cmd;
+            const auto cmd_ret = cmd;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmd_b = cmd_ret.toUtf8();
             auto cmd_str_len = cmd_b.length();
@@ -213,7 +213,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)cmd_str, cmd_b.data(), cmd_str_len);
             ((char*)cmd_str)[cmd_str_len] = '\0';
             const char* cbval2 = cmd_str;
-            QString msg_ret = msg;
+            auto msg_ret = msg;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
             auto msg_str_len = msg_b.length();
@@ -237,7 +237,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto help_cb = ktexteditor__command_help_callback;
         if (help_cb) {
             KTextEditor__View* cbval1 = view;
-            const QString cmd_ret = cmd;
+            const auto cmd_ret = cmd;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmd_b = cmd_ret.toUtf8();
             auto cmd_str_len = cmd_b.length();
@@ -245,7 +245,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
             memcpy((void*)cmd_str, cmd_b.data(), cmd_str_len);
             ((char*)cmd_str)[cmd_str_len] = '\0';
             const char* cbval2 = cmd_str;
-            QString msg_ret = msg;
+            auto msg_ret = msg;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray msg_b = msg_ret.toUtf8();
             auto msg_str_len = msg_b.length();
@@ -270,7 +270,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto completionobject_cb = ktexteditor__command_completionobject_callback;
         if (completionobject_cb) {
             KTextEditor__View* cbval1 = view;
-            const QString cmdname_ret = cmdname;
+            const auto cmdname_ret = cmdname;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmdname_b = cmdname_ret.toUtf8();
             auto cmdname_str_len = cmdname_b.length();
@@ -293,7 +293,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         }
         auto wantstoprocesstext_cb = ktexteditor__command_wantstoprocesstext_callback;
         if (wantstoprocesstext_cb) {
-            const QString cmdname_ret = cmdname;
+            const auto cmdname_ret = cmdname;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray cmdname_b = cmdname_ret.toUtf8();
             auto cmdname_str_len = cmdname_b.length();
@@ -318,7 +318,7 @@ class VirtualKTextEditorCommand : public KTextEditor::Command {
         auto processtext_cb = ktexteditor__command_processtext_callback;
         if (processtext_cb) {
             KTextEditor__View* cbval1 = view;
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

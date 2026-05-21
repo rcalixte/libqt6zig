@@ -851,7 +851,7 @@ class VirtualQsciLexerCustom : public QsciLexerCustom {
             QSettings& qs_ret = qs;
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
-            const QString prefix_ret = prefix;
+            const auto prefix_ret = prefix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
             auto prefix_str_len = prefix_b.length();
@@ -877,7 +877,7 @@ class VirtualQsciLexerCustom : public QsciLexerCustom {
             QSettings& qs_ret = qs;
             // Cast returned reference into pointer
             QSettings* cbval1 = &qs_ret;
-            const QString prefix_ret = prefix;
+            const auto prefix_ret = prefix;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray prefix_b = prefix_ret.toUtf8();
             auto prefix_str_len = prefix_b.length();
@@ -1015,7 +1015,7 @@ class VirtualQsciLexerCustom : public QsciLexerCustom {
         }
         auto textasbytes_cb = qscilexercustom_textasbytes_callback;
         if (textasbytes_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();

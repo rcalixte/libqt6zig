@@ -320,6 +320,8 @@ pub const KRatingWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KRatingWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRatingWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6064,6 +6066,8 @@ pub const KRatingWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KRatingWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KRatingWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7619,6 +7623,8 @@ pub const KRatingWidget = extern struct {
     /// ` self: KRatingWidget`
     ///
     /// ` callback: *const fn (self: KRatingWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KRatingWidget, callback: *const fn (KRatingWidget, i32) callconv(.c) QVariant) void {
         qtc.KRatingWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -117,7 +117,7 @@ void QToolBox_SetItemText(QToolBox* self, int index, const libqt_string text) {
 }
 
 libqt_string QToolBox_ItemText(const QToolBox* self, int index) {
-    QString _ret = self->itemText(static_cast<int>(index));
+    auto _ret = self->itemText(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -142,7 +142,7 @@ void QToolBox_SetItemToolTip(QToolBox* self, int index, const libqt_string toolT
 }
 
 libqt_string QToolBox_ItemToolTip(const QToolBox* self, int index) {
-    QString _ret = self->itemToolTip(static_cast<int>(index));
+    auto _ret = self->itemToolTip(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

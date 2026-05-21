@@ -5432,6 +5432,8 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerResourceBrowserInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5479,6 +5481,8 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     /// ` self: QDesignerResourceBrowserInterface`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QDesignerResourceBrowserInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerResourceBrowserInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7413,6 +7417,8 @@ pub const QDesignerResourceBrowserInterface = extern struct {
     /// ` self: QDesignerResourceBrowserInterface`
     ///
     /// ` callback: *const fn (self: QDesignerResourceBrowserInterface, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QDesignerResourceBrowserInterface, callback: *const fn (QDesignerResourceBrowserInterface, i32) callconv(.c) QVariant) void {
         qtc.QDesignerResourceBrowserInterface_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -40,7 +40,7 @@ void QKeychain__Job_Start(QKeychain__Job* self) {
 }
 
 libqt_string QKeychain__Job_Service(const QKeychain__Job* self) {
-    QString _ret = self->service();
+    auto _ret = self->service();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -56,7 +56,7 @@ int QKeychain__Job_Error(const QKeychain__Job* self) {
 }
 
 libqt_string QKeychain__Job_ErrorString(const QKeychain__Job* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -84,7 +84,7 @@ void QKeychain__Job_SetInsecureFallback(QKeychain__Job* self, bool insecureFallb
 }
 
 libqt_string QKeychain__Job_Key(const QKeychain__Job* self) {
-    QString _ret = self->key();
+    auto _ret = self->key();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -172,7 +172,7 @@ libqt_string QKeychain__ReadPasswordJob_BinaryData(const QKeychain__ReadPassword
 }
 
 libqt_string QKeychain__ReadPasswordJob_TextData(const QKeychain__ReadPasswordJob* self) {
-    QString _ret = self->textData();
+    auto _ret = self->textData();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

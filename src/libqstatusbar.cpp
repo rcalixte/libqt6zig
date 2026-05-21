@@ -101,7 +101,7 @@ bool QStatusBar_IsSizeGripEnabled(const QStatusBar* self) {
 }
 
 libqt_string QStatusBar_CurrentMessage(const QStatusBar* self) {
-    QString _ret = self->currentMessage();
+    auto _ret = self->currentMessage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -129,7 +129,7 @@ void QStatusBar_MessageChanged(QStatusBar* self, const libqt_string text) {
 void QStatusBar_Connect_MessageChanged(QStatusBar* self, intptr_t slot) {
     void (*slotFunc)(QStatusBar*, const char*) = reinterpret_cast<void (*)(QStatusBar*, const char*)>(slot);
     QStatusBar::connect(self, &QStatusBar::messageChanged, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

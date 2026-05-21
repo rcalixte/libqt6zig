@@ -5947,6 +5947,8 @@ pub const kColorPicker__KColorPicker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.kColorPicker__KColorPicker_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5994,6 +5996,8 @@ pub const kColorPicker__KColorPicker = extern struct {
     /// ` self: kColorPicker__KColorPicker`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: kColorPicker__KColorPicker, callback: *const fn () callconv(.c) QSize) void {
         qtc.kColorPicker__KColorPicker_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -8286,6 +8290,8 @@ pub const kColorPicker__KColorPicker = extern struct {
     /// ` self: kColorPicker__KColorPicker`
     ///
     /// ` callback: *const fn (self: kColorPicker__KColorPicker, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: kColorPicker__KColorPicker, callback: *const fn (kColorPicker__KColorPicker, i32) callconv(.c) QVariant) void {
         qtc.kColorPicker__KColorPicker_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

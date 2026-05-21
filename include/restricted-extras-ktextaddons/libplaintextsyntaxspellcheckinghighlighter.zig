@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const KSyntaxHighlighting__Definition = @import("libqt6").KSyntaxHighlighting__Definition;
 const KSyntaxHighlighting__FoldingRegion = @import("libqt6").KSyntaxHighlighting__FoldingRegion;
 const KSyntaxHighlighting__Format = @import("libqt6").KSyntaxHighlighting__Format;
+const KSyntaxHighlighting__State = @import("libqt6").KSyntaxHighlighting__State;
 const KSyntaxHighlighting__Theme = @import("libqt6").KSyntaxHighlighting__Theme;
 const QBindingStorage = @import("libqt6").QBindingStorage;
 const QChildEvent = @import("libqt6").QChildEvent;
@@ -2517,6 +2518,8 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, pos: i32) callconv(.c) QTextCharFormat `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFormat(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, i32) callconv(.c) QTextCharFormat) void {
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2815,6 +2818,8 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     /// ` callback: *const fn () callconv(.c) QTextBlock `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCurrentBlock(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnCurrentBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3021,6 +3026,74 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     ///
     pub fn OnIsSignalConnected(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, QMetaMethod) callconv(.c) bool) void {
         qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
+    ///
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` state: KSyntaxHighlighting__State `
+    ///
+    pub fn HighlightLine(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, text: []const u8, state: anytype) KSyntaxHighlighting__State {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
+        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `SuperHighlightLine` instead
+    ///
+    pub const QBaseHighlightLine = SuperHighlightLine;
+
+    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
+    ///
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter `
+    ///
+    /// ` text: []const u8 `
+    ///
+    /// ` state: KSyntaxHighlighting__State `
+    ///
+    pub fn SuperHighlightLine(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, text: []const u8, state: anytype) KSyntaxHighlighting__State {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        comptime _ = @TypeOf(state)._is_KSyntaxHighlighting__State;
+        return .{ .ptr = qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SuperHighlightLine(@ptrCast(self.ptr), text_str, @ptrCast(state.ptr)) };
+    }
+
+    /// Inherited from KSyntaxHighlighting::AbstractHighlighter
+    ///
+    /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-abstracthighlighter.html#highlightLine)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter`
+    ///
+    /// ` callback: *const fn (self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, text: [*:0]const u8, state: KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn OnHighlightLine(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, callback: *const fn (TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, [*:0]const u8, KSyntaxHighlighting__State) callconv(.c) KSyntaxHighlighting__State) void {
+        qtc.TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_OnHighlightLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

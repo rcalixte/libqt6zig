@@ -5777,6 +5777,8 @@ pub const QStatusBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QStatusBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.QStatusBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5824,6 +5826,8 @@ pub const QStatusBar = extern struct {
     /// ` self: QStatusBar`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QStatusBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.QStatusBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7542,6 +7546,8 @@ pub const QStatusBar = extern struct {
     /// ` self: QStatusBar`
     ///
     /// ` callback: *const fn (self: QStatusBar, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QStatusBar, callback: *const fn (QStatusBar, i32) callconv(.c) QVariant) void {
         qtc.QStatusBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -38,7 +38,7 @@ void QStorageInfo_SetPath(QStorageInfo* self, const libqt_string path) {
 }
 
 libqt_string QStorageInfo_RootPath(const QStorageInfo* self) {
-    QString _ret = self->rootPath();
+    auto _ret = self->rootPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -77,7 +77,7 @@ libqt_string QStorageInfo_FileSystemType(const QStorageInfo* self) {
 }
 
 libqt_string QStorageInfo_Name(const QStorageInfo* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ libqt_string QStorageInfo_Name(const QStorageInfo* self) {
 }
 
 libqt_string QStorageInfo_DisplayName(const QStorageInfo* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

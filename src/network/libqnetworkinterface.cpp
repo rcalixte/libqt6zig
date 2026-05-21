@@ -133,7 +133,7 @@ int QNetworkInterface_MaximumTransmissionUnit(const QNetworkInterface* self) {
 }
 
 libqt_string QNetworkInterface_Name(const QNetworkInterface* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +145,7 @@ libqt_string QNetworkInterface_Name(const QNetworkInterface* self) {
 }
 
 libqt_string QNetworkInterface_HumanReadableName(const QNetworkInterface* self) {
-    QString _ret = self->humanReadableName();
+    auto _ret = self->humanReadableName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -165,7 +165,7 @@ int QNetworkInterface_Type(const QNetworkInterface* self) {
 }
 
 libqt_string QNetworkInterface_HardwareAddress(const QNetworkInterface* self) {
-    QString _ret = self->hardwareAddress();
+    auto _ret = self->hardwareAddress();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -204,7 +204,7 @@ QNetworkInterface* QNetworkInterface_InterfaceFromIndex(int index) {
 }
 
 libqt_string QNetworkInterface_InterfaceNameFromIndex(int index) {
-    QString _ret = QNetworkInterface::interfaceNameFromIndex(static_cast<int>(index));
+    auto _ret = QNetworkInterface::interfaceNameFromIndex(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -15,7 +15,7 @@ KBookmarkOwner* KBookmarkOwner_new() {
 libqt_string KBookmarkOwner_CurrentTitle(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        QString _ret = self->currentTitle();
+        auto _ret = self->currentTitle();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -25,7 +25,7 @@ libqt_string KBookmarkOwner_CurrentTitle(const KBookmarkOwner* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKBookmarkOwner*)self)->currentTitle();
+        auto _ret = ((VirtualKBookmarkOwner*)self)->currentTitle();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -49,7 +49,7 @@ QUrl* KBookmarkOwner_CurrentUrl(const KBookmarkOwner* self) {
 libqt_string KBookmarkOwner_CurrentIcon(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        QString _ret = self->currentIcon();
+        auto _ret = self->currentIcon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string KBookmarkOwner_CurrentIcon(const KBookmarkOwner* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKBookmarkOwner*)self)->currentIcon();
+        auto _ret = ((VirtualKBookmarkOwner*)self)->currentIcon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -157,7 +157,7 @@ libqt_string KBookmarkOwner_SuperCurrentTitle(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_CurrentTitle_IsBase(true);
-        QString _ret = vkbookmarkowner->currentTitle();
+        auto _ret = vkbookmarkowner->currentTitle();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -167,7 +167,7 @@ libqt_string KBookmarkOwner_SuperCurrentTitle(const KBookmarkOwner* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KBookmarkOwner::currentTitle();
+        auto _ret = self->KBookmarkOwner::currentTitle();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -211,7 +211,7 @@ libqt_string KBookmarkOwner_SuperCurrentIcon(const KBookmarkOwner* self) {
     auto* vkbookmarkowner = const_cast<VirtualKBookmarkOwner*>(dynamic_cast<const VirtualKBookmarkOwner*>(self));
     if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
         vkbookmarkowner->setKBookmarkOwner_CurrentIcon_IsBase(true);
-        QString _ret = vkbookmarkowner->currentIcon();
+        auto _ret = vkbookmarkowner->currentIcon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -221,7 +221,7 @@ libqt_string KBookmarkOwner_SuperCurrentIcon(const KBookmarkOwner* self) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->KBookmarkOwner::currentIcon();
+        auto _ret = self->KBookmarkOwner::currentIcon();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -411,7 +411,7 @@ void KBookmarkOwner__FutureBookmark_OperatorAssign(KBookmarkOwner__FutureBookmar
 }
 
 libqt_string KBookmarkOwner__FutureBookmark_Title(const KBookmarkOwner__FutureBookmark* self) {
-    QString _ret = self->title();
+    auto _ret = self->title();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -427,7 +427,7 @@ QUrl* KBookmarkOwner__FutureBookmark_Url(const KBookmarkOwner__FutureBookmark* s
 }
 
 libqt_string KBookmarkOwner__FutureBookmark_Icon(const KBookmarkOwner__FutureBookmark* self) {
-    QString _ret = self->icon();
+    auto _ret = self->icon();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

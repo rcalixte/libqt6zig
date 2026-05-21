@@ -23,7 +23,7 @@ int SignOn__AuthSession_Metacall(SignOn__AuthSession* self, int param1, int para
 }
 
 libqt_string SignOn__AuthSession_Name(const SignOn__AuthSession* self) {
-    const QString _ret = self->name();
+    const auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -128,7 +128,7 @@ void SignOn__AuthSession_Connect_StateChanged(SignOn__AuthSession* self, intptr_
     void (*slotFunc)(SignOn__AuthSession*, int, const char*) = reinterpret_cast<void (*)(SignOn__AuthSession*, int, const char*)>(slot);
     SignOn::AuthSession::connect(self, &SignOn::AuthSession::stateChanged, [self, slotFunc](SignOn::AuthSession::AuthSessionState state, const QString& message) {
         int sigval1 = static_cast<int>(state);
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();

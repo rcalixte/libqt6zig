@@ -386,6 +386,8 @@ pub const QSqlRelationalTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, item: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QSqlRelationalTableModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1505,6 +1507,8 @@ pub const QSqlRelationalTableModel = extern struct {
     /// ` self: QSqlRelationalTableModel `
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3017,6 +3021,8 @@ pub const QSqlRelationalTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnHeaderData(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QSqlRelationalTableModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3673,6 +3679,8 @@ pub const QSqlRelationalTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, item: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndexInQuery(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlRelationalTableModel_OnIndexInQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4171,6 +4179,8 @@ pub const QSqlRelationalTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlRelationalTableModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4232,6 +4242,8 @@ pub const QSqlRelationalTableModel = extern struct {
     /// ` self: QSqlRelationalTableModel`
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlRelationalTableModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5017,6 +5029,8 @@ pub const QSqlRelationalTableModel = extern struct {
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QSqlRelationalTableModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5164,6 +5178,8 @@ pub const QSqlRelationalTableModel = extern struct {
     /// ` self: QSqlRelationalTableModel`
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QSqlRelationalTableModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -5762,6 +5778,8 @@ pub const QSqlRelationalTableModel = extern struct {
     /// ` self: QSqlRelationalTableModel`
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, row: i32) callconv(.c) QSqlRecord `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPrimaryValues(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, i32) callconv(.c) QSqlRecord) void {
         qtc.QSqlRelationalTableModel_OnPrimaryValues(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -6408,6 +6426,8 @@ pub const QSqlRelationalTableModel = extern struct {
     /// ` self: QSqlRelationalTableModel`
     ///
     /// ` callback: *const fn (self: QSqlRelationalTableModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QSqlRelationalTableModel, callback: *const fn (QSqlRelationalTableModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QSqlRelationalTableModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

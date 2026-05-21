@@ -66,7 +66,7 @@ libqt_map /* of libqt_string to QObject* */ QWebChannel_RegisteredObjects(const 
     QObject** _varr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _hashkey_ret = _itr->first;
+        auto _hashkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _hashkey_b = _hashkey_ret.toUtf8();
         libqt_string _hashkey_str;

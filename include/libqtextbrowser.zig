@@ -360,6 +360,8 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` callback: *const fn (self: QTextBrowser, typeVal: i32, name: QUrl) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnLoadResource(self: QTextBrowser, callback: *const fn (QTextBrowser, i32, QUrl) callconv(.c) QVariant) void {
         qtc.QTextBrowser_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8183,6 +8185,8 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` callback: *const fn (self: QTextBrowser, property: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: QTextBrowser, callback: *const fn (QTextBrowser, i32) callconv(.c) QVariant) void {
         qtc.QTextBrowser_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9253,6 +9257,8 @@ pub const QTextBrowser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTextBrowser_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9300,6 +9306,8 @@ pub const QTextBrowser = extern struct {
     /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTextBrowser_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -9516,6 +9524,8 @@ pub const QTextBrowser = extern struct {
     /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportSizeHint(self: QTextBrowser, callback: *const fn () callconv(.c) QSize) void {
         qtc.QTextBrowser_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10852,6 +10862,8 @@ pub const QTextBrowser = extern struct {
     /// ` self: QTextBrowser`
     ///
     /// ` callback: *const fn () callconv(.c) QMargins `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnViewportMargins(self: QTextBrowser, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QTextBrowser_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

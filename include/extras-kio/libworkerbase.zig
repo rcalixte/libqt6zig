@@ -824,6 +824,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpenConnection(self: KIO__WorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -907,6 +909,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGet(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnGet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -955,6 +959,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpen(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1001,6 +1007,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, size: usize) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRead(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1050,6 +1058,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnWrite(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1098,6 +1108,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, offset: usize) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSeek(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1142,6 +1154,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, size: usize) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnTruncate(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnTruncate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1183,6 +1197,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn () callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnClose(self: KIO__WorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1230,6 +1246,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPut(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnPut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1281,6 +1299,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnStat(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnStat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1327,6 +1347,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMimetype(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnMimetype(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1372,6 +1394,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnListDir(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnListDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1420,6 +1444,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, permissions: i32) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMkdir(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnMkdir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1473,6 +1499,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, src: QUrl, dest: QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRename(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnRename(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1533,6 +1561,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, target: [*:0]const u8, dest: QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSymlink(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, [*:0]const u8, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1588,6 +1618,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, permissions: i32) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnChmod(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnChmod(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1648,6 +1680,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnChown(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, [*:0]const u8, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnChown(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1710,6 +1744,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, mtime: QDateTime) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSetModificationTime(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, QDateTime) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSetModificationTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1766,6 +1802,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, src: QUrl, dest: QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCopy(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnCopy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1821,6 +1859,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl, isfile: bool) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDel(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl, bool) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnDel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1872,6 +1912,8 @@ pub const KIO__WorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSpecial(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -1920,6 +1962,8 @@ pub const KIO__WorkerBase = extern struct {
     /// ` self: KIO__WorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__WorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFileSystemFreeSpace(self: KIO__WorkerBase, callback: *const fn (KIO__WorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnFileSystemFreeSpace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

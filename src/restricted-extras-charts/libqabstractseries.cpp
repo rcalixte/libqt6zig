@@ -32,7 +32,7 @@ void QAbstractSeries_SetName(QAbstractSeries* self, const libqt_string name) {
 }
 
 libqt_string QAbstractSeries_Name(const QAbstractSeries* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

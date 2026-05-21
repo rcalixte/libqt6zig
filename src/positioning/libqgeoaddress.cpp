@@ -21,7 +21,7 @@ void QGeoAddress_Swap(QGeoAddress* self, QGeoAddress* other) {
 }
 
 libqt_string QGeoAddress_Text(const QGeoAddress* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ void QGeoAddress_SetText(QGeoAddress* self, const libqt_string text) {
 }
 
 libqt_string QGeoAddress_Country(const QGeoAddress* self) {
-    QString _ret = self->country();
+    auto _ret = self->country();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,7 +55,7 @@ void QGeoAddress_SetCountry(QGeoAddress* self, const libqt_string country) {
 }
 
 libqt_string QGeoAddress_CountryCode(const QGeoAddress* self) {
-    QString _ret = self->countryCode();
+    auto _ret = self->countryCode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,7 +72,7 @@ void QGeoAddress_SetCountryCode(QGeoAddress* self, const libqt_string countryCod
 }
 
 libqt_string QGeoAddress_State(const QGeoAddress* self) {
-    QString _ret = self->state();
+    auto _ret = self->state();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -89,7 +89,7 @@ void QGeoAddress_SetState(QGeoAddress* self, const libqt_string state) {
 }
 
 libqt_string QGeoAddress_County(const QGeoAddress* self) {
-    QString _ret = self->county();
+    auto _ret = self->county();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -106,7 +106,7 @@ void QGeoAddress_SetCounty(QGeoAddress* self, const libqt_string county) {
 }
 
 libqt_string QGeoAddress_City(const QGeoAddress* self) {
-    QString _ret = self->city();
+    auto _ret = self->city();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -123,7 +123,7 @@ void QGeoAddress_SetCity(QGeoAddress* self, const libqt_string city) {
 }
 
 libqt_string QGeoAddress_District(const QGeoAddress* self) {
-    QString _ret = self->district();
+    auto _ret = self->district();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -140,7 +140,7 @@ void QGeoAddress_SetDistrict(QGeoAddress* self, const libqt_string district) {
 }
 
 libqt_string QGeoAddress_PostalCode(const QGeoAddress* self) {
-    QString _ret = self->postalCode();
+    auto _ret = self->postalCode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -157,7 +157,7 @@ void QGeoAddress_SetPostalCode(QGeoAddress* self, const libqt_string postalCode)
 }
 
 libqt_string QGeoAddress_Street(const QGeoAddress* self) {
-    QString _ret = self->street();
+    auto _ret = self->street();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -174,7 +174,7 @@ void QGeoAddress_SetStreet(QGeoAddress* self, const libqt_string street) {
 }
 
 libqt_string QGeoAddress_StreetNumber(const QGeoAddress* self) {
-    QString _ret = self->streetNumber();
+    auto _ret = self->streetNumber();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

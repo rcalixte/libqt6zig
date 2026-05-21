@@ -108,7 +108,7 @@ void QSplashScreen_Repaint(QSplashScreen* self) {
 }
 
 libqt_string QSplashScreen_Message(const QSplashScreen* self) {
-    QString _ret = self->message();
+    auto _ret = self->message();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -136,7 +136,7 @@ void QSplashScreen_MessageChanged(QSplashScreen* self, const libqt_string messag
 void QSplashScreen_Connect_MessageChanged(QSplashScreen* self, intptr_t slot) {
     void (*slotFunc)(QSplashScreen*, const char*) = reinterpret_cast<void (*)(QSplashScreen*, const char*)>(slot);
     QSplashScreen::connect(self, &QSplashScreen::messageChanged, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();

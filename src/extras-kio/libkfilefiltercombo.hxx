@@ -535,7 +535,7 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         }
         auto setcompletedtext_cb = kfilefiltercombo_setcompletedtext_callback;
         if (setcompletedtext_cb) {
-            const QString completedText_ret = completedText;
+            const auto completedText_ret = completedText;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray completedText_b = completedText_ret.toUtf8();
             auto completedText_str_len = completedText_b.length();
@@ -590,7 +590,7 @@ class VirtualKFileFilterCombo final : public KFileFilterCombo {
         }
         auto makecompletion_cb = kfilefiltercombo_makecompletion_callback;
         if (makecompletion_cb) {
-            const QString param1_ret = param1;
+            const auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();

@@ -325,7 +325,7 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
         }
         auto setid_cb = qplaceidreply_setid_callback;
         if (setid_cb) {
-            const QString identifier_ret = identifier;
+            const auto identifier_ret = identifier;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray identifier_b = identifier_ret.toUtf8();
             auto identifier_str_len = identifier_b.length();
@@ -366,7 +366,7 @@ class VirtualQPlaceIdReply final : public QPlaceIdReply {
         auto seterror_cb = qplaceidreply_seterror_callback;
         if (seterror_cb) {
             int cbval1 = static_cast<int>(errorVal);
-            const QString errorString_ret = errorString;
+            const auto errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
             auto errorString_str_len = errorString_b.length();

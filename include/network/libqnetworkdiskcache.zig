@@ -306,6 +306,8 @@ pub const QNetworkDiskCache = extern struct {
     ///
     /// ` callback: *const fn (self: QNetworkDiskCache, url: QUrl) callconv(.c) QNetworkCacheMetaData `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMetaData(self: QNetworkDiskCache, callback: *const fn (QNetworkDiskCache, QUrl) callconv(.c) QNetworkCacheMetaData) void {
         qtc.QNetworkDiskCache_OnMetaData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

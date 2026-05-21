@@ -69,6 +69,8 @@ pub const TextEmoticonsCore__CustomEmojiIconManager = extern struct {
     ///
     /// ` callback: *const fn (self: TextEmoticonsCore__CustomEmojiIconManager, customIdentifier: [*:0]const u8) callconv(.c) QIcon `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGenerateIcon(self: TextEmoticonsCore__CustomEmojiIconManager, callback: *const fn (TextEmoticonsCore__CustomEmojiIconManager, [*:0]const u8) callconv(.c) QIcon) void {
         qtc.TextEmoticonsCore__CustomEmojiIconManager_OnGenerateIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

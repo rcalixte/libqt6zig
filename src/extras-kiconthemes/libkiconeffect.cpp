@@ -20,7 +20,7 @@ bool KIconEffect_HasEffect(const KIconEffect* self, int group, int state) {
 }
 
 libqt_string KIconEffect_Fingerprint(const KIconEffect* self, int group, int state) {
-    QString _ret = self->fingerprint(static_cast<int>(group), static_cast<int>(state));
+    auto _ret = self->fingerprint(static_cast<int>(group), static_cast<int>(state));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

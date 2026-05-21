@@ -621,7 +621,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         }
         auto settable_cb = qsqlrelationaltablemodel_settable_callback;
         if (settable_cb) {
-            const QString tableName_ret = tableName;
+            const auto tableName_ret = tableName;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray tableName_b = tableName_ret.toUtf8();
             auto tableName_str_len = tableName_b.length();
@@ -863,7 +863,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         }
         auto setfilter_cb = qsqlrelationaltablemodel_setfilter_callback;
         if (setfilter_cb) {
-            const QString filter_ret = filter;
+            const auto filter_ret = filter;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray filter_b = filter_ret.toUtf8();
             auto filter_str_len = filter_b.length();

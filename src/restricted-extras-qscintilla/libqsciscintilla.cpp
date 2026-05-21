@@ -90,7 +90,7 @@ libqt_list /* of libqt_string */ QsciScintilla_ApiContext(QsciScintilla* self, i
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -109,7 +109,7 @@ libqt_list /* of libqt_string */ QsciScintilla_ApiContext(QsciScintilla* self, i
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -141,7 +141,7 @@ void QsciScintilla_Annotate3(QsciScintilla* self, int line, const QsciStyledText
 }
 
 libqt_string QsciScintilla_Annotation(const QsciScintilla* self, int line) {
-    QString _ret = self->annotation(static_cast<int>(line));
+    auto _ret = self->annotation(static_cast<int>(line));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -794,7 +794,7 @@ void QsciScintilla_SetWrapVisualFlags(QsciScintilla* self, int endFlag) {
 }
 
 libqt_string QsciScintilla_SelectedText(const QsciScintilla* self) {
-    QString _ret = self->selectedText();
+    auto _ret = self->selectedText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -885,7 +885,7 @@ int QsciScintilla_TabWidth(const QsciScintilla* self) {
 }
 
 libqt_string QsciScintilla_Text(const QsciScintilla* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -897,7 +897,7 @@ libqt_string QsciScintilla_Text(const QsciScintilla* self) {
 }
 
 libqt_string QsciScintilla_Text2(const QsciScintilla* self, int line) {
-    QString _ret = self->text(static_cast<int>(line));
+    auto _ret = self->text(static_cast<int>(line));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -909,7 +909,7 @@ libqt_string QsciScintilla_Text2(const QsciScintilla* self, int line) {
 }
 
 libqt_string QsciScintilla_Text3(const QsciScintilla* self, int start, int end) {
-    QString _ret = self->text(static_cast<int>(start), static_cast<int>(end));
+    auto _ret = self->text(static_cast<int>(start), static_cast<int>(end));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -933,7 +933,7 @@ int QsciScintilla_WhitespaceVisibility(const QsciScintilla* self) {
 }
 
 libqt_string QsciScintilla_WordAtLineIndex(const QsciScintilla* self, int line, int index) {
-    QString _ret = self->wordAtLineIndex(static_cast<int>(line), static_cast<int>(index));
+    auto _ret = self->wordAtLineIndex(static_cast<int>(line), static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -945,7 +945,7 @@ libqt_string QsciScintilla_WordAtLineIndex(const QsciScintilla* self, int line, 
 }
 
 libqt_string QsciScintilla_WordAtPoint(const QsciScintilla* self, const QPoint* point) {
-    QString _ret = self->wordAtPoint(*point);
+    auto _ret = self->wordAtPoint(*point);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -1817,7 +1817,7 @@ void QsciScintilla_Connect_UserListActivated(QsciScintilla* self, intptr_t slot)
     void (*slotFunc)(QsciScintilla*, int, const char*) = reinterpret_cast<void (*)(QsciScintilla*, int, const char*)>(slot);
     QsciScintilla::connect(self, &QsciScintilla::userListActivated, [self, slotFunc](int id, const QString& stringVal) {
         int sigval1 = id;
-        const QString stringVal_ret = stringVal;
+        const auto stringVal_ret = stringVal;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray stringVal_b = stringVal_ret.toUtf8();
         auto stringVal_str_len = stringVal_b.length();
@@ -1997,7 +1997,7 @@ libqt_list /* of libqt_string */ QsciScintilla_SuperApiContext(QsciScintilla* se
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -2016,7 +2016,7 @@ libqt_list /* of libqt_string */ QsciScintilla_SuperApiContext(QsciScintilla* se
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

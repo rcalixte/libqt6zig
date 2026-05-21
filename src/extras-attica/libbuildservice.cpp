@@ -11,7 +11,7 @@ Attica__Target* Attica__Target_new(const Attica__Target* param1) {
 }
 
 libqt_string Attica__Target_Id(const Attica__Target* self) {
-    QString id_ret = self->id;
+    auto id_ret = self->id;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray id_b = id_ret.toUtf8();
     libqt_string id_str;
@@ -28,7 +28,7 @@ void Attica__Target_SetId(Attica__Target* self, libqt_string id) {
 }
 
 libqt_string Attica__Target_Name(const Attica__Target* self) {
-    QString name_ret = self->name;
+    auto name_ret = self->name;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray name_b = name_ret.toUtf8();
     libqt_string name_str;
@@ -70,7 +70,7 @@ void Attica__BuildService_SetId(Attica__BuildService* self, const libqt_string i
 }
 
 libqt_string Attica__BuildService_Id(const Attica__BuildService* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -87,7 +87,7 @@ void Attica__BuildService_SetName(Attica__BuildService* self, const libqt_string
 }
 
 libqt_string Attica__BuildService_Name(const Attica__BuildService* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -104,7 +104,7 @@ void Attica__BuildService_SetUrl(Attica__BuildService* self, const libqt_string 
 }
 
 libqt_string Attica__BuildService_Url(const Attica__BuildService* self) {
-    QString _ret = self->url();
+    auto _ret = self->url();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

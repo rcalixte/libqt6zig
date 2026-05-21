@@ -20,7 +20,7 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int param1) {
 }
 
 libqt_string KStandardShortcut_Name(int param1) {
-    QString _ret = KStandardShortcut::name(static_cast<KStandardShortcut::StandardShortcut>(param1));
+    auto _ret = KStandardShortcut::name(static_cast<KStandardShortcut::StandardShortcut>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -32,7 +32,7 @@ libqt_string KStandardShortcut_Name(int param1) {
 }
 
 libqt_string KStandardShortcut_Label(int param1) {
-    QString _ret = KStandardShortcut::label(static_cast<KStandardShortcut::StandardShortcut>(param1));
+    auto _ret = KStandardShortcut::label(static_cast<KStandardShortcut::StandardShortcut>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -44,7 +44,7 @@ libqt_string KStandardShortcut_Label(int param1) {
 }
 
 libqt_string KStandardShortcut_WhatsThis(int param1) {
-    QString _ret = KStandardShortcut::whatsThis(static_cast<KStandardShortcut::StandardShortcut>(param1));
+    auto _ret = KStandardShortcut::whatsThis(static_cast<KStandardShortcut::StandardShortcut>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

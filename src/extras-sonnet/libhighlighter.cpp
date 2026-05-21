@@ -68,7 +68,7 @@ bool Sonnet__Highlighter_SpellCheckerFound(const Sonnet__Highlighter* self) {
 }
 
 libqt_string Sonnet__Highlighter_CurrentLanguage(const Sonnet__Highlighter* self) {
-    QString _ret = self->currentLanguage();
+    auto _ret = self->currentLanguage();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,7 +119,7 @@ libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord(Sonnet__
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -141,7 +141,7 @@ libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord2(Sonnet_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -182,7 +182,7 @@ void Sonnet__Highlighter_ActiveChanged(Sonnet__Highlighter* self, const libqt_st
 void Sonnet__Highlighter_Connect_ActiveChanged(Sonnet__Highlighter* self, intptr_t slot) {
     void (*slotFunc)(Sonnet__Highlighter*, const char*) = reinterpret_cast<void (*)(Sonnet__Highlighter*, const char*)>(slot);
     Sonnet::Highlighter::connect(self, &Sonnet::Highlighter::activeChanged, [self, slotFunc](const QString& description) {
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();
@@ -244,7 +244,7 @@ libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord22(Sonnet
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -266,7 +266,7 @@ libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord3(Sonnet_
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

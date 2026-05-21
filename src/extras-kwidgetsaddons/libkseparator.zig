@@ -5427,6 +5427,8 @@ pub const KSeparator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KSeparator, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSeparator_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5790,6 +5792,8 @@ pub const KSeparator = extern struct {
     /// ` self: KSeparator`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KSeparator, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSeparator_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7562,6 +7566,8 @@ pub const KSeparator = extern struct {
     /// ` self: KSeparator`
     ///
     /// ` callback: *const fn (self: KSeparator, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KSeparator, callback: *const fn (KSeparator, i32) callconv(.c) QVariant) void {
         qtc.KSeparator_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

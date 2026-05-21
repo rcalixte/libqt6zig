@@ -90,7 +90,7 @@ QIcon* KFilePlacesModel_Icon(const KFilePlacesModel* self, const QModelIndex* in
 }
 
 libqt_string KFilePlacesModel_Text(const KFilePlacesModel* self, const QModelIndex* index) {
-    QString _ret = self->text(*index);
+    auto _ret = self->text(*index);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -328,7 +328,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_MimeTypes(const KFilePlacesMod
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -347,7 +347,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_MimeTypes(const KFilePlacesMod
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -412,7 +412,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_SupportedSchemes(const KFilePl
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -436,7 +436,7 @@ void KFilePlacesModel_ErrorMessage(KFilePlacesModel* self, const libqt_string me
 void KFilePlacesModel_Connect_ErrorMessage(KFilePlacesModel* self, intptr_t slot) {
     void (*slotFunc)(KFilePlacesModel*, const char*) = reinterpret_cast<void (*)(KFilePlacesModel*, const char*)>(slot);
     KFilePlacesModel::connect(self, &KFilePlacesModel::errorMessage, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -799,7 +799,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_SuperMimeTypes(const KFilePlac
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -818,7 +818,7 @@ libqt_list /* of libqt_string */ KFilePlacesModel_SuperMimeTypes(const KFilePlac
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;

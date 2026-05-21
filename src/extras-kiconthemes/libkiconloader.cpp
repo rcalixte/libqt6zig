@@ -99,7 +99,7 @@ QPixmap* KIconLoader_LoadMimeTypeIcon(const KIconLoader* self, const libqt_strin
 
 libqt_string KIconLoader_IconPath(const KIconLoader* self, const libqt_string name, int group_or_size) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPath(name_QString, static_cast<int>(group_or_size));
+    auto _ret = self->iconPath(name_QString, static_cast<int>(group_or_size));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -112,7 +112,7 @@ libqt_string KIconLoader_IconPath(const KIconLoader* self, const libqt_string na
 
 libqt_string KIconLoader_IconPath2(const KIconLoader* self, const libqt_string name, int group_or_size, bool canReturnNull, double scale) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPath(name_QString, static_cast<int>(group_or_size), canReturnNull, static_cast<qreal>(scale));
+    auto _ret = self->iconPath(name_QString, static_cast<int>(group_or_size), canReturnNull, static_cast<qreal>(scale));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -130,7 +130,7 @@ QMovie* KIconLoader_LoadMovie(const KIconLoader* self, const libqt_string name, 
 
 libqt_string KIconLoader_MoviePath(const KIconLoader* self, const libqt_string name, int group) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->moviePath(name_QString, static_cast<KIconLoader::Group>(group));
+    auto _ret = self->moviePath(name_QString, static_cast<KIconLoader::Group>(group));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -147,7 +147,7 @@ libqt_list /* of libqt_string */ KIconLoader_LoadAnimated(const KIconLoader* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -168,7 +168,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIcons(const KIconLoader* self)
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -189,7 +189,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIcons2(const KIconLoader* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -210,7 +210,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIconsByContext(const KIconLoad
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -236,7 +236,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIconsByDir(const KIconLoader* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -257,7 +257,7 @@ libqt_list /* of libqt_string */ KIconLoader_SearchPaths(const KIconLoader* self
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -409,7 +409,7 @@ QPixmap* KIconLoader_LoadMimeTypeIcon5(const KIconLoader* self, const libqt_stri
 
 libqt_string KIconLoader_IconPath3(const KIconLoader* self, const libqt_string name, int group_or_size, bool canReturnNull) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->iconPath(name_QString, static_cast<int>(group_or_size), canReturnNull);
+    auto _ret = self->iconPath(name_QString, static_cast<int>(group_or_size), canReturnNull);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -432,7 +432,7 @@ QMovie* KIconLoader_LoadMovie4(const KIconLoader* self, const libqt_string name,
 
 libqt_string KIconLoader_MoviePath3(const KIconLoader* self, const libqt_string name, int group, int size) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->moviePath(name_QString, static_cast<KIconLoader::Group>(group), static_cast<int>(size));
+    auto _ret = self->moviePath(name_QString, static_cast<KIconLoader::Group>(group), static_cast<int>(size));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -449,7 +449,7 @@ libqt_list /* of libqt_string */ KIconLoader_LoadAnimated3(const KIconLoader* se
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -470,7 +470,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIcons22(const KIconLoader* sel
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -491,7 +491,7 @@ libqt_list /* of libqt_string */ KIconLoader_QueryIconsByContext2(const KIconLoa
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

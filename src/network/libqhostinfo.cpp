@@ -28,7 +28,7 @@ void QHostInfo_Swap(QHostInfo* self, QHostInfo* other) {
 }
 
 libqt_string QHostInfo_HostName(const QHostInfo* self) {
-    QString _ret = self->hostName();
+    auto _ret = self->hostName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,7 +76,7 @@ void QHostInfo_SetError(QHostInfo* self, int errorVal) {
 }
 
 libqt_string QHostInfo_ErrorString(const QHostInfo* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -115,7 +115,7 @@ QHostInfo* QHostInfo_FromName(const libqt_string name) {
 }
 
 libqt_string QHostInfo_LocalHostName() {
-    QString _ret = QHostInfo::localHostName();
+    auto _ret = QHostInfo::localHostName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -127,7 +127,7 @@ libqt_string QHostInfo_LocalHostName() {
 }
 
 libqt_string QHostInfo_LocalDomainName() {
-    QString _ret = QHostInfo::localDomainName();
+    auto _ret = QHostInfo::localDomainName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

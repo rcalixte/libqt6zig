@@ -13,7 +13,7 @@ KTextEditor__TextHintProvider* KTextEditor__TextHintProvider_new() {
 libqt_string KTextEditor__TextHintProvider_TextHint(KTextEditor__TextHintProvider* self, KTextEditor__View* view, const KTextEditor__Cursor* position) {
     auto* vktexteditor__texthintprovider = dynamic_cast<VirtualKTextEditorTextHintProvider*>(self);
     if (vktexteditor__texthintprovider && vktexteditor__texthintprovider->isVirtualKTextEditorTextHintProvider) {
-        QString _ret = vktexteditor__texthintprovider->textHint(view, *position);
+        auto _ret = vktexteditor__texthintprovider->textHint(view, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -23,7 +23,7 @@ libqt_string KTextEditor__TextHintProvider_TextHint(KTextEditor__TextHintProvide
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKTextEditorTextHintProvider*)self)->textHint(view, *position);
+        auto _ret = ((VirtualKTextEditorTextHintProvider*)self)->textHint(view, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -40,7 +40,7 @@ libqt_string KTextEditor__TextHintProvider_SuperTextHint(KTextEditor__TextHintPr
     auto* vktexteditortexthintprovider = dynamic_cast<VirtualKTextEditorTextHintProvider*>(self);
     if (vktexteditortexthintprovider && vktexteditortexthintprovider->isVirtualKTextEditorTextHintProvider) {
         vktexteditortexthintprovider->setKTextEditor__TextHintProvider_TextHint_IsBase(true);
-        QString _ret = vktexteditortexthintprovider->textHint(view, *position);
+        auto _ret = vktexteditortexthintprovider->textHint(view, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -50,7 +50,7 @@ libqt_string KTextEditor__TextHintProvider_SuperTextHint(KTextEditor__TextHintPr
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualKTextEditorTextHintProvider*)self)->textHint(view, *position);
+        auto _ret = ((VirtualKTextEditorTextHintProvider*)self)->textHint(view, *position);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

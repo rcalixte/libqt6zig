@@ -161,7 +161,7 @@ class VirtualQValidator : public QValidator {
     virtual QValidator::State validate(QString& param1, int& param2) const override {
         auto validate_cb = qvalidator_validate_callback;
         if (validate_cb) {
-            QString param1_ret = param1;
+            auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -186,7 +186,7 @@ class VirtualQValidator : public QValidator {
         }
         auto fixup_cb = qvalidator_fixup_callback;
         if (fixup_cb) {
-            QString param1_ret = param1;
+            auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -555,7 +555,7 @@ class VirtualQIntValidator final : public QIntValidator {
         }
         auto validate_cb = qintvalidator_validate_callback;
         if (validate_cb) {
-            QString param1_ret = param1;
+            auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -580,7 +580,7 @@ class VirtualQIntValidator final : public QIntValidator {
         }
         auto fixup_cb = qintvalidator_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -949,7 +949,7 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         }
         auto validate_cb = qdoublevalidator_validate_callback;
         if (validate_cb) {
-            QString param1_ret = param1;
+            auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();
@@ -974,7 +974,7 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
         }
         auto fixup_cb = qdoublevalidator_fixup_callback;
         if (fixup_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -1343,7 +1343,7 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         }
         auto validate_cb = qregularexpressionvalidator_validate_callback;
         if (validate_cb) {
-            QString input_ret = input;
+            auto input_ret = input;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray input_b = input_ret.toUtf8();
             auto input_str_len = input_b.length();
@@ -1368,7 +1368,7 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
         }
         auto fixup_cb = qregularexpressionvalidator_fixup_callback;
         if (fixup_cb) {
-            QString param1_ret = param1;
+            auto param1_ret = param1;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray param1_b = param1_ret.toUtf8();
             auto param1_str_len = param1_b.length();

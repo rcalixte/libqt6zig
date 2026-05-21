@@ -5432,6 +5432,8 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextCustomEditor__RichTextBrowserWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextBrowserWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5479,6 +5481,8 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowserWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextCustomEditor__RichTextBrowserWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextBrowserWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7413,6 +7417,8 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     /// ` self: TextCustomEditor__RichTextBrowserWidget`
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextCustomEditor__RichTextBrowserWidget, callback: *const fn (TextCustomEditor__RichTextBrowserWidget, i32) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__RichTextBrowserWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

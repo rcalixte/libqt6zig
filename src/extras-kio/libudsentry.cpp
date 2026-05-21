@@ -18,7 +18,7 @@ void KIO__UDSEntry_OperatorAssign(KIO__UDSEntry* self, const KIO__UDSEntry* para
 }
 
 libqt_string KIO__UDSEntry_StringValue(const KIO__UDSEntry* self, unsigned int field) {
-    QString _ret = self->stringValue(static_cast<uint>(field));
+    auto _ret = self->stringValue(static_cast<uint>(field));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -44,6 +44,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     using KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_Callback = int (*)();
     using KSyntaxHighlighting__SyntaxHighlighter_Receivers_Callback = int (*)(const KSyntaxHighlighting__SyntaxHighlighter*, const char*);
     using KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback = bool (*)(const KSyntaxHighlighting__SyntaxHighlighter*, QMetaMethod*);
+    using KSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback = KSyntaxHighlighting__State* (*)(KSyntaxHighlighting__SyntaxHighlighter*, const char*, KSyntaxHighlighting__State*);
 
   protected:
     // Instance callback storage
@@ -74,6 +75,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_Callback ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_callback = nullptr;
     KSyntaxHighlighting__SyntaxHighlighter_Receivers_Callback ksyntaxhighlighting__syntaxhighlighter_receivers_callback = nullptr;
     KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback = nullptr;
+    KSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback ksyntaxhighlighting__syntaxhighlighter_highlightline_callback = nullptr;
 
     // Instance base flags
     mutable bool ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase = false;
@@ -103,6 +105,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     mutable bool ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_isbase = false;
     mutable bool ksyntaxhighlighting__syntaxhighlighter_receivers_isbase = false;
     mutable bool ksyntaxhighlighting__syntaxhighlighter_issignalconnected_isbase = false;
+    mutable bool ksyntaxhighlighting__syntaxhighlighter_highlightline_isbase = false;
 
   public:
     VirtualKSyntaxHighlightingSyntaxHighlighter() : KSyntaxHighlighting::SyntaxHighlighter() {};
@@ -137,6 +140,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_Callback(KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_callback = cb; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_Receivers_Callback(KSyntaxHighlighting__SyntaxHighlighter_Receivers_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_receivers_callback = cb; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback(KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_issignalconnected_callback = cb; }
+    inline void setKSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback(KSyntaxHighlighting__SyntaxHighlighter_HighlightLine_Callback cb) { ksyntaxhighlighting__syntaxhighlighter_highlightline_callback = cb; }
 
     // Base flag setters
     inline void setKSyntaxHighlighting__SyntaxHighlighter_MetaObject_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_metaobject_isbase = value; }
@@ -166,6 +170,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     inline void setKSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_sendersignalindex_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_Receivers_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_receivers_isbase = value; }
     inline void setKSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_issignalconnected_isbase = value; }
+    inline void setKSyntaxHighlighting__SyntaxHighlighter_HighlightLine_IsBase(bool value) const { ksyntaxhighlighting__syntaxhighlighter_highlightline_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual const QMetaObject* metaObject() const override {
@@ -258,7 +263,7 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         }
         auto highlightblock_cb = ksyntaxhighlighting__syntaxhighlighter_highlightblock_callback;
         if (highlightblock_cb) {
-            const QString text_ret = text;
+            const auto text_ret = text;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray text_b = text_ret.toUtf8();
             auto text_str_len = text_b.length();
@@ -613,6 +618,34 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
         return KSyntaxHighlighting__SyntaxHighlighter::isSignalConnected(signal);
     }
 
+    // Virtual method for C ABI access and custom callback
+    KSyntaxHighlighting::State highlightLine(QStringView text, const KSyntaxHighlighting::State& state) {
+        if (ksyntaxhighlighting__syntaxhighlighter_highlightline_isbase) {
+            ksyntaxhighlighting__syntaxhighlighter_highlightline_isbase = false;
+            return KSyntaxHighlighting__SyntaxHighlighter::highlightLine(text, state);
+        }
+        auto highlightline_cb = ksyntaxhighlighting__syntaxhighlighter_highlightline_callback;
+        if (highlightline_cb) {
+            auto text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
+            const KSyntaxHighlighting::State& state_ret = state;
+            // Cast returned reference into pointer
+            KSyntaxHighlighting__State* cbval2 = const_cast<KSyntaxHighlighting::State*>(&state_ret);
+            KSyntaxHighlighting__State* callback_ret = highlightline_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            libqt_free(text_str);
+            return callback_ret_Value;
+        }
+        return KSyntaxHighlighting__SyntaxHighlighter::highlightLine(text, state);
+    }
+
     // Friend functions
     friend void KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock(KSyntaxHighlighting::SyntaxHighlighter* self, const libqt_string text);
     friend void KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightBlock(KSyntaxHighlighting::SyntaxHighlighter* self, const libqt_string text);
@@ -654,6 +687,8 @@ class VirtualKSyntaxHighlightingSyntaxHighlighter final : public KSyntaxHighligh
     friend int KSyntaxHighlighting__SyntaxHighlighter_SuperReceivers(const KSyntaxHighlighting::SyntaxHighlighter* self, const char* signal);
     friend bool KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected(const KSyntaxHighlighting::SyntaxHighlighter* self, const QMetaMethod* signal);
     friend bool KSyntaxHighlighting__SyntaxHighlighter_SuperIsSignalConnected(const KSyntaxHighlighting::SyntaxHighlighter* self, const QMetaMethod* signal);
+    friend KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_HighlightLine(KSyntaxHighlighting::SyntaxHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state);
+    friend KSyntaxHighlighting__State* KSyntaxHighlighting__SyntaxHighlighter_SuperHighlightLine(KSyntaxHighlighting::SyntaxHighlighter* self, libqt_string text, const KSyntaxHighlighting__State* state);
 };
 
 #endif

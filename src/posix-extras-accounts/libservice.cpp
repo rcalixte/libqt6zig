@@ -23,7 +23,7 @@ bool Accounts__Service_IsValid(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_Name(const Accounts__Service* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -35,7 +35,7 @@ libqt_string Accounts__Service_Name(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_Description(const Accounts__Service* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -47,7 +47,7 @@ libqt_string Accounts__Service_Description(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_DisplayName(const Accounts__Service* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,7 +59,7 @@ libqt_string Accounts__Service_DisplayName(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_TrCatalog(const Accounts__Service* self) {
-    QString _ret = self->trCatalog();
+    auto _ret = self->trCatalog();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -71,7 +71,7 @@ libqt_string Accounts__Service_TrCatalog(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_ServiceType(const Accounts__Service* self) {
-    QString _ret = self->serviceType();
+    auto _ret = self->serviceType();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -83,7 +83,7 @@ libqt_string Accounts__Service_ServiceType(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_Provider(const Accounts__Service* self) {
-    QString _ret = self->provider();
+    auto _ret = self->provider();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -95,7 +95,7 @@ libqt_string Accounts__Service_Provider(const Accounts__Service* self) {
 }
 
 libqt_string Accounts__Service_IconName(const Accounts__Service* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -118,7 +118,7 @@ libqt_list /* set of libqt_string */ Accounts__Service_Tags(const Accounts__Serv
     int _ctr = 0;
     QSetIterator<QString> _itr(_ret);
     while (_itr.hasNext()) {
-        QString _sv_ret = _itr.next();
+        auto _sv_ret = _itr.next();
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _sv_b = _sv_ret.toUtf8();
         libqt_string _sv_str;

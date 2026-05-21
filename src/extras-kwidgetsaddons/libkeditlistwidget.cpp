@@ -143,7 +143,7 @@ void KEditListWidget_Clear(KEditListWidget* self) {
 }
 
 libqt_string KEditListWidget_Text(const KEditListWidget* self, int index) {
-    QString _ret = self->text(static_cast<int>(index));
+    auto _ret = self->text(static_cast<int>(index));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -159,7 +159,7 @@ int KEditListWidget_CurrentItem(const KEditListWidget* self) {
 }
 
 libqt_string KEditListWidget_CurrentText(const KEditListWidget* self) {
-    QString _ret = self->currentText();
+    auto _ret = self->currentText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -175,7 +175,7 @@ libqt_list /* of libqt_string */ KEditListWidget_Items(const KEditListWidget* se
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -250,7 +250,7 @@ void KEditListWidget_Added(KEditListWidget* self, const libqt_string text) {
 void KEditListWidget_Connect_Added(KEditListWidget* self, intptr_t slot) {
     void (*slotFunc)(KEditListWidget*, const char*) = reinterpret_cast<void (*)(KEditListWidget*, const char*)>(slot);
     KEditListWidget::connect(self, &KEditListWidget::added, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -271,7 +271,7 @@ void KEditListWidget_Removed(KEditListWidget* self, const libqt_string text) {
 void KEditListWidget_Connect_Removed(KEditListWidget* self, intptr_t slot) {
     void (*slotFunc)(KEditListWidget*, const char*) = reinterpret_cast<void (*)(KEditListWidget*, const char*)>(slot);
     KEditListWidget::connect(self, &KEditListWidget::removed, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

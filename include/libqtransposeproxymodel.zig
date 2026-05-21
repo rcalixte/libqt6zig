@@ -362,6 +362,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnHeaderData(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QTransposeProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -557,6 +559,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSpan(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QTransposeProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -687,6 +691,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, sourceIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapFromSource(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -733,6 +739,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, proxyIndex: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapToSource(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -778,6 +786,8 @@ pub const QTransposeProxyModel = extern struct {
     /// ` self: QTransposeProxyModel `
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -828,6 +838,8 @@ pub const QTransposeProxyModel = extern struct {
     /// ` self: QTransposeProxyModel `
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnIndex(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2630,6 +2642,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMapSelectionToSource(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.QTransposeProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2683,6 +2697,8 @@ pub const QTransposeProxyModel = extern struct {
     /// ` self: QTransposeProxyModel`
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, selection: QItemSelection) callconv(.c) QItemSelection `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMapSelectionFromSource(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.QTransposeProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2837,6 +2853,8 @@ pub const QTransposeProxyModel = extern struct {
     /// ` self: QTransposeProxyModel`
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, proxyIndex: QModelIndex, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnData(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QTransposeProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3072,6 +3090,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3295,6 +3315,8 @@ pub const QTransposeProxyModel = extern struct {
     /// ` self: QTransposeProxyModel`
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4438,6 +4460,8 @@ pub const QTransposeProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCreateSourceIndex(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4493,6 +4517,8 @@ pub const QTransposeProxyModel = extern struct {
     /// ` self: QTransposeProxyModel`
     ///
     /// ` callback: *const fn (self: QTransposeProxyModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: QTransposeProxyModel, callback: *const fn (QTransposeProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QTransposeProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

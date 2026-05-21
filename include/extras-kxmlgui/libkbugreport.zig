@@ -5458,6 +5458,8 @@ pub const KBugReport = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KBugReport, callback: *const fn () callconv(.c) QSize) void {
         qtc.KBugReport_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5505,6 +5507,8 @@ pub const KBugReport = extern struct {
     /// ` self: KBugReport`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KBugReport, callback: *const fn () callconv(.c) QSize) void {
         qtc.KBugReport_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7743,6 +7747,8 @@ pub const KBugReport = extern struct {
     /// ` self: KBugReport`
     ///
     /// ` callback: *const fn (self: KBugReport, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KBugReport, callback: *const fn (KBugReport, i32) callconv(.c) QVariant) void {
         qtc.KBugReport_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

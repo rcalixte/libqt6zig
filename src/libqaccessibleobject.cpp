@@ -422,7 +422,7 @@ void QAccessibleObject_OnIndexOfChild(const QAccessibleObject* self, intptr_t sl
 libqt_string QAccessibleObject_Text(const QAccessibleObject* self, int t) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        QString _ret = vqaccessibleobject->text(static_cast<QAccessible::Text>(t));
+        auto _ret = vqaccessibleobject->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -432,7 +432,7 @@ libqt_string QAccessibleObject_Text(const QAccessibleObject* self, int t) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQAccessibleObject*)self)->text(static_cast<QAccessible::Text>(t));
+        auto _ret = ((VirtualQAccessibleObject*)self)->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -449,7 +449,7 @@ libqt_string QAccessibleObject_SuperText(const QAccessibleObject* self, int t) {
     auto* vqaccessibleobject = const_cast<VirtualQAccessibleObject*>(dynamic_cast<const VirtualQAccessibleObject*>(self));
     if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
         vqaccessibleobject->setQAccessibleObject_Text_IsBase(true);
-        QString _ret = vqaccessibleobject->text(static_cast<QAccessible::Text>(t));
+        auto _ret = vqaccessibleobject->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -459,7 +459,7 @@ libqt_string QAccessibleObject_SuperText(const QAccessibleObject* self, int t) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQAccessibleObject*)self)->text(static_cast<QAccessible::Text>(t));
+        auto _ret = ((VirtualQAccessibleObject*)self)->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -714,7 +714,7 @@ QAccessibleInterface* QAccessibleApplication_Child(const QAccessibleApplication*
 libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int t) {
     auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        QString _ret = self->text(static_cast<QAccessible::Text>(t));
+        auto _ret = self->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -724,7 +724,7 @@ libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQAccessibleApplication*)self)->text(static_cast<QAccessible::Text>(t));
+        auto _ret = ((VirtualQAccessibleApplication*)self)->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -873,7 +873,7 @@ libqt_string QAccessibleApplication_SuperText(const QAccessibleApplication* self
     auto* vqaccessibleapplication = const_cast<VirtualQAccessibleApplication*>(dynamic_cast<const VirtualQAccessibleApplication*>(self));
     if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
         vqaccessibleapplication->setQAccessibleApplication_Text_IsBase(true);
-        QString _ret = vqaccessibleapplication->text(static_cast<QAccessible::Text>(t));
+        auto _ret = vqaccessibleapplication->text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -883,7 +883,7 @@ libqt_string QAccessibleApplication_SuperText(const QAccessibleApplication* self
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QAccessibleApplication::text(static_cast<QAccessible::Text>(t));
+        auto _ret = self->QAccessibleApplication::text(static_cast<QAccessible::Text>(t));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

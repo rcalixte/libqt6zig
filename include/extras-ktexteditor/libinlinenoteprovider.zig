@@ -265,6 +265,8 @@ pub const KTextEditor__InlineNoteProvider = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__InlineNoteProvider, note: KTextEditor__InlineNote) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInlineNoteSize(self: KTextEditor__InlineNoteProvider, callback: *const fn (KTextEditor__InlineNoteProvider, KTextEditor__InlineNote) callconv(.c) QSize) void {
         qtc.KTextEditor__InlineNoteProvider_OnInlineNoteSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

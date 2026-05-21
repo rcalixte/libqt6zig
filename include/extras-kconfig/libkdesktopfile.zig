@@ -1311,6 +1311,8 @@ pub const KDesktopFile = extern struct {
     ///
     /// ` callback: *const fn (self: KDesktopFile, groupName: [*:0]const u8) callconv(.c) KConfigGroup `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGroupImpl(self: KDesktopFile, callback: *const fn (KDesktopFile, [*:0]const u8) callconv(.c) KConfigGroup) void {
         qtc.KDesktopFile_OnGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

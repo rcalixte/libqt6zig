@@ -21,7 +21,7 @@ void QPlaceAttribute_Swap(QPlaceAttribute* self, QPlaceAttribute* other) {
 }
 
 libqt_string QPlaceAttribute_Label(const QPlaceAttribute* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -38,7 +38,7 @@ void QPlaceAttribute_SetLabel(QPlaceAttribute* self, const libqt_string label) {
 }
 
 libqt_string QPlaceAttribute_Text(const QPlaceAttribute* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

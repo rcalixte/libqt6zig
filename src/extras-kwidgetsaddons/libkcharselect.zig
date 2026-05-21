@@ -298,6 +298,8 @@ pub const KCharSelect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KCharSelect, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCharSelect_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5619,6 +5621,8 @@ pub const KCharSelect = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: KCharSelect, callback: *const fn () callconv(.c) QSize) void {
         qtc.KCharSelect_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7552,6 +7556,8 @@ pub const KCharSelect = extern struct {
     /// ` self: KCharSelect`
     ///
     /// ` callback: *const fn (self: KCharSelect, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KCharSelect, callback: *const fn (KCharSelect, i32) callconv(.c) QVariant) void {
         qtc.KCharSelect_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

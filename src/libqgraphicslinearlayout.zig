@@ -497,6 +497,8 @@ pub const QGraphicsLinearLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QSizeF) callconv(.c) QSizeF `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QGraphicsLinearLayout, callback: *const fn (QGraphicsLinearLayout, i32, QSizeF) callconv(.c) QSizeF) void {
         qtc.QGraphicsLinearLayout_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

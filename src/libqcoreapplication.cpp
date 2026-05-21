@@ -56,7 +56,7 @@ libqt_list /* of libqt_string */ QCoreApplication_Arguments() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -86,7 +86,7 @@ void QCoreApplication_SetOrganizationDomain(const libqt_string orgDomain) {
 }
 
 libqt_string QCoreApplication_OrganizationDomain() {
-    QString _ret = QCoreApplication::organizationDomain();
+    auto _ret = QCoreApplication::organizationDomain();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -103,7 +103,7 @@ void QCoreApplication_SetOrganizationName(const libqt_string orgName) {
 }
 
 libqt_string QCoreApplication_OrganizationName() {
-    QString _ret = QCoreApplication::organizationName();
+    auto _ret = QCoreApplication::organizationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ void QCoreApplication_SetApplicationName(const libqt_string application) {
 }
 
 libqt_string QCoreApplication_ApplicationName() {
-    QString _ret = QCoreApplication::applicationName();
+    auto _ret = QCoreApplication::applicationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -137,7 +137,7 @@ void QCoreApplication_SetApplicationVersion(const libqt_string version) {
 }
 
 libqt_string QCoreApplication_ApplicationVersion() {
-    QString _ret = QCoreApplication::applicationVersion();
+    auto _ret = QCoreApplication::applicationVersion();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -218,7 +218,7 @@ bool QCoreApplication_ClosingDown() {
 }
 
 libqt_string QCoreApplication_ApplicationDirPath() {
-    QString _ret = QCoreApplication::applicationDirPath();
+    auto _ret = QCoreApplication::applicationDirPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -230,7 +230,7 @@ libqt_string QCoreApplication_ApplicationDirPath() {
 }
 
 libqt_string QCoreApplication_ApplicationFilePath() {
-    QString _ret = QCoreApplication::applicationFilePath();
+    auto _ret = QCoreApplication::applicationFilePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -265,7 +265,7 @@ libqt_list /* of libqt_string */ QCoreApplication_LibraryPaths() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -300,7 +300,7 @@ bool QCoreApplication_RemoveTranslator(QTranslator* messageFile) {
 }
 
 libqt_string QCoreApplication_Translate(const char* context, const char* key) {
-    QString _ret = QCoreApplication::translate(context, key);
+    auto _ret = QCoreApplication::translate(context, key);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -428,7 +428,7 @@ void QCoreApplication_RemovePostedEvents2(QObject* receiver, int eventType) {
 }
 
 libqt_string QCoreApplication_Translate3(const char* context, const char* key, const char* disambiguation) {
-    QString _ret = QCoreApplication::translate(context, key, disambiguation);
+    auto _ret = QCoreApplication::translate(context, key, disambiguation);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -440,7 +440,7 @@ libqt_string QCoreApplication_Translate3(const char* context, const char* key, c
 }
 
 libqt_string QCoreApplication_Translate4(const char* context, const char* key, const char* disambiguation, int n) {
-    QString _ret = QCoreApplication::translate(context, key, disambiguation, static_cast<int>(n));
+    auto _ret = QCoreApplication::translate(context, key, disambiguation, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

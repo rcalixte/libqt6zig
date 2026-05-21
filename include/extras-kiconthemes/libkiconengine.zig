@@ -164,6 +164,8 @@ pub const KIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: KIconEngine, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnActualSize(self: KIconEngine, callback: *const fn (KIconEngine, QSize, i32, i32) callconv(.c) QSize) void {
         qtc.KIconEngine_OnActualSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -278,6 +280,8 @@ pub const KIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: KIconEngine, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPixmap(self: KIconEngine, callback: *const fn (KIconEngine, QSize, i32, i32) callconv(.c) QPixmap) void {
         qtc.KIconEngine_OnPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -333,6 +337,8 @@ pub const KIconEngine = extern struct {
     /// ` self: KIconEngine `
     ///
     /// ` callback: *const fn (self: KIconEngine, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnScaledPixmap(self: KIconEngine, callback: *const fn (KIconEngine, QSize, i32, i32, f64) callconv(.c) QPixmap) void {
         qtc.KIconEngine_OnScaledPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -53,7 +53,7 @@ int KTextEditor__Message_Metacall(KTextEditor__Message* self, int param1, int pa
 }
 
 libqt_string KTextEditor__Message_Text(const KTextEditor__Message* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -174,7 +174,7 @@ void KTextEditor__Message_TextChanged(KTextEditor__Message* self, const libqt_st
 void KTextEditor__Message_Connect_TextChanged(KTextEditor__Message* self, intptr_t slot) {
     void (*slotFunc)(KTextEditor__Message*, const char*) = reinterpret_cast<void (*)(KTextEditor__Message*, const char*)>(slot);
     KTextEditor::Message::connect(self, &KTextEditor::Message::textChanged, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

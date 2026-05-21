@@ -582,6 +582,8 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QIcon `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIcon(self: QDesignerWidgetDataBaseItemInterface, callback: *const fn () callconv(.c) QIcon) void {
         qtc.QDesignerWidgetDataBaseItemInterface_OnIcon(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

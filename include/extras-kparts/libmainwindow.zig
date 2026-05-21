@@ -8569,6 +8569,8 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KParts__MainWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.KParts__MainWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8616,6 +8618,8 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KParts__MainWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.KParts__MainWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10335,6 +10339,8 @@ pub const KParts__MainWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__MainWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: KParts__MainWindow, callback: *const fn (KParts__MainWindow, i32) callconv(.c) QVariant) void {
         qtc.KParts__MainWindow_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -11352,6 +11358,8 @@ pub const KParts__MainWindow = extern struct {
     /// ` self: KParts__MainWindow`
     ///
     /// ` callback: *const fn () callconv(.c) QDomDocument `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDomDocument(self: KParts__MainWindow, callback: *const fn () callconv(.c) QDomDocument) void {
         qtc.KParts__MainWindow_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

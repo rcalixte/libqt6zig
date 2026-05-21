@@ -233,6 +233,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGet(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnGet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -282,6 +284,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnPut(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnPut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -333,6 +337,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnStat(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnStat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -379,6 +385,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMimetype(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnMimetype(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -424,6 +432,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnListDir(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnListDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -472,6 +482,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, permissions: i32) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMkdir(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnMkdir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -525,6 +537,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, src: QUrl, dest: QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRename(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnRename(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -585,6 +599,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, target: [*:0]const u8, dest: QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSymlink(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, [*:0]const u8, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSymlink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -641,6 +657,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, permissions: i32) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnChmod(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnChmod(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -691,6 +709,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, mtime: QDateTime) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSetModificationTime(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QDateTime) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSetModificationTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -748,6 +768,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, src: QUrl, dest: QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnCopy(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, QUrl, i32, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnCopy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -802,6 +824,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, isfile: bool) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDel(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, bool) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnDel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -950,6 +974,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QUrl `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnProcessedUrl(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KIO__ForwardingWorkerBase_OnProcessedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -989,6 +1015,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase `
     ///
     /// ` callback: *const fn () callconv(.c) QUrl `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRequestedUrl(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QUrl) void {
         qtc.KIO__ForwardingWorkerBase_OnRequestedUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3607,6 +3635,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpenConnection(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnOpenConnection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3713,6 +3743,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnOpen(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, i32) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3764,6 +3796,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase`
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, size: usize) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnRead(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3825,6 +3859,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnWrite(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3876,6 +3912,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase`
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, offset: usize) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSeek(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3929,6 +3967,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, size: usize) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnTruncate(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, usize) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnTruncate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3976,6 +4016,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase`
     ///
     /// ` callback: *const fn () callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnClose(self: KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4055,6 +4097,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnChown(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl, [*:0]const u8, [*:0]const u8) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnChown(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4115,6 +4159,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, data: qtc.libqt_string) callconv(.c) KIO__WorkerResult `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSpecial(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, qtc.libqt_string) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSpecial(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -4168,6 +4214,8 @@ pub const KIO__ForwardingWorkerBase = extern struct {
     /// ` self: KIO__ForwardingWorkerBase`
     ///
     /// ` callback: *const fn (self: KIO__ForwardingWorkerBase, url: QUrl) callconv(.c) KIO__WorkerResult `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFileSystemFreeSpace(self: KIO__ForwardingWorkerBase, callback: *const fn (KIO__ForwardingWorkerBase, QUrl) callconv(.c) KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnFileSystemFreeSpace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

@@ -5334,6 +5334,8 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5381,6 +5383,8 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7315,6 +7319,8 @@ pub const TextEditTextToSpeech__TextToSpeechConfigWidget = extern struct {
     /// ` self: TextEditTextToSpeech__TextToSpeechConfigWidget`
     ///
     /// ` callback: *const fn (self: TextEditTextToSpeech__TextToSpeechConfigWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: TextEditTextToSpeech__TextToSpeechConfigWidget, callback: *const fn (TextEditTextToSpeech__TextToSpeechConfigWidget, i32) callconv(.c) QVariant) void {
         qtc.TextEditTextToSpeech__TextToSpeechConfigWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

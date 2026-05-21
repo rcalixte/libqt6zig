@@ -106,7 +106,7 @@ void QAction_SetText(QAction* self, const libqt_string text) {
 }
 
 libqt_string QAction_Text(const QAction* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -123,7 +123,7 @@ void QAction_SetIconText(QAction* self, const libqt_string text) {
 }
 
 libqt_string QAction_IconText(const QAction* self) {
-    QString _ret = self->iconText();
+    auto _ret = self->iconText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -140,7 +140,7 @@ void QAction_SetToolTip(QAction* self, const libqt_string tip) {
 }
 
 libqt_string QAction_ToolTip(const QAction* self) {
-    QString _ret = self->toolTip();
+    auto _ret = self->toolTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -157,7 +157,7 @@ void QAction_SetStatusTip(QAction* self, const libqt_string statusTip) {
 }
 
 libqt_string QAction_StatusTip(const QAction* self) {
-    QString _ret = self->statusTip();
+    auto _ret = self->statusTip();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -174,7 +174,7 @@ void QAction_SetWhatsThis(QAction* self, const libqt_string what) {
 }
 
 libqt_string QAction_WhatsThis(const QAction* self) {
-    QString _ret = self->whatsThis();
+    auto _ret = self->whatsThis();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

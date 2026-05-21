@@ -70,7 +70,7 @@ void KSvg__ImageSet_SetBasePath(KSvg__ImageSet* self, const libqt_string basePat
 }
 
 libqt_string KSvg__ImageSet_BasePath(const KSvg__ImageSet* self) {
-    QString _ret = self->basePath();
+    auto _ret = self->basePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -97,7 +97,7 @@ libqt_list /* of libqt_string */ KSvg__ImageSet_Selectors(const KSvg__ImageSet* 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -119,7 +119,7 @@ void KSvg__ImageSet_SetImageSetName(KSvg__ImageSet* self, const libqt_string ima
 }
 
 libqt_string KSvg__ImageSet_ImageSetName(const KSvg__ImageSet* self) {
-    QString _ret = self->imageSetName();
+    auto _ret = self->imageSetName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -132,7 +132,7 @@ libqt_string KSvg__ImageSet_ImageSetName(const KSvg__ImageSet* self) {
 
 libqt_string KSvg__ImageSet_ImagePath(const KSvg__ImageSet* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->imagePath(name_QString);
+    auto _ret = self->imagePath(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -145,7 +145,7 @@ libqt_string KSvg__ImageSet_ImagePath(const KSvg__ImageSet* self, const libqt_st
 
 libqt_string KSvg__ImageSet_FilePath(const KSvg__ImageSet* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->filePath(name_QString);
+    auto _ret = self->filePath(name_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -185,7 +185,7 @@ void KSvg__ImageSet_ImageSetChanged(KSvg__ImageSet* self, const libqt_string bas
 void KSvg__ImageSet_Connect_ImageSetChanged(KSvg__ImageSet* self, intptr_t slot) {
     void (*slotFunc)(KSvg__ImageSet*, const char*) = reinterpret_cast<void (*)(KSvg__ImageSet*, const char*)>(slot);
     KSvg::ImageSet::connect(self, &KSvg::ImageSet::imageSetChanged, [self, slotFunc](const QString& basePath) {
-        const QString basePath_ret = basePath;
+        const auto basePath_ret = basePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray basePath_b = basePath_ret.toUtf8();
         auto basePath_str_len = basePath_b.length();
@@ -206,7 +206,7 @@ void KSvg__ImageSet_BasePathChanged(KSvg__ImageSet* self, const libqt_string bas
 void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot) {
     void (*slotFunc)(KSvg__ImageSet*, const char*) = reinterpret_cast<void (*)(KSvg__ImageSet*, const char*)>(slot);
     KSvg::ImageSet::connect(self, &KSvg::ImageSet::basePathChanged, [self, slotFunc](const QString& basePath) {
-        const QString basePath_ret = basePath;
+        const auto basePath_ret = basePath;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray basePath_b = basePath_ret.toUtf8();
         auto basePath_str_len = basePath_b.length();

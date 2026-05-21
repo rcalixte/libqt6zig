@@ -121,7 +121,7 @@ void QPlainTextEdit_SetPlaceholderText(QPlainTextEdit* self, const libqt_string 
 }
 
 libqt_string QPlainTextEdit_PlaceholderText(const QPlainTextEdit* self) {
-    QString _ret = self->placeholderText();
+    auto _ret = self->placeholderText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -182,7 +182,7 @@ void QPlainTextEdit_SetDocumentTitle(QPlainTextEdit* self, const libqt_string ti
 }
 
 libqt_string QPlainTextEdit_DocumentTitle(const QPlainTextEdit* self) {
-    QString _ret = self->documentTitle();
+    auto _ret = self->documentTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -251,7 +251,7 @@ bool QPlainTextEdit_Find2(QPlainTextEdit* self, const QRegularExpression* exp) {
 }
 
 libqt_string QPlainTextEdit_ToPlainText(const QPlainTextEdit* self) {
-    QString _ret = self->toPlainText();
+    auto _ret = self->toPlainText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -296,7 +296,7 @@ QRect* QPlainTextEdit_CursorRect2(const QPlainTextEdit* self) {
 }
 
 libqt_string QPlainTextEdit_AnchorAt(const QPlainTextEdit* self, const QPoint* pos) {
-    QString _ret = self->anchorAt(*pos);
+    auto _ret = self->anchorAt(*pos);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

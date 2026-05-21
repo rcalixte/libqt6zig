@@ -33,7 +33,7 @@ int Solid__Block_DeviceMinor(const Solid__Block* self) {
 }
 
 libqt_string Solid__Block_Device(const Solid__Block* self) {
-    QString _ret = self->device();
+    auto _ret = self->device();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

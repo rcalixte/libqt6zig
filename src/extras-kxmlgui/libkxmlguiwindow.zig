@@ -8341,6 +8341,8 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.KXmlGuiWindow_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -8388,6 +8390,8 @@ pub const KXmlGuiWindow = extern struct {
     /// ` self: KXmlGuiWindow`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QSize) void {
         qtc.KXmlGuiWindow_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -10107,6 +10111,8 @@ pub const KXmlGuiWindow = extern struct {
     ///
     /// ` callback: *const fn (self: KXmlGuiWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: KXmlGuiWindow, callback: *const fn (KXmlGuiWindow, i32) callconv(.c) QVariant) void {
         qtc.KXmlGuiWindow_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -11070,6 +11076,8 @@ pub const KXmlGuiWindow = extern struct {
     /// ` self: KXmlGuiWindow`
     ///
     /// ` callback: *const fn () callconv(.c) QDomDocument `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDomDocument(self: KXmlGuiWindow, callback: *const fn () callconv(.c) QDomDocument) void {
         qtc.KXmlGuiWindow_OnDomDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

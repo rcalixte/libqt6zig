@@ -74,7 +74,7 @@ const char* QsciLexerJavaScript_Keywords(const QsciLexerJavaScript* self, int se
 }
 
 libqt_string QsciLexerJavaScript_Description(const QsciLexerJavaScript* self, int style) {
-    QString _ret = self->description(static_cast<int>(style));
+    auto _ret = self->description(static_cast<int>(style));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -382,7 +382,7 @@ libqt_list /* of libqt_string */ QsciLexerJavaScript_AutoCompletionWordSeparator
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -401,7 +401,7 @@ libqt_list /* of libqt_string */ QsciLexerJavaScript_AutoCompletionWordSeparator
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -427,7 +427,7 @@ libqt_list /* of libqt_string */ QsciLexerJavaScript_SuperAutoCompletionWordSepa
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -446,7 +446,7 @@ libqt_list /* of libqt_string */ QsciLexerJavaScript_SuperAutoCompletionWordSepa
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QString _lv_ret = _ret[i];
+            auto _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
@@ -1487,7 +1487,7 @@ void QsciLexerJavaScript_OnTextAsBytes(const QsciLexerJavaScript* self, intptr_t
 libqt_string QsciLexerJavaScript_BytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        QString _ret = vqscilexerjavascript->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerjavascript->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1497,7 +1497,7 @@ libqt_string QsciLexerJavaScript_BytesAsText(const QsciLexerJavaScript* self, co
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerJavaScript*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerJavaScript*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1514,7 +1514,7 @@ libqt_string QsciLexerJavaScript_SuperBytesAsText(const QsciLexerJavaScript* sel
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         vqscilexerjavascript->setQsciLexerJavaScript_BytesAsText_IsBase(true);
-        QString _ret = vqscilexerjavascript->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = vqscilexerjavascript->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -1524,7 +1524,7 @@ libqt_string QsciLexerJavaScript_SuperBytesAsText(const QsciLexerJavaScript* sel
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQsciLexerJavaScript*)self)->bytesAsText(bytes, static_cast<int>(size));
+        auto _ret = ((VirtualQsciLexerJavaScript*)self)->bytesAsText(bytes, static_cast<int>(size));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

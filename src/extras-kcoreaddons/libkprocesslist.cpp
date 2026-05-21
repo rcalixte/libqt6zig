@@ -40,7 +40,7 @@ long long KProcessList__KProcessInfo_Pid(const KProcessList__KProcessInfo* self)
 }
 
 libqt_string KProcessList__KProcessInfo_Name(const KProcessList__KProcessInfo* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -52,7 +52,7 @@ libqt_string KProcessList__KProcessInfo_Name(const KProcessList__KProcessInfo* s
 }
 
 libqt_string KProcessList__KProcessInfo_User(const KProcessList__KProcessInfo* self) {
-    QString _ret = self->user();
+    auto _ret = self->user();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ libqt_string KProcessList__KProcessInfo_User(const KProcessList__KProcessInfo* s
 }
 
 libqt_string KProcessList__KProcessInfo_Command(const KProcessList__KProcessInfo* self) {
-    QString _ret = self->command();
+    auto _ret = self->command();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

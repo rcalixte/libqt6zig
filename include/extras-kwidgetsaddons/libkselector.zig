@@ -6425,6 +6425,8 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6472,6 +6474,8 @@ pub const KSelector = extern struct {
     /// ` self: KSelector`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7975,6 +7979,8 @@ pub const KSelector = extern struct {
     ///
     /// ` callback: *const fn (self: KSelector, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnInputMethodQuery(self: KSelector, callback: *const fn (KSelector, i32) callconv(.c) QVariant) void {
         qtc.KSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -9392,6 +9398,8 @@ pub const KGradientSelector = extern struct {
     /// ` self: KGradientSelector `
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSize(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KGradientSelector_OnMinimumSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -15572,6 +15580,8 @@ pub const KGradientSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KGradientSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -15619,6 +15629,8 @@ pub const KGradientSelector = extern struct {
     /// ` self: KGradientSelector`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KGradientSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.KGradientSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -17121,6 +17133,8 @@ pub const KGradientSelector = extern struct {
     /// ` self: KGradientSelector`
     ///
     /// ` callback: *const fn (self: KGradientSelector, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KGradientSelector, callback: *const fn (KGradientSelector, i32) callconv(.c) QVariant) void {
         qtc.KGradientSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

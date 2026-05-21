@@ -1997,6 +1997,8 @@ pub const QsciLexerCoffeeScript = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerCoffeeScript, style: i32) callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnColor(self: QsciLexerCoffeeScript, callback: *const fn (QsciLexerCoffeeScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerCoffeeScript_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2100,6 +2102,8 @@ pub const QsciLexerCoffeeScript = extern struct {
     /// ` self: QsciLexerCoffeeScript`
     ///
     /// ` callback: *const fn (self: QsciLexerCoffeeScript, style: i32) callconv(.c) QFont `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnFont(self: QsciLexerCoffeeScript, callback: *const fn (QsciLexerCoffeeScript, i32) callconv(.c) QFont) void {
         qtc.QsciLexerCoffeeScript_OnFont(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2249,6 +2253,8 @@ pub const QsciLexerCoffeeScript = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerCoffeeScript, style: i32) callconv(.c) QColor `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnPaper(self: QsciLexerCoffeeScript, callback: *const fn (QsciLexerCoffeeScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerCoffeeScript_OnPaper(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2300,6 +2306,8 @@ pub const QsciLexerCoffeeScript = extern struct {
     /// ` self: QsciLexerCoffeeScript`
     ///
     /// ` callback: *const fn (self: QsciLexerCoffeeScript, style: i32) callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDefaultColor2(self: QsciLexerCoffeeScript, callback: *const fn (QsciLexerCoffeeScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerCoffeeScript_OnDefaultColor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2353,6 +2361,8 @@ pub const QsciLexerCoffeeScript = extern struct {
     ///
     /// ` callback: *const fn (self: QsciLexerCoffeeScript, style: i32) callconv(.c) QFont `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnDefaultFont2(self: QsciLexerCoffeeScript, callback: *const fn (QsciLexerCoffeeScript, i32) callconv(.c) QFont) void {
         qtc.QsciLexerCoffeeScript_OnDefaultFont2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2404,6 +2414,8 @@ pub const QsciLexerCoffeeScript = extern struct {
     /// ` self: QsciLexerCoffeeScript`
     ///
     /// ` callback: *const fn (self: QsciLexerCoffeeScript, style: i32) callconv(.c) QColor `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnDefaultPaper2(self: QsciLexerCoffeeScript, callback: *const fn (QsciLexerCoffeeScript, i32) callconv(.c) QColor) void {
         qtc.QsciLexerCoffeeScript_OnDefaultPaper2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

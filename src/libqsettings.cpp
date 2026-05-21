@@ -145,7 +145,7 @@ void QSettings_EndGroup(QSettings* self) {
 }
 
 libqt_string QSettings_Group(const QSettings* self) {
-    QString _ret = self->group();
+    auto _ret = self->group();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -177,7 +177,7 @@ libqt_list /* of libqt_string */ QSettings_AllKeys(const QSettings* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -198,7 +198,7 @@ libqt_list /* of libqt_string */ QSettings_ChildKeys(const QSettings* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -219,7 +219,7 @@ libqt_list /* of libqt_string */ QSettings_ChildGroups(const QSettings* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -268,7 +268,7 @@ bool QSettings_FallbacksEnabled(const QSettings* self) {
 }
 
 libqt_string QSettings_FileName(const QSettings* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -288,7 +288,7 @@ int QSettings_Scope(const QSettings* self) {
 }
 
 libqt_string QSettings_OrganizationName(const QSettings* self) {
-    QString _ret = self->organizationName();
+    auto _ret = self->organizationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -300,7 +300,7 @@ libqt_string QSettings_OrganizationName(const QSettings* self) {
 }
 
 libqt_string QSettings_ApplicationName(const QSettings* self) {
-    QString _ret = self->applicationName();
+    auto _ret = self->applicationName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

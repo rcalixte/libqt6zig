@@ -131,7 +131,7 @@ void QAreaSeries_SetPointLabelsFormat(QAreaSeries* self, const libqt_string form
 }
 
 libqt_string QAreaSeries_PointLabelsFormat(const QAreaSeries* self) {
-    QString _ret = self->pointLabelsFormat();
+    auto _ret = self->pointLabelsFormat();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -288,7 +288,7 @@ void QAreaSeries_PointLabelsFormatChanged(QAreaSeries* self, const libqt_string 
 void QAreaSeries_Connect_PointLabelsFormatChanged(QAreaSeries* self, intptr_t slot) {
     void (*slotFunc)(QAreaSeries*, const char*) = reinterpret_cast<void (*)(QAreaSeries*, const char*)>(slot);
     QAreaSeries::connect(self, &QAreaSeries::pointLabelsFormatChanged, [self, slotFunc](const QString& format) {
-        const QString format_ret = format;
+        const auto format_ret = format;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray format_b = format_ret.toUtf8();
         auto format_str_len = format_b.length();

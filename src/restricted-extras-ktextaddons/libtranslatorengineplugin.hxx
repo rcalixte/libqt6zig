@@ -193,7 +193,7 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         }
         auto languagecode_cb = texttranslator__translatorengineplugin_languagecode_callback;
         if (languagecode_cb) {
-            const QString langStr_ret = langStr;
+            const auto langStr_ret = langStr;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray langStr_b = langStr_ret.toUtf8();
             auto langStr_str_len = langStr_b.length();
@@ -333,7 +333,7 @@ class VirtualTextTranslatorTranslatorEnginePlugin : public TextTranslator::Trans
         }
         auto appendresult_cb = texttranslator__translatorengineplugin_appendresult_callback;
         if (appendresult_cb) {
-            const QString result_ret = result;
+            const auto result_ret = result;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray result_b = result_ret.toUtf8();
             auto result_str_len = result_b.length();

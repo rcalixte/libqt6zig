@@ -128,7 +128,7 @@ void QBluetoothSocket_DisconnectFromService(QBluetoothSocket* self) {
 }
 
 libqt_string QBluetoothSocket_LocalName(const QBluetoothSocket* self) {
-    QString _ret = self->localName();
+    auto _ret = self->localName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -148,7 +148,7 @@ uint16_t QBluetoothSocket_LocalPort(const QBluetoothSocket* self) {
 }
 
 libqt_string QBluetoothSocket_PeerName(const QBluetoothSocket* self) {
-    QString _ret = self->peerName();
+    auto _ret = self->peerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -188,7 +188,7 @@ int QBluetoothSocket_Error(const QBluetoothSocket* self) {
 }
 
 libqt_string QBluetoothSocket_ErrorString(const QBluetoothSocket* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

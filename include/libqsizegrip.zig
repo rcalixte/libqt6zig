@@ -253,6 +253,8 @@ pub const QSizeGrip = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QSizeGrip, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSizeGrip_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5716,6 +5718,8 @@ pub const QSizeGrip = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnMinimumSizeHint(self: QSizeGrip, callback: *const fn () callconv(.c) QSize) void {
         qtc.QSizeGrip_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -7217,6 +7221,8 @@ pub const QSizeGrip = extern struct {
     /// ` self: QSizeGrip`
     ///
     /// ` callback: *const fn (self: QSizeGrip, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QSizeGrip, callback: *const fn (QSizeGrip, i32) callconv(.c) QVariant) void {
         qtc.QSizeGrip_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

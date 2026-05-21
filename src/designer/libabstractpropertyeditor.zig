@@ -5635,6 +5635,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerPropertyEditorInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5682,6 +5684,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: QDesignerPropertyEditorInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerPropertyEditorInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7616,6 +7620,8 @@ pub const QDesignerPropertyEditorInterface = extern struct {
     /// ` self: QDesignerPropertyEditorInterface`
     ///
     /// ` callback: *const fn (self: QDesignerPropertyEditorInterface, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: QDesignerPropertyEditorInterface, callback: *const fn (QDesignerPropertyEditorInterface, i32) callconv(.c) QVariant) void {
         qtc.QDesignerPropertyEditorInterface_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

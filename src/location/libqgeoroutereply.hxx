@@ -312,7 +312,7 @@ class VirtualQGeoRouteReply final : public QGeoRouteReply {
         auto seterror_cb = qgeoroutereply_seterror_callback;
         if (seterror_cb) {
             int cbval1 = static_cast<int>(errorVal);
-            const QString errorString_ret = errorString;
+            const auto errorString_ret = errorString;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray errorString_b = errorString_ret.toUtf8();
             auto errorString_str_len = errorString_b.length();

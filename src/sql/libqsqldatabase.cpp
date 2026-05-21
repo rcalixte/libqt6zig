@@ -63,7 +63,7 @@ libqt_list /* of libqt_string */ QSqlDatabase_Tables(const QSqlDatabase* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -142,7 +142,7 @@ void QSqlDatabase_SetConnectOptions(QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_DatabaseName(const QSqlDatabase* self) {
-    QString _ret = self->databaseName();
+    auto _ret = self->databaseName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -154,7 +154,7 @@ libqt_string QSqlDatabase_DatabaseName(const QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_UserName(const QSqlDatabase* self) {
-    QString _ret = self->userName();
+    auto _ret = self->userName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -166,7 +166,7 @@ libqt_string QSqlDatabase_UserName(const QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_Password(const QSqlDatabase* self) {
-    QString _ret = self->password();
+    auto _ret = self->password();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -178,7 +178,7 @@ libqt_string QSqlDatabase_Password(const QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_HostName(const QSqlDatabase* self) {
-    QString _ret = self->hostName();
+    auto _ret = self->hostName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -190,7 +190,7 @@ libqt_string QSqlDatabase_HostName(const QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_DriverName(const QSqlDatabase* self) {
-    QString _ret = self->driverName();
+    auto _ret = self->driverName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -206,7 +206,7 @@ int QSqlDatabase_Port(const QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_ConnectOptions(const QSqlDatabase* self) {
-    QString _ret = self->connectOptions();
+    auto _ret = self->connectOptions();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -218,7 +218,7 @@ libqt_string QSqlDatabase_ConnectOptions(const QSqlDatabase* self) {
 }
 
 libqt_string QSqlDatabase_ConnectionName(const QSqlDatabase* self) {
-    QString _ret = self->connectionName();
+    auto _ret = self->connectionName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -287,7 +287,7 @@ libqt_list /* of libqt_string */ QSqlDatabase_Drivers() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -308,7 +308,7 @@ libqt_list /* of libqt_string */ QSqlDatabase_ConnectionNames() {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -339,7 +339,7 @@ libqt_list /* of libqt_string */ QSqlDatabase_Tables1(const QSqlDatabase* self, 
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

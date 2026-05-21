@@ -136,7 +136,7 @@ void QTextLayout_SetText(QTextLayout* self, const libqt_string stringVal) {
 }
 
 libqt_string QTextLayout_Text(const QTextLayout* self) {
-    QString _ret = self->text();
+    auto _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -167,7 +167,7 @@ int QTextLayout_PreeditAreaPosition(const QTextLayout* self) {
 }
 
 libqt_string QTextLayout_PreeditAreaText(const QTextLayout* self) {
-    QString _ret = self->preeditAreaText();
+    auto _ret = self->preeditAreaText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

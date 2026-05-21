@@ -306,6 +306,8 @@ pub const KParts__ListingFilterExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__ListingFilterExtension, mode: listingfilterextension_enums.FilterMode) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnFilter(self: KParts__ListingFilterExtension, callback: *const fn (KParts__ListingFilterExtension, i32) callconv(.c) QVariant) void {
         qtc.KParts__ListingFilterExtension_OnFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }

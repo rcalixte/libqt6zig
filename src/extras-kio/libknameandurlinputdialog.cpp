@@ -82,7 +82,7 @@ void KNameAndUrlInputDialog_SetSuggestedUrl(KNameAndUrlInputDialog* self, const 
 }
 
 libqt_string KNameAndUrlInputDialog_Name(const KNameAndUrlInputDialog* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -98,7 +98,7 @@ QUrl* KNameAndUrlInputDialog_Url(const KNameAndUrlInputDialog* self) {
 }
 
 libqt_string KNameAndUrlInputDialog_UrlText(const KNameAndUrlInputDialog* self) {
-    QString _ret = self->urlText();
+    auto _ret = self->urlText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

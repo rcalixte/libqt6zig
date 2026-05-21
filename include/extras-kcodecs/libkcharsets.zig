@@ -36,6 +36,36 @@ pub const KCharsets = extern struct {
         return .{ .ptr = qtc.KCharsets_Charsets() };
     }
 
+    /// ### [Upstream resources](https://api.kde.org/kcharsets.html#fromEntity)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` str: []const u8 `
+    ///
+    pub fn FromEntity(str: []const u8) QChar {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.KCharsets_FromEntity(str_str) };
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcharsets.html#fromEntity)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` str: []const u8 `
+    ///
+    /// ` lenVal: *i32 `
+    ///
+    pub fn FromEntity2(str: []const u8, lenVal: *i32) QChar {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
+        };
+        return .{ .ptr = qtc.KCharsets_FromEntity2(str_str, @ptrCast(lenVal)) };
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kcharsets.html#toEntity)
     ///
     /// ## Parameter(s):
@@ -157,6 +187,28 @@ pub const KCharsets = extern struct {
             }
             _ret[i] = _strlist;
         }
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://api.kde.org/kcharsets.html#descriptionForEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KCharsets `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    pub fn DescriptionForEncoding(self: KCharsets, allocator: std.mem.Allocator, encoding: []const u8) []const u8 {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        var _str = qtc.KCharsets_DescriptionForEncoding(@ptrCast(self.ptr), encoding_str);
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcharsets.DescriptionForEncoding: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

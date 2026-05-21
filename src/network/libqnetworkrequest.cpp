@@ -143,7 +143,7 @@ void QNetworkRequest_SetMaximumRedirectsAllowed(QNetworkRequest* self, int maxim
 }
 
 libqt_string QNetworkRequest_PeerVerifyName(const QNetworkRequest* self) {
-    QString _ret = self->peerVerifyName();
+    auto _ret = self->peerVerifyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

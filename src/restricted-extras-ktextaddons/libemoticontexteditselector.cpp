@@ -96,7 +96,7 @@ void TextEmoticonsWidgets__EmoticonTextEditSelector_InsertEmoji(TextEmoticonsWid
 void TextEmoticonsWidgets__EmoticonTextEditSelector_Connect_InsertEmoji(TextEmoticonsWidgets__EmoticonTextEditSelector* self, intptr_t slot) {
     void (*slotFunc)(TextEmoticonsWidgets__EmoticonTextEditSelector*, const char*) = reinterpret_cast<void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, const char*)>(slot);
     TextEmoticonsWidgets::EmoticonTextEditSelector::connect(self, &TextEmoticonsWidgets::EmoticonTextEditSelector::insertEmoji, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -117,7 +117,7 @@ void TextEmoticonsWidgets__EmoticonTextEditSelector_InsertEmojiIdentifier(TextEm
 void TextEmoticonsWidgets__EmoticonTextEditSelector_Connect_InsertEmojiIdentifier(TextEmoticonsWidgets__EmoticonTextEditSelector* self, intptr_t slot) {
     void (*slotFunc)(TextEmoticonsWidgets__EmoticonTextEditSelector*, const char*) = reinterpret_cast<void (*)(TextEmoticonsWidgets__EmoticonTextEditSelector*, const char*)>(slot);
     TextEmoticonsWidgets::EmoticonTextEditSelector::connect(self, &TextEmoticonsWidgets::EmoticonTextEditSelector::insertEmojiIdentifier, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

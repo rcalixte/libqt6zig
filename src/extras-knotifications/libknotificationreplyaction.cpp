@@ -43,7 +43,7 @@ int KNotificationReplyAction_Metacall(KNotificationReplyAction* self, int param1
 }
 
 libqt_string KNotificationReplyAction_Label(const KNotificationReplyAction* self) {
-    QString _ret = self->label();
+    auto _ret = self->label();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ void KNotificationReplyAction_SetLabel(KNotificationReplyAction* self, const lib
 }
 
 libqt_string KNotificationReplyAction_PlaceholderText(const KNotificationReplyAction* self) {
-    QString _ret = self->placeholderText();
+    auto _ret = self->placeholderText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -77,7 +77,7 @@ void KNotificationReplyAction_SetPlaceholderText(KNotificationReplyAction* self,
 }
 
 libqt_string KNotificationReplyAction_SubmitButtonText(const KNotificationReplyAction* self) {
-    QString _ret = self->submitButtonText();
+    auto _ret = self->submitButtonText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -94,7 +94,7 @@ void KNotificationReplyAction_SetSubmitButtonText(KNotificationReplyAction* self
 }
 
 libqt_string KNotificationReplyAction_SubmitButtonIconName(const KNotificationReplyAction* self) {
-    QString _ret = self->submitButtonIconName();
+    auto _ret = self->submitButtonIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -126,7 +126,7 @@ void KNotificationReplyAction_Replied(KNotificationReplyAction* self, const libq
 void KNotificationReplyAction_Connect_Replied(KNotificationReplyAction* self, intptr_t slot) {
     void (*slotFunc)(KNotificationReplyAction*, const char*) = reinterpret_cast<void (*)(KNotificationReplyAction*, const char*)>(slot);
     KNotificationReplyAction::connect(self, &KNotificationReplyAction::replied, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

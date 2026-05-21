@@ -57,7 +57,7 @@ void QTextDocumentWriter_SetFileName(QTextDocumentWriter* self, const libqt_stri
 }
 
 libqt_string QTextDocumentWriter_FileName(const QTextDocumentWriter* self) {
-    QString _ret = self->fileName();
+    auto _ret = self->fileName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

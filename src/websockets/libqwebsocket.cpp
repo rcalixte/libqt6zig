@@ -77,7 +77,7 @@ int QWebSocket_Error(const QWebSocket* self) {
 }
 
 libqt_string QWebSocket_ErrorString(const QWebSocket* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -113,7 +113,7 @@ QHostAddress* QWebSocket_PeerAddress(const QWebSocket* self) {
 }
 
 libqt_string QWebSocket_PeerName(const QWebSocket* self) {
-    QString _ret = self->peerName();
+    auto _ret = self->peerName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -169,7 +169,7 @@ int QWebSocket_Version(const QWebSocket* self) {
 }
 
 libqt_string QWebSocket_ResourceName(const QWebSocket* self) {
-    QString _ret = self->resourceName();
+    auto _ret = self->resourceName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -193,7 +193,7 @@ QWebSocketHandshakeOptions* QWebSocket_HandshakeOptions(const QWebSocket* self) 
 }
 
 libqt_string QWebSocket_Origin(const QWebSocket* self) {
-    QString _ret = self->origin();
+    auto _ret = self->origin();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -205,7 +205,7 @@ libqt_string QWebSocket_Origin(const QWebSocket* self) {
 }
 
 libqt_string QWebSocket_Subprotocol(const QWebSocket* self) {
-    QString _ret = self->subprotocol();
+    auto _ret = self->subprotocol();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -221,7 +221,7 @@ int QWebSocket_CloseCode(const QWebSocket* self) {
 }
 
 libqt_string QWebSocket_CloseReason(const QWebSocket* self) {
-    QString _ret = self->closeReason();
+    auto _ret = self->closeReason();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -423,7 +423,7 @@ void QWebSocket_TextFrameReceived(QWebSocket* self, const libqt_string frame, bo
 void QWebSocket_Connect_TextFrameReceived(QWebSocket* self, intptr_t slot) {
     void (*slotFunc)(QWebSocket*, const char*, bool) = reinterpret_cast<void (*)(QWebSocket*, const char*, bool)>(slot);
     QWebSocket::connect(self, &QWebSocket::textFrameReceived, [self, slotFunc](const QString& frame, bool isLastFrame) {
-        const QString frame_ret = frame;
+        const auto frame_ret = frame;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray frame_b = frame_ret.toUtf8();
         auto frame_str_len = frame_b.length();
@@ -465,7 +465,7 @@ void QWebSocket_TextMessageReceived(QWebSocket* self, const libqt_string message
 void QWebSocket_Connect_TextMessageReceived(QWebSocket* self, intptr_t slot) {
     void (*slotFunc)(QWebSocket*, const char*) = reinterpret_cast<void (*)(QWebSocket*, const char*)>(slot);
     QWebSocket::connect(self, &QWebSocket::textMessageReceived, [self, slotFunc](const QString& message) {
-        const QString message_ret = message;
+        const auto message_ret = message;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
         auto message_str_len = message_b.length();
@@ -609,7 +609,7 @@ void QWebSocket_Connect_AlertSent(QWebSocket* self, intptr_t slot) {
     QWebSocket::connect(self, &QWebSocket::alertSent, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
         int sigval1 = static_cast<int>(level);
         int sigval2 = static_cast<int>(typeVal);
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();
@@ -632,7 +632,7 @@ void QWebSocket_Connect_AlertReceived(QWebSocket* self, intptr_t slot) {
     QWebSocket::connect(self, &QWebSocket::alertReceived, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
         int sigval1 = static_cast<int>(level);
         int sigval2 = static_cast<int>(typeVal);
-        const QString description_ret = description;
+        const auto description_ret = description;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
         auto description_str_len = description_b.length();

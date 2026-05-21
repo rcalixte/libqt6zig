@@ -230,7 +230,7 @@ void QGraphicsWidget_SetWindowTitle(QGraphicsWidget* self, const libqt_string ti
 }
 
 libqt_string QGraphicsWidget_WindowTitle(const QGraphicsWidget* self) {
-    QString _ret = self->windowTitle();
+    auto _ret = self->windowTitle();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

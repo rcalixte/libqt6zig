@@ -7,7 +7,7 @@
 
 libqt_string KIO_BuildErrorString(int param1, const libqt_string param2) {
     QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString _ret = KIO::buildErrorString(static_cast<int>(param1), param2_QString);
+    auto _ret = KIO::buildErrorString(static_cast<int>(param1), param2_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -5472,6 +5472,8 @@ pub const KShortcutsEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KShortcutsEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.KShortcutsEditor_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5519,6 +5521,8 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KShortcutsEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.KShortcutsEditor_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7453,6 +7457,8 @@ pub const KShortcutsEditor = extern struct {
     /// ` self: KShortcutsEditor`
     ///
     /// ` callback: *const fn (self: KShortcutsEditor, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KShortcutsEditor, callback: *const fn (KShortcutsEditor, i32) callconv(.c) QVariant) void {
         qtc.KShortcutsEditor_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

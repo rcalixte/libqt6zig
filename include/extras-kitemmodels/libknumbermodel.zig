@@ -373,6 +373,8 @@ pub const KNumberModel = extern struct {
     ///
     /// ` callback: *const fn (self: KNumberModel, index: QModelIndex, role: i32) callconv(.c) QVariant `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnData(self: KNumberModel, callback: *const fn (KNumberModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KNumberModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -660,6 +662,8 @@ pub const KNumberModel = extern struct {
     /// ` self: KNumberModel `
     ///
     /// ` callback: *const fn (self: KNumberModel, child: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnParent(self: KNumberModel, callback: *const fn (KNumberModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2110,6 +2114,8 @@ pub const KNumberModel = extern struct {
     ///
     /// ` callback: *const fn (self: KNumberModel, row: i32, column: i32, parent: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnIndex(self: KNumberModel, callback: *const fn (KNumberModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KNumberModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -2171,6 +2177,8 @@ pub const KNumberModel = extern struct {
     /// ` self: KNumberModel`
     ///
     /// ` callback: *const fn (self: KNumberModel, row: i32, column: i32, idx: QModelIndex) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSibling(self: KNumberModel, callback: *const fn (KNumberModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KNumberModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -2429,6 +2437,8 @@ pub const KNumberModel = extern struct {
     /// ` self: KNumberModel`
     ///
     /// ` callback: *const fn (self: KNumberModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnHeaderData(self: KNumberModel, callback: *const fn (KNumberModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KNumberModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3674,6 +3684,8 @@ pub const KNumberModel = extern struct {
     ///
     /// ` callback: *const fn (self: KNumberModel, index: QModelIndex) callconv(.c) QModelIndex `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnBuddy(self: KNumberModel, callback: *const fn (KNumberModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KNumberModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -3821,6 +3833,8 @@ pub const KNumberModel = extern struct {
     /// ` self: KNumberModel`
     ///
     /// ` callback: *const fn (self: KNumberModel, index: QModelIndex) callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnSpan(self: KNumberModel, callback: *const fn (KNumberModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KNumberModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -4465,6 +4479,8 @@ pub const KNumberModel = extern struct {
     /// ` self: KNumberModel`
     ///
     /// ` callback: *const fn (self: KNumberModel, row: i32, column: i32) callconv(.c) QModelIndex `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnCreateIndex(self: KNumberModel, callback: *const fn (KNumberModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KNumberModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

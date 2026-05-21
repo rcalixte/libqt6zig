@@ -5956,6 +5956,8 @@ pub const KUrlRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlRequester_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -6003,6 +6005,8 @@ pub const KUrlRequester = extern struct {
     /// ` self: KUrlRequester`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KUrlRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlRequester_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7883,6 +7887,8 @@ pub const KUrlRequester = extern struct {
     /// ` self: KUrlRequester`
     ///
     /// ` callback: *const fn (self: KUrlRequester, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KUrlRequester, callback: *const fn (KUrlRequester, i32) callconv(.c) QVariant) void {
         qtc.KUrlRequester_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -14680,6 +14686,8 @@ pub const KUrlComboRequester = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlComboRequester_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -14727,6 +14735,8 @@ pub const KUrlComboRequester = extern struct {
     /// ` self: KUrlComboRequester`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KUrlComboRequester, callback: *const fn () callconv(.c) QSize) void {
         qtc.KUrlComboRequester_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -16607,6 +16617,8 @@ pub const KUrlComboRequester = extern struct {
     /// ` self: KUrlComboRequester`
     ///
     /// ` callback: *const fn (self: KUrlComboRequester, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KUrlComboRequester, callback: *const fn (KUrlComboRequester, i32) callconv(.c) QVariant) void {
         qtc.KUrlComboRequester_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

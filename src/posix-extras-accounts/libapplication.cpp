@@ -22,7 +22,7 @@ bool Accounts__Application_IsValid(const Accounts__Application* self) {
 }
 
 libqt_string Accounts__Application_Name(const Accounts__Application* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -34,7 +34,7 @@ libqt_string Accounts__Application_Name(const Accounts__Application* self) {
 }
 
 libqt_string Accounts__Application_DisplayName(const Accounts__Application* self) {
-    QString _ret = self->displayName();
+    auto _ret = self->displayName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,7 +46,7 @@ libqt_string Accounts__Application_DisplayName(const Accounts__Application* self
 }
 
 libqt_string Accounts__Application_Description(const Accounts__Application* self) {
-    QString _ret = self->description();
+    auto _ret = self->description();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -58,7 +58,7 @@ libqt_string Accounts__Application_Description(const Accounts__Application* self
 }
 
 libqt_string Accounts__Application_IconName(const Accounts__Application* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -70,7 +70,7 @@ libqt_string Accounts__Application_IconName(const Accounts__Application* self) {
 }
 
 libqt_string Accounts__Application_DesktopFilePath(const Accounts__Application* self) {
-    QString _ret = self->desktopFilePath();
+    auto _ret = self->desktopFilePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -82,7 +82,7 @@ libqt_string Accounts__Application_DesktopFilePath(const Accounts__Application* 
 }
 
 libqt_string Accounts__Application_TrCatalog(const Accounts__Application* self) {
-    QString _ret = self->trCatalog();
+    auto _ret = self->trCatalog();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -98,7 +98,7 @@ bool Accounts__Application_SupportsService(const Accounts__Application* self, co
 }
 
 libqt_string Accounts__Application_ServiceUsage(const Accounts__Application* self, const Accounts__Service* service) {
-    QString _ret = self->serviceUsage(*service);
+    auto _ret = self->serviceUsage(*service);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

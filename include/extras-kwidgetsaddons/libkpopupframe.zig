@@ -5563,6 +5563,8 @@ pub const KPopupFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KPopupFrame, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPopupFrame_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -5926,6 +5928,8 @@ pub const KPopupFrame = extern struct {
     /// ` self: KPopupFrame`
     ///
     /// ` callback: *const fn () callconv(.c) QSize `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnMinimumSizeHint(self: KPopupFrame, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPopupFrame_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -7536,6 +7540,8 @@ pub const KPopupFrame = extern struct {
     /// ` self: KPopupFrame`
     ///
     /// ` callback: *const fn (self: KPopupFrame, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QVariant `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnInputMethodQuery(self: KPopupFrame, callback: *const fn (KPopupFrame, i32) callconv(.c) QVariant) void {
         qtc.KPopupFrame_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

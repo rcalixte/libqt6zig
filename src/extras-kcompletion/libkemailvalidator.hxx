@@ -165,7 +165,7 @@ class VirtualKEmailValidator final : public KEmailValidator {
         }
         auto validate_cb = kemailvalidator_validate_callback;
         if (validate_cb) {
-            QString str_ret = str;
+            auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();
@@ -190,7 +190,7 @@ class VirtualKEmailValidator final : public KEmailValidator {
         }
         auto fixup_cb = kemailvalidator_fixup_callback;
         if (fixup_cb) {
-            QString str_ret = str;
+            auto str_ret = str;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray str_b = str_ret.toUtf8();
             auto str_str_len = str_b.length();

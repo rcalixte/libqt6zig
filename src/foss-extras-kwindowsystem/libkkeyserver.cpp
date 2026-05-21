@@ -6,7 +6,7 @@
 #include "libkkeyserver.hxx"
 
 libqt_string KKeyServer_ModToStringUser(unsigned int param1) {
-    QString _ret = KKeyServer::modToStringUser(static_cast<uint>(param1));
+    auto _ret = KKeyServer::modToStringUser(static_cast<uint>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

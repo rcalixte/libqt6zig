@@ -718,6 +718,8 @@ pub const KConfig = extern struct {
     ///
     /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8) callconv(.c) KConfigGroup `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnGroupImpl(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
         qtc.KConfig_OnGroupImpl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -769,6 +771,8 @@ pub const KConfig = extern struct {
     /// ` self: KConfig `
     ///
     /// ` callback: *const fn (self: KConfig, groupName: [*:0]const u8) callconv(.c) KConfigGroup `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnGroupImpl2(self: KConfig, callback: *const fn (KConfig, [*:0]const u8) callconv(.c) KConfigGroup) void {
         qtc.KConfig_OnGroupImpl2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

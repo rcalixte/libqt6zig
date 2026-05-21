@@ -62,7 +62,7 @@ int KFontAction_Metacall(KFontAction* self, int param1, int param2, void** param
 }
 
 libqt_string KFontAction_Font(const KFontAction* self) {
-    QString _ret = self->font();
+    auto _ret = self->font();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

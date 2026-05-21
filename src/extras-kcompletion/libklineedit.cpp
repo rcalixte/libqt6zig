@@ -158,7 +158,7 @@ bool KLineEdit_IsSqueezedTextEnabled(const KLineEdit* self) {
 }
 
 libqt_string KLineEdit_OriginalText(const KLineEdit* self) {
-    QString _ret = self->originalText();
+    auto _ret = self->originalText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -170,7 +170,7 @@ libqt_string KLineEdit_OriginalText(const KLineEdit* self) {
 }
 
 libqt_string KLineEdit_UserText(const KLineEdit* self) {
-    QString _ret = self->userText();
+    auto _ret = self->userText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -202,7 +202,7 @@ void KLineEdit_CompletionBoxActivated(KLineEdit* self, const libqt_string param1
 void KLineEdit_Connect_CompletionBoxActivated(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
     KLineEdit::connect(self, &KLineEdit::completionBoxActivated, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -223,7 +223,7 @@ void KLineEdit_ReturnKeyPressed(KLineEdit* self, const libqt_string text) {
 void KLineEdit_Connect_ReturnKeyPressed(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
     KLineEdit::connect(self, &KLineEdit::returnKeyPressed, [self, slotFunc](const QString& text) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();
@@ -244,7 +244,7 @@ void KLineEdit_Completion(KLineEdit* self, const libqt_string param1) {
 void KLineEdit_Connect_Completion(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
     KLineEdit::connect(self, &KLineEdit::completion, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -265,7 +265,7 @@ void KLineEdit_SubstringCompletion(KLineEdit* self, const libqt_string param1) {
 void KLineEdit_Connect_SubstringCompletion(KLineEdit* self, intptr_t slot) {
     void (*slotFunc)(KLineEdit*, const char*) = reinterpret_cast<void (*)(KLineEdit*, const char*)>(slot);
     KLineEdit::connect(self, &KLineEdit::substringCompletion, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();

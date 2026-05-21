@@ -244,7 +244,7 @@ void TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_SetTypographicSingle
 }
 
 libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_TypographicSingleQuotes() {
-    QString _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::typographicSingleQuotes();
+    auto _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::typographicSingleQuotes();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -269,7 +269,7 @@ void TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_SetTypographicDouble
 }
 
 libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_TypographicDoubleQuotes() {
-    QString _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::typographicDoubleQuotes();
+    auto _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::typographicDoubleQuotes();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -294,7 +294,7 @@ void TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_SetCustomWritablePat
 }
 
 libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_CustomWritablePath() {
-    QString _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::customWritablePath();
+    auto _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::customWritablePath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -319,7 +319,7 @@ void TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_SetCustomSystemPath(
 }
 
 libqt_string TextAutoCorrectionCore__TextAutoCorrectionSettingsBase_CustomSystemPath() {
-    QString _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::customSystemPath();
+    auto _ret = TextAutoCorrectionCore::TextAutoCorrectionSettingsBase::customSystemPath();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

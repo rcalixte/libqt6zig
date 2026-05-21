@@ -39,7 +39,7 @@ bool QToolTip_IsVisible() {
 }
 
 libqt_string QToolTip_Text() {
-    QString _ret = QToolTip::text();
+    auto _ret = QToolTip::text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -38,7 +38,7 @@ void KIO__OpenWith__AcceptResult_SetAccept(KIO__OpenWith__AcceptResult* self, bo
 }
 
 libqt_string KIO__OpenWith__AcceptResult_Error(const KIO__OpenWith__AcceptResult* self) {
-    QString error_ret = self->error;
+    auto error_ret = self->error;
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray error_b = error_ret.toUtf8();
     libqt_string error_str;

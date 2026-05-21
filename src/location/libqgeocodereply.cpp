@@ -59,7 +59,7 @@ int QGeoCodeReply_Error(const QGeoCodeReply* self) {
 }
 
 libqt_string QGeoCodeReply_ErrorString(const QGeoCodeReply* self) {
-    QString _ret = self->errorString();
+    auto _ret = self->errorString();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -147,7 +147,7 @@ void QGeoCodeReply_Connect_ErrorOccurred2(QGeoCodeReply* self, intptr_t slot) {
     void (*slotFunc)(QGeoCodeReply*, int, const char*) = reinterpret_cast<void (*)(QGeoCodeReply*, int, const char*)>(slot);
     QGeoCodeReply::connect(self, &QGeoCodeReply::errorOccurred, [self, slotFunc](QGeoCodeReply::Error errorVal, const QString& errorString) {
         int sigval1 = static_cast<int>(errorVal);
-        const QString errorString_ret = errorString;
+        const auto errorString_ret = errorString;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
         auto errorString_str_len = errorString_b.length();

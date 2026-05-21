@@ -470,7 +470,7 @@ class VirtualQDesignerPropertyEditorInterface : public QDesignerPropertyEditorIn
     virtual void setPropertyValue(const QString& name, const QVariant& value, bool changed) override {
         auto setpropertyvalue_cb = qdesignerpropertyeditorinterface_setpropertyvalue_callback;
         if (setpropertyvalue_cb) {
-            const QString name_ret = name;
+            const auto name_ret = name;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray name_b = name_ret.toUtf8();
             auto name_str_len = name_b.length();

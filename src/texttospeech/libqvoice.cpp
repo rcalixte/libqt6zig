@@ -22,7 +22,7 @@ void QVoice_Swap(QVoice* self, QVoice* other) {
 }
 
 libqt_string QVoice_Name(const QVoice* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -50,7 +50,7 @@ uint16_t QVoice_Language(const QVoice* self) {
 }
 
 libqt_string QVoice_GenderName(int gender) {
-    QString _ret = QVoice::genderName(static_cast<QVoice::Gender>(gender));
+    auto _ret = QVoice::genderName(static_cast<QVoice::Gender>(gender));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -62,7 +62,7 @@ libqt_string QVoice_GenderName(int gender) {
 }
 
 libqt_string QVoice_AgeName(int age) {
-    QString _ret = QVoice::ageName(static_cast<QVoice::Age>(age));
+    auto _ret = QVoice::ageName(static_cast<QVoice::Age>(age));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

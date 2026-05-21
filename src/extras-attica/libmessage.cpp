@@ -23,7 +23,7 @@ void Attica__Message_SetId(Attica__Message* self, const libqt_string id) {
 }
 
 libqt_string Attica__Message_Id(const Attica__Message* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ void Attica__Message_SetFrom(Attica__Message* self, const libqt_string from) {
 }
 
 libqt_string Attica__Message_From(const Attica__Message* self) {
-    QString _ret = self->from();
+    auto _ret = self->from();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -57,7 +57,7 @@ void Attica__Message_SetTo(Attica__Message* self, const libqt_string to) {
 }
 
 libqt_string Attica__Message_To(const Attica__Message* self) {
-    QString _ret = self->to();
+    auto _ret = self->to();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -90,7 +90,7 @@ void Attica__Message_SetSubject(Attica__Message* self, const libqt_string subjec
 }
 
 libqt_string Attica__Message_Subject(const Attica__Message* self) {
-    QString _ret = self->subject();
+    auto _ret = self->subject();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -107,7 +107,7 @@ void Attica__Message_SetBody(Attica__Message* self, const libqt_string body) {
 }
 
 libqt_string Attica__Message_Body(const Attica__Message* self) {
-    QString _ret = self->body();
+    auto _ret = self->body();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

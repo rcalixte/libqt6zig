@@ -38,7 +38,7 @@ libqt_map /* of libqt_string to QVariant* */ Solid__GenericInterface_AllProperti
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;
     for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-        QString _mapkey_ret = _itr->first;
+        auto _mapkey_ret = _itr->first;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
@@ -82,7 +82,7 @@ void Solid__GenericInterface_Connect_PropertyChanged(Solid__GenericInterface* se
         int* changes_varr = static_cast<int*>(malloc(sizeof(int) * changes_ret.size()));
         int changes_ctr = 0;
         for (auto changes_itr = changes_ret.keyValueBegin(); changes_itr != changes_ret.keyValueEnd(); ++changes_itr) {
-            QString changes_mapkey_ret = changes_itr->first;
+            auto changes_mapkey_ret = changes_itr->first;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray changes_mapkey_b = changes_mapkey_ret.toUtf8();
             libqt_string changes_mapkey_str;
@@ -112,7 +112,7 @@ void Solid__GenericInterface_ConditionRaised(Solid__GenericInterface* self, cons
 void Solid__GenericInterface_Connect_ConditionRaised(Solid__GenericInterface* self, intptr_t slot) {
     void (*slotFunc)(Solid__GenericInterface*, const char*, const char*) = reinterpret_cast<void (*)(Solid__GenericInterface*, const char*, const char*)>(slot);
     Solid::GenericInterface::connect(self, &Solid::GenericInterface::conditionRaised, [self, slotFunc](const QString& condition, const QString& reason) {
-        const QString condition_ret = condition;
+        const auto condition_ret = condition;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray condition_b = condition_ret.toUtf8();
         auto condition_str_len = condition_b.length();
@@ -120,7 +120,7 @@ void Solid__GenericInterface_Connect_ConditionRaised(Solid__GenericInterface* se
         memcpy((void*)condition_str, condition_b.data(), condition_str_len);
         ((char*)condition_str)[condition_str_len] = '\0';
         const char* sigval1 = condition_str;
-        const QString reason_ret = reason;
+        const auto reason_ret = reason;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray reason_b = reason_ret.toUtf8();
         auto reason_str_len = reason_b.length();

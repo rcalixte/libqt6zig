@@ -36,7 +36,7 @@ bool KCountry_IsValid(const KCountry* self) {
 }
 
 libqt_string KCountry_Alpha2(const KCountry* self) {
-    QString _ret = self->alpha2();
+    auto _ret = self->alpha2();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -48,7 +48,7 @@ libqt_string KCountry_Alpha2(const KCountry* self) {
 }
 
 libqt_string KCountry_Alpha3(const KCountry* self) {
-    QString _ret = self->alpha3();
+    auto _ret = self->alpha3();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -60,7 +60,7 @@ libqt_string KCountry_Alpha3(const KCountry* self) {
 }
 
 libqt_string KCountry_Name(const KCountry* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,7 +72,7 @@ libqt_string KCountry_Name(const KCountry* self) {
 }
 
 libqt_string KCountry_EmojiFlag(const KCountry* self) {
-    QString _ret = self->emojiFlag();
+    auto _ret = self->emojiFlag();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -101,7 +101,7 @@ libqt_list /* of const char* */ KCountry_TimeZoneIds(const KCountry* self) {
 }
 
 libqt_string KCountry_CurrencyCode(const KCountry* self) {
-    QString _ret = self->currencyCode();
+    auto _ret = self->currencyCode();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -125,8 +125,18 @@ libqt_list /* of KCountrySubdivision* */ KCountry_Subdivisions(const KCountry* s
     return _out;
 }
 
+KCountry* KCountry_FromAlpha2(libqt_string alpha2Code) {
+    QString alpha2Code_QString = QString::fromUtf8(alpha2Code.data, alpha2Code.len);
+    return new KCountry(KCountry::fromAlpha2(alpha2Code_QString));
+}
+
 KCountry* KCountry_FromAlpha22(const char* alpha2Code) {
     return new KCountry(KCountry::fromAlpha2(alpha2Code));
+}
+
+KCountry* KCountry_FromAlpha3(libqt_string alpha3Code) {
+    QString alpha3Code_QString = QString::fromUtf8(alpha3Code.data, alpha3Code.len);
+    return new KCountry(KCountry::fromAlpha3(alpha3Code_QString));
 }
 
 KCountry* KCountry_FromAlpha32(const char* alpha3Code) {
@@ -139,6 +149,11 @@ KCountry* KCountry_FromLocation(float latitude, float longitude) {
 
 KCountry* KCountry_FromQLocale(uint16_t country) {
     return new KCountry(KCountry::fromQLocale(static_cast<QLocale::Country>(country)));
+}
+
+KCountry* KCountry_FromName(libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new KCountry(KCountry::fromName(name_QString));
 }
 
 libqt_list /* of KCountry* */ KCountry_AllCountries() {

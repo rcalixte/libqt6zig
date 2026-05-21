@@ -15,7 +15,7 @@ KOSRelease* KOSRelease_new2(const libqt_string filePath) {
 }
 
 libqt_string KOSRelease_Name(const KOSRelease* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -27,7 +27,7 @@ libqt_string KOSRelease_Name(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_Version(const KOSRelease* self) {
-    QString _ret = self->version();
+    auto _ret = self->version();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -39,7 +39,7 @@ libqt_string KOSRelease_Version(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_Id(const KOSRelease* self) {
-    QString _ret = self->id();
+    auto _ret = self->id();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,7 +55,7 @@ libqt_list /* of libqt_string */ KOSRelease_IdLike(const KOSRelease* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -72,7 +72,7 @@ libqt_list /* of libqt_string */ KOSRelease_IdLike(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_VersionCodename(const KOSRelease* self) {
-    QString _ret = self->versionCodename();
+    auto _ret = self->versionCodename();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -84,7 +84,7 @@ libqt_string KOSRelease_VersionCodename(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_VersionId(const KOSRelease* self) {
-    QString _ret = self->versionId();
+    auto _ret = self->versionId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -96,7 +96,7 @@ libqt_string KOSRelease_VersionId(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_PrettyName(const KOSRelease* self) {
-    QString _ret = self->prettyName();
+    auto _ret = self->prettyName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -108,7 +108,7 @@ libqt_string KOSRelease_PrettyName(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_AnsiColor(const KOSRelease* self) {
-    QString _ret = self->ansiColor();
+    auto _ret = self->ansiColor();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ libqt_string KOSRelease_AnsiColor(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_CpeName(const KOSRelease* self) {
-    QString _ret = self->cpeName();
+    auto _ret = self->cpeName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -132,7 +132,7 @@ libqt_string KOSRelease_CpeName(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_HomeUrl(const KOSRelease* self) {
-    QString _ret = self->homeUrl();
+    auto _ret = self->homeUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -144,7 +144,7 @@ libqt_string KOSRelease_HomeUrl(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_DocumentationUrl(const KOSRelease* self) {
-    QString _ret = self->documentationUrl();
+    auto _ret = self->documentationUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -156,7 +156,7 @@ libqt_string KOSRelease_DocumentationUrl(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_SupportUrl(const KOSRelease* self) {
-    QString _ret = self->supportUrl();
+    auto _ret = self->supportUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -168,7 +168,7 @@ libqt_string KOSRelease_SupportUrl(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_BugReportUrl(const KOSRelease* self) {
-    QString _ret = self->bugReportUrl();
+    auto _ret = self->bugReportUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -180,7 +180,7 @@ libqt_string KOSRelease_BugReportUrl(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_PrivacyPolicyUrl(const KOSRelease* self) {
-    QString _ret = self->privacyPolicyUrl();
+    auto _ret = self->privacyPolicyUrl();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -192,7 +192,7 @@ libqt_string KOSRelease_PrivacyPolicyUrl(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_BuildId(const KOSRelease* self) {
-    QString _ret = self->buildId();
+    auto _ret = self->buildId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -204,7 +204,7 @@ libqt_string KOSRelease_BuildId(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_Variant(const KOSRelease* self) {
-    QString _ret = self->variant();
+    auto _ret = self->variant();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -216,7 +216,7 @@ libqt_string KOSRelease_Variant(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_VariantId(const KOSRelease* self) {
-    QString _ret = self->variantId();
+    auto _ret = self->variantId();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -228,7 +228,7 @@ libqt_string KOSRelease_VariantId(const KOSRelease* self) {
 }
 
 libqt_string KOSRelease_Logo(const KOSRelease* self) {
-    QString _ret = self->logo();
+    auto _ret = self->logo();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -244,7 +244,7 @@ libqt_list /* of libqt_string */ KOSRelease_ExtraKeys(const KOSRelease* self) {
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
@@ -262,7 +262,7 @@ libqt_list /* of libqt_string */ KOSRelease_ExtraKeys(const KOSRelease* self) {
 
 libqt_string KOSRelease_ExtraValue(const KOSRelease* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    QString _ret = self->extraValue(key_QString);
+    auto _ret = self->extraValue(key_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

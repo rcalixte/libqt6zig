@@ -28,7 +28,7 @@ NETExtendedStrut* KWindowInfo_ExtendedStrut(const KWindowInfo* self) {
 }
 
 libqt_string KWindowInfo_VisibleName(const KWindowInfo* self) {
-    QString _ret = self->visibleName();
+    auto _ret = self->visibleName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,7 +40,7 @@ libqt_string KWindowInfo_VisibleName(const KWindowInfo* self) {
 }
 
 libqt_string KWindowInfo_VisibleNameWithState(const KWindowInfo* self) {
-    QString _ret = self->visibleNameWithState();
+    auto _ret = self->visibleNameWithState();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -52,7 +52,7 @@ libqt_string KWindowInfo_VisibleNameWithState(const KWindowInfo* self) {
 }
 
 libqt_string KWindowInfo_Name(const KWindowInfo* self) {
-    QString _ret = self->name();
+    auto _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -64,7 +64,7 @@ libqt_string KWindowInfo_Name(const KWindowInfo* self) {
 }
 
 libqt_string KWindowInfo_VisibleIconName(const KWindowInfo* self) {
-    QString _ret = self->visibleIconName();
+    auto _ret = self->visibleIconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -76,7 +76,7 @@ libqt_string KWindowInfo_VisibleIconName(const KWindowInfo* self) {
 }
 
 libqt_string KWindowInfo_VisibleIconNameWithState(const KWindowInfo* self) {
-    QString _ret = self->visibleIconNameWithState();
+    auto _ret = self->visibleIconNameWithState();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -88,7 +88,7 @@ libqt_string KWindowInfo_VisibleIconNameWithState(const KWindowInfo* self) {
 }
 
 libqt_string KWindowInfo_IconName(const KWindowInfo* self) {
-    QString _ret = self->iconName();
+    auto _ret = self->iconName();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -120,7 +120,7 @@ libqt_list /* of libqt_string */ KWindowInfo_Activities(const KWindowInfo* self)
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
-        QString _lv_ret = _ret[i];
+        auto _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;

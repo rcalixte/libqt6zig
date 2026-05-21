@@ -67,7 +67,7 @@ int QSqlRecord_IndexOf(const QSqlRecord* self, const char* name) {
 }
 
 libqt_string QSqlRecord_FieldName(const QSqlRecord* self, int i) {
-    QString _ret = self->fieldName(static_cast<int>(i));
+    auto _ret = self->fieldName(static_cast<int>(i));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

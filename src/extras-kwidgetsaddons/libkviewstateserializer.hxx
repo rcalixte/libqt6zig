@@ -167,7 +167,7 @@ class VirtualKViewStateSerializer : public KViewStateSerializer {
         auto indexfromconfigstring_cb = kviewstateserializer_indexfromconfigstring_callback;
         if (indexfromconfigstring_cb) {
             QAbstractItemModel* cbval1 = (QAbstractItemModel*)model;
-            const QString key_ret = key;
+            const auto key_ret = key;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
             QByteArray key_b = key_ret.toUtf8();
             auto key_str_len = key_b.length();

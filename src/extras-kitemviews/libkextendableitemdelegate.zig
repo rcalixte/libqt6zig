@@ -220,6 +220,8 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KExtendableItemDelegate, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QSize `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnSizeHint(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.KExtendableItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -499,6 +501,8 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: KExtendableItemDelegate, extender: QWidget, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QRect `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnExtenderRect(self: KExtendableItemDelegate, callback: *const fn (KExtendableItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) QRect) void {
         qtc.KExtendableItemDelegate_OnExtenderRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -640,6 +644,8 @@ pub const KExtendableItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
     ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
     pub fn OnExtendPixmap(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.KExtendableItemDelegate_OnExtendPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -679,6 +685,8 @@ pub const KExtendableItemDelegate = extern struct {
     /// ` self: KExtendableItemDelegate `
     ///
     /// ` callback: *const fn () callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
     pub fn OnContractPixmap(self: KExtendableItemDelegate, callback: *const fn () callconv(.c) QPixmap) void {
         qtc.KExtendableItemDelegate_OnContractPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

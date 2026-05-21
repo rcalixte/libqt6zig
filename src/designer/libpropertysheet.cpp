@@ -31,7 +31,7 @@ int QDesignerPropertySheetExtension_IndexOf(const QDesignerPropertySheetExtensio
 libqt_string QDesignerPropertySheetExtension_PropertyName(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        QString _ret = vqdesignerpropertysheetextension->propertyName(static_cast<int>(index));
+        auto _ret = vqdesignerpropertysheetextension->propertyName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -41,7 +41,7 @@ libqt_string QDesignerPropertySheetExtension_PropertyName(const QDesignerPropert
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyName(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -56,7 +56,7 @@ libqt_string QDesignerPropertySheetExtension_PropertyName(const QDesignerPropert
 libqt_string QDesignerPropertySheetExtension_PropertyGroup(const QDesignerPropertySheetExtension* self, int index) {
     auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        QString _ret = vqdesignerpropertysheetextension->propertyGroup(static_cast<int>(index));
+        auto _ret = vqdesignerpropertysheetextension->propertyGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -66,7 +66,7 @@ libqt_string QDesignerPropertySheetExtension_PropertyGroup(const QDesignerProper
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyGroup(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -231,7 +231,7 @@ libqt_string QDesignerPropertySheetExtension_SuperPropertyName(const QDesignerPr
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_PropertyName_IsBase(true);
-        QString _ret = vqdesignerpropertysheetextension->propertyName(static_cast<int>(index));
+        auto _ret = vqdesignerpropertysheetextension->propertyName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -241,7 +241,7 @@ libqt_string QDesignerPropertySheetExtension_SuperPropertyName(const QDesignerPr
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyName(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyName(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -266,7 +266,7 @@ libqt_string QDesignerPropertySheetExtension_SuperPropertyGroup(const QDesignerP
     auto* vqdesignerpropertysheetextension = const_cast<VirtualQDesignerPropertySheetExtension*>(dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self));
     if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
         vqdesignerpropertysheetextension->setQDesignerPropertySheetExtension_PropertyGroup_IsBase(true);
-        QString _ret = vqdesignerpropertysheetextension->propertyGroup(static_cast<int>(index));
+        auto _ret = vqdesignerpropertysheetextension->propertyGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -276,7 +276,7 @@ libqt_string QDesignerPropertySheetExtension_SuperPropertyGroup(const QDesignerP
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyGroup(static_cast<int>(index));
+        auto _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyGroup(static_cast<int>(index));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

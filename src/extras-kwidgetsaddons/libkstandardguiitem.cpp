@@ -12,7 +12,7 @@ KGuiItem* KStandardGuiItem_GuiItem(int param1) {
 }
 
 libqt_string KStandardGuiItem_StandardItem(int param1) {
-    QString _ret = KStandardGuiItem::standardItem(static_cast<KStandardGuiItem::StandardItem>(param1));
+    auto _ret = KStandardGuiItem::standardItem(static_cast<KStandardGuiItem::StandardItem>(param1));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

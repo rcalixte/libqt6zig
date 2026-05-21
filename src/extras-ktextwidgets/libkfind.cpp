@@ -82,7 +82,7 @@ void KFind_SetOptions(KFind* self, long options) {
 }
 
 libqt_string KFind_Pattern(const KFind* self) {
-    QString _ret = self->pattern();
+    auto _ret = self->pattern();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -165,7 +165,7 @@ void KFind_TextFound(KFind* self, const libqt_string text, int matchingIndex, in
 void KFind_Connect_TextFound(KFind* self, intptr_t slot) {
     void (*slotFunc)(KFind*, const char*, int, int) = reinterpret_cast<void (*)(KFind*, const char*, int, int)>(slot);
     KFind::connect(self, &KFind::textFound, [self, slotFunc](const QString& text, int matchingIndex, int matchedLength) {
-        const QString text_ret = text;
+        const auto text_ret = text;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray text_b = text_ret.toUtf8();
         auto text_str_len = text_b.length();

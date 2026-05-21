@@ -81,7 +81,7 @@ int QSpinBox_Value(const QSpinBox* self) {
 }
 
 libqt_string QSpinBox_Prefix(const QSpinBox* self) {
-    QString _ret = self->prefix();
+    auto _ret = self->prefix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -98,7 +98,7 @@ void QSpinBox_SetPrefix(QSpinBox* self, const libqt_string prefix) {
 }
 
 libqt_string QSpinBox_Suffix(const QSpinBox* self) {
-    QString _ret = self->suffix();
+    auto _ret = self->suffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -115,7 +115,7 @@ void QSpinBox_SetSuffix(QSpinBox* self, const libqt_string suffix) {
 }
 
 libqt_string QSpinBox_CleanText(const QSpinBox* self) {
-    QString _ret = self->cleanText();
+    auto _ret = self->cleanText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -199,7 +199,7 @@ int QSpinBox_ValueFromText(const QSpinBox* self, const libqt_string text) {
 libqt_string QSpinBox_TextFromValue(const QSpinBox* self, int val) {
     auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        QString _ret = vqspinbox->textFromValue(static_cast<int>(val));
+        auto _ret = vqspinbox->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -244,7 +244,7 @@ void QSpinBox_TextChanged(QSpinBox* self, const libqt_string param1) {
 void QSpinBox_Connect_TextChanged(QSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QSpinBox*, const char*) = reinterpret_cast<void (*)(QSpinBox*, const char*)>(slot);
     QSpinBox::connect(self, &QSpinBox::textChanged, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -378,7 +378,7 @@ libqt_string QSpinBox_SuperTextFromValue(const QSpinBox* self, int val) {
     auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
     if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
         vqspinbox->setQSpinBox_TextFromValue_IsBase(true);
-        QString _ret = vqspinbox->textFromValue(static_cast<int>(val));
+        auto _ret = vqspinbox->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -388,7 +388,7 @@ libqt_string QSpinBox_SuperTextFromValue(const QSpinBox* self, int val) {
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQSpinBox*)self)->textFromValue(static_cast<int>(val));
+        auto _ret = ((VirtualQSpinBox*)self)->textFromValue(static_cast<int>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2272,7 +2272,7 @@ double QDoubleSpinBox_Value(const QDoubleSpinBox* self) {
 }
 
 libqt_string QDoubleSpinBox_Prefix(const QDoubleSpinBox* self) {
-    QString _ret = self->prefix();
+    auto _ret = self->prefix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2289,7 +2289,7 @@ void QDoubleSpinBox_SetPrefix(QDoubleSpinBox* self, const libqt_string prefix) {
 }
 
 libqt_string QDoubleSpinBox_Suffix(const QDoubleSpinBox* self) {
-    QString _ret = self->suffix();
+    auto _ret = self->suffix();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2306,7 +2306,7 @@ void QDoubleSpinBox_SetSuffix(QDoubleSpinBox* self, const libqt_string suffix) {
 }
 
 libqt_string QDoubleSpinBox_CleanText(const QDoubleSpinBox* self) {
-    QString _ret = self->cleanText();
+    auto _ret = self->cleanText();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -2384,7 +2384,7 @@ double QDoubleSpinBox_ValueFromText(const QDoubleSpinBox* self, const libqt_stri
 libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val) {
     auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        QString _ret = self->textFromValue(static_cast<double>(val));
+        auto _ret = self->textFromValue(static_cast<double>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2394,7 +2394,7 @@ libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = ((VirtualQDoubleSpinBox*)self)->textFromValue(static_cast<double>(val));
+        auto _ret = ((VirtualQDoubleSpinBox*)self)->textFromValue(static_cast<double>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2440,7 +2440,7 @@ void QDoubleSpinBox_TextChanged(QDoubleSpinBox* self, const libqt_string param1)
 void QDoubleSpinBox_Connect_TextChanged(QDoubleSpinBox* self, intptr_t slot) {
     void (*slotFunc)(QDoubleSpinBox*, const char*) = reinterpret_cast<void (*)(QDoubleSpinBox*, const char*)>(slot);
     QDoubleSpinBox::connect(self, &QDoubleSpinBox::textChanged, [self, slotFunc](const QString& param1) {
-        const QString param1_ret = param1;
+        const auto param1_ret = param1;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
         auto param1_str_len = param1_b.length();
@@ -2555,7 +2555,7 @@ libqt_string QDoubleSpinBox_SuperTextFromValue(const QDoubleSpinBox* self, doubl
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_TextFromValue_IsBase(true);
-        QString _ret = vqdoublespinbox->textFromValue(static_cast<double>(val));
+        auto _ret = vqdoublespinbox->textFromValue(static_cast<double>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -2565,7 +2565,7 @@ libqt_string QDoubleSpinBox_SuperTextFromValue(const QDoubleSpinBox* self, doubl
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        QString _ret = self->QDoubleSpinBox::textFromValue(static_cast<double>(val));
+        auto _ret = self->QDoubleSpinBox::textFromValue(static_cast<double>(val));
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
