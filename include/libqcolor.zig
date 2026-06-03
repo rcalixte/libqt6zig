@@ -1436,7 +1436,11 @@ pub const QColor = extern struct {
     /// ` param1: []u8 `
     ///
     pub fn IsValidColor3(param1: []u8) bool {
-        return qtc.QColor_IsValidColor3(param1);
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        return qtc.QColor_IsValidColor3(param1_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolor.html#isValidColorName)
