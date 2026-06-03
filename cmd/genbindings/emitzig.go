@@ -1011,7 +1011,8 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	lowerClass := strings.ToLower(zfs.currentClassName)
 
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QLatin1StringView" || p.ParameterType == "QStringView" {
+		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" ||
+		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QStringView" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
 
@@ -2533,7 +2534,8 @@ const qtc = @import("qt6c");`)
 			} else if mSafeMethodName == "SetAsDockMenu" {
 				// hack for QMenu::setAsDockMenu
 				zfs.imports["builtin"] = struct{}{}
-				maybePlatformCompileError = `if (builtin.os.tag != .macos) @compileError("Unsupported operating system");`
+				maybePlatformCompileError = `if (builtin.is_test) return;
+if (builtin.os.tag != .macos) @compileError("Unsupported operating system");`
 			}
 
 			ret.WriteString(inheritedFrom)
