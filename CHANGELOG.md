@@ -1,4 +1,8 @@
 
+### 6.8.2 rev77 (3 June 2026)
+
+* Fix helper method cross-platform support (#146)
+
 ### 6.8.2 rev76 (21 May 2026)
 
 * **BREAKING CHANGE:** Unblock additional string types (#145)
