@@ -2930,17 +2930,22 @@ pub const workerbase_enums = @import("extras-kio/libworkerbase.zig").enums;
 /// and returns a mutable slice that can be passed as an argument
 /// to initialize a Qt application object
 pub fn init(gpa: std.mem.Allocator, a: std.process.Args) ![][:0]u8 {
-    const argv = try gpa.alloc([:0]u8, a.vector.len);
+    var argv: std.ArrayList([:0]u8) = .empty;
+    defer argv.deinit(gpa);
+    errdefer for (argv.items) |arg| gpa.free(arg);
+    try argv.ensureTotalCapacityPrecise(gpa, a.vector.len);
+
     var args = try a.iterateAllocator(gpa);
     defer args.deinit();
-    for (0..a.vector.len) |i|
-        argv[i] = try gpa.dupeSentinel(u8, args.next().?, 0);
-    return argv;
+
+    while (args.next()) |arg|
+        argv.appendAssumeCapacity(try gpa.dupeSentinel(u8, arg, 0));
+
+    return try argv.toOwnedSlice(gpa);
 }
 
 /// A convenience function for freeing a slice created using `init`
 pub fn deinit(gpa: std.mem.Allocator, argv: [][:0]u8) void {
-    for (argv) |arg|
-        gpa.free(arg);
+    for (argv) |arg| gpa.free(arg);
     gpa.free(argv);
 }

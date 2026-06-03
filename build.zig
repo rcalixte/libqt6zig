@@ -1,6 +1,6 @@
 const std = @import("std");
-const host_os = @import("builtin").os.tag;
-const host_arch = @import("builtin").cpu.arch;
+const host_os = @import("builtin").target.os.tag;
+const host_arch = @import("builtin").target.cpu.arch;
 
 var linux_isystem: std.ArrayList([]const u8) = .empty;
 var cpp_flags: std.ArrayList([]const u8) = .empty;
