@@ -568,11 +568,27 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn MultiLineCommentMarker(self: KSyntaxHighlighting__Definition) Struct_constu8_constu8 {
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn MultiLineCommentMarker(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) Struct_constu8_constu8 {
         const _pair: qtc.libqt_pair = qtc.KSyntaxHighlighting__Definition_MultiLineCommentMarker(@ptrCast(self.ptr));
+        var _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_pair.first));
+        defer {
+            qtc.libqt_string_free(_first_str);
+            qtc.libqt_free(_pair.first);
+        }
+        const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("ksyntaxhighlighting__definition.MultiLineCommentMarker: Memory allocation failed");
+        @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
+        var _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_pair.second));
+        defer {
+            qtc.libqt_string_free(_second_str);
+            qtc.libqt_free(_pair.second);
+        }
+        const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("ksyntaxhighlighting__definition.MultiLineCommentMarker: Memory allocation failed");
+        @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
         return Struct_constu8_constu8{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
+            .first = _first_slice,
+            .second = _second_slice,
         };
     }
 

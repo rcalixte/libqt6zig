@@ -1782,7 +1782,7 @@ pub const QSocketDescriptor = extern struct {
     /// ` descriptor: i32 `
     ///
     pub fn New5(descriptor: i32) QSocketDescriptor {
-        switch (builtin.os.tag) {
+        switch (builtin.target.os.tag) {
             .linux, .freebsd => {
                 return .{ .ptr = qtc.QSocketDescriptor_new5(@bitCast(descriptor)) };
             },
@@ -1821,7 +1821,7 @@ pub const QSocketDescriptor = extern struct {
     /// ` self: QSocketDescriptor `
     ///
     pub fn ToInt(self: QSocketDescriptor) i32 {
-        if (builtin.os.tag != .linux and builtin.os.tag != .freebsd) {
+        if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) {
             @compileError("Unsupported operating system");
         }
 

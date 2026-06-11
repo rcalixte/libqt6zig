@@ -193,7 +193,7 @@ pub const QWebEngineClientHints = extern struct {
     pub fn FullVersionList(self: QWebEngineClientHints, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QWebEngineClientHints_FullVersionList(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qwebengineclienthints.FullVersionList: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qwebengineclienthints.FullVersionList: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

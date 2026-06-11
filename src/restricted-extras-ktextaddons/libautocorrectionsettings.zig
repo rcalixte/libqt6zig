@@ -465,7 +465,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn UpperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_UpperCaseExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("textautocorrectioncore__autocorrectionsettings.UpperCaseExceptions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.UpperCaseExceptions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -483,7 +483,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn TwoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TwoUpperLetterExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("textautocorrectioncore__autocorrectionsettings.TwoUpperLetterExceptions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.TwoUpperLetterExceptions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -581,7 +581,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn AutocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_AutocorrectEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("textautocorrectioncore__autocorrectionsettings.AutocorrectEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.AutocorrectEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -663,7 +663,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn SuperScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SuperScriptEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("textautocorrectioncore__autocorrectionsettings.SuperScriptEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.SuperScriptEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

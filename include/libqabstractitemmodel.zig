@@ -1530,7 +1530,7 @@ pub const QAbstractItemModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractitemmodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractitemmodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1584,7 +1584,7 @@ pub const QAbstractItemModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractitemmodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractitemmodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2903,7 +2903,7 @@ pub const QAbstractItemModel = extern struct {
     pub fn RoleNames(self: QAbstractItemModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractitemmodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractitemmodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -2960,7 +2960,7 @@ pub const QAbstractItemModel = extern struct {
     pub fn SuperRoleNames(self: QAbstractItemModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractitemmodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractitemmodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -8449,7 +8449,7 @@ pub const QAbstractTableModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QAbstractTableModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstracttablemodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstracttablemodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -8487,7 +8487,7 @@ pub const QAbstractTableModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QAbstractTableModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstracttablemodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstracttablemodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -9776,7 +9776,7 @@ pub const QAbstractTableModel = extern struct {
     pub fn RoleNames(self: QAbstractTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractTableModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstracttablemodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstracttablemodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -9817,7 +9817,7 @@ pub const QAbstractTableModel = extern struct {
     pub fn SuperRoleNames(self: QAbstractTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractTableModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstracttablemodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstracttablemodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -14282,7 +14282,7 @@ pub const QAbstractListModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QAbstractListModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractlistmodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractlistmodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -14320,7 +14320,7 @@ pub const QAbstractListModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QAbstractListModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractlistmodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractlistmodel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -15609,7 +15609,7 @@ pub const QAbstractListModel = extern struct {
     pub fn RoleNames(self: QAbstractListModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractListModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractlistmodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractlistmodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -15650,7 +15650,7 @@ pub const QAbstractListModel = extern struct {
     pub fn SuperRoleNames(self: QAbstractListModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractListModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qabstractlistmodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qabstractlistmodel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

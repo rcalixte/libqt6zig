@@ -2124,7 +2124,7 @@ pub const KTextEditor__Document = extern struct {
     pub fn Marks(self: KTextEditor__Document, allocator: std.mem.Allocator) Map_i32_KTextEditorMark {
         const _map: qtc.libqt_map = qtc.KTextEditor__Document_Marks(@ptrCast(self.ptr));
         var _ret: Map_i32_KTextEditorMark = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("ktexteditor__document.Marks: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("ktexteditor__document.Marks: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);

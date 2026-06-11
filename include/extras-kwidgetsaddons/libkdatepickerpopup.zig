@@ -328,7 +328,7 @@ pub const KDatePickerPopup = extern struct {
     pub fn DateMap(self: KDatePickerPopup, allocator: std.mem.Allocator) ArrayMap_QDate_constu8 {
         const _map: qtc.libqt_map = qtc.KDatePickerPopup_DateMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_QDate_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kdatepickerpopup.DateMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kdatepickerpopup.DateMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -1017,7 +1017,7 @@ pub const KDatePickerPopup = extern struct {
     ///
     pub fn SetAsDockMenu(self: KDatePickerPopup) void {
         if (builtin.is_test) return;
-        if (builtin.os.tag != .macos) @compileError("Unsupported operating system");
+        if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
         qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }
 

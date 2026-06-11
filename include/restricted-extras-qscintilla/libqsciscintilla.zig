@@ -1099,7 +1099,7 @@ pub const QsciScintilla = extern struct {
     /// ` mode: qsciscintilla_enums.BraceMatch `
     ///
     pub fn FindMatchingBrace(self: QsciScintilla, brace: *isize, other: *isize, mode: i32) bool {
-        switch (builtin.os.tag) {
+        switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
         }

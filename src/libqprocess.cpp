@@ -307,28 +307,38 @@ void QProcess_SetStandardOutputProcess(QProcess* self, QProcess* destination) {
     self->setStandardOutputProcess(destination);
 }
 
+#ifndef _WIN32
 void QProcess_SetChildProcessModifier(QProcess* self, intptr_t modifier) {
     auto modifier_func = [modifier]() -> void {
         reinterpret_cast<void (*)()>(modifier)();
     };
     self->setChildProcessModifier(modifier_func);
 }
+#endif
 
+#ifndef _WIN32
 void QProcess_FailChildProcessModifier(QProcess* self, const char* description) {
     self->failChildProcessModifier(description);
 }
+#endif
 
+#ifndef _WIN32
 QProcess__UnixProcessParameters* QProcess_UnixProcessParameters(const QProcess* self) {
     return new QProcess::UnixProcessParameters(self->unixProcessParameters());
 }
+#endif
 
+#ifndef _WIN32
 void QProcess_SetUnixProcessParameters(QProcess* self, const QProcess__UnixProcessParameters* params) {
     self->setUnixProcessParameters(*params);
 }
+#endif
 
+#ifndef _WIN32
 void QProcess_SetUnixProcessParameters2(QProcess* self, uint32_t flagsOnly) {
     self->setUnixProcessParameters(static_cast<QProcess::UnixProcessFlags>(flagsOnly));
 }
+#endif
 
 libqt_string QProcess_WorkingDirectory(const QProcess* self) {
     auto _ret = self->workingDirectory();
@@ -638,9 +648,11 @@ void QProcess_SetStandardErrorFile2(QProcess* self, const libqt_string fileName,
     self->setStandardErrorFile(fileName_QString, static_cast<QProcess::OpenMode>(mode));
 }
 
+#ifndef _WIN32
 void QProcess_FailChildProcessModifier2(QProcess* self, const char* description, int errorVal) {
     self->failChildProcessModifier(description, static_cast<int>(errorVal));
 }
+#endif
 
 bool QProcess_WaitForStarted1(QProcess* self, int msecs) {
     return self->waitForStarted(static_cast<int>(msecs));
@@ -1624,38 +1636,56 @@ void QProcess_Delete(QProcess* self) {
     delete self;
 }
 
+#ifndef _WIN32
 QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new(const QProcess__UnixProcessParameters* other) {
     return new QProcess::UnixProcessParameters(*other);
 }
+#endif
 
+#ifndef _WIN32
 QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new2(QProcess__UnixProcessParameters* other) {
     return new QProcess::UnixProcessParameters(std::move(*other));
 }
+#endif
 
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_CopyAssign(QProcess__UnixProcessParameters* self, QProcess__UnixProcessParameters* other) {
     *self = *other;
 }
+#endif
 
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_MoveAssign(QProcess__UnixProcessParameters* self, QProcess__UnixProcessParameters* other) {
     *self = std::move(*other);
 }
+#endif
 
+#ifndef _WIN32
 uint32_t QProcess__UnixProcessParameters_Flags(const QProcess__UnixProcessParameters* self) {
     return static_cast<uint32_t>(self->flags);
 }
+#endif
 
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_SetFlags(QProcess__UnixProcessParameters* self, uint32_t flags) {
     self->flags = static_cast<QFlags<QProcess::UnixProcessFlag>>(flags);
 }
+#endif
 
+#ifndef _WIN32
 int QProcess__UnixProcessParameters_LowestFileDescriptorToClose(const QProcess__UnixProcessParameters* self) {
     return self->lowestFileDescriptorToClose;
 }
+#endif
 
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(QProcess__UnixProcessParameters* self, int lowestFileDescriptorToClose) {
     self->lowestFileDescriptorToClose = static_cast<int>(lowestFileDescriptorToClose);
 }
+#endif
 
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_Delete(QProcess__UnixProcessParameters* self) {
     delete self;
 }
+#endif

@@ -35,6 +35,7 @@
 /// Otherwise, they should not need to be used.
 pub const C = @import("qtzig");
 const std = @import("std");
+const builtin = @import("builtin");
 
 /// These are collection types that are used in the Zig API of the library.
 /// They are added here for convenience.
@@ -1752,7 +1753,7 @@ pub const QPrinter = @import("printsupport/libqprinter.zig").QPrinter;
 pub const QPrinterInfo = @import("printsupport/libqprinterinfo.zig").QPrinterInfo;
 pub const QProcess = @import("libqprocess.zig").QProcess;
 pub const QProcessEnvironment = @import("libqprocess.zig").QProcessEnvironment;
-pub const QProcess__UnixProcessParameters = @import("libqprocess.zig").QProcess__UnixProcessParameters;
+pub const QProcess__UnixProcessParameters = if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system") else @import("libqprocess.zig").QProcess__UnixProcessParameters;
 pub const QProgressBar = @import("libqprogressbar.zig").QProgressBar;
 pub const QProgressDialog = @import("libqprogressdialog.zig").QProgressDialog;
 pub const QPropertyAnimation = @import("libqpropertyanimation.zig").QPropertyAnimation;
