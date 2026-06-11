@@ -1335,6 +1335,13 @@ var (
 		"unsigned char",
 		"unsigned int",
 	}
+
+	nonWinQProcess = []string{
+		"failChildProcessModifier",
+		"setChildProcessModifier",
+		"setUnixProcessParameters",
+		"unixProcessParameters",
+	}
 )
 
 func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string, error) {
@@ -1649,6 +1656,7 @@ extern "C" {
 
 	ret.WriteString("#ifdef __cplusplus\n")
 
+	nonWinMacro := false
 	for _, ft := range foundTypesList {
 		if cabiPreventStructDeclaration(ft) {
 			continue
@@ -1658,13 +1666,22 @@ extern "C" {
 			// Forward declarations of inner classes are not yet supported in C++
 			// @ref https://stackoverflow.com/q/1021793
 
+			if ft == "QProcess::UnixProcessParameters" {
+				nonWinMacro = true
+			}
 			typeDefStr := "typedef " + ft + " " + cabiClassName(ft) + ";\n"
 
+			if nonWinMacro {
+				ret.WriteString("#ifndef _WIN32\n")
+			}
 			if AllowInnerClassDef(ft) {
 				ret.WriteString(typeDefStr)
 			} else {
 				ret.WriteString("#if defined(WORKAROUND_INNER_CLASS_DEFINITION_" + cabiClassName(ft) + ")\n")
 				ret.WriteString(typeDefStr)
+				ret.WriteString("#endif\n")
+			}
+			if nonWinMacro {
 				ret.WriteString("#endif\n")
 			}
 		}
@@ -1785,15 +1802,28 @@ extern "C" {
 				continue
 			}
 
-			ret.WriteString(fmt.Sprintf("%s %s_new%s(%s);\n", methodPrefixName+"*", methodPrefixName, maybeSuffix(i), emitParametersCabi(ctor, "")))
+			var maybeMacro, maybeEndMacro string
+			if c.ClassName == "QProcess::UnixProcessParameters" {
+				// Windows hacks for QProcess
+				maybeMacro = "#ifndef _WIN32\n"
+				maybeEndMacro = "#endif\n"
+			}
+
+			ret.WriteString(maybeMacro + fmt.Sprintf("%s %s_new%s(%s);\n", methodPrefixName+"*", methodPrefixName, maybeSuffix(i), emitParametersCabi(ctor, "")) + maybeEndMacro)
 		}
 
+		var maybeAMacro, maybeAEndMacro string
+		if c.ClassName == "QProcess::UnixProcessParameters" {
+			// Windows hacks for QProcess
+			maybeAMacro = "#ifndef _WIN32\n"
+			maybeAEndMacro = "#endif\n"
+		}
 		if c.HasTrivialCopyAssign {
-			ret.WriteString("void " + methodPrefixName + "_CopyAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other);\n")
+			ret.WriteString(maybeAMacro + "void " + methodPrefixName + "_CopyAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other);\n" + maybeAEndMacro)
 		}
 
 		if c.HasTrivialMoveAssign {
-			ret.WriteString("void " + methodPrefixName + "_MoveAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other);\n")
+			ret.WriteString(maybeAMacro + "void " + methodPrefixName + "_MoveAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other);\n" + maybeAEndMacro)
 		}
 
 		for _, m := range c.Methods {
@@ -1840,6 +1870,10 @@ extern "C" {
 				if mSafeMethodName == "SetAsDockMenu" {
 					// hack for QMenu::setAsDockMenu
 					maybeMacro = "#ifdef __APPLE__\n"
+					maybeEndMacro = "#endif\n"
+				} else if c.ClassName == "QProcess::UnixProcessParameters" || (c.ClassName == "QProcess" && (slices.Contains(nonWinQProcess, m.MethodName) || slices.Contains(nonWinQProcess, m.OverrideMethodName))) {
+					// Windows hacks for QProcess
+					maybeMacro = "#ifndef _WIN32\n"
 					maybeEndMacro = "#endif\n"
 				}
 
@@ -1906,7 +1940,13 @@ extern "C" {
 
 		// delete
 		if c.CanDelete && !isBindingRemoved(methodPrefixName) && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
-			ret.WriteString(fmt.Sprintf("void %s_Delete(%s* self);\n", methodPrefixName, methodPrefixName))
+			var maybeMacro, maybeEndMacro string
+			if c.ClassName == "QProcess::UnixProcessParameters" {
+				// Windows hacks for QProcess
+				maybeMacro = "#ifndef _WIN32\n"
+				maybeEndMacro = "#endif\n"
+			}
+			ret.WriteString(maybeMacro + fmt.Sprintf("void %s_Delete(%s* self);\n", methodPrefixName, methodPrefixName) + maybeEndMacro)
 		}
 
 		ret.WriteString("\n")
@@ -2077,26 +2117,39 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 					maybeCloseMoveCtor = ")"
 				}
 
+				var maybeMacro, maybeEndMacro string
+				if c.ClassName == "QProcess::UnixProcessParameters" {
+					// Windows hacks for QProcess
+					maybeMacro = "#ifndef _WIN32\n"
+					maybeEndMacro = "#endif\n"
+				}
+
 				cClassName := ifv(virtualName != "", strings.ReplaceAll(c.ClassName, "::", ""), c.ClassName)
 				baseReturn := "new " + virtualName + cClassName + "(" + maybeMoveCtor + forwarding + maybeCloseMoveCtor + ")"
 				ctorReturn = "\t return " + baseReturn
 
-				ret.WriteString(methodPrefixName + "* " + methodPrefixName + "_new" +
+				ret.WriteString(maybeMacro + methodPrefixName + "* " + methodPrefixName + "_new" +
 					maybeSuffix(i) + "(" + emitParametersCabi(ctor, "") +
-					") {\n" + preamble + ctorReturn + ";\n}\n\n")
+					") {\n" + preamble + ctorReturn + ";\n}\n" + maybeEndMacro + "\n")
 			}
 		}
 
+		var maybeAMacro, maybeAEndMacro string
+		if c.ClassName == "QProcess::UnixProcessParameters" {
+			// Windows hacks for QProcess
+			maybeAMacro = "#ifndef _WIN32\n"
+			maybeAEndMacro = "#endif\n"
+		}
 		if c.HasTrivialCopyAssign {
-			ret.WriteString("void " + methodPrefixName + "_CopyAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other) {\n")
+			ret.WriteString(maybeAMacro + "void " + methodPrefixName + "_CopyAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other) {\n")
 			ret.WriteString("    *self = *other;\n")
-			ret.WriteString("}\n\n")
+			ret.WriteString("}\n" + maybeAEndMacro + "\n")
 		}
 
 		if c.HasTrivialMoveAssign {
-			ret.WriteString("void " + methodPrefixName + "_MoveAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other) {\n")
+			ret.WriteString(maybeAMacro + "void " + methodPrefixName + "_MoveAssign(" + methodPrefixName + "* self, " + methodPrefixName + "* other) {\n")
 			ret.WriteString("    *self = std::move(*other);\n")
-			ret.WriteString("}\n\n")
+			ret.WriteString("}\n" + maybeAEndMacro + "\n")
 		}
 
 		seenMethodVariants := map[string]bool{}
@@ -2252,13 +2305,19 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			writeString:
 
+				if c.ClassName == "QProcess::UnixProcessParameters" || (c.ClassName == "QProcess" && (slices.Contains(nonWinQProcess, m.MethodName) || slices.Contains(nonWinQProcess, m.OverrideMethodName))) {
+					// Windows hacks for QProcess
+					maybeMacro = "#ifndef _WIN32\n"
+					maybeEndMacro = "#endif\n"
+				}
+
 				if m.IsVariable {
-					ret.WriteString(returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n")
+					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n")
 					if strings.HasPrefix(m.MethodName, "set") {
-						ret.WriteString(preamble + "self->" + m.VariableFieldName + " = " + forwarding + ";\n}\n\n")
+						ret.WriteString(preamble + "self->" + m.VariableFieldName + " = " + forwarding + ";\n}\n" + maybeEndMacro + "\n")
 					} else {
 						retExpr, _ = emitAssignCppToCabi("\treturn ", m.ReturnType, "self->"+m.VariableFieldName)
-						ret.WriteString(retExpr + "}\n\n")
+						ret.WriteString(retExpr + "}\n" + maybeEndMacro + "\n")
 					}
 					continue
 				}
@@ -2497,8 +2556,14 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 		// Delete
 		if c.CanDelete && !isBindingRemoved(methodPrefixName) && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
-			ret.WriteString("void " + methodPrefixName + "_Delete(" + methodPrefixName + "* self) {\n" +
-				"\tdelete self;\n" + "}\n\n")
+			var maybeMacro, maybeEndMacro string
+			if c.ClassName == "QProcess::UnixProcessParameters" {
+				// Windows hacks for QProcess
+				maybeMacro = "#ifndef _WIN32\n"
+				maybeEndMacro = "#endif\n"
+			}
+			ret.WriteString(maybeMacro + "void " + methodPrefixName + "_Delete(" + methodPrefixName + "* self) {\n" +
+				"\tdelete self;\n" + "}\n" + maybeEndMacro + "\n")
 		}
 	}
 	return ret.String(), nil
