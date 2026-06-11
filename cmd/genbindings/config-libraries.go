@@ -1066,7 +1066,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		"\n/// The structs are exported for use in specific callbacks when needed." +
 		"\n/// Otherwise, they should not need to be used.\n" +
 		`pub const C = @import("qtzig");` + "\n" +
-		`const std = @import("std");`
+		`const std = @import("std");` + "\n" +
+		`const builtin = @import("builtin");`
 
 	builder.WriteString("\n\n/// These are collection types that are used in the Zig API of the library.\n" +
 		"/// They are added here for convenience.\n" +
