@@ -1769,7 +1769,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
 			afterword += "var " + namePrefix + "_ret: Set_" + t.RenderTypeMapZig(zfs, false) + " = .empty;\n"
-			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, " + namePrefix + "_set.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
+			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + "_set.len)) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
 			afterword += "const " + namePrefix + "_data: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i| \n"
 			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + namePrefix + "_data[i].data[0.." + namePrefix + "_data[i].len], {});\n"
@@ -1799,7 +1799,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
 			afterword += "var " + namePrefix + "_ret: Set_" + setType + " = .empty;\n"
-			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, " + namePrefix + "_set.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
+			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + "_set.len)) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
 			afterword += "const " + namePrefix + "_data: [*]" + setValue + " = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i|\n"
 			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + maybeDecl + namePrefix + "_data[i]" + maybeDeclClose + ", {});\n"
@@ -1885,7 +1885,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		}
 
 		afterword += "var " + namePrefix + "_ret: " + maybeArray + "Map_" + keyParam + "_" + vParam + "= .empty;\n"
-		afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, " + namePrefix + "_map.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
+		afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + "_map.len)) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
 
 		afterword += "defer {\n"
 		var deferKey, deferVal string
@@ -2003,7 +2003,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 	} else if kType, vType, ok := rt.QPairOf(); ok {
 		// QPair is a struct containing two inner types
-		// e.g. QPair<QString, QString>
+		// e.g. QPair<float, float>
+		// e.g. std::pair<int, int>
 		if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
 			if IsKnownClass(kType.ParameterType) && !slices.Contains(zfs.currentClasses, kType.ParameterType) {
 				zfs.imports["class:"+cabiClassName(kType.ParameterType)] = struct{}{}
@@ -2018,28 +2019,55 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += assignExpr + " @bitCast(" + namePrefix + "_pair);"
 
 		} else {
+			// e.g. QPair<QString, QString>
+			// e.g. QPair<QString, int>
 			shouldReturn = "const " + namePrefix + "_pair: qtc.libqt_pair = "
+			var firstVal, secondVal string
 
-			kCast := "@ptrCast("
-			kClose := ")"
-			kTypeZig := kType.RenderTypeZig(zfs, false, false)
-			if kType.IntType() {
-				kCast = "@as(*" + kTypeZig + ", @ptrCast(@alignCast("
-				kClose = "))).*"
+			if kType.ParameterType == "QString" {
+				afterword += "var " + namePrefix + "_first_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_pair.first));\n"
+				afterword += "defer {\n"
+				afterword += "qtc.libqt_string_free(" + namePrefix + "_first_str);\n"
+				afterword += "qtc.libqt_free(" + namePrefix + "_pair.first);\n"
+				afterword += "}\n"
+				afterword += "const " + namePrefix + "_first_slice = allocator.alloc(u8, " + namePrefix + "_first_str.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "@memcpy(" + namePrefix + "_first_slice, " + namePrefix + "_first_str.data[0.." + namePrefix + "_first_str.len]);\n"
+				firstVal = namePrefix + "_first_slice"
+			} else {
+				kCast := "@ptrCast("
+				kClose := ")"
+				kTypeZig := kType.RenderTypeZig(zfs, false, false)
+				if kType.IntType() {
+					kCast = "@as(*" + kTypeZig + ", @ptrCast(@alignCast("
+					kClose = "))).*"
+				}
+				firstVal = kCast + namePrefix + "_pair.first" + kClose
 			}
 
-			vCast := "@ptrCast("
-			vClose := ")"
-			vTypeZig := vType.RenderTypeZig(zfs, false, false)
-			if vType.IntType() {
-				vCast = "@as(*" + vTypeZig + ", @ptrCast(@alignCast("
-				vClose = "))).*"
-			} else if vType.ParameterType == "void" && vType.Pointer {
-				vCast = ""
-				vClose = ""
+			if vType.ParameterType == "QString" {
+				afterword += "var " + namePrefix + "_second_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_pair.second));\n"
+				afterword += "defer {\n"
+				afterword += "qtc.libqt_string_free(" + namePrefix + "_second_str);\n"
+				afterword += "qtc.libqt_free(" + namePrefix + "_pair.second);\n"
+				afterword += "}\n"
+				afterword += "const " + namePrefix + "_second_slice = allocator.alloc(u8, " + namePrefix + "_second_str.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "@memcpy(" + namePrefix + "_second_slice, " + namePrefix + "_second_str.data[0.." + namePrefix + "_second_str.len]);\n"
+				secondVal = namePrefix + "_second_slice"
+			} else {
+				vCast := "@ptrCast("
+				vClose := ")"
+				vTypeZig := vType.RenderTypeZig(zfs, false, false)
+				if vType.IntType() {
+					vCast = "@as(*" + vTypeZig + ", @ptrCast(@alignCast("
+					vClose = "))).*"
+				} else if vType.ParameterType == "void" && vType.Pointer {
+					vCast = ""
+					vClose = ""
+				}
+				secondVal = vCast + namePrefix + "_pair.second" + vClose
 			}
 
-			afterword += assignExpr + " " + rt.RenderTypeZig(zfs, true, true) + " { .first = " + kCast + namePrefix + "_pair.first" + kClose + ", .second = " + vCast + namePrefix + "_pair.second" + vClose + ", };\n"
+			afterword += assignExpr + " " + rt.RenderTypeZig(zfs, true, true) + " { .first = " + firstVal + ", .second = " + secondVal + ", };\n"
 		}
 
 		return shouldReturn + " " + rvalue + ";\n" + afterword
@@ -2322,7 +2350,12 @@ const qtc = @import("qt6c");`)
 				maybeDedupe = "_" + strings.Split(zfs.currentHeaderName, "_")[1]
 			}
 
-			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + ` = @import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
+			// Windows hacks for QProcess
+			var maybeNonWin string
+			if zigStructName == "QProcess__UnixProcessParameters" {
+				maybeNonWin = `if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system") else `
+			}
+			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStructName + maybeDedupe + " = " + maybeNonWin + `@import("` + filepath.Join(dirRoot, "lib"+zfs.currentHeaderName) + `.zig").` + zigStructName + ";"
 			pageUrl := zfs.getPageUrl(QtPage, pageName, "", zigStructName)
 			ret.WriteString(pageUrl + "\n" +
 				"pub const " + zigStructName + " = extern struct {\n")
@@ -2373,7 +2406,7 @@ const qtc = @import("qt6c");`)
 				ret.WriteString("\n\n/// New" + maybeSuffix(i) + " constructs a new " + c.ClassName + " object." +
 					maybeParamsLine + maybeAllocatorComment + zfs.emitCommentParametersZig(ctor.Parameters, false) + maybeFinalNewLine +
 					"\n    pub fn New" + maybeSuffix(i) + "(" + allocatorParam + zfs.emitParametersZig(ctor.Parameters, false) + ") " + zigStructName + ` {
-        switch (builtin.os.tag) {
+        switch (builtin.target.os.tag) {
             .linux, .freebsd => {
                 return .{ .ptr = qtc.` + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + `) };
             },
@@ -2527,7 +2560,7 @@ const qtc = @import("qt6c");`)
 			maybePlatformCompileError := ""
 			if _, ok := platformFunctions[cmdStructName+"_"+mSafeMethodName]; ok && !m.FossOnly {
 				zfs.imports["builtin"] = struct{}{}
-				maybePlatformCompileError = "switch (builtin.os.tag) {\n" +
+				maybePlatformCompileError = "switch (builtin.target.os.tag) {\n" +
 					"    .linux, .freebsd => {},\n" +
 					`    else => @compileError("Unsupported operating system"),` +
 					"\n}\n"
@@ -2535,7 +2568,11 @@ const qtc = @import("qt6c");`)
 				// hack for QMenu::setAsDockMenu
 				zfs.imports["builtin"] = struct{}{}
 				maybePlatformCompileError = `if (builtin.is_test) return;
-if (builtin.os.tag != .macos) @compileError("Unsupported operating system");`
+if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");`
+			} else if cmdStructName == "QProcess" && (slices.Contains(nonWinQProcess, m.MethodName) || slices.Contains(nonWinQProcess, m.OverrideMethodName)) {
+				// Windows hacks for QProcess
+				zfs.imports["builtin"] = struct{}{}
+				maybePlatformCompileError = `if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");`
 			}
 
 			ret.WriteString(inheritedFrom)
@@ -2611,7 +2648,7 @@ if (builtin.os.tag != .macos) @compileError("Unsupported operating system");`
 			if m.FossOnly {
 				zfs.imports["builtin"] = struct{}{}
 				ret.WriteString(`
-    if (builtin.os.tag != .linux and builtin.os.tag != .freebsd) {
+    if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) {
         @compileError("Unsupported operating system");
     }
 `)
@@ -2696,7 +2733,7 @@ if (builtin.os.tag != .macos) @compileError("Unsupported operating system");`
 				if m.FossOnly {
 					zfs.imports["builtin"] = struct{}{}
 					ret.WriteString(`
-			if (builtin.os.tag != .linux and builtin.os.tag != .freebsd) {
+			if (builtin.target.os.tag != .linux and builtin.target.os.tag != .freebsd) {
 				@compileError("Unsupported operating system");
 			}
 		`)
