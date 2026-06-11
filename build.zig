@@ -72,7 +72,7 @@ pub fn build(b: *std.Build) !void {
                 continue;
             if ((is_macos or is_windows) and std.mem.eql(u8, basename, "qopenglcontext_platform"))
                 continue;
-            if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess")))
+            if (is_windows and std.mem.eql(u8, basename, "qhashfunctions"))
                 continue;
 
             try cpp_sources.append(b.allocator, b.fmt("{s}/{s}", .{ "src", entry.path }));
@@ -112,38 +112,24 @@ pub fn build(b: *std.Build) !void {
     std.debug.assert(cpp_sources.items.len != 0);
 
     for (extra_paths) |extra_path| {
-        if (std.mem.eql(u8, extra_path, "")) continue;
+        if (extra_path.len == 0) continue;
 
-        var found = true;
-        std.Io.Dir.cwd().access(b.graph.io, extra_path, .{}) catch {
-            try std.Io.File.stdout().writeStreamingAll(
-                b.graph.io,
-                b.fmt("WARNING: extra path {s} does not exist\n", .{extra_path}),
-            );
-            found = false;
-        };
-        if (found) try qt_include_path.append(b.allocator, b.dupe(extra_path));
+        if (std.Io.Dir.cwd().access(b.graph.io, extra_path, .{}))
+            try qt_include_path.append(b.allocator, b.dupe(extra_path))
+        else |_|
+            std.log.warn("extra path {s} does not exist\n", .{extra_path});
 
         var inc_path = b.fmt("{s}/include/KF6", .{extra_path});
-        found = true;
-        std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}) catch {
-            try std.Io.File.stdout().writeStreamingAll(
-                b.graph.io,
-                b.fmt("WARNING: extra path {s} does not exist\n", .{inc_path}),
-            );
-            found = false;
-        };
-        if (found) try qt_include_path.append(b.allocator, b.dupe(inc_path));
+        if (std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}))
+            try qt_include_path.append(b.allocator, b.dupe(inc_path))
+        else |_|
+            std.log.warn("extra path {s} does not exist\n", .{inc_path});
 
         inc_path = b.fmt("{s}/include", .{extra_path});
-        std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}) catch {
-            try std.Io.File.stdout().writeStreamingAll(
-                b.graph.io,
-                b.fmt("WARNING: extra path {s} does not exist\n", .{inc_path}),
-            );
-            continue;
-        };
-        try qt_include_path.append(b.allocator, b.dupe(inc_path));
+        if (std.Io.Dir.cwd().access(b.graph.io, inc_path, .{}))
+            try qt_include_path.append(b.allocator, b.dupe(inc_path))
+        else |_|
+            std.log.warn("extra path {s} does not exist\n", .{inc_path});
     }
     for (os_include_path) |os_path| {
         std.Io.Dir.cwd().access(b.graph.io, os_path, .{}) catch {
