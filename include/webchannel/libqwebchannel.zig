@@ -232,7 +232,7 @@ pub const QWebChannel = extern struct {
     pub fn RegisteredObjects(self: QWebChannel, allocator: std.mem.Allocator) Map_constu8_QObject {
         const _map: qtc.libqt_map = qtc.QWebChannel_RegisteredObjects(@ptrCast(self.ptr));
         var _ret: Map_constu8_QObject = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qwebchannel.RegisteredObjects: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qwebchannel.RegisteredObjects: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

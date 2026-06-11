@@ -281,7 +281,7 @@ brew install qt6 karchive ki18n qscintilla2 qtkeychain
 >
 > This is currently not necessary for the additional third-party module frameworks.
 
-The official Qt installer is also supported but will require manually creating the symlinks as above and using the `extra-paths` option described below, using the root of the include directory as the path value.
+The official Qt installer is also supported but will require manually creating the symlinks as above and using the `extra-paths` option described above, using the root of the include directory as the path value.
 
 > [!NOTE]
 > The `zig` package will need to be downloaded and installed separately if the latest stable version is not available via Homebrew.

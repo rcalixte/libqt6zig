@@ -116,7 +116,7 @@ pub const Solid__GenericInterface = extern struct {
     pub fn AllProperties(self: Solid__GenericInterface, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.Solid__GenericInterface_AllProperties(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("solid__genericinterface.AllProperties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("solid__genericinterface.AllProperties: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

@@ -105,7 +105,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn TranslatedLanguages(allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
         const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorUtil_TranslatedLanguages();
         var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("texttranslator__translatorutil.TranslatedLanguages: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("texttranslator__translatorutil.TranslatedLanguages: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

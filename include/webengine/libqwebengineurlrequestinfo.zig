@@ -168,7 +168,7 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     pub fn HttpHeaders(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) Map_u8_u8 {
         const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestInfo_HttpHeaders(@ptrCast(self.ptr));
         var _ret: Map_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

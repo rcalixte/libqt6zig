@@ -438,7 +438,7 @@ pub const QStateMachine = extern struct {
     pub fn Configuration(self: QStateMachine, allocator: std.mem.Allocator) Set_QAbstractState {
         const _set: qtc.libqt_list = qtc.QStateMachine_Configuration(@ptrCast(self.ptr));
         var _ret: Set_QAbstractState = .empty;
-        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("qstatemachine.Configuration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("qstatemachine.Configuration: Total capacity allocation failed");
         const _data: [*]QtC.QAbstractState = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(.{ .ptr = _data[i] }, {});

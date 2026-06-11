@@ -2448,7 +2448,7 @@ pub const Poppler__Document = extern struct {
     pub fn AvailableRenderBackends(allocator: std.mem.Allocator) Set_i32 {
         const _set: qtc.libqt_list = qtc.Poppler__Document_AvailableRenderBackends();
         var _ret: Set_i32 = .empty;
-        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("poppler__document.AvailableRenderBackends: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("poppler__document.AvailableRenderBackends: Total capacity allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i], {});

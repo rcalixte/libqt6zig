@@ -255,7 +255,7 @@ pub const QVersionNumber = extern struct {
     /// ` suffixIndex: *isize `
     ///
     pub fn FromString2(stringVal: []const u8, suffixIndex: *isize) QVersionNumber {
-        switch (builtin.os.tag) {
+        switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
         }

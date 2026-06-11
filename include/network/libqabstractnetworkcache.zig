@@ -307,7 +307,7 @@ pub const QNetworkCacheMetaData = extern struct {
     pub fn Attributes(self: QNetworkCacheMetaData, allocator: std.mem.Allocator) Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QNetworkCacheMetaData_Attributes(@ptrCast(self.ptr));
         var _ret: Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qnetworkcachemetadata.Attributes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qnetworkcachemetadata.Attributes: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);

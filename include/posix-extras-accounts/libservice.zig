@@ -193,7 +193,7 @@ pub const Accounts__Service = extern struct {
     pub fn Tags(self: Accounts__Service, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.Accounts__Service_Tags(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("accounts__service.Tags: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("accounts__service.Tags: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});

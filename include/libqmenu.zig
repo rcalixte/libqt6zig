@@ -784,7 +784,7 @@ pub const QMenu = extern struct {
     ///
     pub fn SetAsDockMenu(self: QMenu) void {
         if (builtin.is_test) return;
-        if (builtin.os.tag != .macos) @compileError("Unsupported operating system");
+        if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
         qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }
 

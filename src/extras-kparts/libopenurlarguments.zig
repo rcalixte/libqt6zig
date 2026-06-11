@@ -174,7 +174,7 @@ pub const KParts__OpenUrlArguments = extern struct {
     pub fn MetaData(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__OpenUrlArguments_MetaData(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kparts__openurlarguments.MetaData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kparts__openurlarguments.MetaData: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -211,7 +211,7 @@ pub const KParts__OpenUrlArguments = extern struct {
     pub fn MetaData2(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__OpenUrlArguments_MetaData2(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kparts__openurlarguments.MetaData2: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kparts__openurlarguments.MetaData2: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

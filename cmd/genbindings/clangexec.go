@@ -21,9 +21,9 @@ func ClangMatchSameHeaderDefinitionOnly(astNodeFilename string) bool {
 
 func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) ([]any, error) {
 
-	clangArgs := []string{"-x", "c++"}
+	clangArgs := []string{"-x", "c++-header"}
 	clangArgs = append(clangArgs, cflags...)
-	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", "-Wno-pragma-once-outside-header", inputHeader)
+	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", inputHeader)
 	// hack for QMenu::setAsDockMenu
 	if filepath.Base(inputHeader) == "qmenu.h" {
 		clangArgs = append(clangArgs, "-DQ_OS_MACOS")

@@ -223,7 +223,7 @@ pub const TextTranslator__TranslatorEngineLoader = extern struct {
     pub fn TranslatorEngineInfos(self: TextTranslator__TranslatorEngineLoader, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorEngineLoader_TranslatorEngineInfos(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("texttranslator__translatorengineloader.TranslatorEngineInfos: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("texttranslator__translatorengineloader.TranslatorEngineInfos: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -292,7 +292,7 @@ pub const TextTranslator__TranslatorEngineLoader = extern struct {
         };
         const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorEngineLoader_SupportedFromLanguages(@ptrCast(self.ptr), clientName_str);
         var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("texttranslator__translatorengineloader.SupportedFromLanguages: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("texttranslator__translatorengineloader.SupportedFromLanguages: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -335,7 +335,7 @@ pub const TextTranslator__TranslatorEngineLoader = extern struct {
         };
         const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorEngineLoader_SupportedToLanguages(@ptrCast(self.ptr), clientName_str);
         var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("texttranslator__translatorengineloader.SupportedToLanguages: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("texttranslator__translatorengineloader.SupportedToLanguages: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

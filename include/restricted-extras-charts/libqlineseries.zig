@@ -1324,7 +1324,7 @@ pub const QLineSeries = extern struct {
     pub fn PointConfiguration(self: QLineSeries, allocator: std.mem.Allocator, index: i32) Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self.ptr), @bitCast(index));
         var _ret: Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qlineseries.PointConfiguration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qlineseries.PointConfiguration: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1353,7 +1353,7 @@ pub const QLineSeries = extern struct {
     pub fn PointsConfiguration(self: QLineSeries, allocator: std.mem.Allocator) Map_i32_Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointsConfiguration(@ptrCast(self.ptr));
         var _ret: Map_i32_Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qlineseries.PointsConfiguration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qlineseries.PointsConfiguration: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);

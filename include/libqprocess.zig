@@ -10,6 +10,7 @@ const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
 const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
+const builtin = @import("builtin");
 const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -823,6 +824,7 @@ pub const QProcess = extern struct {
     /// ` modifier: *const fn () callconv(.c) void `
     ///
     pub fn SetChildProcessModifier(self: QProcess, modifier: *const fn () callconv(.c) void) void {
+        if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         qtc.QProcess_SetChildProcessModifier(@ptrCast(self.ptr), @bitCast(@intFromPtr(modifier)));
     }
 
@@ -835,6 +837,7 @@ pub const QProcess = extern struct {
     /// ` description: [:0]const u8 `
     ///
     pub fn FailChildProcessModifier(self: QProcess, description: [:0]const u8) void {
+        if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         const description_Cstring = description.ptr;
         qtc.QProcess_FailChildProcessModifier(@ptrCast(self.ptr), description_Cstring);
     }
@@ -846,6 +849,7 @@ pub const QProcess = extern struct {
     /// ` self: QProcess `
     ///
     pub fn UnixProcessParameters(self: QProcess) QProcess__UnixProcessParameters {
+        if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         return .{ .ptr = qtc.QProcess_UnixProcessParameters(@ptrCast(self.ptr)) };
     }
 
@@ -858,6 +862,7 @@ pub const QProcess = extern struct {
     /// ` params: QProcess__UnixProcessParameters `
     ///
     pub fn SetUnixProcessParameters(self: QProcess, params: anytype) void {
+        if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         comptime _ = @TypeOf(params)._is_QProcess__UnixProcessParameters;
         qtc.QProcess_SetUnixProcessParameters(@ptrCast(self.ptr), @ptrCast(params.ptr));
     }
@@ -871,6 +876,7 @@ pub const QProcess = extern struct {
     /// ` flagsOnly: flag of qprocess_enums.UnixProcessFlag `
     ///
     pub fn SetUnixProcessParameters2(self: QProcess, flagsOnly: u32) void {
+        if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self.ptr), @bitCast(flagsOnly));
     }
 
@@ -1805,6 +1811,7 @@ pub const QProcess = extern struct {
     /// ` errorVal: i32 `
     ///
     pub fn FailChildProcessModifier2(self: QProcess, description: [:0]const u8, errorVal: i32) void {
+        if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         const description_Cstring = description.ptr;
         qtc.QProcess_FailChildProcessModifier2(@ptrCast(self.ptr), description_Cstring, @bitCast(errorVal));
     }

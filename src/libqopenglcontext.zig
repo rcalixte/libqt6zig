@@ -1399,7 +1399,7 @@ pub const QOpenGLContext = extern struct {
     pub fn Extensions(self: QOpenGLContext, allocator: std.mem.Allocator) Set_u8 {
         const _set: qtc.libqt_list = qtc.QOpenGLContext_Extensions(@ptrCast(self.ptr));
         var _ret: Set_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _set.len) catch @panic("qopenglcontext.Extensions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("qopenglcontext.Extensions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});

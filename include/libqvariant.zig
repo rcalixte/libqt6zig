@@ -978,7 +978,7 @@ pub const QVariant = extern struct {
     pub fn ToMap(self: QVariant, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qvariant.ToMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qvariant.ToMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -1011,7 +1011,7 @@ pub const QVariant = extern struct {
     pub fn ToHash(self: QVariant, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qvariant.ToHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qvariant.ToHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {

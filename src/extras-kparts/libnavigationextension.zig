@@ -425,7 +425,7 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn ActionSlotMap(allocator: std.mem.Allocator) ArrayMap_u8_u8 {
         const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap().?.*;
         var _ret: ArrayMap_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kparts__navigationextension.ActionSlotMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kparts__navigationextension.ActionSlotMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));

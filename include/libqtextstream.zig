@@ -596,7 +596,7 @@ pub const QTextStream = extern struct {
     /// ` i: *isize `
     ///
     pub fn OperatorShiftRight8(self: QTextStream, i: *isize) QTextStream {
-        switch (builtin.os.tag) {
+        switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
         }
@@ -613,7 +613,7 @@ pub const QTextStream = extern struct {
     /// ` i: *usize `
     ///
     pub fn OperatorShiftRight9(self: QTextStream, i: *usize) QTextStream {
-        switch (builtin.os.tag) {
+        switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
         }

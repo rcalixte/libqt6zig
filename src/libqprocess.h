@@ -14,8 +14,10 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+#ifndef _WIN32
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QProcess__UnixProcessParameters)
 typedef QProcess::UnixProcessParameters QProcess__UnixProcessParameters;
+#endif
 #endif
 #else
 typedef struct QChildEvent QChildEvent;
@@ -76,11 +78,21 @@ void QProcess_SetStandardInputFile(QProcess* self, const libqt_string fileName);
 void QProcess_SetStandardOutputFile(QProcess* self, const libqt_string fileName);
 void QProcess_SetStandardErrorFile(QProcess* self, const libqt_string fileName);
 void QProcess_SetStandardOutputProcess(QProcess* self, QProcess* destination);
+#ifndef _WIN32
 void QProcess_SetChildProcessModifier(QProcess* self, intptr_t modifier);
+#endif
+#ifndef _WIN32
 void QProcess_FailChildProcessModifier(QProcess* self, const char* description);
+#endif
+#ifndef _WIN32
 QProcess__UnixProcessParameters* QProcess_UnixProcessParameters(const QProcess* self);
+#endif
+#ifndef _WIN32
 void QProcess_SetUnixProcessParameters(QProcess* self, const QProcess__UnixProcessParameters* params);
+#endif
+#ifndef _WIN32
 void QProcess_SetUnixProcessParameters2(QProcess* self, uint32_t flagsOnly);
+#endif
 libqt_string QProcess_WorkingDirectory(const QProcess* self);
 void QProcess_SetWorkingDirectory(QProcess* self, const libqt_string dir);
 void QProcess_SetEnvironment(QProcess* self, const libqt_list /* of libqt_string */ environment);
@@ -121,7 +133,9 @@ void QProcess_StartCommand2(QProcess* self, const libqt_string command, int mode
 bool QProcess_StartDetached1(QProcess* self, long long* pid);
 void QProcess_SetStandardOutputFile2(QProcess* self, const libqt_string fileName, int mode);
 void QProcess_SetStandardErrorFile2(QProcess* self, const libqt_string fileName, int mode);
+#ifndef _WIN32
 void QProcess_FailChildProcessModifier2(QProcess* self, const char* description, int errorVal);
+#endif
 bool QProcess_WaitForStarted1(QProcess* self, int msecs);
 bool QProcess_WaitForFinished1(QProcess* self, int msecs);
 int QProcess_Execute2(const libqt_string program, const libqt_list /* of libqt_string */ arguments);
@@ -227,15 +241,33 @@ void QProcess_Connect_ReadyReadStandardOutput(QProcess* self, intptr_t slot);
 void QProcess_Connect_ReadyReadStandardError(QProcess* self, intptr_t slot);
 void QProcess_Delete(QProcess* self);
 
+#ifndef _WIN32
 QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new(const QProcess__UnixProcessParameters* other);
+#endif
+#ifndef _WIN32
 QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new2(QProcess__UnixProcessParameters* other);
+#endif
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_CopyAssign(QProcess__UnixProcessParameters* self, QProcess__UnixProcessParameters* other);
+#endif
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_MoveAssign(QProcess__UnixProcessParameters* self, QProcess__UnixProcessParameters* other);
+#endif
+#ifndef _WIN32
 uint32_t QProcess__UnixProcessParameters_Flags(const QProcess__UnixProcessParameters* self);
+#endif
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_SetFlags(QProcess__UnixProcessParameters* self, uint32_t flags);
+#endif
+#ifndef _WIN32
 int QProcess__UnixProcessParameters_LowestFileDescriptorToClose(const QProcess__UnixProcessParameters* self);
+#endif
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(QProcess__UnixProcessParameters* self, int lowestFileDescriptorToClose);
+#endif
+#ifndef _WIN32
 void QProcess__UnixProcessParameters_Delete(QProcess__UnixProcessParameters* self);
+#endif
 
 #ifdef __cplusplus
 } /* extern C */

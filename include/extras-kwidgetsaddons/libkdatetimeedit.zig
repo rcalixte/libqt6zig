@@ -363,7 +363,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn DateMap(self: KDateTimeEdit, allocator: std.mem.Allocator) ArrayMap_QDate_constu8 {
         const _map: qtc.libqt_map = qtc.KDateTimeEdit_DateMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_QDate_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("kdatetimeedit.DateMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kdatetimeedit.DateMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {

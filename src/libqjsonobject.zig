@@ -104,7 +104,7 @@ pub const QJsonObject = extern struct {
     pub fn ToVariantMap(self: QJsonObject, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qjsonobject.ToVariantMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qjsonobject.ToVariantMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -169,7 +169,7 @@ pub const QJsonObject = extern struct {
     pub fn ToVariantHash(self: QJsonObject, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, _map.len) catch @panic("qjsonobject.ToVariantHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qjsonobject.ToVariantHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
