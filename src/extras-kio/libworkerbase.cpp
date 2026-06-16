@@ -271,254 +271,119 @@ KRemoteEncoding* KIO__WorkerBase_RemoteEncoding(KIO__WorkerBase* self) {
 }
 
 void KIO__WorkerBase_AppConnectionMade(KIO__WorkerBase* self) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        self->appConnectionMade();
-    } else {
-        ((VirtualKIOWorkerBase*)self)->appConnectionMade();
-    }
+    self->appConnectionMade();
 }
 
 void KIO__WorkerBase_SetHost(KIO__WorkerBase* self, const libqt_string host, uint16_t port, const libqt_string user, const libqt_string pass) {
     QString host_QString = QString::fromUtf8(host.data, host.len);
     QString user_QString = QString::fromUtf8(user.data, user.len);
     QString pass_QString = QString::fromUtf8(pass.data, pass.len);
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        self->setHost(host_QString, static_cast<quint16>(port), user_QString, pass_QString);
-    } else {
-        ((VirtualKIOWorkerBase*)self)->setHost(host_QString, static_cast<quint16>(port), user_QString, pass_QString);
-    }
+    self->setHost(host_QString, static_cast<quint16>(port), user_QString, pass_QString);
 }
 
 KIO__WorkerResult* KIO__WorkerBase_OpenConnection(KIO__WorkerBase* self) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->openConnection());
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->openConnection());
-    }
+    return new KIO::WorkerResult(self->openConnection());
 }
 
 void KIO__WorkerBase_CloseConnection(KIO__WorkerBase* self) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        self->closeConnection();
-    } else {
-        ((VirtualKIOWorkerBase*)self)->closeConnection();
-    }
+    self->closeConnection();
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Get(KIO__WorkerBase* self, const QUrl* url) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->get(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->get(*url));
-    }
+    return new KIO::WorkerResult(self->get(*url));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Open(KIO__WorkerBase* self, const QUrl* url, int mode) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->open(*url, static_cast<QIODevice::OpenMode>(mode)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->open(*url, static_cast<QIODevice::OpenMode>(mode)));
-    }
+    return new KIO::WorkerResult(self->open(*url, static_cast<QIODevice::OpenMode>(mode)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Read(KIO__WorkerBase* self, unsigned long long size) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->read(static_cast<KIO::filesize_t>(size)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->read(static_cast<KIO::filesize_t>(size)));
-    }
+    return new KIO::WorkerResult(self->read(static_cast<KIO::filesize_t>(size)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Write(KIO__WorkerBase* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->write(data_QByteArray));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->write(data_QByteArray));
-    }
+    return new KIO::WorkerResult(self->write(data_QByteArray));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Seek(KIO__WorkerBase* self, unsigned long long offset) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->seek(static_cast<KIO::filesize_t>(offset)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->seek(static_cast<KIO::filesize_t>(offset)));
-    }
+    return new KIO::WorkerResult(self->seek(static_cast<KIO::filesize_t>(offset)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Truncate(KIO__WorkerBase* self, unsigned long long size) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->truncate(static_cast<KIO::filesize_t>(size)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->truncate(static_cast<KIO::filesize_t>(size)));
-    }
+    return new KIO::WorkerResult(self->truncate(static_cast<KIO::filesize_t>(size)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Close(KIO__WorkerBase* self) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->close());
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->close());
-    }
+    return new KIO::WorkerResult(self->close());
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Put(KIO__WorkerBase* self, const QUrl* url, int permissions, int flags) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Stat(KIO__WorkerBase* self, const QUrl* url) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->stat(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->stat(*url));
-    }
+    return new KIO::WorkerResult(self->stat(*url));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Mimetype(KIO__WorkerBase* self, const QUrl* url) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->mimetype(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->mimetype(*url));
-    }
+    return new KIO::WorkerResult(self->mimetype(*url));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_ListDir(KIO__WorkerBase* self, const QUrl* url) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->listDir(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->listDir(*url));
-    }
+    return new KIO::WorkerResult(self->listDir(*url));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Mkdir(KIO__WorkerBase* self, const QUrl* url, int permissions) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->mkdir(*url, static_cast<int>(permissions)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->mkdir(*url, static_cast<int>(permissions)));
-    }
+    return new KIO::WorkerResult(self->mkdir(*url, static_cast<int>(permissions)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Rename(KIO__WorkerBase* self, const QUrl* src, const QUrl* dest, int flags) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->rename(*src, *dest, static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->rename(*src, *dest, static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->rename(*src, *dest, static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Symlink(KIO__WorkerBase* self, const libqt_string target, const QUrl* dest, int flags) {
     QString target_QString = QString::fromUtf8(target.data, target.len);
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->symlink(target_QString, *dest, static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->symlink(target_QString, *dest, static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->symlink(target_QString, *dest, static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Chmod(KIO__WorkerBase* self, const QUrl* url, int permissions) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->chmod(*url, static_cast<int>(permissions)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->chmod(*url, static_cast<int>(permissions)));
-    }
+    return new KIO::WorkerResult(self->chmod(*url, static_cast<int>(permissions)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Chown(KIO__WorkerBase* self, const QUrl* url, const libqt_string owner, const libqt_string group) {
     QString owner_QString = QString::fromUtf8(owner.data, owner.len);
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->chown(*url, owner_QString, group_QString));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->chown(*url, owner_QString, group_QString));
-    }
+    return new KIO::WorkerResult(self->chown(*url, owner_QString, group_QString));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_SetModificationTime(KIO__WorkerBase* self, const QUrl* url, const QDateTime* mtime) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->setModificationTime(*url, *mtime));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->setModificationTime(*url, *mtime));
-    }
+    return new KIO::WorkerResult(self->setModificationTime(*url, *mtime));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Copy(KIO__WorkerBase* self, const QUrl* src, const QUrl* dest, int permissions, int flags) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Del(KIO__WorkerBase* self, const QUrl* url, bool isfile) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->del(*url, isfile));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->del(*url, isfile));
-    }
+    return new KIO::WorkerResult(self->del(*url, isfile));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_Special(KIO__WorkerBase* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->special(data_QByteArray));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->special(data_QByteArray));
-    }
+    return new KIO::WorkerResult(self->special(data_QByteArray));
 }
 
 KIO__WorkerResult* KIO__WorkerBase_FileSystemFreeSpace(KIO__WorkerBase* self, const QUrl* url) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        return new KIO::WorkerResult(self->fileSystemFreeSpace(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOWorkerBase*)self)->fileSystemFreeSpace(*url));
-    }
+    return new KIO::WorkerResult(self->fileSystemFreeSpace(*url));
 }
 
 void KIO__WorkerBase_WorkerStatus2(KIO__WorkerBase* self) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        self->worker_status();
-    } else {
-        ((VirtualKIOWorkerBase*)self)->worker_status();
-    }
+    self->worker_status();
 }
 
 void KIO__WorkerBase_ReparseConfiguration(KIO__WorkerBase* self) {
-    auto* vkio__workerbase = dynamic_cast<VirtualKIOWorkerBase*>(self);
-    if (vkio__workerbase && vkio__workerbase->isVirtualKIOWorkerBase) {
-        self->reparseConfiguration();
-    } else {
-        ((VirtualKIOWorkerBase*)self)->reparseConfiguration();
-    }
+    self->reparseConfiguration();
 }
 
 int KIO__WorkerBase_ConnectTimeout(KIO__WorkerBase* self) {
@@ -1216,9 +1081,9 @@ void KIO__WorkerBase_Delete(KIO__WorkerBase* self) {
     delete self;
 }
 
-libqt_string KIO_UnsupportedActionErrorString(const libqt_string param1, int param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KIO::unsupportedActionErrorString(param1_QString, static_cast<int>(param2));
+libqt_string KIO_UnsupportedActionErrorString(const libqt_string protocol, int cmd) {
+    QString protocol_QString = QString::fromUtf8(protocol.data, protocol.len);
+    auto _ret = KIO::unsupportedActionErrorString(protocol_QString, static_cast<int>(cmd));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

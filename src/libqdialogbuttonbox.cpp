@@ -73,30 +73,15 @@ QDialogButtonBox* QDialogButtonBox_new8(int buttons, int orientation, QWidget* p
 }
 
 QMetaObject* QDialogButtonBox_MetaObject(const QDialogButtonBox* self) {
-    auto* vqdialogbuttonbox = dynamic_cast<const VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDialogButtonBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDialogButtonBox_Metacast(QDialogButtonBox* self, const char* param1) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDialogButtonBox_Metacall(QDialogButtonBox* self, int param1, int param2, void** param3) {
-    auto* vqdialogbuttonbox = dynamic_cast<VirtualQDialogButtonBox*>(self);
-    if (vqdialogbuttonbox && vqdialogbuttonbox->isVirtualQDialogButtonBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDialogButtonBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QDialogButtonBox_SetOrientation(QDialogButtonBox* self, int orientation) {

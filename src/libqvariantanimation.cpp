@@ -24,30 +24,15 @@ QVariantAnimation* QVariantAnimation_new2(QObject* parent) {
 }
 
 QMetaObject* QVariantAnimation_MetaObject(const QVariantAnimation* self) {
-    auto* vqvariantanimation = dynamic_cast<const VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQVariantAnimation*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QVariantAnimation_Metacast(QVariantAnimation* self, const char* param1) {
-    auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQVariantAnimation*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QVariantAnimation_Metacall(QVariantAnimation* self, int param1, int param2, void** param3) {
-    auto* vqvariantanimation = dynamic_cast<VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVariantAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVariant* QVariantAnimation_StartValue(const QVariantAnimation* self) {
@@ -110,12 +95,7 @@ QVariant* QVariantAnimation_CurrentValue(const QVariantAnimation* self) {
 }
 
 int QVariantAnimation_Duration(const QVariantAnimation* self) {
-    auto* vqvariantanimation = dynamic_cast<const VirtualQVariantAnimation*>(self);
-    if (vqvariantanimation && vqvariantanimation->isVirtualQVariantAnimation) {
-        return self->duration();
-    } else {
-        return ((VirtualQVariantAnimation*)self)->duration();
-    }
+    return self->duration();
 }
 
 void QVariantAnimation_SetDuration(QVariantAnimation* self, int msecs) {

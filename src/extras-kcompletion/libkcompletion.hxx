@@ -281,27 +281,27 @@ class VirtualKCompletion final : public KCompletion {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QString makeCompletion(const QString& stringVal) override {
+    virtual QString makeCompletion(const QString& string) override {
         if (kcompletion_makecompletion_isbase) {
             kcompletion_makecompletion_isbase = false;
-            return KCompletion::makeCompletion(stringVal);
+            return KCompletion::makeCompletion(string);
         }
         auto makecompletion_cb = kcompletion_makecompletion_callback;
         if (makecompletion_cb) {
-            const auto stringVal_ret = stringVal;
+            const auto string_ret = string;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-            QByteArray stringVal_b = stringVal_ret.toUtf8();
-            auto stringVal_str_len = stringVal_b.length();
-            const char* stringVal_str = static_cast<const char*>(malloc(stringVal_str_len + 1));
-            memcpy((void*)stringVal_str, stringVal_b.data(), stringVal_str_len);
-            ((char*)stringVal_str)[stringVal_str_len] = '\0';
-            const char* cbval1 = stringVal_str;
+            QByteArray string_b = string_ret.toUtf8();
+            auto string_str_len = string_b.length();
+            const char* string_str = static_cast<const char*>(malloc(string_str_len + 1));
+            memcpy((void*)string_str, string_b.data(), string_str_len);
+            ((char*)string_str)[string_str_len] = '\0';
+            const char* cbval1 = string_str;
             const char* callback_ret = makecompletion_cb(this, cbval1);
             QString callback_ret_QString = QString::fromUtf8(callback_ret);
-            libqt_free(stringVal_str);
+            libqt_free(string_str);
             return callback_ret_QString;
         }
-        return KCompletion::makeCompletion(stringVal);
+        return KCompletion::makeCompletion(string);
     }
 
     // Virtual method for C ABI access and custom callback

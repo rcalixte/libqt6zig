@@ -150,7 +150,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlUniform3f(QOpenGLFunctions_4_3_Compati
 void QOpenGLFunctions_4_3_Compatibility_GlUniform2f(QOpenGLFunctions_4_3_Compatibility* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_4_3_Compatibility_GlUniform1f(QOpenGLFunctions_4_3_Compatibility* self, int32_t location, float v0);
 void QOpenGLFunctions_4_3_Compatibility_GlUseProgram(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program);
-void QOpenGLFunctions_4_3_Compatibility_GlShaderSource(QOpenGLFunctions_4_3_Compatibility* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
+void QOpenGLFunctions_4_3_Compatibility_GlShaderSource(QOpenGLFunctions_4_3_Compatibility* self, uint32_t shader, int32_t count, const GLchar** string, const int32_t* length);
 void QOpenGLFunctions_4_3_Compatibility_GlLinkProgram(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program);
 unsigned char QOpenGLFunctions_4_3_Compatibility_GlIsShader(QOpenGLFunctions_4_3_Compatibility* self, uint32_t shader);
 unsigned char QOpenGLFunctions_4_3_Compatibility_GlIsProgram(QOpenGLFunctions_4_3_Compatibility* self, uint32_t program);
@@ -531,9 +531,9 @@ void QOpenGLFunctions_4_3_Compatibility_GlGetTexGendv(QOpenGLFunctions_4_3_Compa
 void QOpenGLFunctions_4_3_Compatibility_GlGetTexEnviv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_4_3_Compatibility_GlGetTexEnvfv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t pname, float* params);
 void QOpenGLFunctions_4_3_Compatibility_GlGetPolygonStipple(QOpenGLFunctions_4_3_Compatibility* self, uint8_t* mask);
-void QOpenGLFunctions_4_3_Compatibility_GlGetPixelMapusv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mapVal, uint16_t* values);
-void QOpenGLFunctions_4_3_Compatibility_GlGetPixelMapuiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mapVal, uint32_t* values);
-void QOpenGLFunctions_4_3_Compatibility_GlGetPixelMapfv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mapVal, float* values);
+void QOpenGLFunctions_4_3_Compatibility_GlGetPixelMapusv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t map, uint16_t* values);
+void QOpenGLFunctions_4_3_Compatibility_GlGetPixelMapuiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t map, uint32_t* values);
+void QOpenGLFunctions_4_3_Compatibility_GlGetPixelMapfv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t map, float* values);
 void QOpenGLFunctions_4_3_Compatibility_GlGetMaterialiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t face, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_4_3_Compatibility_GlGetMaterialfv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t face, uint32_t pname, float* params);
 void QOpenGLFunctions_4_3_Compatibility_GlGetMapiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t query, int32_t* v);
@@ -544,9 +544,9 @@ void QOpenGLFunctions_4_3_Compatibility_GlGetLightfv(QOpenGLFunctions_4_3_Compat
 void QOpenGLFunctions_4_3_Compatibility_GlGetClipPlane(QOpenGLFunctions_4_3_Compatibility* self, uint32_t plane, double* equation);
 void QOpenGLFunctions_4_3_Compatibility_GlDrawPixels(QOpenGLFunctions_4_3_Compatibility* self, int32_t width, int32_t height, uint32_t format, uint32_t typeVal, const void* pixels);
 void QOpenGLFunctions_4_3_Compatibility_GlCopyPixels(QOpenGLFunctions_4_3_Compatibility* self, int32_t x, int32_t y, int32_t width, int32_t height, uint32_t typeVal);
-void QOpenGLFunctions_4_3_Compatibility_GlPixelMapusv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mapVal, int32_t mapsize, const uint16_t* values);
-void QOpenGLFunctions_4_3_Compatibility_GlPixelMapuiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mapVal, int32_t mapsize, const uint32_t* values);
-void QOpenGLFunctions_4_3_Compatibility_GlPixelMapfv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t mapVal, int32_t mapsize, const float* values);
+void QOpenGLFunctions_4_3_Compatibility_GlPixelMapusv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t map, int32_t mapsize, const uint16_t* values);
+void QOpenGLFunctions_4_3_Compatibility_GlPixelMapuiv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t map, int32_t mapsize, const uint32_t* values);
+void QOpenGLFunctions_4_3_Compatibility_GlPixelMapfv(QOpenGLFunctions_4_3_Compatibility* self, uint32_t map, int32_t mapsize, const float* values);
 void QOpenGLFunctions_4_3_Compatibility_GlPixelTransferi(QOpenGLFunctions_4_3_Compatibility* self, uint32_t pname, int32_t param);
 void QOpenGLFunctions_4_3_Compatibility_GlPixelTransferf(QOpenGLFunctions_4_3_Compatibility* self, uint32_t pname, float param);
 void QOpenGLFunctions_4_3_Compatibility_GlPixelZoom(QOpenGLFunctions_4_3_Compatibility* self, float xfactor, float yfactor);

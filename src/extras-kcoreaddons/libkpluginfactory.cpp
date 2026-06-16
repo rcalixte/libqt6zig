@@ -19,30 +19,15 @@ KPluginFactory* KPluginFactory_new() {
 }
 
 QMetaObject* KPluginFactory_MetaObject(const KPluginFactory* self) {
-    auto* vkpluginfactory = dynamic_cast<const VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPluginFactory*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPluginFactory_Metacast(KPluginFactory* self, const char* param1) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPluginFactory*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPluginFactory_Metacall(KPluginFactory* self, int param1, int param2, void** param3) {
-    auto* vkpluginfactory = dynamic_cast<VirtualKPluginFactory*>(self);
-    if (vkpluginfactory && vkpluginfactory->isVirtualKPluginFactory) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPluginFactory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KPluginMetaData* KPluginFactory_MetaData(const KPluginFactory* self) {

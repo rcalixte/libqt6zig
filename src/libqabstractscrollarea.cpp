@@ -51,30 +51,15 @@ QAbstractScrollArea* QAbstractScrollArea_new2() {
 }
 
 QMetaObject* QAbstractScrollArea_MetaObject(const QAbstractScrollArea* self) {
-    auto* vqabstractscrollarea = dynamic_cast<const VirtualQAbstractScrollArea*>(self);
-    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractScrollArea*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractScrollArea_Metacast(QAbstractScrollArea* self, const char* param1) {
-    auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
-    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractScrollArea*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractScrollArea_Metacall(QAbstractScrollArea* self, int param1, int param2, void** param3) {
-    auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
-    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractScrollArea*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QAbstractScrollArea_VerticalScrollBarPolicy(const QAbstractScrollArea* self) {
@@ -147,30 +132,15 @@ QSize* QAbstractScrollArea_MaximumViewportSize(const QAbstractScrollArea* self) 
 }
 
 QSize* QAbstractScrollArea_MinimumSizeHint(const QAbstractScrollArea* self) {
-    auto* vqabstractscrollarea = dynamic_cast<const VirtualQAbstractScrollArea*>(self);
-    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractScrollArea*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 QSize* QAbstractScrollArea_SizeHint(const QAbstractScrollArea* self) {
-    auto* vqabstractscrollarea = dynamic_cast<const VirtualQAbstractScrollArea*>(self);
-    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractScrollArea*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QAbstractScrollArea_SetupViewport(QAbstractScrollArea* self, QWidget* viewport) {
-    auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
-    if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        self->setupViewport(viewport);
-    } else {
-        ((VirtualQAbstractScrollArea*)self)->setupViewport(viewport);
-    }
+    self->setupViewport(viewport);
 }
 
 int QAbstractScrollArea_SizeAdjustPolicy(const QAbstractScrollArea* self) {

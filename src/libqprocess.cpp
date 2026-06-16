@@ -154,30 +154,15 @@ QProcess* QProcess_new2(QObject* parent) {
 }
 
 QMetaObject* QProcess_MetaObject(const QProcess* self) {
-    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQProcess*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QProcess_Metacast(QProcess* self, const char* param1) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQProcess*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QProcess_Metacall(QProcess* self, int param1, int param2, void** param3) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQProcess*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QProcess_Start(QProcess* self, const libqt_string program) {
@@ -199,12 +184,7 @@ bool QProcess_StartDetached(QProcess* self) {
 }
 
 bool QProcess_Open(QProcess* self, int mode) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return self->open(static_cast<QProcess::OpenMode>(mode));
-    } else {
-        return ((VirtualQProcess*)self)->open(static_cast<QProcess::OpenMode>(mode));
-    }
+    return self->open(static_cast<QProcess::OpenMode>(mode));
 }
 
 libqt_string QProcess_Program(const QProcess* self) {
@@ -414,21 +394,11 @@ bool QProcess_WaitForStarted(QProcess* self) {
 }
 
 bool QProcess_WaitForReadyRead(QProcess* self, int msecs) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return self->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQProcess*)self)->waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 bool QProcess_WaitForBytesWritten(QProcess* self, int msecs) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return self->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQProcess*)self)->waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 bool QProcess_WaitForFinished(QProcess* self) {
@@ -462,30 +432,15 @@ int QProcess_ExitStatus(const QProcess* self) {
 }
 
 long long QProcess_BytesToWrite(const QProcess* self) {
-    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return static_cast<long long>(self->bytesToWrite());
-    } else {
-        return static_cast<long long>(((VirtualQProcess*)self)->bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 bool QProcess_IsSequential(const QProcess* self) {
-    auto* vqprocess = dynamic_cast<const VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        return self->isSequential();
-    } else {
-        return ((VirtualQProcess*)self)->isSequential();
-    }
+    return self->isSequential();
 }
 
 void QProcess_Close(QProcess* self) {
-    auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
-    if (vqprocess && vqprocess->isVirtualQProcess) {
-        self->close();
-    } else {
-        ((VirtualQProcess*)self)->close();
-    }
+    self->close();
 }
 
 int QProcess_Execute(const libqt_string program) {

@@ -20,30 +20,15 @@ KNSWidgets__Action* KNSWidgets__Action_new(const libqt_string text, const libqt_
 }
 
 QMetaObject* KNSWidgets__Action_MetaObject(const KNSWidgets__Action* self) {
-    auto* vknswidgets__action = dynamic_cast<const VirtualKNSWidgetsAction*>(self);
-    if (vknswidgets__action && vknswidgets__action->isVirtualKNSWidgetsAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSWidgetsAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSWidgets__Action_Metacast(KNSWidgets__Action* self, const char* param1) {
-    auto* vknswidgets__action = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgets__action && vknswidgets__action->isVirtualKNSWidgetsAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSWidgets__Action_Metacall(KNSWidgets__Action* self, int param1, int param2, void** param3) {
-    auto* vknswidgets__action = dynamic_cast<VirtualKNSWidgetsAction*>(self);
-    if (vknswidgets__action && vknswidgets__action->isVirtualKNSWidgetsAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSWidgetsAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KNSWidgets__Action_DialogFinished(KNSWidgets__Action* self, const libqt_list /* of KNSCore__Entry* */ changedEntries) {

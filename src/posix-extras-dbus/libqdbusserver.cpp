@@ -31,30 +31,15 @@ QDBusServer* QDBusServer_new4(QObject* parent) {
 }
 
 QMetaObject* QDBusServer_MetaObject(const QDBusServer* self) {
-    auto* vqdbusserver = dynamic_cast<const VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDBusServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDBusServer_Metacast(QDBusServer* self, const char* param1) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDBusServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDBusServer_Metacall(QDBusServer* self, int param1, int param2, void** param3) {
-    auto* vqdbusserver = dynamic_cast<VirtualQDBusServer*>(self);
-    if (vqdbusserver && vqdbusserver->isVirtualQDBusServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDBusServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QDBusServer_IsConnected(const QDBusServer* self) {

@@ -25,30 +25,15 @@ QObject* QObject_new2(QObject* parent) {
 }
 
 QMetaObject* QObject_MetaObject(const QObject* self) {
-    auto* vqobject = dynamic_cast<const VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQObject*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QObject_Metacast(QObject* self, const char* param1) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQObject*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QObject_Metacall(QObject* self, int param1, int param2, void** param3) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QObject_Tr(const char* s) {
@@ -64,21 +49,11 @@ libqt_string QObject_Tr(const char* s) {
 }
 
 bool QObject_Event(QObject* self, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return self->event(event);
-    } else {
-        return ((VirtualQObject*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event) {
-    auto* vqobject = dynamic_cast<VirtualQObject*>(self);
-    if (vqobject && vqobject->isVirtualQObject) {
-        return self->eventFilter(watched, event);
-    } else {
-        return ((VirtualQObject*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 libqt_string QObject_ObjectName(const QObject* self) {

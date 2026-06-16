@@ -455,6 +455,10 @@ exe.root_module.addImport("libqt6zig", qt6zig.module("libqt6zig"));
 // qt_lib_name is the name of the library file containing the class definition
 // minus the "lib" prefix and file extension suffix, e.g. qapplication, qwidget, etc.
 exe.root_module.linkLibrary(qt6zig.artifact(qt_lib_name));
+
+// Use the library-provided convenience method to configure much of the exe
+const configureQtExeRootModule = @import("libqt6zig").configureQtExeRootModule;
+try configureQtExeRootModule(b, exe, .{});
 ```
 
 - Use the library in your code:
@@ -475,7 +479,7 @@ const qnamespace_enums = qt6.qnamespace_enums;
 const qt = qnamespace_enums;
 ```
 
-Full examples of the build system and sample applications can be found in the [`libqt6zig-examples`](https://github.com/rcalixte/libqt6zig-examples) repository.
+Full examples of the build system and sample applications can be found in the [`libqt6zig-examples`](https://github.com/rcalixte/libqt6zig-examples) repository. For a simpler build system and a single demo application, visit the [`libqt6zig-demo`](https://github.com/rcalixte/libqt6zig-demo) repository.
 
 FAQ
 ---

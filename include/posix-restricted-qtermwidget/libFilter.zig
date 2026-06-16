@@ -165,8 +165,6 @@ pub const Konsole__Filter = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: Konsole__Filter `
@@ -3515,8 +3513,6 @@ pub const Konsole__RegExpFilter = extern struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: Konsole__RegExpFilter`
@@ -5468,8 +5464,6 @@ pub const Konsole__UrlFilter = extern struct {
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

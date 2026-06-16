@@ -11,9 +11,9 @@
 #include "libentry.h"
 #include "libentry.hxx"
 
-libqt_string KNSCore_ReplaceBBCode(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KNSCore::replaceBBCode(param1_QString);
+libqt_string KNSCore_ReplaceBBCode(const libqt_string unformattedText) {
+    QString unformattedText_QString = QString::fromUtf8(unformattedText.data, unformattedText.len);
+    auto _ret = KNSCore::replaceBBCode(unformattedText_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -24,8 +24,8 @@ libqt_string KNSCore_ReplaceBBCode(const libqt_string param1) {
     return _str;
 }
 
-size_t KNSCore_QHash(const KNSCore__Entry* param1, size_t param2) {
-    return KNSCore::qHash(*param1, static_cast<size_t>(param2));
+size_t KNSCore_QHash(const KNSCore__Entry* entry, size_t seed) {
+    return KNSCore::qHash(*entry, static_cast<size_t>(seed));
 }
 
 KNSCore__Entry* KNSCore__Entry_new() {

@@ -47,30 +47,15 @@ TextEditTextToSpeech__TextToSpeechConfigDialog* TextEditTextToSpeech__TextToSpee
 }
 
 QMetaObject* TextEditTextToSpeech__TextToSpeechConfigDialog_MetaObject(const TextEditTextToSpeech__TextToSpeechConfigDialog* self) {
-    auto* vtextedittexttospeech__texttospeechconfigdialog = dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeech__texttospeechconfigdialog && vtextedittexttospeech__texttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEditTextToSpeechTextToSpeechConfigDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEditTextToSpeech__TextToSpeechConfigDialog_Metacast(TextEditTextToSpeech__TextToSpeechConfigDialog* self, const char* param1) {
-    auto* vtextedittexttospeech__texttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeech__texttospeechconfigdialog && vtextedittexttospeech__texttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechConfigDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEditTextToSpeech__TextToSpeechConfigDialog_Metacall(TextEditTextToSpeech__TextToSpeechConfigDialog* self, int param1, int param2, void** param3) {
-    auto* vtextedittexttospeech__texttospeechconfigdialog = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigDialog*>(self);
-    if (vtextedittexttospeech__texttospeechconfigdialog && vtextedittexttospeech__texttospeechconfigdialog->isVirtualTextEditTextToSpeechTextToSpeechConfigDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechConfigDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

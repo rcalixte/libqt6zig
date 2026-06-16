@@ -32,39 +32,19 @@ KDescendantsProxyModel* KDescendantsProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KDescendantsProxyModel_MetaObject(const KDescendantsProxyModel* self) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDescendantsProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDescendantsProxyModel_Metacast(KDescendantsProxyModel* self, const char* param1) {
-    auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDescendantsProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDescendantsProxyModel_Metacall(KDescendantsProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDescendantsProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KDescendantsProxyModel_SetSourceModel(KDescendantsProxyModel* self, QAbstractItemModel* model) {
-    auto* vkdescendantsproxymodel = dynamic_cast<VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        self->setSourceModel(model);
-    } else {
-        ((VirtualKDescendantsProxyModel*)self)->setSourceModel(model);
-    }
+    self->setSourceModel(model);
 }
 
 void KDescendantsProxyModel_SetDisplayAncestorData(KDescendantsProxyModel* self, bool display) {
@@ -93,57 +73,27 @@ libqt_string KDescendantsProxyModel_AncestorSeparator(const KDescendantsProxyMod
 }
 
 QModelIndex* KDescendantsProxyModel_MapFromSource(const KDescendantsProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return new QModelIndex(self->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualKDescendantsProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+    return new QModelIndex(self->mapFromSource(*sourceIndex));
 }
 
 QModelIndex* KDescendantsProxyModel_MapToSource(const KDescendantsProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return new QModelIndex(self->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualKDescendantsProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->mapToSource(*proxyIndex));
 }
 
 int KDescendantsProxyModel_Flags(const KDescendantsProxyModel* self, const QModelIndex* index) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKDescendantsProxyModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 QVariant* KDescendantsProxyModel_Data(const KDescendantsProxyModel* self, const QModelIndex* index, int role) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKDescendantsProxyModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int KDescendantsProxyModel_RowCount(const KDescendantsProxyModel* self, const QModelIndex* parent) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKDescendantsProxyModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* KDescendantsProxyModel_HeaderData(const KDescendantsProxyModel* self, int section, int orientation, int role) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKDescendantsProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 QMimeData* KDescendantsProxyModel_MimeData(const KDescendantsProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -153,138 +103,67 @@ QMimeData* KDescendantsProxyModel_MimeData(const KDescendantsProxyModel* self, c
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualKDescendantsProxyModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 libqt_list /* of libqt_string */ KDescendantsProxyModel_MimeTypes(const KDescendantsProxyModel* self) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKDescendantsProxyModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 bool KDescendantsProxyModel_HasChildren(const KDescendantsProxyModel* self, const QModelIndex* parent) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualKDescendantsProxyModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 QModelIndex* KDescendantsProxyModel_Index(const KDescendantsProxyModel* self, int param1, int param2, const QModelIndex* parent) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return new QModelIndex(self->index(static_cast<int>(param1), static_cast<int>(param2), *parent));
-    } else {
-        return new QModelIndex(((VirtualKDescendantsProxyModel*)self)->index(static_cast<int>(param1), static_cast<int>(param2), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(param1), static_cast<int>(param2), *parent));
 }
 
 QModelIndex* KDescendantsProxyModel_Parent(const KDescendantsProxyModel* self, const QModelIndex* param1) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return new QModelIndex(self->parent(*param1));
-    } else {
-        return new QModelIndex(((VirtualKDescendantsProxyModel*)self)->parent(*param1));
-    }
+    return new QModelIndex(self->parent(*param1));
 }
 
 int KDescendantsProxyModel_ColumnCount(const KDescendantsProxyModel* self, const QModelIndex* index) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return self->columnCount(*index);
-    } else {
-        return ((VirtualKDescendantsProxyModel*)self)->columnCount(*index);
-    }
+    return self->columnCount(*index);
 }
 
 libqt_map /* of int to libqt_string */ KDescendantsProxyModel_RoleNames(const KDescendantsProxyModel* self) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKDescendantsProxyModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 void KDescendantsProxyModel_SetExpandsByDefault(KDescendantsProxyModel* self, bool expand) {
@@ -312,39 +191,20 @@ void KDescendantsProxyModel_CollapseSourceIndex(KDescendantsProxyModel* self, co
 }
 
 int KDescendantsProxyModel_SupportedDropActions(const KDescendantsProxyModel* self) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualKDescendantsProxyModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 libqt_list /* of QModelIndex* */ KDescendantsProxyModel_Match(const KDescendantsProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vkdescendantsproxymodel = dynamic_cast<const VirtualKDescendantsProxyModel*>(self);
-    if (vkdescendantsproxymodel && vkdescendantsproxymodel->isVirtualKDescendantsProxyModel) {
-        QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKDescendantsProxyModel*)self)->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void KDescendantsProxyModel_SourceModelChanged(KDescendantsProxyModel* self) {

@@ -16,39 +16,19 @@ KParts__ListingNotificationExtension* KParts__ListingNotificationExtension_new(K
 }
 
 QMetaObject* KParts__ListingNotificationExtension_MetaObject(const KParts__ListingNotificationExtension* self) {
-    auto* vkparts__listingnotificationextension = dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self);
-    if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsListingNotificationExtension*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__ListingNotificationExtension_Metacast(KParts__ListingNotificationExtension* self, const char* param1) {
-    auto* vkparts__listingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsListingNotificationExtension*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__ListingNotificationExtension_Metacall(KParts__ListingNotificationExtension* self, int param1, int param2, void** param3) {
-    auto* vkparts__listingnotificationextension = dynamic_cast<VirtualKPartsListingNotificationExtension*>(self);
-    if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsListingNotificationExtension*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KParts__ListingNotificationExtension_SupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self) {
-    auto* vkparts__listingnotificationextension = dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self);
-    if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
-        return static_cast<int>(self->supportedNotificationEventTypes());
-    } else {
-        return static_cast<int>(((VirtualKPartsListingNotificationExtension*)self)->supportedNotificationEventTypes());
-    }
+    return static_cast<int>(self->supportedNotificationEventTypes());
 }
 
 KParts__ListingNotificationExtension* KParts__ListingNotificationExtension_ChildObject(QObject* obj) {

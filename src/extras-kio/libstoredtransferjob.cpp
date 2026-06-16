@@ -46,24 +46,24 @@ void KIO__StoredTransferJob_Delete(KIO__StoredTransferJob* self) {
     delete self;
 }
 
-KIO__StoredTransferJob* KIO_StoredGet(const QUrl* param1, int param2, int param3) {
-    return KIO::storedGet(*param1, static_cast<KIO::LoadType>(param2), static_cast<KIO::JobFlags>(param3));
+KIO__StoredTransferJob* KIO_StoredGet(const QUrl* url, int reload, int flags) {
+    return KIO::storedGet(*url, static_cast<KIO::LoadType>(reload), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__StoredTransferJob* KIO_StoredPut(QIODevice* param1, const QUrl* param2, int param3, int param4) {
-    return KIO::storedPut(param1, *param2, static_cast<int>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__StoredTransferJob* KIO_StoredPut(QIODevice* input, const QUrl* url, int permissions, int flags) {
+    return KIO::storedPut(input, *url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__StoredTransferJob* KIO_StoredPut2(const libqt_string param1, const QUrl* param2, int param3, int param4) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    return KIO::storedPut(param1_QByteArray, *param2, static_cast<int>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__StoredTransferJob* KIO_StoredPut2(const libqt_string arr, const QUrl* url, int permissions, int flags) {
+    QByteArray arr_QByteArray(arr.data, arr.len);
+    return KIO::storedPut(arr_QByteArray, *url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__StoredTransferJob* KIO_StoredHttpPost(const libqt_string param1, const QUrl* param2, int param3) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    return KIO::storedHttpPost(param1_QByteArray, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__StoredTransferJob* KIO_StoredHttpPost(const libqt_string arr, const QUrl* url, int flags) {
+    QByteArray arr_QByteArray(arr.data, arr.len);
+    return KIO::storedHttpPost(arr_QByteArray, *url, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__StoredTransferJob* KIO_StoredHttpPost2(QIODevice* param1, const QUrl* param2, long long param3, int param4) {
-    return KIO::storedHttpPost(param1, *param2, static_cast<qint64>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__StoredTransferJob* KIO_StoredHttpPost2(QIODevice* device, const QUrl* url, long long size, int flags) {
+    return KIO::storedHttpPost(device, *url, static_cast<qint64>(size), static_cast<KIO::JobFlags>(flags));
 }

@@ -92,6 +92,6 @@ libqt_list /* of KProcessList__KProcessInfo* */ KProcessList_ProcessInfoList() {
     return _out;
 }
 
-KProcessList__KProcessInfo* KProcessList_ProcessInfo(long long param1) {
-    return new KProcessList::KProcessInfo(KProcessList::processInfo(static_cast<qint64>(param1)));
+KProcessList__KProcessInfo* KProcessList_ProcessInfo(long long pid) {
+    return new KProcessList::KProcessInfo(KProcessList::processInfo(static_cast<qint64>(pid)));
 }

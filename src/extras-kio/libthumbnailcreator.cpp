@@ -109,39 +109,19 @@ KIO__ThumbnailCreator* KIO__ThumbnailCreator_new(QObject* parent, const libqt_li
 }
 
 QMetaObject* KIO__ThumbnailCreator_MetaObject(const KIO__ThumbnailCreator* self) {
-    auto* vkio__thumbnailcreator = dynamic_cast<const VirtualKIOThumbnailCreator*>(self);
-    if (vkio__thumbnailcreator && vkio__thumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOThumbnailCreator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__ThumbnailCreator_Metacast(KIO__ThumbnailCreator* self, const char* param1) {
-    auto* vkio__thumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkio__thumbnailcreator && vkio__thumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__ThumbnailCreator_Metacall(KIO__ThumbnailCreator* self, int param1, int param2, void** param3) {
-    auto* vkio__thumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkio__thumbnailcreator && vkio__thumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOThumbnailCreator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KIO__ThumbnailResult* KIO__ThumbnailCreator_Create(KIO__ThumbnailCreator* self, const KIO__ThumbnailRequest* request) {
-    auto* vkio__thumbnailcreator = dynamic_cast<VirtualKIOThumbnailCreator*>(self);
-    if (vkio__thumbnailcreator && vkio__thumbnailcreator->isVirtualKIOThumbnailCreator) {
-        return new KIO::ThumbnailResult(vkio__thumbnailcreator->create(*request));
-    } else {
-        return new KIO::ThumbnailResult(((VirtualKIOThumbnailCreator*)self)->create(*request));
-    }
+    return new KIO::ThumbnailResult(self->create(*request));
 }
 
 // Base class handler implementation

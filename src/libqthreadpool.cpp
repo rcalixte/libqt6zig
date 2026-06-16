@@ -22,30 +22,15 @@ QThreadPool* QThreadPool_new2(QObject* parent) {
 }
 
 QMetaObject* QThreadPool_MetaObject(const QThreadPool* self) {
-    auto* vqthreadpool = dynamic_cast<const VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQThreadPool*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QThreadPool_Metacast(QThreadPool* self, const char* param1) {
-    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQThreadPool*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QThreadPool_Metacall(QThreadPool* self, int param1, int param2, void** param3) {
-    auto* vqthreadpool = dynamic_cast<VirtualQThreadPool*>(self);
-    if (vqthreadpool && vqthreadpool->isVirtualQThreadPool) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQThreadPool*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QThreadPool* QThreadPool_GlobalInstance() {

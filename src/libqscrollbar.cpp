@@ -56,48 +56,23 @@ QScrollBar* QScrollBar_new4(int param1, QWidget* parent) {
 }
 
 QMetaObject* QScrollBar_MetaObject(const QScrollBar* self) {
-    auto* vqscrollbar = dynamic_cast<const VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQScrollBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QScrollBar_Metacast(QScrollBar* self, const char* param1) {
-    auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQScrollBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QScrollBar_Metacall(QScrollBar* self, int param1, int param2, void** param3) {
-    auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQScrollBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QScrollBar_SizeHint(const QScrollBar* self) {
-    auto* vqscrollbar = dynamic_cast<const VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQScrollBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 bool QScrollBar_Event(QScrollBar* self, QEvent* event) {
-    auto* vqscrollbar = dynamic_cast<VirtualQScrollBar*>(self);
-    if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
-        return self->event(event);
-    } else {
-        return ((VirtualQScrollBar*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 void QScrollBar_WheelEvent(QScrollBar* self, QWheelEvent* param1) {

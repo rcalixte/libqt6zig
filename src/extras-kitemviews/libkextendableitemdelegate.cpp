@@ -30,48 +30,23 @@ KExtendableItemDelegate* KExtendableItemDelegate_new(QAbstractItemView* parent) 
 }
 
 QMetaObject* KExtendableItemDelegate_MetaObject(const KExtendableItemDelegate* self) {
-    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKExtendableItemDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KExtendableItemDelegate_Metacast(KExtendableItemDelegate* self, const char* param1) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KExtendableItemDelegate_Metacall(KExtendableItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vkextendableitemdelegate = dynamic_cast<VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKExtendableItemDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KExtendableItemDelegate_SizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        return new QSize(self->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKExtendableItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->sizeHint(*option, *index));
 }
 
 void KExtendableItemDelegate_Paint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        self->paint(painter, *option, *index);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->paint(painter, *option, *index);
-    }
+    self->paint(painter, *option, *index);
 }
 
 void KExtendableItemDelegate_ExtendItem(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index) {
@@ -91,12 +66,7 @@ bool KExtendableItemDelegate_IsExtended(const KExtendableItemDelegate* self, con
 }
 
 void KExtendableItemDelegate_UpdateExtenderGeometry(const KExtendableItemDelegate* self, QWidget* extender, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkextendableitemdelegate = dynamic_cast<const VirtualKExtendableItemDelegate*>(self);
-    if (vkextendableitemdelegate && vkextendableitemdelegate->isVirtualKExtendableItemDelegate) {
-        self->updateExtenderGeometry(extender, *option, *index);
-    } else {
-        ((VirtualKExtendableItemDelegate*)self)->updateExtenderGeometry(extender, *option, *index);
-    }
+    self->updateExtenderGeometry(extender, *option, *index);
 }
 
 void KExtendableItemDelegate_ExtenderCreated(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index) {

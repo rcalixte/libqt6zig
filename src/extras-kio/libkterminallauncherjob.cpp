@@ -24,30 +24,15 @@ KTerminalLauncherJob* KTerminalLauncherJob_new2(const libqt_string command, QObj
 }
 
 QMetaObject* KTerminalLauncherJob_MetaObject(const KTerminalLauncherJob* self) {
-    auto* vkterminallauncherjob = dynamic_cast<const VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTerminalLauncherJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTerminalLauncherJob_Metacast(KTerminalLauncherJob* self, const char* param1) {
-    auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTerminalLauncherJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTerminalLauncherJob_Metacall(KTerminalLauncherJob* self, int param1, int param2, void** param3) {
-    auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTerminalLauncherJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KTerminalLauncherJob_SetWorkingDirectory(KTerminalLauncherJob* self, const libqt_string workingDirectory) {
@@ -65,12 +50,7 @@ void KTerminalLauncherJob_SetProcessEnvironment(KTerminalLauncherJob* self, cons
 }
 
 void KTerminalLauncherJob_Start(KTerminalLauncherJob* self) {
-    auto* vkterminallauncherjob = dynamic_cast<VirtualKTerminalLauncherJob*>(self);
-    if (vkterminallauncherjob && vkterminallauncherjob->isVirtualKTerminalLauncherJob) {
-        self->start();
-    } else {
-        ((VirtualKTerminalLauncherJob*)self)->start();
-    }
+    self->start();
 }
 
 // Base class handler implementation

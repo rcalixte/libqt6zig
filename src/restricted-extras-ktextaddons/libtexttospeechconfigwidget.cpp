@@ -46,30 +46,15 @@ TextEditTextToSpeech__TextToSpeechConfigWidget* TextEditTextToSpeech__TextToSpee
 }
 
 QMetaObject* TextEditTextToSpeech__TextToSpeechConfigWidget_MetaObject(const TextEditTextToSpeech__TextToSpeechConfigWidget* self) {
-    auto* vtextedittexttospeech__texttospeechconfigwidget = dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechConfigWidget*>(self);
-    if (vtextedittexttospeech__texttospeechconfigwidget && vtextedittexttospeech__texttospeechconfigwidget->isVirtualTextEditTextToSpeechTextToSpeechConfigWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEditTextToSpeechTextToSpeechConfigWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEditTextToSpeech__TextToSpeechConfigWidget_Metacast(TextEditTextToSpeech__TextToSpeechConfigWidget* self, const char* param1) {
-    auto* vtextedittexttospeech__texttospeechconfigwidget = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigWidget*>(self);
-    if (vtextedittexttospeech__texttospeechconfigwidget && vtextedittexttospeech__texttospeechconfigwidget->isVirtualTextEditTextToSpeechTextToSpeechConfigWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechConfigWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEditTextToSpeech__TextToSpeechConfigWidget_Metacall(TextEditTextToSpeech__TextToSpeechConfigWidget* self, int param1, int param2, void** param3) {
-    auto* vtextedittexttospeech__texttospeechconfigwidget = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechConfigWidget*>(self);
-    if (vtextedittexttospeech__texttospeechconfigwidget && vtextedittexttospeech__texttospeechconfigwidget->isVirtualTextEditTextToSpeechTextToSpeechConfigWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechConfigWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextEditTextToSpeech__TextToSpeechConfigWidget_InitializeSettings(TextEditTextToSpeech__TextToSpeechConfigWidget* self) {

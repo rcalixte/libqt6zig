@@ -24,30 +24,15 @@ KDualAction* KDualAction_new2(const libqt_string inactiveText, const libqt_strin
 }
 
 QMetaObject* KDualAction_MetaObject(const KDualAction* self) {
-    auto* vkdualaction = dynamic_cast<const VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDualAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDualAction_Metacast(KDualAction* self, const char* param1) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDualAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDualAction_Metacall(KDualAction* self, int param1, int param2, void** param3) {
-    auto* vkdualaction = dynamic_cast<VirtualKDualAction*>(self);
-    if (vkdualaction && vkdualaction->isVirtualKDualAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDualAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KDualAction_SetActiveGuiItem(KDualAction* self, const KGuiItem* activeGuiItem) {

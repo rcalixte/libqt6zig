@@ -33,30 +33,15 @@ KAutoSaveFile* KAutoSaveFile_new4(QObject* parent) {
 }
 
 QMetaObject* KAutoSaveFile_MetaObject(const KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<const VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKAutoSaveFile*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KAutoSaveFile_Metacast(KAutoSaveFile* self, const char* param1) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KAutoSaveFile_Metacall(KAutoSaveFile* self, int param1, int param2, void** param3) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KAutoSaveFile_ManagedFile(const KAutoSaveFile* self) {
@@ -68,21 +53,11 @@ void KAutoSaveFile_SetManagedFile(KAutoSaveFile* self, const QUrl* filename) {
 }
 
 void KAutoSaveFile_ReleaseLock(KAutoSaveFile* self) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        self->releaseLock();
-    } else {
-        ((VirtualKAutoSaveFile*)self)->releaseLock();
-    }
+    self->releaseLock();
 }
 
 bool KAutoSaveFile_Open(KAutoSaveFile* self, int openmode) {
-    auto* vkautosavefile = dynamic_cast<VirtualKAutoSaveFile*>(self);
-    if (vkautosavefile && vkautosavefile->isVirtualKAutoSaveFile) {
-        return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    } else {
-        return ((VirtualKAutoSaveFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
-    }
+    return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openmode));
 }
 
 libqt_list /* of KAutoSaveFile* */ KAutoSaveFile_StaleFiles(const QUrl* url) {

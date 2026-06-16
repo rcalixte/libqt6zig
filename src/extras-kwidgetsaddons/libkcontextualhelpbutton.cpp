@@ -54,30 +54,15 @@ KContextualHelpButton* KContextualHelpButton_new3() {
 }
 
 QMetaObject* KContextualHelpButton_MetaObject(const KContextualHelpButton* self) {
-    auto* vkcontextualhelpbutton = dynamic_cast<const VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKContextualHelpButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KContextualHelpButton_Metacast(KContextualHelpButton* self, const char* param1) {
-    auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKContextualHelpButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KContextualHelpButton_Metacall(KContextualHelpButton* self, int param1, int param2, void** param3) {
-    auto* vkcontextualhelpbutton = dynamic_cast<VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKContextualHelpButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KContextualHelpButton_SetContextualHelpText(KContextualHelpButton* self, const libqt_string contextualHelpText) {
@@ -106,12 +91,7 @@ QWidget* KContextualHelpButton_HeightHintWidget(const KContextualHelpButton* sel
 }
 
 QSize* KContextualHelpButton_SizeHint(const KContextualHelpButton* self) {
-    auto* vkcontextualhelpbutton = dynamic_cast<const VirtualKContextualHelpButton*>(self);
-    if (vkcontextualhelpbutton && vkcontextualhelpbutton->isVirtualKContextualHelpButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKContextualHelpButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KContextualHelpButton_ContextualHelpTextChanged(KContextualHelpButton* self, const libqt_string newContextualHelpText) {

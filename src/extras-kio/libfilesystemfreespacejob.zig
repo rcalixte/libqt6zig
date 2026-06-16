@@ -1996,10 +1996,10 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn FileSystemFreeSpace(param1: anytype) KIO__FileSystemFreeSpaceJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_FileSystemFreeSpace(@ptrCast(param1.ptr)) };
+    pub fn FileSystemFreeSpace(url: anytype) KIO__FileSystemFreeSpaceJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_FileSystemFreeSpace(@ptrCast(url.ptr)) };
     }
 };

@@ -52,8 +52,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QDesignerWidgetDataBaseItemInterface `
@@ -157,8 +155,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#group)
     ///
     /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -264,8 +260,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QDesignerWidgetDataBaseItemInterface `
@@ -370,8 +364,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QDesignerWidgetDataBaseItemInterface `
@@ -475,8 +467,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#includeFile)
     ///
     /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -922,8 +912,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: QDesignerWidgetDataBaseItemInterface `
@@ -1111,8 +1099,6 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetdatabaseiteminterface.html#extends)
     ///
     /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

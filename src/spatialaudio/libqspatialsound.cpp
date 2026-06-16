@@ -19,30 +19,15 @@ QSpatialSound* QSpatialSound_new(QAudioEngine* engine) {
 }
 
 QMetaObject* QSpatialSound_MetaObject(const QSpatialSound* self) {
-    auto* vqspatialsound = dynamic_cast<const VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSpatialSound*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSpatialSound_Metacast(QSpatialSound* self, const char* param1) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSpatialSound*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSpatialSound_Metacall(QSpatialSound* self, int param1, int param2, void** param3) {
-    auto* vqspatialsound = dynamic_cast<VirtualQSpatialSound*>(self);
-    if (vqspatialsound && vqspatialsound->isVirtualQSpatialSound) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSpatialSound*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSpatialSound_SetSource(QSpatialSound* self, const QUrl* url) {

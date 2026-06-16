@@ -38,30 +38,15 @@ KSvg__ImageSet* KSvg__ImageSet_new5(const libqt_string imageSetName, const libqt
 }
 
 QMetaObject* KSvg__ImageSet_MetaObject(const KSvg__ImageSet* self) {
-    auto* vksvg__imageset = dynamic_cast<const VirtualKSvgImageSet*>(self);
-    if (vksvg__imageset && vksvg__imageset->isVirtualKSvgImageSet) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSvgImageSet*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSvg__ImageSet_Metacast(KSvg__ImageSet* self, const char* param1) {
-    auto* vksvg__imageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvg__imageset && vksvg__imageset->isVirtualKSvgImageSet) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSvgImageSet*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSvg__ImageSet_Metacall(KSvg__ImageSet* self, int param1, int param2, void** param3) {
-    auto* vksvg__imageset = dynamic_cast<VirtualKSvgImageSet*>(self);
-    if (vksvg__imageset && vksvg__imageset->isVirtualKSvgImageSet) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSvgImageSet*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSvg__ImageSet_SetBasePath(KSvg__ImageSet* self, const libqt_string basePath) {

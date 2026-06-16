@@ -19,7 +19,7 @@ typedef struct KMimeTypeEditor KMimeTypeEditor;
 typedef struct QWidget QWidget;
 #endif
 
-void KMimeTypeEditor_EditMimeType(const libqt_string param1, QWidget* param2);
+void KMimeTypeEditor_EditMimeType(const libqt_string mimeType, QWidget* widget);
 
 #ifdef __cplusplus
 } /* extern C */

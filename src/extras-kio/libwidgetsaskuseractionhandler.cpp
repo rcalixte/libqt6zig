@@ -27,50 +27,25 @@ KIO__WidgetsAskUserActionHandler* KIO__WidgetsAskUserActionHandler_new2(QObject*
 }
 
 QMetaObject* KIO__WidgetsAskUserActionHandler_MetaObject(const KIO__WidgetsAskUserActionHandler* self) {
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<const VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOWidgetsAskUserActionHandler*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__WidgetsAskUserActionHandler_Metacast(KIO__WidgetsAskUserActionHandler* self, const char* param1) {
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__WidgetsAskUserActionHandler_Metacall(KIO__WidgetsAskUserActionHandler* self, int param1, int param2, void** param3) {
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOWidgetsAskUserActionHandler*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__WidgetsAskUserActionHandler_AskUserRename(KIO__WidgetsAskUserActionHandler* self, KJob* job, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest, const QDateTime* mtimeSrc, const QDateTime* mtimeDest) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        self->askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
-    }
+    self->askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
 }
 
 void KIO__WidgetsAskUserActionHandler_AskUserSkip(KIO__WidgetsAskUserActionHandler* self, KJob* job, int options, const libqt_string error_text) {
     QString error_text_QString = QString::fromUtf8(error_text.data, error_text.len);
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        self->askUserSkip(job, static_cast<KIO::SkipDialog_Options>(options), error_text_QString);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->askUserSkip(job, static_cast<KIO::SkipDialog_Options>(options), error_text_QString);
-    }
+    self->askUserSkip(job, static_cast<KIO::SkipDialog_Options>(options), error_text_QString);
 }
 
 void KIO__WidgetsAskUserActionHandler_AskUserDelete(KIO__WidgetsAskUserActionHandler* self, const libqt_list /* of QUrl* */ urls, int deletionType, int confirmationType, QWidget* parent) {
@@ -80,12 +55,7 @@ void KIO__WidgetsAskUserActionHandler_AskUserDelete(KIO__WidgetsAskUserActionHan
     for (size_t i = 0; i < urls.len; ++i) {
         urls_QList.push_back(*(urls_arr[i]));
     }
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        self->askUserDelete(urls_QList, static_cast<KIO::AskUserActionInterface::DeletionType>(deletionType), static_cast<KIO::AskUserActionInterface::ConfirmationType>(confirmationType), parent);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->askUserDelete(urls_QList, static_cast<KIO::AskUserActionInterface::DeletionType>(deletionType), static_cast<KIO::AskUserActionInterface::ConfirmationType>(confirmationType), parent);
-    }
+    self->askUserDelete(urls_QList, static_cast<KIO::AskUserActionInterface::DeletionType>(deletionType), static_cast<KIO::AskUserActionInterface::ConfirmationType>(confirmationType), parent);
 }
 
 void KIO__WidgetsAskUserActionHandler_RequestUserMessageBox(KIO__WidgetsAskUserActionHandler* self, int typeVal, const libqt_string text, const libqt_string title, const libqt_string primaryActionText, const libqt_string secondaryActionText, const libqt_string primaryActionIconName, const libqt_string secondaryActionIconName, const libqt_string dontAskAgainName, const libqt_string details, QWidget* parent) {
@@ -97,12 +67,7 @@ void KIO__WidgetsAskUserActionHandler_RequestUserMessageBox(KIO__WidgetsAskUserA
     QString secondaryActionIconName_QString = QString::fromUtf8(secondaryActionIconName.data, secondaryActionIconName.len);
     QString dontAskAgainName_QString = QString::fromUtf8(dontAskAgainName.data, dontAskAgainName.len);
     QString details_QString = QString::fromUtf8(details.data, details.len);
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        self->requestUserMessageBox(static_cast<KIO::AskUserActionInterface::MessageDialogType>(typeVal), text_QString, title_QString, primaryActionText_QString, secondaryActionText_QString, primaryActionIconName_QString, secondaryActionIconName_QString, dontAskAgainName_QString, details_QString, parent);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->requestUserMessageBox(static_cast<KIO::AskUserActionInterface::MessageDialogType>(typeVal), text_QString, title_QString, primaryActionText_QString, secondaryActionText_QString, primaryActionIconName_QString, secondaryActionIconName_QString, dontAskAgainName_QString, details_QString, parent);
-    }
+    self->requestUserMessageBox(static_cast<KIO::AskUserActionInterface::MessageDialogType>(typeVal), text_QString, title_QString, primaryActionText_QString, secondaryActionText_QString, primaryActionIconName_QString, secondaryActionIconName_QString, dontAskAgainName_QString, details_QString, parent);
 }
 
 void KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(KIO__WidgetsAskUserActionHandler* self, const libqt_map /* of libqt_string to QVariant* */ sslErrorData, QWidget* parent) {
@@ -113,12 +78,7 @@ void KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(KIO__WidgetsAskUserActi
         QString sslErrorData_karr_i_QString = QString::fromUtf8(sslErrorData_karr[i].data, sslErrorData_karr[i].len);
         sslErrorData_QMap[sslErrorData_karr_i_QString] = *(sslErrorData_varr[i]);
     }
-    auto* vkio__widgetsaskuseractionhandler = dynamic_cast<VirtualKIOWidgetsAskUserActionHandler*>(self);
-    if (vkio__widgetsaskuseractionhandler && vkio__widgetsaskuseractionhandler->isVirtualKIOWidgetsAskUserActionHandler) {
-        self->askIgnoreSslErrors(sslErrorData_QMap, parent);
-    } else {
-        ((VirtualKIOWidgetsAskUserActionHandler*)self)->askIgnoreSslErrors(sslErrorData_QMap, parent);
-    }
+    self->askIgnoreSslErrors(sslErrorData_QMap, parent);
 }
 
 void KIO__WidgetsAskUserActionHandler_SetWindow(KIO__WidgetsAskUserActionHandler* self, QWidget* window) {

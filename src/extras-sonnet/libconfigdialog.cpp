@@ -43,30 +43,15 @@ Sonnet__ConfigDialog* Sonnet__ConfigDialog_new(QWidget* parent) {
 }
 
 QMetaObject* Sonnet__ConfigDialog_MetaObject(const Sonnet__ConfigDialog* self) {
-    auto* vsonnet__configdialog = dynamic_cast<const VirtualSonnetConfigDialog*>(self);
-    if (vsonnet__configdialog && vsonnet__configdialog->isVirtualSonnetConfigDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSonnetConfigDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Sonnet__ConfigDialog_Metacast(Sonnet__ConfigDialog* self, const char* param1) {
-    auto* vsonnet__configdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnet__configdialog && vsonnet__configdialog->isVirtualSonnetConfigDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSonnetConfigDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Sonnet__ConfigDialog_Metacall(Sonnet__ConfigDialog* self, int param1, int param2, void** param3) {
-    auto* vsonnet__configdialog = dynamic_cast<VirtualSonnetConfigDialog*>(self);
-    if (vsonnet__configdialog && vsonnet__configdialog->isVirtualSonnetConfigDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSonnetConfigDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void Sonnet__ConfigDialog_SetLanguage(Sonnet__ConfigDialog* self, const libqt_string language) {

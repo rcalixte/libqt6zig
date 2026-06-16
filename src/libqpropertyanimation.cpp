@@ -33,30 +33,15 @@ QPropertyAnimation* QPropertyAnimation_new4(QObject* target, const libqt_string 
 }
 
 QMetaObject* QPropertyAnimation_MetaObject(const QPropertyAnimation* self) {
-    auto* vqpropertyanimation = dynamic_cast<const VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPropertyAnimation*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPropertyAnimation_Metacast(QPropertyAnimation* self, const char* param1) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPropertyAnimation_Metacall(QPropertyAnimation* self, int param1, int param2, void** param3) {
-    auto* vqpropertyanimation = dynamic_cast<VirtualQPropertyAnimation*>(self);
-    if (vqpropertyanimation && vqpropertyanimation->isVirtualQPropertyAnimation) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPropertyAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QPropertyAnimation_TargetObject(const QPropertyAnimation* self) {

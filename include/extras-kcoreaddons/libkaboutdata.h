@@ -26,7 +26,7 @@ typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
 #endif
 
-void KCrash_DefaultCrashHandler(int param1);
+void KCrash_DefaultCrashHandler(int sig);
 
 KAboutPerson* KAboutPerson_new();
 KAboutPerson* KAboutPerson_new2(const KAboutPerson* other);

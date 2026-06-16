@@ -22,30 +22,15 @@ QVBoxPlotModelMapper* QVBoxPlotModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QVBoxPlotModelMapper_MetaObject(const QVBoxPlotModelMapper* self) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<const VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQVBoxPlotModelMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QVBoxPlotModelMapper_Metacast(QVBoxPlotModelMapper* self, const char* param1) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QVBoxPlotModelMapper_Metacall(QVBoxPlotModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqvboxplotmodelmapper = dynamic_cast<VirtualQVBoxPlotModelMapper*>(self);
-    if (vqvboxplotmodelmapper && vqvboxplotmodelmapper->isVirtualQVBoxPlotModelMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVBoxPlotModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemModel* QVBoxPlotModelMapper_Model(const QVBoxPlotModelMapper* self) {

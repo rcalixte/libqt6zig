@@ -35,30 +35,15 @@ KIO__PreviewJob* KIO__PreviewJob_new2(const KFileItemList* items, const QSize* s
 }
 
 QMetaObject* KIO__PreviewJob_MetaObject(const KIO__PreviewJob* self) {
-    auto* vkio__previewjob = dynamic_cast<const VirtualKIOPreviewJob*>(self);
-    if (vkio__previewjob && vkio__previewjob->isVirtualKIOPreviewJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOPreviewJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__PreviewJob_Metacast(KIO__PreviewJob* self, const char* param1) {
-    auto* vkio__previewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkio__previewjob && vkio__previewjob->isVirtualKIOPreviewJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__PreviewJob_Metacall(KIO__PreviewJob* self, int param1, int param2, void** param3) {
-    auto* vkio__previewjob = dynamic_cast<VirtualKIOPreviewJob*>(self);
-    if (vkio__previewjob && vkio__previewjob->isVirtualKIOPreviewJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOPreviewJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__PreviewJob_SetScaleType(KIO__PreviewJob* self, int typeVal) {
@@ -1357,13 +1342,13 @@ void KIO__PreviewJob_Delete(KIO__PreviewJob* self) {
     delete self;
 }
 
-KIO__PreviewJob* KIO_FilePreview(const KFileItemList* param1, const QSize* param2, const libqt_list /* of libqt_string */ param3) {
-    QList<QString> param3_QList;
-    param3_QList.reserve(param3.len);
-    libqt_string* param3_arr = static_cast<libqt_string*>(param3.data);
-    for (size_t i = 0; i < param3.len; ++i) {
-        QString param3_arr_i_QString = QString::fromUtf8(param3_arr[i].data, param3_arr[i].len);
-        param3_QList.push_back(param3_arr_i_QString);
+KIO__PreviewJob* KIO_FilePreview(const KFileItemList* items, const QSize* size, const libqt_list /* of libqt_string */ enabledPlugins) {
+    QList<QString> enabledPlugins_QList;
+    enabledPlugins_QList.reserve(enabledPlugins.len);
+    libqt_string* enabledPlugins_arr = static_cast<libqt_string*>(enabledPlugins.data);
+    for (size_t i = 0; i < enabledPlugins.len; ++i) {
+        QString enabledPlugins_arr_i_QString = QString::fromUtf8(enabledPlugins_arr[i].data, enabledPlugins_arr[i].len);
+        enabledPlugins_QList.push_back(enabledPlugins_arr_i_QString);
     }
-    return KIO::filePreview(*param1, *param2, &param3_QList);
+    return KIO::filePreview(*items, *size, &enabledPlugins_QList);
 }

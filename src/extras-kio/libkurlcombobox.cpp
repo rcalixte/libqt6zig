@@ -66,30 +66,15 @@ KUrlComboBox* KUrlComboBox_new4(int mode, bool rw, QWidget* parent) {
 }
 
 QMetaObject* KUrlComboBox_MetaObject(const KUrlComboBox* self) {
-    auto* vkurlcombobox = dynamic_cast<const VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlComboBox_Metacast(KUrlComboBox* self, const char* param1) {
-    auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlComboBox_Metacall(KUrlComboBox* self, int param1, int param2, void** param3) {
-    auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KUrlComboBox_SetUrl(KUrlComboBox* self, const QUrl* url) {
@@ -164,12 +149,7 @@ void KUrlComboBox_RemoveUrl(KUrlComboBox* self, const QUrl* url) {
 }
 
 void KUrlComboBox_SetCompletionObject(KUrlComboBox* self, KCompletion* compObj, bool hsig) {
-    auto* vkurlcombobox = dynamic_cast<VirtualKUrlComboBox*>(self);
-    if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
-        self->setCompletionObject(compObj, hsig);
-    } else {
-        ((VirtualKUrlComboBox*)self)->setCompletionObject(compObj, hsig);
-    }
+    self->setCompletionObject(compObj, hsig);
 }
 
 void KUrlComboBox_UrlActivated(KUrlComboBox* self, const QUrl* url) {

@@ -52,30 +52,15 @@ KTreeWidgetSearchLineWidget* KTreeWidgetSearchLineWidget_new3(QWidget* parent, Q
 }
 
 QMetaObject* KTreeWidgetSearchLineWidget_MetaObject(const KTreeWidgetSearchLineWidget* self) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<const VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTreeWidgetSearchLineWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTreeWidgetSearchLineWidget_Metacast(KTreeWidgetSearchLineWidget* self, const char* param1) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTreeWidgetSearchLineWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTreeWidgetSearchLineWidget_Metacall(KTreeWidgetSearchLineWidget* self, int param1, int param2, void** param3) {
-    auto* vktreewidgetsearchlinewidget = dynamic_cast<VirtualKTreeWidgetSearchLineWidget*>(self);
-    if (vktreewidgetsearchlinewidget && vktreewidgetsearchlinewidget->isVirtualKTreeWidgetSearchLineWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTreeWidgetSearchLineWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KTreeWidgetSearchLine* KTreeWidgetSearchLineWidget_SearchLine(const KTreeWidgetSearchLineWidget* self) {

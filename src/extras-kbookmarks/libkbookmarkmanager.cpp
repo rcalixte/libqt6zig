@@ -23,30 +23,15 @@ KBookmarkManager* KBookmarkManager_new2(const libqt_string bookmarksFile, QObjec
 }
 
 QMetaObject* KBookmarkManager_MetaObject(const KBookmarkManager* self) {
-    auto* vkbookmarkmanager = dynamic_cast<const VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBookmarkManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBookmarkManager_Metacast(KBookmarkManager* self, const char* param1) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBookmarkManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBookmarkManager_Metacall(KBookmarkManager* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkmanager = dynamic_cast<VirtualKBookmarkManager*>(self);
-    if (vkbookmarkmanager && vkbookmarkmanager->isVirtualKBookmarkManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBookmarkManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KBookmarkManager_SaveAs(const KBookmarkManager* self, const libqt_string filename) {

@@ -18,30 +18,15 @@ QActionGroup* QActionGroup_new(QObject* parent) {
 }
 
 QMetaObject* QActionGroup_MetaObject(const QActionGroup* self) {
-    auto* vqactiongroup = dynamic_cast<const VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQActionGroup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QActionGroup_Metacast(QActionGroup* self, const char* param1) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQActionGroup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QActionGroup_Metacall(QActionGroup* self, int param1, int param2, void** param3) {
-    auto* vqactiongroup = dynamic_cast<VirtualQActionGroup*>(self);
-    if (vqactiongroup && vqactiongroup->isVirtualQActionGroup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQActionGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAction* QActionGroup_AddAction(QActionGroup* self, QAction* a) {

@@ -119,11 +119,11 @@ pub const QWebEngineGlobalSettings = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWebEngineGlobalSettings__DnsMode `
+    /// ` dnsMode: QWebEngineGlobalSettings__DnsMode `
     ///
-    pub fn SetDnsMode(param1: anytype) bool {
-        comptime _ = @TypeOf(param1)._is_QWebEngineGlobalSettings__DnsMode;
-        return qtc.QWebEngineGlobalSettings_SetDnsMode(@ptrCast(param1.ptr));
+    pub fn SetDnsMode(dnsMode: anytype) bool {
+        comptime _ = @TypeOf(dnsMode)._is_QWebEngineGlobalSettings__DnsMode;
+        return qtc.QWebEngineGlobalSettings_SetDnsMode(@ptrCast(dnsMode.ptr));
     }
 };
 

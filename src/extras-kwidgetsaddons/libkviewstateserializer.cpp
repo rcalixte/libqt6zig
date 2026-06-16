@@ -25,30 +25,15 @@ KViewStateSerializer* KViewStateSerializer_new2(QObject* parent) {
 }
 
 QMetaObject* KViewStateSerializer_MetaObject(const KViewStateSerializer* self) {
-    auto* vkviewstateserializer = dynamic_cast<const VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKViewStateSerializer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KViewStateSerializer_Metacast(KViewStateSerializer* self, const char* param1) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KViewStateSerializer_Metacall(KViewStateSerializer* self, int param1, int param2, void** param3) {
-    auto* vkviewstateserializer = dynamic_cast<VirtualKViewStateSerializer*>(self);
-    if (vkviewstateserializer && vkviewstateserializer->isVirtualKViewStateSerializer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKViewStateSerializer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemView* KViewStateSerializer_View(const KViewStateSerializer* self) {

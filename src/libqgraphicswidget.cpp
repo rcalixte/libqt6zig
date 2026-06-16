@@ -56,30 +56,15 @@ QGraphicsWidget* QGraphicsWidget_new3(QGraphicsItem* parent, int wFlags) {
 }
 
 QMetaObject* QGraphicsWidget_MetaObject(const QGraphicsWidget* self) {
-    auto* vqgraphicswidget = dynamic_cast<const VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsWidget_Metacast(QGraphicsWidget* self, const char* param1) {
-    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsWidget_Metacall(QGraphicsWidget* self, int param1, int param2, void** param3) {
-    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QGraphicsLayout* QGraphicsWidget_Layout(const QGraphicsWidget* self) {
@@ -151,12 +136,7 @@ QSizeF* QGraphicsWidget_Size(const QGraphicsWidget* self) {
 }
 
 void QGraphicsWidget_SetGeometry(QGraphicsWidget* self, const QRectF* rect) {
-    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQGraphicsWidget*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 void QGraphicsWidget_SetGeometry2(QGraphicsWidget* self, double x, double y, double w, double h) {
@@ -176,12 +156,7 @@ void QGraphicsWidget_SetContentsMargins2(QGraphicsWidget* self, QMarginsF* margi
 }
 
 void QGraphicsWidget_GetContentsMargins(const QGraphicsWidget* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicswidget = dynamic_cast<const VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        ((VirtualQGraphicsWidget*)self)->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 void QGraphicsWidget_SetWindowFrameMargins(QGraphicsWidget* self, double left, double top, double right, double bottom) {
@@ -327,48 +302,23 @@ bool QGraphicsWidget_TestAttribute(const QGraphicsWidget* self, int attribute) {
 }
 
 int QGraphicsWidget_Type(const QGraphicsWidget* self) {
-    auto* vqgraphicswidget = dynamic_cast<const VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsWidget*)self)->type();
-    }
+    return self->type();
 }
 
 void QGraphicsWidget_Paint(QGraphicsWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsWidget*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 void QGraphicsWidget_PaintWindowFrame(QGraphicsWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicswidget = dynamic_cast<VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        self->paintWindowFrame(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsWidget*)self)->paintWindowFrame(painter, option, widget);
-    }
+    self->paintWindowFrame(painter, option, widget);
 }
 
 QRectF* QGraphicsWidget_BoundingRect(const QGraphicsWidget* self) {
-    auto* vqgraphicswidget = dynamic_cast<const VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsWidget*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsWidget_Shape(const QGraphicsWidget* self) {
-    auto* vqgraphicswidget = dynamic_cast<const VirtualQGraphicsWidget*>(self);
-    if (vqgraphicswidget && vqgraphicswidget->isVirtualQGraphicsWidget) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsWidget*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 void QGraphicsWidget_GeometryChanged(QGraphicsWidget* self) {

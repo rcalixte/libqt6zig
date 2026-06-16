@@ -20,18 +20,18 @@ typedef struct QVariant QVariant;
 #endif
 
 void KCrash_Initialize();
-void KCrash_DefaultCrashHandler(int param1);
-void KCrash_SetCrashHandler(intptr_t param1);
+void KCrash_DefaultCrashHandler(int signal);
+void KCrash_SetCrashHandler(intptr_t handler);
 intptr_t KCrash_CrashHandler();
-void KCrash_SetEmergencySaveFunction(intptr_t param1);
+void KCrash_SetEmergencySaveFunction(intptr_t saveFunction);
 intptr_t KCrash_EmergencySaveFunction();
-void KCrash_SetFlags(int param1);
-void KCrash_SetDrKonqiEnabled(bool param1);
+void KCrash_SetFlags(int flags);
+void KCrash_SetDrKonqiEnabled(bool enabled);
 bool KCrash_IsDrKonqiEnabled();
-void KCrash_SetErrorMessage(const libqt_string param1);
-void KCrash_SetErrorTags(const libqt_map /* of libqt_string to libqt_string */ param1);
-void KCrash_SetErrorExtraData(const libqt_map /* of libqt_string to libqt_string */ param1);
-void KCrash_SetGPUData(const libqt_map /* of libqt_string to QVariant* */ param1);
+void KCrash_SetErrorMessage(const libqt_string message);
+void KCrash_SetErrorTags(const libqt_map /* of libqt_string to libqt_string */ details);
+void KCrash_SetErrorExtraData(const libqt_map /* of libqt_string to libqt_string */ details);
+void KCrash_SetGPUData(const libqt_map /* of libqt_string to QVariant* */ data);
 
 #ifdef __cplusplus
 } /* extern C */

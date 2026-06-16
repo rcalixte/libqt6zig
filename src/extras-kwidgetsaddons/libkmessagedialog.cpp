@@ -57,30 +57,15 @@ KMessageDialog* KMessageDialog_new3(int typeVal, const libqt_string text, QWidge
 }
 
 QMetaObject* KMessageDialog_MetaObject(const KMessageDialog* self) {
-    auto* vkmessagedialog = dynamic_cast<const VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKMessageDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KMessageDialog_Metacast(KMessageDialog* self, const char* param1) {
-    auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKMessageDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KMessageDialog_Metacall(KMessageDialog* self, int param1, int param2, void** param3) {
-    auto* vkmessagedialog = dynamic_cast<VirtualKMessageDialog*>(self);
-    if (vkmessagedialog && vkmessagedialog->isVirtualKMessageDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKMessageDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KMessageDialog_SetCaption(KMessageDialog* self, const libqt_string caption) {

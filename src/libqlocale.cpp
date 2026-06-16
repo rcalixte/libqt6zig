@@ -547,59 +547,59 @@ libqt_string QLocale_DateTimeFormat(const QLocale* self) {
     return _str;
 }
 
-QTime* QLocale_ToTime(const QLocale* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QTime(self->toTime(stringVal_QString));
+QTime* QLocale_ToTime(const QLocale* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QTime(self->toTime(string_QString));
 }
 
-QTime* QLocale_ToTime2(const QLocale* self, const libqt_string stringVal, const libqt_string format) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QTime* QLocale_ToTime2(const QLocale* self, const libqt_string string, const libqt_string format) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QTime(self->toTime(stringVal_QString, format_QString));
+    return new QTime(self->toTime(string_QString, format_QString));
 }
 
-QDate* QLocale_ToDate(const QLocale* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDate(self->toDate(stringVal_QString));
+QDate* QLocale_ToDate(const QLocale* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDate(self->toDate(string_QString));
 }
 
-QDate* QLocale_ToDate2(const QLocale* self, const libqt_string stringVal, const libqt_string format) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDate* QLocale_ToDate2(const QLocale* self, const libqt_string string, const libqt_string format) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDate(self->toDate(stringVal_QString, format_QString));
+    return new QDate(self->toDate(string_QString, format_QString));
 }
 
-QDateTime* QLocale_ToDateTime(const QLocale* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDateTime(self->toDateTime(stringVal_QString));
+QDateTime* QLocale_ToDateTime(const QLocale* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDateTime(self->toDateTime(string_QString));
 }
 
-QDateTime* QLocale_ToDateTime2(const QLocale* self, const libqt_string stringVal, const libqt_string format) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDateTime* QLocale_ToDateTime2(const QLocale* self, const libqt_string string, const libqt_string format) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, format_QString));
+    return new QDateTime(self->toDateTime(string_QString, format_QString));
 }
 
-QDate* QLocale_ToDate3(const QLocale* self, const libqt_string stringVal, int format, QCalendar* cal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDate(self->toDate(stringVal_QString, static_cast<QLocale::FormatType>(format), *cal));
+QDate* QLocale_ToDate3(const QLocale* self, const libqt_string string, int format, QCalendar* cal) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDate(self->toDate(string_QString, static_cast<QLocale::FormatType>(format), *cal));
 }
 
-QDate* QLocale_ToDate4(const QLocale* self, const libqt_string stringVal, const libqt_string format, QCalendar* cal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDate* QLocale_ToDate4(const QLocale* self, const libqt_string string, const libqt_string format, QCalendar* cal) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDate(self->toDate(stringVal_QString, format_QString, *cal));
+    return new QDate(self->toDate(string_QString, format_QString, *cal));
 }
 
-QDateTime* QLocale_ToDateTime3(const QLocale* self, const libqt_string stringVal, int format, QCalendar* cal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, static_cast<QLocale::FormatType>(format), *cal));
+QDateTime* QLocale_ToDateTime3(const QLocale* self, const libqt_string string, int format, QCalendar* cal) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDateTime(self->toDateTime(string_QString, static_cast<QLocale::FormatType>(format), *cal));
 }
 
-QDateTime* QLocale_ToDateTime4(const QLocale* self, const libqt_string stringVal, const libqt_string format, QCalendar* cal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDateTime* QLocale_ToDateTime4(const QLocale* self, const libqt_string string, const libqt_string format, QCalendar* cal) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, format_QString, *cal));
+    return new QDateTime(self->toDateTime(string_QString, format_QString, *cal));
 }
 
 libqt_string QLocale_DecimalPoint(const QLocale* self) {
@@ -1405,63 +1405,63 @@ libqt_string QLocale_DateTimeFormat1(const QLocale* self, int format) {
     return _str;
 }
 
-QTime* QLocale_ToTime22(const QLocale* self, const libqt_string stringVal, int param2) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QTime(self->toTime(stringVal_QString, static_cast<QLocale::FormatType>(param2)));
+QTime* QLocale_ToTime22(const QLocale* self, const libqt_string string, int param2) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QTime(self->toTime(string_QString, static_cast<QLocale::FormatType>(param2)));
 }
 
-QDate* QLocale_ToDate22(const QLocale* self, const libqt_string stringVal, int param2) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDate(self->toDate(stringVal_QString, static_cast<QLocale::FormatType>(param2)));
+QDate* QLocale_ToDate22(const QLocale* self, const libqt_string string, int param2) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDate(self->toDate(string_QString, static_cast<QLocale::FormatType>(param2)));
 }
 
-QDate* QLocale_ToDate32(const QLocale* self, const libqt_string stringVal, int param2, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDate(self->toDate(stringVal_QString, static_cast<QLocale::FormatType>(param2), static_cast<int>(baseYear)));
+QDate* QLocale_ToDate32(const QLocale* self, const libqt_string string, int param2, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDate(self->toDate(string_QString, static_cast<QLocale::FormatType>(param2), static_cast<int>(baseYear)));
 }
 
-QDate* QLocale_ToDate33(const QLocale* self, const libqt_string stringVal, const libqt_string format, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDate* QLocale_ToDate33(const QLocale* self, const libqt_string string, const libqt_string format, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDate(self->toDate(stringVal_QString, format_QString, static_cast<int>(baseYear)));
+    return new QDate(self->toDate(string_QString, format_QString, static_cast<int>(baseYear)));
 }
 
-QDateTime* QLocale_ToDateTime22(const QLocale* self, const libqt_string stringVal, int format) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, static_cast<QLocale::FormatType>(format)));
+QDateTime* QLocale_ToDateTime22(const QLocale* self, const libqt_string string, int format) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDateTime(self->toDateTime(string_QString, static_cast<QLocale::FormatType>(format)));
 }
 
-QDateTime* QLocale_ToDateTime32(const QLocale* self, const libqt_string stringVal, int format, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, static_cast<QLocale::FormatType>(format), static_cast<int>(baseYear)));
+QDateTime* QLocale_ToDateTime32(const QLocale* self, const libqt_string string, int format, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDateTime(self->toDateTime(string_QString, static_cast<QLocale::FormatType>(format), static_cast<int>(baseYear)));
 }
 
-QDateTime* QLocale_ToDateTime33(const QLocale* self, const libqt_string stringVal, const libqt_string format, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDateTime* QLocale_ToDateTime33(const QLocale* self, const libqt_string string, const libqt_string format, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, format_QString, static_cast<int>(baseYear)));
+    return new QDateTime(self->toDateTime(string_QString, format_QString, static_cast<int>(baseYear)));
 }
 
-QDate* QLocale_ToDate42(const QLocale* self, const libqt_string stringVal, int format, QCalendar* cal, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDate(self->toDate(stringVal_QString, static_cast<QLocale::FormatType>(format), *cal, static_cast<int>(baseYear)));
+QDate* QLocale_ToDate42(const QLocale* self, const libqt_string string, int format, QCalendar* cal, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDate(self->toDate(string_QString, static_cast<QLocale::FormatType>(format), *cal, static_cast<int>(baseYear)));
 }
 
-QDate* QLocale_ToDate43(const QLocale* self, const libqt_string stringVal, const libqt_string format, QCalendar* cal, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDate* QLocale_ToDate43(const QLocale* self, const libqt_string string, const libqt_string format, QCalendar* cal, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDate(self->toDate(stringVal_QString, format_QString, *cal, static_cast<int>(baseYear)));
+    return new QDate(self->toDate(string_QString, format_QString, *cal, static_cast<int>(baseYear)));
 }
 
-QDateTime* QLocale_ToDateTime42(const QLocale* self, const libqt_string stringVal, int format, QCalendar* cal, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, static_cast<QLocale::FormatType>(format), *cal, static_cast<int>(baseYear)));
+QDateTime* QLocale_ToDateTime42(const QLocale* self, const libqt_string string, int format, QCalendar* cal, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QDateTime(self->toDateTime(string_QString, static_cast<QLocale::FormatType>(format), *cal, static_cast<int>(baseYear)));
 }
 
-QDateTime* QLocale_ToDateTime43(const QLocale* self, const libqt_string stringVal, const libqt_string format, QCalendar* cal, int baseYear) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+QDateTime* QLocale_ToDateTime43(const QLocale* self, const libqt_string string, const libqt_string format, QCalendar* cal, int baseYear) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     QString format_QString = QString::fromUtf8(format.data, format.len);
-    return new QDateTime(self->toDateTime(stringVal_QString, format_QString, *cal, static_cast<int>(baseYear)));
+    return new QDateTime(self->toDateTime(string_QString, format_QString, *cal, static_cast<int>(baseYear)));
 }
 
 libqt_string QLocale_MonthName2(const QLocale* self, int param1, int format) {

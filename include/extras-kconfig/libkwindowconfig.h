@@ -21,13 +21,13 @@ typedef struct QScreen QScreen;
 typedef struct QWindow QWindow;
 #endif
 
-void KWindowConfig_SaveWindowSize(const QWindow* param1, KConfigGroup* param2, int param3);
-bool KWindowConfig_HasSavedWindowSize(KConfigGroup* param1);
-void KWindowConfig_RestoreWindowSize(QWindow* param1, const KConfigGroup* param2);
-void KWindowConfig_SaveWindowPosition(const QWindow* param1, KConfigGroup* param2, int param3);
-bool KWindowConfig_HasSavedWindowPosition(KConfigGroup* param1);
-void KWindowConfig_RestoreWindowPosition(QWindow* param1, const KConfigGroup* param2);
-void KWindowConfig_RestoreWindowScreenPosition(QWindow* param1, const QScreen* param2, const KConfigGroup* param3);
+void KWindowConfig_SaveWindowSize(const QWindow* window, KConfigGroup* config, int options);
+bool KWindowConfig_HasSavedWindowSize(KConfigGroup* config);
+void KWindowConfig_RestoreWindowSize(QWindow* window, const KConfigGroup* config);
+void KWindowConfig_SaveWindowPosition(const QWindow* window, KConfigGroup* config, int options);
+bool KWindowConfig_HasSavedWindowPosition(KConfigGroup* config);
+void KWindowConfig_RestoreWindowPosition(QWindow* window, const KConfigGroup* config);
+void KWindowConfig_RestoreWindowScreenPosition(QWindow* window, const QScreen* screen, const KConfigGroup* config);
 
 #ifdef __cplusplus
 } /* extern C */

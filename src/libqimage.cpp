@@ -120,12 +120,7 @@ bool QImage_IsNull(const QImage* self) {
 }
 
 int QImage_DevType(const QImage* self) {
-    auto* vqimage = dynamic_cast<const VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
-        return self->devType();
-    } else {
-        return ((VirtualQImage*)self)->devType();
-    }
+    return self->devType();
 }
 
 bool QImage_OperatorEqual(const QImage* self, const QImage* param1) {
@@ -516,12 +511,7 @@ long long QImage_CacheKey(const QImage* self) {
 }
 
 QPaintEngine* QImage_PaintEngine(const QImage* self) {
-    auto* vqimage = dynamic_cast<const VirtualQImage*>(self);
-    if (vqimage && vqimage->isVirtualQImage) {
-        return self->paintEngine();
-    } else {
-        return ((VirtualQImage*)self)->paintEngine();
-    }
+    return self->paintEngine();
 }
 
 int QImage_DotsPerMeterX(const QImage* self) {

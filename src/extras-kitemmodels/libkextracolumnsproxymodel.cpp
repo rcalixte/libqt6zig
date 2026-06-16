@@ -33,30 +33,15 @@ KExtraColumnsProxyModel* KExtraColumnsProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KExtraColumnsProxyModel_MetaObject(const KExtraColumnsProxyModel* self) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKExtraColumnsProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KExtraColumnsProxyModel_Metacast(KExtraColumnsProxyModel* self, const char* param1) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKExtraColumnsProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KExtraColumnsProxyModel_Metacall(KExtraColumnsProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKExtraColumnsProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KExtraColumnsProxyModel_AppendColumn(KExtraColumnsProxyModel* self) {
@@ -68,21 +53,11 @@ void KExtraColumnsProxyModel_RemoveExtraColumn(KExtraColumnsProxyModel* self, in
 }
 
 QVariant* KExtraColumnsProxyModel_ExtraColumnData(const KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, int role) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QVariant(vkextracolumnsproxymodel->extraColumnData(*parent, static_cast<int>(row), static_cast<int>(extraColumn), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKExtraColumnsProxyModel*)self)->extraColumnData(*parent, static_cast<int>(row), static_cast<int>(extraColumn), static_cast<int>(role)));
-    }
+    return new QVariant(self->extraColumnData(*parent, static_cast<int>(row), static_cast<int>(extraColumn), static_cast<int>(role)));
 }
 
 bool KExtraColumnsProxyModel_SetExtraColumnData(KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, const QVariant* data, int role) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return self->setExtraColumnData(*parent, static_cast<int>(row), static_cast<int>(extraColumn), *data, static_cast<int>(role));
-    } else {
-        return ((VirtualKExtraColumnsProxyModel*)self)->setExtraColumnData(*parent, static_cast<int>(row), static_cast<int>(extraColumn), *data, static_cast<int>(role));
-    }
+    return self->setExtraColumnData(*parent, static_cast<int>(row), static_cast<int>(extraColumn), *data, static_cast<int>(role));
 }
 
 void KExtraColumnsProxyModel_ExtraColumnDataChanged(KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, const libqt_list /* of int */ roles) {
@@ -104,120 +79,55 @@ int KExtraColumnsProxyModel_ProxyColumnForExtraColumn(const KExtraColumnsProxyMo
 }
 
 void KExtraColumnsProxyModel_SetSourceModel(KExtraColumnsProxyModel* self, QAbstractItemModel* model) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        self->setSourceModel(model);
-    } else {
-        ((VirtualKExtraColumnsProxyModel*)self)->setSourceModel(model);
-    }
+    self->setSourceModel(model);
 }
 
 QModelIndex* KExtraColumnsProxyModel_MapToSource(const KExtraColumnsProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QModelIndex(self->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualKExtraColumnsProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->mapToSource(*proxyIndex));
 }
 
 QItemSelection* KExtraColumnsProxyModel_MapSelectionToSource(const KExtraColumnsProxyModel* self, const QItemSelection* selection) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QItemSelection(self->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKExtraColumnsProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionToSource(*selection));
 }
 
 int KExtraColumnsProxyModel_ColumnCount(const KExtraColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualKExtraColumnsProxyModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QVariant* KExtraColumnsProxyModel_Data(const KExtraColumnsProxyModel* self, const QModelIndex* index, int role) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKExtraColumnsProxyModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 bool KExtraColumnsProxyModel_SetData(KExtraColumnsProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualKExtraColumnsProxyModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 QModelIndex* KExtraColumnsProxyModel_Sibling(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualKExtraColumnsProxyModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 QModelIndex* KExtraColumnsProxyModel_Buddy(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QModelIndex(self->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualKExtraColumnsProxyModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->buddy(*index));
 }
 
 int KExtraColumnsProxyModel_Flags(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKExtraColumnsProxyModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 bool KExtraColumnsProxyModel_HasChildren(const KExtraColumnsProxyModel* self, const QModelIndex* index) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return self->hasChildren(*index);
-    } else {
-        return ((VirtualKExtraColumnsProxyModel*)self)->hasChildren(*index);
-    }
+    return self->hasChildren(*index);
 }
 
 QVariant* KExtraColumnsProxyModel_HeaderData(const KExtraColumnsProxyModel* self, int section, int orientation, int role) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKExtraColumnsProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 QModelIndex* KExtraColumnsProxyModel_Index(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKExtraColumnsProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* KExtraColumnsProxyModel_Parent(const KExtraColumnsProxyModel* self, const QModelIndex* child) {
-    auto* vkextracolumnsproxymodel = dynamic_cast<const VirtualKExtraColumnsProxyModel*>(self);
-    if (vkextracolumnsproxymodel && vkextracolumnsproxymodel->isVirtualKExtraColumnsProxyModel) {
-        return new QModelIndex(self->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualKExtraColumnsProxyModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 void KExtraColumnsProxyModel_AppendColumn1(KExtraColumnsProxyModel* self, const libqt_string header) {

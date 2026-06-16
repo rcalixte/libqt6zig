@@ -18,12 +18,7 @@ TextAutoCorrectionCore__ImportAbstractAutocorrection* TextAutoCorrectionCore__Im
 bool TextAutoCorrectionCore__ImportAbstractAutocorrection_Import(TextAutoCorrectionCore__ImportAbstractAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
-    auto* vtextautocorrectioncore__importabstractautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*>(self);
-    if (vtextautocorrectioncore__importabstractautocorrection && vtextautocorrectioncore__importabstractautocorrection->isVirtualTextAutoCorrectionCoreImportAbstractAutocorrection) {
-        return vtextautocorrectioncore__importabstractautocorrection->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    } else {
-        return ((VirtualTextAutoCorrectionCoreImportAbstractAutocorrection*)self)->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    }
+    return self->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
 }
 
 libqt_list /* set of libqt_string */ TextAutoCorrectionCore__ImportAbstractAutocorrection_UpperCaseExceptions(const TextAutoCorrectionCore__ImportAbstractAutocorrection* self) {

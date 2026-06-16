@@ -7,12 +7,12 @@
 #include "libkundoactions.h"
 #include "libkundoactions.hxx"
 
-QAction* KUndoActions_CreateRedoAction(QUndoStack* param1, KActionCollection* param2, const libqt_string param3) {
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    return KUndoActions::createRedoAction(param1, param2, param3_QString);
+QAction* KUndoActions_CreateRedoAction(QUndoStack* undoStack, KActionCollection* actionCollection, const libqt_string actionName) {
+    QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
+    return KUndoActions::createRedoAction(undoStack, actionCollection, actionName_QString);
 }
 
-QAction* KUndoActions_CreateUndoAction(QUndoStack* param1, KActionCollection* param2, const libqt_string param3) {
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    return KUndoActions::createUndoAction(param1, param2, param3_QString);
+QAction* KUndoActions_CreateUndoAction(QUndoStack* undoStack, KActionCollection* actionCollection, const libqt_string actionName) {
+    QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
+    return KUndoActions::createUndoAction(undoStack, actionCollection, actionName_QString);
 }

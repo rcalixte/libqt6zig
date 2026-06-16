@@ -85,30 +85,15 @@ KFindDialog* KFindDialog_new6(QWidget* parent, long options, const libqt_list /*
 }
 
 QMetaObject* KFindDialog_MetaObject(const KFindDialog* self) {
-    auto* vkfinddialog = dynamic_cast<const VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFindDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFindDialog_Metacast(KFindDialog* self, const char* param1) {
-    auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFindDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFindDialog_Metacall(KFindDialog* self, int param1, int param2, void** param3) {
-    auto* vkfinddialog = dynamic_cast<VirtualKFindDialog*>(self);
-    if (vkfinddialog && vkfinddialog->isVirtualKFindDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFindDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFindDialog_SetFindHistory(KFindDialog* self, const libqt_list /* of libqt_string */ history) {

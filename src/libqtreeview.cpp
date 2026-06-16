@@ -61,57 +61,27 @@ QTreeView* QTreeView_new2() {
 }
 
 QMetaObject* QTreeView_MetaObject(const QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTreeView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTreeView_Metacast(QTreeView* self, const char* param1) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTreeView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTreeView_Metacall(QTreeView* self, int param1, int param2, void** param3) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTreeView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTreeView_SetModel(QTreeView* self, QAbstractItemModel* model) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->setModel(model);
-    } else {
-        ((VirtualQTreeView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 void QTreeView_SetRootIndex(QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->setRootIndex(*index);
-    } else {
-        ((VirtualQTreeView*)self)->setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 void QTreeView_SetSelectionModel(QTreeView* self, QItemSelectionModel* selectionModel) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQTreeView*)self)->setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 QHeaderView* QTreeView_Header(const QTreeView* self) {
@@ -272,39 +242,19 @@ int QTreeView_TreePosition(const QTreeView* self) {
 
 void QTreeView_KeyboardSearch(QTreeView* self, const libqt_string search) {
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->keyboardSearch(search_QString);
-    } else {
-        ((VirtualQTreeView*)self)->keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 QRect* QTreeView_VisualRect(const QTreeView* self, const QModelIndex* index) {
-    auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return new QRect(self->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQTreeView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 void QTreeView_ScrollTo(QTreeView* self, const QModelIndex* index, int hint) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQTreeView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 QModelIndex* QTreeView_IndexAt(const QTreeView* self, const QPoint* p) {
-    auto* vqtreeview = dynamic_cast<const VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        return new QModelIndex(self->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQTreeView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 QModelIndex* QTreeView_IndexAbove(const QTreeView* self, const QModelIndex* index) {
@@ -316,21 +266,11 @@ QModelIndex* QTreeView_IndexBelow(const QTreeView* self, const QModelIndex* inde
 }
 
 void QTreeView_DoItemsLayout(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->doItemsLayout();
-    } else {
-        ((VirtualQTreeView*)self)->doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 void QTreeView_Reset(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->reset();
-    } else {
-        ((VirtualQTreeView*)self)->reset();
-    }
+    self->reset();
 }
 
 void QTreeView_DataChanged(QTreeView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles) {
@@ -340,21 +280,11 @@ void QTreeView_DataChanged(QTreeView* self, const QModelIndex* topLeft, const QM
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QList.push_back(static_cast<int>(roles_arr[i]));
     }
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->dataChanged(*topLeft, *bottomRight, roles_QList);
-    } else {
-        ((VirtualQTreeView*)self)->dataChanged(*topLeft, *bottomRight, roles_QList);
-    }
+    self->dataChanged(*topLeft, *bottomRight, roles_QList);
 }
 
 void QTreeView_SelectAll(QTreeView* self) {
-    auto* vqtreeview = dynamic_cast<VirtualQTreeView*>(self);
-    if (vqtreeview && vqtreeview->isVirtualQTreeView) {
-        self->selectAll();
-    } else {
-        ((VirtualQTreeView*)self)->selectAll();
-    }
+    self->selectAll();
 }
 
 void QTreeView_Expanded(QTreeView* self, const QModelIndex* index) {

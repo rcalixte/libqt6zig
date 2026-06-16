@@ -28,30 +28,15 @@ QGesture* QGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QGesture_MetaObject(const QGesture* self) {
-    auto* vqgesture = dynamic_cast<const VirtualQGesture*>(self);
-    if (vqgesture && vqgesture->isVirtualQGesture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGesture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGesture_Metacast(QGesture* self, const char* param1) {
-    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
-    if (vqgesture && vqgesture->isVirtualQGesture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGesture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGesture_Metacall(QGesture* self, int param1, int param2, void** param3) {
-    auto* vqgesture = dynamic_cast<VirtualQGesture*>(self);
-    if (vqgesture && vqgesture->isVirtualQGesture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QGesture_GestureType(const QGesture* self) {
@@ -475,30 +460,15 @@ QPanGesture* QPanGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QPanGesture_MetaObject(const QPanGesture* self) {
-    auto* vqpangesture = dynamic_cast<const VirtualQPanGesture*>(self);
-    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPanGesture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPanGesture_Metacast(QPanGesture* self, const char* param1) {
-    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
-    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPanGesture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPanGesture_Metacall(QPanGesture* self, int param1, int param2, void** param3) {
-    auto* vqpangesture = dynamic_cast<VirtualQPanGesture*>(self);
-    if (vqpangesture && vqpangesture->isVirtualQPanGesture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPanGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPointF* QPanGesture_LastOffset(const QPanGesture* self) {
@@ -918,30 +888,15 @@ QPinchGesture* QPinchGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QPinchGesture_MetaObject(const QPinchGesture* self) {
-    auto* vqpinchgesture = dynamic_cast<const VirtualQPinchGesture*>(self);
-    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPinchGesture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPinchGesture_Metacast(QPinchGesture* self, const char* param1) {
-    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
-    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPinchGesture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPinchGesture_Metacall(QPinchGesture* self, int param1, int param2, void** param3) {
-    auto* vqpinchgesture = dynamic_cast<VirtualQPinchGesture*>(self);
-    if (vqpinchgesture && vqpinchgesture->isVirtualQPinchGesture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPinchGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPinchGesture_TotalChangeFlags(const QPinchGesture* self) {
@@ -1421,30 +1376,15 @@ QSwipeGesture* QSwipeGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QSwipeGesture_MetaObject(const QSwipeGesture* self) {
-    auto* vqswipegesture = dynamic_cast<const VirtualQSwipeGesture*>(self);
-    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSwipeGesture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSwipeGesture_Metacast(QSwipeGesture* self, const char* param1) {
-    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
-    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSwipeGesture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSwipeGesture_Metacall(QSwipeGesture* self, int param1, int param2, void** param3) {
-    auto* vqswipegesture = dynamic_cast<VirtualQSwipeGesture*>(self);
-    if (vqswipegesture && vqswipegesture->isVirtualQSwipeGesture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSwipeGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QSwipeGesture_HorizontalDirection(const QSwipeGesture* self) {
@@ -1852,30 +1792,15 @@ QTapGesture* QTapGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QTapGesture_MetaObject(const QTapGesture* self) {
-    auto* vqtapgesture = dynamic_cast<const VirtualQTapGesture*>(self);
-    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTapGesture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTapGesture_Metacast(QTapGesture* self, const char* param1) {
-    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
-    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTapGesture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTapGesture_Metacall(QTapGesture* self, int param1, int param2, void** param3) {
-    auto* vqtapgesture = dynamic_cast<VirtualQTapGesture*>(self);
-    if (vqtapgesture && vqtapgesture->isVirtualQTapGesture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTapGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPointF* QTapGesture_Position(const QTapGesture* self) {
@@ -2275,30 +2200,15 @@ QTapAndHoldGesture* QTapAndHoldGesture_new2(QObject* parent) {
 }
 
 QMetaObject* QTapAndHoldGesture_MetaObject(const QTapAndHoldGesture* self) {
-    auto* vqtapandholdgesture = dynamic_cast<const VirtualQTapAndHoldGesture*>(self);
-    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTapAndHoldGesture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTapAndHoldGesture_Metacast(QTapAndHoldGesture* self, const char* param1) {
-    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
-    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTapAndHoldGesture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTapAndHoldGesture_Metacall(QTapAndHoldGesture* self, int param1, int param2, void** param3) {
-    auto* vqtapandholdgesture = dynamic_cast<VirtualQTapAndHoldGesture*>(self);
-    if (vqtapandholdgesture && vqtapandholdgesture->isVirtualQTapAndHoldGesture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTapAndHoldGesture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPointF* QTapAndHoldGesture_Position(const QTapAndHoldGesture* self) {

@@ -56,30 +56,15 @@ KMainWindow* KMainWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* KMainWindow_MetaObject(const KMainWindow* self) {
-    auto* vkmainwindow = dynamic_cast<const VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKMainWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KMainWindow_Metacast(KMainWindow* self, const char* param1) {
-    auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKMainWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KMainWindow_Metacall(KMainWindow* self, int param1, int param2, void** param3) {
-    auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KMainWindow_CanBeRestored(int numberOfInstances) {
@@ -178,12 +163,7 @@ KConfigGroup* KMainWindow_StateConfigGroup(const KMainWindow* self) {
 }
 
 void KMainWindow_ApplyMainWindowSettings(KMainWindow* self, const KConfigGroup* config) {
-    auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        self->applyMainWindowSettings(*config);
-    } else {
-        ((VirtualKMainWindow*)self)->applyMainWindowSettings(*config);
-    }
+    self->applyMainWindowSettings(*config);
 }
 
 void KMainWindow_SaveMainWindowSettings(KMainWindow* self, KConfigGroup* config) {
@@ -204,32 +184,17 @@ libqt_string KMainWindow_DbusName(const KMainWindow* self) {
 
 void KMainWindow_SetCaption(KMainWindow* self, const libqt_string caption) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        self->setCaption(caption_QString);
-    } else {
-        ((VirtualKMainWindow*)self)->setCaption(caption_QString);
-    }
+    self->setCaption(caption_QString);
 }
 
 void KMainWindow_SetCaption2(KMainWindow* self, const libqt_string caption, bool modified) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        self->setCaption(caption_QString, modified);
-    } else {
-        ((VirtualKMainWindow*)self)->setCaption(caption_QString, modified);
-    }
+    self->setCaption(caption_QString, modified);
 }
 
 void KMainWindow_SetPlainCaption(KMainWindow* self, const libqt_string caption) {
     QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-    auto* vkmainwindow = dynamic_cast<VirtualKMainWindow*>(self);
-    if (vkmainwindow && vkmainwindow->isVirtualKMainWindow) {
-        self->setPlainCaption(caption_QString);
-    } else {
-        ((VirtualKMainWindow*)self)->setPlainCaption(caption_QString);
-    }
+    self->setPlainCaption(caption_QString);
 }
 
 void KMainWindow_AppHelpActivated(KMainWindow* self) {

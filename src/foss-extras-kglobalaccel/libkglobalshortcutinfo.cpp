@@ -21,30 +21,15 @@ KGlobalShortcutInfo* KGlobalShortcutInfo_new2(const KGlobalShortcutInfo* rhs) {
 }
 
 QMetaObject* KGlobalShortcutInfo_MetaObject(const KGlobalShortcutInfo* self) {
-    auto* vkglobalshortcutinfo = dynamic_cast<const VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKGlobalShortcutInfo*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KGlobalShortcutInfo_Metacast(KGlobalShortcutInfo* self, const char* param1) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KGlobalShortcutInfo_Metacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3) {
-    auto* vkglobalshortcutinfo = dynamic_cast<VirtualKGlobalShortcutInfo*>(self);
-    if (vkglobalshortcutinfo && vkglobalshortcutinfo->isVirtualKGlobalShortcutInfo) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKGlobalShortcutInfo*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KGlobalShortcutInfo_OperatorAssign(KGlobalShortcutInfo* self, const KGlobalShortcutInfo* rhs) {

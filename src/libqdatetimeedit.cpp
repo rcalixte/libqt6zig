@@ -81,30 +81,15 @@ QDateTimeEdit* QDateTimeEdit_new8(QTime* t, QWidget* parent) {
 }
 
 QMetaObject* QDateTimeEdit_MetaObject(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDateTimeEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDateTimeEdit_Metacast(QDateTimeEdit* self, const char* param1) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDateTimeEdit_Metacall(QDateTimeEdit* self, int param1, int param2, void** param3) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDateTime* QDateTimeEdit_DateTime(const QDateTimeEdit* self) {
@@ -305,39 +290,19 @@ void QDateTimeEdit_SetTimeZone(QDateTimeEdit* self, const QTimeZone* zone) {
 }
 
 QSize* QDateTimeEdit_SizeHint(const QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<const VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQDateTimeEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QDateTimeEdit_Clear(QDateTimeEdit* self) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        self->clear();
-    } else {
-        ((VirtualQDateTimeEdit*)self)->clear();
-    }
+    self->clear();
 }
 
 void QDateTimeEdit_StepBy(QDateTimeEdit* self, int steps) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        self->stepBy(static_cast<int>(steps));
-    } else {
-        ((VirtualQDateTimeEdit*)self)->stepBy(static_cast<int>(steps));
-    }
+    self->stepBy(static_cast<int>(steps));
 }
 
 bool QDateTimeEdit_Event(QDateTimeEdit* self, QEvent* event) {
-    auto* vqdatetimeedit = dynamic_cast<VirtualQDateTimeEdit*>(self);
-    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
-        return self->event(event);
-    } else {
-        return ((VirtualQDateTimeEdit*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 void QDateTimeEdit_DateTimeChanged(QDateTimeEdit* self, const QDateTime* dateTime) {
@@ -2371,30 +2336,15 @@ QTimeEdit* QTimeEdit_new4(QTime* time, QWidget* parent) {
 }
 
 QMetaObject* QTimeEdit_MetaObject(const QTimeEdit* self) {
-    auto* vqtimeedit = dynamic_cast<const VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTimeEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTimeEdit_Metacast(QTimeEdit* self, const char* param1) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTimeEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTimeEdit_Metacall(QTimeEdit* self, int param1, int param2, void** param3) {
-    auto* vqtimeedit = dynamic_cast<VirtualQTimeEdit*>(self);
-    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTimeEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTimeEdit_UserTimeChanged(QTimeEdit* self, QTime* time) {
@@ -4468,30 +4418,15 @@ QDateEdit* QDateEdit_new4(QDate* date, QWidget* parent) {
 }
 
 QMetaObject* QDateEdit_MetaObject(const QDateEdit* self) {
-    auto* vqdateedit = dynamic_cast<const VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDateEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDateEdit_Metacast(QDateEdit* self, const char* param1) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDateEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDateEdit_Metacall(QDateEdit* self, int param1, int param2, void** param3) {
-    auto* vqdateedit = dynamic_cast<VirtualQDateEdit*>(self);
-    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDateEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QDateEdit_UserDateChanged(QDateEdit* self, QDate* date) {

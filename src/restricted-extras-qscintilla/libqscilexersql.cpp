@@ -23,30 +23,15 @@ QsciLexerSQL* QsciLexerSQL_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerSQL_MetaObject(const QsciLexerSQL* self) {
-    auto* vqscilexersql = dynamic_cast<const VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerSQL*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerSQL_Metacast(QsciLexerSQL* self, const char* param1) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerSQL_Metacall(QsciLexerSQL* self, int param1, int param2, void** param3) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerSQL*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerSQL_Language(const QsciLexerSQL* self) {
@@ -150,30 +135,15 @@ bool QsciLexerSQL_QuotedIdentifiers(const QsciLexerSQL* self) {
 }
 
 void QsciLexerSQL_SetBackslashEscapes(QsciLexerSQL* self, bool enable) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        self->setBackslashEscapes(enable);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setBackslashEscapes(enable);
-    }
+    self->setBackslashEscapes(enable);
 }
 
 void QsciLexerSQL_SetFoldComments(QsciLexerSQL* self, bool fold) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerSQL_SetFoldCompact(QsciLexerSQL* self, bool fold) {
-    auto* vqscilexersql = dynamic_cast<VirtualQsciLexerSQL*>(self);
-    if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerSQL*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 // Base class handler implementation

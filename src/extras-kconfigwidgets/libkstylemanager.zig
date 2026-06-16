@@ -23,10 +23,10 @@ pub const KStyleManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QObject `
+    /// ` parent: QObject `
     ///
-    pub fn CreateConfigureAction(param1: anytype) QAction {
-        comptime _ = @TypeOf(param1)._is_QObject;
-        return .{ .ptr = qtc.KStyleManager_CreateConfigureAction(@ptrCast(param1.ptr)) };
+    pub fn CreateConfigureAction(parent: anytype) QAction {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KStyleManager_CreateConfigureAction(@ptrCast(parent.ptr)) };
     }
 };

@@ -28,30 +28,15 @@ KToggleAction* KToggleAction_new3(const QIcon* icon, const libqt_string text, QO
 }
 
 QMetaObject* KToggleAction_MetaObject(const KToggleAction* self) {
-    auto* vktoggleaction = dynamic_cast<const VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToggleAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToggleAction_Metacast(KToggleAction* self, const char* param1) {
-    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToggleAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToggleAction_Metacall(KToggleAction* self, int param1, int param2, void** param3) {
-    auto* vktoggleaction = dynamic_cast<VirtualKToggleAction*>(self);
-    if (vktoggleaction && vktoggleaction->isVirtualKToggleAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToggleAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KToggleAction_SetCheckedState(KToggleAction* self, const KGuiItem* checkedItem) {

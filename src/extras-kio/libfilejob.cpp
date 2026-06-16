@@ -175,6 +175,6 @@ void KIO__FileJob_Delete(KIO__FileJob* self) {
     delete self;
 }
 
-KIO__FileJob* KIO_Open(const QUrl* param1, int param2) {
-    return KIO::open(*param1, static_cast<QIODevice::OpenMode>(param2));
+KIO__FileJob* KIO_Open(const QUrl* url, int mode) {
+    return KIO::open(*url, static_cast<QIODevice::OpenMode>(mode));
 }

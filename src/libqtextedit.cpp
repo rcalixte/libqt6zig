@@ -73,30 +73,15 @@ QTextEdit* QTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QTextEdit_MetaObject(const QTextEdit* self) {
-    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextEdit_Metacast(QTextEdit* self, const char* param1) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextEdit_Metacall(QTextEdit* self, int param1, int param2, void** param3) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTextEdit_SetDocument(QTextEdit* self, QTextDocument* document) {
@@ -319,12 +304,7 @@ void QTextEdit_EnsureCursorVisible(QTextEdit* self) {
 }
 
 QVariant* QTextEdit_LoadResource(QTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vqtextedit = dynamic_cast<VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualQTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 QMenu* QTextEdit_CreateStandardContextMenu(QTextEdit* self) {
@@ -427,12 +407,7 @@ void QTextEdit_Print(const QTextEdit* self, QPagedPaintDevice* printer) {
 }
 
 QVariant* QTextEdit_InputMethodQuery(const QTextEdit* self, int property) {
-    auto* vqtextedit = dynamic_cast<const VirtualQTextEdit*>(self);
-    if (vqtextedit && vqtextedit->isVirtualQTextEdit) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualQTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 QVariant* QTextEdit_InputMethodQuery2(const QTextEdit* self, int query, QVariant* argument) {

@@ -143,12 +143,7 @@ QTableWidgetItem* QTableWidgetItem_new7(const QIcon* icon, const libqt_string te
 }
 
 QTableWidgetItem* QTableWidgetItem_Clone(const QTableWidgetItem* self) {
-    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        return self->clone();
-    } else {
-        return ((VirtualQTableWidgetItem*)self)->clone();
-    }
+    return self->clone();
 }
 
 QTableWidget* QTableWidgetItem_TableWidget(const QTableWidgetItem* self) {
@@ -312,48 +307,23 @@ void QTableWidgetItem_SetSizeHint(QTableWidgetItem* self, const QSize* size) {
 }
 
 QVariant* QTableWidgetItem_Data(const QTableWidgetItem* self, int role) {
-    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        return new QVariant(self->data(static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQTableWidgetItem*)self)->data(static_cast<int>(role)));
-    }
+    return new QVariant(self->data(static_cast<int>(role)));
 }
 
 void QTableWidgetItem_SetData(QTableWidgetItem* self, int role, const QVariant* value) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        self->setData(static_cast<int>(role), *value);
-    } else {
-        ((VirtualQTableWidgetItem*)self)->setData(static_cast<int>(role), *value);
-    }
+    self->setData(static_cast<int>(role), *value);
 }
 
 bool QTableWidgetItem_OperatorLesser(const QTableWidgetItem* self, const QTableWidgetItem* other) {
-    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        return (*self < *other);
-    } else {
-        return ((VirtualQTableWidgetItem*)self)->operator<(*other);
-    }
+    return self->operator<(*other);
 }
 
 void QTableWidgetItem_Read(QTableWidgetItem* self, QDataStream* in) {
-    auto* vqtablewidgetitem = dynamic_cast<VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        self->read(*in);
-    } else {
-        ((VirtualQTableWidgetItem*)self)->read(*in);
-    }
+    self->read(*in);
 }
 
 void QTableWidgetItem_Write(const QTableWidgetItem* self, QDataStream* out) {
-    auto* vqtablewidgetitem = dynamic_cast<const VirtualQTableWidgetItem*>(self);
-    if (vqtablewidgetitem && vqtablewidgetitem->isVirtualQTableWidgetItem) {
-        self->write(*out);
-    } else {
-        ((VirtualQTableWidgetItem*)self)->write(*out);
-    }
+    self->write(*out);
 }
 
 void QTableWidgetItem_OperatorAssign(QTableWidgetItem* self, const QTableWidgetItem* other) {
@@ -499,30 +469,15 @@ QTableWidget* QTableWidget_new4(int rows, int columns, QWidget* parent) {
 }
 
 QMetaObject* QTableWidget_MetaObject(const QTableWidget* self) {
-    auto* vqtablewidget = dynamic_cast<const VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTableWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTableWidget_Metacast(QTableWidget* self, const char* param1) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTableWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTableWidget_Metacall(QTableWidget* self, int param1, int param2, void** param3) {
-    auto* vqtablewidget = dynamic_cast<VirtualQTableWidget*>(self);
-    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTableWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTableWidget_SetRowCount(QTableWidget* self, int rows) {

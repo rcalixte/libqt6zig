@@ -55,30 +55,15 @@ QWizard* QWizard_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QWizard_MetaObject(const QWizard* self) {
-    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWizard*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWizard_Metacast(QWizard* self, const char* param1) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWizard*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWizard_Metacall(QWizard* self, int param1, int param2, void** param3) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWizard*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QWizard_AddPage(QWizard* self, QWizardPage* page) {
@@ -144,21 +129,11 @@ int QWizard_CurrentId(const QWizard* self) {
 }
 
 bool QWizard_ValidateCurrentPage(QWizard* self) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return self->validateCurrentPage();
-    } else {
-        return ((VirtualQWizard*)self)->validateCurrentPage();
-    }
+    return self->validateCurrentPage();
 }
 
 int QWizard_NextId(const QWizard* self) {
-    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return self->nextId();
-    } else {
-        return ((VirtualQWizard*)self)->nextId();
-    }
+    return self->nextId();
 }
 
 void QWizard_SetField(QWizard* self, const libqt_string name, const QVariant* value) {
@@ -267,21 +242,11 @@ void QWizard_SetDefaultProperty(QWizard* self, const char* className, const char
 }
 
 void QWizard_SetVisible(QWizard* self, bool visible) {
-    auto* vqwizard = dynamic_cast<VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQWizard*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 QSize* QWizard_SizeHint(const QWizard* self) {
-    auto* vqwizard = dynamic_cast<const VirtualQWizard*>(self);
-    if (vqwizard && vqwizard->isVirtualQWizard) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQWizard*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QWizard_CurrentIdChanged(QWizard* self, int id) {
@@ -2321,30 +2286,15 @@ QWizardPage* QWizardPage_new2() {
 }
 
 QMetaObject* QWizardPage_MetaObject(const QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWizardPage*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWizardPage_Metacast(QWizardPage* self, const char* param1) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWizardPage*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWizardPage_Metacall(QWizardPage* self, int param1, int param2, void** param3) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWizardPage*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QWizardPage_SetTitle(QWizardPage* self, const libqt_string title) {
@@ -2423,48 +2373,23 @@ libqt_string QWizardPage_ButtonText(const QWizardPage* self, int which) {
 }
 
 void QWizardPage_InitializePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        self->initializePage();
-    } else {
-        ((VirtualQWizardPage*)self)->initializePage();
-    }
+    self->initializePage();
 }
 
 void QWizardPage_CleanupPage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        self->cleanupPage();
-    } else {
-        ((VirtualQWizardPage*)self)->cleanupPage();
-    }
+    self->cleanupPage();
 }
 
 bool QWizardPage_ValidatePage(QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return self->validatePage();
-    } else {
-        return ((VirtualQWizardPage*)self)->validatePage();
-    }
+    return self->validatePage();
 }
 
 bool QWizardPage_IsComplete(const QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return self->isComplete();
-    } else {
-        return ((VirtualQWizardPage*)self)->isComplete();
-    }
+    return self->isComplete();
 }
 
 int QWizardPage_NextId(const QWizardPage* self) {
-    auto* vqwizardpage = dynamic_cast<const VirtualQWizardPage*>(self);
-    if (vqwizardpage && vqwizardpage->isVirtualQWizardPage) {
-        return self->nextId();
-    } else {
-        return ((VirtualQWizardPage*)self)->nextId();
-    }
+    return self->nextId();
 }
 
 void QWizardPage_CompleteChanged(QWizardPage* self) {

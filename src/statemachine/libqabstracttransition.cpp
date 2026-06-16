@@ -24,30 +24,15 @@ QAbstractTransition* QAbstractTransition_new2(QState* sourceState) {
 }
 
 QMetaObject* QAbstractTransition_MetaObject(const QAbstractTransition* self) {
-    auto* vqabstracttransition = dynamic_cast<const VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractTransition*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractTransition_Metacast(QAbstractTransition* self, const char* param1) {
-    auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractTransition*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractTransition_Metacall(QAbstractTransition* self, int param1, int param2, void** param3) {
-    auto* vqabstracttransition = dynamic_cast<VirtualQAbstractTransition*>(self);
-    if (vqabstracttransition && vqabstracttransition->isVirtualQAbstractTransition) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractTransition*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QState* QAbstractTransition_SourceState(const QAbstractTransition* self) {

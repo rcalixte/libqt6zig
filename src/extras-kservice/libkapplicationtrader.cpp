@@ -4,8 +4,8 @@
 #include "libkapplicationtrader.h"
 #include "libkapplicationtrader.hxx"
 
-bool KApplicationTrader_IsSubsequence(const libqt_string param1, const libqt_string param2, int param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return KApplicationTrader::isSubsequence(param1_QString, param2_QString, static_cast<Qt::CaseSensitivity>(param3));
+bool KApplicationTrader_IsSubsequence(const libqt_string pattern, const libqt_string text, int cs) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    return KApplicationTrader::isSubsequence(pattern_QString, text_QString, static_cast<Qt::CaseSensitivity>(cs));
 }

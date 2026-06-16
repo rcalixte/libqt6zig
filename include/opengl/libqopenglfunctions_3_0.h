@@ -150,7 +150,7 @@ void QOpenGLFunctions_3_0_GlUniform3f(QOpenGLFunctions_3_0* self, int32_t locati
 void QOpenGLFunctions_3_0_GlUniform2f(QOpenGLFunctions_3_0* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_3_0_GlUniform1f(QOpenGLFunctions_3_0* self, int32_t location, float v0);
 void QOpenGLFunctions_3_0_GlUseProgram(QOpenGLFunctions_3_0* self, uint32_t program);
-void QOpenGLFunctions_3_0_GlShaderSource(QOpenGLFunctions_3_0* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
+void QOpenGLFunctions_3_0_GlShaderSource(QOpenGLFunctions_3_0* self, uint32_t shader, int32_t count, const GLchar** string, const int32_t* length);
 void QOpenGLFunctions_3_0_GlLinkProgram(QOpenGLFunctions_3_0* self, uint32_t program);
 unsigned char QOpenGLFunctions_3_0_GlIsShader(QOpenGLFunctions_3_0* self, uint32_t shader);
 unsigned char QOpenGLFunctions_3_0_GlIsProgram(QOpenGLFunctions_3_0* self, uint32_t program);
@@ -273,9 +273,9 @@ void QOpenGLFunctions_3_0_GlGetTexGendv(QOpenGLFunctions_3_0* self, uint32_t coo
 void QOpenGLFunctions_3_0_GlGetTexEnviv(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_3_0_GlGetTexEnvfv(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t pname, float* params);
 void QOpenGLFunctions_3_0_GlGetPolygonStipple(QOpenGLFunctions_3_0* self, uint8_t* mask);
-void QOpenGLFunctions_3_0_GlGetPixelMapusv(QOpenGLFunctions_3_0* self, uint32_t mapVal, uint16_t* values);
-void QOpenGLFunctions_3_0_GlGetPixelMapuiv(QOpenGLFunctions_3_0* self, uint32_t mapVal, uint32_t* values);
-void QOpenGLFunctions_3_0_GlGetPixelMapfv(QOpenGLFunctions_3_0* self, uint32_t mapVal, float* values);
+void QOpenGLFunctions_3_0_GlGetPixelMapusv(QOpenGLFunctions_3_0* self, uint32_t map, uint16_t* values);
+void QOpenGLFunctions_3_0_GlGetPixelMapuiv(QOpenGLFunctions_3_0* self, uint32_t map, uint32_t* values);
+void QOpenGLFunctions_3_0_GlGetPixelMapfv(QOpenGLFunctions_3_0* self, uint32_t map, float* values);
 void QOpenGLFunctions_3_0_GlGetMaterialiv(QOpenGLFunctions_3_0* self, uint32_t face, uint32_t pname, int32_t* params);
 void QOpenGLFunctions_3_0_GlGetMaterialfv(QOpenGLFunctions_3_0* self, uint32_t face, uint32_t pname, float* params);
 void QOpenGLFunctions_3_0_GlGetMapiv(QOpenGLFunctions_3_0* self, uint32_t target, uint32_t query, int32_t* v);
@@ -286,9 +286,9 @@ void QOpenGLFunctions_3_0_GlGetLightfv(QOpenGLFunctions_3_0* self, uint32_t ligh
 void QOpenGLFunctions_3_0_GlGetClipPlane(QOpenGLFunctions_3_0* self, uint32_t plane, double* equation);
 void QOpenGLFunctions_3_0_GlDrawPixels(QOpenGLFunctions_3_0* self, int32_t width, int32_t height, uint32_t format, uint32_t typeVal, const void* pixels);
 void QOpenGLFunctions_3_0_GlCopyPixels(QOpenGLFunctions_3_0* self, int32_t x, int32_t y, int32_t width, int32_t height, uint32_t typeVal);
-void QOpenGLFunctions_3_0_GlPixelMapusv(QOpenGLFunctions_3_0* self, uint32_t mapVal, int32_t mapsize, const uint16_t* values);
-void QOpenGLFunctions_3_0_GlPixelMapuiv(QOpenGLFunctions_3_0* self, uint32_t mapVal, int32_t mapsize, const uint32_t* values);
-void QOpenGLFunctions_3_0_GlPixelMapfv(QOpenGLFunctions_3_0* self, uint32_t mapVal, int32_t mapsize, const float* values);
+void QOpenGLFunctions_3_0_GlPixelMapusv(QOpenGLFunctions_3_0* self, uint32_t map, int32_t mapsize, const uint16_t* values);
+void QOpenGLFunctions_3_0_GlPixelMapuiv(QOpenGLFunctions_3_0* self, uint32_t map, int32_t mapsize, const uint32_t* values);
+void QOpenGLFunctions_3_0_GlPixelMapfv(QOpenGLFunctions_3_0* self, uint32_t map, int32_t mapsize, const float* values);
 void QOpenGLFunctions_3_0_GlPixelTransferi(QOpenGLFunctions_3_0* self, uint32_t pname, int32_t param);
 void QOpenGLFunctions_3_0_GlPixelTransferf(QOpenGLFunctions_3_0* self, uint32_t pname, float param);
 void QOpenGLFunctions_3_0_GlPixelZoom(QOpenGLFunctions_3_0* self, float xfactor, float yfactor);

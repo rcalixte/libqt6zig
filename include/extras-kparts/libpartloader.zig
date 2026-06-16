@@ -64,15 +64,15 @@ pub const KParts__PartLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KPluginMetaData `
+    /// ` data: KPluginMetaData `
     ///
     /// ## Returns:
     ///
     /// ` flag of partloader_enums.PartCapability `
     ///
-    pub fn PartCapabilities(param1: anytype) i32 {
-        comptime _ = @TypeOf(param1)._is_KPluginMetaData;
-        return qtc.KParts__PartLoader_PartCapabilities(@ptrCast(param1.ptr));
+    pub fn PartCapabilities(data: anytype) i32 {
+        comptime _ = @TypeOf(data)._is_KPluginMetaData;
+        return qtc.KParts__PartLoader_PartCapabilities(@ptrCast(data.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kparts-partloader.html#partsForMimeType)
@@ -81,14 +81,14 @@ pub const KParts__PartLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` mimeType: []const u8 `
     ///
-    pub fn PartsForMimeType(allocator: std.mem.Allocator, param1: []const u8) []KPluginMetaData {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn PartsForMimeType(allocator: std.mem.Allocator, mimeType: []const u8) []KPluginMetaData {
+        const mimeType_str = qtc.libqt_string{
+            .len = mimeType.len,
+            .data = mimeType.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KParts__PartLoader_PartsForMimeType(param1_str);
+        const _arr: qtc.libqt_list = qtc.KParts__PartLoader_PartsForMimeType(mimeType_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("kparts__partloader.PartsForMimeType: Memory allocation failed");
         const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));

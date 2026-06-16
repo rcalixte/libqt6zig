@@ -2005,35 +2005,35 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: i32 `
+    /// ` permissions: i32 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn FileCopy(param1: anytype, param2: anytype, param3: i32, param4: i32) KIO__FileCopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_FileCopy(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+    pub fn FileCopy(src: anytype, dest: anytype, permissions: i32, flags: i32) KIO__FileCopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_FileCopy(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#file_move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: i32 `
+    /// ` permissions: i32 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn FileMove(param1: anytype, param2: anytype, param3: i32, param4: i32) KIO__FileCopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_FileMove(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+    pub fn FileMove(src: anytype, dest: anytype, permissions: i32, flags: i32) KIO__FileCopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_FileMove(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
 };

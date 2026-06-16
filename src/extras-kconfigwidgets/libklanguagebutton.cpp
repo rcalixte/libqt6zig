@@ -56,30 +56,15 @@ KLanguageButton* KLanguageButton_new4(const libqt_string text, QWidget* parent) 
 }
 
 QMetaObject* KLanguageButton_MetaObject(const KLanguageButton* self) {
-    auto* vklanguagebutton = dynamic_cast<const VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLanguageButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLanguageButton_Metacast(KLanguageButton* self, const char* param1) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLanguageButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLanguageButton_Metacall(KLanguageButton* self, int param1, int param2, void** param3) {
-    auto* vklanguagebutton = dynamic_cast<VirtualKLanguageButton*>(self);
-    if (vklanguagebutton && vklanguagebutton->isVirtualKLanguageButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLanguageButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KLanguageButton_SetLocale(KLanguageButton* self, const libqt_string locale) {

@@ -101,12 +101,7 @@ bool TextGrammarCheck__GrammarError_IsValid(const TextGrammarCheck__GrammarError
 }
 
 void TextGrammarCheck__GrammarError_Parse(TextGrammarCheck__GrammarError* self, const QJsonObject* obj, int blockindex) {
-    auto* vtextgrammarcheck__grammarerror = dynamic_cast<VirtualTextGrammarCheckGrammarError*>(self);
-    if (vtextgrammarcheck__grammarerror && vtextgrammarcheck__grammarerror->isVirtualTextGrammarCheckGrammarError) {
-        self->parse(*obj, static_cast<int>(blockindex));
-    } else {
-        ((VirtualTextGrammarCheckGrammarError*)self)->parse(*obj, static_cast<int>(blockindex));
-    }
+    self->parse(*obj, static_cast<int>(blockindex));
 }
 
 bool TextGrammarCheck__GrammarError_OperatorEqual(const TextGrammarCheck__GrammarError* self, const TextGrammarCheck__GrammarError* other) {

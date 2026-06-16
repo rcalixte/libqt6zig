@@ -21,9 +21,9 @@ pub const KUserTimestamp = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: usize `
+    /// ` time: usize `
     ///
-    pub fn UpdateUserTimestamp(param1: usize) void {
-        qtc.KUserTimestamp_UpdateUserTimestamp(@bitCast(param1));
+    pub fn UpdateUserTimestamp(time: usize) void {
+        qtc.KUserTimestamp_UpdateUserTimestamp(@bitCast(time));
     }
 };

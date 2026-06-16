@@ -21,39 +21,19 @@ QPercentBarSeries* QPercentBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QPercentBarSeries_MetaObject(const QPercentBarSeries* self) {
-    auto* vqpercentbarseries = dynamic_cast<const VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPercentBarSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPercentBarSeries_Metacast(QPercentBarSeries* self, const char* param1) {
-    auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPercentBarSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPercentBarSeries_Metacall(QPercentBarSeries* self, int param1, int param2, void** param3) {
-    auto* vqpercentbarseries = dynamic_cast<VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPercentBarSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPercentBarSeries_Type(const QPercentBarSeries* self) {
-    auto* vqpercentbarseries = dynamic_cast<const VirtualQPercentBarSeries*>(self);
-    if (vqpercentbarseries && vqpercentbarseries->isVirtualQPercentBarSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPercentBarSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 // Base class handler implementation

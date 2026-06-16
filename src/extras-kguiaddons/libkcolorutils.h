@@ -22,15 +22,15 @@ typedef struct QColor QColor;
 double KColorUtils_Hue(const QColor* param1);
 double KColorUtils_Chroma(const QColor* param1);
 double KColorUtils_Luma(const QColor* param1);
-void KColorUtils_GetHcy(const QColor* param1, double* param2, double* param3, double* param4, double* param5);
-QColor* KColorUtils_HcyColor(double param1, double param2, double param3, double param4);
+void KColorUtils_GetHcy(const QColor* param1, double* hue, double* chroma, double* luma, double* alpha);
+QColor* KColorUtils_HcyColor(double hue, double chroma, double luma, double alpha);
 double KColorUtils_ContrastRatio(const QColor* param1, const QColor* param2);
-QColor* KColorUtils_Lighten(const QColor* param1, double param2, double param3);
-QColor* KColorUtils_Darken(const QColor* param1, double param2, double param3);
-QColor* KColorUtils_Shade(const QColor* param1, double param2, double param3);
-QColor* KColorUtils_Tint(const QColor* param1, const QColor* param2, double param3);
-QColor* KColorUtils_Mix(const QColor* param1, const QColor* param2, double param3);
-QColor* KColorUtils_OverlayColors(const QColor* param1, const QColor* param2, int param3);
+QColor* KColorUtils_Lighten(const QColor* param1, double amount, double chromaInverseGain);
+QColor* KColorUtils_Darken(const QColor* param1, double amount, double chromaGain);
+QColor* KColorUtils_Shade(const QColor* param1, double lumaAmount, double chromaAmount);
+QColor* KColorUtils_Tint(const QColor* base, const QColor* color, double amount);
+QColor* KColorUtils_Mix(const QColor* c1, const QColor* c2, double bias);
+QColor* KColorUtils_OverlayColors(const QColor* base, const QColor* paint, int comp);
 
 #ifdef __cplusplus
 } /* extern C */

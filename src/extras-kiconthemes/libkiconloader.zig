@@ -2684,37 +2684,37 @@ pub const KDE = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` iconName: []const u8 `
     ///
-    /// ` param2: KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
-    pub fn Icon(param1: []const u8, param2: anytype) QIcon {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Icon(iconName: []const u8, iconLoader: anytype) QIcon {
+        const iconName_str = qtc.libqt_string{
+            .len = iconName.len,
+            .data = iconName.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_KIconLoader;
-        return .{ .ptr = qtc.KDE_Icon(param1_str, @ptrCast(param2.ptr)) };
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
+        return .{ .ptr = qtc.KDE_Icon(iconName_str, @ptrCast(iconLoader.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kde.html#icon)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` iconName: []const u8 `
     ///
-    /// ` param2: KIconColors `
+    /// ` colors: KIconColors `
     ///
-    /// ` param3: KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
-    pub fn Icon2(param1: []const u8, param2: anytype, param3: anytype) QIcon {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Icon2(iconName: []const u8, colors: anytype, iconLoader: anytype) QIcon {
+        const iconName_str = qtc.libqt_string{
+            .len = iconName.len,
+            .data = iconName.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_KIconColors;
-        comptime _ = @TypeOf(param3)._is_KIconLoader;
-        return .{ .ptr = qtc.KDE_Icon2(param1_str, @ptrCast(param2.ptr), @ptrCast(param3.ptr)) };
+        comptime _ = @TypeOf(colors)._is_KIconColors;
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
+        return .{ .ptr = qtc.KDE_Icon2(iconName_str, @ptrCast(colors.ptr), @ptrCast(iconLoader.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kde.html#icon)
@@ -2723,30 +2723,30 @@ pub const KDE = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` iconName: []const u8 `
     ///
-    /// ` param2: []const []const u8 `
+    /// ` overlays: []const []const u8 `
     ///
-    /// ` param3: KIconLoader `
+    /// ` iconLoader: KIconLoader `
     ///
-    pub fn Icon3(allocator: std.mem.Allocator, param1: []const u8, param2: []const []const u8, param3: anytype) QIcon {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Icon3(allocator: std.mem.Allocator, iconName: []const u8, overlays: []const []const u8, iconLoader: anytype) QIcon {
+        const iconName_str = qtc.libqt_string{
+            .len = iconName.len,
+            .data = iconName.ptr,
         };
-        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kde.Icon3: Memory allocation failed");
-        defer allocator.free(param2_arr);
-        for (param2, 0..param2.len) |item, i|
-            param2_arr[i] = .{
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kde.Icon3: Memory allocation failed");
+        defer allocator.free(overlays_arr);
+        for (overlays, 0..overlays.len) |item, i|
+            overlays_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        const param2_list = qtc.libqt_list{
-            .len = param2.len,
-            .data = param2_arr.ptr,
+        const overlays_list = qtc.libqt_list{
+            .len = overlays.len,
+            .data = overlays_arr.ptr,
         };
-        comptime _ = @TypeOf(param3)._is_KIconLoader;
-        return .{ .ptr = qtc.KDE_Icon3(param1_str, param2_list, @ptrCast(param3.ptr)) };
+        comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
+        return .{ .ptr = qtc.KDE_Icon3(iconName_str, overlays_list, @ptrCast(iconLoader.ptr)) };
     }
 };
 

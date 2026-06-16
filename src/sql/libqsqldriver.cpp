@@ -26,39 +26,19 @@ QSqlDriver* QSqlDriver_new2(QObject* parent) {
 }
 
 QMetaObject* QSqlDriver_MetaObject(const QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSqlDriver*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSqlDriver_Metacast(QSqlDriver* self, const char* param1) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSqlDriver*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSqlDriver_Metacall(QSqlDriver* self, int param1, int param2, void** param3) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlDriver*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QSqlDriver_IsOpen(const QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->isOpen();
-    } else {
-        return ((VirtualQSqlDriver*)self)->isOpen();
-    }
+    return self->isOpen();
 }
 
 bool QSqlDriver_IsOpenError(const QSqlDriver* self) {
@@ -66,170 +46,84 @@ bool QSqlDriver_IsOpenError(const QSqlDriver* self) {
 }
 
 bool QSqlDriver_BeginTransaction(QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->beginTransaction();
-    } else {
-        return ((VirtualQSqlDriver*)self)->beginTransaction();
-    }
+    return self->beginTransaction();
 }
 
 bool QSqlDriver_CommitTransaction(QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->commitTransaction();
-    } else {
-        return ((VirtualQSqlDriver*)self)->commitTransaction();
-    }
+    return self->commitTransaction();
 }
 
 bool QSqlDriver_RollbackTransaction(QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->rollbackTransaction();
-    } else {
-        return ((VirtualQSqlDriver*)self)->rollbackTransaction();
-    }
+    return self->rollbackTransaction();
 }
 
 libqt_list /* of libqt_string */ QSqlDriver_Tables(const QSqlDriver* self, int tableType) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        QList<QString> _ret = self->tables(static_cast<QSql::TableType>(tableType));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQSqlDriver*)self)->tables(static_cast<QSql::TableType>(tableType));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->tables(static_cast<QSql::TableType>(tableType));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QSqlIndex* QSqlDriver_PrimaryIndex(const QSqlDriver* self, const libqt_string tableName) {
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return new QSqlIndex(self->primaryIndex(tableName_QString));
-    } else {
-        return new QSqlIndex(((VirtualQSqlDriver*)self)->primaryIndex(tableName_QString));
-    }
+    return new QSqlIndex(self->primaryIndex(tableName_QString));
 }
 
 QSqlRecord* QSqlDriver_Record(const QSqlDriver* self, const libqt_string tableName) {
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return new QSqlRecord(self->record(tableName_QString));
-    } else {
-        return new QSqlRecord(((VirtualQSqlDriver*)self)->record(tableName_QString));
-    }
+    return new QSqlRecord(self->record(tableName_QString));
 }
 
 libqt_string QSqlDriver_FormatValue(const QSqlDriver* self, const QSqlField* field, bool trimStrings) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        auto _ret = self->formatValue(*field, trimStrings);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQSqlDriver*)self)->formatValue(*field, trimStrings);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->formatValue(*field, trimStrings);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QSqlDriver_EscapeIdentifier(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        auto _ret = self->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQSqlDriver*)self)->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->escapeIdentifier(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QSqlDriver_SqlStatement(const QSqlDriver* self, int typeVal, const libqt_string tableName, const QSqlRecord* rec, bool preparedStatement) {
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        auto _ret = self->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQSqlDriver*)self)->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->sqlStatement(static_cast<QSqlDriver::StatementType>(typeVal), tableName_QString, *rec, preparedStatement);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QSqlError* QSqlDriver_LastError(const QSqlDriver* self) {
@@ -237,39 +131,19 @@ QSqlError* QSqlDriver_LastError(const QSqlDriver* self) {
 }
 
 QVariant* QSqlDriver_Handle(const QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return new QVariant(self->handle());
-    } else {
-        return new QVariant(((VirtualQSqlDriver*)self)->handle());
-    }
+    return new QVariant(self->handle());
 }
 
 bool QSqlDriver_HasFeature(const QSqlDriver* self, int f) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return vqsqldriver->hasFeature(static_cast<QSqlDriver::DriverFeature>(f));
-    } else {
-        return ((VirtualQSqlDriver*)self)->hasFeature(static_cast<QSqlDriver::DriverFeature>(f));
-    }
+    return self->hasFeature(static_cast<QSqlDriver::DriverFeature>(f));
 }
 
 void QSqlDriver_Close(QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        vqsqldriver->close();
-    } else {
-        ((VirtualQSqlDriver*)self)->close();
-    }
+    self->close();
 }
 
 QSqlResult* QSqlDriver_CreateResult(const QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return vqsqldriver->createResult();
-    } else {
-        return ((VirtualQSqlDriver*)self)->createResult();
-    }
+    return self->createResult();
 }
 
 bool QSqlDriver_Open(QSqlDriver* self, const libqt_string db, const libqt_string user, const libqt_string password, const libqt_string host, int port, const libqt_string connOpts) {
@@ -278,111 +152,56 @@ bool QSqlDriver_Open(QSqlDriver* self, const libqt_string db, const libqt_string
     QString password_QString = QString::fromUtf8(password.data, password.len);
     QString host_QString = QString::fromUtf8(host.data, host.len);
     QString connOpts_QString = QString::fromUtf8(connOpts.data, connOpts.len);
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return vqsqldriver->open(db_QString, user_QString, password_QString, host_QString, static_cast<int>(port), connOpts_QString);
-    } else {
-        return ((VirtualQSqlDriver*)self)->open(db_QString, user_QString, password_QString, host_QString, static_cast<int>(port), connOpts_QString);
-    }
+    return self->open(db_QString, user_QString, password_QString, host_QString, static_cast<int>(port), connOpts_QString);
 }
 
 bool QSqlDriver_SubscribeToNotification(QSqlDriver* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->subscribeToNotification(name_QString);
-    } else {
-        return ((VirtualQSqlDriver*)self)->subscribeToNotification(name_QString);
-    }
+    return self->subscribeToNotification(name_QString);
 }
 
 bool QSqlDriver_UnsubscribeFromNotification(QSqlDriver* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->unsubscribeFromNotification(name_QString);
-    } else {
-        return ((VirtualQSqlDriver*)self)->unsubscribeFromNotification(name_QString);
-    }
+    return self->unsubscribeFromNotification(name_QString);
 }
 
 libqt_list /* of libqt_string */ QSqlDriver_SubscribedToNotifications(const QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        QList<QString> _ret = self->subscribedToNotifications();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQSqlDriver*)self)->subscribedToNotifications();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->subscribedToNotifications();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 bool QSqlDriver_IsIdentifierEscaped(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->isIdentifierEscaped(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
-    } else {
-        return ((VirtualQSqlDriver*)self)->isIdentifierEscaped(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
-    }
+    return self->isIdentifierEscaped(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
 }
 
 libqt_string QSqlDriver_StripDelimiters(const QSqlDriver* self, const libqt_string identifier, int typeVal) {
     QString identifier_QString = QString::fromUtf8(identifier.data, identifier.len);
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        auto _ret = self->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQSqlDriver*)self)->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->stripDelimiters(identifier_QString, static_cast<QSqlDriver::IdentifierType>(typeVal));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QSqlDriver_SetNumericalPrecisionPolicy(QSqlDriver* self, int precisionPolicy) {
@@ -398,21 +217,11 @@ int QSqlDriver_DbmsType(const QSqlDriver* self) {
 }
 
 int QSqlDriver_MaximumIdentifierLength(const QSqlDriver* self, int typeVal) {
-    auto* vqsqldriver = dynamic_cast<const VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->maximumIdentifierLength(static_cast<QSqlDriver::IdentifierType>(typeVal));
-    } else {
-        return ((VirtualQSqlDriver*)self)->maximumIdentifierLength(static_cast<QSqlDriver::IdentifierType>(typeVal));
-    }
+    return self->maximumIdentifierLength(static_cast<QSqlDriver::IdentifierType>(typeVal));
 }
 
 bool QSqlDriver_CancelQuery(QSqlDriver* self) {
-    auto* vqsqldriver = dynamic_cast<VirtualQSqlDriver*>(self);
-    if (vqsqldriver && vqsqldriver->isVirtualQSqlDriver) {
-        return self->cancelQuery();
-    } else {
-        return ((VirtualQSqlDriver*)self)->cancelQuery();
-    }
+    return self->cancelQuery();
 }
 
 void QSqlDriver_Notification(QSqlDriver* self, const libqt_string name, int source, const QVariant* payload) {

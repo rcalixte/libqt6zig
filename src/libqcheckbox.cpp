@@ -58,48 +58,23 @@ QCheckBox* QCheckBox_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QCheckBox_MetaObject(const QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<const VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCheckBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCheckBox_Metacast(QCheckBox* self, const char* param1) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCheckBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCheckBox_Metacall(QCheckBox* self, int param1, int param2, void** param3) {
-    auto* vqcheckbox = dynamic_cast<VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCheckBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QCheckBox_SizeHint(const QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<const VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQCheckBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QCheckBox_MinimumSizeHint(const QCheckBox* self) {
-    auto* vqcheckbox = dynamic_cast<const VirtualQCheckBox*>(self);
-    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQCheckBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QCheckBox_SetTristate(QCheckBox* self) {

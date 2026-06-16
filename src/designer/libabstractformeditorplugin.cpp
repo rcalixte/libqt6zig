@@ -10,39 +10,19 @@ QDesignerFormEditorPluginInterface* QDesignerFormEditorPluginInterface_new() {
 }
 
 bool QDesignerFormEditorPluginInterface_IsInitialized(const QDesignerFormEditorPluginInterface* self) {
-    auto* vqdesignerformeditorplugininterface = dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self);
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
-        return vqdesignerformeditorplugininterface->isInitialized();
-    } else {
-        return ((VirtualQDesignerFormEditorPluginInterface*)self)->isInitialized();
-    }
+    return self->isInitialized();
 }
 
 void QDesignerFormEditorPluginInterface_Initialize(QDesignerFormEditorPluginInterface* self, QDesignerFormEditorInterface* core) {
-    auto* vqdesignerformeditorplugininterface = dynamic_cast<VirtualQDesignerFormEditorPluginInterface*>(self);
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
-        vqdesignerformeditorplugininterface->initialize(core);
-    } else {
-        ((VirtualQDesignerFormEditorPluginInterface*)self)->initialize(core);
-    }
+    self->initialize(core);
 }
 
 QAction* QDesignerFormEditorPluginInterface_Action(const QDesignerFormEditorPluginInterface* self) {
-    auto* vqdesignerformeditorplugininterface = dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self);
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
-        return vqdesignerformeditorplugininterface->action();
-    } else {
-        return ((VirtualQDesignerFormEditorPluginInterface*)self)->action();
-    }
+    return self->action();
 }
 
 QDesignerFormEditorInterface* QDesignerFormEditorPluginInterface_Core(const QDesignerFormEditorPluginInterface* self) {
-    auto* vqdesignerformeditorplugininterface = dynamic_cast<const VirtualQDesignerFormEditorPluginInterface*>(self);
-    if (vqdesignerformeditorplugininterface && vqdesignerformeditorplugininterface->isVirtualQDesignerFormEditorPluginInterface) {
-        return vqdesignerformeditorplugininterface->core();
-    } else {
-        return ((VirtualQDesignerFormEditorPluginInterface*)self)->core();
-    }
+    return self->core();
 }
 
 // Base class handler implementation

@@ -44,11 +44,11 @@ void KIO__StoredTransferJob_SetData(KIO__StoredTransferJob* self, const libqt_st
 libqt_string KIO__StoredTransferJob_Data(const KIO__StoredTransferJob* self);
 void KIO__StoredTransferJob_Delete(KIO__StoredTransferJob* self);
 
-KIO__StoredTransferJob* KIO_StoredGet(const QUrl* param1, int param2, int param3);
-KIO__StoredTransferJob* KIO_StoredPut(QIODevice* param1, const QUrl* param2, int param3, int param4);
-KIO__StoredTransferJob* KIO_StoredPut2(const libqt_string param1, const QUrl* param2, int param3, int param4);
-KIO__StoredTransferJob* KIO_StoredHttpPost(const libqt_string param1, const QUrl* param2, int param3);
-KIO__StoredTransferJob* KIO_StoredHttpPost2(QIODevice* param1, const QUrl* param2, long long param3, int param4);
+KIO__StoredTransferJob* KIO_StoredGet(const QUrl* url, int reload, int flags);
+KIO__StoredTransferJob* KIO_StoredPut(QIODevice* input, const QUrl* url, int permissions, int flags);
+KIO__StoredTransferJob* KIO_StoredPut2(const libqt_string arr, const QUrl* url, int permissions, int flags);
+KIO__StoredTransferJob* KIO_StoredHttpPost(const libqt_string arr, const QUrl* url, int flags);
+KIO__StoredTransferJob* KIO_StoredHttpPost2(QIODevice* device, const QUrl* url, long long size, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

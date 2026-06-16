@@ -23,30 +23,15 @@ KSelectionWatcher* KSelectionWatcher_new3(const char* selection, int screen, QOb
 }
 
 QMetaObject* KSelectionWatcher_MetaObject(const KSelectionWatcher* self) {
-    auto* vkselectionwatcher = dynamic_cast<const VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSelectionWatcher*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSelectionWatcher_Metacast(KSelectionWatcher* self, const char* param1) {
-    auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSelectionWatcher*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSelectionWatcher_Metacall(KSelectionWatcher* self, int param1, int param2, void** param3) {
-    auto* vkselectionwatcher = dynamic_cast<VirtualKSelectionWatcher*>(self);
-    if (vkselectionwatcher && vkselectionwatcher->isVirtualKSelectionWatcher) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSelectionWatcher*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSelectionWatcher_FilterEvent(KSelectionWatcher* self, void* ev_P) {

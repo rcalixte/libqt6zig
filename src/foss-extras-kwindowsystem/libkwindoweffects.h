@@ -20,10 +20,10 @@ typedef struct QRegion QRegion;
 typedef struct QWindow QWindow;
 #endif
 
-bool KWindowEffects_IsEffectAvailable(int param1);
-void KWindowEffects_EnableBlurBehind(QWindow* param1, bool param2, const QRegion* param3);
-void KWindowEffects_EnableBackgroundContrast(QWindow* param1, bool param2, double param3, double param4, double param5, const QRegion* param6);
-void KWindowEffects_SlideWindow(QWindow* param1, int param2, int param3);
+bool KWindowEffects_IsEffectAvailable(int effect);
+void KWindowEffects_EnableBlurBehind(QWindow* window, bool enable, const QRegion* region);
+void KWindowEffects_EnableBackgroundContrast(QWindow* window, bool enable, double contrast, double intensity, double saturation, const QRegion* region);
+void KWindowEffects_SlideWindow(QWindow* window, int location, int offset);
 
 #ifdef __cplusplus
 } /* extern C */

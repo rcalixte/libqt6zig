@@ -23,30 +23,15 @@ KStartupInfo* KStartupInfo_new2(int flags, QObject* parent) {
 }
 
 QMetaObject* KStartupInfo_MetaObject(const KStartupInfo* self) {
-    auto* vkstartupinfo = dynamic_cast<const VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKStartupInfo*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KStartupInfo_Metacast(KStartupInfo* self, const char* param1) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKStartupInfo*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KStartupInfo_Metacall(KStartupInfo* self, int param1, int param2, void** param3) {
-    auto* vkstartupinfo = dynamic_cast<VirtualKStartupInfo*>(self);
-    if (vkstartupinfo && vkstartupinfo->isVirtualKStartupInfo) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKStartupInfo*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KStartupInfo_AppStarted() {

@@ -35,48 +35,23 @@ QSqlQueryModel* QSqlQueryModel_new2(QObject* parent) {
 }
 
 QMetaObject* QSqlQueryModel_MetaObject(const QSqlQueryModel* self) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSqlQueryModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSqlQueryModel_Metacast(QSqlQueryModel* self, const char* param1) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSqlQueryModel_Metacall(QSqlQueryModel* self, int param1, int param2, void** param3) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QSqlQueryModel_RowCount(const QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 int QSqlQueryModel_ColumnCount(const QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QSqlRecord* QSqlQueryModel_Record(const QSqlQueryModel* self, int row) {
@@ -88,48 +63,23 @@ QSqlRecord* QSqlQueryModel_Record2(const QSqlQueryModel* self) {
 }
 
 QVariant* QSqlQueryModel_Data(const QSqlQueryModel* self, const QModelIndex* item, int role) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return new QVariant(self->data(*item, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlQueryModel*)self)->data(*item, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*item, static_cast<int>(role)));
 }
 
 QVariant* QSqlQueryModel_HeaderData(const QSqlQueryModel* self, int section, int orientation, int role) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlQueryModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 bool QSqlQueryModel_SetHeaderData(QSqlQueryModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 bool QSqlQueryModel_InsertColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 bool QSqlQueryModel_RemoveColumns(QSqlQueryModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 void QSqlQueryModel_SetQuery(QSqlQueryModel* self, const QSqlQuery* query) {
@@ -148,12 +98,7 @@ QSqlQuery* QSqlQueryModel_Query(const QSqlQueryModel* self) {
 }
 
 void QSqlQueryModel_Clear(QSqlQueryModel* self) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        self->clear();
-    } else {
-        ((VirtualQSqlQueryModel*)self)->clear();
-    }
+    self->clear();
 }
 
 QSqlError* QSqlQueryModel_LastError(const QSqlQueryModel* self) {
@@ -161,68 +106,34 @@ QSqlError* QSqlQueryModel_LastError(const QSqlQueryModel* self) {
 }
 
 void QSqlQueryModel_FetchMore(QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        self->fetchMore(*parent);
-    } else {
-        ((VirtualQSqlQueryModel*)self)->fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 bool QSqlQueryModel_CanFetchMore(const QSqlQueryModel* self, const QModelIndex* parent) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualQSqlQueryModel*)self)->canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 libqt_map /* of int to libqt_string */ QSqlQueryModel_RoleNames(const QSqlQueryModel* self) {
-    auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
-    if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQSqlQueryModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 void QSqlQueryModel_QueryChange(QSqlQueryModel* self) {

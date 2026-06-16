@@ -50,30 +50,15 @@ KPageView* KPageView_new2() {
 }
 
 QMetaObject* KPageView_MetaObject(const KPageView* self) {
-    auto* vkpageview = dynamic_cast<const VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPageView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPageView_Metacast(KPageView* self, const char* param1) {
-    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPageView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPageView_Metacall(KPageView* self, int param1, int param2, void** param3) {
-    auto* vkpageview = dynamic_cast<VirtualKPageView*>(self);
-    if (vkpageview && vkpageview->isVirtualKPageView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPageView_SetModel(KPageView* self, QAbstractItemModel* model) {

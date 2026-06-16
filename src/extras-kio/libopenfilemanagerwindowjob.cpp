@@ -23,30 +23,15 @@ KIO__OpenFileManagerWindowJob* KIO__OpenFileManagerWindowJob_new2(QObject* paren
 }
 
 QMetaObject* KIO__OpenFileManagerWindowJob_MetaObject(const KIO__OpenFileManagerWindowJob* self) {
-    auto* vkio__openfilemanagerwindowjob = dynamic_cast<const VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkio__openfilemanagerwindowjob && vkio__openfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOOpenFileManagerWindowJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__OpenFileManagerWindowJob_Metacast(KIO__OpenFileManagerWindowJob* self, const char* param1) {
-    auto* vkio__openfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkio__openfilemanagerwindowjob && vkio__openfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOOpenFileManagerWindowJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__OpenFileManagerWindowJob_Metacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3) {
-    auto* vkio__openfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkio__openfilemanagerwindowjob && vkio__openfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOOpenFileManagerWindowJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QUrl* */ KIO__OpenFileManagerWindowJob_HighlightUrls(const KIO__OpenFileManagerWindowJob* self) {
@@ -87,12 +72,7 @@ void KIO__OpenFileManagerWindowJob_SetStartupId(KIO__OpenFileManagerWindowJob* s
 }
 
 void KIO__OpenFileManagerWindowJob_Start(KIO__OpenFileManagerWindowJob* self) {
-    auto* vkio__openfilemanagerwindowjob = dynamic_cast<VirtualKIOOpenFileManagerWindowJob*>(self);
-    if (vkio__openfilemanagerwindowjob && vkio__openfilemanagerwindowjob->isVirtualKIOOpenFileManagerWindowJob) {
-        self->start();
-    } else {
-        ((VirtualKIOOpenFileManagerWindowJob*)self)->start();
-    }
+    self->start();
 }
 
 // Base class handler implementation
@@ -992,13 +972,13 @@ void KIO__OpenFileManagerWindowJob_Delete(KIO__OpenFileManagerWindowJob* self) {
     delete self;
 }
 
-KIO__OpenFileManagerWindowJob* KIO_HighlightInFileManager(const libqt_list /* of QUrl* */ param1, const libqt_string param2) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__OpenFileManagerWindowJob* KIO_HighlightInFileManager(const libqt_list /* of QUrl* */ urls, const libqt_string asn) {
+    QList<QUrl> urls_QList;
+    urls_QList.reserve(urls.len);
+    QUrl** urls_arr = static_cast<QUrl**>(urls.data);
+    for (size_t i = 0; i < urls.len; ++i) {
+        urls_QList.push_back(*(urls_arr[i]));
     }
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    return KIO::highlightInFileManager(param1_QList, param2_QByteArray);
+    QByteArray asn_QByteArray(asn.data, asn.len);
+    return KIO::highlightInFileManager(urls_QList, asn_QByteArray);
 }

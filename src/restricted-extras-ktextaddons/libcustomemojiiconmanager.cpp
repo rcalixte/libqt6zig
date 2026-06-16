@@ -21,38 +21,20 @@ TextEmoticonsCore__CustomEmojiIconManager* TextEmoticonsCore__CustomEmojiIconMan
 
 QIcon* TextEmoticonsCore__CustomEmojiIconManager_GenerateIcon(TextEmoticonsCore__CustomEmojiIconManager* self, const libqt_string customIdentifier) {
     QString customIdentifier_QString = QString::fromUtf8(customIdentifier.data, customIdentifier.len);
-    auto* vtextemoticonscore__customemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscore__customemojiiconmanager && vtextemoticonscore__customemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
-        return new QIcon(self->generateIcon(customIdentifier_QString));
-    } else {
-        return new QIcon(((VirtualTextEmoticonsCoreCustomEmojiIconManager*)self)->generateIcon(customIdentifier_QString));
-    }
+    return new QIcon(self->generateIcon(customIdentifier_QString));
 }
 
 libqt_string TextEmoticonsCore__CustomEmojiIconManager_FileName(TextEmoticonsCore__CustomEmojiIconManager* self, const libqt_string customIdentifier) {
     QString customIdentifier_QString = QString::fromUtf8(customIdentifier.data, customIdentifier.len);
-    auto* vtextemoticonscore__customemojiiconmanager = dynamic_cast<VirtualTextEmoticonsCoreCustomEmojiIconManager*>(self);
-    if (vtextemoticonscore__customemojiiconmanager && vtextemoticonscore__customemojiiconmanager->isVirtualTextEmoticonsCoreCustomEmojiIconManager) {
-        auto _ret = self->fileName(customIdentifier_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualTextEmoticonsCoreCustomEmojiIconManager*)self)->fileName(customIdentifier_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->fileName(customIdentifier_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 // Base class handler implementation

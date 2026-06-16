@@ -10,57 +10,27 @@ KTextEditor__MovingRangeFeedback* KTextEditor__MovingRangeFeedback_new() {
 }
 
 void KTextEditor__MovingRangeFeedback_RangeEmpty(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range) {
-    auto* vktexteditor__movingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
-    if (vktexteditor__movingrangefeedback && vktexteditor__movingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
-        self->rangeEmpty(range);
-    } else {
-        ((VirtualKTextEditorMovingRangeFeedback*)self)->rangeEmpty(range);
-    }
+    self->rangeEmpty(range);
 }
 
 void KTextEditor__MovingRangeFeedback_RangeInvalid(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range) {
-    auto* vktexteditor__movingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
-    if (vktexteditor__movingrangefeedback && vktexteditor__movingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
-        self->rangeInvalid(range);
-    } else {
-        ((VirtualKTextEditorMovingRangeFeedback*)self)->rangeInvalid(range);
-    }
+    self->rangeInvalid(range);
 }
 
 void KTextEditor__MovingRangeFeedback_MouseEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
-    auto* vktexteditor__movingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
-    if (vktexteditor__movingrangefeedback && vktexteditor__movingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
-        self->mouseEnteredRange(range, view);
-    } else {
-        ((VirtualKTextEditorMovingRangeFeedback*)self)->mouseEnteredRange(range, view);
-    }
+    self->mouseEnteredRange(range, view);
 }
 
 void KTextEditor__MovingRangeFeedback_MouseExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
-    auto* vktexteditor__movingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
-    if (vktexteditor__movingrangefeedback && vktexteditor__movingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
-        self->mouseExitedRange(range, view);
-    } else {
-        ((VirtualKTextEditorMovingRangeFeedback*)self)->mouseExitedRange(range, view);
-    }
+    self->mouseExitedRange(range, view);
 }
 
 void KTextEditor__MovingRangeFeedback_CaretEnteredRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
-    auto* vktexteditor__movingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
-    if (vktexteditor__movingrangefeedback && vktexteditor__movingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
-        self->caretEnteredRange(range, view);
-    } else {
-        ((VirtualKTextEditorMovingRangeFeedback*)self)->caretEnteredRange(range, view);
-    }
+    self->caretEnteredRange(range, view);
 }
 
 void KTextEditor__MovingRangeFeedback_CaretExitedRange(KTextEditor__MovingRangeFeedback* self, KTextEditor__MovingRange* range, KTextEditor__View* view) {
-    auto* vktexteditor__movingrangefeedback = dynamic_cast<VirtualKTextEditorMovingRangeFeedback*>(self);
-    if (vktexteditor__movingrangefeedback && vktexteditor__movingrangefeedback->isVirtualKTextEditorMovingRangeFeedback) {
-        self->caretExitedRange(range, view);
-    } else {
-        ((VirtualKTextEditorMovingRangeFeedback*)self)->caretExitedRange(range, view);
-    }
+    self->caretExitedRange(range, view);
 }
 
 // Base class handler implementation

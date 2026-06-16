@@ -10,55 +10,27 @@ QDesignerOptionsPageInterface* QDesignerOptionsPageInterface_new() {
 }
 
 libqt_string QDesignerOptionsPageInterface_Name(const QDesignerOptionsPageInterface* self) {
-    auto* vqdesigneroptionspageinterface = dynamic_cast<const VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
-        auto _ret = vqdesigneroptionspageinterface->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerOptionsPageInterface*)self)->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QWidget* QDesignerOptionsPageInterface_CreatePage(QDesignerOptionsPageInterface* self, QWidget* parent) {
-    auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
-        return vqdesigneroptionspageinterface->createPage(parent);
-    } else {
-        return ((VirtualQDesignerOptionsPageInterface*)self)->createPage(parent);
-    }
+    return self->createPage(parent);
 }
 
 void QDesignerOptionsPageInterface_Apply(QDesignerOptionsPageInterface* self) {
-    auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
-        vqdesigneroptionspageinterface->apply();
-    } else {
-        ((VirtualQDesignerOptionsPageInterface*)self)->apply();
-    }
+    self->apply();
 }
 
 void QDesignerOptionsPageInterface_Finish(QDesignerOptionsPageInterface* self) {
-    auto* vqdesigneroptionspageinterface = dynamic_cast<VirtualQDesignerOptionsPageInterface*>(self);
-    if (vqdesigneroptionspageinterface && vqdesigneroptionspageinterface->isVirtualQDesignerOptionsPageInterface) {
-        vqdesigneroptionspageinterface->finish();
-    } else {
-        ((VirtualQDesignerOptionsPageInterface*)self)->finish();
-    }
+    self->finish();
 }
 
 // Base class handler implementation

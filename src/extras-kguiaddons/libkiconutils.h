@@ -19,10 +19,10 @@ typedef struct KIconUtils KIconUtils;
 typedef struct QIcon QIcon;
 #endif
 
-QIcon* KIconUtils_AddOverlay(const QIcon* param1, const QIcon* param2, int param3);
-QIcon* KIconUtils_AddOverlays(const QIcon* param1, const libqt_map /* of int to QIcon* */ param2);
-QIcon* KIconUtils_AddOverlays2(const QIcon* param1, const libqt_list /* of libqt_string */ param2);
-QIcon* KIconUtils_AddOverlays3(const libqt_string param1, const libqt_list /* of libqt_string */ param2);
+QIcon* KIconUtils_AddOverlay(const QIcon* icon, const QIcon* overlay, int position);
+QIcon* KIconUtils_AddOverlays(const QIcon* icon, const libqt_map /* of int to QIcon* */ overlays);
+QIcon* KIconUtils_AddOverlays2(const QIcon* icon, const libqt_list /* of libqt_string */ overlays);
+QIcon* KIconUtils_AddOverlays3(const libqt_string iconName, const libqt_list /* of libqt_string */ overlays);
 
 #ifdef __cplusplus
 } /* extern C */

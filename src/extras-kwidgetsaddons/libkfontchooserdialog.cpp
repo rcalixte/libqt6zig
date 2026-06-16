@@ -52,30 +52,15 @@ KFontChooserDialog* KFontChooserDialog_new3(const int* flags, QWidget* parent) {
 }
 
 QMetaObject* KFontChooserDialog_MetaObject(const KFontChooserDialog* self) {
-    auto* vkfontchooserdialog = dynamic_cast<const VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFontChooserDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFontChooserDialog_Metacast(KFontChooserDialog* self, const char* param1) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFontChooserDialog_Metacall(KFontChooserDialog* self, int param1, int param2, void** param3) {
-    auto* vkfontchooserdialog = dynamic_cast<VirtualKFontChooserDialog*>(self);
-    if (vkfontchooserdialog && vkfontchooserdialog->isVirtualKFontChooserDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontChooserDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFontChooserDialog_SetFont(KFontChooserDialog* self, const QFont* font) {

@@ -17,30 +17,15 @@ Konsole__Emulation* Konsole__Emulation_new() {
 }
 
 QMetaObject* Konsole__Emulation_MetaObject(const Konsole__Emulation* self) {
-    auto* vkonsole__emulation = dynamic_cast<const VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKonsoleEmulation*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Konsole__Emulation_Metacast(Konsole__Emulation* self, const char* param1) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Konsole__Emulation_Metacall(Konsole__Emulation* self, int param1, int param2, void** param3) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* Konsole__Emulation_ImageSize(const Konsole__Emulation* self) {
@@ -56,12 +41,7 @@ void Konsole__Emulation_ClearHistory(Konsole__Emulation* self) {
 }
 
 char Konsole__Emulation_EraseChar(const Konsole__Emulation* self) {
-    auto* vkonsole__emulation = dynamic_cast<const VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        return self->eraseChar();
-    } else {
-        return ((VirtualKonsoleEmulation*)self)->eraseChar();
-    }
+    return self->eraseChar();
 }
 
 void Konsole__Emulation_SetKeyBindings(Konsole__Emulation* self, const libqt_string name) {
@@ -82,21 +62,11 @@ libqt_string Konsole__Emulation_KeyBindings(const Konsole__Emulation* self) {
 }
 
 void Konsole__Emulation_ClearEntireScreen(Konsole__Emulation* self) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        vkonsole__emulation->clearEntireScreen();
-    } else {
-        ((VirtualKonsoleEmulation*)self)->clearEntireScreen();
-    }
+    self->clearEntireScreen();
 }
 
 void Konsole__Emulation_Reset(Konsole__Emulation* self) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        vkonsole__emulation->reset();
-    } else {
-        ((VirtualKonsoleEmulation*)self)->reset();
-    }
+    self->reset();
 }
 
 bool Konsole__Emulation_ProgramUsesMouse(const Konsole__Emulation* self) {
@@ -108,49 +78,24 @@ bool Konsole__Emulation_ProgramBracketedPasteMode(const Konsole__Emulation* self
 }
 
 void Konsole__Emulation_SetImageSize(Konsole__Emulation* self, int lines, int columns) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        self->setImageSize(static_cast<int>(lines), static_cast<int>(columns));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->setImageSize(static_cast<int>(lines), static_cast<int>(columns));
-    }
+    self->setImageSize(static_cast<int>(lines), static_cast<int>(columns));
 }
 
 void Konsole__Emulation_SendText(Konsole__Emulation* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        vkonsole__emulation->sendText(text_QString);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->sendText(text_QString);
-    }
+    self->sendText(text_QString);
 }
 
 void Konsole__Emulation_SendKeyEvent(Konsole__Emulation* self, QKeyEvent* param1, bool fromPaste) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        self->sendKeyEvent(param1, fromPaste);
-    } else {
-        ((VirtualKonsoleEmulation*)self)->sendKeyEvent(param1, fromPaste);
-    }
+    self->sendKeyEvent(param1, fromPaste);
 }
 
 void Konsole__Emulation_SendMouseEvent(Konsole__Emulation* self, int buttons, int column, int line, int eventType) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        self->sendMouseEvent(static_cast<int>(buttons), static_cast<int>(column), static_cast<int>(line), static_cast<int>(eventType));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->sendMouseEvent(static_cast<int>(buttons), static_cast<int>(column), static_cast<int>(line), static_cast<int>(eventType));
-    }
+    self->sendMouseEvent(static_cast<int>(buttons), static_cast<int>(column), static_cast<int>(line), static_cast<int>(eventType));
 }
 
-void Konsole__Emulation_SendString(Konsole__Emulation* self, const char* stringVal, int length) {
-    auto* vkonsole__emulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
-    if (vkonsole__emulation && vkonsole__emulation->isVirtualKonsoleEmulation) {
-        vkonsole__emulation->sendString(stringVal, static_cast<int>(length));
-    } else {
-        ((VirtualKonsoleEmulation*)self)->sendString(stringVal, static_cast<int>(length));
-    }
+void Konsole__Emulation_SendString(Konsole__Emulation* self, const char* string, int length) {
+    self->sendString(string, static_cast<int>(length));
 }
 
 void Konsole__Emulation_ReceiveData(Konsole__Emulation* self, const char* buffer, int lenVal) {
@@ -599,13 +544,13 @@ void Konsole__Emulation_OnSendMouseEvent(Konsole__Emulation* self, intptr_t slot
 }
 
 // Base class handler implementation
-void Konsole__Emulation_SuperSendString(Konsole__Emulation* self, const char* stringVal, int length) {
+void Konsole__Emulation_SuperSendString(Konsole__Emulation* self, const char* string, int length) {
     auto* vkonsoleemulation = dynamic_cast<VirtualKonsoleEmulation*>(self);
     if (vkonsoleemulation && vkonsoleemulation->isVirtualKonsoleEmulation) {
         vkonsoleemulation->setKonsole__Emulation_SendString_IsBase(true);
-        vkonsoleemulation->sendString(stringVal, static_cast<int>(length));
+        vkonsoleemulation->sendString(string, static_cast<int>(length));
     } else {
-        ((VirtualKonsoleEmulation*)self)->sendString(stringVal, static_cast<int>(length));
+        ((VirtualKonsoleEmulation*)self)->sendString(string, static_cast<int>(length));
     }
 }
 

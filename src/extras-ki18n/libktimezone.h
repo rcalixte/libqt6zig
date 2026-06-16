@@ -19,8 +19,8 @@ typedef struct KCountry KCountry;
 typedef struct KTimeZone KTimeZone;
 #endif
 
-const char* KTimeZone_FromLocation(float param1, float param2);
-KCountry* KTimeZone_Country(const char* param1);
+const char* KTimeZone_FromLocation(float latitude, float longitude);
+KCountry* KTimeZone_Country(const char* ianaId);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -18,16 +18,16 @@ pub const KLibexec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` relativePath: []const u8 `
     ///
-    /// ` param2: ?*anyopaque `
+    /// ` address: ?*anyopaque `
     ///
-    pub fn PathFromAddress(allocator: std.mem.Allocator, param1: []const u8, param2: ?*anyopaque) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn PathFromAddress(allocator: std.mem.Allocator, relativePath: []const u8, address: ?*anyopaque) []const u8 {
+        const relativePath_str = qtc.libqt_string{
+            .len = relativePath.len,
+            .data = relativePath.ptr,
         };
-        var _str = qtc.KLibexec_PathFromAddress(param1_str, @ptrCast(param2));
+        var _str = qtc.KLibexec_PathFromAddress(relativePath_str, @ptrCast(address));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.PathFromAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -40,14 +40,14 @@ pub const KLibexec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` relativePath: []const u8 `
     ///
-    pub fn PathCandidates(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn PathCandidates(allocator: std.mem.Allocator, relativePath: []const u8) []const []const u8 {
+        const relativePath_str = qtc.libqt_string{
+            .len = relativePath.len,
+            .data = relativePath.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KLibexec_PathCandidates(param1_str);
+        const _arr: qtc.libqt_list = qtc.KLibexec_PathCandidates(relativePath_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -70,14 +70,14 @@ pub const KLibexec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` relativePath: []const u8 `
     ///
-    pub fn Path(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Path(allocator: std.mem.Allocator, relativePath: []const u8) []const u8 {
+        const relativePath_str = qtc.libqt_string{
+            .len = relativePath.len,
+            .data = relativePath.ptr,
         };
-        var _str = qtc.KLibexec_Path(param1_str);
+        var _str = qtc.KLibexec_Path(relativePath_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -90,14 +90,14 @@ pub const KLibexec = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` relativePath: []const u8 `
     ///
-    pub fn KdeFrameworksPaths(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn KdeFrameworksPaths(allocator: std.mem.Allocator, relativePath: []const u8) []const []const u8 {
+        const relativePath_str = qtc.libqt_string{
+            .len = relativePath.len,
+            .data = relativePath.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KLibexec_KdeFrameworksPaths(param1_str);
+        const _arr: qtc.libqt_list = qtc.KLibexec_KdeFrameworksPaths(relativePath_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|

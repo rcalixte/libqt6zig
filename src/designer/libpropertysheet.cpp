@@ -10,181 +10,85 @@ QDesignerPropertySheetExtension* QDesignerPropertySheetExtension_new() {
 }
 
 int QDesignerPropertySheetExtension_Count(const QDesignerPropertySheetExtension* self) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->count();
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->count();
-    }
+    return self->count();
 }
 
 int QDesignerPropertySheetExtension_IndexOf(const QDesignerPropertySheetExtension* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->indexOf(name_QString);
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->indexOf(name_QString);
-    }
+    return self->indexOf(name_QString);
 }
 
 libqt_string QDesignerPropertySheetExtension_PropertyName(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        auto _ret = vqdesignerpropertysheetextension->propertyName(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyName(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->propertyName(static_cast<int>(index));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QDesignerPropertySheetExtension_PropertyGroup(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        auto _ret = vqdesignerpropertysheetextension->propertyGroup(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerPropertySheetExtension*)self)->propertyGroup(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->propertyGroup(static_cast<int>(index));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerPropertySheetExtension_SetPropertyGroup(QDesignerPropertySheetExtension* self, int index, const libqt_string group) {
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        vqdesignerpropertysheetextension->setPropertyGroup(static_cast<int>(index), group_QString);
-    } else {
-        ((VirtualQDesignerPropertySheetExtension*)self)->setPropertyGroup(static_cast<int>(index), group_QString);
-    }
+    self->setPropertyGroup(static_cast<int>(index), group_QString);
 }
 
 bool QDesignerPropertySheetExtension_HasReset(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->hasReset(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->hasReset(static_cast<int>(index));
-    }
+    return self->hasReset(static_cast<int>(index));
 }
 
 bool QDesignerPropertySheetExtension_Reset(QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->reset(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->reset(static_cast<int>(index));
-    }
+    return self->reset(static_cast<int>(index));
 }
 
 bool QDesignerPropertySheetExtension_IsVisible(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->isVisible(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->isVisible(static_cast<int>(index));
-    }
+    return self->isVisible(static_cast<int>(index));
 }
 
 void QDesignerPropertySheetExtension_SetVisible(QDesignerPropertySheetExtension* self, int index, bool b) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        vqdesignerpropertysheetextension->setVisible(static_cast<int>(index), b);
-    } else {
-        ((VirtualQDesignerPropertySheetExtension*)self)->setVisible(static_cast<int>(index), b);
-    }
+    self->setVisible(static_cast<int>(index), b);
 }
 
 bool QDesignerPropertySheetExtension_IsAttribute(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->isAttribute(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->isAttribute(static_cast<int>(index));
-    }
+    return self->isAttribute(static_cast<int>(index));
 }
 
 void QDesignerPropertySheetExtension_SetAttribute(QDesignerPropertySheetExtension* self, int index, bool b) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        vqdesignerpropertysheetextension->setAttribute(static_cast<int>(index), b);
-    } else {
-        ((VirtualQDesignerPropertySheetExtension*)self)->setAttribute(static_cast<int>(index), b);
-    }
+    self->setAttribute(static_cast<int>(index), b);
 }
 
 QVariant* QDesignerPropertySheetExtension_Property(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return new QVariant(vqdesignerpropertysheetextension->property(static_cast<int>(index)));
-    } else {
-        return new QVariant(((VirtualQDesignerPropertySheetExtension*)self)->property(static_cast<int>(index)));
-    }
+    return new QVariant(self->property(static_cast<int>(index)));
 }
 
 void QDesignerPropertySheetExtension_SetProperty(QDesignerPropertySheetExtension* self, int index, const QVariant* value) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        vqdesignerpropertysheetextension->setProperty(static_cast<int>(index), *value);
-    } else {
-        ((VirtualQDesignerPropertySheetExtension*)self)->setProperty(static_cast<int>(index), *value);
-    }
+    self->setProperty(static_cast<int>(index), *value);
 }
 
 bool QDesignerPropertySheetExtension_IsChanged(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->isChanged(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->isChanged(static_cast<int>(index));
-    }
+    return self->isChanged(static_cast<int>(index));
 }
 
 void QDesignerPropertySheetExtension_SetChanged(QDesignerPropertySheetExtension* self, int index, bool changed) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        vqdesignerpropertysheetextension->setChanged(static_cast<int>(index), changed);
-    } else {
-        ((VirtualQDesignerPropertySheetExtension*)self)->setChanged(static_cast<int>(index), changed);
-    }
+    self->setChanged(static_cast<int>(index), changed);
 }
 
 bool QDesignerPropertySheetExtension_IsEnabled(const QDesignerPropertySheetExtension* self, int index) {
-    auto* vqdesignerpropertysheetextension = dynamic_cast<const VirtualQDesignerPropertySheetExtension*>(self);
-    if (vqdesignerpropertysheetextension && vqdesignerpropertysheetextension->isVirtualQDesignerPropertySheetExtension) {
-        return vqdesignerpropertysheetextension->isEnabled(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerPropertySheetExtension*)self)->isEnabled(static_cast<int>(index));
-    }
+    return self->isEnabled(static_cast<int>(index));
 }
 
 // Base class handler implementation

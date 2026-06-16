@@ -16,39 +16,39 @@ pub const KUrlAuthorized = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` action: []const u8 `
     ///
-    /// ` param2: QUrl `
+    /// ` baseUrl: QUrl `
     ///
-    /// ` param3: QUrl `
+    /// ` destUrl: QUrl `
     ///
-    pub fn AuthorizeUrlAction(param1: []const u8, param2: anytype, param3: anytype) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn AuthorizeUrlAction(action: []const u8, baseUrl: anytype, destUrl: anytype) bool {
+        const action_str = qtc.libqt_string{
+            .len = action.len,
+            .data = action.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        comptime _ = @TypeOf(param3)._is_QUrl;
-        return qtc.KUrlAuthorized_AuthorizeUrlAction(param1_str, @ptrCast(param2.ptr), @ptrCast(param3.ptr));
+        comptime _ = @TypeOf(baseUrl)._is_QUrl;
+        comptime _ = @TypeOf(destUrl)._is_QUrl;
+        return qtc.KUrlAuthorized_AuthorizeUrlAction(action_str, @ptrCast(baseUrl.ptr), @ptrCast(destUrl.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kurlauthorized.html#allowUrlAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` action: []const u8 `
     ///
-    /// ` param2: QUrl `
+    /// ` baseUrl: QUrl `
     ///
-    /// ` param3: QUrl `
+    /// ` destUrl: QUrl `
     ///
-    pub fn AllowUrlAction(param1: []const u8, param2: anytype, param3: anytype) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn AllowUrlAction(action: []const u8, baseUrl: anytype, destUrl: anytype) void {
+        const action_str = qtc.libqt_string{
+            .len = action.len,
+            .data = action.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        comptime _ = @TypeOf(param3)._is_QUrl;
-        qtc.KUrlAuthorized_AllowUrlAction(param1_str, @ptrCast(param2.ptr), @ptrCast(param3.ptr));
+        comptime _ = @TypeOf(baseUrl)._is_QUrl;
+        comptime _ = @TypeOf(destUrl)._is_QUrl;
+        qtc.KUrlAuthorized_AllowUrlAction(action_str, @ptrCast(baseUrl.ptr), @ptrCast(destUrl.ptr));
     }
 };

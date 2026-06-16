@@ -21,30 +21,15 @@ QTextList* QTextList_new(QTextDocument* doc) {
 }
 
 QMetaObject* QTextList_MetaObject(const QTextList* self) {
-    auto* vqtextlist = dynamic_cast<const VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextList*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextList_Metacast(QTextList* self, const char* param1) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextList*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextList_Metacall(QTextList* self, int param1, int param2, void** param3) {
-    auto* vqtextlist = dynamic_cast<VirtualQTextList*>(self);
-    if (vqtextlist && vqtextlist->isVirtualQTextList) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextList*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QTextList_Count(const QTextList* self) {

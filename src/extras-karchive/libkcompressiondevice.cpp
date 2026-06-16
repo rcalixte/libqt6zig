@@ -29,30 +29,15 @@ KCompressionDevice* KCompressionDevice_new3(const libqt_string fileName) {
 }
 
 QMetaObject* KCompressionDevice_MetaObject(const KCompressionDevice* self) {
-    auto* vkcompressiondevice = dynamic_cast<const VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCompressionDevice*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCompressionDevice_Metacast(KCompressionDevice* self, const char* param1) {
-    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCompressionDevice*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCompressionDevice_Metacall(KCompressionDevice* self, int param1, int param2, void** param3) {
-    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCompressionDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KCompressionDevice_CompressionType(const KCompressionDevice* self) {
@@ -60,21 +45,11 @@ int KCompressionDevice_CompressionType(const KCompressionDevice* self) {
 }
 
 bool KCompressionDevice_Open(KCompressionDevice* self, int mode) {
-    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return self->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return ((VirtualKCompressionDevice*)self)->open(static_cast<QIODevice::OpenMode>(mode));
-    }
+    return self->open(static_cast<QIODevice::OpenMode>(mode));
 }
 
 void KCompressionDevice_Close(KCompressionDevice* self) {
-    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        self->close();
-    } else {
-        ((VirtualKCompressionDevice*)self)->close();
-    }
+    self->close();
 }
 
 void KCompressionDevice_SetOrigFileName(KCompressionDevice* self, const libqt_string fileName) {
@@ -87,21 +62,11 @@ void KCompressionDevice_SetSkipHeaders(KCompressionDevice* self) {
 }
 
 bool KCompressionDevice_Seek(KCompressionDevice* self, long long param1) {
-    auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return self->seek(static_cast<qint64>(param1));
-    } else {
-        return ((VirtualKCompressionDevice*)self)->seek(static_cast<qint64>(param1));
-    }
+    return self->seek(static_cast<qint64>(param1));
 }
 
 bool KCompressionDevice_AtEnd(const KCompressionDevice* self) {
-    auto* vkcompressiondevice = dynamic_cast<const VirtualKCompressionDevice*>(self);
-    if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return self->atEnd();
-    } else {
-        return ((VirtualKCompressionDevice*)self)->atEnd();
-    }
+    return self->atEnd();
 }
 
 KFilterBase* KCompressionDevice_FilterForCompressionType(int typeVal) {

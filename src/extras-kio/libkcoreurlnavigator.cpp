@@ -25,30 +25,15 @@ KCoreUrlNavigator* KCoreUrlNavigator_new3(const QUrl* url, QObject* parent) {
 }
 
 QMetaObject* KCoreUrlNavigator_MetaObject(const KCoreUrlNavigator* self) {
-    auto* vkcoreurlnavigator = dynamic_cast<const VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCoreUrlNavigator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCoreUrlNavigator_Metacast(KCoreUrlNavigator* self, const char* param1) {
-    auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCoreUrlNavigator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCoreUrlNavigator_Metacall(KCoreUrlNavigator* self, int param1, int param2, void** param3) {
-    auto* vkcoreurlnavigator = dynamic_cast<VirtualKCoreUrlNavigator*>(self);
-    if (vkcoreurlnavigator && vkcoreurlnavigator->isVirtualKCoreUrlNavigator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCoreUrlNavigator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KCoreUrlNavigator_CurrentLocationUrl(const KCoreUrlNavigator* self) {

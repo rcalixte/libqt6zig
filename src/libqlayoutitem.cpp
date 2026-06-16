@@ -24,129 +24,59 @@ QLayoutItem* QLayoutItem_new3(int alignment) {
 }
 
 QSize* QLayoutItem_SizeHint(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return new QSize(vqlayoutitem->sizeHint());
-    } else {
-        return new QSize(((VirtualQLayoutItem*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QLayoutItem_MinimumSize(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return new QSize(vqlayoutitem->minimumSize());
-    } else {
-        return new QSize(((VirtualQLayoutItem*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QLayoutItem_MaximumSize(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return new QSize(vqlayoutitem->maximumSize());
-    } else {
-        return new QSize(((VirtualQLayoutItem*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 int QLayoutItem_ExpandingDirections(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return static_cast<int>(vqlayoutitem->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQLayoutItem*)self)->expandingDirections());
-    }
+    return static_cast<int>(self->expandingDirections());
 }
 
 void QLayoutItem_SetGeometry(QLayoutItem* self, const QRect* geometry) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        vqlayoutitem->setGeometry(*geometry);
-    } else {
-        ((VirtualQLayoutItem*)self)->setGeometry(*geometry);
-    }
+    self->setGeometry(*geometry);
 }
 
 QRect* QLayoutItem_Geometry(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return new QRect(vqlayoutitem->geometry());
-    } else {
-        return new QRect(((VirtualQLayoutItem*)self)->geometry());
-    }
+    return new QRect(self->geometry());
 }
 
 bool QLayoutItem_IsEmpty(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return vqlayoutitem->isEmpty();
-    } else {
-        return ((VirtualQLayoutItem*)self)->isEmpty();
-    }
+    return self->isEmpty();
 }
 
 bool QLayoutItem_HasHeightForWidth(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQLayoutItem*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 int QLayoutItem_HeightForWidth(const QLayoutItem* self, int param1) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQLayoutItem*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 int QLayoutItem_MinimumHeightForWidth(const QLayoutItem* self, int param1) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return self->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQLayoutItem*)self)->minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->minimumHeightForWidth(static_cast<int>(param1));
 }
 
 void QLayoutItem_Invalidate(QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        self->invalidate();
-    } else {
-        ((VirtualQLayoutItem*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 QWidget* QLayoutItem_Widget(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return self->widget();
-    } else {
-        return ((VirtualQLayoutItem*)self)->widget();
-    }
+    return self->widget();
 }
 
 QLayout* QLayoutItem_Layout(QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return self->layout();
-    } else {
-        return ((VirtualQLayoutItem*)self)->layout();
-    }
+    return self->layout();
 }
 
 QSpacerItem* QLayoutItem_SpacerItem(QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return self->spacerItem();
-    } else {
-        return ((VirtualQLayoutItem*)self)->spacerItem();
-    }
+    return self->spacerItem();
 }
 
 int QLayoutItem_Alignment(const QLayoutItem* self) {
@@ -158,12 +88,7 @@ void QLayoutItem_SetAlignment(QLayoutItem* self, int a) {
 }
 
 int QLayoutItem_ControlTypes(const QLayoutItem* self) {
-    auto* vqlayoutitem = dynamic_cast<const VirtualQLayoutItem*>(self);
-    if (vqlayoutitem && vqlayoutitem->isVirtualQLayoutItem) {
-        return static_cast<int>(self->controlTypes());
-    } else {
-        return static_cast<int>(((VirtualQLayoutItem*)self)->controlTypes());
-    }
+    return static_cast<int>(self->controlTypes());
 }
 
 // Base class handler implementation
@@ -505,75 +430,35 @@ void QSpacerItem_ChangeSize(QSpacerItem* self, int w, int h) {
 }
 
 QSize* QSpacerItem_SizeHint(const QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QSpacerItem_MinimumSize(const QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QSpacerItem_MaximumSize(const QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QSize(self->maximumSize());
-    } else {
-        return new QSize(((VirtualQSpacerItem*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 int QSpacerItem_ExpandingDirections(const QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return static_cast<int>(self->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQSpacerItem*)self)->expandingDirections());
-    }
+    return static_cast<int>(self->expandingDirections());
 }
 
 bool QSpacerItem_IsEmpty(const QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return self->isEmpty();
-    } else {
-        return ((VirtualQSpacerItem*)self)->isEmpty();
-    }
+    return self->isEmpty();
 }
 
 void QSpacerItem_SetGeometry(QSpacerItem* self, const QRect* geometry) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        self->setGeometry(*geometry);
-    } else {
-        ((VirtualQSpacerItem*)self)->setGeometry(*geometry);
-    }
+    self->setGeometry(*geometry);
 }
 
 QRect* QSpacerItem_Geometry(const QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<const VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return new QRect(self->geometry());
-    } else {
-        return new QRect(((VirtualQSpacerItem*)self)->geometry());
-    }
+    return new QRect(self->geometry());
 }
 
 QSpacerItem* QSpacerItem_SpacerItem(QSpacerItem* self) {
-    auto* vqspaceritem = dynamic_cast<VirtualQSpacerItem*>(self);
-    if (vqspaceritem && vqspaceritem->isVirtualQSpacerItem) {
-        return self->spacerItem();
-    } else {
-        return ((VirtualQSpacerItem*)self)->spacerItem();
-    }
+    return self->spacerItem();
 }
 
 QSizePolicy* QSpacerItem_SizePolicy(const QSpacerItem* self) {
@@ -952,111 +837,51 @@ QWidgetItem* QWidgetItem_new(QWidget* w) {
 }
 
 QSize* QWidgetItem_SizeHint(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQWidgetItem*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QWidgetItem_MinimumSize(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQWidgetItem*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QWidgetItem_MaximumSize(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QSize(self->maximumSize());
-    } else {
-        return new QSize(((VirtualQWidgetItem*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 int QWidgetItem_ExpandingDirections(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return static_cast<int>(self->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQWidgetItem*)self)->expandingDirections());
-    }
+    return static_cast<int>(self->expandingDirections());
 }
 
 bool QWidgetItem_IsEmpty(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return self->isEmpty();
-    } else {
-        return ((VirtualQWidgetItem*)self)->isEmpty();
-    }
+    return self->isEmpty();
 }
 
 void QWidgetItem_SetGeometry(QWidgetItem* self, const QRect* geometry) {
-    auto* vqwidgetitem = dynamic_cast<VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        self->setGeometry(*geometry);
-    } else {
-        ((VirtualQWidgetItem*)self)->setGeometry(*geometry);
-    }
+    self->setGeometry(*geometry);
 }
 
 QRect* QWidgetItem_Geometry(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return new QRect(self->geometry());
-    } else {
-        return new QRect(((VirtualQWidgetItem*)self)->geometry());
-    }
+    return new QRect(self->geometry());
 }
 
 QWidget* QWidgetItem_Widget(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return self->widget();
-    } else {
-        return ((VirtualQWidgetItem*)self)->widget();
-    }
+    return self->widget();
 }
 
 bool QWidgetItem_HasHeightForWidth(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQWidgetItem*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 int QWidgetItem_HeightForWidth(const QWidgetItem* self, int param1) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQWidgetItem*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 int QWidgetItem_MinimumHeightForWidth(const QWidgetItem* self, int param1) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return self->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQWidgetItem*)self)->minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->minimumHeightForWidth(static_cast<int>(param1));
 }
 
 int QWidgetItem_ControlTypes(const QWidgetItem* self) {
-    auto* vqwidgetitem = dynamic_cast<const VirtualQWidgetItem*>(self);
-    if (vqwidgetitem && vqwidgetitem->isVirtualQWidgetItem) {
-        return static_cast<int>(self->controlTypes());
-    } else {
-        return static_cast<int>(((VirtualQWidgetItem*)self)->controlTypes());
-    }
+    return static_cast<int>(self->controlTypes());
 }
 
 // Base class handler implementation
@@ -1383,39 +1208,19 @@ QWidgetItemV2* QWidgetItemV2_new(QWidget* widget) {
 }
 
 QSize* QWidgetItemV2_SizeHint(const QWidgetItemV2* self) {
-    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQWidgetItemV2*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QWidgetItemV2_MinimumSize(const QWidgetItemV2* self) {
-    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQWidgetItemV2*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QWidgetItemV2_MaximumSize(const QWidgetItemV2* self) {
-    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return new QSize(self->maximumSize());
-    } else {
-        return new QSize(((VirtualQWidgetItemV2*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 int QWidgetItemV2_HeightForWidth(const QWidgetItemV2* self, int width) {
-    auto* vqwidgetitemv2 = dynamic_cast<const VirtualQWidgetItemV2*>(self);
-    if (vqwidgetitemv2 && vqwidgetitemv2->isVirtualQWidgetItemV2) {
-        return self->heightForWidth(static_cast<int>(width));
-    } else {
-        return ((VirtualQWidgetItemV2*)self)->heightForWidth(static_cast<int>(width));
-    }
+    return self->heightForWidth(static_cast<int>(width));
 }
 
 // Base class handler implementation

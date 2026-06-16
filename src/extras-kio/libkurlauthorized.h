@@ -19,8 +19,8 @@ typedef struct KUrlAuthorized KUrlAuthorized;
 typedef struct QUrl QUrl;
 #endif
 
-bool KUrlAuthorized_AuthorizeUrlAction(const libqt_string param1, const QUrl* param2, const QUrl* param3);
-void KUrlAuthorized_AllowUrlAction(const libqt_string param1, const QUrl* param2, const QUrl* param3);
+bool KUrlAuthorized_AuthorizeUrlAction(const libqt_string action, const QUrl* baseUrl, const QUrl* destUrl);
+void KUrlAuthorized_AllowUrlAction(const libqt_string action, const QUrl* baseUrl, const QUrl* destUrl);
 
 #ifdef __cplusplus
 } /* extern C */

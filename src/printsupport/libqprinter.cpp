@@ -34,12 +34,7 @@ QPrinter* QPrinter_new4(const QPrinterInfo* printer, int mode) {
 }
 
 int QPrinter_DevType(const QPrinter* self) {
-    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return self->devType();
-    } else {
-        return ((VirtualQPrinter*)self)->devType();
-    }
+    return self->devType();
 }
 
 void QPrinter_SetOutputFormat(QPrinter* self, int format) {
@@ -262,12 +257,7 @@ void QPrinter_SetPrinterSelectionOption(QPrinter* self, const libqt_string print
 }
 
 bool QPrinter_NewPage(QPrinter* self) {
-    auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return self->newPage();
-    } else {
-        return ((VirtualQPrinter*)self)->newPage();
-    }
+    return self->newPage();
 }
 
 bool QPrinter_Abort(QPrinter* self) {
@@ -279,12 +269,7 @@ int QPrinter_PrinterState(const QPrinter* self) {
 }
 
 QPaintEngine* QPrinter_PaintEngine(const QPrinter* self) {
-    auto* vqprinter = dynamic_cast<const VirtualQPrinter*>(self);
-    if (vqprinter && vqprinter->isVirtualQPrinter) {
-        return self->paintEngine();
-    } else {
-        return ((VirtualQPrinter*)self)->paintEngine();
-    }
+    return self->paintEngine();
 }
 
 QPrintEngine* QPrinter_PrintEngine(const QPrinter* self) {

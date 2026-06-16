@@ -76,30 +76,15 @@ QWebEngineView* QWebEngineView_new6(QWebEnginePage* page, QWidget* parent) {
 }
 
 QMetaObject* QWebEngineView_MetaObject(const QWebEngineView* self) {
-    auto* vqwebengineview = dynamic_cast<const VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebEngineView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebEngineView_Metacast(QWebEngineView* self, const char* param1) {
-    auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebEngineView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebEngineView_Metacall(QWebEngineView* self, int param1, int param2, void** param3) {
-    auto* vqwebengineview = dynamic_cast<VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebEngineView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWebEngineView* QWebEngineView_ForPage(const QWebEnginePage* page) {
@@ -202,12 +187,7 @@ void QWebEngineView_FindText(QWebEngineView* self, const libqt_string subString)
 }
 
 QSize* QWebEngineView_SizeHint(const QWebEngineView* self) {
-    auto* vqwebengineview = dynamic_cast<const VirtualQWebEngineView*>(self);
-    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQWebEngineView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QWebEngineSettings* QWebEngineView_Settings(const QWebEngineView* self) {

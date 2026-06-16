@@ -21,30 +21,15 @@ TextTranslator__TranslatorMenu* TextTranslator__TranslatorMenu_new2(QObject* par
 }
 
 QMetaObject* TextTranslator__TranslatorMenu_MetaObject(const TextTranslator__TranslatorMenu* self) {
-    auto* vtexttranslator__translatormenu = dynamic_cast<const VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslator__translatormenu && vtexttranslator__translatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorMenu_Metacast(TextTranslator__TranslatorMenu* self, const char* param1) {
-    auto* vtexttranslator__translatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslator__translatormenu && vtexttranslator__translatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorMenu_Metacall(TextTranslator__TranslatorMenu* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatormenu = dynamic_cast<VirtualTextTranslatorTranslatorMenu*>(self);
-    if (vtexttranslator__translatormenu && vtexttranslator__translatormenu->isVirtualTextTranslatorTranslatorMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QMenu* TextTranslator__TranslatorMenu_Menu(const TextTranslator__TranslatorMenu* self) {

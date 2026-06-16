@@ -11,14 +11,14 @@ pub const TextUtils__ConvertText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` str: []const u8 `
     ///
-    pub fn Normalize(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Normalize(allocator: std.mem.Allocator, str: []const u8) []const u8 {
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
         };
-        var _str = qtc.TextUtils__ConvertText_Normalize(param1_str);
+        var _str = qtc.TextUtils__ConvertText_Normalize(str_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("textutils__converttext.Normalize: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -29,43 +29,43 @@ pub const TextUtils__ConvertText = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn UpperCase(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextCursor;
-        qtc.TextUtils__ConvertText_UpperCase(@ptrCast(param1.ptr));
+    pub fn UpperCase(cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.TextUtils__ConvertText_UpperCase(@ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextUtils_1_1ConvertText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn LowerCase(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextCursor;
-        qtc.TextUtils__ConvertText_LowerCase(@ptrCast(param1.ptr));
+    pub fn LowerCase(cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.TextUtils__ConvertText_LowerCase(@ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextUtils_1_1ConvertText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn SentenceCase(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextCursor;
-        qtc.TextUtils__ConvertText_SentenceCase(@ptrCast(param1.ptr));
+    pub fn SentenceCase(cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.TextUtils__ConvertText_SentenceCase(@ptrCast(cursor.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextUtils_1_1ConvertText.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QTextCursor `
+    /// ` cursor: QTextCursor `
     ///
-    pub fn ReverseCase(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QTextCursor;
-        qtc.TextUtils__ConvertText_ReverseCase(@ptrCast(param1.ptr));
+    pub fn ReverseCase(cursor: anytype) void {
+        comptime _ = @TypeOf(cursor)._is_QTextCursor;
+        qtc.TextUtils__ConvertText_ReverseCase(@ptrCast(cursor.ptr));
     }
 };

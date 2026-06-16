@@ -184,14 +184,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn SubstringCompletion(self: KCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn SubstringCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KCompletion_SubstringCompletion(@ptrCast(self.ptr), stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KCompletion_SubstringCompletion(@ptrCast(self.ptr), string_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -227,8 +227,6 @@ pub const KCompletion = extern struct {
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///
@@ -512,14 +510,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn AllMatches2(self: KCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn AllMatches2(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches2(@ptrCast(self.ptr), stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches2(@ptrCast(self.ptr), string_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -552,14 +550,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` self: KCompletion `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn AllWeightedMatches2(self: KCompletion, stringVal: []const u8) KCompletionMatches {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn AllWeightedMatches2(self: KCompletion, string: []const u8) KCompletionMatches {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), stringVal_str) };
+        return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), string_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#setSoundsEnabled)
@@ -634,14 +632,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn MakeCompletion(self: KCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn MakeCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        var _str = qtc.KCompletion_MakeCompletion(@ptrCast(self.ptr), stringVal_str);
+        var _str = qtc.KCompletion_MakeCompletion(@ptrCast(self.ptr), string_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -652,13 +650,11 @@ pub const KCompletion = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: KCompletion `
     ///
-    /// ` callback: *const fn (self: KCompletion, stringVal: [*:0]const u8) callconv(.c) [*:0]const u8 `
+    /// ` callback: *const fn (self: KCompletion, string: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
     pub fn OnMakeCompletion(self: KCompletion, callback: *const fn (KCompletion, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.KCompletion_OnMakeCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -678,14 +674,14 @@ pub const KCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn SuperMakeCompletion(self: KCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn SuperMakeCompletion(self: KCompletion, allocator: std.mem.Allocator, string: []const u8) []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        var _str = qtc.KCompletion_SuperMakeCompletion(@ptrCast(self.ptr), stringVal_str);
+        var _str = qtc.KCompletion_SuperMakeCompletion(@ptrCast(self.ptr), string_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kcompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

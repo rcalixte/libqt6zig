@@ -52,30 +52,15 @@ KIconLoader* KIconLoader_new4(const libqt_string appname, const libqt_list /* of
 }
 
 QMetaObject* KIconLoader_MetaObject(const KIconLoader* self) {
-    auto* vkiconloader = dynamic_cast<const VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIconLoader*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIconLoader_Metacast(KIconLoader* self, const char* param1) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIconLoader*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIconLoader_Metacall(KIconLoader* self, int param1, int param2, void** param3) {
-    auto* vkiconloader = dynamic_cast<VirtualKIconLoader*>(self);
-    if (vkiconloader && vkiconloader->isVirtualKIconLoader) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIconLoader*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KIconLoader* KIconLoader_Global() {
@@ -910,24 +895,24 @@ void KIconLoader_Delete(KIconLoader* self) {
     delete self;
 }
 
-QIcon* KDE_Icon(const libqt_string param1, KIconLoader* param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return new QIcon(KDE::icon(param1_QString, param2));
+QIcon* KDE_Icon(const libqt_string iconName, KIconLoader* iconLoader) {
+    QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
+    return new QIcon(KDE::icon(iconName_QString, iconLoader));
 }
 
-QIcon* KDE_Icon2(const libqt_string param1, const KIconColors* param2, KIconLoader* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return new QIcon(KDE::icon(param1_QString, *param2, param3));
+QIcon* KDE_Icon2(const libqt_string iconName, const KIconColors* colors, KIconLoader* iconLoader) {
+    QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
+    return new QIcon(KDE::icon(iconName_QString, *colors, iconLoader));
 }
 
-QIcon* KDE_Icon3(const libqt_string param1, const libqt_list /* of libqt_string */ param2, KIconLoader* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> param2_QList;
-    param2_QList.reserve(param2.len);
-    libqt_string* param2_arr = static_cast<libqt_string*>(param2.data);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_arr_i_QString = QString::fromUtf8(param2_arr[i].data, param2_arr[i].len);
-        param2_QList.push_back(param2_arr_i_QString);
+QIcon* KDE_Icon3(const libqt_string iconName, const libqt_list /* of libqt_string */ overlays, KIconLoader* iconLoader) {
+    QString iconName_QString = QString::fromUtf8(iconName.data, iconName.len);
+    QList<QString> overlays_QList;
+    overlays_QList.reserve(overlays.len);
+    libqt_string* overlays_arr = static_cast<libqt_string*>(overlays.data);
+    for (size_t i = 0; i < overlays.len; ++i) {
+        QString overlays_arr_i_QString = QString::fromUtf8(overlays_arr[i].data, overlays_arr[i].len);
+        overlays_QList.push_back(overlays_arr_i_QString);
     }
-    return new QIcon(KDE::icon(param1_QString, param2_QList, param3));
+    return new QIcon(KDE::icon(iconName_QString, overlays_QList, iconLoader));
 }

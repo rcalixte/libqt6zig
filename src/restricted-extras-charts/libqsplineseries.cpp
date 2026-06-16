@@ -25,39 +25,19 @@ QSplineSeries* QSplineSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QSplineSeries_MetaObject(const QSplineSeries* self) {
-    auto* vqsplineseries = dynamic_cast<const VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSplineSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSplineSeries_Metacast(QSplineSeries* self, const char* param1) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSplineSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSplineSeries_Metacall(QSplineSeries* self, int param1, int param2, void** param3) {
-    auto* vqsplineseries = dynamic_cast<VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSplineSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QSplineSeries_Type(const QSplineSeries* self) {
-    auto* vqsplineseries = dynamic_cast<const VirtualQSplineSeries*>(self);
-    if (vqsplineseries && vqsplineseries->isVirtualQSplineSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQSplineSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 // Base class handler implementation

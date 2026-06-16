@@ -15,30 +15,15 @@ QObjectCleanupHandler* QObjectCleanupHandler_new() {
 }
 
 QMetaObject* QObjectCleanupHandler_MetaObject(const QObjectCleanupHandler* self) {
-    auto* vqobjectcleanuphandler = dynamic_cast<const VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQObjectCleanupHandler*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QObjectCleanupHandler_Metacast(QObjectCleanupHandler* self, const char* param1) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QObjectCleanupHandler_Metacall(QObjectCleanupHandler* self, int param1, int param2, void** param3) {
-    auto* vqobjectcleanuphandler = dynamic_cast<VirtualQObjectCleanupHandler*>(self);
-    if (vqobjectcleanuphandler && vqobjectcleanuphandler->isVirtualQObjectCleanupHandler) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQObjectCleanupHandler*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QObjectCleanupHandler_Add(QObjectCleanupHandler* self, QObject* object) {

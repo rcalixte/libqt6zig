@@ -23,48 +23,23 @@ QPieLegendMarker* QPieLegendMarker_new2(QPieSeries* series, QPieSlice* slice, QL
 }
 
 QMetaObject* QPieLegendMarker_MetaObject(const QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<const VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPieLegendMarker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPieLegendMarker_Metacast(QPieLegendMarker* self, const char* param1) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPieLegendMarker_Metacall(QPieLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPieLegendMarker_Type(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPieLegendMarker*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 QPieSeries* QPieLegendMarker_Series(QPieLegendMarker* self) {
-    auto* vqpielegendmarker = dynamic_cast<VirtualQPieLegendMarker*>(self);
-    if (vqpielegendmarker && vqpielegendmarker->isVirtualQPieLegendMarker) {
-        return self->series();
-    } else {
-        return ((VirtualQPieLegendMarker*)self)->series();
-    }
+    return self->series();
 }
 
 QPieSlice* QPieLegendMarker_Slice(QPieLegendMarker* self) {

@@ -218,40 +218,40 @@ pub const KFuzzyMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` pattern: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` str: []const u8 `
     ///
-    pub fn MatchSimple(param1: []const u8, param2: []const u8) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn MatchSimple(pattern: []const u8, str: []const u8) bool {
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
         };
-        return qtc.KFuzzyMatcher_MatchSimple(param1_str, param2_str);
+        return qtc.KFuzzyMatcher_MatchSimple(pattern_str, str_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html#match)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` pattern: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` str: []const u8 `
     ///
-    pub fn Match(param1: []const u8, param2: []const u8) KFuzzyMatcher__Result {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Match(pattern: []const u8, str: []const u8) KFuzzyMatcher__Result {
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
         };
-        return .{ .ptr = qtc.KFuzzyMatcher_Match(param1_str, param2_str) };
+        return .{ .ptr = qtc.KFuzzyMatcher_Match(pattern_str, str_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfuzzymatcher.html#matchedRanges)
@@ -260,22 +260,22 @@ pub const KFuzzyMatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` pattern: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` str: []const u8 `
     ///
-    /// ` param3: kfuzzymatcher_enums.RangeType `
+    /// ` type: kfuzzymatcher_enums.RangeType `
     ///
-    pub fn MatchedRanges(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8, param3: u8) []KFuzzyMatcher__Range {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn MatchedRanges(allocator: std.mem.Allocator, pattern: []const u8, str: []const u8, _type: u8) []KFuzzyMatcher__Range {
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const str_str = qtc.libqt_string{
+            .len = str.len,
+            .data = str.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KFuzzyMatcher_MatchedRanges(param1_str, param2_str, @bitCast(param3));
+        const _arr: qtc.libqt_list = qtc.KFuzzyMatcher_MatchedRanges(pattern_str, str_str, @bitCast(_type));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(KFuzzyMatcher__Range, _arr.len) catch @panic("kfuzzymatcher.MatchedRanges: Memory allocation failed");
         const _data: [*]QtC.KFuzzyMatcher__Range = @ptrCast(@alignCast(_arr.data));

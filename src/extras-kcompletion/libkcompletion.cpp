@@ -17,35 +17,20 @@ KCompletion* KCompletion_new() {
 }
 
 QMetaObject* KCompletion_MetaObject(const KCompletion* self) {
-    auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCompletion*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCompletion_Metacast(KCompletion* self, const char* param1) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCompletion*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCompletion_Metacall(KCompletion* self, int param1, int param2, void** param3) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCompletion*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_list /* of libqt_string */ KCompletion_SubstringCompletion(const KCompletion* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    QList<QString> _ret = self->substringCompletion(stringVal_QString);
+libqt_list /* of libqt_string */ KCompletion_SubstringCompletion(const KCompletion* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    QList<QString> _ret = self->substringCompletion(string_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -66,28 +51,15 @@ libqt_list /* of libqt_string */ KCompletion_SubstringCompletion(const KCompleti
 }
 
 libqt_string KCompletion_LastMatch(const KCompletion* self) {
-    auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        const auto _ret = self->lastMatch();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        const auto _ret = ((VirtualKCompletion*)self)->lastMatch();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    const auto _ret = self->lastMatch();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_list /* of libqt_string */ KCompletion_Items(const KCompletion* self) {
@@ -116,12 +88,7 @@ bool KCompletion_IsEmpty(const KCompletion* self) {
 }
 
 void KCompletion_SetCompletionMode(KCompletion* self, int mode) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        ((VirtualKCompletion*)self)->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 int KCompletion_CompletionMode(const KCompletion* self) {
@@ -129,12 +96,7 @@ int KCompletion_CompletionMode(const KCompletion* self) {
 }
 
 void KCompletion_SetOrder(KCompletion* self, int order) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        self->setOrder(static_cast<KCompletion::CompOrder>(order));
-    } else {
-        ((VirtualKCompletion*)self)->setOrder(static_cast<KCompletion::CompOrder>(order));
-    }
+    self->setOrder(static_cast<KCompletion::CompOrder>(order));
 }
 
 int KCompletion_Order(const KCompletion* self) {
@@ -142,12 +104,7 @@ int KCompletion_Order(const KCompletion* self) {
 }
 
 void KCompletion_SetIgnoreCase(KCompletion* self, bool ignoreCase) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        self->setIgnoreCase(ignoreCase);
-    } else {
-        ((VirtualKCompletion*)self)->setIgnoreCase(ignoreCase);
-    }
+    self->setIgnoreCase(ignoreCase);
 }
 
 bool KCompletion_IgnoreCase(const KCompletion* self) {
@@ -179,9 +136,9 @@ libqt_list /* of libqt_string */ KCompletion_AllMatches(KCompletion* self) {
     return _out;
 }
 
-libqt_list /* of libqt_string */ KCompletion_AllMatches2(KCompletion* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    QList<QString> _ret = self->allMatches(stringVal_QString);
+libqt_list /* of libqt_string */ KCompletion_AllMatches2(KCompletion* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    QList<QString> _ret = self->allMatches(string_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -205,18 +162,13 @@ KCompletionMatches* KCompletion_AllWeightedMatches(KCompletion* self) {
     return new KCompletionMatches(self->allWeightedMatches());
 }
 
-KCompletionMatches* KCompletion_AllWeightedMatches2(KCompletion* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new KCompletionMatches(self->allWeightedMatches(stringVal_QString));
+KCompletionMatches* KCompletion_AllWeightedMatches2(KCompletion* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new KCompletionMatches(self->allWeightedMatches(string_QString));
 }
 
 void KCompletion_SetSoundsEnabled(KCompletion* self, bool enable) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        self->setSoundsEnabled(enable);
-    } else {
-        ((VirtualKCompletion*)self)->setSoundsEnabled(enable);
-    }
+    self->setSoundsEnabled(enable);
 }
 
 bool KCompletion_SoundsEnabled(const KCompletion* self) {
@@ -227,30 +179,17 @@ bool KCompletion_HasMultipleMatches(const KCompletion* self) {
     return self->hasMultipleMatches();
 }
 
-libqt_string KCompletion_MakeCompletion(KCompletion* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        auto _ret = self->makeCompletion(stringVal_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKCompletion*)self)->makeCompletion(stringVal_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+libqt_string KCompletion_MakeCompletion(KCompletion* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    auto _ret = self->makeCompletion(string_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string KCompletion_PreviousMatch(KCompletion* self) {
@@ -296,12 +235,7 @@ void KCompletion_SetItems(KCompletion* self, const libqt_list /* of libqt_string
         QString itemList_arr_i_QString = QString::fromUtf8(itemList_arr[i].data, itemList_arr[i].len);
         itemList_QList.push_back(itemList_arr_i_QString);
     }
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        self->setItems(itemList_QList);
-    } else {
-        ((VirtualKCompletion*)self)->setItems(itemList_QList);
-    }
+    self->setItems(itemList_QList);
 }
 
 void KCompletion_AddItem(KCompletion* self, const libqt_string item) {
@@ -320,12 +254,7 @@ void KCompletion_RemoveItem(KCompletion* self, const libqt_string item) {
 }
 
 void KCompletion_Clear(KCompletion* self) {
-    auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
-        self->clear();
-    } else {
-        ((VirtualKCompletion*)self)->clear();
-    }
+    self->clear();
 }
 
 void KCompletion_Match(KCompletion* self, const libqt_string item) {
@@ -583,12 +512,12 @@ void KCompletion_OnSetSoundsEnabled(KCompletion* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_string stringVal) {
+libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_string string) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+    QString string_QString = QString::fromUtf8(string.data, string.len);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_MakeCompletion_IsBase(true);
-        auto _ret = vkcompletion->makeCompletion(stringVal_QString);
+        auto _ret = vkcompletion->makeCompletion(string_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
@@ -598,7 +527,7 @@ libqt_string KCompletion_SuperMakeCompletion(KCompletion* self, const libqt_stri
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
-        auto _ret = self->KCompletion::makeCompletion(stringVal_QString);
+        auto _ret = self->KCompletion::makeCompletion(string_QString);
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;

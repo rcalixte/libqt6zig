@@ -57,73 +57,36 @@ QsciScintilla* QsciScintilla_new2() {
 }
 
 QMetaObject* QsciScintilla_MetaObject(const QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<const VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciScintilla*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciScintilla_Metacast(QsciScintilla* self, const char* param1) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciScintilla*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciScintilla_Metacall(QsciScintilla* self, int param1, int param2, void** param3) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciScintilla*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QsciScintilla_ApiContext(QsciScintilla* self, int pos, int* context_start, int* last_word_start) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        QList<QString> _ret = self->apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciScintilla*)self)->apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QsciScintilla_Annotate(QsciScintilla* self, int line, const libqt_string text, int style) {
@@ -320,31 +283,16 @@ void QsciScintilla_FillIndicatorRange(QsciScintilla* self, int lineFrom, int ind
 
 bool QsciScintilla_FindFirst(QsciScintilla* self, const libqt_string expr, bool re, bool cs, bool wo, bool wrap, bool forward, int line, int index, bool show, bool posix, bool cxx11) {
     QString expr_QString = QString::fromUtf8(expr.data, expr.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return self->findFirst(expr_QString, re, cs, wo, wrap, forward, static_cast<int>(line), static_cast<int>(index), show, posix, cxx11);
-    } else {
-        return ((VirtualQsciScintilla*)self)->findFirst(expr_QString, re, cs, wo, wrap, forward, static_cast<int>(line), static_cast<int>(index), show, posix, cxx11);
-    }
+    return self->findFirst(expr_QString, re, cs, wo, wrap, forward, static_cast<int>(line), static_cast<int>(index), show, posix, cxx11);
 }
 
 bool QsciScintilla_FindFirstInSelection(QsciScintilla* self, const libqt_string expr, bool re, bool cs, bool wo, bool forward, bool show, bool posix, bool cxx11) {
     QString expr_QString = QString::fromUtf8(expr.data, expr.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return self->findFirstInSelection(expr_QString, re, cs, wo, forward, show, posix, cxx11);
-    } else {
-        return ((VirtualQsciScintilla*)self)->findFirstInSelection(expr_QString, re, cs, wo, forward, show, posix, cxx11);
-    }
+    return self->findFirstInSelection(expr_QString, re, cs, wo, forward, show, posix, cxx11);
 }
 
 bool QsciScintilla_FindNext(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return self->findNext();
-    } else {
-        return ((VirtualQsciScintilla*)self)->findNext();
-    }
+    return self->findNext();
 }
 
 bool QsciScintilla_FindMatchingBrace(QsciScintilla* self, long* brace, long* other, int mode) {
@@ -548,12 +496,7 @@ bool QsciScintilla_Read(QsciScintilla* self, QIODevice* io) {
 }
 
 void QsciScintilla_Recolor(QsciScintilla* self, int start, int end) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->recolor(static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQsciScintilla*)self)->recolor(static_cast<int>(start), static_cast<int>(end));
-    }
+    self->recolor(static_cast<int>(start), static_cast<int>(end));
 }
 
 void QsciScintilla_RegisterImage(QsciScintilla* self, int id, const QPixmap* pm) {
@@ -566,12 +509,7 @@ void QsciScintilla_RegisterImage2(QsciScintilla* self, int id, const QImage* im)
 
 void QsciScintilla_Replace(QsciScintilla* self, const libqt_string replaceStr) {
     QString replaceStr_QString = QString::fromUtf8(replaceStr.data, replaceStr.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->replace(replaceStr_QString);
-    } else {
-        ((VirtualQsciScintilla*)self)->replace(replaceStr_QString);
-    }
+    self->replace(replaceStr_QString);
 }
 
 void QsciScintilla_ResetFoldMarginColors(QsciScintilla* self) {
@@ -974,701 +912,316 @@ bool QsciScintilla_Write(const QsciScintilla* self, QIODevice* io) {
 
 void QsciScintilla_Append(QsciScintilla* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->append(text_QString);
-    } else {
-        ((VirtualQsciScintilla*)self)->append(text_QString);
-    }
+    self->append(text_QString);
 }
 
 void QsciScintilla_AutoCompleteFromAll(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->autoCompleteFromAll();
-    } else {
-        ((VirtualQsciScintilla*)self)->autoCompleteFromAll();
-    }
+    self->autoCompleteFromAll();
 }
 
 void QsciScintilla_AutoCompleteFromAPIs(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->autoCompleteFromAPIs();
-    } else {
-        ((VirtualQsciScintilla*)self)->autoCompleteFromAPIs();
-    }
+    self->autoCompleteFromAPIs();
 }
 
 void QsciScintilla_AutoCompleteFromDocument(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->autoCompleteFromDocument();
-    } else {
-        ((VirtualQsciScintilla*)self)->autoCompleteFromDocument();
-    }
+    self->autoCompleteFromDocument();
 }
 
 void QsciScintilla_CallTip(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->callTip();
-    } else {
-        ((VirtualQsciScintilla*)self)->callTip();
-    }
+    self->callTip();
 }
 
 void QsciScintilla_Clear(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->clear();
-    } else {
-        ((VirtualQsciScintilla*)self)->clear();
-    }
+    self->clear();
 }
 
 void QsciScintilla_Copy(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->copy();
-    } else {
-        ((VirtualQsciScintilla*)self)->copy();
-    }
+    self->copy();
 }
 
 void QsciScintilla_Cut(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->cut();
-    } else {
-        ((VirtualQsciScintilla*)self)->cut();
-    }
+    self->cut();
 }
 
 void QsciScintilla_EnsureCursorVisible(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->ensureCursorVisible();
-    } else {
-        ((VirtualQsciScintilla*)self)->ensureCursorVisible();
-    }
+    self->ensureCursorVisible();
 }
 
 void QsciScintilla_EnsureLineVisible(QsciScintilla* self, int line) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->ensureLineVisible(static_cast<int>(line));
-    } else {
-        ((VirtualQsciScintilla*)self)->ensureLineVisible(static_cast<int>(line));
-    }
+    self->ensureLineVisible(static_cast<int>(line));
 }
 
 void QsciScintilla_FoldAll(QsciScintilla* self, bool children) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->foldAll(children);
-    } else {
-        ((VirtualQsciScintilla*)self)->foldAll(children);
-    }
+    self->foldAll(children);
 }
 
 void QsciScintilla_FoldLine(QsciScintilla* self, int line) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->foldLine(static_cast<int>(line));
-    } else {
-        ((VirtualQsciScintilla*)self)->foldLine(static_cast<int>(line));
-    }
+    self->foldLine(static_cast<int>(line));
 }
 
 void QsciScintilla_Indent(QsciScintilla* self, int line) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->indent(static_cast<int>(line));
-    } else {
-        ((VirtualQsciScintilla*)self)->indent(static_cast<int>(line));
-    }
+    self->indent(static_cast<int>(line));
 }
 
 void QsciScintilla_Insert(QsciScintilla* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->insert(text_QString);
-    } else {
-        ((VirtualQsciScintilla*)self)->insert(text_QString);
-    }
+    self->insert(text_QString);
 }
 
 void QsciScintilla_InsertAt(QsciScintilla* self, const libqt_string text, int line, int index) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->insertAt(text_QString, static_cast<int>(line), static_cast<int>(index));
-    } else {
-        ((VirtualQsciScintilla*)self)->insertAt(text_QString, static_cast<int>(line), static_cast<int>(index));
-    }
+    self->insertAt(text_QString, static_cast<int>(line), static_cast<int>(index));
 }
 
 void QsciScintilla_MoveToMatchingBrace(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->moveToMatchingBrace();
-    } else {
-        ((VirtualQsciScintilla*)self)->moveToMatchingBrace();
-    }
+    self->moveToMatchingBrace();
 }
 
 void QsciScintilla_Paste(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->paste();
-    } else {
-        ((VirtualQsciScintilla*)self)->paste();
-    }
+    self->paste();
 }
 
 void QsciScintilla_Redo(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->redo();
-    } else {
-        ((VirtualQsciScintilla*)self)->redo();
-    }
+    self->redo();
 }
 
 void QsciScintilla_RemoveSelectedText(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->removeSelectedText();
-    } else {
-        ((VirtualQsciScintilla*)self)->removeSelectedText();
-    }
+    self->removeSelectedText();
 }
 
 void QsciScintilla_ReplaceSelectedText(QsciScintilla* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->replaceSelectedText(text_QString);
-    } else {
-        ((VirtualQsciScintilla*)self)->replaceSelectedText(text_QString);
-    }
+    self->replaceSelectedText(text_QString);
 }
 
 void QsciScintilla_ResetSelectionBackgroundColor(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->resetSelectionBackgroundColor();
-    } else {
-        ((VirtualQsciScintilla*)self)->resetSelectionBackgroundColor();
-    }
+    self->resetSelectionBackgroundColor();
 }
 
 void QsciScintilla_ResetSelectionForegroundColor(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->resetSelectionForegroundColor();
-    } else {
-        ((VirtualQsciScintilla*)self)->resetSelectionForegroundColor();
-    }
+    self->resetSelectionForegroundColor();
 }
 
 void QsciScintilla_SelectAll(QsciScintilla* self, bool selectVal) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->selectAll(selectVal);
-    } else {
-        ((VirtualQsciScintilla*)self)->selectAll(selectVal);
-    }
+    self->selectAll(selectVal);
 }
 
 void QsciScintilla_SelectToMatchingBrace(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->selectToMatchingBrace();
-    } else {
-        ((VirtualQsciScintilla*)self)->selectToMatchingBrace();
-    }
+    self->selectToMatchingBrace();
 }
 
 void QsciScintilla_SetAutoCompletionCaseSensitivity(QsciScintilla* self, bool cs) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoCompletionCaseSensitivity(cs);
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoCompletionCaseSensitivity(cs);
-    }
+    self->setAutoCompletionCaseSensitivity(cs);
 }
 
 void QsciScintilla_SetAutoCompletionReplaceWord(QsciScintilla* self, bool replace) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoCompletionReplaceWord(replace);
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoCompletionReplaceWord(replace);
-    }
+    self->setAutoCompletionReplaceWord(replace);
 }
 
 void QsciScintilla_SetAutoCompletionShowSingle(QsciScintilla* self, bool single) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoCompletionShowSingle(single);
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoCompletionShowSingle(single);
-    }
+    self->setAutoCompletionShowSingle(single);
 }
 
 void QsciScintilla_SetAutoCompletionSource(QsciScintilla* self, int source) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoCompletionSource(static_cast<QsciScintilla::AutoCompletionSource>(source));
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoCompletionSource(static_cast<QsciScintilla::AutoCompletionSource>(source));
-    }
+    self->setAutoCompletionSource(static_cast<QsciScintilla::AutoCompletionSource>(source));
 }
 
 void QsciScintilla_SetAutoCompletionThreshold(QsciScintilla* self, int thresh) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoCompletionThreshold(static_cast<int>(thresh));
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoCompletionThreshold(static_cast<int>(thresh));
-    }
+    self->setAutoCompletionThreshold(static_cast<int>(thresh));
 }
 
 void QsciScintilla_SetAutoCompletionUseSingle(QsciScintilla* self, int single) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoCompletionUseSingle(static_cast<QsciScintilla::AutoCompletionUseSingle>(single));
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoCompletionUseSingle(static_cast<QsciScintilla::AutoCompletionUseSingle>(single));
-    }
+    self->setAutoCompletionUseSingle(static_cast<QsciScintilla::AutoCompletionUseSingle>(single));
 }
 
 void QsciScintilla_SetAutoIndent(QsciScintilla* self, bool autoindent) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setAutoIndent(autoindent);
-    } else {
-        ((VirtualQsciScintilla*)self)->setAutoIndent(autoindent);
-    }
+    self->setAutoIndent(autoindent);
 }
 
 void QsciScintilla_SetBraceMatching(QsciScintilla* self, int bm) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setBraceMatching(static_cast<QsciScintilla::BraceMatch>(bm));
-    } else {
-        ((VirtualQsciScintilla*)self)->setBraceMatching(static_cast<QsciScintilla::BraceMatch>(bm));
-    }
+    self->setBraceMatching(static_cast<QsciScintilla::BraceMatch>(bm));
 }
 
 void QsciScintilla_SetBackspaceUnindents(QsciScintilla* self, bool unindent) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setBackspaceUnindents(unindent);
-    } else {
-        ((VirtualQsciScintilla*)self)->setBackspaceUnindents(unindent);
-    }
+    self->setBackspaceUnindents(unindent);
 }
 
 void QsciScintilla_SetCaretForegroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setCaretForegroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setCaretForegroundColor(*col);
-    }
+    self->setCaretForegroundColor(*col);
 }
 
 void QsciScintilla_SetCaretLineBackgroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setCaretLineBackgroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setCaretLineBackgroundColor(*col);
-    }
+    self->setCaretLineBackgroundColor(*col);
 }
 
 void QsciScintilla_SetCaretLineFrameWidth(QsciScintilla* self, int width) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setCaretLineFrameWidth(static_cast<int>(width));
-    } else {
-        ((VirtualQsciScintilla*)self)->setCaretLineFrameWidth(static_cast<int>(width));
-    }
+    self->setCaretLineFrameWidth(static_cast<int>(width));
 }
 
 void QsciScintilla_SetCaretLineVisible(QsciScintilla* self, bool enable) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setCaretLineVisible(enable);
-    } else {
-        ((VirtualQsciScintilla*)self)->setCaretLineVisible(enable);
-    }
+    self->setCaretLineVisible(enable);
 }
 
 void QsciScintilla_SetCaretWidth(QsciScintilla* self, int width) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setCaretWidth(static_cast<int>(width));
-    } else {
-        ((VirtualQsciScintilla*)self)->setCaretWidth(static_cast<int>(width));
-    }
+    self->setCaretWidth(static_cast<int>(width));
 }
 
 void QsciScintilla_SetColor(QsciScintilla* self, const QColor* c) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setColor(*c);
-    } else {
-        ((VirtualQsciScintilla*)self)->setColor(*c);
-    }
+    self->setColor(*c);
 }
 
 void QsciScintilla_SetCursorPosition(QsciScintilla* self, int line, int index) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setCursorPosition(static_cast<int>(line), static_cast<int>(index));
-    } else {
-        ((VirtualQsciScintilla*)self)->setCursorPosition(static_cast<int>(line), static_cast<int>(index));
-    }
+    self->setCursorPosition(static_cast<int>(line), static_cast<int>(index));
 }
 
 void QsciScintilla_SetEolMode(QsciScintilla* self, int mode) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setEolMode(static_cast<QsciScintilla::EolMode>(mode));
-    } else {
-        ((VirtualQsciScintilla*)self)->setEolMode(static_cast<QsciScintilla::EolMode>(mode));
-    }
+    self->setEolMode(static_cast<QsciScintilla::EolMode>(mode));
 }
 
 void QsciScintilla_SetEolVisibility(QsciScintilla* self, bool visible) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setEolVisibility(visible);
-    } else {
-        ((VirtualQsciScintilla*)self)->setEolVisibility(visible);
-    }
+    self->setEolVisibility(visible);
 }
 
 void QsciScintilla_SetFolding(QsciScintilla* self, int fold, int margin) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setFolding(static_cast<QsciScintilla::FoldStyle>(fold), static_cast<int>(margin));
-    } else {
-        ((VirtualQsciScintilla*)self)->setFolding(static_cast<QsciScintilla::FoldStyle>(fold), static_cast<int>(margin));
-    }
+    self->setFolding(static_cast<QsciScintilla::FoldStyle>(fold), static_cast<int>(margin));
 }
 
 void QsciScintilla_SetIndentation(QsciScintilla* self, int line, int indentation) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setIndentation(static_cast<int>(line), static_cast<int>(indentation));
-    } else {
-        ((VirtualQsciScintilla*)self)->setIndentation(static_cast<int>(line), static_cast<int>(indentation));
-    }
+    self->setIndentation(static_cast<int>(line), static_cast<int>(indentation));
 }
 
 void QsciScintilla_SetIndentationGuides(QsciScintilla* self, bool enable) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setIndentationGuides(enable);
-    } else {
-        ((VirtualQsciScintilla*)self)->setIndentationGuides(enable);
-    }
+    self->setIndentationGuides(enable);
 }
 
 void QsciScintilla_SetIndentationGuidesBackgroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setIndentationGuidesBackgroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setIndentationGuidesBackgroundColor(*col);
-    }
+    self->setIndentationGuidesBackgroundColor(*col);
 }
 
 void QsciScintilla_SetIndentationGuidesForegroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setIndentationGuidesForegroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setIndentationGuidesForegroundColor(*col);
-    }
+    self->setIndentationGuidesForegroundColor(*col);
 }
 
 void QsciScintilla_SetIndentationsUseTabs(QsciScintilla* self, bool tabs) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setIndentationsUseTabs(tabs);
-    } else {
-        ((VirtualQsciScintilla*)self)->setIndentationsUseTabs(tabs);
-    }
+    self->setIndentationsUseTabs(tabs);
 }
 
 void QsciScintilla_SetIndentationWidth(QsciScintilla* self, int width) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setIndentationWidth(static_cast<int>(width));
-    } else {
-        ((VirtualQsciScintilla*)self)->setIndentationWidth(static_cast<int>(width));
-    }
+    self->setIndentationWidth(static_cast<int>(width));
 }
 
 void QsciScintilla_SetLexer(QsciScintilla* self, QsciLexer* lexer) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setLexer(lexer);
-    } else {
-        ((VirtualQsciScintilla*)self)->setLexer(lexer);
-    }
+    self->setLexer(lexer);
 }
 
 void QsciScintilla_SetMarginsBackgroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginsBackgroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginsBackgroundColor(*col);
-    }
+    self->setMarginsBackgroundColor(*col);
 }
 
 void QsciScintilla_SetMarginsFont(QsciScintilla* self, const QFont* f) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginsFont(*f);
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginsFont(*f);
-    }
+    self->setMarginsFont(*f);
 }
 
 void QsciScintilla_SetMarginsForegroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginsForegroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginsForegroundColor(*col);
-    }
+    self->setMarginsForegroundColor(*col);
 }
 
 void QsciScintilla_SetMarginLineNumbers(QsciScintilla* self, int margin, bool lnrs) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginLineNumbers(static_cast<int>(margin), lnrs);
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginLineNumbers(static_cast<int>(margin), lnrs);
-    }
+    self->setMarginLineNumbers(static_cast<int>(margin), lnrs);
 }
 
 void QsciScintilla_SetMarginMarkerMask(QsciScintilla* self, int margin, int mask) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginMarkerMask(static_cast<int>(margin), static_cast<int>(mask));
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginMarkerMask(static_cast<int>(margin), static_cast<int>(mask));
-    }
+    self->setMarginMarkerMask(static_cast<int>(margin), static_cast<int>(mask));
 }
 
 void QsciScintilla_SetMarginSensitivity(QsciScintilla* self, int margin, bool sens) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginSensitivity(static_cast<int>(margin), sens);
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginSensitivity(static_cast<int>(margin), sens);
-    }
+    self->setMarginSensitivity(static_cast<int>(margin), sens);
 }
 
 void QsciScintilla_SetMarginWidth(QsciScintilla* self, int margin, int width) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginWidth(static_cast<int>(margin), static_cast<int>(width));
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginWidth(static_cast<int>(margin), static_cast<int>(width));
-    }
+    self->setMarginWidth(static_cast<int>(margin), static_cast<int>(width));
 }
 
 void QsciScintilla_SetMarginWidth2(QsciScintilla* self, int margin, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setMarginWidth(static_cast<int>(margin), s_QString);
-    } else {
-        ((VirtualQsciScintilla*)self)->setMarginWidth(static_cast<int>(margin), s_QString);
-    }
+    self->setMarginWidth(static_cast<int>(margin), s_QString);
 }
 
 void QsciScintilla_SetModified(QsciScintilla* self, bool m) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setModified(m);
-    } else {
-        ((VirtualQsciScintilla*)self)->setModified(m);
-    }
+    self->setModified(m);
 }
 
 void QsciScintilla_SetPaper(QsciScintilla* self, const QColor* c) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setPaper(*c);
-    } else {
-        ((VirtualQsciScintilla*)self)->setPaper(*c);
-    }
+    self->setPaper(*c);
 }
 
 void QsciScintilla_SetReadOnly(QsciScintilla* self, bool ro) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setReadOnly(ro);
-    } else {
-        ((VirtualQsciScintilla*)self)->setReadOnly(ro);
-    }
+    self->setReadOnly(ro);
 }
 
 void QsciScintilla_SetSelection(QsciScintilla* self, int lineFrom, int indexFrom, int lineTo, int indexTo) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setSelection(static_cast<int>(lineFrom), static_cast<int>(indexFrom), static_cast<int>(lineTo), static_cast<int>(indexTo));
-    } else {
-        ((VirtualQsciScintilla*)self)->setSelection(static_cast<int>(lineFrom), static_cast<int>(indexFrom), static_cast<int>(lineTo), static_cast<int>(indexTo));
-    }
+    self->setSelection(static_cast<int>(lineFrom), static_cast<int>(indexFrom), static_cast<int>(lineTo), static_cast<int>(indexTo));
 }
 
 void QsciScintilla_SetSelectionBackgroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setSelectionBackgroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setSelectionBackgroundColor(*col);
-    }
+    self->setSelectionBackgroundColor(*col);
 }
 
 void QsciScintilla_SetSelectionForegroundColor(QsciScintilla* self, const QColor* col) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setSelectionForegroundColor(*col);
-    } else {
-        ((VirtualQsciScintilla*)self)->setSelectionForegroundColor(*col);
-    }
+    self->setSelectionForegroundColor(*col);
 }
 
 void QsciScintilla_SetTabIndents(QsciScintilla* self, bool indent) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setTabIndents(indent);
-    } else {
-        ((VirtualQsciScintilla*)self)->setTabIndents(indent);
-    }
+    self->setTabIndents(indent);
 }
 
 void QsciScintilla_SetTabWidth(QsciScintilla* self, int width) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setTabWidth(static_cast<int>(width));
-    } else {
-        ((VirtualQsciScintilla*)self)->setTabWidth(static_cast<int>(width));
-    }
+    self->setTabWidth(static_cast<int>(width));
 }
 
 void QsciScintilla_SetText(QsciScintilla* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setText(text_QString);
-    } else {
-        ((VirtualQsciScintilla*)self)->setText(text_QString);
-    }
+    self->setText(text_QString);
 }
 
 void QsciScintilla_SetUtf8(QsciScintilla* self, bool cp) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setUtf8(cp);
-    } else {
-        ((VirtualQsciScintilla*)self)->setUtf8(cp);
-    }
+    self->setUtf8(cp);
 }
 
 void QsciScintilla_SetWhitespaceVisibility(QsciScintilla* self, int mode) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setWhitespaceVisibility(static_cast<QsciScintilla::WhitespaceVisibility>(mode));
-    } else {
-        ((VirtualQsciScintilla*)self)->setWhitespaceVisibility(static_cast<QsciScintilla::WhitespaceVisibility>(mode));
-    }
+    self->setWhitespaceVisibility(static_cast<QsciScintilla::WhitespaceVisibility>(mode));
 }
 
 void QsciScintilla_SetWrapMode(QsciScintilla* self, int mode) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->setWrapMode(static_cast<QsciScintilla::WrapMode>(mode));
-    } else {
-        ((VirtualQsciScintilla*)self)->setWrapMode(static_cast<QsciScintilla::WrapMode>(mode));
-    }
+    self->setWrapMode(static_cast<QsciScintilla::WrapMode>(mode));
 }
 
 void QsciScintilla_Undo(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->undo();
-    } else {
-        ((VirtualQsciScintilla*)self)->undo();
-    }
+    self->undo();
 }
 
 void QsciScintilla_Unindent(QsciScintilla* self, int line) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->unindent(static_cast<int>(line));
-    } else {
-        ((VirtualQsciScintilla*)self)->unindent(static_cast<int>(line));
-    }
+    self->unindent(static_cast<int>(line));
 }
 
 void QsciScintilla_ZoomIn(QsciScintilla* self, int range) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->zoomIn(static_cast<int>(range));
-    } else {
-        ((VirtualQsciScintilla*)self)->zoomIn(static_cast<int>(range));
-    }
+    self->zoomIn(static_cast<int>(range));
 }
 
 void QsciScintilla_ZoomIn2(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->zoomIn();
-    } else {
-        ((VirtualQsciScintilla*)self)->zoomIn();
-    }
+    self->zoomIn();
 }
 
 void QsciScintilla_ZoomOut(QsciScintilla* self, int range) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->zoomOut(static_cast<int>(range));
-    } else {
-        ((VirtualQsciScintilla*)self)->zoomOut(static_cast<int>(range));
-    }
+    self->zoomOut(static_cast<int>(range));
 }
 
 void QsciScintilla_ZoomOut2(QsciScintilla* self) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->zoomOut();
-    } else {
-        ((VirtualQsciScintilla*)self)->zoomOut();
-    }
+    self->zoomOut();
 }
 
 void QsciScintilla_ZoomTo(QsciScintilla* self, int size) {
-    auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        self->zoomTo(static_cast<int>(size));
-    } else {
-        ((VirtualQsciScintilla*)self)->zoomTo(static_cast<int>(size));
-    }
+    self->zoomTo(static_cast<int>(size));
 }
 
 void QsciScintilla_CursorPositionChanged(QsciScintilla* self, int line, int index) {
@@ -1808,25 +1361,25 @@ void QsciScintilla_Connect_TextChanged(QsciScintilla* self, intptr_t slot) {
     });
 }
 
-void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    self->userListActivated(static_cast<int>(id), stringVal_QString);
+void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    self->userListActivated(static_cast<int>(id), string_QString);
 }
 
 void QsciScintilla_Connect_UserListActivated(QsciScintilla* self, intptr_t slot) {
     void (*slotFunc)(QsciScintilla*, int, const char*) = reinterpret_cast<void (*)(QsciScintilla*, int, const char*)>(slot);
-    QsciScintilla::connect(self, &QsciScintilla::userListActivated, [self, slotFunc](int id, const QString& stringVal) {
+    QsciScintilla::connect(self, &QsciScintilla::userListActivated, [self, slotFunc](int id, const QString& string) {
         int sigval1 = id;
-        const auto stringVal_ret = stringVal;
+        const auto string_ret = string;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray stringVal_b = stringVal_ret.toUtf8();
-        auto stringVal_str_len = stringVal_b.length();
-        const char* stringVal_str = static_cast<const char*>(malloc(stringVal_str_len + 1));
-        memcpy((void*)stringVal_str, stringVal_b.data(), stringVal_str_len);
-        ((char*)stringVal_str)[stringVal_str_len] = '\0';
-        const char* sigval2 = stringVal_str;
+        QByteArray string_b = string_ret.toUtf8();
+        auto string_str_len = string_b.length();
+        const char* string_str = static_cast<const char*>(malloc(string_str_len + 1));
+        memcpy((void*)string_str, string_b.data(), string_str_len);
+        ((char*)string_str)[string_str_len] = '\0';
+        const char* sigval2 = string_str;
         slotFunc(self, sigval1, sigval2);
-        libqt_free(stringVal_str);
+        libqt_free(string_str);
     });
 }
 

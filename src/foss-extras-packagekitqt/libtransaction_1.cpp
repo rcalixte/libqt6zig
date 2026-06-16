@@ -19,30 +19,15 @@ PackageKit__Transaction* PackageKit__Transaction_new(const QDBusObjectPath* tid)
 }
 
 QMetaObject* PackageKit__Transaction_MetaObject(const PackageKit__Transaction* self) {
-    auto* vpackagekit__transaction = dynamic_cast<const VirtualPackageKitTransaction*>(self);
-    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualPackageKitTransaction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* PackageKit__Transaction_Metacast(PackageKit__Transaction* self, const char* param1) {
-    auto* vpackagekit__transaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int PackageKit__Transaction_Metacall(PackageKit__Transaction* self, int param1, int param2, void** param3) {
-    auto* vpackagekit__transaction = dynamic_cast<VirtualPackageKitTransaction*>(self);
-    if (vpackagekit__transaction && vpackagekit__transaction->isVirtualPackageKitTransaction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualPackageKitTransaction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDBusObjectPath* PackageKit__Transaction_Tid(const PackageKit__Transaction* self) {

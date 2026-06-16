@@ -58,30 +58,15 @@ QSplitter* QSplitter_new4(int param1, QWidget* parent) {
 }
 
 QMetaObject* QSplitter_MetaObject(const QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<const VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSplitter*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSplitter_Metacast(QSplitter* self, const char* param1) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSplitter*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSplitter_Metacall(QSplitter* self, int param1, int param2, void** param3) {
-    auto* vqsplitter = dynamic_cast<VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSplitter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSplitter_AddWidget(QSplitter* self, QWidget* widget) {
@@ -133,21 +118,11 @@ void QSplitter_Refresh(QSplitter* self) {
 }
 
 QSize* QSplitter_SizeHint(const QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<const VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQSplitter*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QSplitter_MinimumSizeHint(const QSplitter* self) {
-    auto* vqsplitter = dynamic_cast<const VirtualQSplitter*>(self);
-    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSplitter*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 libqt_list /* of int */ QSplitter_Sizes(const QSplitter* self) {
@@ -2098,30 +2073,15 @@ QSplitterHandle* QSplitterHandle_new(int o, QSplitter* parent) {
 }
 
 QMetaObject* QSplitterHandle_MetaObject(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<const VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSplitterHandle*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSplitterHandle_Metacast(QSplitterHandle* self, const char* param1) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSplitterHandle_Metacall(QSplitterHandle* self, int param1, int param2, void** param3) {
-    auto* vqsplitterhandle = dynamic_cast<VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSplitterHandle*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSplitterHandle_SetOrientation(QSplitterHandle* self, int o) {
@@ -2141,12 +2101,7 @@ QSplitter* QSplitterHandle_Splitter(const QSplitterHandle* self) {
 }
 
 QSize* QSplitterHandle_SizeHint(const QSplitterHandle* self) {
-    auto* vqsplitterhandle = dynamic_cast<const VirtualQSplitterHandle*>(self);
-    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQSplitterHandle*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QSplitterHandle_PaintEvent(QSplitterHandle* self, QPaintEvent* param1) {

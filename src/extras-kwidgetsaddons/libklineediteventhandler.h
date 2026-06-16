@@ -19,8 +19,8 @@ typedef struct KLineEditEventHandler KLineEditEventHandler;
 typedef struct QObject QObject;
 #endif
 
-void KLineEditEventHandler_CatchReturnKey(QObject* param1);
-void KLineEditEventHandler_HandleUrlDrops(QObject* param1);
+void KLineEditEventHandler_CatchReturnKey(QObject* lineEdit);
+void KLineEditEventHandler_HandleUrlDrops(QObject* lineEdit);
 
 #ifdef __cplusplus
 } /* extern C */

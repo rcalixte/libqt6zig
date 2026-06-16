@@ -30,30 +30,15 @@ QAudioBufferInput* QAudioBufferInput_new4(const QAudioFormat* format, QObject* p
 }
 
 QMetaObject* QAudioBufferInput_MetaObject(const QAudioBufferInput* self) {
-    auto* vqaudiobufferinput = dynamic_cast<const VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioBufferInput*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioBufferInput_Metacast(QAudioBufferInput* self, const char* param1) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioBufferInput_Metacall(QAudioBufferInput* self, int param1, int param2, void** param3) {
-    auto* vqaudiobufferinput = dynamic_cast<VirtualQAudioBufferInput*>(self);
-    if (vqaudiobufferinput && vqaudiobufferinput->isVirtualQAudioBufferInput) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioBufferInput*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QAudioBufferInput_SendAudioBuffer(QAudioBufferInput* self, const QAudioBuffer* audioBuffer) {

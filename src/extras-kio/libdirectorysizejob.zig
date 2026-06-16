@@ -1897,21 +1897,21 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` directory: QUrl `
     ///
-    pub fn DirectorySize(param1: anytype) KIO__DirectorySizeJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_DirectorySize(@ptrCast(param1.ptr)) };
+    pub fn DirectorySize(directory: anytype) KIO__DirectorySizeJob {
+        comptime _ = @TypeOf(directory)._is_QUrl;
+        return .{ .ptr = qtc.KIO_DirectorySize(@ptrCast(directory.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#directorySize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KFileItemList `
+    /// ` lstItems: KFileItemList `
     ///
-    pub fn DirectorySize2(param1: anytype) KIO__DirectorySizeJob {
-        comptime _ = @TypeOf(param1)._is_KFileItemList;
-        return .{ .ptr = qtc.KIO_DirectorySize2(@ptrCast(param1.ptr)) };
+    pub fn DirectorySize2(lstItems: anytype) KIO__DirectorySizeJob {
+        comptime _ = @TypeOf(lstItems)._is_KFileItemList;
+        return .{ .ptr = qtc.KIO_DirectorySize2(@ptrCast(lstItems.ptr)) };
     }
 };

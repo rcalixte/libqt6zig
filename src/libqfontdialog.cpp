@@ -56,30 +56,15 @@ QFontDialog* QFontDialog_new4(const QFont* initial, QWidget* parent) {
 }
 
 QMetaObject* QFontDialog_MetaObject(const QFontDialog* self) {
-    auto* vqfontdialog = dynamic_cast<const VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFontDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFontDialog_Metacast(QFontDialog* self, const char* param1) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFontDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFontDialog_Metacall(QFontDialog* self, int param1, int param2, void** param3) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFontDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFontDialog_SetCurrentFont(QFontDialog* self, const QFont* font) {
@@ -111,12 +96,7 @@ int QFontDialog_Options(const QFontDialog* self) {
 }
 
 void QFontDialog_SetVisible(QFontDialog* self, bool visible) {
-    auto* vqfontdialog = dynamic_cast<VirtualQFontDialog*>(self);
-    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQFontDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 QFont* QFontDialog_GetFont(bool* ok) {

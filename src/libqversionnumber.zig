@@ -240,27 +240,27 @@ pub const QVersionNumber = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn FromString(stringVal: []const u8) QVersionNumber {
-        return .{ .ptr = qtc.QVersionNumber_FromString(stringVal.ptr) };
+    pub fn FromString(string: []const u8) QVersionNumber {
+        return .{ .ptr = qtc.QVersionNumber_FromString(string.ptr) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` suffixIndex: *isize `
     ///
-    pub fn FromString2(stringVal: []const u8, suffixIndex: *isize) QVersionNumber {
+    pub fn FromString2(string: []const u8, suffixIndex: *isize) QVersionNumber {
         switch (builtin.target.os.tag) {
             .linux, .freebsd => {},
             else => @compileError("Unsupported operating system"),
         }
 
-        return .{ .ptr = qtc.QVersionNumber_FromString2(stringVal.ptr, @ptrCast(suffixIndex)) };
+        return .{ .ptr = qtc.QVersionNumber_FromString2(string.ptr, @ptrCast(suffixIndex)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

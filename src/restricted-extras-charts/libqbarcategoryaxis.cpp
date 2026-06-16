@@ -21,39 +21,19 @@ QBarCategoryAxis* QBarCategoryAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QBarCategoryAxis_MetaObject(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = dynamic_cast<const VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBarCategoryAxis*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBarCategoryAxis_Metacast(QBarCategoryAxis* self, const char* param1) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBarCategoryAxis_Metacall(QBarCategoryAxis* self, int param1, int param2, void** param3) {
-    auto* vqbarcategoryaxis = dynamic_cast<VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBarCategoryAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QBarCategoryAxis_Type(const QBarCategoryAxis* self) {
-    auto* vqbarcategoryaxis = dynamic_cast<const VirtualQBarCategoryAxis*>(self);
-    if (vqbarcategoryaxis && vqbarcategoryaxis->isVirtualQBarCategoryAxis) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQBarCategoryAxis*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QBarCategoryAxis_Append(QBarCategoryAxis* self, const libqt_list /* of libqt_string */ categories) {

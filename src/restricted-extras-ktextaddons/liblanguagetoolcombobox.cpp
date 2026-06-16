@@ -49,30 +49,15 @@ TextGrammarCheck__LanguageToolComboBox* TextGrammarCheck__LanguageToolComboBox_n
 }
 
 QMetaObject* TextGrammarCheck__LanguageToolComboBox_MetaObject(const TextGrammarCheck__LanguageToolComboBox* self) {
-    auto* vtextgrammarcheck__languagetoolcombobox = dynamic_cast<const VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarcheck__languagetoolcombobox && vtextgrammarcheck__languagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckLanguageToolComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__LanguageToolComboBox_Metacast(TextGrammarCheck__LanguageToolComboBox* self, const char* param1) {
-    auto* vtextgrammarcheck__languagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarcheck__languagetoolcombobox && vtextgrammarcheck__languagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__LanguageToolComboBox_Metacall(TextGrammarCheck__LanguageToolComboBox* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__languagetoolcombobox = dynamic_cast<VirtualTextGrammarCheckLanguageToolComboBox*>(self);
-    if (vtextgrammarcheck__languagetoolcombobox && vtextgrammarcheck__languagetoolcombobox->isVirtualTextGrammarCheckLanguageToolComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__LanguageToolComboBox_SetLanguage(TextGrammarCheck__LanguageToolComboBox* self, const libqt_string str) {

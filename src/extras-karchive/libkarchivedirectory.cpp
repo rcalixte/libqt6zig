@@ -69,12 +69,7 @@ bool KArchiveDirectory_RemoveEntryV2(KArchiveDirectory* self, KArchiveEntry* par
 }
 
 bool KArchiveDirectory_IsDirectory(const KArchiveDirectory* self) {
-    auto* vkarchivedirectory = dynamic_cast<const VirtualKArchiveDirectory*>(self);
-    if (vkarchivedirectory && vkarchivedirectory->isVirtualKArchiveDirectory) {
-        return self->isDirectory();
-    } else {
-        return ((VirtualKArchiveDirectory*)self)->isDirectory();
-    }
+    return self->isDirectory();
 }
 
 bool KArchiveDirectory_CopyTo(const KArchiveDirectory* self, const libqt_string dest) {

@@ -21,30 +21,15 @@ QCandlestickModelMapper* QCandlestickModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QCandlestickModelMapper_MetaObject(const QCandlestickModelMapper* self) {
-    auto* vqcandlestickmodelmapper = dynamic_cast<const VirtualQCandlestickModelMapper*>(self);
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCandlestickModelMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCandlestickModelMapper_Metacast(QCandlestickModelMapper* self, const char* param1) {
-    auto* vqcandlestickmodelmapper = dynamic_cast<VirtualQCandlestickModelMapper*>(self);
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCandlestickModelMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCandlestickModelMapper_Metacall(QCandlestickModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqcandlestickmodelmapper = dynamic_cast<VirtualQCandlestickModelMapper*>(self);
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCandlestickModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QCandlestickModelMapper_SetModel(QCandlestickModelMapper* self, QAbstractItemModel* model) {
@@ -64,12 +49,7 @@ QCandlestickSeries* QCandlestickModelMapper_Series(const QCandlestickModelMapper
 }
 
 int QCandlestickModelMapper_Orientation(const QCandlestickModelMapper* self) {
-    auto* vqcandlestickmodelmapper = dynamic_cast<const VirtualQCandlestickModelMapper*>(self);
-    if (vqcandlestickmodelmapper && vqcandlestickmodelmapper->isVirtualQCandlestickModelMapper) {
-        return static_cast<int>(vqcandlestickmodelmapper->orientation());
-    } else {
-        return static_cast<int>(((VirtualQCandlestickModelMapper*)self)->orientation());
-    }
+    return static_cast<int>(self->orientation());
 }
 
 void QCandlestickModelMapper_ModelReplaced(QCandlestickModelMapper* self) {

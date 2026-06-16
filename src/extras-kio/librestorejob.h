@@ -36,7 +36,7 @@ int KIO__RestoreJob_Metacall(KIO__RestoreJob* self, int param1, int param2, void
 libqt_list /* of QUrl* */ KIO__RestoreJob_TrashUrls(const KIO__RestoreJob* self);
 void KIO__RestoreJob_Delete(KIO__RestoreJob* self);
 
-KIO__RestoreJob* KIO_RestoreFromTrash(const libqt_list /* of QUrl* */ param1, int param2);
+KIO__RestoreJob* KIO_RestoreFromTrash(const libqt_list /* of QUrl* */ urls, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -28,138 +28,64 @@ QAbstractItemDelegate* QAbstractItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractItemDelegate_MetaObject(const QAbstractItemDelegate* self) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractItemDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractItemDelegate_Metacast(QAbstractItemDelegate* self, const char* param1) {
-    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractItemDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractItemDelegate_Metacall(QAbstractItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractItemDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractItemDelegate_Paint(const QAbstractItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        vqabstractitemdelegate->paint(painter, *option, *index);
-    } else {
-        ((VirtualQAbstractItemDelegate*)self)->paint(painter, *option, *index);
-    }
+    self->paint(painter, *option, *index);
 }
 
 QSize* QAbstractItemDelegate_SizeHint(const QAbstractItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return new QSize(vqabstractitemdelegate->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQAbstractItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->sizeHint(*option, *index));
 }
 
 QWidget* QAbstractItemDelegate_CreateEditor(const QAbstractItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return self->createEditor(parent, *option, *index);
-    } else {
-        return ((VirtualQAbstractItemDelegate*)self)->createEditor(parent, *option, *index);
-    }
+    return self->createEditor(parent, *option, *index);
 }
 
 void QAbstractItemDelegate_DestroyEditor(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        self->destroyEditor(editor, *index);
-    } else {
-        ((VirtualQAbstractItemDelegate*)self)->destroyEditor(editor, *index);
-    }
+    self->destroyEditor(editor, *index);
 }
 
 void QAbstractItemDelegate_SetEditorData(const QAbstractItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        self->setEditorData(editor, *index);
-    } else {
-        ((VirtualQAbstractItemDelegate*)self)->setEditorData(editor, *index);
-    }
+    self->setEditorData(editor, *index);
 }
 
 void QAbstractItemDelegate_SetModelData(const QAbstractItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        self->setModelData(editor, model, *index);
-    } else {
-        ((VirtualQAbstractItemDelegate*)self)->setModelData(editor, model, *index);
-    }
+    self->setModelData(editor, model, *index);
 }
 
 void QAbstractItemDelegate_UpdateEditorGeometry(const QAbstractItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        self->updateEditorGeometry(editor, *option, *index);
-    } else {
-        ((VirtualQAbstractItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
-    }
+    self->updateEditorGeometry(editor, *option, *index);
 }
 
 bool QAbstractItemDelegate_EditorEvent(QAbstractItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return self->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualQAbstractItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
+    return self->editorEvent(event, model, *option, *index);
 }
 
 bool QAbstractItemDelegate_HelpEvent(QAbstractItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqabstractitemdelegate = dynamic_cast<VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        return self->helpEvent(event, view, *option, *index);
-    } else {
-        return ((VirtualQAbstractItemDelegate*)self)->helpEvent(event, view, *option, *index);
-    }
+    return self->helpEvent(event, view, *option, *index);
 }
 
 libqt_list /* of int */ QAbstractItemDelegate_PaintingRoles(const QAbstractItemDelegate* self) {
-    auto* vqabstractitemdelegate = dynamic_cast<const VirtualQAbstractItemDelegate*>(self);
-    if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
-        QList<int> _ret = self->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = ((VirtualQAbstractItemDelegate*)self)->paintingRoles();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->paintingRoles();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QAbstractItemDelegate_CommitData(QAbstractItemDelegate* self, QWidget* editor) {

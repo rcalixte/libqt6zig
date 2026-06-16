@@ -21,50 +21,25 @@ KDateValidator* KDateValidator_new2(QObject* parent) {
 }
 
 QMetaObject* KDateValidator_MetaObject(const KDateValidator* self) {
-    auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDateValidator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDateValidator_Metacast(KDateValidator* self, const char* param1) {
-    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDateValidator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDateValidator_Metacall(KDateValidator* self, int param1, int param2, void** param3) {
-    auto* vkdatevalidator = dynamic_cast<VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDateValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KDateValidator_Validate(const KDateValidator* self, libqt_string text, int* e) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        return static_cast<int>(self->validate(text_QString, static_cast<int&>(*e)));
-    } else {
-        return static_cast<int>(((VirtualKDateValidator*)self)->validate(text_QString, static_cast<int&>(*e)));
-    }
+    return static_cast<int>(self->validate(text_QString, static_cast<int&>(*e)));
 }
 
 void KDateValidator_Fixup(const KDateValidator* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vkdatevalidator = dynamic_cast<const VirtualKDateValidator*>(self);
-    if (vkdatevalidator && vkdatevalidator->isVirtualKDateValidator) {
-        self->fixup(input_QString);
-    } else {
-        ((VirtualKDateValidator*)self)->fixup(input_QString);
-    }
+    self->fixup(input_QString);
 }
 
 int KDateValidator_Date(const KDateValidator* self, const libqt_string text, QDate* date) {

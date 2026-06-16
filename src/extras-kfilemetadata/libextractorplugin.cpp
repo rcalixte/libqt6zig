@@ -18,82 +18,40 @@ KFileMetaData__ExtractorPlugin* KFileMetaData__ExtractorPlugin_new(QObject* pare
 }
 
 QMetaObject* KFileMetaData__ExtractorPlugin_MetaObject(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadata__extractorplugin = dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadata__extractorplugin && vkfilemetadata__extractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileMetaDataExtractorPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileMetaData__ExtractorPlugin_Metacast(KFileMetaData__ExtractorPlugin* self, const char* param1) {
-    auto* vkfilemetadata__extractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadata__extractorplugin && vkfilemetadata__extractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileMetaData__ExtractorPlugin_Metacall(KFileMetaData__ExtractorPlugin* self, int param1, int param2, void** param3) {
-    auto* vkfilemetadata__extractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadata__extractorplugin && vkfilemetadata__extractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileMetaDataExtractorPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_Mimetypes(const KFileMetaData__ExtractorPlugin* self) {
-    auto* vkfilemetadata__extractorplugin = dynamic_cast<const VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadata__extractorplugin && vkfilemetadata__extractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        QList<QString> _ret = vkfilemetadata__extractorplugin->mimetypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKFileMetaDataExtractorPlugin*)self)->mimetypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimetypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void KFileMetaData__ExtractorPlugin_Extract(KFileMetaData__ExtractorPlugin* self, KFileMetaData__ExtractionResult* result) {
-    auto* vkfilemetadata__extractorplugin = dynamic_cast<VirtualKFileMetaDataExtractorPlugin*>(self);
-    if (vkfilemetadata__extractorplugin && vkfilemetadata__extractorplugin->isVirtualKFileMetaDataExtractorPlugin) {
-        vkfilemetadata__extractorplugin->extract(result);
-    } else {
-        ((VirtualKFileMetaDataExtractorPlugin*)self)->extract(result);
-    }
+    self->extract(result);
 }
 
 QDateTime* KFileMetaData__ExtractorPlugin_DateTimeFromString(const libqt_string dateString) {
@@ -101,9 +59,9 @@ QDateTime* KFileMetaData__ExtractorPlugin_DateTimeFromString(const libqt_string 
     return new QDateTime(KFileMetaData::ExtractorPlugin::dateTimeFromString(dateString_QString));
 }
 
-libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_ContactsFromString(const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    QList<QString> _ret = KFileMetaData::ExtractorPlugin::contactsFromString(stringVal_QString);
+libqt_list /* of libqt_string */ KFileMetaData__ExtractorPlugin_ContactsFromString(const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    QList<QString> _ret = KFileMetaData::ExtractorPlugin::contactsFromString(string_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

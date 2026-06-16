@@ -22,48 +22,23 @@ QXYLegendMarker* QXYLegendMarker_new2(QXYSeries* series, QLegend* legend, QObjec
 }
 
 QMetaObject* QXYLegendMarker_MetaObject(const QXYLegendMarker* self) {
-    auto* vqxylegendmarker = dynamic_cast<const VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQXYLegendMarker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QXYLegendMarker_Metacast(QXYLegendMarker* self, const char* param1) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QXYLegendMarker_Metacall(QXYLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QXYLegendMarker_Type(QXYLegendMarker* self) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQXYLegendMarker*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 QXYSeries* QXYLegendMarker_Series(QXYLegendMarker* self) {
-    auto* vqxylegendmarker = dynamic_cast<VirtualQXYLegendMarker*>(self);
-    if (vqxylegendmarker && vqxylegendmarker->isVirtualQXYLegendMarker) {
-        return self->series();
-    } else {
-        return ((VirtualQXYLegendMarker*)self)->series();
-    }
+    return self->series();
 }
 
 // Base class handler implementation

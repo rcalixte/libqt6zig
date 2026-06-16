@@ -63,30 +63,15 @@ KShortcutsEditor* KShortcutsEditor_new6(QWidget* parent, int actionTypes, int al
 }
 
 QMetaObject* KShortcutsEditor_MetaObject(const KShortcutsEditor* self) {
-    auto* vkshortcutseditor = dynamic_cast<const VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKShortcutsEditor*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KShortcutsEditor_Metacast(KShortcutsEditor* self, const char* param1) {
-    auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKShortcutsEditor*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KShortcutsEditor_Metacall(KShortcutsEditor* self, int param1, int param2, void** param3) {
-    auto* vkshortcutseditor = dynamic_cast<VirtualKShortcutsEditor*>(self);
-    if (vkshortcutseditor && vkshortcutseditor->isVirtualKShortcutsEditor) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKShortcutsEditor*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KShortcutsEditor_IsModified(const KShortcutsEditor* self) {

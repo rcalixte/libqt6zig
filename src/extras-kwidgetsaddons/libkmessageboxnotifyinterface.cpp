@@ -11,12 +11,7 @@ KMessageBoxNotifyInterface* KMessageBoxNotifyInterface_new() {
 
 void KMessageBoxNotifyInterface_SendNotification(KMessageBoxNotifyInterface* self, int notificationType, const libqt_string message, QWidget* parent) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
-    auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self);
-    if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface) {
-        vkmessageboxnotifyinterface->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
-    } else {
-        ((VirtualKMessageBoxNotifyInterface*)self)->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
-    }
+    self->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
 }
 
 void KMessageBoxNotifyInterface_OperatorAssign(KMessageBoxNotifyInterface* self, const KMessageBoxNotifyInterface* param1) {

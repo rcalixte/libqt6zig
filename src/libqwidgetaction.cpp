@@ -18,30 +18,15 @@ QWidgetAction* QWidgetAction_new(QObject* parent) {
 }
 
 QMetaObject* QWidgetAction_MetaObject(const QWidgetAction* self) {
-    auto* vqwidgetaction = dynamic_cast<const VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWidgetAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWidgetAction_Metacast(QWidgetAction* self, const char* param1) {
-    auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWidgetAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWidgetAction_Metacall(QWidgetAction* self, int param1, int param2, void** param3) {
-    auto* vqwidgetaction = dynamic_cast<VirtualQWidgetAction*>(self);
-    if (vqwidgetaction && vqwidgetaction->isVirtualQWidgetAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWidgetAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QWidgetAction_SetDefaultWidget(QWidgetAction* self, QWidget* w) {

@@ -60,30 +60,15 @@ QOpenGLWindow* QOpenGLWindow_new6(QOpenGLContext* shareContext, int updateBehavi
 }
 
 QMetaObject* QOpenGLWindow_MetaObject(const QOpenGLWindow* self) {
-    auto* vqopenglwindow = dynamic_cast<const VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQOpenGLWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QOpenGLWindow_Metacast(QOpenGLWindow* self, const char* param1) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QOpenGLWindow_Metacall(QOpenGLWindow* self, int param1, int param2, void** param3) {
-    auto* vqopenglwindow = dynamic_cast<VirtualQOpenGLWindow*>(self);
-    if (vqopenglwindow && vqopenglwindow->isVirtualQOpenGLWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQOpenGLWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QOpenGLWindow_UpdateBehavior(const QOpenGLWindow* self) {

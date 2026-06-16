@@ -42,30 +42,15 @@ QWebEngineProfile* QWebEngineProfile_new4(const libqt_string name, QObject* pare
 }
 
 QMetaObject* QWebEngineProfile_MetaObject(const QWebEngineProfile* self) {
-    auto* vqwebengineprofile = dynamic_cast<const VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebEngineProfile*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebEngineProfile_Metacast(QWebEngineProfile* self, const char* param1) {
-    auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebEngineProfile*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebEngineProfile_Metacall(QWebEngineProfile* self, int param1, int param2, void** param3) {
-    auto* vqwebengineprofile = dynamic_cast<VirtualQWebEngineProfile*>(self);
-    if (vqwebengineprofile && vqwebengineprofile->isVirtualQWebEngineProfile) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebEngineProfile*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QWebEngineProfile_StorageName(const QWebEngineProfile* self) {

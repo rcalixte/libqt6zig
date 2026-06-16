@@ -22,39 +22,19 @@ QCategoryAxis* QCategoryAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QCategoryAxis_MetaObject(const QCategoryAxis* self) {
-    auto* vqcategoryaxis = dynamic_cast<const VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCategoryAxis*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCategoryAxis_Metacast(QCategoryAxis* self, const char* param1) {
-    auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCategoryAxis*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCategoryAxis_Metacall(QCategoryAxis* self, int param1, int param2, void** param3) {
-    auto* vqcategoryaxis = dynamic_cast<VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCategoryAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCategoryAxis_Type(const QCategoryAxis* self) {
-    auto* vqcategoryaxis = dynamic_cast<const VirtualQCategoryAxis*>(self);
-    if (vqcategoryaxis && vqcategoryaxis->isVirtualQCategoryAxis) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQCategoryAxis*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QCategoryAxis_Append(QCategoryAxis* self, const libqt_string label, double categoryEndValue) {

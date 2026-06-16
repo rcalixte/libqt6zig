@@ -41,7 +41,7 @@ void* KIO__MimetypeJob_Metacast(KIO__MimetypeJob* self, const char* param1);
 int KIO__MimetypeJob_Metacall(KIO__MimetypeJob* self, int param1, int param2, void** param3);
 void KIO__MimetypeJob_Delete(KIO__MimetypeJob* self);
 
-KIO__MimetypeJob* KIO_Mimetype(const QUrl* param1, int param2);
+KIO__MimetypeJob* KIO_Mimetype(const QUrl* url, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

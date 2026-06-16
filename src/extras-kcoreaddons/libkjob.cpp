@@ -20,30 +20,15 @@ KJob* KJob_new2(QObject* parent) {
 }
 
 QMetaObject* KJob_MetaObject(const KJob* self) {
-    auto* vkjob = dynamic_cast<const VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KJob_Metacast(KJob* self, const char* param1) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KJob_Metacall(KJob* self, int param1, int param2, void** param3) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KJob_SetUiDelegate(KJob* self, KJobUiDelegate* delegate) {
@@ -63,12 +48,7 @@ bool KJob_IsSuspended(const KJob* self) {
 }
 
 void KJob_Start(KJob* self) {
-    auto* vkjob = dynamic_cast<VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        vkjob->start();
-    } else {
-        ((VirtualKJob*)self)->start();
-    }
+    self->start();
 }
 
 bool KJob_Kill(KJob* self) {
@@ -128,28 +108,15 @@ libqt_string KJob_ErrorText(const KJob* self) {
 }
 
 libqt_string KJob_ErrorString(const KJob* self) {
-    auto* vkjob = dynamic_cast<const VirtualKJob*>(self);
-    if (vkjob && vkjob->isVirtualKJob) {
-        auto _ret = self->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKJob*)self)->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 unsigned long long KJob_ProcessedAmount(const KJob* self, int unit) {

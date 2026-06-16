@@ -21,30 +21,15 @@ QOpenGLTimerQuery* QOpenGLTimerQuery_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLTimerQuery_MetaObject(const QOpenGLTimerQuery* self) {
-    auto* vqopengltimerquery = dynamic_cast<const VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQOpenGLTimerQuery*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QOpenGLTimerQuery_Metacast(QOpenGLTimerQuery* self, const char* param1) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QOpenGLTimerQuery_Metacall(QOpenGLTimerQuery* self, int param1, int param2, void** param3) {
-    auto* vqopengltimerquery = dynamic_cast<VirtualQOpenGLTimerQuery*>(self);
-    if (vqopengltimerquery && vqopengltimerquery->isVirtualQOpenGLTimerQuery) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQOpenGLTimerQuery*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QOpenGLTimerQuery_Create(QOpenGLTimerQuery* self) {
@@ -476,30 +461,15 @@ QOpenGLTimeMonitor* QOpenGLTimeMonitor_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLTimeMonitor_MetaObject(const QOpenGLTimeMonitor* self) {
-    auto* vqopengltimemonitor = dynamic_cast<const VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQOpenGLTimeMonitor*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QOpenGLTimeMonitor_Metacast(QOpenGLTimeMonitor* self, const char* param1) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QOpenGLTimeMonitor_Metacall(QOpenGLTimeMonitor* self, int param1, int param2, void** param3) {
-    auto* vqopengltimemonitor = dynamic_cast<VirtualQOpenGLTimeMonitor*>(self);
-    if (vqopengltimemonitor && vqopengltimemonitor->isVirtualQOpenGLTimeMonitor) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQOpenGLTimeMonitor*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QOpenGLTimeMonitor_SetSampleCount(QOpenGLTimeMonitor* self, int sampleCount) {

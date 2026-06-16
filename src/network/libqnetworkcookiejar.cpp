@@ -22,57 +22,28 @@ QNetworkCookieJar* QNetworkCookieJar_new2(QObject* parent) {
 }
 
 QMetaObject* QNetworkCookieJar_MetaObject(const QNetworkCookieJar* self) {
-    auto* vqnetworkcookiejar = dynamic_cast<const VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQNetworkCookieJar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QNetworkCookieJar_Metacast(QNetworkCookieJar* self, const char* param1) {
-    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQNetworkCookieJar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QNetworkCookieJar_Metacall(QNetworkCookieJar* self, int param1, int param2, void** param3) {
-    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQNetworkCookieJar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_CookiesForUrl(const QNetworkCookieJar* self, const QUrl* url) {
-    auto* vqnetworkcookiejar = dynamic_cast<const VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        QList<QNetworkCookie> _ret = self->cookiesForUrl(*url);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QNetworkCookie(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QNetworkCookie> _ret = ((VirtualQNetworkCookieJar*)self)->cookiesForUrl(*url);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QNetworkCookie(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QNetworkCookie> _ret = self->cookiesForUrl(*url);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QNetworkCookie(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 bool QNetworkCookieJar_SetCookiesFromUrl(QNetworkCookieJar* self, const libqt_list /* of QNetworkCookie* */ cookieList, const QUrl* url) {
@@ -82,39 +53,19 @@ bool QNetworkCookieJar_SetCookiesFromUrl(QNetworkCookieJar* self, const libqt_li
     for (size_t i = 0; i < cookieList.len; ++i) {
         cookieList_QList.push_back(*(cookieList_arr[i]));
     }
-    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return self->setCookiesFromUrl(cookieList_QList, *url);
-    } else {
-        return ((VirtualQNetworkCookieJar*)self)->setCookiesFromUrl(cookieList_QList, *url);
-    }
+    return self->setCookiesFromUrl(cookieList_QList, *url);
 }
 
 bool QNetworkCookieJar_InsertCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie) {
-    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return self->insertCookie(*cookie);
-    } else {
-        return ((VirtualQNetworkCookieJar*)self)->insertCookie(*cookie);
-    }
+    return self->insertCookie(*cookie);
 }
 
 bool QNetworkCookieJar_UpdateCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie) {
-    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return self->updateCookie(*cookie);
-    } else {
-        return ((VirtualQNetworkCookieJar*)self)->updateCookie(*cookie);
-    }
+    return self->updateCookie(*cookie);
 }
 
 bool QNetworkCookieJar_DeleteCookie(QNetworkCookieJar* self, const QNetworkCookie* cookie) {
-    auto* vqnetworkcookiejar = dynamic_cast<VirtualQNetworkCookieJar*>(self);
-    if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
-        return self->deleteCookie(*cookie);
-    } else {
-        return ((VirtualQNetworkCookieJar*)self)->deleteCookie(*cookie);
-    }
+    return self->deleteCookie(*cookie);
 }
 
 bool QNetworkCookieJar_ValidateCookie(const QNetworkCookieJar* self, const QNetworkCookie* cookie, const QUrl* url) {

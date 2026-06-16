@@ -19,18 +19,18 @@ pub const KShell = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` cmd: []const u8 `
     ///
-    /// ` param2: flag of kshell_enums.Option `
+    /// ` flags: flag of kshell_enums.Option `
     ///
-    /// ` param3: *kshell_enums.Errors `
+    /// ` err: *kshell_enums.Errors `
     ///
-    pub fn SplitArgs(allocator: std.mem.Allocator, param1: []const u8, param2: i32, param3: *i32) []const []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn SplitArgs(allocator: std.mem.Allocator, cmd: []const u8, flags: i32, err: *i32) []const []const u8 {
+        const cmd_str = qtc.libqt_string{
+            .len = cmd.len,
+            .data = cmd.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KShell_SplitArgs(param1_str, @bitCast(param2), @ptrCast(param3));
+        const _arr: qtc.libqt_list = qtc.KShell_SplitArgs(cmd_str, @bitCast(flags), @ptrCast(err));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -53,21 +53,21 @@ pub const KShell = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const []const u8 `
+    /// ` args: []const []const u8 `
     ///
-    pub fn JoinArgs(allocator: std.mem.Allocator, param1: []const []const u8) []const u8 {
-        const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
-        defer allocator.free(param1_arr);
-        for (param1, 0..param1.len) |item, i|
-            param1_arr[i] = .{
+    pub fn JoinArgs(allocator: std.mem.Allocator, args: []const []const u8) []const u8 {
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
+        defer allocator.free(args_arr);
+        for (args, 0..args.len) |item, i|
+            args_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = param1_arr.ptr,
+        const args_list = qtc.libqt_list{
+            .len = args.len,
+            .data = args_arr.ptr,
         };
-        var _str = qtc.KShell_JoinArgs(param1_list);
+        var _str = qtc.KShell_JoinArgs(args_list);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -80,14 +80,14 @@ pub const KShell = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` arg: []const u8 `
     ///
-    pub fn QuoteArg(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn QuoteArg(allocator: std.mem.Allocator, arg: []const u8) []const u8 {
+        const arg_str = qtc.libqt_string{
+            .len = arg.len,
+            .data = arg.ptr,
         };
-        var _str = qtc.KShell_QuoteArg(param1_str);
+        var _str = qtc.KShell_QuoteArg(arg_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.QuoteArg: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -100,14 +100,14 @@ pub const KShell = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` path: []const u8 `
     ///
-    pub fn TildeExpand(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn TildeExpand(allocator: std.mem.Allocator, path: []const u8) []const u8 {
+        const path_str = qtc.libqt_string{
+            .len = path.len,
+            .data = path.ptr,
         };
-        var _str = qtc.KShell_TildeExpand(param1_str);
+        var _str = qtc.KShell_TildeExpand(path_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.TildeExpand: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -120,14 +120,14 @@ pub const KShell = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` path: []const u8 `
     ///
-    pub fn TildeCollapse(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn TildeCollapse(allocator: std.mem.Allocator, path: []const u8) []const u8 {
+        const path_str = qtc.libqt_string{
+            .len = path.len,
+            .data = path.ptr,
         };
-        var _str = qtc.KShell_TildeCollapse(param1_str);
+        var _str = qtc.KShell_TildeCollapse(path_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.TildeCollapse: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

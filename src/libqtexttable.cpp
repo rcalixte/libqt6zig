@@ -103,30 +103,15 @@ QTextTable* QTextTable_new(QTextDocument* doc) {
 }
 
 QMetaObject* QTextTable_MetaObject(const QTextTable* self) {
-    auto* vqtexttable = dynamic_cast<const VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextTable*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextTable_Metacast(QTextTable* self, const char* param1) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextTable*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextTable_Metacall(QTextTable* self, int param1, int param2, void** param3) {
-    auto* vqtexttable = dynamic_cast<VirtualQTextTable*>(self);
-    if (vqtexttable && vqtexttable->isVirtualQTextTable) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextTable*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTextTable_Resize(QTextTable* self, int rows, int cols) {

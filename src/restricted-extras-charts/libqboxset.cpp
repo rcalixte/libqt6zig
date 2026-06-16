@@ -42,30 +42,15 @@ QBoxSet* QBoxSet_new6(const double le, const double lq, const double m, const do
 }
 
 QMetaObject* QBoxSet_MetaObject(const QBoxSet* self) {
-    auto* vqboxset = dynamic_cast<const VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBoxSet*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBoxSet_Metacast(QBoxSet* self, const char* param1) {
-    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBoxSet*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBoxSet_Metacall(QBoxSet* self, int param1, int param2, void** param3) {
-    auto* vqboxset = dynamic_cast<VirtualQBoxSet*>(self);
-    if (vqboxset && vqboxset->isVirtualQBoxSet) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBoxSet*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QBoxSet_Append(QBoxSet* self, const double value) {

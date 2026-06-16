@@ -91,10 +91,10 @@ void KIO__DropJob_Delete(KIO__DropJob* self) {
     delete self;
 }
 
-KIO__DropJob* KIO_Drop(const QDropEvent* param1, const QUrl* param2, int param3) {
-    return KIO::drop(param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__DropJob* KIO_Drop(const QDropEvent* dropEvent, const QUrl* destUrl, int flags) {
+    return KIO::drop(dropEvent, *destUrl, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__DropJob* KIO_Drop2(const QDropEvent* param1, const QUrl* param2, int param3, int param4) {
-    return KIO::drop(param1, *param2, static_cast<KIO::DropJobFlags>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__DropJob* KIO_Drop2(const QDropEvent* dropEvent, const QUrl* destUrl, int dropjobFlags, int flags) {
+    return KIO::drop(dropEvent, *destUrl, static_cast<KIO::DropJobFlags>(dropjobFlags), static_cast<KIO::JobFlags>(flags));
 }

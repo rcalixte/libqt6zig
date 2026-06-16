@@ -41,30 +41,15 @@ KHelpMenu* KHelpMenu_new6(QWidget* parent, const libqt_string unused, bool showW
 }
 
 QMetaObject* KHelpMenu_MetaObject(const KHelpMenu* self) {
-    auto* vkhelpmenu = dynamic_cast<const VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKHelpMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KHelpMenu_Metacast(KHelpMenu* self, const char* param1) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKHelpMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KHelpMenu_Metacall(KHelpMenu* self, int param1, int param2, void** param3) {
-    auto* vkhelpmenu = dynamic_cast<VirtualKHelpMenu*>(self);
-    if (vkhelpmenu && vkhelpmenu->isVirtualKHelpMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKHelpMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KHelpMenu_SetShowWhatsThis(KHelpMenu* self, bool showWhatsThis) {

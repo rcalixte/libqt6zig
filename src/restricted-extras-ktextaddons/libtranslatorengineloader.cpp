@@ -22,30 +22,15 @@ TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_n
 }
 
 QMetaObject* TextTranslator__TranslatorEngineLoader_MetaObject(const TextTranslator__TranslatorEngineLoader* self) {
-    auto* vtexttranslator__translatorengineloader = dynamic_cast<const VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslator__translatorengineloader && vtexttranslator__translatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorEngineLoader*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorEngineLoader_Metacast(TextTranslator__TranslatorEngineLoader* self, const char* param1) {
-    auto* vtexttranslator__translatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslator__translatorengineloader && vtexttranslator__translatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorEngineLoader_Metacall(TextTranslator__TranslatorEngineLoader* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorengineloader = dynamic_cast<VirtualTextTranslatorTranslatorEngineLoader*>(self);
-    if (vtexttranslator__translatorengineloader && vtexttranslator__translatorengineloader->isVirtualTextTranslatorTranslatorEngineLoader) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineLoader*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextTranslator__TranslatorEngineLoader* TextTranslator__TranslatorEngineLoader_Self() {

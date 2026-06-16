@@ -352,14 +352,14 @@ pub const QCollator = extern struct {
     ///
     /// ` self: QCollator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn SortKey(self: QCollator, stringVal: []const u8) QCollatorSortKey {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn SortKey(self: QCollator, string: []const u8) QCollatorSortKey {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QCollator_SortKey(@ptrCast(self.ptr), stringVal_str) };
+        return .{ .ptr = qtc.QCollator_SortKey(@ptrCast(self.ptr), string_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#defaultCompare)

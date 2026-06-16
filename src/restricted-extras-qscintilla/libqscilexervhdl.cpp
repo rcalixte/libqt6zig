@@ -23,30 +23,15 @@ QsciLexerVHDL* QsciLexerVHDL_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerVHDL_MetaObject(const QsciLexerVHDL* self) {
-    auto* vqscilexervhdl = dynamic_cast<const VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerVHDL*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerVHDL_Metacast(QsciLexerVHDL* self, const char* param1) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerVHDL*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerVHDL_Metacall(QsciLexerVHDL* self, int param1, int param2, void** param3) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerVHDL*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerVHDL_Language(const QsciLexerVHDL* self) {
@@ -118,48 +103,23 @@ bool QsciLexerVHDL_FoldAtParenthesis(const QsciLexerVHDL* self) {
 }
 
 void QsciLexerVHDL_SetFoldComments(QsciLexerVHDL* self, bool fold) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerVHDL*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerVHDL_SetFoldCompact(QsciLexerVHDL* self, bool fold) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerVHDL*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 void QsciLexerVHDL_SetFoldAtElse(QsciLexerVHDL* self, bool fold) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        self->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerVHDL*)self)->setFoldAtElse(fold);
-    }
+    self->setFoldAtElse(fold);
 }
 
 void QsciLexerVHDL_SetFoldAtBegin(QsciLexerVHDL* self, bool fold) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        self->setFoldAtBegin(fold);
-    } else {
-        ((VirtualQsciLexerVHDL*)self)->setFoldAtBegin(fold);
-    }
+    self->setFoldAtBegin(fold);
 }
 
 void QsciLexerVHDL_SetFoldAtParenthesis(QsciLexerVHDL* self, bool fold) {
-    auto* vqscilexervhdl = dynamic_cast<VirtualQsciLexerVHDL*>(self);
-    if (vqscilexervhdl && vqscilexervhdl->isVirtualQsciLexerVHDL) {
-        self->setFoldAtParenthesis(fold);
-    } else {
-        ((VirtualQsciLexerVHDL*)self)->setFoldAtParenthesis(fold);
-    }
+    self->setFoldAtParenthesis(fold);
 }
 
 // Base class handler implementation

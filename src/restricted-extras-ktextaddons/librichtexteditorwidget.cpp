@@ -55,30 +55,15 @@ TextCustomEditor__RichTextEditorWidget* TextCustomEditor__RichTextEditorWidget_n
 }
 
 QMetaObject* TextCustomEditor__RichTextEditorWidget_MetaObject(const TextCustomEditor__RichTextEditorWidget* self) {
-    auto* vtextcustomeditor__richtexteditorwidget = dynamic_cast<const VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditor__richtexteditorwidget && vtextcustomeditor__richtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorRichTextEditorWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__RichTextEditorWidget_Metacast(TextCustomEditor__RichTextEditorWidget* self, const char* param1) {
-    auto* vtextcustomeditor__richtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditor__richtexteditorwidget && vtextcustomeditor__richtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditorWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__RichTextEditorWidget_Metacall(TextCustomEditor__RichTextEditorWidget* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__richtexteditorwidget = dynamic_cast<VirtualTextCustomEditorRichTextEditorWidget*>(self);
-    if (vtextcustomeditor__richtexteditorwidget && vtextcustomeditor__richtexteditorwidget->isVirtualTextCustomEditorRichTextEditorWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditorWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__RichTextEditorWidget_Clear(TextCustomEditor__RichTextEditorWidget* self) {

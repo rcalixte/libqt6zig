@@ -54,12 +54,7 @@ void QGraphicsLinearLayout_RemoveItem(QGraphicsLinearLayout* self, QGraphicsLayo
 }
 
 void QGraphicsLinearLayout_RemoveAt(QGraphicsLinearLayout* self, int index) {
-    auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
-        self->removeAt(static_cast<int>(index));
-    } else {
-        ((VirtualQGraphicsLinearLayout*)self)->removeAt(static_cast<int>(index));
-    }
+    self->removeAt(static_cast<int>(index));
 }
 
 void QGraphicsLinearLayout_SetSpacing(QGraphicsLinearLayout* self, double spacing) {
@@ -95,48 +90,23 @@ int QGraphicsLinearLayout_Alignment(const QGraphicsLinearLayout* self, QGraphics
 }
 
 void QGraphicsLinearLayout_SetGeometry(QGraphicsLinearLayout* self, const QRectF* rect) {
-    auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQGraphicsLinearLayout*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 int QGraphicsLinearLayout_Count(const QGraphicsLinearLayout* self) {
-    auto* vqgraphicslinearlayout = dynamic_cast<const VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
-        return self->count();
-    } else {
-        return ((VirtualQGraphicsLinearLayout*)self)->count();
-    }
+    return self->count();
 }
 
 QGraphicsLayoutItem* QGraphicsLinearLayout_ItemAt(const QGraphicsLinearLayout* self, int index) {
-    auto* vqgraphicslinearlayout = dynamic_cast<const VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
-        return self->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQGraphicsLinearLayout*)self)->itemAt(static_cast<int>(index));
-    }
+    return self->itemAt(static_cast<int>(index));
 }
 
 void QGraphicsLinearLayout_Invalidate(QGraphicsLinearLayout* self) {
-    auto* vqgraphicslinearlayout = dynamic_cast<VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQGraphicsLinearLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 QSizeF* QGraphicsLinearLayout_SizeHint(const QGraphicsLinearLayout* self, int which, const QSizeF* constraint) {
-    auto* vqgraphicslinearlayout = dynamic_cast<const VirtualQGraphicsLinearLayout*>(self);
-    if (vqgraphicslinearlayout && vqgraphicslinearlayout->isVirtualQGraphicsLinearLayout) {
-        return new QSizeF(self->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    } else {
-        return new QSizeF(((VirtualQGraphicsLinearLayout*)self)->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    }
+    return new QSizeF(self->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
 }
 
 void QGraphicsLinearLayout_Dump(const QGraphicsLinearLayout* self) {

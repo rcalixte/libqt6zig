@@ -20,30 +20,15 @@ QLocalServer* QLocalServer_new2(QObject* parent) {
 }
 
 QMetaObject* QLocalServer_MetaObject(const QLocalServer* self) {
-    auto* vqlocalserver = dynamic_cast<const VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLocalServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLocalServer_Metacast(QLocalServer* self, const char* param1) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLocalServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLocalServer_Metacall(QLocalServer* self, int param1, int param2, void** param3) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLocalServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QLocalServer_NewConnection(QLocalServer* self) {
@@ -74,12 +59,7 @@ libqt_string QLocalServer_ErrorString(const QLocalServer* self) {
 }
 
 bool QLocalServer_HasPendingConnections(const QLocalServer* self) {
-    auto* vqlocalserver = dynamic_cast<const VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return self->hasPendingConnections();
-    } else {
-        return ((VirtualQLocalServer*)self)->hasPendingConnections();
-    }
+    return self->hasPendingConnections();
 }
 
 bool QLocalServer_IsListening(const QLocalServer* self) {
@@ -100,12 +80,7 @@ int QLocalServer_MaxPendingConnections(const QLocalServer* self) {
 }
 
 QLocalSocket* QLocalServer_NextPendingConnection(QLocalServer* self) {
-    auto* vqlocalserver = dynamic_cast<VirtualQLocalServer*>(self);
-    if (vqlocalserver && vqlocalserver->isVirtualQLocalServer) {
-        return self->nextPendingConnection();
-    } else {
-        return ((VirtualQLocalServer*)self)->nextPendingConnection();
-    }
+    return self->nextPendingConnection();
 }
 
 libqt_string QLocalServer_ServerName(const QLocalServer* self) {

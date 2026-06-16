@@ -24,30 +24,15 @@ KCoreDirLister* KCoreDirLister_new2(QObject* parent) {
 }
 
 QMetaObject* KCoreDirLister_MetaObject(const KCoreDirLister* self) {
-    auto* vkcoredirlister = dynamic_cast<const VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCoreDirLister*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCoreDirLister_Metacast(KCoreDirLister* self, const char* param1) {
-    auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCoreDirLister*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCoreDirLister_Metacall(KCoreDirLister* self, int param1, int param2, void** param3) {
-    auto* vkcoredirlister = dynamic_cast<VirtualKCoreDirLister*>(self);
-    if (vkcoredirlister && vkcoredirlister->isVirtualKCoreDirLister) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCoreDirLister*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KCoreDirLister_OpenUrl(KCoreDirLister* self, const QUrl* dirUrl) {

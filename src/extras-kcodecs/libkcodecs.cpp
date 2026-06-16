@@ -9,9 +9,9 @@
 #include "libkcodecs.h"
 #include "libkcodecs.hxx"
 
-libqt_string KCodecs_QuotedPrintableEncode(libqt_string param1, bool param2) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray _qb = KCodecs::quotedPrintableEncode(param1_QByteArrayView, param2);
+libqt_string KCodecs_QuotedPrintableEncode(libqt_string in, bool useCRLF) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray _qb = KCodecs::quotedPrintableEncode(in_QByteArrayView, useCRLF);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -19,15 +19,15 @@ libqt_string KCodecs_QuotedPrintableEncode(libqt_string param1, bool param2) {
     return _str;
 }
 
-void KCodecs_QuotedPrintableEncode2(libqt_string param1, libqt_string param2, bool param3) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    KCodecs::quotedPrintableEncode(param1_QByteArrayView, param2_QByteArray, param3);
+void KCodecs_QuotedPrintableEncode2(libqt_string in, libqt_string out, bool useCRLF) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray out_QByteArray(out.data, out.len);
+    KCodecs::quotedPrintableEncode(in_QByteArrayView, out_QByteArray, useCRLF);
 }
 
-libqt_string KCodecs_QuotedPrintableDecode(libqt_string param1) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray _qb = KCodecs::quotedPrintableDecode(param1_QByteArrayView);
+libqt_string KCodecs_QuotedPrintableDecode(libqt_string in) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray _qb = KCodecs::quotedPrintableDecode(in_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -35,15 +35,15 @@ libqt_string KCodecs_QuotedPrintableDecode(libqt_string param1) {
     return _str;
 }
 
-void KCodecs_QuotedPrintableDecode2(libqt_string param1, libqt_string param2) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    KCodecs::quotedPrintableDecode(param1_QByteArrayView, param2_QByteArray);
+void KCodecs_QuotedPrintableDecode2(libqt_string in, libqt_string out) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray out_QByteArray(out.data, out.len);
+    KCodecs::quotedPrintableDecode(in_QByteArrayView, out_QByteArray);
 }
 
-libqt_string KCodecs_Uudecode(libqt_string param1) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray _qb = KCodecs::uudecode(param1_QByteArrayView);
+libqt_string KCodecs_Uudecode(libqt_string in) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray _qb = KCodecs::uudecode(in_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -51,15 +51,15 @@ libqt_string KCodecs_Uudecode(libqt_string param1) {
     return _str;
 }
 
-void KCodecs_Uudecode2(libqt_string param1, libqt_string param2) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    KCodecs::uudecode(param1_QByteArrayView, param2_QByteArray);
+void KCodecs_Uudecode2(libqt_string in, libqt_string out) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray out_QByteArray(out.data, out.len);
+    KCodecs::uudecode(in_QByteArrayView, out_QByteArray);
 }
 
-libqt_string KCodecs_Base64Encode(libqt_string param1) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray _qb = KCodecs::base64Encode(param1_QByteArrayView);
+libqt_string KCodecs_Base64Encode(libqt_string in) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray _qb = KCodecs::base64Encode(in_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -67,15 +67,15 @@ libqt_string KCodecs_Base64Encode(libqt_string param1) {
     return _str;
 }
 
-void KCodecs_Base64Encode2(libqt_string param1, libqt_string param2, bool param3) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    KCodecs::base64Encode(param1_QByteArrayView, param2_QByteArray, param3);
+void KCodecs_Base64Encode2(libqt_string in, libqt_string out, bool insertLFs) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray out_QByteArray(out.data, out.len);
+    KCodecs::base64Encode(in_QByteArrayView, out_QByteArray, insertLFs);
 }
 
-libqt_string KCodecs_Base64Decode(libqt_string param1) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray _qb = KCodecs::base64Decode(param1_QByteArrayView);
+libqt_string KCodecs_Base64Decode(libqt_string in) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray _qb = KCodecs::base64Decode(in_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -83,15 +83,15 @@ libqt_string KCodecs_Base64Decode(libqt_string param1) {
     return _str;
 }
 
-void KCodecs_Base64Decode2(libqt_string param1, libqt_string param2) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    KCodecs::base64Decode(param1_QByteArrayView, param2_QByteArray);
+void KCodecs_Base64Decode2(libqt_string in, libqt_string out) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray out_QByteArray(out.data, out.len);
+    KCodecs::base64Decode(in_QByteArrayView, out_QByteArray);
 }
 
-libqt_string KCodecs_DecodeRFC2047String(libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KCodecs::decodeRFC2047String(param1_QString);
+libqt_string KCodecs_DecodeRFC2047String(libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto _ret = KCodecs::decodeRFC2047String(text_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -102,10 +102,10 @@ libqt_string KCodecs_DecodeRFC2047String(libqt_string param1) {
     return _str;
 }
 
-libqt_string KCodecs_EncodeRFC2047String(libqt_string param1, const libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    QByteArray _qb = KCodecs::encodeRFC2047String(param1_QString, param2_QByteArray);
+libqt_string KCodecs_EncodeRFC2047String(libqt_string src, const libqt_string charset) {
+    QString src_QString = QString::fromUtf8(src.data, src.len);
+    QByteArray charset_QByteArray(charset.data, charset.len);
+    QByteArray _qb = KCodecs::encodeRFC2047String(src_QString, charset_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -113,9 +113,9 @@ libqt_string KCodecs_EncodeRFC2047String(libqt_string param1, const libqt_string
     return _str;
 }
 
-libqt_string KCodecs_Base45Decode(libqt_string param1) {
-    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
-    QByteArray _qb = KCodecs::base45Decode(param1_QByteArrayView);
+libqt_string KCodecs_Base45Decode(libqt_string in) {
+    QByteArrayView in_QByteArrayView(in.data, in.len);
+    QByteArray _qb = KCodecs::base45Decode(in_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));

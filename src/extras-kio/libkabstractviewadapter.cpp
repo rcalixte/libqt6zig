@@ -19,57 +19,27 @@ KAbstractViewAdapter* KAbstractViewAdapter_new(QObject* parent) {
 }
 
 QAbstractItemModel* KAbstractViewAdapter_Model(const KAbstractViewAdapter* self) {
-    auto* vkabstractviewadapter = dynamic_cast<const VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
-        return vkabstractviewadapter->model();
-    } else {
-        return ((VirtualKAbstractViewAdapter*)self)->model();
-    }
+    return self->model();
 }
 
 QSize* KAbstractViewAdapter_IconSize(const KAbstractViewAdapter* self) {
-    auto* vkabstractviewadapter = dynamic_cast<const VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
-        return new QSize(vkabstractviewadapter->iconSize());
-    } else {
-        return new QSize(((VirtualKAbstractViewAdapter*)self)->iconSize());
-    }
+    return new QSize(self->iconSize());
 }
 
 QPalette* KAbstractViewAdapter_Palette(const KAbstractViewAdapter* self) {
-    auto* vkabstractviewadapter = dynamic_cast<const VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
-        return new QPalette(vkabstractviewadapter->palette());
-    } else {
-        return new QPalette(((VirtualKAbstractViewAdapter*)self)->palette());
-    }
+    return new QPalette(self->palette());
 }
 
 QRect* KAbstractViewAdapter_VisibleArea(const KAbstractViewAdapter* self) {
-    auto* vkabstractviewadapter = dynamic_cast<const VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
-        return new QRect(vkabstractviewadapter->visibleArea());
-    } else {
-        return new QRect(((VirtualKAbstractViewAdapter*)self)->visibleArea());
-    }
+    return new QRect(self->visibleArea());
 }
 
 QRect* KAbstractViewAdapter_VisualRect(const KAbstractViewAdapter* self, const QModelIndex* index) {
-    auto* vkabstractviewadapter = dynamic_cast<const VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
-        return new QRect(vkabstractviewadapter->visualRect(*index));
-    } else {
-        return new QRect(((VirtualKAbstractViewAdapter*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 void KAbstractViewAdapter_Connect(KAbstractViewAdapter* self, int signal, QObject* receiver, const char* slot) {
-    auto* vkabstractviewadapter = dynamic_cast<VirtualKAbstractViewAdapter*>(self);
-    if (vkabstractviewadapter && vkabstractviewadapter->isVirtualKAbstractViewAdapter) {
-        vkabstractviewadapter->connect(static_cast<KAbstractViewAdapter::Signal>(signal), receiver, slot);
-    } else {
-        ((VirtualKAbstractViewAdapter*)self)->connect(static_cast<KAbstractViewAdapter::Signal>(signal), receiver, slot);
-    }
+    self->connect(static_cast<KAbstractViewAdapter::Signal>(signal), receiver, slot);
 }
 
 // Base class handler implementation

@@ -100,165 +100,75 @@ void QPaintEngine_SetActive(QPaintEngine* self, bool newState) {
 }
 
 bool QPaintEngine_Begin(QPaintEngine* self, QPaintDevice* pdev) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        return vqpaintengine->begin(pdev);
-    } else {
-        return ((VirtualQPaintEngine*)self)->begin(pdev);
-    }
+    return self->begin(pdev);
 }
 
 bool QPaintEngine_End(QPaintEngine* self) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        return vqpaintengine->end();
-    } else {
-        return ((VirtualQPaintEngine*)self)->end();
-    }
+    return self->end();
 }
 
 void QPaintEngine_UpdateState(QPaintEngine* self, const QPaintEngineState* state) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        vqpaintengine->updateState(*state);
-    } else {
-        ((VirtualQPaintEngine*)self)->updateState(*state);
-    }
+    self->updateState(*state);
 }
 
 void QPaintEngine_DrawRects(QPaintEngine* self, const QRect* rects, int rectCount) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawRects(rects, static_cast<int>(rectCount));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawRects(rects, static_cast<int>(rectCount));
-    }
+    self->drawRects(rects, static_cast<int>(rectCount));
 }
 
 void QPaintEngine_DrawRects2(QPaintEngine* self, const QRectF* rects, int rectCount) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawRects(rects, static_cast<int>(rectCount));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawRects(rects, static_cast<int>(rectCount));
-    }
+    self->drawRects(rects, static_cast<int>(rectCount));
 }
 
 void QPaintEngine_DrawLines(QPaintEngine* self, const QLine* lines, int lineCount) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawLines(lines, static_cast<int>(lineCount));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawLines(lines, static_cast<int>(lineCount));
-    }
+    self->drawLines(lines, static_cast<int>(lineCount));
 }
 
 void QPaintEngine_DrawLines2(QPaintEngine* self, const QLineF* lines, int lineCount) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawLines(lines, static_cast<int>(lineCount));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawLines(lines, static_cast<int>(lineCount));
-    }
+    self->drawLines(lines, static_cast<int>(lineCount));
 }
 
 void QPaintEngine_DrawEllipse(QPaintEngine* self, const QRectF* r) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawEllipse(*r);
-    } else {
-        ((VirtualQPaintEngine*)self)->drawEllipse(*r);
-    }
+    self->drawEllipse(*r);
 }
 
 void QPaintEngine_DrawEllipse2(QPaintEngine* self, const QRect* r) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawEllipse(*r);
-    } else {
-        ((VirtualQPaintEngine*)self)->drawEllipse(*r);
-    }
+    self->drawEllipse(*r);
 }
 
 void QPaintEngine_DrawPath(QPaintEngine* self, const QPainterPath* path) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawPath(*path);
-    } else {
-        ((VirtualQPaintEngine*)self)->drawPath(*path);
-    }
+    self->drawPath(*path);
 }
 
 void QPaintEngine_DrawPoints(QPaintEngine* self, const QPointF* points, int pointCount) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawPoints(points, static_cast<int>(pointCount));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawPoints(points, static_cast<int>(pointCount));
-    }
+    self->drawPoints(points, static_cast<int>(pointCount));
 }
 
 void QPaintEngine_DrawPoints2(QPaintEngine* self, const QPoint* points, int pointCount) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawPoints(points, static_cast<int>(pointCount));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawPoints(points, static_cast<int>(pointCount));
-    }
+    self->drawPoints(points, static_cast<int>(pointCount));
 }
 
 void QPaintEngine_DrawPolygon(QPaintEngine* self, const QPointF* points, int pointCount, int mode) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawPolygon(points, static_cast<int>(pointCount), static_cast<QPaintEngine::PolygonDrawMode>(mode));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawPolygon(points, static_cast<int>(pointCount), static_cast<QPaintEngine::PolygonDrawMode>(mode));
-    }
+    self->drawPolygon(points, static_cast<int>(pointCount), static_cast<QPaintEngine::PolygonDrawMode>(mode));
 }
 
 void QPaintEngine_DrawPolygon2(QPaintEngine* self, const QPoint* points, int pointCount, int mode) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawPolygon(points, static_cast<int>(pointCount), static_cast<QPaintEngine::PolygonDrawMode>(mode));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawPolygon(points, static_cast<int>(pointCount), static_cast<QPaintEngine::PolygonDrawMode>(mode));
-    }
+    self->drawPolygon(points, static_cast<int>(pointCount), static_cast<QPaintEngine::PolygonDrawMode>(mode));
 }
 
 void QPaintEngine_DrawPixmap(QPaintEngine* self, const QRectF* r, const QPixmap* pm, const QRectF* sr) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        vqpaintengine->drawPixmap(*r, *pm, *sr);
-    } else {
-        ((VirtualQPaintEngine*)self)->drawPixmap(*r, *pm, *sr);
-    }
+    self->drawPixmap(*r, *pm, *sr);
 }
 
 void QPaintEngine_DrawTextItem(QPaintEngine* self, const QPointF* p, const QTextItem* textItem) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawTextItem(*p, *textItem);
-    } else {
-        ((VirtualQPaintEngine*)self)->drawTextItem(*p, *textItem);
-    }
+    self->drawTextItem(*p, *textItem);
 }
 
 void QPaintEngine_DrawTiledPixmap(QPaintEngine* self, const QRectF* r, const QPixmap* pixmap, const QPointF* s) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawTiledPixmap(*r, *pixmap, *s);
-    } else {
-        ((VirtualQPaintEngine*)self)->drawTiledPixmap(*r, *pixmap, *s);
-    }
+    self->drawTiledPixmap(*r, *pixmap, *s);
 }
 
 void QPaintEngine_DrawImage(QPaintEngine* self, const QRectF* r, const QImage* pm, const QRectF* sr, int flags) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        self->drawImage(*r, *pm, *sr, static_cast<Qt::ImageConversionFlags>(flags));
-    } else {
-        ((VirtualQPaintEngine*)self)->drawImage(*r, *pm, *sr, static_cast<Qt::ImageConversionFlags>(flags));
-    }
+    self->drawImage(*r, *pm, *sr, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
 void QPaintEngine_SetPaintDevice(QPaintEngine* self, QPaintDevice* device) {
@@ -286,21 +196,11 @@ QRect* QPaintEngine_SystemRect(const QPaintEngine* self) {
 }
 
 QPoint* QPaintEngine_CoordinateOffset(const QPaintEngine* self) {
-    auto* vqpaintengine = dynamic_cast<const VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        return new QPoint(self->coordinateOffset());
-    } else {
-        return new QPoint(((VirtualQPaintEngine*)self)->coordinateOffset());
-    }
+    return new QPoint(self->coordinateOffset());
 }
 
 int QPaintEngine_Type(const QPaintEngine* self) {
-    auto* vqpaintengine = dynamic_cast<const VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        return static_cast<int>(vqpaintengine->type());
-    } else {
-        return static_cast<int>(((VirtualQPaintEngine*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QPaintEngine_FixNegRect(QPaintEngine* self, int* x, int* y, int* w, int* h) {
@@ -336,21 +236,11 @@ bool QPaintEngine_IsExtended(const QPaintEngine* self) {
 }
 
 QPixmap* QPaintEngine_CreatePixmap(QPaintEngine* self, QSize* size) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        return new QPixmap(self->createPixmap(*size));
-    } else {
-        return new QPixmap(((VirtualQPaintEngine*)self)->createPixmap(*size));
-    }
+    return new QPixmap(self->createPixmap(*size));
 }
 
 QPixmap* QPaintEngine_CreatePixmapFromImage(QPaintEngine* self, QImage* image, int flags) {
-    auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
-    if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        return new QPixmap(self->createPixmapFromImage(*image, static_cast<Qt::ImageConversionFlags>(flags)));
-    } else {
-        return new QPixmap(((VirtualQPaintEngine*)self)->createPixmapFromImage(*image, static_cast<Qt::ImageConversionFlags>(flags)));
-    }
+    return new QPixmap(self->createPixmapFromImage(*image, static_cast<Qt::ImageConversionFlags>(flags)));
 }
 
 // Base class handler implementation

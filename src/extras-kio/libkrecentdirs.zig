@@ -18,14 +18,14 @@ pub const KRecentDirs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` fileClass: []const u8 `
     ///
-    pub fn List(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn List(allocator: std.mem.Allocator, fileClass: []const u8) []const []const u8 {
+        const fileClass_str = qtc.libqt_string{
+            .len = fileClass.len,
+            .data = fileClass.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KRecentDirs_List(param1_str);
+        const _arr: qtc.libqt_list = qtc.KRecentDirs_List(fileClass_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -48,14 +48,14 @@ pub const KRecentDirs = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` fileClass: []const u8 `
     ///
-    pub fn Dir(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Dir(allocator: std.mem.Allocator, fileClass: []const u8) []const u8 {
+        const fileClass_str = qtc.libqt_string{
+            .len = fileClass.len,
+            .data = fileClass.ptr,
         };
-        var _str = qtc.KRecentDirs_Dir(param1_str);
+        var _str = qtc.KRecentDirs_Dir(fileClass_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("krecentdirs.Dir: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -66,19 +66,19 @@ pub const KRecentDirs = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` fileClass: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` directory: []const u8 `
     ///
-    pub fn Add(param1: []const u8, param2: []const u8) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Add(fileClass: []const u8, directory: []const u8) void {
+        const fileClass_str = qtc.libqt_string{
+            .len = fileClass.len,
+            .data = fileClass.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const directory_str = qtc.libqt_string{
+            .len = directory.len,
+            .data = directory.ptr,
         };
-        qtc.KRecentDirs_Add(param1_str, param2_str);
+        qtc.KRecentDirs_Add(fileClass_str, directory_str);
     }
 };

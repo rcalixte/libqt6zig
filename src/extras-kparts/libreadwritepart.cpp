@@ -38,30 +38,15 @@ KParts__ReadWritePart* KParts__ReadWritePart_new3(QObject* parent, const KPlugin
 }
 
 QMetaObject* KParts__ReadWritePart_MetaObject(const KParts__ReadWritePart* self) {
-    auto* vkparts__readwritepart = dynamic_cast<const VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsReadWritePart*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__ReadWritePart_Metacast(KParts__ReadWritePart* self, const char* param1) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__ReadWritePart_Metacall(KParts__ReadWritePart* self, int param1, int param2, void** param3) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KParts__ReadWritePart_IsReadWrite(const KParts__ReadWritePart* self) {
@@ -69,12 +54,7 @@ bool KParts__ReadWritePart_IsReadWrite(const KParts__ReadWritePart* self) {
 }
 
 void KParts__ReadWritePart_SetReadWrite(KParts__ReadWritePart* self, bool readwrite) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        self->setReadWrite(readwrite);
-    } else {
-        ((VirtualKPartsReadWritePart*)self)->setReadWrite(readwrite);
-    }
+    self->setReadWrite(readwrite);
 }
 
 bool KParts__ReadWritePart_IsModified(const KParts__ReadWritePart* self) {
@@ -82,48 +62,23 @@ bool KParts__ReadWritePart_IsModified(const KParts__ReadWritePart* self) {
 }
 
 bool KParts__ReadWritePart_QueryClose(KParts__ReadWritePart* self) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->queryClose();
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->queryClose();
-    }
+    return self->queryClose();
 }
 
 bool KParts__ReadWritePart_CloseUrl(KParts__ReadWritePart* self) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->closeUrl();
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->closeUrl();
-    }
+    return self->closeUrl();
 }
 
 bool KParts__ReadWritePart_CloseUrl2(KParts__ReadWritePart* self, bool promptToSave) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->closeUrl(promptToSave);
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->closeUrl(promptToSave);
-    }
+    return self->closeUrl(promptToSave);
 }
 
 bool KParts__ReadWritePart_SaveAs(KParts__ReadWritePart* self, const QUrl* url) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->saveAs(*url);
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->saveAs(*url);
-    }
+    return self->saveAs(*url);
 }
 
 void KParts__ReadWritePart_SetModified(KParts__ReadWritePart* self, bool modified) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        self->setModified(modified);
-    } else {
-        ((VirtualKPartsReadWritePart*)self)->setModified(modified);
-    }
+    self->setModified(modified);
 }
 
 void KParts__ReadWritePart_SigQueryClose(KParts__ReadWritePart* self, bool* handled, bool* abortClosing) {
@@ -144,12 +99,7 @@ void KParts__ReadWritePart_SetModified2(KParts__ReadWritePart* self) {
 }
 
 bool KParts__ReadWritePart_Save(KParts__ReadWritePart* self) {
-    auto* vkparts__readwritepart = dynamic_cast<VirtualKPartsReadWritePart*>(self);
-    if (vkparts__readwritepart && vkparts__readwritepart->isVirtualKPartsReadWritePart) {
-        return self->save();
-    } else {
-        return ((VirtualKPartsReadWritePart*)self)->save();
-    }
+    return self->save();
 }
 
 bool KParts__ReadWritePart_WaitSaveComplete(KParts__ReadWritePart* self) {

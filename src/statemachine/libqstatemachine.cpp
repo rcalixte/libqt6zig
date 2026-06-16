@@ -35,30 +35,15 @@ QStateMachine* QStateMachine_new4(int childMode, QObject* parent) {
 }
 
 QMetaObject* QStateMachine_MetaObject(const QStateMachine* self) {
-    auto* vqstatemachine = dynamic_cast<const VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQStateMachine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QStateMachine_Metacast(QStateMachine* self, const char* param1) {
-    auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQStateMachine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QStateMachine_Metacall(QStateMachine* self, int param1, int param2, void** param3) {
-    auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStateMachine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QStateMachine_AddState(QStateMachine* self, QAbstractState* state) {
@@ -158,12 +143,7 @@ libqt_list /* set of QAbstractState* */ QStateMachine_Configuration(const QState
 }
 
 bool QStateMachine_EventFilter(QStateMachine* self, QObject* watched, QEvent* event) {
-    auto* vqstatemachine = dynamic_cast<VirtualQStateMachine*>(self);
-    if (vqstatemachine && vqstatemachine->isVirtualQStateMachine) {
-        return self->eventFilter(watched, event);
-    } else {
-        return ((VirtualQStateMachine*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 int QStateMachine_PostDelayedEvent2(QStateMachine* self, QEvent* event, int64_t delay) {

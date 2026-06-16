@@ -63,30 +63,15 @@ QChartView* QChartView_new4(QChart* chart, QWidget* parent) {
 }
 
 QMetaObject* QChartView_MetaObject(const QChartView* self) {
-    auto* vqchartview = dynamic_cast<const VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQChartView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QChartView_Metacast(QChartView* self, const char* param1) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQChartView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QChartView_Metacall(QChartView* self, int param1, int param2, void** param3) {
-    auto* vqchartview = dynamic_cast<VirtualQChartView*>(self);
-    if (vqchartview && vqchartview->isVirtualQChartView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQChartView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QChartView_SetRubberBand(QChartView* self, const int* rubberBands) {

@@ -20,10 +20,10 @@ pub const KStandardGuiItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardguiitem_enums.StandardItem `
+    /// ` id: kstandardguiitem_enums.StandardItem `
     ///
-    pub fn GuiItem(param1: i32) KGuiItem {
-        return .{ .ptr = qtc.KStandardGuiItem_GuiItem(@bitCast(param1)) };
+    pub fn GuiItem(id: i32) KGuiItem {
+        return .{ .ptr = qtc.KStandardGuiItem_GuiItem(@bitCast(id)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#standardItem)
@@ -32,10 +32,10 @@ pub const KStandardGuiItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardguiitem_enums.StandardItem `
+    /// ` id: kstandardguiitem_enums.StandardItem `
     ///
-    pub fn StandardItem(allocator: std.mem.Allocator, param1: i32) []const u8 {
-        var _str = qtc.KStandardGuiItem_StandardItem(@bitCast(param1));
+    pub fn StandardItem(allocator: std.mem.Allocator, id: i32) []const u8 {
+        var _str = qtc.KStandardGuiItem_StandardItem(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardguiitem.StandardItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -178,20 +178,20 @@ pub const KStandardGuiItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardguiitem_enums.BidiMode `
+    /// ` useBidi: kstandardguiitem_enums.BidiMode `
     ///
-    pub fn Back(param1: i32) KGuiItem {
-        return .{ .ptr = qtc.KStandardGuiItem_Back(@bitCast(param1)) };
+    pub fn Back(useBidi: i32) KGuiItem {
+        return .{ .ptr = qtc.KStandardGuiItem_Back(@bitCast(useBidi)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#forward)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardguiitem_enums.BidiMode `
+    /// ` useBidi: kstandardguiitem_enums.BidiMode `
     ///
-    pub fn Forward(param1: i32) KGuiItem {
-        return .{ .ptr = qtc.KStandardGuiItem_Forward(@bitCast(param1)) };
+    pub fn Forward(useBidi: i32) KGuiItem {
+        return .{ .ptr = qtc.KStandardGuiItem_Forward(@bitCast(useBidi)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#configure)
@@ -247,13 +247,13 @@ pub const KStandardGuiItem = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QPushButton `
+    /// ` button: QPushButton `
     ///
-    /// ` param2: kstandardguiitem_enums.StandardItem `
+    /// ` item: kstandardguiitem_enums.StandardItem `
     ///
-    pub fn Assign(param1: anytype, param2: i32) void {
-        comptime _ = @TypeOf(param1)._is_QPushButton;
-        qtc.KStandardGuiItem_Assign(@ptrCast(param1.ptr), @bitCast(param2));
+    pub fn Assign(button: anytype, item: i32) void {
+        comptime _ = @TypeOf(button)._is_QPushButton;
+        qtc.KStandardGuiItem_Assign(@ptrCast(button.ptr), @bitCast(item));
     }
 };
 

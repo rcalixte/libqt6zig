@@ -67,67 +67,32 @@ KTextEdit* KTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* KTextEdit_MetaObject(const KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<const VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEdit_Metacast(KTextEdit* self, const char* param1) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEdit_Metacall(KTextEdit* self, int param1, int param2, void** param3) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KTextEdit_SetReadOnly(KTextEdit* self, bool readOnly) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        self->setReadOnly(readOnly);
-    } else {
-        ((VirtualKTextEdit*)self)->setReadOnly(readOnly);
-    }
+    self->setReadOnly(readOnly);
 }
 
 void KTextEdit_SetCheckSpellingEnabled(KTextEdit* self, bool check) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        self->setCheckSpellingEnabled(check);
-    } else {
-        ((VirtualKTextEdit*)self)->setCheckSpellingEnabled(check);
-    }
+    self->setCheckSpellingEnabled(check);
 }
 
 bool KTextEdit_CheckSpellingEnabled(const KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<const VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return self->checkSpellingEnabled();
-    } else {
-        return ((VirtualKTextEdit*)self)->checkSpellingEnabled();
-    }
+    return self->checkSpellingEnabled();
 }
 
 bool KTextEdit_ShouldBlockBeSpellChecked(const KTextEdit* self, const libqt_string block) {
     QString block_QString = QString::fromUtf8(block.data, block.len);
-    auto* vktextedit = dynamic_cast<const VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return self->shouldBlockBeSpellChecked(block_QString);
-    } else {
-        return ((VirtualKTextEdit*)self)->shouldBlockBeSpellChecked(block_QString);
-    }
+    return self->shouldBlockBeSpellChecked(block_QString);
 }
 
 void KTextEdit_HighlightWord(KTextEdit* self, int length, int pos) {
@@ -135,12 +100,7 @@ void KTextEdit_HighlightWord(KTextEdit* self, int length, int pos) {
 }
 
 void KTextEdit_CreateHighlighter(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        self->createHighlighter();
-    } else {
-        ((VirtualKTextEdit*)self)->createHighlighter();
-    }
+    self->createHighlighter();
 }
 
 Sonnet__Highlighter* KTextEdit_Highlighter(const KTextEdit* self) {
@@ -152,12 +112,7 @@ void KTextEdit_SetHighlighter(KTextEdit* self, Sonnet__Highlighter* _highLighter
 }
 
 QMenu* KTextEdit_MousePopupMenu(KTextEdit* self) {
-    auto* vktextedit = dynamic_cast<VirtualKTextEdit*>(self);
-    if (vktextedit && vktextedit->isVirtualKTextEdit) {
-        return self->mousePopupMenu();
-    } else {
-        return ((VirtualKTextEdit*)self)->mousePopupMenu();
-    }
+    return self->mousePopupMenu();
 }
 
 void KTextEdit_EnableFindReplace(KTextEdit* self, bool enabled) {

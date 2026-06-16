@@ -20,39 +20,19 @@ QWebEngineUrlSchemeHandler* QWebEngineUrlSchemeHandler_new2(QObject* parent) {
 }
 
 QMetaObject* QWebEngineUrlSchemeHandler_MetaObject(const QWebEngineUrlSchemeHandler* self) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<const VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebEngineUrlSchemeHandler*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebEngineUrlSchemeHandler_Metacast(QWebEngineUrlSchemeHandler* self, const char* param1) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebEngineUrlSchemeHandler*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebEngineUrlSchemeHandler_Metacall(QWebEngineUrlSchemeHandler* self, int param1, int param2, void** param3) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebEngineUrlSchemeHandler*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QWebEngineUrlSchemeHandler_RequestStarted(QWebEngineUrlSchemeHandler* self, QWebEngineUrlRequestJob* param1) {
-    auto* vqwebengineurlschemehandler = dynamic_cast<VirtualQWebEngineUrlSchemeHandler*>(self);
-    if (vqwebengineurlschemehandler && vqwebengineurlschemehandler->isVirtualQWebEngineUrlSchemeHandler) {
-        vqwebengineurlschemehandler->requestStarted(param1);
-    } else {
-        ((VirtualQWebEngineUrlSchemeHandler*)self)->requestStarted(param1);
-    }
+    self->requestStarted(param1);
 }
 
 // Base class handler implementation

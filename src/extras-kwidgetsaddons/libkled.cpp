@@ -63,30 +63,15 @@ KLed* KLed_new6(const QColor* color, int state, int look, int shape, QWidget* pa
 }
 
 QMetaObject* KLed_MetaObject(const KLed* self) {
-    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLed*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLed_Metacast(KLed* self, const char* param1) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLed*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLed_Metacall(KLed* self, int param1, int param2, void** param3) {
-    auto* vkled = dynamic_cast<VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLed*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* KLed_Color(const KLed* self) {
@@ -130,21 +115,11 @@ void KLed_SetDarkFactor(KLed* self, int darkFactor) {
 }
 
 QSize* KLed_SizeHint(const KLed* self) {
-    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* KLed_MinimumSizeHint(const KLed* self) {
-    auto* vkled = dynamic_cast<const VirtualKLed*>(self);
-    if (vkled && vkled->isVirtualKLed) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKLed*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void KLed_Toggle(KLed* self) {

@@ -31,21 +31,11 @@ QUndoCommand* QUndoCommand_new4(const libqt_string text, QUndoCommand* parent) {
 }
 
 void QUndoCommand_Undo(QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        self->undo();
-    } else {
-        ((VirtualQUndoCommand*)self)->undo();
-    }
+    self->undo();
 }
 
 void QUndoCommand_Redo(QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        self->redo();
-    } else {
-        ((VirtualQUndoCommand*)self)->redo();
-    }
+    self->redo();
 }
 
 libqt_string QUndoCommand_Text(const QUndoCommand* self) {
@@ -86,21 +76,11 @@ void QUndoCommand_SetObsolete(QUndoCommand* self, bool obsolete) {
 }
 
 int QUndoCommand_Id(const QUndoCommand* self) {
-    auto* vqundocommand = dynamic_cast<const VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        return self->id();
-    } else {
-        return ((VirtualQUndoCommand*)self)->id();
-    }
+    return self->id();
 }
 
 bool QUndoCommand_MergeWith(QUndoCommand* self, const QUndoCommand* other) {
-    auto* vqundocommand = dynamic_cast<VirtualQUndoCommand*>(self);
-    if (vqundocommand && vqundocommand->isVirtualQUndoCommand) {
-        return self->mergeWith(other);
-    } else {
-        return ((VirtualQUndoCommand*)self)->mergeWith(other);
-    }
+    return self->mergeWith(other);
 }
 
 int QUndoCommand_ChildCount(const QUndoCommand* self) {
@@ -200,30 +180,15 @@ QUndoStack* QUndoStack_new2(QObject* parent) {
 }
 
 QMetaObject* QUndoStack_MetaObject(const QUndoStack* self) {
-    auto* vqundostack = dynamic_cast<const VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQUndoStack*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QUndoStack_Metacast(QUndoStack* self, const char* param1) {
-    auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQUndoStack*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QUndoStack_Metacall(QUndoStack* self, int param1, int param2, void** param3) {
-    auto* vqundostack = dynamic_cast<VirtualQUndoStack*>(self);
-    if (vqundostack && vqundostack->isVirtualQUndoStack) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUndoStack*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QUndoStack_Clear(QUndoStack* self) {

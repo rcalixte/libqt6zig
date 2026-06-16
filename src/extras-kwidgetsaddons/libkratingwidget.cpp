@@ -50,30 +50,15 @@ KRatingWidget* KRatingWidget_new2() {
 }
 
 QMetaObject* KRatingWidget_MetaObject(const KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<const VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKRatingWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KRatingWidget_Metacast(KRatingWidget* self, const char* param1) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKRatingWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KRatingWidget_Metacall(KRatingWidget* self, int param1, int param2, void** param3) {
-    auto* vkratingwidget = dynamic_cast<VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRatingWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KRatingWidget_Rating(const KRatingWidget* self) {
@@ -97,12 +82,7 @@ int KRatingWidget_Spacing(const KRatingWidget* self) {
 }
 
 QSize* KRatingWidget_SizeHint(const KRatingWidget* self) {
-    auto* vkratingwidget = dynamic_cast<const VirtualKRatingWidget*>(self);
-    if (vkratingwidget && vkratingwidget->isVirtualKRatingWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKRatingWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 bool KRatingWidget_HalfStepsEnabled(const KRatingWidget* self) {

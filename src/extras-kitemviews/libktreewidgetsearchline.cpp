@@ -66,30 +66,15 @@ KTreeWidgetSearchLine* KTreeWidgetSearchLine_new4(QWidget* parent, QTreeWidget* 
 }
 
 QMetaObject* KTreeWidgetSearchLine_MetaObject(const KTreeWidgetSearchLine* self) {
-    auto* vktreewidgetsearchline = dynamic_cast<const VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTreeWidgetSearchLine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTreeWidgetSearchLine_Metacast(KTreeWidgetSearchLine* self, const char* param1) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTreeWidgetSearchLine_Metacall(KTreeWidgetSearchLine* self, int param1, int param2, void** param3) {
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTreeWidgetSearchLine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KTreeWidgetSearchLine_CaseSensitivity(const KTreeWidgetSearchLine* self) {
@@ -198,12 +183,7 @@ void KTreeWidgetSearchLine_RemoveTreeWidget(KTreeWidgetSearchLine* self, QTreeWi
 
 void KTreeWidgetSearchLine_UpdateSearch(KTreeWidgetSearchLine* self, const libqt_string pattern) {
     QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
-    auto* vktreewidgetsearchline = dynamic_cast<VirtualKTreeWidgetSearchLine*>(self);
-    if (vktreewidgetsearchline && vktreewidgetsearchline->isVirtualKTreeWidgetSearchLine) {
-        self->updateSearch(pattern_QString);
-    } else {
-        ((VirtualKTreeWidgetSearchLine*)self)->updateSearch(pattern_QString);
-    }
+    self->updateSearch(pattern_QString);
 }
 
 void KTreeWidgetSearchLine_SetCaseSensitivity(KTreeWidgetSearchLine* self, int caseSensitivity) {

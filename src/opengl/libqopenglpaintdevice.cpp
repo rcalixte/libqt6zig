@@ -22,21 +22,11 @@ QOpenGLPaintDevice* QOpenGLPaintDevice_new3(int width, int height) {
 }
 
 int QOpenGLPaintDevice_DevType(const QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = dynamic_cast<const VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        return self->devType();
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->devType();
-    }
+    return self->devType();
 }
 
 QPaintEngine* QOpenGLPaintDevice_PaintEngine(const QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = dynamic_cast<const VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        return self->paintEngine();
-    } else {
-        return ((VirtualQOpenGLPaintDevice*)self)->paintEngine();
-    }
+    return self->paintEngine();
 }
 
 QOpenGLContext* QOpenGLPaintDevice_Context(const QOpenGLPaintDevice* self) {
@@ -80,12 +70,7 @@ bool QOpenGLPaintDevice_PaintFlipped(const QOpenGLPaintDevice* self) {
 }
 
 void QOpenGLPaintDevice_EnsureActiveTarget(QOpenGLPaintDevice* self) {
-    auto* vqopenglpaintdevice = dynamic_cast<VirtualQOpenGLPaintDevice*>(self);
-    if (vqopenglpaintdevice && vqopenglpaintdevice->isVirtualQOpenGLPaintDevice) {
-        self->ensureActiveTarget();
-    } else {
-        ((VirtualQOpenGLPaintDevice*)self)->ensureActiveTarget();
-    }
+    self->ensureActiveTarget();
 }
 
 int QOpenGLPaintDevice_Metric(const QOpenGLPaintDevice* self, int metric) {

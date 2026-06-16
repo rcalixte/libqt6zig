@@ -25,7 +25,7 @@ func zigReservedWord(s string) bool {
 
 	switch s {
 	case "default", "const", "fn", "var", "type", "len", "new", "copy", "import",
-		"error", "string", "map", "int", "select", "pub", "ret", "suspend",
+		"error", "int", "select", "pub", "ret", "suspend",
 		"opaque", "align", "packed", "self", "allocator", "URLs":
 		return true
 	default:
@@ -611,7 +611,6 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 				hasWarning = true
 			case "[]const u8", "[:0]const u8":
 				ret = "[*:0]const u8"
-				hasWarning = true
 			case "[]u8", "[:0]u8":
 				ret = "qtc.libqt_string"
 			default:

@@ -55,30 +55,15 @@ KFileWidget* KFileWidget_new2(const QUrl* startDir, QWidget* parent) {
 }
 
 QMetaObject* KFileWidget_MetaObject(const KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<const VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileWidget_Metacast(KFileWidget* self, const char* param1) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileWidget_Metacall(KFileWidget* self, int param1, int param2, void** param3) {
-    auto* vkfilewidget = dynamic_cast<VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KFileWidget_SelectedUrl(const KFileWidget* self) {
@@ -261,12 +246,7 @@ void KFileWidget_SetViewMode(KFileWidget* self, int mode) {
 }
 
 QSize* KFileWidget_SizeHint(const KFileWidget* self) {
-    auto* vkfilewidget = dynamic_cast<const VirtualKFileWidget*>(self);
-    if (vkfilewidget && vkfilewidget->isVirtualKFileWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKFileWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KFileWidget_SetSupportedSchemes(KFileWidget* self, const libqt_list /* of libqt_string */ schemes) {

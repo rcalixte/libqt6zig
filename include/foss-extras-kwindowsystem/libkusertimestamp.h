@@ -19,7 +19,7 @@ typedef struct KUserTimestamp KUserTimestamp;
 #endif
 
 unsigned long KUserTimestamp_UserTimestamp();
-void KUserTimestamp_UpdateUserTimestamp(unsigned long param1);
+void KUserTimestamp_UpdateUserTimestamp(unsigned long time);
 
 #ifdef __cplusplus
 } /* extern C */

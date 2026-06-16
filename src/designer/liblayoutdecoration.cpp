@@ -15,169 +15,80 @@ QDesignerLayoutDecorationExtension* QDesignerLayoutDecorationExtension_new() {
 }
 
 libqt_list /* of QWidget* */ QDesignerLayoutDecorationExtension_Widgets(const QDesignerLayoutDecorationExtension* self, QLayout* layout) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        QList<QWidget*> _ret = vqdesignerlayoutdecorationextension->widgets(layout);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualQDesignerLayoutDecorationExtension*)self)->widgets(layout);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QWidget*> _ret = self->widgets(layout);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QRect* QDesignerLayoutDecorationExtension_ItemInfo(const QDesignerLayoutDecorationExtension* self, int index) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return new QRect(vqdesignerlayoutdecorationextension->itemInfo(static_cast<int>(index)));
-    } else {
-        return new QRect(((VirtualQDesignerLayoutDecorationExtension*)self)->itemInfo(static_cast<int>(index)));
-    }
+    return new QRect(self->itemInfo(static_cast<int>(index)));
 }
 
 int QDesignerLayoutDecorationExtension_IndexOf(const QDesignerLayoutDecorationExtension* self, QWidget* widget) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return vqdesignerlayoutdecorationextension->indexOf(widget);
-    } else {
-        return ((VirtualQDesignerLayoutDecorationExtension*)self)->indexOf(widget);
-    }
+    return self->indexOf(widget);
 }
 
 int QDesignerLayoutDecorationExtension_IndexOf2(const QDesignerLayoutDecorationExtension* self, QLayoutItem* item) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return vqdesignerlayoutdecorationextension->indexOf(item);
-    } else {
-        return ((VirtualQDesignerLayoutDecorationExtension*)self)->indexOf(item);
-    }
+    return self->indexOf(item);
 }
 
 int QDesignerLayoutDecorationExtension_CurrentInsertMode(const QDesignerLayoutDecorationExtension* self) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return static_cast<int>(vqdesignerlayoutdecorationextension->currentInsertMode());
-    } else {
-        return static_cast<int>(((VirtualQDesignerLayoutDecorationExtension*)self)->currentInsertMode());
-    }
+    return static_cast<int>(self->currentInsertMode());
 }
 
 int QDesignerLayoutDecorationExtension_CurrentIndex(const QDesignerLayoutDecorationExtension* self) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return vqdesignerlayoutdecorationextension->currentIndex();
-    } else {
-        return ((VirtualQDesignerLayoutDecorationExtension*)self)->currentIndex();
-    }
+    return self->currentIndex();
 }
 
 pair_int_int /* tuple of int and int */ QDesignerLayoutDecorationExtension_CurrentCell(const QDesignerLayoutDecorationExtension* self) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        QPair<int, int> _ret = vqdesignerlayoutdecorationextension->currentCell();
-        // Convert QPair<> from C++ memory to manually-managed C memory
-        pair_int_int /* tuple of int and int */ _out;
-        _out.first = _ret.first;
-        _out.second = _ret.second;
-        return _out;
-    } else {
-        QPair<int, int> _ret = ((VirtualQDesignerLayoutDecorationExtension*)self)->currentCell();
-        // Convert QPair<> from C++ memory to manually-managed C memory
-        pair_int_int /* tuple of int and int */ _out;
-        _out.first = _ret.first;
-        _out.second = _ret.second;
-        return _out;
-    }
+    QPair<int, int> _ret = self->currentCell();
+    // Convert QPair<> from C++ memory to manually-managed C memory
+    pair_int_int /* tuple of int and int */ _out;
+    _out.first = _ret.first;
+    _out.second = _ret.second;
+    return _out;
 }
 
 void QDesignerLayoutDecorationExtension_InsertWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget, const pair_int_int /* tuple of int and int */ cell) {
     QPair<int, int> cell_QPair;
     cell_QPair.first = cell.first;
     cell_QPair.second = cell.second;
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        vqdesignerlayoutdecorationextension->insertWidget(widget, cell_QPair);
-    } else {
-        ((VirtualQDesignerLayoutDecorationExtension*)self)->insertWidget(widget, cell_QPair);
-    }
+    self->insertWidget(widget, cell_QPair);
 }
 
 void QDesignerLayoutDecorationExtension_RemoveWidget(QDesignerLayoutDecorationExtension* self, QWidget* widget) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        vqdesignerlayoutdecorationextension->removeWidget(widget);
-    } else {
-        ((VirtualQDesignerLayoutDecorationExtension*)self)->removeWidget(widget);
-    }
+    self->removeWidget(widget);
 }
 
 void QDesignerLayoutDecorationExtension_InsertRow(QDesignerLayoutDecorationExtension* self, int row) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        vqdesignerlayoutdecorationextension->insertRow(static_cast<int>(row));
-    } else {
-        ((VirtualQDesignerLayoutDecorationExtension*)self)->insertRow(static_cast<int>(row));
-    }
+    self->insertRow(static_cast<int>(row));
 }
 
 void QDesignerLayoutDecorationExtension_InsertColumn(QDesignerLayoutDecorationExtension* self, int column) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        vqdesignerlayoutdecorationextension->insertColumn(static_cast<int>(column));
-    } else {
-        ((VirtualQDesignerLayoutDecorationExtension*)self)->insertColumn(static_cast<int>(column));
-    }
+    self->insertColumn(static_cast<int>(column));
 }
 
 void QDesignerLayoutDecorationExtension_Simplify(QDesignerLayoutDecorationExtension* self) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        vqdesignerlayoutdecorationextension->simplify();
-    } else {
-        ((VirtualQDesignerLayoutDecorationExtension*)self)->simplify();
-    }
+    self->simplify();
 }
 
 int QDesignerLayoutDecorationExtension_FindItemAt(const QDesignerLayoutDecorationExtension* self, const QPoint* pos) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return vqdesignerlayoutdecorationextension->findItemAt(*pos);
-    } else {
-        return ((VirtualQDesignerLayoutDecorationExtension*)self)->findItemAt(*pos);
-    }
+    return self->findItemAt(*pos);
 }
 
 int QDesignerLayoutDecorationExtension_FindItemAt2(const QDesignerLayoutDecorationExtension* self, int row, int column) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<const VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        return vqdesignerlayoutdecorationextension->findItemAt(static_cast<int>(row), static_cast<int>(column));
-    } else {
-        return ((VirtualQDesignerLayoutDecorationExtension*)self)->findItemAt(static_cast<int>(row), static_cast<int>(column));
-    }
+    return self->findItemAt(static_cast<int>(row), static_cast<int>(column));
 }
 
 void QDesignerLayoutDecorationExtension_AdjustIndicator(QDesignerLayoutDecorationExtension* self, const QPoint* pos, int index) {
-    auto* vqdesignerlayoutdecorationextension = dynamic_cast<VirtualQDesignerLayoutDecorationExtension*>(self);
-    if (vqdesignerlayoutdecorationextension && vqdesignerlayoutdecorationextension->isVirtualQDesignerLayoutDecorationExtension) {
-        vqdesignerlayoutdecorationextension->adjustIndicator(*pos, static_cast<int>(index));
-    } else {
-        ((VirtualQDesignerLayoutDecorationExtension*)self)->adjustIndicator(*pos, static_cast<int>(index));
-    }
+    self->adjustIndicator(*pos, static_cast<int>(index));
 }
 
 // Base class handler implementation

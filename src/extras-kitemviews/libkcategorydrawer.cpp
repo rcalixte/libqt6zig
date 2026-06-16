@@ -21,30 +21,15 @@ KCategoryDrawer* KCategoryDrawer_new(KCategorizedView* view) {
 }
 
 QMetaObject* KCategoryDrawer_MetaObject(const KCategoryDrawer* self) {
-    auto* vkcategorydrawer = dynamic_cast<const VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCategoryDrawer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCategoryDrawer_Metacast(KCategoryDrawer* self, const char* param1) {
-    auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCategoryDrawer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCategoryDrawer_Metacall(KCategoryDrawer* self, int param1, int param2, void** param3) {
-    auto* vkcategorydrawer = dynamic_cast<VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCategoryDrawer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KCategorizedView* KCategoryDrawer_View(const KCategoryDrawer* self) {
@@ -52,39 +37,19 @@ KCategorizedView* KCategoryDrawer_View(const KCategoryDrawer* self) {
 }
 
 void KCategoryDrawer_DrawCategory(const KCategoryDrawer* self, const QModelIndex* index, int sortRole, const QStyleOption* option, QPainter* painter) {
-    auto* vkcategorydrawer = dynamic_cast<const VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        self->drawCategory(*index, static_cast<int>(sortRole), *option, painter);
-    } else {
-        ((VirtualKCategoryDrawer*)self)->drawCategory(*index, static_cast<int>(sortRole), *option, painter);
-    }
+    self->drawCategory(*index, static_cast<int>(sortRole), *option, painter);
 }
 
 int KCategoryDrawer_CategoryHeight(const KCategoryDrawer* self, const QModelIndex* index, const QStyleOption* option) {
-    auto* vkcategorydrawer = dynamic_cast<const VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        return self->categoryHeight(*index, *option);
-    } else {
-        return ((VirtualKCategoryDrawer*)self)->categoryHeight(*index, *option);
-    }
+    return self->categoryHeight(*index, *option);
 }
 
 int KCategoryDrawer_LeftMargin(const KCategoryDrawer* self) {
-    auto* vkcategorydrawer = dynamic_cast<const VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        return self->leftMargin();
-    } else {
-        return ((VirtualKCategoryDrawer*)self)->leftMargin();
-    }
+    return self->leftMargin();
 }
 
 int KCategoryDrawer_RightMargin(const KCategoryDrawer* self) {
-    auto* vkcategorydrawer = dynamic_cast<const VirtualKCategoryDrawer*>(self);
-    if (vkcategorydrawer && vkcategorydrawer->isVirtualKCategoryDrawer) {
-        return self->rightMargin();
-    } else {
-        return ((VirtualKCategoryDrawer*)self)->rightMargin();
-    }
+    return self->rightMargin();
 }
 
 void KCategoryDrawer_CollapseOrExpandClicked(KCategoryDrawer* self, const QModelIndex* index) {

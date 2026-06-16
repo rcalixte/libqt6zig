@@ -6,8 +6,8 @@
 #include "libkstandardshortcut.h"
 #include "libkstandardshortcut.hxx"
 
-libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int param1) {
-    const QList<QKeySequence>& _ret = KStandardShortcut::shortcut(static_cast<KStandardShortcut::StandardShortcut>(param1));
+libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int id) {
+    const QList<QKeySequence>& _ret = KStandardShortcut::shortcut(static_cast<KStandardShortcut::StandardShortcut>(id));
     // Convert QList<> from C++ memory to manually-managed C memory
     QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -19,8 +19,8 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int param1) {
     return _out;
 }
 
-libqt_string KStandardShortcut_Name(int param1) {
-    auto _ret = KStandardShortcut::name(static_cast<KStandardShortcut::StandardShortcut>(param1));
+libqt_string KStandardShortcut_Name(int id) {
+    auto _ret = KStandardShortcut::name(static_cast<KStandardShortcut::StandardShortcut>(id));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -31,8 +31,8 @@ libqt_string KStandardShortcut_Name(int param1) {
     return _str;
 }
 
-libqt_string KStandardShortcut_Label(int param1) {
-    auto _ret = KStandardShortcut::label(static_cast<KStandardShortcut::StandardShortcut>(param1));
+libqt_string KStandardShortcut_Label(int id) {
+    auto _ret = KStandardShortcut::label(static_cast<KStandardShortcut::StandardShortcut>(id));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -43,8 +43,8 @@ libqt_string KStandardShortcut_Label(int param1) {
     return _str;
 }
 
-libqt_string KStandardShortcut_WhatsThis(int param1) {
-    auto _ret = KStandardShortcut::whatsThis(static_cast<KStandardShortcut::StandardShortcut>(param1));
+libqt_string KStandardShortcut_WhatsThis(int id) {
+    auto _ret = KStandardShortcut::whatsThis(static_cast<KStandardShortcut::StandardShortcut>(id));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -55,17 +55,17 @@ libqt_string KStandardShortcut_WhatsThis(int param1) {
     return _str;
 }
 
-int KStandardShortcut_Find(const QKeySequence* param1) {
-    return static_cast<int>(KStandardShortcut::find(*param1));
+int KStandardShortcut_Find(const QKeySequence* keySeq) {
+    return static_cast<int>(KStandardShortcut::find(*keySeq));
 }
 
-int KStandardShortcut_FindByName(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return static_cast<int>(KStandardShortcut::findByName(param1_QString));
+int KStandardShortcut_FindByName(const libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return static_cast<int>(KStandardShortcut::findByName(name_QString));
 }
 
-libqt_list /* of QKeySequence* */ KStandardShortcut_HardcodedDefaultShortcut(int param1) {
-    QList<QKeySequence> _ret = KStandardShortcut::hardcodedDefaultShortcut(static_cast<KStandardShortcut::StandardShortcut>(param1));
+libqt_list /* of QKeySequence* */ KStandardShortcut_HardcodedDefaultShortcut(int id) {
+    QList<QKeySequence> _ret = KStandardShortcut::hardcodedDefaultShortcut(static_cast<KStandardShortcut::StandardShortcut>(id));
     // Convert QList<> from C++ memory to manually-managed C memory
     QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -77,18 +77,18 @@ libqt_list /* of QKeySequence* */ KStandardShortcut_HardcodedDefaultShortcut(int
     return _out;
 }
 
-void KStandardShortcut_SaveShortcut(int param1, const libqt_list /* of QKeySequence* */ param2) {
-    QList<QKeySequence> param2_QList;
-    param2_QList.reserve(param2.len);
-    QKeySequence** param2_arr = static_cast<QKeySequence**>(param2.data);
-    for (size_t i = 0; i < param2.len; ++i) {
-        param2_QList.push_back(*(param2_arr[i]));
+void KStandardShortcut_SaveShortcut(int id, const libqt_list /* of QKeySequence* */ newShortcut) {
+    QList<QKeySequence> newShortcut_QList;
+    newShortcut_QList.reserve(newShortcut.len);
+    QKeySequence** newShortcut_arr = static_cast<QKeySequence**>(newShortcut.data);
+    for (size_t i = 0; i < newShortcut.len; ++i) {
+        newShortcut_QList.push_back(*(newShortcut_arr[i]));
     }
-    KStandardShortcut::saveShortcut(static_cast<KStandardShortcut::StandardShortcut>(param1), param2_QList);
+    KStandardShortcut::saveShortcut(static_cast<KStandardShortcut::StandardShortcut>(id), newShortcut_QList);
 }
 
-int KStandardShortcut_Category(int param1) {
-    return static_cast<int>(KStandardShortcut::category(static_cast<KStandardShortcut::StandardShortcut>(param1)));
+int KStandardShortcut_Category(int id) {
+    return static_cast<int>(KStandardShortcut::category(static_cast<KStandardShortcut::StandardShortcut>(id)));
 }
 
 libqt_list /* of QKeySequence* */ KStandardShortcut_Open() {

@@ -43,30 +43,15 @@ QDBusInterface* QDBusInterface_new4(const libqt_string service, const libqt_stri
 }
 
 QMetaObject* QDBusInterface_MetaObject(const QDBusInterface* self) {
-    auto* vqdbusinterface = dynamic_cast<const VirtualQDBusInterface*>(self);
-    if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDBusInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDBusInterface_Metacast(QDBusInterface* self, const char* param1) {
-    auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
-    if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDBusInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDBusInterface_Metacall(QDBusInterface* self, int param1, int param2, void** param3) {
-    auto* vqdbusinterface = dynamic_cast<VirtualQDBusInterface*>(self);
-    if (vqdbusinterface && vqdbusinterface->isVirtualQDBusInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDBusInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

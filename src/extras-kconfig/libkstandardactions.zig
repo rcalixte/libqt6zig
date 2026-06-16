@@ -20,13 +20,13 @@ pub const KStandardActions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardactions_enums.StandardAction `
+    /// ` id: kstandardactions_enums.StandardAction `
     ///
-    /// ` param2: QObject `
+    /// ` parent: QObject `
     ///
-    pub fn KguiCreateInternal(param1: i32, param2: anytype) QAction {
-        comptime _ = @TypeOf(param2)._is_QObject;
-        return .{ .ptr = qtc.KStandardActions_KguiCreateInternal(@bitCast(param1), @ptrCast(param2.ptr)) };
+    pub fn KguiCreateInternal(id: i32, parent: anytype) QAction {
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KStandardActions_KguiCreateInternal(@bitCast(id), @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#name)
@@ -35,10 +35,10 @@ pub const KStandardActions = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardactions_enums.StandardAction `
+    /// ` id: kstandardactions_enums.StandardAction `
     ///
-    pub fn Name(allocator: std.mem.Allocator, param1: i32) []const u8 {
-        var _str = qtc.KStandardActions_Name(@bitCast(param1));
+    pub fn Name(allocator: std.mem.Allocator, id: i32) []const u8 {
+        var _str = qtc.KStandardActions_Name(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardactions.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -68,14 +68,14 @@ pub const KStandardActions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardactions_enums.StandardAction `
+    /// ` id: kstandardactions_enums.StandardAction `
     ///
     /// ## Returns:
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn ShortcutForActionId(param1: i32) i32 {
-        return qtc.KStandardActions_ShortcutForActionId(@bitCast(param1));
+    pub fn ShortcutForActionId(id: i32) i32 {
+        return qtc.KStandardActions_ShortcutForActionId(@bitCast(id));
     }
 };
 

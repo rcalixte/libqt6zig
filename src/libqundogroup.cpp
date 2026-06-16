@@ -22,30 +22,15 @@ QUndoGroup* QUndoGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QUndoGroup_MetaObject(const QUndoGroup* self) {
-    auto* vqundogroup = dynamic_cast<const VirtualQUndoGroup*>(self);
-    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQUndoGroup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QUndoGroup_Metacast(QUndoGroup* self, const char* param1) {
-    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
-    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQUndoGroup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QUndoGroup_Metacall(QUndoGroup* self, int param1, int param2, void** param3) {
-    auto* vqundogroup = dynamic_cast<VirtualQUndoGroup*>(self);
-    if (vqundogroup && vqundogroup->isVirtualQUndoGroup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUndoGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QUndoGroup_AddStack(QUndoGroup* self, QUndoStack* stack) {

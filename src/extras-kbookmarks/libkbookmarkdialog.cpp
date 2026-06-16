@@ -52,30 +52,15 @@ KBookmarkDialog* KBookmarkDialog_new2(KBookmarkManager* manager, QWidget* parent
 }
 
 QMetaObject* KBookmarkDialog_MetaObject(const KBookmarkDialog* self) {
-    auto* vkbookmarkdialog = dynamic_cast<const VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBookmarkDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBookmarkDialog_Metacast(KBookmarkDialog* self, const char* param1) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBookmarkDialog_Metacall(KBookmarkDialog* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkdialog = dynamic_cast<VirtualKBookmarkDialog*>(self);
-    if (vkbookmarkdialog && vkbookmarkdialog->isVirtualKBookmarkDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBookmarkDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KBookmark* KBookmarkDialog_EditBookmark(KBookmarkDialog* self, const KBookmark* bm) {

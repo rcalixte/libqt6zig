@@ -2682,16 +2682,16 @@ pub const KIO = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` protocol: []const u8 `
     ///
-    /// ` param2: i32 `
+    /// ` cmd: i32 `
     ///
-    pub fn UnsupportedActionErrorString(allocator: std.mem.Allocator, param1: []const u8, param2: i32) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn UnsupportedActionErrorString(allocator: std.mem.Allocator, protocol: []const u8, cmd: i32) []const u8 {
+        const protocol_str = qtc.libqt_string{
+            .len = protocol.len,
+            .data = protocol.ptr,
         };
-        var _str = qtc.KIO_UnsupportedActionErrorString(param1_str, @bitCast(param2));
+        var _str = qtc.KIO_UnsupportedActionErrorString(protocol_str, @bitCast(cmd));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.UnsupportedActionErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

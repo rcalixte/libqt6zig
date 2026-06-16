@@ -42,48 +42,23 @@ QSizeGrip* QSizeGrip_new(QWidget* parent) {
 }
 
 QMetaObject* QSizeGrip_MetaObject(const QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<const VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSizeGrip*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSizeGrip_Metacast(QSizeGrip* self, const char* param1) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSizeGrip*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSizeGrip_Metacall(QSizeGrip* self, int param1, int param2, void** param3) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSizeGrip*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QSizeGrip_SizeHint(const QSizeGrip* self) {
-    auto* vqsizegrip = dynamic_cast<const VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQSizeGrip*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QSizeGrip_SetVisible(QSizeGrip* self, bool visible) {
-    auto* vqsizegrip = dynamic_cast<VirtualQSizeGrip*>(self);
-    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQSizeGrip*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QSizeGrip_PaintEvent(QSizeGrip* self, QPaintEvent* param1) {

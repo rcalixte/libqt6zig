@@ -19,41 +19,21 @@ QGenericPlugin* QGenericPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QGenericPlugin_MetaObject(const QGenericPlugin* self) {
-    auto* vqgenericplugin = dynamic_cast<const VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGenericPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGenericPlugin_Metacast(QGenericPlugin* self, const char* param1) {
-    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGenericPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGenericPlugin_Metacall(QGenericPlugin* self, int param1, int param2, void** param3) {
-    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGenericPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QGenericPlugin_Create(QGenericPlugin* self, const libqt_string name, const libqt_string spec) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString spec_QString = QString::fromUtf8(spec.data, spec.len);
-    auto* vqgenericplugin = dynamic_cast<VirtualQGenericPlugin*>(self);
-    if (vqgenericplugin && vqgenericplugin->isVirtualQGenericPlugin) {
-        return vqgenericplugin->create(name_QString, spec_QString);
-    } else {
-        return ((VirtualQGenericPlugin*)self)->create(name_QString, spec_QString);
-    }
+    return self->create(name_QString, spec_QString);
 }
 
 // Base class handler implementation

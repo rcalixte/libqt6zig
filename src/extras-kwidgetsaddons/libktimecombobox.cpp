@@ -51,30 +51,15 @@ KTimeComboBox* KTimeComboBox_new2() {
 }
 
 QMetaObject* KTimeComboBox_MetaObject(const KTimeComboBox* self) {
-    auto* vktimecombobox = dynamic_cast<const VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTimeComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTimeComboBox_Metacast(KTimeComboBox* self, const char* param1) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTimeComboBox_Metacall(KTimeComboBox* self, int param1, int param2, void** param3) {
-    auto* vktimecombobox = dynamic_cast<VirtualKTimeComboBox*>(self);
-    if (vktimecombobox && vktimecombobox->isVirtualKTimeComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTimeComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QTime* KTimeComboBox_Time(const KTimeComboBox* self) {

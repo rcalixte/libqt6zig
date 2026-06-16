@@ -49,30 +49,15 @@ KNewPasswordDialog* KNewPasswordDialog_new2() {
 }
 
 QMetaObject* KNewPasswordDialog_MetaObject(const KNewPasswordDialog* self) {
-    auto* vknewpassworddialog = dynamic_cast<const VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNewPasswordDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNewPasswordDialog_Metacast(KNewPasswordDialog* self, const char* param1) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNewPasswordDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNewPasswordDialog_Metacall(KNewPasswordDialog* self, int param1, int param2, void** param3) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNewPasswordDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KNewPasswordDialog_SetPrompt(KNewPasswordDialog* self, const libqt_string prompt) {
@@ -177,12 +162,7 @@ void KNewPasswordDialog_SetRevealPasswordMode(KNewPasswordDialog* self, int reve
 }
 
 void KNewPasswordDialog_Accept(KNewPasswordDialog* self) {
-    auto* vknewpassworddialog = dynamic_cast<VirtualKNewPasswordDialog*>(self);
-    if (vknewpassworddialog && vknewpassworddialog->isVirtualKNewPasswordDialog) {
-        self->accept();
-    } else {
-        ((VirtualKNewPasswordDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 bool KNewPasswordDialog_CheckPassword(KNewPasswordDialog* self, const libqt_string param1) {

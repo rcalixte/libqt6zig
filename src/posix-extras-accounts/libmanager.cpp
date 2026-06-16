@@ -44,30 +44,15 @@ Accounts__Manager* Accounts__Manager_new6(int options, QObject* parent) {
 }
 
 QMetaObject* Accounts__Manager_MetaObject(const Accounts__Manager* self) {
-    auto* vaccounts__manager = dynamic_cast<const VirtualAccountsManager*>(self);
-    if (vaccounts__manager && vaccounts__manager->isVirtualAccountsManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualAccountsManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Accounts__Manager_Metacast(Accounts__Manager* self, const char* param1) {
-    auto* vaccounts__manager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccounts__manager && vaccounts__manager->isVirtualAccountsManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualAccountsManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Accounts__Manager_Metacall(Accounts__Manager* self, int param1, int param2, void** param3) {
-    auto* vaccounts__manager = dynamic_cast<VirtualAccountsManager*>(self);
-    if (vaccounts__manager && vaccounts__manager->isVirtualAccountsManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualAccountsManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 Accounts__Account* Accounts__Manager_Account(const Accounts__Manager* self, const unsigned int* id) {

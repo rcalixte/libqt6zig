@@ -23,30 +23,15 @@ QsciLexerOctave* QsciLexerOctave_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerOctave_MetaObject(const QsciLexerOctave* self) {
-    auto* vqscilexeroctave = dynamic_cast<const VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerOctave*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerOctave_Metacast(QsciLexerOctave* self, const char* param1) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerOctave_Metacall(QsciLexerOctave* self, int param1, int param2, void** param3) {
-    auto* vqscilexeroctave = dynamic_cast<VirtualQsciLexerOctave*>(self);
-    if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerOctave*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerOctave_Language(const QsciLexerOctave* self) {

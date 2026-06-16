@@ -48,30 +48,15 @@ QGraphicsSvgItem* QGraphicsSvgItem_new4(const libqt_string fileName, QGraphicsIt
 }
 
 QMetaObject* QGraphicsSvgItem_MetaObject(const QGraphicsSvgItem* self) {
-    auto* vqgraphicssvgitem = dynamic_cast<const VirtualQGraphicsSvgItem*>(self);
-    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsSvgItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsSvgItem_Metacast(QGraphicsSvgItem* self, const char* param1) {
-    auto* vqgraphicssvgitem = dynamic_cast<VirtualQGraphicsSvgItem*>(self);
-    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsSvgItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsSvgItem_Metacall(QGraphicsSvgItem* self, int param1, int param2, void** param3) {
-    auto* vqgraphicssvgitem = dynamic_cast<VirtualQGraphicsSvgItem*>(self);
-    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsSvgItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QGraphicsSvgItem_SetSharedRenderer(QGraphicsSvgItem* self, QSvgRenderer* renderer) {
@@ -116,30 +101,15 @@ QSize* QGraphicsSvgItem_MaximumCacheSize(const QGraphicsSvgItem* self) {
 }
 
 QRectF* QGraphicsSvgItem_BoundingRect(const QGraphicsSvgItem* self) {
-    auto* vqgraphicssvgitem = dynamic_cast<const VirtualQGraphicsSvgItem*>(self);
-    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsSvgItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 void QGraphicsSvgItem_Paint(QGraphicsSvgItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicssvgitem = dynamic_cast<VirtualQGraphicsSvgItem*>(self);
-    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsSvgItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 int QGraphicsSvgItem_Type(const QGraphicsSvgItem* self) {
-    auto* vqgraphicssvgitem = dynamic_cast<const VirtualQGraphicsSvgItem*>(self);
-    if (vqgraphicssvgitem && vqgraphicssvgitem->isVirtualQGraphicsSvgItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsSvgItem*)self)->type();
-    }
+    return self->type();
 }
 
 // Base class handler implementation

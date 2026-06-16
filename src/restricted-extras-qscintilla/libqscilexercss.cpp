@@ -23,30 +23,15 @@ QsciLexerCSS* QsciLexerCSS_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerCSS_MetaObject(const QsciLexerCSS* self) {
-    auto* vqscilexercss = dynamic_cast<const VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerCSS*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerCSS_Metacast(QsciLexerCSS* self, const char* param1) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerCSS*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerCSS_Metacall(QsciLexerCSS* self, int param1, int param2, void** param3) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerCSS*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerCSS_Language(const QsciLexerCSS* self) {
@@ -130,21 +115,11 @@ bool QsciLexerCSS_SCSSLanguage(const QsciLexerCSS* self) {
 }
 
 void QsciLexerCSS_SetFoldComments(QsciLexerCSS* self, bool fold) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerCSS*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerCSS_SetFoldCompact(QsciLexerCSS* self, bool fold) {
-    auto* vqscilexercss = dynamic_cast<VirtualQsciLexerCSS*>(self);
-    if (vqscilexercss && vqscilexercss->isVirtualQsciLexerCSS) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerCSS*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 const char* QsciLexerCSS_BlockEnd1(const QsciLexerCSS* self, int* style) {

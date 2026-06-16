@@ -59,149 +59,69 @@ QTermWidget* QTermWidget_new4(int startnow, QWidget* parent) {
 }
 
 QMetaObject* QTermWidget_MetaObject(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTermWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTermWidget_Metacast(QTermWidget* self, const char* param1) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTermWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTermWidget_Metacall(QTermWidget* self, int param1, int param2, void** param3) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTermWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QTermWidget_SizeHint(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQTermWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QTermWidget_SetTerminalSizeHint(QTermWidget* self, bool enabled) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setTerminalSizeHint(enabled);
-    } else {
-        ((VirtualQTermWidget*)self)->setTerminalSizeHint(enabled);
-    }
+    self->setTerminalSizeHint(enabled);
 }
 
 bool QTermWidget_TerminalSizeHint(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->terminalSizeHint();
-    } else {
-        return ((VirtualQTermWidget*)self)->terminalSizeHint();
-    }
+    return self->terminalSizeHint();
 }
 
 void QTermWidget_StartShellProgram(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->startShellProgram();
-    } else {
-        ((VirtualQTermWidget*)self)->startShellProgram();
-    }
+    self->startShellProgram();
 }
 
 void QTermWidget_StartTerminalTeletype(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->startTerminalTeletype();
-    } else {
-        ((VirtualQTermWidget*)self)->startTerminalTeletype();
-    }
+    self->startTerminalTeletype();
 }
 
 int QTermWidget_GetShellPID(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->getShellPID();
-    } else {
-        return ((VirtualQTermWidget*)self)->getShellPID();
-    }
+    return self->getShellPID();
 }
 
 int QTermWidget_GetForegroundProcessId(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->getForegroundProcessId();
-    } else {
-        return ((VirtualQTermWidget*)self)->getForegroundProcessId();
-    }
+    return self->getForegroundProcessId();
 }
 
 void QTermWidget_ChangeDir(QTermWidget* self, const libqt_string dir) {
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->changeDir(dir_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->changeDir(dir_QString);
-    }
+    self->changeDir(dir_QString);
 }
 
 void QTermWidget_SetTerminalFont(QTermWidget* self, const QFont* font) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setTerminalFont(*font);
-    } else {
-        ((VirtualQTermWidget*)self)->setTerminalFont(*font);
-    }
+    self->setTerminalFont(*font);
 }
 
 QFont* QTermWidget_GetTerminalFont(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return new QFont(self->getTerminalFont());
-    } else {
-        return new QFont(((VirtualQTermWidget*)self)->getTerminalFont());
-    }
+    return new QFont(self->getTerminalFont());
 }
 
 void QTermWidget_SetTerminalOpacity(QTermWidget* self, double level) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setTerminalOpacity(static_cast<qreal>(level));
-    } else {
-        ((VirtualQTermWidget*)self)->setTerminalOpacity(static_cast<qreal>(level));
-    }
+    self->setTerminalOpacity(static_cast<qreal>(level));
 }
 
 void QTermWidget_SetTerminalBackgroundImage(QTermWidget* self, const libqt_string backgroundImage) {
     QString backgroundImage_QString = QString::fromUtf8(backgroundImage.data, backgroundImage.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setTerminalBackgroundImage(backgroundImage_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->setTerminalBackgroundImage(backgroundImage_QString);
-    }
+    self->setTerminalBackgroundImage(backgroundImage_QString);
 }
 
 void QTermWidget_SetTerminalBackgroundMode(QTermWidget* self, int mode) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setTerminalBackgroundMode(static_cast<int>(mode));
-    } else {
-        ((VirtualQTermWidget*)self)->setTerminalBackgroundMode(static_cast<int>(mode));
-    }
+    self->setTerminalBackgroundMode(static_cast<int>(mode));
 }
 
 void QTermWidget_SetEnvironment(QTermWidget* self, const libqt_list /* of libqt_string */ environment) {
@@ -212,57 +132,29 @@ void QTermWidget_SetEnvironment(QTermWidget* self, const libqt_list /* of libqt_
         QString environment_arr_i_QString = QString::fromUtf8(environment_arr[i].data, environment_arr[i].len);
         environment_QList.push_back(environment_arr_i_QString);
     }
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setEnvironment(environment_QList);
-    } else {
-        ((VirtualQTermWidget*)self)->setEnvironment(environment_QList);
-    }
+    self->setEnvironment(environment_QList);
 }
 
 void QTermWidget_SetShellProgram(QTermWidget* self, const libqt_string program) {
     QString program_QString = QString::fromUtf8(program.data, program.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setShellProgram(program_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->setShellProgram(program_QString);
-    }
+    self->setShellProgram(program_QString);
 }
 
 void QTermWidget_SetWorkingDirectory(QTermWidget* self, const libqt_string dir) {
     QString dir_QString = QString::fromUtf8(dir.data, dir.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setWorkingDirectory(dir_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->setWorkingDirectory(dir_QString);
-    }
+    self->setWorkingDirectory(dir_QString);
 }
 
 libqt_string QTermWidget_WorkingDirectory(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        auto _ret = self->workingDirectory();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTermWidget*)self)->workingDirectory();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->workingDirectory();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QTermWidget_SetArgs(QTermWidget* self, const libqt_list /* of libqt_string */ args) {
@@ -273,65 +165,33 @@ void QTermWidget_SetArgs(QTermWidget* self, const libqt_list /* of libqt_string 
         QString args_arr_i_QString = QString::fromUtf8(args_arr[i].data, args_arr[i].len);
         args_QList.push_back(args_arr_i_QString);
     }
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setArgs(args_QList);
-    } else {
-        ((VirtualQTermWidget*)self)->setArgs(args_QList);
-    }
+    self->setArgs(args_QList);
 }
 
 void QTermWidget_SetColorScheme(QTermWidget* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setColorScheme(name_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->setColorScheme(name_QString);
-    }
+    self->setColorScheme(name_QString);
 }
 
 libqt_list /* of libqt_string */ QTermWidget_GetAvailableColorSchemes(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QList<QString> _ret = self->getAvailableColorSchemes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQTermWidget*)self)->getAvailableColorSchemes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->getAvailableColorSchemes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_list /* of libqt_string */ QTermWidget_AvailableColorSchemes() {
@@ -361,85 +221,40 @@ void QTermWidget_AddCustomColorSchemeDir(const libqt_string custom_dir) {
 }
 
 void QTermWidget_SetHistorySize(QTermWidget* self, int lines) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setHistorySize(static_cast<int>(lines));
-    } else {
-        ((VirtualQTermWidget*)self)->setHistorySize(static_cast<int>(lines));
-    }
+    self->setHistorySize(static_cast<int>(lines));
 }
 
 int QTermWidget_HistorySize(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->historySize();
-    } else {
-        return ((VirtualQTermWidget*)self)->historySize();
-    }
+    return self->historySize();
 }
 
 void QTermWidget_SetScrollBarPosition(QTermWidget* self, int scrollBarPosition) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setScrollBarPosition(static_cast<QTermWidgetInterface::ScrollBarPosition>(scrollBarPosition));
-    } else {
-        ((VirtualQTermWidget*)self)->setScrollBarPosition(static_cast<QTermWidgetInterface::ScrollBarPosition>(scrollBarPosition));
-    }
+    self->setScrollBarPosition(static_cast<QTermWidgetInterface::ScrollBarPosition>(scrollBarPosition));
 }
 
 void QTermWidget_ScrollToEnd(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->scrollToEnd();
-    } else {
-        ((VirtualQTermWidget*)self)->scrollToEnd();
-    }
+    self->scrollToEnd();
 }
 
 void QTermWidget_SendText(QTermWidget* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->sendText(text_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->sendText(text_QString);
-    }
+    self->sendText(text_QString);
 }
 
 void QTermWidget_SendKeyEvent(QTermWidget* self, QKeyEvent* e) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->sendKeyEvent(e);
-    } else {
-        ((VirtualQTermWidget*)self)->sendKeyEvent(e);
-    }
+    self->sendKeyEvent(e);
 }
 
 void QTermWidget_SetFlowControlEnabled(QTermWidget* self, bool enabled) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setFlowControlEnabled(enabled);
-    } else {
-        ((VirtualQTermWidget*)self)->setFlowControlEnabled(enabled);
-    }
+    self->setFlowControlEnabled(enabled);
 }
 
 bool QTermWidget_FlowControlEnabled(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->flowControlEnabled();
-    } else {
-        return ((VirtualQTermWidget*)self)->flowControlEnabled();
-    }
+    return self->flowControlEnabled();
 }
 
 void QTermWidget_SetFlowControlWarningEnabled(QTermWidget* self, bool enabled) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setFlowControlWarningEnabled(enabled);
-    } else {
-        ((VirtualQTermWidget*)self)->setFlowControlWarningEnabled(enabled);
-    }
+    self->setFlowControlWarningEnabled(enabled);
 }
 
 libqt_list /* of libqt_string */ QTermWidget_AvailableKeyBindings() {
@@ -464,152 +279,71 @@ libqt_list /* of libqt_string */ QTermWidget_AvailableKeyBindings() {
 }
 
 libqt_string QTermWidget_KeyBindings(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        auto _ret = self->keyBindings();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTermWidget*)self)->keyBindings();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->keyBindings();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QTermWidget_SetMotionAfterPasting(QTermWidget* self, int motionAfterPasting) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setMotionAfterPasting(static_cast<int>(motionAfterPasting));
-    } else {
-        ((VirtualQTermWidget*)self)->setMotionAfterPasting(static_cast<int>(motionAfterPasting));
-    }
+    self->setMotionAfterPasting(static_cast<int>(motionAfterPasting));
 }
 
 int QTermWidget_HistoryLinesCount(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->historyLinesCount();
-    } else {
-        return ((VirtualQTermWidget*)self)->historyLinesCount();
-    }
+    return self->historyLinesCount();
 }
 
 int QTermWidget_ScreenColumnsCount(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->screenColumnsCount();
-    } else {
-        return ((VirtualQTermWidget*)self)->screenColumnsCount();
-    }
+    return self->screenColumnsCount();
 }
 
 int QTermWidget_ScreenLinesCount(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->screenLinesCount();
-    } else {
-        return ((VirtualQTermWidget*)self)->screenLinesCount();
-    }
+    return self->screenLinesCount();
 }
 
 void QTermWidget_SetSelectionStart(QTermWidget* self, int row, int column) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setSelectionStart(static_cast<int>(row), static_cast<int>(column));
-    } else {
-        ((VirtualQTermWidget*)self)->setSelectionStart(static_cast<int>(row), static_cast<int>(column));
-    }
+    self->setSelectionStart(static_cast<int>(row), static_cast<int>(column));
 }
 
 void QTermWidget_SetSelectionEnd(QTermWidget* self, int row, int column) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setSelectionEnd(static_cast<int>(row), static_cast<int>(column));
-    } else {
-        ((VirtualQTermWidget*)self)->setSelectionEnd(static_cast<int>(row), static_cast<int>(column));
-    }
+    self->setSelectionEnd(static_cast<int>(row), static_cast<int>(column));
 }
 
 void QTermWidget_GetSelectionStart(QTermWidget* self, int* row, int* column) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->getSelectionStart(static_cast<int&>(*row), static_cast<int&>(*column));
-    } else {
-        ((VirtualQTermWidget*)self)->getSelectionStart(static_cast<int&>(*row), static_cast<int&>(*column));
-    }
+    self->getSelectionStart(static_cast<int&>(*row), static_cast<int&>(*column));
 }
 
 void QTermWidget_GetSelectionEnd(QTermWidget* self, int* row, int* column) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->getSelectionEnd(static_cast<int&>(*row), static_cast<int&>(*column));
-    } else {
-        ((VirtualQTermWidget*)self)->getSelectionEnd(static_cast<int&>(*row), static_cast<int&>(*column));
-    }
+    self->getSelectionEnd(static_cast<int&>(*row), static_cast<int&>(*column));
 }
 
 libqt_string QTermWidget_SelectedText(QTermWidget* self, bool preserveLineBreaks) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        auto _ret = self->selectedText(preserveLineBreaks);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTermWidget*)self)->selectedText(preserveLineBreaks);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->selectedText(preserveLineBreaks);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QTermWidget_SetMonitorActivity(QTermWidget* self, bool monitorActivity) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setMonitorActivity(monitorActivity);
-    } else {
-        ((VirtualQTermWidget*)self)->setMonitorActivity(monitorActivity);
-    }
+    self->setMonitorActivity(monitorActivity);
 }
 
 void QTermWidget_SetMonitorSilence(QTermWidget* self, bool monitorSilence) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setMonitorSilence(monitorSilence);
-    } else {
-        ((VirtualQTermWidget*)self)->setMonitorSilence(monitorSilence);
-    }
+    self->setMonitorSilence(monitorSilence);
 }
 
 void QTermWidget_SetSilenceTimeout(QTermWidget* self, int seconds) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setSilenceTimeout(static_cast<int>(seconds));
-    } else {
-        ((VirtualQTermWidget*)self)->setSilenceTimeout(static_cast<int>(seconds));
-    }
+    self->setSilenceTimeout(static_cast<int>(seconds));
 }
 
 Konsole__Filter__HotSpot* QTermWidget_GetHotSpotAt(const QTermWidget* self, const QPoint* pos) {
@@ -621,39 +355,20 @@ Konsole__Filter__HotSpot* QTermWidget_GetHotSpotAt2(const QTermWidget* self, int
 }
 
 libqt_list /* of QAction* */ QTermWidget_FilterActions(QTermWidget* self, const QPoint* position) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        QList<QAction*> _ret = self->filterActions(*position);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QAction*> _ret = ((VirtualQTermWidget*)self)->filterActions(*position);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QAction*> _ret = self->filterActions(*position);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 int QTermWidget_GetPtySlaveFd(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->getPtySlaveFd();
-    } else {
-        return ((VirtualQTermWidget*)self)->getPtySlaveFd();
-    }
+    return self->getPtySlaveFd();
 }
 
 void QTermWidget_SetKeyboardCursorShape(QTermWidget* self, int shape) {
@@ -661,224 +376,105 @@ void QTermWidget_SetKeyboardCursorShape(QTermWidget* self, int shape) {
 }
 
 void QTermWidget_SetBlinkingCursor(QTermWidget* self, bool blink) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setBlinkingCursor(blink);
-    } else {
-        ((VirtualQTermWidget*)self)->setBlinkingCursor(blink);
-    }
+    self->setBlinkingCursor(blink);
 }
 
 void QTermWidget_SetBidiEnabled(QTermWidget* self, bool enabled) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setBidiEnabled(enabled);
-    } else {
-        ((VirtualQTermWidget*)self)->setBidiEnabled(enabled);
-    }
+    self->setBidiEnabled(enabled);
 }
 
 bool QTermWidget_IsBidiEnabled(QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->isBidiEnabled();
-    } else {
-        return ((VirtualQTermWidget*)self)->isBidiEnabled();
-    }
+    return self->isBidiEnabled();
 }
 
 void QTermWidget_SetAutoClose(QTermWidget* self, bool autoClose) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setAutoClose(autoClose);
-    } else {
-        ((VirtualQTermWidget*)self)->setAutoClose(autoClose);
-    }
+    self->setAutoClose(autoClose);
 }
 
 libqt_string QTermWidget_Title(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        auto _ret = self->title();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTermWidget*)self)->title();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->title();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QTermWidget_Icon(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        auto _ret = self->icon();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTermWidget*)self)->icon();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->icon();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool QTermWidget_IsTitleChanged(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->isTitleChanged();
-    } else {
-        return ((VirtualQTermWidget*)self)->isTitleChanged();
-    }
+    return self->isTitleChanged();
 }
 
 void QTermWidget_BracketText(QTermWidget* self, libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->bracketText(text_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->bracketText(text_QString);
-    }
+    self->bracketText(text_QString);
 }
 
 void QTermWidget_DisableBracketedPasteMode(QTermWidget* self, bool disable) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->disableBracketedPasteMode(disable);
-    } else {
-        ((VirtualQTermWidget*)self)->disableBracketedPasteMode(disable);
-    }
+    self->disableBracketedPasteMode(disable);
 }
 
 bool QTermWidget_BracketedPasteModeIsDisabled(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->bracketedPasteModeIsDisabled();
-    } else {
-        return ((VirtualQTermWidget*)self)->bracketedPasteModeIsDisabled();
-    }
+    return self->bracketedPasteModeIsDisabled();
 }
 
 void QTermWidget_SetMargin(QTermWidget* self, int margin) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setMargin(static_cast<int>(margin));
-    } else {
-        ((VirtualQTermWidget*)self)->setMargin(static_cast<int>(margin));
-    }
+    self->setMargin(static_cast<int>(margin));
 }
 
 int QTermWidget_GetMargin(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->getMargin();
-    } else {
-        return ((VirtualQTermWidget*)self)->getMargin();
-    }
+    return self->getMargin();
 }
 
 void QTermWidget_SetDrawLineChars(QTermWidget* self, bool drawLineChars) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setDrawLineChars(drawLineChars);
-    } else {
-        ((VirtualQTermWidget*)self)->setDrawLineChars(drawLineChars);
-    }
+    self->setDrawLineChars(drawLineChars);
 }
 
 void QTermWidget_SetBoldIntense(QTermWidget* self, bool boldIntense) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setBoldIntense(boldIntense);
-    } else {
-        ((VirtualQTermWidget*)self)->setBoldIntense(boldIntense);
-    }
+    self->setBoldIntense(boldIntense);
 }
 
 void QTermWidget_SetConfirmMultilinePaste(QTermWidget* self, bool confirmMultilinePaste) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setConfirmMultilinePaste(confirmMultilinePaste);
-    } else {
-        ((VirtualQTermWidget*)self)->setConfirmMultilinePaste(confirmMultilinePaste);
-    }
+    self->setConfirmMultilinePaste(confirmMultilinePaste);
 }
 
 void QTermWidget_SetTrimPastedTrailingNewlines(QTermWidget* self, bool trimPastedTrailingNewlines) {
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setTrimPastedTrailingNewlines(trimPastedTrailingNewlines);
-    } else {
-        ((VirtualQTermWidget*)self)->setTrimPastedTrailingNewlines(trimPastedTrailingNewlines);
-    }
+    self->setTrimPastedTrailingNewlines(trimPastedTrailingNewlines);
 }
 
 libqt_string QTermWidget_WordCharacters(const QTermWidget* self) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        auto _ret = self->wordCharacters();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTermWidget*)self)->wordCharacters();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->wordCharacters();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QTermWidget_SetWordCharacters(QTermWidget* self, const libqt_string chars) {
     QString chars_QString = QString::fromUtf8(chars.data, chars.len);
-    auto* vqtermwidget = dynamic_cast<VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        self->setWordCharacters(chars_QString);
-    } else {
-        ((VirtualQTermWidget*)self)->setWordCharacters(chars_QString);
-    }
+    self->setWordCharacters(chars_QString);
 }
 
 QTermWidgetInterface* QTermWidget_CreateWidget(const QTermWidget* self, int startnow) {
-    auto* vqtermwidget = dynamic_cast<const VirtualQTermWidget*>(self);
-    if (vqtermwidget && vqtermwidget->isVirtualQTermWidget) {
-        return self->createWidget(static_cast<int>(startnow));
-    } else {
-        return ((VirtualQTermWidget*)self)->createWidget(static_cast<int>(startnow));
-    }
+    return self->createWidget(static_cast<int>(startnow));
 }
 
 void QTermWidget_Finished(QTermWidget* self) {

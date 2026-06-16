@@ -53,48 +53,23 @@ QMdiArea* QMdiArea_new2() {
 }
 
 QMetaObject* QMdiArea_MetaObject(const QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMdiArea*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMdiArea_Metacast(QMdiArea* self, const char* param1) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMdiArea*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMdiArea_Metacall(QMdiArea* self, int param1, int param2, void** param3) {
-    auto* vqmdiarea = dynamic_cast<VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMdiArea*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QMdiArea_SizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QMdiArea_MinimumSizeHint(const QMdiArea* self) {
-    auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
-    if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMdiArea*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 QMdiSubWindow* QMdiArea_CurrentSubWindow(const QMdiArea* self) {

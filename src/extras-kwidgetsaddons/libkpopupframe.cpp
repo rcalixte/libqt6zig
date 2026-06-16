@@ -48,30 +48,15 @@ KPopupFrame* KPopupFrame_new2() {
 }
 
 QMetaObject* KPopupFrame_MetaObject(const KPopupFrame* self) {
-    auto* vkpopupframe = dynamic_cast<const VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPopupFrame*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPopupFrame_Metacast(KPopupFrame* self, const char* param1) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPopupFrame*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPopupFrame_Metacall(KPopupFrame* self, int param1, int param2, void** param3) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPopupFrame*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPopupFrame_KeyPressEvent(KPopupFrame* self, QKeyEvent* e) {
@@ -97,12 +82,7 @@ void KPopupFrame_SetMainWidget(KPopupFrame* self, QWidget* m) {
 }
 
 void KPopupFrame_ResizeEvent(KPopupFrame* self, QResizeEvent* resize) {
-    auto* vkpopupframe = dynamic_cast<VirtualKPopupFrame*>(self);
-    if (vkpopupframe && vkpopupframe->isVirtualKPopupFrame) {
-        self->resizeEvent(resize);
-    } else {
-        ((VirtualKPopupFrame*)self)->resizeEvent(resize);
-    }
+    self->resizeEvent(resize);
 }
 
 void KPopupFrame_Popup(KPopupFrame* self, const QPoint* pos) {

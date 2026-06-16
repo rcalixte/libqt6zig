@@ -30,30 +30,15 @@ KActionMenu* KActionMenu_new3(const QIcon* icon, const libqt_string text, QObjec
 }
 
 QMetaObject* KActionMenu_MetaObject(const KActionMenu* self) {
-    auto* vkactionmenu = dynamic_cast<const VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKActionMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KActionMenu_Metacast(KActionMenu* self, const char* param1) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKActionMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KActionMenu_Metacall(KActionMenu* self, int param1, int param2, void** param3) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKActionMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KActionMenu_AddAction(KActionMenu* self, QAction* action) {
@@ -85,12 +70,7 @@ void KActionMenu_SetPopupMode(KActionMenu* self, int popupMode) {
 }
 
 QWidget* KActionMenu_CreateWidget(KActionMenu* self, QWidget* parent) {
-    auto* vkactionmenu = dynamic_cast<VirtualKActionMenu*>(self);
-    if (vkactionmenu && vkactionmenu->isVirtualKActionMenu) {
-        return self->createWidget(parent);
-    } else {
-        return ((VirtualKActionMenu*)self)->createWidget(parent);
-    }
+    return self->createWidget(parent);
 }
 
 // Base class handler implementation

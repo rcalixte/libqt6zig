@@ -29,30 +29,15 @@ QStackedLayout* QStackedLayout_new3(QLayout* parentLayout) {
 }
 
 QMetaObject* QStackedLayout_MetaObject(const QStackedLayout* self) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQStackedLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QStackedLayout_Metacast(QStackedLayout* self, const char* param1) {
-    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQStackedLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QStackedLayout_Metacall(QStackedLayout* self, int param1, int param2, void** param3) {
-    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStackedLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QStackedLayout_AddWidget(QStackedLayout* self, QWidget* w) {
@@ -76,12 +61,7 @@ QWidget* QStackedLayout_Widget(const QStackedLayout* self, int param1) {
 }
 
 int QStackedLayout_Count(const QStackedLayout* self) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->count();
-    } else {
-        return ((VirtualQStackedLayout*)self)->count();
-    }
+    return self->count();
 }
 
 int QStackedLayout_StackingMode(const QStackedLayout* self) {
@@ -93,75 +73,35 @@ void QStackedLayout_SetStackingMode(QStackedLayout* self, int stackingMode) {
 }
 
 void QStackedLayout_AddItem(QStackedLayout* self, QLayoutItem* item) {
-    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        self->addItem(item);
-    } else {
-        ((VirtualQStackedLayout*)self)->addItem(item);
-    }
+    self->addItem(item);
 }
 
 QSize* QStackedLayout_SizeHint(const QStackedLayout* self) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQStackedLayout*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QStackedLayout_MinimumSize(const QStackedLayout* self) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQStackedLayout*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QLayoutItem* QStackedLayout_ItemAt(const QStackedLayout* self, int param1) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->itemAt(static_cast<int>(param1));
-    } else {
-        return ((VirtualQStackedLayout*)self)->itemAt(static_cast<int>(param1));
-    }
+    return self->itemAt(static_cast<int>(param1));
 }
 
 QLayoutItem* QStackedLayout_TakeAt(QStackedLayout* self, int param1) {
-    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->takeAt(static_cast<int>(param1));
-    } else {
-        return ((VirtualQStackedLayout*)self)->takeAt(static_cast<int>(param1));
-    }
+    return self->takeAt(static_cast<int>(param1));
 }
 
 void QStackedLayout_SetGeometry(QStackedLayout* self, const QRect* rect) {
-    auto* vqstackedlayout = dynamic_cast<VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQStackedLayout*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 bool QStackedLayout_HasHeightForWidth(const QStackedLayout* self) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQStackedLayout*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 int QStackedLayout_HeightForWidth(const QStackedLayout* self, int width) {
-    auto* vqstackedlayout = dynamic_cast<const VirtualQStackedLayout*>(self);
-    if (vqstackedlayout && vqstackedlayout->isVirtualQStackedLayout) {
-        return self->heightForWidth(static_cast<int>(width));
-    } else {
-        return ((VirtualQStackedLayout*)self)->heightForWidth(static_cast<int>(width));
-    }
+    return self->heightForWidth(static_cast<int>(width));
 }
 
 void QStackedLayout_WidgetRemoved(QStackedLayout* self, int index) {

@@ -20,64 +20,31 @@ QTranslator* QTranslator_new2(QObject* parent) {
 }
 
 QMetaObject* QTranslator_MetaObject(const QTranslator* self) {
-    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTranslator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTranslator_Metacast(QTranslator* self, const char* param1) {
-    auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTranslator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTranslator_Metacall(QTranslator* self, int param1, int param2, void** param3) {
-    auto* vqtranslator = dynamic_cast<VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTranslator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QTranslator_Translate(const QTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
-    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        auto _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool QTranslator_IsEmpty(const QTranslator* self) {
-    auto* vqtranslator = dynamic_cast<const VirtualQTranslator*>(self);
-    if (vqtranslator && vqtranslator->isVirtualQTranslator) {
-        return self->isEmpty();
-    } else {
-        return ((VirtualQTranslator*)self)->isEmpty();
-    }
+    return self->isEmpty();
 }
 
 libqt_string QTranslator_Language(const QTranslator* self) {

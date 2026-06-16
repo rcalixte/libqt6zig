@@ -45,7 +45,7 @@ int QCollator_Compare2(const QCollator* self, const QChar* s1, ptrdiff_t len1, c
 bool QCollator_OperatorCall(const QCollator* self, const libqt_string s1, const libqt_string s2);
 int QCollator_Compare3(const QCollator* self, libqt_string s1, libqt_string s2);
 bool QCollator_OperatorCall2(const QCollator* self, libqt_string s1, libqt_string s2);
-QCollatorSortKey* QCollator_SortKey(const QCollator* self, const libqt_string stringVal);
+QCollatorSortKey* QCollator_SortKey(const QCollator* self, const libqt_string string);
 int QCollator_DefaultCompare(libqt_string s1, libqt_string s2);
 QCollatorSortKey* QCollator_DefaultSortKey(libqt_string key);
 void QCollator_Delete(QCollator* self);

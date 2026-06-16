@@ -19,30 +19,15 @@ KBookmarkAction* KBookmarkAction_new(const KBookmark* bk, KBookmarkOwner* owner,
 }
 
 QMetaObject* KBookmarkAction_MetaObject(const KBookmarkAction* self) {
-    auto* vkbookmarkaction = dynamic_cast<const VirtualKBookmarkAction*>(self);
-    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBookmarkAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBookmarkAction_Metacast(KBookmarkAction* self, const char* param1) {
-    auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
-    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBookmarkAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBookmarkAction_Metacall(KBookmarkAction* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkaction = dynamic_cast<VirtualKBookmarkAction*>(self);
-    if (vkbookmarkaction && vkbookmarkaction->isVirtualKBookmarkAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBookmarkAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KBookmarkAction_SlotSelected(KBookmarkAction* self, int mb, int km) {

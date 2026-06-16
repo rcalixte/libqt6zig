@@ -58,30 +58,15 @@ int KFileMetaData__ExtractionResult_InputFlags(const KFileMetaData__ExtractionRe
 
 void KFileMetaData__ExtractionResult_Append(KFileMetaData__ExtractionResult* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkfilemetadata__extractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadata__extractionresult && vkfilemetadata__extractionresult->isVirtualKFileMetaDataExtractionResult) {
-        vkfilemetadata__extractionresult->append(text_QString);
-    } else {
-        ((VirtualKFileMetaDataExtractionResult*)self)->append(text_QString);
-    }
+    self->append(text_QString);
 }
 
 void KFileMetaData__ExtractionResult_Add(KFileMetaData__ExtractionResult* self, int property, const QVariant* value) {
-    auto* vkfilemetadata__extractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadata__extractionresult && vkfilemetadata__extractionresult->isVirtualKFileMetaDataExtractionResult) {
-        vkfilemetadata__extractionresult->add(static_cast<KFileMetaData::Property::Property>(property), *value);
-    } else {
-        ((VirtualKFileMetaDataExtractionResult*)self)->add(static_cast<KFileMetaData::Property::Property>(property), *value);
-    }
+    self->add(static_cast<KFileMetaData::Property::Property>(property), *value);
 }
 
 void KFileMetaData__ExtractionResult_AddType(KFileMetaData__ExtractionResult* self, int typeVal) {
-    auto* vkfilemetadata__extractionresult = dynamic_cast<VirtualKFileMetaDataExtractionResult*>(self);
-    if (vkfilemetadata__extractionresult && vkfilemetadata__extractionresult->isVirtualKFileMetaDataExtractionResult) {
-        vkfilemetadata__extractionresult->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
-    } else {
-        ((VirtualKFileMetaDataExtractionResult*)self)->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
-    }
+    self->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
 }
 
 libqt_map /* of int to libqt_string */ KFileMetaData__ExtractionResult_ImageData(const KFileMetaData__ExtractionResult* self) {

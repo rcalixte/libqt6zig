@@ -10,39 +10,20 @@ QDesignerTaskMenuExtension* QDesignerTaskMenuExtension_new() {
 }
 
 QAction* QDesignerTaskMenuExtension_PreferredEditAction(const QDesignerTaskMenuExtension* self) {
-    auto* vqdesignertaskmenuextension = dynamic_cast<const VirtualQDesignerTaskMenuExtension*>(self);
-    if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
-        return self->preferredEditAction();
-    } else {
-        return ((VirtualQDesignerTaskMenuExtension*)self)->preferredEditAction();
-    }
+    return self->preferredEditAction();
 }
 
 libqt_list /* of QAction* */ QDesignerTaskMenuExtension_TaskActions(const QDesignerTaskMenuExtension* self) {
-    auto* vqdesignertaskmenuextension = dynamic_cast<const VirtualQDesignerTaskMenuExtension*>(self);
-    if (vqdesignertaskmenuextension && vqdesignertaskmenuextension->isVirtualQDesignerTaskMenuExtension) {
-        QList<QAction*> _ret = vqdesignertaskmenuextension->taskActions();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QAction*> _ret = ((VirtualQDesignerTaskMenuExtension*)self)->taskActions();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QAction*> _ret = self->taskActions();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation

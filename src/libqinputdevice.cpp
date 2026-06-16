@@ -38,30 +38,15 @@ QInputDevice* QInputDevice_new5(const libqt_string name, long long systemId, int
 }
 
 QMetaObject* QInputDevice_MetaObject(const QInputDevice* self) {
-    auto* vqinputdevice = dynamic_cast<const VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQInputDevice*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QInputDevice_Metacast(QInputDevice* self, const char* param1) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQInputDevice*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QInputDevice_Metacall(QInputDevice* self, int param1, int param2, void** param3) {
-    auto* vqinputdevice = dynamic_cast<VirtualQInputDevice*>(self);
-    if (vqinputdevice && vqinputdevice->isVirtualQInputDevice) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQInputDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QInputDevice_Name(const QInputDevice* self) {

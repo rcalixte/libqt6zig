@@ -65,12 +65,7 @@ void KIO__ApplicationLauncherJob_SetStartupId(KIO__ApplicationLauncherJob* self,
 }
 
 void KIO__ApplicationLauncherJob_Start(KIO__ApplicationLauncherJob* self) {
-    auto* vkio__applicationlauncherjob = dynamic_cast<VirtualKIOApplicationLauncherJob*>(self);
-    if (vkio__applicationlauncherjob && vkio__applicationlauncherjob->isVirtualKIOApplicationLauncherJob) {
-        self->start();
-    } else {
-        ((VirtualKIOApplicationLauncherJob*)self)->start();
-    }
+    self->start();
 }
 
 long long KIO__ApplicationLauncherJob_Pid(const KIO__ApplicationLauncherJob* self) {

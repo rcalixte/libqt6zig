@@ -46,30 +46,15 @@ TextEmoticonsWidgets__EmoticonTextEditSelector* TextEmoticonsWidgets__EmoticonTe
 }
 
 QMetaObject* TextEmoticonsWidgets__EmoticonTextEditSelector_MetaObject(const TextEmoticonsWidgets__EmoticonTextEditSelector* self) {
-    auto* vtextemoticonswidgets__emoticontexteditselector = dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditSelector*>(self);
-    if (vtextemoticonswidgets__emoticontexteditselector && vtextemoticonswidgets__emoticontexteditselector->isVirtualTextEmoticonsWidgetsEmoticonTextEditSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEmoticonsWidgetsEmoticonTextEditSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEmoticonsWidgets__EmoticonTextEditSelector_Metacast(TextEmoticonsWidgets__EmoticonTextEditSelector* self, const char* param1) {
-    auto* vtextemoticonswidgets__emoticontexteditselector = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditSelector*>(self);
-    if (vtextemoticonswidgets__emoticontexteditselector && vtextemoticonswidgets__emoticontexteditselector->isVirtualTextEmoticonsWidgetsEmoticonTextEditSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEmoticonsWidgetsEmoticonTextEditSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEmoticonsWidgets__EmoticonTextEditSelector_Metacall(TextEmoticonsWidgets__EmoticonTextEditSelector* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonswidgets__emoticontexteditselector = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditSelector*>(self);
-    if (vtextemoticonswidgets__emoticontexteditselector && vtextemoticonswidgets__emoticontexteditselector->isVirtualTextEmoticonsWidgetsEmoticonTextEditSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEmoticonsWidgetsEmoticonTextEditSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextEmoticonsWidgets__EmoticonTextEditSelector_ForceLineEditFocus(TextEmoticonsWidgets__EmoticonTextEditSelector* self) {

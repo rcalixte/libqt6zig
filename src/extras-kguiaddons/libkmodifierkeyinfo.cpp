@@ -20,30 +20,15 @@ KModifierKeyInfo* KModifierKeyInfo_new2(QObject* parent) {
 }
 
 QMetaObject* KModifierKeyInfo_MetaObject(const KModifierKeyInfo* self) {
-    auto* vkmodifierkeyinfo = dynamic_cast<const VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKModifierKeyInfo*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KModifierKeyInfo_Metacast(KModifierKeyInfo* self, const char* param1) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KModifierKeyInfo_Metacall(KModifierKeyInfo* self, int param1, int param2, void** param3) {
-    auto* vkmodifierkeyinfo = dynamic_cast<VirtualKModifierKeyInfo*>(self);
-    if (vkmodifierkeyinfo && vkmodifierkeyinfo->isVirtualKModifierKeyInfo) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKModifierKeyInfo*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KModifierKeyInfo_KnowsKey(const KModifierKeyInfo* self, int key) {

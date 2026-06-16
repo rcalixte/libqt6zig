@@ -61,30 +61,15 @@ QMenu* QMenu_new4(const libqt_string title, QWidget* parent) {
 }
 
 QMetaObject* QMenu_MetaObject(const QMenu* self) {
-    auto* vqmenu = dynamic_cast<const VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMenu_Metacast(QMenu* self, const char* param1) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMenu_Metacall(QMenu* self, int param1, int param2, void** param3) {
-    auto* vqmenu = dynamic_cast<VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAction* QMenu_AddMenu(QMenu* self, QMenu* menu) {
@@ -204,12 +189,7 @@ QAction* QMenu_Exec3(const libqt_list /* of QAction* */ actions, const QPoint* p
 }
 
 QSize* QMenu_SizeHint(const QMenu* self) {
-    auto* vqmenu = dynamic_cast<const VirtualQMenu*>(self);
-    if (vqmenu && vqmenu->isVirtualQMenu) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQMenu*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QRect* QMenu_ActionGeometry(const QMenu* self, QAction* param1) {

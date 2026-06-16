@@ -130,7 +130,7 @@ void QOpenGLFunctions_GlReleaseShaderCompiler(QOpenGLFunctions* self);
 void QOpenGLFunctions_GlRenderbufferStorage(QOpenGLFunctions* self, uint32_t target, uint32_t internalformat, int32_t width, int32_t height);
 void QOpenGLFunctions_GlSampleCoverage(QOpenGLFunctions* self, GLclampf value, unsigned char invert);
 void QOpenGLFunctions_GlShaderBinary(QOpenGLFunctions* self, int32_t n, const uint32_t* shaders, uint32_t binaryformat, const void* binary, int32_t length);
-void QOpenGLFunctions_GlShaderSource(QOpenGLFunctions* self, uint32_t shader, int32_t count, const char** stringVal, const int32_t* length);
+void QOpenGLFunctions_GlShaderSource(QOpenGLFunctions* self, uint32_t shader, int32_t count, const char** string, const int32_t* length);
 void QOpenGLFunctions_GlStencilFuncSeparate(QOpenGLFunctions* self, uint32_t face, uint32_t func, int32_t ref, uint32_t mask);
 void QOpenGLFunctions_GlStencilMaskSeparate(QOpenGLFunctions* self, uint32_t face, uint32_t mask);
 void QOpenGLFunctions_GlStencilOpSeparate(QOpenGLFunctions* self, uint32_t face, uint32_t fail, uint32_t zfail, uint32_t zpass);

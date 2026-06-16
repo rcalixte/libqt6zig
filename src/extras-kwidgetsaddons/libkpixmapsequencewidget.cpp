@@ -55,30 +55,15 @@ KPixmapSequenceWidget* KPixmapSequenceWidget_new4(const KPixmapSequence* seq, QW
 }
 
 QMetaObject* KPixmapSequenceWidget_MetaObject(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<const VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPixmapSequenceWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPixmapSequenceWidget_Metacast(KPixmapSequenceWidget* self, const char* param1) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPixmapSequenceWidget_Metacall(KPixmapSequenceWidget* self, int param1, int param2, void** param3) {
-    auto* vkpixmapsequencewidget = dynamic_cast<VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPixmapSequenceWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KPixmapSequence* KPixmapSequenceWidget_Sequence(const KPixmapSequenceWidget* self) {
@@ -90,12 +75,7 @@ int KPixmapSequenceWidget_Interval(const KPixmapSequenceWidget* self) {
 }
 
 QSize* KPixmapSequenceWidget_SizeHint(const KPixmapSequenceWidget* self) {
-    auto* vkpixmapsequencewidget = dynamic_cast<const VirtualKPixmapSequenceWidget*>(self);
-    if (vkpixmapsequencewidget && vkpixmapsequencewidget->isVirtualKPixmapSequenceWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKPixmapSequenceWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KPixmapSequenceWidget_SetSequence(KPixmapSequenceWidget* self, const KPixmapSequence* seq) {

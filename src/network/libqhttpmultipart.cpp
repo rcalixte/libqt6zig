@@ -78,30 +78,15 @@ QHttpMultiPart* QHttpMultiPart_new4(int contentType, QObject* parent) {
 }
 
 QMetaObject* QHttpMultiPart_MetaObject(const QHttpMultiPart* self) {
-    auto* vqhttpmultipart = dynamic_cast<const VirtualQHttpMultiPart*>(self);
-    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHttpMultiPart*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHttpMultiPart_Metacast(QHttpMultiPart* self, const char* param1) {
-    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
-    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHttpMultiPart*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHttpMultiPart_Metacall(QHttpMultiPart* self, int param1, int param2, void** param3) {
-    auto* vqhttpmultipart = dynamic_cast<VirtualQHttpMultiPart*>(self);
-    if (vqhttpmultipart && vqhttpmultipart->isVirtualQHttpMultiPart) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHttpMultiPart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QHttpMultiPart_Append(QHttpMultiPart* self, const QHttpPart* httpPart) {

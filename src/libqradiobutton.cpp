@@ -58,48 +58,23 @@ QRadioButton* QRadioButton_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QRadioButton_MetaObject(const QRadioButton* self) {
-    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQRadioButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QRadioButton_Metacast(QRadioButton* self, const char* param1) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQRadioButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QRadioButton_Metacall(QRadioButton* self, int param1, int param2, void** param3) {
-    auto* vqradiobutton = dynamic_cast<VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQRadioButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QRadioButton_SizeHint(const QRadioButton* self) {
-    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQRadioButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QRadioButton_MinimumSizeHint(const QRadioButton* self) {
-    auto* vqradiobutton = dynamic_cast<const VirtualQRadioButton*>(self);
-    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQRadioButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 bool QRadioButton_Event(QRadioButton* self, QEvent* e) {

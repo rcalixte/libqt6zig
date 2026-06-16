@@ -24,30 +24,15 @@ QGeoCodeReply* QGeoCodeReply_new2(int errorVal, const libqt_string errorString, 
 }
 
 QMetaObject* QGeoCodeReply_MetaObject(const QGeoCodeReply* self) {
-    auto* vqgeocodereply = dynamic_cast<const VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoCodeReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoCodeReply_Metacast(QGeoCodeReply* self, const char* param1) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoCodeReply_Metacall(QGeoCodeReply* self, int param1, int param2, void** param3) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoCodeReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QGeoCodeReply_IsFinished(const QGeoCodeReply* self) {
@@ -96,12 +81,7 @@ ptrdiff_t QGeoCodeReply_Offset(const QGeoCodeReply* self) {
 }
 
 void QGeoCodeReply_Abort(QGeoCodeReply* self) {
-    auto* vqgeocodereply = dynamic_cast<VirtualQGeoCodeReply*>(self);
-    if (vqgeocodereply && vqgeocodereply->isVirtualQGeoCodeReply) {
-        self->abort();
-    } else {
-        ((VirtualQGeoCodeReply*)self)->abort();
-    }
+    self->abort();
 }
 
 void QGeoCodeReply_Finished(QGeoCodeReply* self) {

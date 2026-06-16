@@ -23,30 +23,15 @@ QsciLexerHex* QsciLexerHex_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerHex_MetaObject(const QsciLexerHex* self) {
-    auto* vqscilexerhex = dynamic_cast<const VirtualQsciLexerHex*>(self);
-    if (vqscilexerhex && vqscilexerhex->isVirtualQsciLexerHex) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerHex*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerHex_Metacast(QsciLexerHex* self, const char* param1) {
-    auto* vqscilexerhex = dynamic_cast<VirtualQsciLexerHex*>(self);
-    if (vqscilexerhex && vqscilexerhex->isVirtualQsciLexerHex) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerHex*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerHex_Metacall(QsciLexerHex* self, int param1, int param2, void** param3) {
-    auto* vqscilexerhex = dynamic_cast<VirtualQsciLexerHex*>(self);
-    if (vqscilexerhex && vqscilexerhex->isVirtualQsciLexerHex) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerHex*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* QsciLexerHex_DefaultColor(const QsciLexerHex* self, int style) {

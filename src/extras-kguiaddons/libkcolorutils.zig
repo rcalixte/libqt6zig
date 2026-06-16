@@ -52,33 +52,33 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    /// ` param2: *f64 `
+    /// ` hue: *f64 `
     ///
-    /// ` param3: *f64 `
+    /// ` chroma: *f64 `
     ///
-    /// ` param4: *f64 `
+    /// ` luma: *f64 `
     ///
-    /// ` param5: *f64 `
+    /// ` alpha: *f64 `
     ///
-    pub fn GetHcy(param1: anytype, param2: *f64, param3: *f64, param4: *f64, param5: *f64) void {
+    pub fn GetHcy(param1: anytype, hue: *f64, chroma: *f64, luma: *f64, alpha: *f64) void {
         comptime _ = @TypeOf(param1)._is_QColor;
-        qtc.KColorUtils_GetHcy(@ptrCast(param1.ptr), @ptrCast(param2), @ptrCast(param3), @ptrCast(param4), @ptrCast(param5));
+        qtc.KColorUtils_GetHcy(@ptrCast(param1.ptr), @ptrCast(hue), @ptrCast(chroma), @ptrCast(luma), @ptrCast(alpha));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#hcyColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: f64 `
+    /// ` hue: f64 `
     ///
-    /// ` param2: f64 `
+    /// ` chroma: f64 `
     ///
-    /// ` param3: f64 `
+    /// ` luma: f64 `
     ///
-    /// ` param4: f64 `
+    /// ` alpha: f64 `
     ///
-    pub fn HcyColor(param1: f64, param2: f64, param3: f64, param4: f64) QColor {
-        return .{ .ptr = qtc.KColorUtils_HcyColor(@bitCast(param1), @bitCast(param2), @bitCast(param3), @bitCast(param4)) };
+    pub fn HcyColor(hue: f64, chroma: f64, luma: f64, alpha: f64) QColor {
+        return .{ .ptr = qtc.KColorUtils_HcyColor(@bitCast(hue), @bitCast(chroma), @bitCast(luma), @bitCast(alpha)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#contrastRatio)
@@ -101,13 +101,13 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    /// ` param2: f64 `
+    /// ` amount: f64 `
     ///
-    /// ` param3: f64 `
+    /// ` chromaInverseGain: f64 `
     ///
-    pub fn Lighten(param1: anytype, param2: f64, param3: f64) QColor {
+    pub fn Lighten(param1: anytype, amount: f64, chromaInverseGain: f64) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
-        return .{ .ptr = qtc.KColorUtils_Lighten(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+        return .{ .ptr = qtc.KColorUtils_Lighten(@ptrCast(param1.ptr), @bitCast(amount), @bitCast(chromaInverseGain)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#darken)
@@ -116,13 +116,13 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    /// ` param2: f64 `
+    /// ` amount: f64 `
     ///
-    /// ` param3: f64 `
+    /// ` chromaGain: f64 `
     ///
-    pub fn Darken(param1: anytype, param2: f64, param3: f64) QColor {
+    pub fn Darken(param1: anytype, amount: f64, chromaGain: f64) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
-        return .{ .ptr = qtc.KColorUtils_Darken(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+        return .{ .ptr = qtc.KColorUtils_Darken(@ptrCast(param1.ptr), @bitCast(amount), @bitCast(chromaGain)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#shade)
@@ -131,60 +131,60 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    /// ` param2: f64 `
+    /// ` lumaAmount: f64 `
     ///
-    /// ` param3: f64 `
+    /// ` chromaAmount: f64 `
     ///
-    pub fn Shade(param1: anytype, param2: f64, param3: f64) QColor {
+    pub fn Shade(param1: anytype, lumaAmount: f64, chromaAmount: f64) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
-        return .{ .ptr = qtc.KColorUtils_Shade(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+        return .{ .ptr = qtc.KColorUtils_Shade(@ptrCast(param1.ptr), @bitCast(lumaAmount), @bitCast(chromaAmount)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#tint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QColor `
+    /// ` base: QColor `
     ///
-    /// ` param2: QColor `
+    /// ` color: QColor `
     ///
-    /// ` param3: f64 `
+    /// ` amount: f64 `
     ///
-    pub fn Tint(param1: anytype, param2: anytype, param3: f64) QColor {
-        comptime _ = @TypeOf(param1)._is_QColor;
-        comptime _ = @TypeOf(param2)._is_QColor;
-        return .{ .ptr = qtc.KColorUtils_Tint(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Tint(base: anytype, color: anytype, amount: f64) QColor {
+        comptime _ = @TypeOf(base)._is_QColor;
+        comptime _ = @TypeOf(color)._is_QColor;
+        return .{ .ptr = qtc.KColorUtils_Tint(@ptrCast(base.ptr), @ptrCast(color.ptr), @bitCast(amount)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#mix)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QColor `
+    /// ` c1: QColor `
     ///
-    /// ` param2: QColor `
+    /// ` c2: QColor `
     ///
-    /// ` param3: f64 `
+    /// ` bias: f64 `
     ///
-    pub fn Mix(param1: anytype, param2: anytype, param3: f64) QColor {
-        comptime _ = @TypeOf(param1)._is_QColor;
-        comptime _ = @TypeOf(param2)._is_QColor;
-        return .{ .ptr = qtc.KColorUtils_Mix(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Mix(c1: anytype, c2: anytype, bias: f64) QColor {
+        comptime _ = @TypeOf(c1)._is_QColor;
+        comptime _ = @TypeOf(c2)._is_QColor;
+        return .{ .ptr = qtc.KColorUtils_Mix(@ptrCast(c1.ptr), @ptrCast(c2.ptr), @bitCast(bias)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#overlayColors)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QColor `
+    /// ` base: QColor `
     ///
-    /// ` param2: QColor `
+    /// ` paint: QColor `
     ///
-    /// ` param3: qpainter_enums.CompositionMode `
+    /// ` comp: qpainter_enums.CompositionMode `
     ///
-    pub fn OverlayColors(param1: anytype, param2: anytype, param3: i32) QColor {
-        comptime _ = @TypeOf(param1)._is_QColor;
-        comptime _ = @TypeOf(param2)._is_QColor;
-        return .{ .ptr = qtc.KColorUtils_OverlayColors(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn OverlayColors(base: anytype, paint: anytype, comp: i32) QColor {
+        comptime _ = @TypeOf(base)._is_QColor;
+        comptime _ = @TypeOf(paint)._is_QColor;
+        return .{ .ptr = qtc.KColorUtils_OverlayColors(@ptrCast(base.ptr), @ptrCast(paint.ptr), @bitCast(comp)) };
     }
 };

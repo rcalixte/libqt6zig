@@ -22,10 +22,10 @@ typedef struct QMimeData QMimeData;
 typedef struct QObject QObject;
 #endif
 
-void KColorMimeData_PopulateMimeData(QMimeData* param1, const QColor* param2);
-bool KColorMimeData_CanDecode(const QMimeData* param1);
-QColor* KColorMimeData_FromMimeData(const QMimeData* param1);
-QDrag* KColorMimeData_CreateDrag(const QColor* param1, QObject* param2);
+void KColorMimeData_PopulateMimeData(QMimeData* mimeData, const QColor* color);
+bool KColorMimeData_CanDecode(const QMimeData* mimeData);
+QColor* KColorMimeData_FromMimeData(const QMimeData* mimeData);
+QDrag* KColorMimeData_CreateDrag(const QColor* color, QObject* dragsource);
 
 #ifdef __cplusplus
 } /* extern C */

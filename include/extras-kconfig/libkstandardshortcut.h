@@ -19,15 +19,15 @@ typedef struct KStandardShortcut KStandardShortcut;
 typedef struct QKeySequence QKeySequence;
 #endif
 
-libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int param1);
-libqt_string KStandardShortcut_Name(int param1);
-libqt_string KStandardShortcut_Label(int param1);
-libqt_string KStandardShortcut_WhatsThis(int param1);
-int KStandardShortcut_Find(const QKeySequence* param1);
-int KStandardShortcut_FindByName(const libqt_string param1);
-libqt_list /* of QKeySequence* */ KStandardShortcut_HardcodedDefaultShortcut(int param1);
-void KStandardShortcut_SaveShortcut(int param1, const libqt_list /* of QKeySequence* */ param2);
-int KStandardShortcut_Category(int param1);
+libqt_list /* of QKeySequence* */ KStandardShortcut_Shortcut(int id);
+libqt_string KStandardShortcut_Name(int id);
+libqt_string KStandardShortcut_Label(int id);
+libqt_string KStandardShortcut_WhatsThis(int id);
+int KStandardShortcut_Find(const QKeySequence* keySeq);
+int KStandardShortcut_FindByName(const libqt_string name);
+libqt_list /* of QKeySequence* */ KStandardShortcut_HardcodedDefaultShortcut(int id);
+void KStandardShortcut_SaveShortcut(int id, const libqt_list /* of QKeySequence* */ newShortcut);
+int KStandardShortcut_Category(int id);
 libqt_list /* of QKeySequence* */ KStandardShortcut_Open();
 libqt_list /* of QKeySequence* */ KStandardShortcut_OpenNew();
 libqt_list /* of QKeySequence* */ KStandardShortcut_Close();

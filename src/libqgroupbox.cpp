@@ -57,30 +57,15 @@ QGroupBox* QGroupBox_new4(const libqt_string title, QWidget* parent) {
 }
 
 QMetaObject* QGroupBox_MetaObject(const QGroupBox* self) {
-    auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGroupBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGroupBox_Metacast(QGroupBox* self, const char* param1) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGroupBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGroupBox_Metacall(QGroupBox* self, int param1, int param2, void** param3) {
-    auto* vqgroupbox = dynamic_cast<VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGroupBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QGroupBox_Title(const QGroupBox* self) {
@@ -109,12 +94,7 @@ void QGroupBox_SetAlignment(QGroupBox* self, int alignment) {
 }
 
 QSize* QGroupBox_MinimumSizeHint(const QGroupBox* self) {
-    auto* vqgroupbox = dynamic_cast<const VirtualQGroupBox*>(self);
-    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQGroupBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 bool QGroupBox_IsFlat(const QGroupBox* self) {

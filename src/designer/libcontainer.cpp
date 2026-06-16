@@ -9,84 +9,39 @@ QDesignerContainerExtension* QDesignerContainerExtension_new() {
 }
 
 int QDesignerContainerExtension_Count(const QDesignerContainerExtension* self) {
-    auto* vqdesignercontainerextension = dynamic_cast<const VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        return vqdesignercontainerextension->count();
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->count();
-    }
+    return self->count();
 }
 
 QWidget* QDesignerContainerExtension_Widget(const QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = dynamic_cast<const VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        return vqdesignercontainerextension->widget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->widget(static_cast<int>(index));
-    }
+    return self->widget(static_cast<int>(index));
 }
 
 int QDesignerContainerExtension_CurrentIndex(const QDesignerContainerExtension* self) {
-    auto* vqdesignercontainerextension = dynamic_cast<const VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        return vqdesignercontainerextension->currentIndex();
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->currentIndex();
-    }
+    return self->currentIndex();
 }
 
 void QDesignerContainerExtension_SetCurrentIndex(QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->setCurrentIndex(static_cast<int>(index));
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->setCurrentIndex(static_cast<int>(index));
-    }
+    self->setCurrentIndex(static_cast<int>(index));
 }
 
 bool QDesignerContainerExtension_CanAddWidget(const QDesignerContainerExtension* self) {
-    auto* vqdesignercontainerextension = dynamic_cast<const VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        return vqdesignercontainerextension->canAddWidget();
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->canAddWidget();
-    }
+    return self->canAddWidget();
 }
 
 void QDesignerContainerExtension_AddWidget(QDesignerContainerExtension* self, QWidget* widget) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->addWidget(widget);
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->addWidget(widget);
-    }
+    self->addWidget(widget);
 }
 
 void QDesignerContainerExtension_InsertWidget(QDesignerContainerExtension* self, int index, QWidget* widget) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->insertWidget(static_cast<int>(index), widget);
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->insertWidget(static_cast<int>(index), widget);
-    }
+    self->insertWidget(static_cast<int>(index), widget);
 }
 
 bool QDesignerContainerExtension_CanRemove(const QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = dynamic_cast<const VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        return vqdesignercontainerextension->canRemove(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerContainerExtension*)self)->canRemove(static_cast<int>(index));
-    }
+    return self->canRemove(static_cast<int>(index));
 }
 
 void QDesignerContainerExtension_Remove(QDesignerContainerExtension* self, int index) {
-    auto* vqdesignercontainerextension = dynamic_cast<VirtualQDesignerContainerExtension*>(self);
-    if (vqdesignercontainerextension && vqdesignercontainerextension->isVirtualQDesignerContainerExtension) {
-        vqdesignercontainerextension->remove(static_cast<int>(index));
-    } else {
-        ((VirtualQDesignerContainerExtension*)self)->remove(static_cast<int>(index));
-    }
+    self->remove(static_cast<int>(index));
 }
 
 // Base class handler implementation

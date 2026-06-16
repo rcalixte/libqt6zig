@@ -44,8 +44,8 @@ void KIO__DeleteJob_Deleting(KIO__DeleteJob* self, KIO__Job* job, const QUrl* fi
 void KIO__DeleteJob_Connect_Deleting(KIO__DeleteJob* self, intptr_t slot);
 void KIO__DeleteJob_Delete(KIO__DeleteJob* self);
 
-KIO__DeleteJob* KIO_Del(const QUrl* param1, int param2);
-KIO__DeleteJob* KIO_Del2(const libqt_list /* of QUrl* */ param1, int param2);
+KIO__DeleteJob* KIO_Del(const QUrl* src, int flags);
+KIO__DeleteJob* KIO_Del2(const libqt_list /* of QUrl* */ src, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

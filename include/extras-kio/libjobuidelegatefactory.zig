@@ -60,13 +60,13 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: flag of kjobuidelegate_enums.Flag `
+    /// ` flags: flag of kjobuidelegate_enums.Flag `
     ///
-    /// ` param2: QWidget `
+    /// ` window: QWidget `
     ///
-    pub fn CreateDefaultJobUiDelegate2(param1: i32, param2: anytype) KJobUiDelegate {
-        comptime _ = @TypeOf(param2)._is_QWidget;
-        return .{ .ptr = qtc.KIO_CreateDefaultJobUiDelegate2(@bitCast(param1), @ptrCast(param2.ptr)) };
+    pub fn CreateDefaultJobUiDelegate2(flags: i32, window: anytype) KJobUiDelegate {
+        comptime _ = @TypeOf(window)._is_QWidget;
+        return .{ .ptr = qtc.KIO_CreateDefaultJobUiDelegate2(@bitCast(flags), @ptrCast(window.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#defaultJobUiDelegateFactory)
@@ -79,10 +79,10 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KIO__JobUiDelegateFactory `
+    /// ` factory: KIO__JobUiDelegateFactory `
     ///
-    pub fn SetDefaultJobUiDelegateFactory(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KIO__JobUiDelegateFactory;
-        qtc.KIO_SetDefaultJobUiDelegateFactory(@ptrCast(param1.ptr));
+    pub fn SetDefaultJobUiDelegateFactory(factory: anytype) void {
+        comptime _ = @TypeOf(factory)._is_KIO__JobUiDelegateFactory;
+        qtc.KIO_SetDefaultJobUiDelegateFactory(@ptrCast(factory.ptr));
     }
 };

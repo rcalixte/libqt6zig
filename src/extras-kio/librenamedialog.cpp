@@ -76,30 +76,15 @@ KIO__RenameDialog* KIO__RenameDialog_new7(QWidget* parent, const libqt_string ti
 }
 
 QMetaObject* KIO__RenameDialog_MetaObject(const KIO__RenameDialog* self) {
-    auto* vkio__renamedialog = dynamic_cast<const VirtualKIORenameDialog*>(self);
-    if (vkio__renamedialog && vkio__renamedialog->isVirtualKIORenameDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIORenameDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__RenameDialog_Metacast(KIO__RenameDialog* self, const char* param1) {
-    auto* vkio__renamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkio__renamedialog && vkio__renamedialog->isVirtualKIORenameDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIORenameDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__RenameDialog_Metacall(KIO__RenameDialog* self, int param1, int param2, void** param3) {
-    auto* vkio__renamedialog = dynamic_cast<VirtualKIORenameDialog*>(self);
-    if (vkio__renamedialog && vkio__renamedialog->isVirtualKIORenameDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIORenameDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KIO__RenameDialog_NewDestUrl(KIO__RenameDialog* self) {

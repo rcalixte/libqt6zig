@@ -20,55 +20,27 @@ KLocalizedTranslator* KLocalizedTranslator_new2(QObject* parent) {
 }
 
 QMetaObject* KLocalizedTranslator_MetaObject(const KLocalizedTranslator* self) {
-    auto* vklocalizedtranslator = dynamic_cast<const VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLocalizedTranslator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLocalizedTranslator_Metacast(KLocalizedTranslator* self, const char* param1) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLocalizedTranslator_Metacall(KLocalizedTranslator* self, int param1, int param2, void** param3) {
-    auto* vklocalizedtranslator = dynamic_cast<VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLocalizedTranslator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KLocalizedTranslator_Translate(const KLocalizedTranslator* self, const char* context, const char* sourceText, const char* disambiguation, int n) {
-    auto* vklocalizedtranslator = dynamic_cast<const VirtualKLocalizedTranslator*>(self);
-    if (vklocalizedtranslator && vklocalizedtranslator->isVirtualKLocalizedTranslator) {
-        auto _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKLocalizedTranslator*)self)->translate(context, sourceText, disambiguation, static_cast<int>(n));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->translate(context, sourceText, disambiguation, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void KLocalizedTranslator_SetTranslationDomain(KLocalizedTranslator* self, const libqt_string translationDomain) {

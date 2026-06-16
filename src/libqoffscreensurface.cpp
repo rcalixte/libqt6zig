@@ -27,39 +27,19 @@ QOffscreenSurface* QOffscreenSurface_new3(QScreen* screen, QObject* parent) {
 }
 
 QMetaObject* QOffscreenSurface_MetaObject(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQOffscreenSurface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QOffscreenSurface_Metacast(QOffscreenSurface* self, const char* param1) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QOffscreenSurface_Metacall(QOffscreenSurface* self, int param1, int param2, void** param3) {
-    auto* vqoffscreensurface = dynamic_cast<VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQOffscreenSurface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QOffscreenSurface_SurfaceType(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return static_cast<int>(self->surfaceType());
-    } else {
-        return static_cast<int>(((VirtualQOffscreenSurface*)self)->surfaceType());
-    }
+    return static_cast<int>(self->surfaceType());
 }
 
 void QOffscreenSurface_Create(QOffscreenSurface* self) {
@@ -79,12 +59,7 @@ void QOffscreenSurface_SetFormat(QOffscreenSurface* self, const QSurfaceFormat* 
 }
 
 QSurfaceFormat* QOffscreenSurface_Format(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return new QSurfaceFormat(self->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQOffscreenSurface*)self)->format());
-    }
+    return new QSurfaceFormat(self->format());
 }
 
 QSurfaceFormat* QOffscreenSurface_RequestedFormat(const QOffscreenSurface* self) {
@@ -92,12 +67,7 @@ QSurfaceFormat* QOffscreenSurface_RequestedFormat(const QOffscreenSurface* self)
 }
 
 QSize* QOffscreenSurface_Size(const QOffscreenSurface* self) {
-    auto* vqoffscreensurface = dynamic_cast<const VirtualQOffscreenSurface*>(self);
-    if (vqoffscreensurface && vqoffscreensurface->isVirtualQOffscreenSurface) {
-        return new QSize(self->size());
-    } else {
-        return new QSize(((VirtualQOffscreenSurface*)self)->size());
-    }
+    return new QSize(self->size());
 }
 
 QScreen* QOffscreenSurface_Screen(const QOffscreenSurface* self) {

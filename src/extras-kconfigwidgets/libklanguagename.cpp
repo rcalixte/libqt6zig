@@ -5,9 +5,9 @@
 #include "libklanguagename.h"
 #include "libklanguagename.hxx"
 
-libqt_string KLanguageName_NameForCode(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KLanguageName::nameForCode(param1_QString);
+libqt_string KLanguageName_NameForCode(const libqt_string code) {
+    QString code_QString = QString::fromUtf8(code.data, code.len);
+    auto _ret = KLanguageName::nameForCode(code_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -18,10 +18,10 @@ libqt_string KLanguageName_NameForCode(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KLanguageName_NameForCodeInLocale(const libqt_string param1, const libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    auto _ret = KLanguageName::nameForCodeInLocale(param1_QString, param2_QString);
+libqt_string KLanguageName_NameForCodeInLocale(const libqt_string code, const libqt_string outputLocale) {
+    QString code_QString = QString::fromUtf8(code.data, code.len);
+    QString outputLocale_QString = QString::fromUtf8(outputLocale.data, outputLocale.len);
+    auto _ret = KLanguageName::nameForCodeInLocale(code_QString, outputLocale_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

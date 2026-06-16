@@ -64,30 +64,15 @@ KFilePlaceEditDialog* KFilePlaceEditDialog_new4(bool allowGlobal, const QUrl* ur
 }
 
 QMetaObject* KFilePlaceEditDialog_MetaObject(const KFilePlaceEditDialog* self) {
-    auto* vkfileplaceeditdialog = dynamic_cast<const VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFilePlaceEditDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFilePlaceEditDialog_Metacast(KFilePlaceEditDialog* self, const char* param1) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFilePlaceEditDialog_Metacall(KFilePlaceEditDialog* self, int param1, int param2, void** param3) {
-    auto* vkfileplaceeditdialog = dynamic_cast<VirtualKFilePlaceEditDialog*>(self);
-    if (vkfileplaceeditdialog && vkfileplaceeditdialog->isVirtualKFilePlaceEditDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFilePlaceEditDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KFilePlaceEditDialog_GetInformation(bool allowGlobal, QUrl* url, libqt_string label, libqt_string icon, bool isAddingNewPlace, bool* appLocal, int iconSize) {

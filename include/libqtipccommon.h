@@ -33,7 +33,7 @@ void QNativeIpcKey_SetType(QNativeIpcKey* self, uint16_t typeVal);
 libqt_string QNativeIpcKey_NativeKey(const QNativeIpcKey* self);
 void QNativeIpcKey_SetNativeKey(QNativeIpcKey* self, const libqt_string newKey);
 libqt_string QNativeIpcKey_ToString(const QNativeIpcKey* self);
-QNativeIpcKey* QNativeIpcKey_FromString(const libqt_string stringVal);
+QNativeIpcKey* QNativeIpcKey_FromString(const libqt_string string);
 void QNativeIpcKey_Delete(QNativeIpcKey* self);
 
 #ifdef __cplusplus

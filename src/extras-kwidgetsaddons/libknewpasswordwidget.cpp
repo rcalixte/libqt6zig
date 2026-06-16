@@ -47,30 +47,15 @@ KNewPasswordWidget* KNewPasswordWidget_new2() {
 }
 
 QMetaObject* KNewPasswordWidget_MetaObject(const KNewPasswordWidget* self) {
-    auto* vknewpasswordwidget = dynamic_cast<const VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNewPasswordWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNewPasswordWidget_Metacast(KNewPasswordWidget* self, const char* param1) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNewPasswordWidget_Metacall(KNewPasswordWidget* self, int param1, int param2, void** param3) {
-    auto* vknewpasswordwidget = dynamic_cast<VirtualKNewPasswordWidget*>(self);
-    if (vknewpasswordwidget && vknewpasswordwidget->isVirtualKNewPasswordWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNewPasswordWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KNewPasswordWidget_PasswordStatus(const KNewPasswordWidget* self) {

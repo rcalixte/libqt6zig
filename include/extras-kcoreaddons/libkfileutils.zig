@@ -19,17 +19,17 @@ pub const KFileUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: QUrl `
+    /// ` baseURL: QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` oldName: []const u8 `
     ///
-    pub fn SuggestName(allocator: std.mem.Allocator, param1: anytype, param2: []const u8) []const u8 {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn SuggestName(allocator: std.mem.Allocator, baseURL: anytype, oldName: []const u8) []const u8 {
+        comptime _ = @TypeOf(baseURL)._is_QUrl;
+        const oldName_str = qtc.libqt_string{
+            .len = oldName.len,
+            .data = oldName.ptr,
         };
-        var _str = qtc.KFileUtils_SuggestName(@ptrCast(param1.ptr), param2_str);
+        var _str = qtc.KFileUtils_SuggestName(@ptrCast(baseURL.ptr), oldName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileutils.SuggestName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -42,14 +42,14 @@ pub const KFileUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` oldName: []const u8 `
     ///
-    pub fn MakeSuggestedName(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn MakeSuggestedName(allocator: std.mem.Allocator, oldName: []const u8) []const u8 {
+        const oldName_str = qtc.libqt_string{
+            .len = oldName.len,
+            .data = oldName.ptr,
         };
-        var _str = qtc.KFileUtils_MakeSuggestedName(param1_str);
+        var _str = qtc.KFileUtils_MakeSuggestedName(oldName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileutils.MakeSuggestedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -62,34 +62,34 @@ pub const KFileUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const []const u8 `
+    /// ` dirs: []const []const u8 `
     ///
-    /// ` param2: []const []const u8 `
+    /// ` nameFilters: []const []const u8 `
     ///
-    pub fn FindAllUniqueFiles(allocator: std.mem.Allocator, param1: []const []const u8, param2: []const []const u8) []const []const u8 {
-        const param1_arr = allocator.alloc(qtc.libqt_string, param1.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
-        defer allocator.free(param1_arr);
-        for (param1, 0..param1.len) |item, i|
-            param1_arr[i] = .{
+    pub fn FindAllUniqueFiles(allocator: std.mem.Allocator, dirs: []const []const u8, nameFilters: []const []const u8) []const []const u8 {
+        const dirs_arr = allocator.alloc(qtc.libqt_string, dirs.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        defer allocator.free(dirs_arr);
+        for (dirs, 0..dirs.len) |item, i|
+            dirs_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = param1_arr.ptr,
+        const dirs_list = qtc.libqt_list{
+            .len = dirs.len,
+            .data = dirs_arr.ptr,
         };
-        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
-        defer allocator.free(param2_arr);
-        for (param2, 0..param2.len) |item, i|
-            param2_arr[i] = .{
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        defer allocator.free(nameFilters_arr);
+        for (nameFilters, 0..nameFilters.len) |item, i|
+            nameFilters_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        const param2_list = qtc.libqt_list{
-            .len = param2.len,
-            .data = param2_arr.ptr,
+        const nameFilters_list = qtc.libqt_list{
+            .len = nameFilters.len,
+            .data = nameFilters_arr.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KFileUtils_FindAllUniqueFiles(param1_list, param2_list);
+        const _arr: qtc.libqt_list = qtc.KFileUtils_FindAllUniqueFiles(dirs_list, nameFilters_list);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|

@@ -31,30 +31,15 @@ KFontSizeAction* KFontSizeAction_new3(const QIcon* icon, const libqt_string text
 }
 
 QMetaObject* KFontSizeAction_MetaObject(const KFontSizeAction* self) {
-    auto* vkfontsizeaction = dynamic_cast<const VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFontSizeAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFontSizeAction_Metacast(KFontSizeAction* self, const char* param1) {
-    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFontSizeAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFontSizeAction_Metacall(KFontSizeAction* self, int param1, int param2, void** param3) {
-    auto* vkfontsizeaction = dynamic_cast<VirtualKFontSizeAction*>(self);
-    if (vkfontsizeaction && vkfontsizeaction->isVirtualKFontSizeAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontSizeAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KFontSizeAction_FontSize(const KFontSizeAction* self) {

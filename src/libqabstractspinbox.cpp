@@ -48,30 +48,15 @@ QAbstractSpinBox* QAbstractSpinBox_new2() {
 }
 
 QMetaObject* QAbstractSpinBox_MetaObject(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractSpinBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractSpinBox_Metacast(QAbstractSpinBox* self, const char* param1) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractSpinBox_Metacall(QAbstractSpinBox* self, int param1, int param2, void** param3) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QAbstractSpinBox_ButtonSymbols(const QAbstractSpinBox* self) {
@@ -180,21 +165,11 @@ bool QAbstractSpinBox_IsGroupSeparatorShown(const QAbstractSpinBox* self) {
 }
 
 QSize* QAbstractSpinBox_SizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QAbstractSpinBox_MinimumSizeHint(const QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQAbstractSpinBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QAbstractSpinBox_InterpretText(QAbstractSpinBox* self) {
@@ -202,50 +177,25 @@ void QAbstractSpinBox_InterpretText(QAbstractSpinBox* self) {
 }
 
 bool QAbstractSpinBox_Event(QAbstractSpinBox* self, QEvent* event) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return self->event(event);
-    } else {
-        return ((VirtualQAbstractSpinBox*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 QVariant* QAbstractSpinBox_InputMethodQuery(const QAbstractSpinBox* self, int param1) {
-    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQAbstractSpinBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 int QAbstractSpinBox_Validate(const QAbstractSpinBox* self, libqt_string input, int* pos) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQAbstractSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
+    return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
 }
 
 void QAbstractSpinBox_Fixup(const QAbstractSpinBox* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqabstractspinbox = dynamic_cast<const VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        self->fixup(input_QString);
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->fixup(input_QString);
-    }
+    self->fixup(input_QString);
 }
 
 void QAbstractSpinBox_StepBy(QAbstractSpinBox* self, int steps) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        self->stepBy(static_cast<int>(steps));
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->stepBy(static_cast<int>(steps));
-    }
+    self->stepBy(static_cast<int>(steps));
 }
 
 void QAbstractSpinBox_StepUp(QAbstractSpinBox* self) {
@@ -261,12 +211,7 @@ void QAbstractSpinBox_SelectAll(QAbstractSpinBox* self) {
 }
 
 void QAbstractSpinBox_Clear(QAbstractSpinBox* self) {
-    auto* vqabstractspinbox = dynamic_cast<VirtualQAbstractSpinBox*>(self);
-    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
-        self->clear();
-    } else {
-        ((VirtualQAbstractSpinBox*)self)->clear();
-    }
+    self->clear();
 }
 
 void QAbstractSpinBox_ResizeEvent(QAbstractSpinBox* self, QResizeEvent* event) {

@@ -70,30 +70,15 @@ QDBusPendingCallWatcher* QDBusPendingCallWatcher_new2(const QDBusPendingCall* ca
 }
 
 QMetaObject* QDBusPendingCallWatcher_MetaObject(const QDBusPendingCallWatcher* self) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<const VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDBusPendingCallWatcher*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDBusPendingCallWatcher_Metacast(QDBusPendingCallWatcher* self, const char* param1) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDBusPendingCallWatcher_Metacall(QDBusPendingCallWatcher* self, int param1, int param2, void** param3) {
-    auto* vqdbuspendingcallwatcher = dynamic_cast<VirtualQDBusPendingCallWatcher*>(self);
-    if (vqdbuspendingcallwatcher && vqdbuspendingcallwatcher->isVirtualQDBusPendingCallWatcher) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDBusPendingCallWatcher*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QDBusPendingCallWatcher_WaitForFinished(QDBusPendingCallWatcher* self) {

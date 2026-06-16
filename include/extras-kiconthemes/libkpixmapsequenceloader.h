@@ -19,7 +19,7 @@ typedef struct KPixmapSequence KPixmapSequence;
 typedef struct KPixmapSequenceLoader KPixmapSequenceLoader;
 #endif
 
-KPixmapSequence* KPixmapSequenceLoader_Load(const libqt_string param1, int param2);
+KPixmapSequence* KPixmapSequenceLoader_Load(const libqt_string iconName, int size);
 
 #ifdef __cplusplus
 } /* extern C */

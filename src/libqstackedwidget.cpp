@@ -48,30 +48,15 @@ QStackedWidget* QStackedWidget_new2() {
 }
 
 QMetaObject* QStackedWidget_MetaObject(const QStackedWidget* self) {
-    auto* vqstackedwidget = dynamic_cast<const VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQStackedWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QStackedWidget_Metacast(QStackedWidget* self, const char* param1) {
-    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQStackedWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QStackedWidget_Metacall(QStackedWidget* self, int param1, int param2, void** param3) {
-    auto* vqstackedwidget = dynamic_cast<VirtualQStackedWidget*>(self);
-    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStackedWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QStackedWidget_AddWidget(QStackedWidget* self, QWidget* w) {

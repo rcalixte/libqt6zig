@@ -87,10 +87,10 @@ pub const QUuid = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn New6(stringVal: []const u8) QUuid {
-        return .{ .ptr = qtc.QUuid_new6(stringVal.ptr) };
+    pub fn New6(string: []const u8) QUuid {
+        return .{ .ptr = qtc.QUuid_new6(string.ptr) };
     }
 
     /// New7 constructs a new QUuid object.
@@ -145,10 +145,10 @@ pub const QUuid = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn FromString(stringVal: []const u8) QUuid {
-        return .{ .ptr = qtc.QUuid_FromString(stringVal.ptr) };
+    pub fn FromString(string: []const u8) QUuid {
+        return .{ .ptr = qtc.QUuid_FromString(string.ptr) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#toString)

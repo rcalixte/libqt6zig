@@ -23,30 +23,15 @@ QsciLexerLua* QsciLexerLua_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerLua_MetaObject(const QsciLexerLua* self) {
-    auto* vqscilexerlua = dynamic_cast<const VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerLua*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerLua_Metacast(QsciLexerLua* self, const char* param1) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerLua*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerLua_Metacall(QsciLexerLua* self, int param1, int param2, void** param3) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerLua*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerLua_Language(const QsciLexerLua* self) {
@@ -127,12 +112,7 @@ bool QsciLexerLua_FoldCompact(const QsciLexerLua* self) {
 }
 
 void QsciLexerLua_SetFoldCompact(QsciLexerLua* self, bool fold) {
-    auto* vqscilexerlua = dynamic_cast<VirtualQsciLexerLua*>(self);
-    if (vqscilexerlua && vqscilexerlua->isVirtualQsciLexerLua) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerLua*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 const char* QsciLexerLua_BlockStart1(const QsciLexerLua* self, int* style) {

@@ -2083,43 +2083,43 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Stat(param1: anytype, param2: i32) KIO__StatJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Stat(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn Stat(url: anytype, flags: i32) KIO__StatJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Stat(@ptrCast(url.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#stat)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: statjob_enums.StatSide `
+    /// ` side: statjob_enums.StatSide `
     ///
-    /// ` param3: flag of global_enums.StatDetail `
+    /// ` details: flag of global_enums.StatDetail `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Stat2(param1: anytype, param2: i32, param3: i32, param4: i32) KIO__StatJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Stat2(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3), @bitCast(param4)) };
+    pub fn Stat2(url: anytype, side: i32, details: i32, flags: i32) KIO__StatJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Stat2(@ptrCast(url.ptr), @bitCast(side), @bitCast(details), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#mostLocalUrl)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn MostLocalUrl(param1: anytype, param2: i32) KIO__StatJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_MostLocalUrl(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn MostLocalUrl(url: anytype, flags: i32) KIO__StatJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_MostLocalUrl(@ptrCast(url.ptr), @bitCast(flags)) };
     }
 };
 

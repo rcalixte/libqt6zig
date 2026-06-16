@@ -7,12 +7,12 @@
 #include "libkstandardguiitem.h"
 #include "libkstandardguiitem.hxx"
 
-KGuiItem* KStandardGuiItem_GuiItem(int param1) {
-    return new KGuiItem(KStandardGuiItem::guiItem(static_cast<KStandardGuiItem::StandardItem>(param1)));
+KGuiItem* KStandardGuiItem_GuiItem(int id) {
+    return new KGuiItem(KStandardGuiItem::guiItem(static_cast<KStandardGuiItem::StandardItem>(id)));
 }
 
-libqt_string KStandardGuiItem_StandardItem(int param1) {
-    auto _ret = KStandardGuiItem::standardItem(static_cast<KStandardGuiItem::StandardItem>(param1));
+libqt_string KStandardGuiItem_StandardItem(int id) {
+    auto _ret = KStandardGuiItem::standardItem(static_cast<KStandardGuiItem::StandardItem>(id));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -111,12 +111,12 @@ KGuiItem* KStandardGuiItem_Open() {
     return new KGuiItem(KStandardGuiItem::open());
 }
 
-KGuiItem* KStandardGuiItem_Back(int param1) {
-    return new KGuiItem(KStandardGuiItem::back(static_cast<KStandardGuiItem::BidiMode>(param1)));
+KGuiItem* KStandardGuiItem_Back(int useBidi) {
+    return new KGuiItem(KStandardGuiItem::back(static_cast<KStandardGuiItem::BidiMode>(useBidi)));
 }
 
-KGuiItem* KStandardGuiItem_Forward(int param1) {
-    return new KGuiItem(KStandardGuiItem::forward(static_cast<KStandardGuiItem::BidiMode>(param1)));
+KGuiItem* KStandardGuiItem_Forward(int useBidi) {
+    return new KGuiItem(KStandardGuiItem::forward(static_cast<KStandardGuiItem::BidiMode>(useBidi)));
 }
 
 KGuiItem* KStandardGuiItem_Configure() {
@@ -156,6 +156,6 @@ KGuiItem* KStandardGuiItem_Test() {
     return new KGuiItem(KStandardGuiItem::test());
 }
 
-void KStandardGuiItem_Assign(QPushButton* param1, int param2) {
-    KStandardGuiItem::assign(param1, static_cast<KStandardGuiItem::StandardItem>(param2));
+void KStandardGuiItem_Assign(QPushButton* button, int item) {
+    KStandardGuiItem::assign(button, static_cast<KStandardGuiItem::StandardItem>(item));
 }

@@ -87,30 +87,15 @@ KToolBar* KToolBar_new9(const libqt_string objectName, QMainWindow* parentWindow
 }
 
 QMetaObject* KToolBar_MetaObject(const KToolBar* self) {
-    auto* vktoolbar = dynamic_cast<const VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToolBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToolBar_Metacast(KToolBar* self, const char* param1) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToolBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToolBar_Metacall(KToolBar* self, int param1, int param2, void** param3) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToolBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KMainWindow* KToolBar_MainWindow(const KToolBar* self) {
@@ -150,12 +135,7 @@ void KToolBar_SaveState(const KToolBar* self, QDomElement* element) {
 }
 
 bool KToolBar_EventFilter(KToolBar* self, QObject* watched, QEvent* event) {
-    auto* vktoolbar = dynamic_cast<VirtualKToolBar*>(self);
-    if (vktoolbar && vktoolbar->isVirtualKToolBar) {
-        return self->eventFilter(watched, event);
-    } else {
-        return ((VirtualKToolBar*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 bool KToolBar_ToolBarsEditable() {

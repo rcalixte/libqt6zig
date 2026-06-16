@@ -2035,12 +2035,12 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: i32 `
+    /// ` permissions: i32 `
     ///
-    pub fn Mkdir(param1: anytype, param2: i32) KIO__MkdirJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Mkdir(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn Mkdir(url: anytype, permissions: i32) KIO__MkdirJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Mkdir(@ptrCast(url.ptr), @bitCast(permissions)) };
     }
 };

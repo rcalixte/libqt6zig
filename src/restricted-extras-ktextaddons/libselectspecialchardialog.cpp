@@ -44,30 +44,15 @@ TextAddonsWidgets__SelectSpecialCharDialog* TextAddonsWidgets__SelectSpecialChar
 }
 
 QMetaObject* TextAddonsWidgets__SelectSpecialCharDialog_MetaObject(const TextAddonsWidgets__SelectSpecialCharDialog* self) {
-    auto* vtextaddonswidgets__selectspecialchardialog = dynamic_cast<const VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgets__selectspecialchardialog && vtextaddonswidgets__selectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextAddonsWidgets__SelectSpecialCharDialog_Metacast(TextAddonsWidgets__SelectSpecialCharDialog* self, const char* param1) {
-    auto* vtextaddonswidgets__selectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgets__selectspecialchardialog && vtextaddonswidgets__selectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextAddonsWidgets__SelectSpecialCharDialog_Metacall(TextAddonsWidgets__SelectSpecialCharDialog* self, int param1, int param2, void** param3) {
-    auto* vtextaddonswidgets__selectspecialchardialog = dynamic_cast<VirtualTextAddonsWidgetsSelectSpecialCharDialog*>(self);
-    if (vtextaddonswidgets__selectspecialchardialog && vtextaddonswidgets__selectspecialchardialog->isVirtualTextAddonsWidgetsSelectSpecialCharDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextAddonsWidgetsSelectSpecialCharDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextAddonsWidgets__SelectSpecialCharDialog_SetCurrentChar(TextAddonsWidgets__SelectSpecialCharDialog* self, QChar* c) {

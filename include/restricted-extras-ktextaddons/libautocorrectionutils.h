@@ -38,15 +38,15 @@ void TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_Delete(TextA
 TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultSingleQuotes();
 TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultDoubleQuotes();
 TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils_TypographicDefaultFrenchQuotes();
-libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreofficeFile(const libqt_string param1);
+libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreofficeFile(const libqt_string lang);
 libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeAutoCorrectionPath();
 libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_SearchAutoCorrectLibreOfficeFiles();
-libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_AutoCorrectLibreOfficeLanguageToString(const libqt_list /* of libqt_string */ param1);
+libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_AutoCorrectLibreOfficeLanguageToString(const libqt_list /* of libqt_string */ langs);
 libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeWritableLocalAutoCorrectionPath();
-libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_ContainsAutoCorrectionFile(const libqt_string param1, const libqt_string param2, const libqt_string param3);
+libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_ContainsAutoCorrectionFile(const libqt_string lang, const libqt_string customSystemPath, const libqt_string customWritablePath);
 libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeSystemPath();
 libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeLocalPath();
-libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_WordsFromSentence(const libqt_string param1);
+libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_WordsFromSentence(const libqt_string string);
 
 #ifdef __cplusplus
 } /* extern C */

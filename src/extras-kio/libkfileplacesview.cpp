@@ -63,30 +63,15 @@ KFilePlacesView* KFilePlacesView_new2() {
 }
 
 QMetaObject* KFilePlacesView_MetaObject(const KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<const VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFilePlacesView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFilePlacesView_Metacast(KFilePlacesView* self, const char* param1) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFilePlacesView_Metacall(KFilePlacesView* self, int param1, int param2, void** param3) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFilePlacesView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KFilePlacesView_AllPlacesShown(const KFilePlacesView* self) {
@@ -128,12 +113,7 @@ void KFilePlacesView_SetTeardownFunction(KFilePlacesView* self, intptr_t teardow
 }
 
 QSize* KFilePlacesView_SizeHint(const KFilePlacesView* self) {
-    auto* vkfileplacesview = dynamic_cast<const VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKFilePlacesView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KFilePlacesView_SetUrl(KFilePlacesView* self, const QUrl* url) {
@@ -145,12 +125,7 @@ void KFilePlacesView_SetShowAll(KFilePlacesView* self, bool showAll) {
 }
 
 void KFilePlacesView_SetModel(KFilePlacesView* self, QAbstractItemModel* model) {
-    auto* vkfileplacesview = dynamic_cast<VirtualKFilePlacesView*>(self);
-    if (vkfileplacesview && vkfileplacesview->isVirtualKFilePlacesView) {
-        self->setModel(model);
-    } else {
-        ((VirtualKFilePlacesView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 void KFilePlacesView_KeyPressEvent(KFilePlacesView* self, QKeyEvent* event) {

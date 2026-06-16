@@ -20,40 +20,20 @@ QIconEnginePlugin* QIconEnginePlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QIconEnginePlugin_MetaObject(const QIconEnginePlugin* self) {
-    auto* vqiconengineplugin = dynamic_cast<const VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQIconEnginePlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QIconEnginePlugin_Metacast(QIconEnginePlugin* self, const char* param1) {
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQIconEnginePlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QIconEnginePlugin_Metacall(QIconEnginePlugin* self, int param1, int param2, void** param3) {
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQIconEnginePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QIconEngine* QIconEnginePlugin_Create(QIconEnginePlugin* self, const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
-    auto* vqiconengineplugin = dynamic_cast<VirtualQIconEnginePlugin*>(self);
-    if (vqiconengineplugin && vqiconengineplugin->isVirtualQIconEnginePlugin) {
-        return vqiconengineplugin->create(filename_QString);
-    } else {
-        return ((VirtualQIconEnginePlugin*)self)->create(filename_QString);
-    }
+    return self->create(filename_QString);
 }
 
 // Base class handler implementation

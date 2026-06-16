@@ -36,31 +36,16 @@ QItemEditorFactory* QItemEditorFactory_new2(const QItemEditorFactory* param1) {
 }
 
 QWidget* QItemEditorFactory_CreateEditor(const QItemEditorFactory* self, int userType, QWidget* parent) {
-    auto* vqitemeditorfactory = dynamic_cast<const VirtualQItemEditorFactory*>(self);
-    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
-        return self->createEditor(static_cast<int>(userType), parent);
-    } else {
-        return ((VirtualQItemEditorFactory*)self)->createEditor(static_cast<int>(userType), parent);
-    }
+    return self->createEditor(static_cast<int>(userType), parent);
 }
 
 libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self, int userType) {
-    auto* vqitemeditorfactory = dynamic_cast<const VirtualQItemEditorFactory*>(self);
-    if (vqitemeditorfactory && vqitemeditorfactory->isVirtualQItemEditorFactory) {
-        QByteArray _qb = self->valuePropertyName(static_cast<int>(userType));
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualQItemEditorFactory*)self)->valuePropertyName(static_cast<int>(userType));
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    QByteArray _qb = self->valuePropertyName(static_cast<int>(userType));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
 }
 
 void QItemEditorFactory_RegisterEditor(QItemEditorFactory* self, int userType, QItemEditorCreatorBase* creator) {

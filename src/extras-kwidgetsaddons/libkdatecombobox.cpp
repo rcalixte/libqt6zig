@@ -51,30 +51,15 @@ KDateComboBox* KDateComboBox_new2() {
 }
 
 QMetaObject* KDateComboBox_MetaObject(const KDateComboBox* self) {
-    auto* vkdatecombobox = dynamic_cast<const VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDateComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDateComboBox_Metacast(KDateComboBox* self, const char* param1) {
-    auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDateComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDateComboBox_Metacall(KDateComboBox* self, int param1, int param2, void** param3) {
-    auto* vkdatecombobox = dynamic_cast<VirtualKDateComboBox*>(self);
-    if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDateComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDate* KDateComboBox_Date(const KDateComboBox* self) {

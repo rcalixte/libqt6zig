@@ -19,30 +19,15 @@ KLineEditUrlDropEventFilter* KLineEditUrlDropEventFilter_new2(QObject* parent) {
 }
 
 QMetaObject* KLineEditUrlDropEventFilter_MetaObject(const KLineEditUrlDropEventFilter* self) {
-    auto* vklineediturldropeventfilter = dynamic_cast<const VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLineEditUrlDropEventFilter*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLineEditUrlDropEventFilter_Metacast(KLineEditUrlDropEventFilter* self, const char* param1) {
-    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLineEditUrlDropEventFilter*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLineEditUrlDropEventFilter_Metacall(KLineEditUrlDropEventFilter* self, int param1, int param2, void** param3) {
-    auto* vklineediturldropeventfilter = dynamic_cast<VirtualKLineEditUrlDropEventFilter*>(self);
-    if (vklineediturldropeventfilter && vklineediturldropeventfilter->isVirtualKLineEditUrlDropEventFilter) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLineEditUrlDropEventFilter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KLineEditUrlDropEventFilter_EventFilter(KLineEditUrlDropEventFilter* self, QObject* object, QEvent* event) {

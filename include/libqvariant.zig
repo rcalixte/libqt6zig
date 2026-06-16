@@ -294,30 +294,30 @@ pub const QVariant = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` mapVal: ArrayMap_constu8_QVariant `
+    /// ` map: ArrayMap_constu8_QVariant `
     ///
-    pub fn New22(allocator: std.mem.Allocator, mapVal: ArrayMap_constu8_QVariant) QVariant {
-        const mapVal_count = mapVal.count();
-        const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal_count) catch @panic("qvariant.New22: Memory allocation failed");
-        defer allocator.free(mapVal_keys);
-        const mapVal_values = allocator.alloc(QtC.QVariant, mapVal_count) catch @panic("qvariant.New22: Memory allocation failed");
-        defer allocator.free(mapVal_values);
+    pub fn New22(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QVariant {
+        const map_count = map.count();
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("qvariant.New22: Memory allocation failed");
+        defer allocator.free(map_keys);
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("qvariant.New22: Memory allocation failed");
+        defer allocator.free(map_values);
         var i: usize = 0;
-        var mapVal_it = mapVal.iterator();
-        while (mapVal_it.next()) |it_entry| : (i += 1) {
-            const mapVal_key = it_entry.key_ptr.*;
-            mapVal_keys[i] = qtc.libqt_string{
-                .len = mapVal_key.len,
-                .data = mapVal_key.ptr,
+        var map_it = map.iterator();
+        while (map_it.next()) |it_entry| : (i += 1) {
+            const map_key = it_entry.key_ptr.*;
+            map_keys[i] = qtc.libqt_string{
+                .len = map_key.len,
+                .data = map_key.ptr,
             };
-            mapVal_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            map_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
-        const mapVal_map = qtc.libqt_map{
-            .len = mapVal_count,
-            .keys = @ptrCast(mapVal_keys.ptr),
-            .values = @ptrCast(mapVal_values.ptr),
+        const map_map = qtc.libqt_map{
+            .len = map_count,
+            .keys = @ptrCast(map_keys.ptr),
+            .values = @ptrCast(map_values.ptr),
         };
-        return .{ .ptr = qtc.QVariant_new22(mapVal_map) };
+        return .{ .ptr = qtc.QVariant_new22(map_map) };
     }
 
     /// New23 constructs a new QVariant object.
@@ -335,14 +335,14 @@ pub const QVariant = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn New24(stringVal: []const u8) QVariant {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn New24(string: []const u8) QVariant {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QVariant_new24(stringVal_str) };
+        return .{ .ptr = qtc.QVariant_new24(string_str) };
     }
 
     /// New25 constructs a new QVariant object.
@@ -548,14 +548,14 @@ pub const QVariant = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []u8 `
+    /// ` string: []u8 `
     ///
-    pub fn New42(stringVal: []u8) QVariant {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn New42(string: []u8) QVariant {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QVariant_new42(stringVal_str) };
+        return .{ .ptr = qtc.QVariant_new42(string_str) };
     }
 
     /// New43 constructs a new QVariant object.

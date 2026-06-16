@@ -22,30 +22,15 @@ QSctpServer* QSctpServer_new2(QObject* parent) {
 }
 
 QMetaObject* QSctpServer_MetaObject(const QSctpServer* self) {
-    auto* vqsctpserver = dynamic_cast<const VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSctpServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSctpServer_Metacast(QSctpServer* self, const char* param1) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSctpServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSctpServer_Metacall(QSctpServer* self, int param1, int param2, void** param3) {
-    auto* vqsctpserver = dynamic_cast<VirtualQSctpServer*>(self);
-    if (vqsctpserver && vqsctpserver->isVirtualQSctpServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSctpServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSctpServer_SetMaximumChannelCount(QSctpServer* self, int count) {

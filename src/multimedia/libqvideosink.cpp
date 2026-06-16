@@ -21,30 +21,15 @@ QVideoSink* QVideoSink_new2(QObject* parent) {
 }
 
 QMetaObject* QVideoSink_MetaObject(const QVideoSink* self) {
-    auto* vqvideosink = dynamic_cast<const VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQVideoSink*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QVideoSink_Metacast(QVideoSink* self, const char* param1) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQVideoSink*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QVideoSink_Metacall(QVideoSink* self, int param1, int param2, void** param3) {
-    auto* vqvideosink = dynamic_cast<VirtualQVideoSink*>(self);
-    if (vqvideosink && vqvideosink->isVirtualQVideoSink) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVideoSink*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QVideoSink_VideoSize(const QVideoSink* self) {

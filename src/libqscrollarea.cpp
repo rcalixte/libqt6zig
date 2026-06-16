@@ -50,30 +50,15 @@ QScrollArea* QScrollArea_new2() {
 }
 
 QMetaObject* QScrollArea_MetaObject(const QScrollArea* self) {
-    auto* vqscrollarea = dynamic_cast<const VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQScrollArea*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QScrollArea_Metacast(QScrollArea* self, const char* param1) {
-    auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQScrollArea*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QScrollArea_Metacall(QScrollArea* self, int param1, int param2, void** param3) {
-    auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQScrollArea*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* QScrollArea_Widget(const QScrollArea* self) {
@@ -97,21 +82,11 @@ void QScrollArea_SetWidgetResizable(QScrollArea* self, bool resizable) {
 }
 
 QSize* QScrollArea_SizeHint(const QScrollArea* self) {
-    auto* vqscrollarea = dynamic_cast<const VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQScrollArea*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 bool QScrollArea_FocusNextPrevChild(QScrollArea* self, bool next) {
-    auto* vqscrollarea = dynamic_cast<VirtualQScrollArea*>(self);
-    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
-        return self->focusNextPrevChild(next);
-    } else {
-        return ((VirtualQScrollArea*)self)->focusNextPrevChild(next);
-    }
+    return self->focusNextPrevChild(next);
 }
 
 int QScrollArea_Alignment(const QScrollArea* self) {

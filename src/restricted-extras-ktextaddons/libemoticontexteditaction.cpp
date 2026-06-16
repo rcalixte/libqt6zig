@@ -20,30 +20,15 @@ TextEmoticonsWidgets__EmoticonTextEditAction* TextEmoticonsWidgets__EmoticonText
 }
 
 QMetaObject* TextEmoticonsWidgets__EmoticonTextEditAction_MetaObject(const TextEmoticonsWidgets__EmoticonTextEditAction* self) {
-    auto* vtextemoticonswidgets__emoticontexteditaction = dynamic_cast<const VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgets__emoticontexteditaction && vtextemoticonswidgets__emoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEmoticonsWidgetsEmoticonTextEditAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEmoticonsWidgets__EmoticonTextEditAction_Metacast(TextEmoticonsWidgets__EmoticonTextEditAction* self, const char* param1) {
-    auto* vtextemoticonswidgets__emoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgets__emoticontexteditaction && vtextemoticonswidgets__emoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEmoticonsWidgetsEmoticonTextEditAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEmoticonsWidgets__EmoticonTextEditAction_Metacall(TextEmoticonsWidgets__EmoticonTextEditAction* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonswidgets__emoticontexteditaction = dynamic_cast<VirtualTextEmoticonsWidgetsEmoticonTextEditAction*>(self);
-    if (vtextemoticonswidgets__emoticontexteditaction && vtextemoticonswidgets__emoticontexteditaction->isVirtualTextEmoticonsWidgetsEmoticonTextEditAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEmoticonsWidgetsEmoticonTextEditAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextEmoticonsWidgets__EmoticonTextEditAction_SetCustomEmojiSupport(TextEmoticonsWidgets__EmoticonTextEditAction* self, bool b) {

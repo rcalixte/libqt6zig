@@ -187,12 +187,7 @@ Poppler__TextAnnotation* Poppler__TextAnnotation_new(int typeVal) {
 }
 
 int Poppler__TextAnnotation_SubType(const Poppler__TextAnnotation* self) {
-    auto* vpoppler__textannotation = dynamic_cast<const VirtualPopplerTextAnnotation*>(self);
-    if (vpoppler__textannotation && vpoppler__textannotation->isVirtualPopplerTextAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerTextAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 int Poppler__TextAnnotation_TextType(const Poppler__TextAnnotation* self) {
@@ -303,12 +298,7 @@ Poppler__LineAnnotation* Poppler__LineAnnotation_new(int typeVal) {
 }
 
 int Poppler__LineAnnotation_SubType(const Poppler__LineAnnotation* self) {
-    auto* vpoppler__lineannotation = dynamic_cast<const VirtualPopplerLineAnnotation*>(self);
-    if (vpoppler__lineannotation && vpoppler__lineannotation->isVirtualPopplerLineAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLineAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 int Poppler__LineAnnotation_LineType(const Poppler__LineAnnotation* self) {
@@ -430,12 +420,7 @@ Poppler__GeomAnnotation* Poppler__GeomAnnotation_new() {
 }
 
 int Poppler__GeomAnnotation_SubType(const Poppler__GeomAnnotation* self) {
-    auto* vpoppler__geomannotation = dynamic_cast<const VirtualPopplerGeomAnnotation*>(self);
-    if (vpoppler__geomannotation && vpoppler__geomannotation->isVirtualPopplerGeomAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerGeomAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 int Poppler__GeomAnnotation_GeomType(const Poppler__GeomAnnotation* self) {
@@ -482,12 +467,7 @@ Poppler__HighlightAnnotation* Poppler__HighlightAnnotation_new() {
 }
 
 int Poppler__HighlightAnnotation_SubType(const Poppler__HighlightAnnotation* self) {
-    auto* vpoppler__highlightannotation = dynamic_cast<const VirtualPopplerHighlightAnnotation*>(self);
-    if (vpoppler__highlightannotation && vpoppler__highlightannotation->isVirtualPopplerHighlightAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerHighlightAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 int Poppler__HighlightAnnotation_HighlightType(const Poppler__HighlightAnnotation* self) {
@@ -549,12 +529,7 @@ Poppler__StampAnnotation* Poppler__StampAnnotation_new() {
 }
 
 int Poppler__StampAnnotation_SubType(const Poppler__StampAnnotation* self) {
-    auto* vpoppler__stampannotation = dynamic_cast<const VirtualPopplerStampAnnotation*>(self);
-    if (vpoppler__stampannotation && vpoppler__stampannotation->isVirtualPopplerStampAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerStampAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 libqt_string Poppler__StampAnnotation_StampIconName(const Poppler__StampAnnotation* self) {
@@ -606,12 +581,7 @@ Poppler__SignatureAnnotation* Poppler__SignatureAnnotation_new() {
 }
 
 int Poppler__SignatureAnnotation_SubType(const Poppler__SignatureAnnotation* self) {
-    auto* vpoppler__signatureannotation = dynamic_cast<const VirtualPopplerSignatureAnnotation*>(self);
-    if (vpoppler__signatureannotation && vpoppler__signatureannotation->isVirtualPopplerSignatureAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerSignatureAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 void Poppler__SignatureAnnotation_SetText(Poppler__SignatureAnnotation* self, const libqt_string text) {
@@ -739,12 +709,7 @@ Poppler__InkAnnotation* Poppler__InkAnnotation_new() {
 }
 
 int Poppler__InkAnnotation_SubType(const Poppler__InkAnnotation* self) {
-    auto* vpoppler__inkannotation = dynamic_cast<const VirtualPopplerInkAnnotation*>(self);
-    if (vpoppler__inkannotation && vpoppler__inkannotation->isVirtualPopplerInkAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerInkAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 libqt_list /* of libqt_list of QPointF* */ Poppler__InkAnnotation_InkPaths(const Poppler__InkAnnotation* self) {
@@ -841,12 +806,7 @@ Poppler__CaretAnnotation* Poppler__CaretAnnotation_new() {
 }
 
 int Poppler__CaretAnnotation_SubType(const Poppler__CaretAnnotation* self) {
-    auto* vpoppler__caretannotation = dynamic_cast<const VirtualPopplerCaretAnnotation*>(self);
-    if (vpoppler__caretannotation && vpoppler__caretannotation->isVirtualPopplerCaretAnnotation) {
-        return static_cast<int>(self->subType());
-    } else {
-        return static_cast<int>(((VirtualPopplerCaretAnnotation*)self)->subType());
-    }
+    return static_cast<int>(self->subType());
 }
 
 int Poppler__CaretAnnotation_CaretSymbol(const Poppler__CaretAnnotation* self) {

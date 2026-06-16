@@ -4,9 +4,9 @@
 #include "libktexttohtml.h"
 #include "libktexttohtml.hxx"
 
-libqt_string KTextToHTML_ConvertToHtml(const libqt_string param1, const int* param2, int param3, int param4) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KTextToHTML::convertToHtml(param1_QString, (const KTextToHTML::Options&)(*param2), static_cast<int>(param3), static_cast<int>(param4));
+libqt_string KTextToHTML_ConvertToHtml(const libqt_string plainText, const int* options, int maxUrlLen, int maxAddressLen) {
+    QString plainText_QString = QString::fromUtf8(plainText.data, plainText.len);
+    auto _ret = KTextToHTML::convertToHtml(plainText_QString, (const KTextToHTML::Options&)(*options), static_cast<int>(maxUrlLen), static_cast<int>(maxAddressLen));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

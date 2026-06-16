@@ -19,7 +19,7 @@ typedef struct QMimeDatabase QMimeDatabase;
 typedef struct QMimeType QMimeType;
 #endif
 
-QMimeType* KFileMetaData__MimeUtils_StrictMimeType(const libqt_string param1, const QMimeDatabase* param2);
+QMimeType* KFileMetaData__MimeUtils_StrictMimeType(const libqt_string filePath, const QMimeDatabase* db);
 
 #ifdef __cplusplus
 } /* extern C */

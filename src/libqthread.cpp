@@ -21,30 +21,15 @@ QThread* QThread_new2(QObject* parent) {
 }
 
 QMetaObject* QThread_MetaObject(const QThread* self) {
-    auto* vqthread = dynamic_cast<const VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQThread*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QThread_Metacast(QThread* self, const char* param1) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQThread*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QThread_Metacall(QThread* self, int param1, int param2, void** param3) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQThread*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void* QThread_CurrentThreadId() {
@@ -108,12 +93,7 @@ void QThread_SetEventDispatcher(QThread* self, QAbstractEventDispatcher* eventDi
 }
 
 bool QThread_Event(QThread* self, QEvent* event) {
-    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
-    if (vqthread && vqthread->isVirtualQThread) {
-        return self->event(event);
-    } else {
-        return ((VirtualQThread*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 int QThread_LoopLevel(const QThread* self) {

@@ -47,30 +47,15 @@ TextCustomEditor__TextEditFindBarBase* TextCustomEditor__TextEditFindBarBase_new
 }
 
 QMetaObject* TextCustomEditor__TextEditFindBarBase_MetaObject(const TextCustomEditor__TextEditFindBarBase* self) {
-    auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<const VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorTextEditFindBarBase*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__TextEditFindBarBase_Metacast(TextCustomEditor__TextEditFindBarBase* self, const char* param1) {
-    auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__TextEditFindBarBase_Metacall(TextCustomEditor__TextEditFindBarBase* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorTextEditFindBarBase*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string TextCustomEditor__TextEditFindBarBase_Text(const TextCustomEditor__TextEditFindBarBase* self) {
@@ -200,12 +185,7 @@ void TextCustomEditor__TextEditFindBarBase_AutoSearch(TextCustomEditor__TextEdit
 }
 
 void TextCustomEditor__TextEditFindBarBase_SlotSearchText(TextCustomEditor__TextEditFindBarBase* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditor__texteditfindbarbase = dynamic_cast<VirtualTextCustomEditorTextEditFindBarBase*>(self);
-    if (vtextcustomeditor__texteditfindbarbase && vtextcustomeditor__texteditfindbarbase->isVirtualTextCustomEditorTextEditFindBarBase) {
-        vtextcustomeditor__texteditfindbarbase->slotSearchText(backward, isAutoSearch);
-    } else {
-        ((VirtualTextCustomEditorTextEditFindBarBase*)self)->slotSearchText(backward, isAutoSearch);
-    }
+    self->slotSearchText(backward, isAutoSearch);
 }
 
 void TextCustomEditor__TextEditFindBarBase_CloseBar(TextCustomEditor__TextEditFindBarBase* self) {

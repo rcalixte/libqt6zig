@@ -47,82 +47,39 @@ QDesignerPropertyEditorInterface* QDesignerPropertyEditorInterface_new2(QWidget*
 }
 
 QMetaObject* QDesignerPropertyEditorInterface_MetaObject(const QDesignerPropertyEditorInterface* self) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerPropertyEditorInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerPropertyEditorInterface_Metacast(QDesignerPropertyEditorInterface* self, const char* param1) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerPropertyEditorInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerPropertyEditorInterface_Metacall(QDesignerPropertyEditorInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerPropertyEditorInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerFormEditorInterface* QDesignerPropertyEditorInterface_Core(const QDesignerPropertyEditorInterface* self) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        return self->core();
-    } else {
-        return ((VirtualQDesignerPropertyEditorInterface*)self)->core();
-    }
+    return self->core();
 }
 
 bool QDesignerPropertyEditorInterface_IsReadOnly(const QDesignerPropertyEditorInterface* self) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        return vqdesignerpropertyeditorinterface->isReadOnly();
-    } else {
-        return ((VirtualQDesignerPropertyEditorInterface*)self)->isReadOnly();
-    }
+    return self->isReadOnly();
 }
 
 QObject* QDesignerPropertyEditorInterface_Object(const QDesignerPropertyEditorInterface* self) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        return vqdesignerpropertyeditorinterface->object();
-    } else {
-        return ((VirtualQDesignerPropertyEditorInterface*)self)->object();
-    }
+    return self->object();
 }
 
 libqt_string QDesignerPropertyEditorInterface_CurrentPropertyName(const QDesignerPropertyEditorInterface* self) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<const VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        auto _ret = vqdesignerpropertyeditorinterface->currentPropertyName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerPropertyEditorInterface*)self)->currentPropertyName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->currentPropertyName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerPropertyEditorInterface_PropertyChanged(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value) {
@@ -150,31 +107,16 @@ void QDesignerPropertyEditorInterface_Connect_PropertyChanged(QDesignerPropertyE
 }
 
 void QDesignerPropertyEditorInterface_SetObject(QDesignerPropertyEditorInterface* self, QObject* object) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        vqdesignerpropertyeditorinterface->setObject(object);
-    } else {
-        ((VirtualQDesignerPropertyEditorInterface*)self)->setObject(object);
-    }
+    self->setObject(object);
 }
 
 void QDesignerPropertyEditorInterface_SetPropertyValue(QDesignerPropertyEditorInterface* self, const libqt_string name, const QVariant* value, bool changed) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        vqdesignerpropertyeditorinterface->setPropertyValue(name_QString, *value, changed);
-    } else {
-        ((VirtualQDesignerPropertyEditorInterface*)self)->setPropertyValue(name_QString, *value, changed);
-    }
+    self->setPropertyValue(name_QString, *value, changed);
 }
 
 void QDesignerPropertyEditorInterface_SetReadOnly(QDesignerPropertyEditorInterface* self, bool readOnly) {
-    auto* vqdesignerpropertyeditorinterface = dynamic_cast<VirtualQDesignerPropertyEditorInterface*>(self);
-    if (vqdesignerpropertyeditorinterface && vqdesignerpropertyeditorinterface->isVirtualQDesignerPropertyEditorInterface) {
-        vqdesignerpropertyeditorinterface->setReadOnly(readOnly);
-    } else {
-        ((VirtualQDesignerPropertyEditorInterface*)self)->setReadOnly(readOnly);
-    }
+    self->setReadOnly(readOnly);
 }
 
 // Base class handler implementation

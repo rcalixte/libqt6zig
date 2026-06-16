@@ -75,30 +75,15 @@ QFileDialog* QFileDialog_new6(QWidget* parent, const libqt_string caption, const
 }
 
 QMetaObject* QFileDialog_MetaObject(const QFileDialog* self) {
-    auto* vqfiledialog = dynamic_cast<const VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFileDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFileDialog_Metacast(QFileDialog* self, const char* param1) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFileDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFileDialog_Metacall(QFileDialog* self, int param1, int param2, void** param3) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFileDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFileDialog_SetDirectory(QFileDialog* self, const libqt_string directory) {
@@ -476,12 +461,7 @@ int QFileDialog_Options(const QFileDialog* self) {
 }
 
 void QFileDialog_SetVisible(QFileDialog* self, bool visible) {
-    auto* vqfiledialog = dynamic_cast<VirtualQFileDialog*>(self);
-    if (vqfiledialog && vqfiledialog->isVirtualQFileDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQFileDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QFileDialog_FileSelected(QFileDialog* self, const libqt_string file) {

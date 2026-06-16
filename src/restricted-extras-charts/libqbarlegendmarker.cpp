@@ -23,48 +23,23 @@ QBarLegendMarker* QBarLegendMarker_new2(QAbstractBarSeries* series, QBarSet* bar
 }
 
 QMetaObject* QBarLegendMarker_MetaObject(const QBarLegendMarker* self) {
-    auto* vqbarlegendmarker = dynamic_cast<const VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBarLegendMarker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBarLegendMarker_Metacast(QBarLegendMarker* self, const char* param1) {
-    auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBarLegendMarker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBarLegendMarker_Metacall(QBarLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBarLegendMarker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QBarLegendMarker_Type(QBarLegendMarker* self) {
-    auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQBarLegendMarker*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 QAbstractBarSeries* QBarLegendMarker_Series(QBarLegendMarker* self) {
-    auto* vqbarlegendmarker = dynamic_cast<VirtualQBarLegendMarker*>(self);
-    if (vqbarlegendmarker && vqbarlegendmarker->isVirtualQBarLegendMarker) {
-        return self->series();
-    } else {
-        return ((VirtualQBarLegendMarker*)self)->series();
-    }
+    return self->series();
 }
 
 QBarSet* QBarLegendMarker_Barset(QBarLegendMarker* self) {

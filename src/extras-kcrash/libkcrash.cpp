@@ -10,79 +10,79 @@ void KCrash_Initialize() {
     KCrash::initialize();
 }
 
-void KCrash_DefaultCrashHandler(int param1) {
-    KCrash::defaultCrashHandler(static_cast<int>(param1));
+void KCrash_DefaultCrashHandler(int signal) {
+    KCrash::defaultCrashHandler(static_cast<int>(signal));
 }
 
-void KCrash_SetCrashHandler(intptr_t param1) {
-    auto param1_func = reinterpret_cast<KCrash::HandlerType>(param1);
-    KCrash::setCrashHandler(param1_func);
+void KCrash_SetCrashHandler(intptr_t handler) {
+    auto handler_func = reinterpret_cast<KCrash::HandlerType>(handler);
+    KCrash::setCrashHandler(handler_func);
 }
 
 intptr_t KCrash_CrashHandler() {
     return reinterpret_cast<intptr_t>(KCrash::crashHandler());
 }
 
-void KCrash_SetEmergencySaveFunction(intptr_t param1) {
-    auto param1_func = reinterpret_cast<KCrash::HandlerType>(param1);
-    KCrash::setEmergencySaveFunction(param1_func);
+void KCrash_SetEmergencySaveFunction(intptr_t saveFunction) {
+    auto saveFunction_func = reinterpret_cast<KCrash::HandlerType>(saveFunction);
+    KCrash::setEmergencySaveFunction(saveFunction_func);
 }
 
 intptr_t KCrash_EmergencySaveFunction() {
     return reinterpret_cast<intptr_t>(KCrash::emergencySaveFunction());
 }
 
-void KCrash_SetFlags(int param1) {
-    KCrash::setFlags(static_cast<KCrash::CrashFlags>(param1));
+void KCrash_SetFlags(int flags) {
+    KCrash::setFlags(static_cast<KCrash::CrashFlags>(flags));
 }
 
-void KCrash_SetDrKonqiEnabled(bool param1) {
-    KCrash::setDrKonqiEnabled(param1);
+void KCrash_SetDrKonqiEnabled(bool enabled) {
+    KCrash::setDrKonqiEnabled(enabled);
 }
 
 bool KCrash_IsDrKonqiEnabled() {
     return KCrash::isDrKonqiEnabled();
 }
 
-void KCrash_SetErrorMessage(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    KCrash::setErrorMessage(param1_QString);
+void KCrash_SetErrorMessage(const libqt_string message) {
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    KCrash::setErrorMessage(message_QString);
 }
 
-void KCrash_SetErrorTags(const libqt_map /* of libqt_string to libqt_string */ param1) {
-    QHash<QString, QString> param1_QHash;
-    param1_QHash.reserve(param1.len);
-    libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
-    libqt_string* param1_varr = static_cast<libqt_string*>(param1.values);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
-        QString param1_varr_i_QString = QString::fromUtf8(param1_varr[i].data, param1_varr[i].len);
-        param1_QHash[param1_karr_i_QString] = param1_varr_i_QString;
+void KCrash_SetErrorTags(const libqt_map /* of libqt_string to libqt_string */ details) {
+    QHash<QString, QString> details_QHash;
+    details_QHash.reserve(details.len);
+    libqt_string* details_karr = static_cast<libqt_string*>(details.keys);
+    libqt_string* details_varr = static_cast<libqt_string*>(details.values);
+    for (size_t i = 0; i < details.len; ++i) {
+        QString details_karr_i_QString = QString::fromUtf8(details_karr[i].data, details_karr[i].len);
+        QString details_varr_i_QString = QString::fromUtf8(details_varr[i].data, details_varr[i].len);
+        details_QHash[details_karr_i_QString] = details_varr_i_QString;
     }
-    KCrash::setErrorTags(param1_QHash);
+    KCrash::setErrorTags(details_QHash);
 }
 
-void KCrash_SetErrorExtraData(const libqt_map /* of libqt_string to libqt_string */ param1) {
-    QHash<QString, QString> param1_QHash;
-    param1_QHash.reserve(param1.len);
-    libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
-    libqt_string* param1_varr = static_cast<libqt_string*>(param1.values);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
-        QString param1_varr_i_QString = QString::fromUtf8(param1_varr[i].data, param1_varr[i].len);
-        param1_QHash[param1_karr_i_QString] = param1_varr_i_QString;
+void KCrash_SetErrorExtraData(const libqt_map /* of libqt_string to libqt_string */ details) {
+    QHash<QString, QString> details_QHash;
+    details_QHash.reserve(details.len);
+    libqt_string* details_karr = static_cast<libqt_string*>(details.keys);
+    libqt_string* details_varr = static_cast<libqt_string*>(details.values);
+    for (size_t i = 0; i < details.len; ++i) {
+        QString details_karr_i_QString = QString::fromUtf8(details_karr[i].data, details_karr[i].len);
+        QString details_varr_i_QString = QString::fromUtf8(details_varr[i].data, details_varr[i].len);
+        details_QHash[details_karr_i_QString] = details_varr_i_QString;
     }
-    KCrash::setErrorExtraData(param1_QHash);
+    KCrash::setErrorExtraData(details_QHash);
 }
 
-void KCrash_SetGPUData(const libqt_map /* of libqt_string to QVariant* */ param1) {
-    QHash<QString, QVariant> param1_QHash;
-    param1_QHash.reserve(param1.len);
-    libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
-    QVariant** param1_varr = static_cast<QVariant**>(param1.values);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
-        param1_QHash[param1_karr_i_QString] = *(param1_varr[i]);
+void KCrash_SetGPUData(const libqt_map /* of libqt_string to QVariant* */ data) {
+    QHash<QString, QVariant> data_QHash;
+    data_QHash.reserve(data.len);
+    libqt_string* data_karr = static_cast<libqt_string*>(data.keys);
+    QVariant** data_varr = static_cast<QVariant**>(data.values);
+    for (size_t i = 0; i < data.len; ++i) {
+        QString data_karr_i_QString = QString::fromUtf8(data_karr[i].data, data_karr[i].len);
+        data_QHash[data_karr_i_QString] = *(data_varr[i]);
     }
-    KCrash::setGPUData(param1_QHash);
+    KCrash::setGPUData(data_QHash);
 }

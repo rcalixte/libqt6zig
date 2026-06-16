@@ -57,57 +57,27 @@ QPrintDialog* QPrintDialog_new4(QPrinter* printer, QWidget* parent) {
 }
 
 QMetaObject* QPrintDialog_MetaObject(const QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<const VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPrintDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPrintDialog_Metacast(QPrintDialog* self, const char* param1) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPrintDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPrintDialog_Metacall(QPrintDialog* self, int param1, int param2, void** param3) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPrintDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPrintDialog_Exec(QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        return self->exec();
-    } else {
-        return ((VirtualQPrintDialog*)self)->exec();
-    }
+    return self->exec();
 }
 
 void QPrintDialog_Accept(QPrintDialog* self) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        self->accept();
-    } else {
-        ((VirtualQPrintDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 void QPrintDialog_Done(QPrintDialog* self, int result) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQPrintDialog*)self)->done(static_cast<int>(result));
-    }
+    self->done(static_cast<int>(result));
 }
 
 void QPrintDialog_SetOption(QPrintDialog* self, int option) {
@@ -127,12 +97,7 @@ int QPrintDialog_Options(const QPrintDialog* self) {
 }
 
 void QPrintDialog_SetVisible(QPrintDialog* self, bool visible) {
-    auto* vqprintdialog = dynamic_cast<VirtualQPrintDialog*>(self);
-    if (vqprintdialog && vqprintdialog->isVirtualQPrintDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQPrintDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QPrintDialog_Accepted(QPrintDialog* self, QPrinter* printer) {

@@ -1965,176 +1965,176 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    pub fn Rmdir(param1: anytype) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Rmdir(@ptrCast(param1.ptr)) };
+    pub fn Rmdir(url: anytype) KIO__SimpleJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Rmdir(@ptrCast(url.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#chown)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` owner: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` group: []const u8 `
     ///
-    pub fn Chown(param1: anytype, param2: []const u8, param3: []const u8) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn Chown(url: anytype, owner: []const u8, group: []const u8) KIO__SimpleJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const owner_str = qtc.libqt_string{
+            .len = owner.len,
+            .data = owner.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const group_str = qtc.libqt_string{
+            .len = group.len,
+            .data = group.ptr,
         };
-        return .{ .ptr = qtc.KIO_Chown(@ptrCast(param1.ptr), param2_str, param3_str) };
+        return .{ .ptr = qtc.KIO_Chown(@ptrCast(url.ptr), owner_str, group_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#setModificationTime)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: QDateTime `
+    /// ` mtime: QDateTime `
     ///
-    pub fn SetModificationTime(param1: anytype, param2: anytype) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QDateTime;
-        return .{ .ptr = qtc.KIO_SetModificationTime(@ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
+    pub fn SetModificationTime(url: anytype, mtime: anytype) KIO__SimpleJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        comptime _ = @TypeOf(mtime)._is_QDateTime;
+        return .{ .ptr = qtc.KIO_SetModificationTime(@ptrCast(url.ptr), @ptrCast(mtime.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#rename)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Rename(param1: anytype, param2: anytype, param3: i32) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Rename(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Rename(src: anytype, dest: anytype, flags: i32) KIO__SimpleJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Rename(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#symlink)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` target: []const u8 `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Symlink(param1: []const u8, param2: anytype, param3: i32) KIO__SimpleJob {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Symlink(target: []const u8, dest: anytype, flags: i32) KIO__SimpleJob {
+        const target_str = qtc.libqt_string{
+            .len = target.len,
+            .data = target.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Symlink(param1_str, @ptrCast(param2.ptr), @bitCast(param3)) };
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Symlink(target_str, @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#special)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []u8 `
+    /// ` data: []u8 `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Special(param1: anytype, param2: []u8, param3: i32) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn Special(url: anytype, data: []u8, flags: i32) KIO__SimpleJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
         };
-        return .{ .ptr = qtc.KIO_Special(@ptrCast(param1.ptr), param2_str, @bitCast(param3)) };
+        return .{ .ptr = qtc.KIO_Special(@ptrCast(url.ptr), data_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#mount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: bool `
+    /// ` ro: bool `
     ///
-    /// ` param2: []u8 `
+    /// ` fstype: []u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` dev: []const u8 `
     ///
-    /// ` param4: []const u8 `
+    /// ` point: []const u8 `
     ///
-    /// ` param5: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Mount(param1: bool, param2: []u8, param3: []const u8, param4: []const u8, param5: i32) KIO__SimpleJob {
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn Mount(ro: bool, fstype: []u8, dev: []const u8, point: []const u8, flags: i32) KIO__SimpleJob {
+        const fstype_str = qtc.libqt_string{
+            .len = fstype.len,
+            .data = fstype.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const dev_str = qtc.libqt_string{
+            .len = dev.len,
+            .data = dev.ptr,
         };
-        const param4_str = qtc.libqt_string{
-            .len = param4.len,
-            .data = param4.ptr,
+        const point_str = qtc.libqt_string{
+            .len = point.len,
+            .data = point.ptr,
         };
-        return .{ .ptr = qtc.KIO_Mount(param1, param2_str, param3_str, param4_str, @bitCast(param5)) };
+        return .{ .ptr = qtc.KIO_Mount(ro, fstype_str, dev_str, point_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#unmount)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` point: []const u8 `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Unmount(param1: []const u8, param2: i32) KIO__SimpleJob {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Unmount(point: []const u8, flags: i32) KIO__SimpleJob {
+        const point_str = qtc.libqt_string{
+            .len = point.len,
+            .data = point.ptr,
         };
-        return .{ .ptr = qtc.KIO_Unmount(param1_str, @bitCast(param2)) };
+        return .{ .ptr = qtc.KIO_Unmount(point_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#http_update_cache)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: bool `
+    /// ` no_cache: bool `
     ///
-    /// ` param3: QDateTime `
+    /// ` expireDate: QDateTime `
     ///
-    pub fn HttpUpdateCache(param1: anytype, param2: bool, param3: anytype) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param3)._is_QDateTime;
-        return .{ .ptr = qtc.KIO_HttpUpdateCache(@ptrCast(param1.ptr), param2, @ptrCast(param3.ptr)) };
+    pub fn HttpUpdateCache(url: anytype, no_cache: bool, expireDate: anytype) KIO__SimpleJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        comptime _ = @TypeOf(expireDate)._is_QDateTime;
+        return .{ .ptr = qtc.KIO_HttpUpdateCache(@ptrCast(url.ptr), no_cache, @ptrCast(expireDate.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#file_delete)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn FileDelete(param1: anytype, param2: i32) KIO__SimpleJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_FileDelete(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn FileDelete(src: anytype, flags: i32) KIO__SimpleJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        return .{ .ptr = qtc.KIO_FileDelete(@ptrCast(src.ptr), @bitCast(flags)) };
     }
 };

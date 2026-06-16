@@ -46,39 +46,19 @@ KBusyIndicatorWidget* KBusyIndicatorWidget_new2() {
 }
 
 QMetaObject* KBusyIndicatorWidget_MetaObject(const KBusyIndicatorWidget* self) {
-    auto* vkbusyindicatorwidget = dynamic_cast<const VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBusyIndicatorWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBusyIndicatorWidget_Metacast(KBusyIndicatorWidget* self, const char* param1) {
-    auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBusyIndicatorWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBusyIndicatorWidget_Metacall(KBusyIndicatorWidget* self, int param1, int param2, void** param3) {
-    auto* vkbusyindicatorwidget = dynamic_cast<VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBusyIndicatorWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KBusyIndicatorWidget_MinimumSizeHint(const KBusyIndicatorWidget* self) {
-    auto* vkbusyindicatorwidget = dynamic_cast<const VirtualKBusyIndicatorWidget*>(self);
-    if (vkbusyindicatorwidget && vkbusyindicatorwidget->isVirtualKBusyIndicatorWidget) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKBusyIndicatorWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 bool KBusyIndicatorWidget_IsRunning(const KBusyIndicatorWidget* self) {

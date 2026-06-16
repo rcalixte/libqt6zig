@@ -22,30 +22,15 @@ QBuffer* QBuffer_new2(QObject* parent) {
 }
 
 QMetaObject* QBuffer_MetaObject(const QBuffer* self) {
-    auto* vqbuffer = dynamic_cast<const VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBuffer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBuffer_Metacast(QBuffer* self, const char* param1) {
-    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBuffer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBuffer_Metacall(QBuffer* self, int param1, int param2, void** param3) {
-    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBuffer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QBuffer_Buffer(QBuffer* self) {
@@ -85,66 +70,31 @@ libqt_string QBuffer_Data(const QBuffer* self) {
 }
 
 bool QBuffer_Open(QBuffer* self, int openMode) {
-    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    } else {
-        return ((VirtualQBuffer*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    }
+    return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 void QBuffer_Close(QBuffer* self) {
-    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        self->close();
-    } else {
-        ((VirtualQBuffer*)self)->close();
-    }
+    self->close();
 }
 
 long long QBuffer_Size(const QBuffer* self) {
-    auto* vqbuffer = dynamic_cast<const VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return static_cast<long long>(self->size());
-    } else {
-        return static_cast<long long>(((VirtualQBuffer*)self)->size());
-    }
+    return static_cast<long long>(self->size());
 }
 
 long long QBuffer_Pos(const QBuffer* self) {
-    auto* vqbuffer = dynamic_cast<const VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return static_cast<long long>(self->pos());
-    } else {
-        return static_cast<long long>(((VirtualQBuffer*)self)->pos());
-    }
+    return static_cast<long long>(self->pos());
 }
 
 bool QBuffer_Seek(QBuffer* self, long long off) {
-    auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return self->seek(static_cast<qint64>(off));
-    } else {
-        return ((VirtualQBuffer*)self)->seek(static_cast<qint64>(off));
-    }
+    return self->seek(static_cast<qint64>(off));
 }
 
 bool QBuffer_AtEnd(const QBuffer* self) {
-    auto* vqbuffer = dynamic_cast<const VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return self->atEnd();
-    } else {
-        return ((VirtualQBuffer*)self)->atEnd();
-    }
+    return self->atEnd();
 }
 
 bool QBuffer_CanReadLine(const QBuffer* self) {
-    auto* vqbuffer = dynamic_cast<const VirtualQBuffer*>(self);
-    if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return self->canReadLine();
-    } else {
-        return ((VirtualQBuffer*)self)->canReadLine();
-    }
+    return self->canReadLine();
 }
 
 void QBuffer_ConnectNotify(QBuffer* self, const QMetaMethod* param1) {

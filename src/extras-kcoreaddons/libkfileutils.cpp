@@ -6,9 +6,9 @@
 #include "libkfileutils.h"
 #include "libkfileutils.hxx"
 
-libqt_string KFileUtils_SuggestName(const QUrl* param1, const libqt_string param2) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    auto _ret = KFileUtils::suggestName(*param1, param2_QString);
+libqt_string KFileUtils_SuggestName(const QUrl* baseURL, const libqt_string oldName) {
+    QString oldName_QString = QString::fromUtf8(oldName.data, oldName.len);
+    auto _ret = KFileUtils::suggestName(*baseURL, oldName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -19,9 +19,9 @@ libqt_string KFileUtils_SuggestName(const QUrl* param1, const libqt_string param
     return _str;
 }
 
-libqt_string KFileUtils_MakeSuggestedName(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KFileUtils::makeSuggestedName(param1_QString);
+libqt_string KFileUtils_MakeSuggestedName(const libqt_string oldName) {
+    QString oldName_QString = QString::fromUtf8(oldName.data, oldName.len);
+    auto _ret = KFileUtils::makeSuggestedName(oldName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -32,22 +32,22 @@ libqt_string KFileUtils_MakeSuggestedName(const libqt_string param1) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ KFileUtils_FindAllUniqueFiles(const libqt_list /* of libqt_string */ param1, const libqt_list /* of libqt_string */ param2) {
-    QList<QString> param1_QList;
-    param1_QList.reserve(param1.len);
-    libqt_string* param1_arr = static_cast<libqt_string*>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_arr_i_QString = QString::fromUtf8(param1_arr[i].data, param1_arr[i].len);
-        param1_QList.push_back(param1_arr_i_QString);
+libqt_list /* of libqt_string */ KFileUtils_FindAllUniqueFiles(const libqt_list /* of libqt_string */ dirs, const libqt_list /* of libqt_string */ nameFilters) {
+    QList<QString> dirs_QList;
+    dirs_QList.reserve(dirs.len);
+    libqt_string* dirs_arr = static_cast<libqt_string*>(dirs.data);
+    for (size_t i = 0; i < dirs.len; ++i) {
+        QString dirs_arr_i_QString = QString::fromUtf8(dirs_arr[i].data, dirs_arr[i].len);
+        dirs_QList.push_back(dirs_arr_i_QString);
     }
-    QList<QString> param2_QList;
-    param2_QList.reserve(param2.len);
-    libqt_string* param2_arr = static_cast<libqt_string*>(param2.data);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_arr_i_QString = QString::fromUtf8(param2_arr[i].data, param2_arr[i].len);
-        param2_QList.push_back(param2_arr_i_QString);
+    QList<QString> nameFilters_QList;
+    nameFilters_QList.reserve(nameFilters.len);
+    libqt_string* nameFilters_arr = static_cast<libqt_string*>(nameFilters.data);
+    for (size_t i = 0; i < nameFilters.len; ++i) {
+        QString nameFilters_arr_i_QString = QString::fromUtf8(nameFilters_arr[i].data, nameFilters_arr[i].len);
+        nameFilters_QList.push_back(nameFilters_arr_i_QString);
     }
-    QList<QString> _ret = KFileUtils::findAllUniqueFiles(param1_QList, param2_QList);
+    QList<QString> _ret = KFileUtils::findAllUniqueFiles(dirs_QList, nameFilters_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

@@ -19,65 +19,33 @@ QDesignerMetaDataBaseItemInterface* QDesignerMetaDataBaseItemInterface_new() {
 }
 
 libqt_string QDesignerMetaDataBaseItemInterface_Name(const QDesignerMetaDataBaseItemInterface* self) {
-    auto* vqdesignermetadatabaseiteminterface = dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self);
-    if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        auto _ret = vqdesignermetadatabaseiteminterface->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerMetaDataBaseItemInterface_SetName(QDesignerMetaDataBaseItemInterface* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignermetadatabaseiteminterface = dynamic_cast<VirtualQDesignerMetaDataBaseItemInterface*>(self);
-    if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        vqdesignermetadatabaseiteminterface->setName(name_QString);
-    } else {
-        ((VirtualQDesignerMetaDataBaseItemInterface*)self)->setName(name_QString);
-    }
+    self->setName(name_QString);
 }
 
 libqt_list /* of QWidget* */ QDesignerMetaDataBaseItemInterface_TabOrder(const QDesignerMetaDataBaseItemInterface* self) {
-    auto* vqdesignermetadatabaseiteminterface = dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self);
-    if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        QList<QWidget*> _ret = vqdesignermetadatabaseiteminterface->tabOrder();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QWidget*> _ret = ((VirtualQDesignerMetaDataBaseItemInterface*)self)->tabOrder();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QWidget*> _ret = self->tabOrder();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QDesignerMetaDataBaseItemInterface_SetTabOrder(QDesignerMetaDataBaseItemInterface* self, const libqt_list /* of QWidget* */ tabOrder) {
@@ -87,30 +55,15 @@ void QDesignerMetaDataBaseItemInterface_SetTabOrder(QDesignerMetaDataBaseItemInt
     for (size_t i = 0; i < tabOrder.len; ++i) {
         tabOrder_QList.push_back(tabOrder_arr[i]);
     }
-    auto* vqdesignermetadatabaseiteminterface = dynamic_cast<VirtualQDesignerMetaDataBaseItemInterface*>(self);
-    if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        vqdesignermetadatabaseiteminterface->setTabOrder(tabOrder_QList);
-    } else {
-        ((VirtualQDesignerMetaDataBaseItemInterface*)self)->setTabOrder(tabOrder_QList);
-    }
+    self->setTabOrder(tabOrder_QList);
 }
 
 bool QDesignerMetaDataBaseItemInterface_Enabled(const QDesignerMetaDataBaseItemInterface* self) {
-    auto* vqdesignermetadatabaseiteminterface = dynamic_cast<const VirtualQDesignerMetaDataBaseItemInterface*>(self);
-    if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        return vqdesignermetadatabaseiteminterface->enabled();
-    } else {
-        return ((VirtualQDesignerMetaDataBaseItemInterface*)self)->enabled();
-    }
+    return self->enabled();
 }
 
 void QDesignerMetaDataBaseItemInterface_SetEnabled(QDesignerMetaDataBaseItemInterface* self, bool b) {
-    auto* vqdesignermetadatabaseiteminterface = dynamic_cast<VirtualQDesignerMetaDataBaseItemInterface*>(self);
-    if (vqdesignermetadatabaseiteminterface && vqdesignermetadatabaseiteminterface->isVirtualQDesignerMetaDataBaseItemInterface) {
-        vqdesignermetadatabaseiteminterface->setEnabled(b);
-    } else {
-        ((VirtualQDesignerMetaDataBaseItemInterface*)self)->setEnabled(b);
-    }
+    self->setEnabled(b);
 }
 
 // Base class handler implementation
@@ -281,93 +234,44 @@ QDesignerMetaDataBaseInterface* QDesignerMetaDataBaseInterface_new2(QObject* par
 }
 
 QMetaObject* QDesignerMetaDataBaseInterface_MetaObject(const QDesignerMetaDataBaseInterface* self) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerMetaDataBaseInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerMetaDataBaseInterface_Metacast(QDesignerMetaDataBaseInterface* self, const char* param1) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerMetaDataBaseInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerMetaDataBaseInterface_Metacall(QDesignerMetaDataBaseInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerMetaDataBaseInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerMetaDataBaseItemInterface* QDesignerMetaDataBaseInterface_Item(const QDesignerMetaDataBaseInterface* self, QObject* object) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        return vqdesignermetadatabaseinterface->item(object);
-    } else {
-        return ((VirtualQDesignerMetaDataBaseInterface*)self)->item(object);
-    }
+    return self->item(object);
 }
 
 void QDesignerMetaDataBaseInterface_Add(QDesignerMetaDataBaseInterface* self, QObject* object) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        vqdesignermetadatabaseinterface->add(object);
-    } else {
-        ((VirtualQDesignerMetaDataBaseInterface*)self)->add(object);
-    }
+    self->add(object);
 }
 
 void QDesignerMetaDataBaseInterface_Remove(QDesignerMetaDataBaseInterface* self, QObject* object) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        vqdesignermetadatabaseinterface->remove(object);
-    } else {
-        ((VirtualQDesignerMetaDataBaseInterface*)self)->remove(object);
-    }
+    self->remove(object);
 }
 
 libqt_list /* of QObject* */ QDesignerMetaDataBaseInterface_Objects(const QDesignerMetaDataBaseInterface* self) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        QList<QObject*> _ret = vqdesignermetadatabaseinterface->objects();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QObject*> _ret = ((VirtualQDesignerMetaDataBaseInterface*)self)->objects();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QObject*> _ret = self->objects();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QDesignerFormEditorInterface* QDesignerMetaDataBaseInterface_Core(const QDesignerMetaDataBaseInterface* self) {
-    auto* vqdesignermetadatabaseinterface = dynamic_cast<const VirtualQDesignerMetaDataBaseInterface*>(self);
-    if (vqdesignermetadatabaseinterface && vqdesignermetadatabaseinterface->isVirtualQDesignerMetaDataBaseInterface) {
-        return vqdesignermetadatabaseinterface->core();
-    } else {
-        return ((VirtualQDesignerMetaDataBaseInterface*)self)->core();
-    }
+    return self->core();
 }
 
 void QDesignerMetaDataBaseInterface_Changed(QDesignerMetaDataBaseInterface* self) {

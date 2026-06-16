@@ -21,12 +21,12 @@ typedef struct QWidget QWidget;
 typedef struct QWindow QWindow;
 #endif
 
-void KJobWidgets_SetWindow(QObject* param1, QWidget* param2);
-void KJobWidgets_SetWindowHandle(QObject* param1, QWindow* param2);
-QWidget* KJobWidgets_Window(QObject* param1);
-QWindow* KJobWidgets_WindowHandle(QObject* param1);
-void KJobWidgets_UpdateUserTimestamp(QObject* param1, unsigned long param2);
-unsigned long KJobWidgets_UserTimestamp(QObject* param1);
+void KJobWidgets_SetWindow(QObject* job, QWidget* widget);
+void KJobWidgets_SetWindowHandle(QObject* job, QWindow* window);
+QWidget* KJobWidgets_Window(QObject* job);
+QWindow* KJobWidgets_WindowHandle(QObject* job);
+void KJobWidgets_UpdateUserTimestamp(QObject* job, unsigned long time);
+unsigned long KJobWidgets_UserTimestamp(QObject* job);
 
 #ifdef __cplusplus
 } /* extern C */

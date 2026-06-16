@@ -30,30 +30,15 @@ KWidgetItemDelegate* KWidgetItemDelegate_new2(QAbstractItemView* itemView, QObje
 }
 
 QMetaObject* KWidgetItemDelegate_MetaObject(const KWidgetItemDelegate* self) {
-    auto* vkwidgetitemdelegate = dynamic_cast<const VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKWidgetItemDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KWidgetItemDelegate_Metacast(KWidgetItemDelegate* self, const char* param1) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KWidgetItemDelegate_Metacall(KWidgetItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vkwidgetitemdelegate = dynamic_cast<VirtualKWidgetItemDelegate*>(self);
-    if (vkwidgetitemdelegate && vkwidgetitemdelegate->isVirtualKWidgetItemDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKWidgetItemDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemView* KWidgetItemDelegate_ItemView(const KWidgetItemDelegate* self) {

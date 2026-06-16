@@ -40,30 +40,15 @@ QGeoCodingManagerEngine* QGeoCodingManagerEngine_new2(const libqt_map /* of libq
 }
 
 QMetaObject* QGeoCodingManagerEngine_MetaObject(const QGeoCodingManagerEngine* self) {
-    auto* vqgeocodingmanagerengine = dynamic_cast<const VirtualQGeoCodingManagerEngine*>(self);
-    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoCodingManagerEngine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoCodingManagerEngine_Metacast(QGeoCodingManagerEngine* self, const char* param1) {
-    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
-    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoCodingManagerEngine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoCodingManagerEngine_Metacall(QGeoCodingManagerEngine* self, int param1, int param2, void** param3) {
-    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
-    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoCodingManagerEngine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QGeoCodingManagerEngine_ManagerName(const QGeoCodingManagerEngine* self) {
@@ -83,31 +68,16 @@ int QGeoCodingManagerEngine_ManagerVersion(const QGeoCodingManagerEngine* self) 
 }
 
 QGeoCodeReply* QGeoCodingManagerEngine_Geocode(QGeoCodingManagerEngine* self, const QGeoAddress* address, const QGeoShape* bounds) {
-    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
-    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
-        return self->geocode(*address, *bounds);
-    } else {
-        return ((VirtualQGeoCodingManagerEngine*)self)->geocode(*address, *bounds);
-    }
+    return self->geocode(*address, *bounds);
 }
 
 QGeoCodeReply* QGeoCodingManagerEngine_Geocode2(QGeoCodingManagerEngine* self, const libqt_string address, int limit, int offset, const QGeoShape* bounds) {
     QString address_QString = QString::fromUtf8(address.data, address.len);
-    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
-    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
-        return self->geocode(address_QString, static_cast<int>(limit), static_cast<int>(offset), *bounds);
-    } else {
-        return ((VirtualQGeoCodingManagerEngine*)self)->geocode(address_QString, static_cast<int>(limit), static_cast<int>(offset), *bounds);
-    }
+    return self->geocode(address_QString, static_cast<int>(limit), static_cast<int>(offset), *bounds);
 }
 
 QGeoCodeReply* QGeoCodingManagerEngine_ReverseGeocode(QGeoCodingManagerEngine* self, const QGeoCoordinate* coordinate, const QGeoShape* bounds) {
-    auto* vqgeocodingmanagerengine = dynamic_cast<VirtualQGeoCodingManagerEngine*>(self);
-    if (vqgeocodingmanagerengine && vqgeocodingmanagerengine->isVirtualQGeoCodingManagerEngine) {
-        return self->reverseGeocode(*coordinate, *bounds);
-    } else {
-        return ((VirtualQGeoCodingManagerEngine*)self)->reverseGeocode(*coordinate, *bounds);
-    }
+    return self->reverseGeocode(*coordinate, *bounds);
 }
 
 void QGeoCodingManagerEngine_SetLocale(QGeoCodingManagerEngine* self, const QLocale* locale) {

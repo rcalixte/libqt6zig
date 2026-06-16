@@ -21,30 +21,15 @@ TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_new
 }
 
 QMetaObject* TextGrammarCheck__LanguageToolManager_MetaObject(const TextGrammarCheck__LanguageToolManager* self) {
-    auto* vtextgrammarcheck__languagetoolmanager = dynamic_cast<const VirtualTextGrammarCheckLanguageToolManager*>(self);
-    if (vtextgrammarcheck__languagetoolmanager && vtextgrammarcheck__languagetoolmanager->isVirtualTextGrammarCheckLanguageToolManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckLanguageToolManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__LanguageToolManager_Metacast(TextGrammarCheck__LanguageToolManager* self, const char* param1) {
-    auto* vtextgrammarcheck__languagetoolmanager = dynamic_cast<VirtualTextGrammarCheckLanguageToolManager*>(self);
-    if (vtextgrammarcheck__languagetoolmanager && vtextgrammarcheck__languagetoolmanager->isVirtualTextGrammarCheckLanguageToolManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__LanguageToolManager_Metacall(TextGrammarCheck__LanguageToolManager* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__languagetoolmanager = dynamic_cast<VirtualTextGrammarCheckLanguageToolManager*>(self);
-    if (vtextgrammarcheck__languagetoolmanager && vtextgrammarcheck__languagetoolmanager->isVirtualTextGrammarCheckLanguageToolManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextGrammarCheck__LanguageToolManager* TextGrammarCheck__LanguageToolManager_Self() {

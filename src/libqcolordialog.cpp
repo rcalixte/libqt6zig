@@ -56,30 +56,15 @@ QColorDialog* QColorDialog_new4(const QColor* initial, QWidget* parent) {
 }
 
 QMetaObject* QColorDialog_MetaObject(const QColorDialog* self) {
-    auto* vqcolordialog = dynamic_cast<const VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQColorDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QColorDialog_Metacast(QColorDialog* self, const char* param1) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQColorDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QColorDialog_Metacall(QColorDialog* self, int param1, int param2, void** param3) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQColorDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QColorDialog_SetCurrentColor(QColorDialog* self, const QColor* color) {
@@ -111,12 +96,7 @@ int QColorDialog_Options(const QColorDialog* self) {
 }
 
 void QColorDialog_SetVisible(QColorDialog* self, bool visible) {
-    auto* vqcolordialog = dynamic_cast<VirtualQColorDialog*>(self);
-    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQColorDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 QColor* QColorDialog_GetColor() {

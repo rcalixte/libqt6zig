@@ -30,25 +30,13 @@ QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Release(QTest
 }
 
 QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Stationary(QTest__QTouchEventWidgetSequence* self, int touchId) {
-    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        QTest::QTouchEventWidgetSequence& _ret = self->stationary(static_cast<int>(touchId));
-        // Cast returned reference into pointer
-        return &_ret;
-    } else {
-        QTest::QTouchEventWidgetSequence& _ret = ((VirtualQTestQTouchEventWidgetSequence*)self)->stationary(static_cast<int>(touchId));
-        // Cast returned reference into pointer
-        return &_ret;
-    }
+    QTest::QTouchEventWidgetSequence& _ret = self->stationary(static_cast<int>(touchId));
+    // Cast returned reference into pointer
+    return &_ret;
 }
 
 bool QTest__QTouchEventWidgetSequence_Commit(QTest__QTouchEventWidgetSequence* self, bool processEvents) {
-    auto* vqtest__qtoucheventwidgetsequence = dynamic_cast<VirtualQTestQTouchEventWidgetSequence*>(self);
-    if (vqtest__qtoucheventwidgetsequence && vqtest__qtoucheventwidgetsequence->isVirtualQTestQTouchEventWidgetSequence) {
-        return self->commit(processEvents);
-    } else {
-        return ((VirtualQTestQTouchEventWidgetSequence*)self)->commit(processEvents);
-    }
+    return self->commit(processEvents);
 }
 
 QTest__QTouchEventWidgetSequence* QTest__QTouchEventWidgetSequence_Press3(QTest__QTouchEventWidgetSequence* self, int touchId, const QPoint* pt, QWidget* widget) {

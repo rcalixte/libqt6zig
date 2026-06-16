@@ -23,12 +23,7 @@ QsciPrinter* QsciPrinter_new2(int mode) {
 }
 
 void QsciPrinter_FormatPage(QsciPrinter* self, QPainter* painter, bool drawing, QRect* area, int pagenr) {
-    auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
-        self->formatPage(*painter, drawing, *area, static_cast<int>(pagenr));
-    } else {
-        ((VirtualQsciPrinter*)self)->formatPage(*painter, drawing, *area, static_cast<int>(pagenr));
-    }
+    self->formatPage(*painter, drawing, *area, static_cast<int>(pagenr));
 }
 
 int QsciPrinter_Magnification(const QsciPrinter* self) {
@@ -36,30 +31,15 @@ int QsciPrinter_Magnification(const QsciPrinter* self) {
 }
 
 void QsciPrinter_SetMagnification(QsciPrinter* self, int magnification) {
-    auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
-        self->setMagnification(static_cast<int>(magnification));
-    } else {
-        ((VirtualQsciPrinter*)self)->setMagnification(static_cast<int>(magnification));
-    }
+    self->setMagnification(static_cast<int>(magnification));
 }
 
 int QsciPrinter_PrintRange(QsciPrinter* self, QsciScintillaBase* qsb, QPainter* painter, int from, int to) {
-    auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
-        return self->printRange(qsb, *painter, static_cast<int>(from), static_cast<int>(to));
-    } else {
-        return ((VirtualQsciPrinter*)self)->printRange(qsb, *painter, static_cast<int>(from), static_cast<int>(to));
-    }
+    return self->printRange(qsb, *painter, static_cast<int>(from), static_cast<int>(to));
 }
 
 int QsciPrinter_PrintRange2(QsciPrinter* self, QsciScintillaBase* qsb, int from, int to) {
-    auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
-        return self->printRange(qsb, static_cast<int>(from), static_cast<int>(to));
-    } else {
-        return ((VirtualQsciPrinter*)self)->printRange(qsb, static_cast<int>(from), static_cast<int>(to));
-    }
+    return self->printRange(qsb, static_cast<int>(from), static_cast<int>(to));
 }
 
 int QsciPrinter_WrapMode(const QsciPrinter* self) {
@@ -67,12 +47,7 @@ int QsciPrinter_WrapMode(const QsciPrinter* self) {
 }
 
 void QsciPrinter_SetWrapMode(QsciPrinter* self, int wmode) {
-    auto* vqsciprinter = dynamic_cast<VirtualQsciPrinter*>(self);
-    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
-        self->setWrapMode(static_cast<QsciScintilla::WrapMode>(wmode));
-    } else {
-        ((VirtualQsciPrinter*)self)->setWrapMode(static_cast<QsciScintilla::WrapMode>(wmode));
-    }
+    self->setWrapMode(static_cast<QsciScintilla::WrapMode>(wmode));
 }
 
 // Base class handler implementation

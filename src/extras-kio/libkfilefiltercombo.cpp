@@ -57,30 +57,15 @@ KFileFilterCombo* KFileFilterCombo_new2() {
 }
 
 QMetaObject* KFileFilterCombo_MetaObject(const KFileFilterCombo* self) {
-    auto* vkfilefiltercombo = dynamic_cast<const VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileFilterCombo*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileFilterCombo_Metacast(KFileFilterCombo* self, const char* param1) {
-    auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileFilterCombo*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileFilterCombo_Metacall(KFileFilterCombo* self, int param1, int param2, void** param3) {
-    auto* vkfilefiltercombo = dynamic_cast<VirtualKFileFilterCombo*>(self);
-    if (vkfilefiltercombo && vkfilefiltercombo->isVirtualKFileFilterCombo) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileFilterCombo*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFileFilterCombo_SetFilters(KFileFilterCombo* self, const libqt_list /* of KFileFilter* */ filters) {

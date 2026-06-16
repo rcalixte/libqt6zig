@@ -60,12 +60,7 @@ int KConfig_OpenFlags(const KConfig* self) {
 }
 
 bool KConfig_Sync(KConfig* self) {
-    auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
-        return self->sync();
-    } else {
-        return ((VirtualKConfig*)self)->sync();
-    }
+    return self->sync();
 }
 
 bool KConfig_IsDirty(const KConfig* self) {
@@ -73,21 +68,11 @@ bool KConfig_IsDirty(const KConfig* self) {
 }
 
 void KConfig_MarkAsClean(KConfig* self) {
-    auto* vkconfig = dynamic_cast<VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
-        self->markAsClean();
-    } else {
-        ((VirtualKConfig*)self)->markAsClean();
-    }
+    self->markAsClean();
 }
 
 int KConfig_AccessMode(const KConfig* self) {
-    auto* vkconfig = dynamic_cast<const VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
-        return static_cast<int>(self->accessMode());
-    } else {
-        return static_cast<int>(((VirtualKConfig*)self)->accessMode());
-    }
+    return static_cast<int>(self->accessMode());
 }
 
 bool KConfig_IsConfigWritable(KConfig* self, bool warnUser) {
@@ -167,55 +152,28 @@ bool KConfig_ReadDefaults(const KConfig* self) {
 }
 
 bool KConfig_IsImmutable(const KConfig* self) {
-    auto* vkconfig = dynamic_cast<const VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
-        return self->isImmutable();
-    } else {
-        return ((VirtualKConfig*)self)->isImmutable();
-    }
+    return self->isImmutable();
 }
 
 libqt_list /* of libqt_string */ KConfig_GroupList(const KConfig* self) {
-    auto* vkconfig = dynamic_cast<const VirtualKConfig*>(self);
-    if (vkconfig && vkconfig->isVirtualKConfig) {
-        QList<QString> _ret = self->groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKConfig*)self)->groupList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->groupList();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_map /* of libqt_string to libqt_string */ KConfig_EntryMap(const KConfig* self) {

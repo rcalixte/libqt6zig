@@ -49,30 +49,15 @@ QWindow* QWindow_new3(QScreen* screen) {
 }
 
 QMetaObject* QWindow_MetaObject(const QWindow* self) {
-    auto* vqwindow = dynamic_cast<const VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWindow_Metacast(QWindow* self, const char* param1) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWindow_Metacall(QWindow* self, int param1, int param2, void** param3) {
-    auto* vqwindow = dynamic_cast<VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QWindow_SetSurfaceType(QWindow* self, int surfaceType) {
@@ -80,12 +65,7 @@ void QWindow_SetSurfaceType(QWindow* self, int surfaceType) {
 }
 
 int QWindow_SurfaceType(const QWindow* self) {
-    auto* vqwindow = dynamic_cast<const VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return static_cast<int>(self->surfaceType());
-    } else {
-        return static_cast<int>(((VirtualQWindow*)self)->surfaceType());
-    }
+    return static_cast<int>(self->surfaceType());
 }
 
 bool QWindow_IsVisible(const QWindow* self) {
@@ -137,12 +117,7 @@ void QWindow_SetFormat(QWindow* self, const QSurfaceFormat* format) {
 }
 
 QSurfaceFormat* QWindow_Format(const QWindow* self) {
-    auto* vqwindow = dynamic_cast<const VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return new QSurfaceFormat(self->format());
-    } else {
-        return new QSurfaceFormat(((VirtualQWindow*)self)->format());
-    }
+    return new QSurfaceFormat(self->format());
 }
 
 QSurfaceFormat* QWindow_RequestedFormat(const QWindow* self) {
@@ -326,12 +301,7 @@ int QWindow_Y(const QWindow* self) {
 }
 
 QSize* QWindow_Size(const QWindow* self) {
-    auto* vqwindow = dynamic_cast<const VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return new QSize(self->size());
-    } else {
-        return new QSize(((VirtualQWindow*)self)->size());
-    }
+    return new QSize(self->size());
 }
 
 QPoint* QWindow_Position(const QWindow* self) {
@@ -400,21 +370,11 @@ void QWindow_SetScreen(QWindow* self, QScreen* screen) {
 }
 
 QAccessibleInterface* QWindow_AccessibleRoot(const QWindow* self) {
-    auto* vqwindow = dynamic_cast<const VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return self->accessibleRoot();
-    } else {
-        return ((VirtualQWindow*)self)->accessibleRoot();
-    }
+    return self->accessibleRoot();
 }
 
 QObject* QWindow_FocusObject(const QWindow* self) {
-    auto* vqwindow = dynamic_cast<const VirtualQWindow*>(self);
-    if (vqwindow && vqwindow->isVirtualQWindow) {
-        return self->focusObject();
-    } else {
-        return ((VirtualQWindow*)self)->focusObject();
-    }
+    return self->focusObject();
 }
 
 QPointF* QWindow_MapToGlobal(const QWindow* self, const QPointF* pos) {

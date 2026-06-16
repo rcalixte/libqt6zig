@@ -70,30 +70,15 @@ QLabel* QLabel_new6(const libqt_string text, QWidget* parent, int f) {
 }
 
 QMetaObject* QLabel_MetaObject(const QLabel* self) {
-    auto* vqlabel = dynamic_cast<const VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLabel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLabel_Metacast(QLabel* self, const char* param1) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLabel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLabel_Metacall(QLabel* self, int param1, int param2, void** param3) {
-    auto* vqlabel = dynamic_cast<VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLabel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QLabel_Text(const QLabel* self) {
@@ -188,21 +173,11 @@ void QLabel_SetScaledContents(QLabel* self, bool scaledContents) {
 }
 
 QSize* QLabel_SizeHint(const QLabel* self) {
-    auto* vqlabel = dynamic_cast<const VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQLabel*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QLabel_MinimumSizeHint(const QLabel* self) {
-    auto* vqlabel = dynamic_cast<const VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQLabel*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QLabel_SetBuddy(QLabel* self, QWidget* buddy) {
@@ -214,12 +189,7 @@ QWidget* QLabel_Buddy(const QLabel* self) {
 }
 
 int QLabel_HeightForWidth(const QLabel* self, int param1) {
-    auto* vqlabel = dynamic_cast<const VirtualQLabel*>(self);
-    if (vqlabel && vqlabel->isVirtualQLabel) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQLabel*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 bool QLabel_OpenExternalLinks(const QLabel* self) {

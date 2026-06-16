@@ -44,30 +44,15 @@ Sonnet__Dialog* Sonnet__Dialog_new(Sonnet__BackgroundChecker* checker, QWidget* 
 }
 
 QMetaObject* Sonnet__Dialog_MetaObject(const Sonnet__Dialog* self) {
-    auto* vsonnet__dialog = dynamic_cast<const VirtualSonnetDialog*>(self);
-    if (vsonnet__dialog && vsonnet__dialog->isVirtualSonnetDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSonnetDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Sonnet__Dialog_Metacast(Sonnet__Dialog* self, const char* param1) {
-    auto* vsonnet__dialog = dynamic_cast<VirtualSonnetDialog*>(self);
-    if (vsonnet__dialog && vsonnet__dialog->isVirtualSonnetDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSonnetDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Sonnet__Dialog_Metacall(Sonnet__Dialog* self, int param1, int param2, void** param3) {
-    auto* vsonnet__dialog = dynamic_cast<VirtualSonnetDialog*>(self);
-    if (vsonnet__dialog && vsonnet__dialog->isVirtualSonnetDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSonnetDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string Sonnet__Dialog_OriginalBuffer(const Sonnet__Dialog* self) {

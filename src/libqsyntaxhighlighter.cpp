@@ -25,30 +25,15 @@ QSyntaxHighlighter* QSyntaxHighlighter_new2(QTextDocument* parent) {
 }
 
 QMetaObject* QSyntaxHighlighter_MetaObject(const QSyntaxHighlighter* self) {
-    auto* vqsyntaxhighlighter = dynamic_cast<const VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSyntaxHighlighter*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSyntaxHighlighter_Metacast(QSyntaxHighlighter* self, const char* param1) {
-    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSyntaxHighlighter*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSyntaxHighlighter_Metacall(QSyntaxHighlighter* self, int param1, int param2, void** param3) {
-    auto* vqsyntaxhighlighter = dynamic_cast<VirtualQSyntaxHighlighter*>(self);
-    if (vqsyntaxhighlighter && vqsyntaxhighlighter->isVirtualQSyntaxHighlighter) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSyntaxHighlighter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSyntaxHighlighter_SetDocument(QSyntaxHighlighter* self, QTextDocument* doc) {

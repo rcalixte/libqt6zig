@@ -50,30 +50,15 @@ QFontComboBox* QFontComboBox_new2() {
 }
 
 QMetaObject* QFontComboBox_MetaObject(const QFontComboBox* self) {
-    auto* vqfontcombobox = dynamic_cast<const VirtualQFontComboBox*>(self);
-    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFontComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFontComboBox_Metacast(QFontComboBox* self, const char* param1) {
-    auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
-    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFontComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFontComboBox_Metacall(QFontComboBox* self, int param1, int param2, void** param3) {
-    auto* vqfontcombobox = dynamic_cast<VirtualQFontComboBox*>(self);
-    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFontComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFontComboBox_SetWritingSystem(QFontComboBox* self, int writingSystem) {
@@ -97,12 +82,7 @@ QFont* QFontComboBox_CurrentFont(const QFontComboBox* self) {
 }
 
 QSize* QFontComboBox_SizeHint(const QFontComboBox* self) {
-    auto* vqfontcombobox = dynamic_cast<const VirtualQFontComboBox*>(self);
-    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQFontComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QFontComboBox_SetSampleTextForSystem(QFontComboBox* self, int writingSystem, const libqt_string sampleText) {

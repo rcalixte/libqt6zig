@@ -32,30 +32,15 @@ QState* QState_new4(int childMode, QState* parent) {
 }
 
 QMetaObject* QState_MetaObject(const QState* self) {
-    auto* vqstate = dynamic_cast<const VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQState*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QState_Metacast(QState* self, const char* param1) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQState*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QState_Metacall(QState* self, int param1, int param2, void** param3) {
-    auto* vqstate = dynamic_cast<VirtualQState*>(self);
-    if (vqstate && vqstate->isVirtualQState) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQState*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractState* QState_ErrorState(const QState* self) {

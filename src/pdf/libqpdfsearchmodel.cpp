@@ -33,30 +33,15 @@ QPdfSearchModel* QPdfSearchModel_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfSearchModel_MetaObject(const QPdfSearchModel* self) {
-    auto* vqpdfsearchmodel = dynamic_cast<const VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPdfSearchModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPdfSearchModel_Metacast(QPdfSearchModel* self, const char* param1) {
-    auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPdfSearchModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPdfSearchModel_Metacall(QPdfSearchModel* self, int param1, int param2, void** param3) {
-    auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfSearchModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QPdfLink* */ QPdfSearchModel_ResultsOnPage(const QPdfSearchModel* self, int page) {
@@ -93,68 +78,34 @@ libqt_string QPdfSearchModel_SearchString(const QPdfSearchModel* self) {
 }
 
 libqt_map /* of int to libqt_string */ QPdfSearchModel_RoleNames(const QPdfSearchModel* self) {
-    auto* vqpdfsearchmodel = dynamic_cast<const VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQPdfSearchModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 int QPdfSearchModel_RowCount(const QPdfSearchModel* self, const QModelIndex* parent) {
-    auto* vqpdfsearchmodel = dynamic_cast<const VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualQPdfSearchModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* QPdfSearchModel_Data(const QPdfSearchModel* self, const QModelIndex* index, int role) {
-    auto* vqpdfsearchmodel = dynamic_cast<const VirtualQPdfSearchModel*>(self);
-    if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfSearchModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int QPdfSearchModel_Count(const QPdfSearchModel* self) {

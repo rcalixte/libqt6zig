@@ -27,105 +27,51 @@ QAction* KXMLGUIClient_Action(const KXMLGUIClient* self, const libqt_string name
 }
 
 QAction* KXMLGUIClient_Action2(const KXMLGUIClient* self, const QDomElement* element) {
-    auto* vkxmlguiclient = dynamic_cast<const VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        return self->action(*element);
-    } else {
-        return ((VirtualKXMLGUIClient*)self)->action(*element);
-    }
+    return self->action(*element);
 }
 
 KActionCollection* KXMLGUIClient_ActionCollection(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<const VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        return self->actionCollection();
-    } else {
-        return ((VirtualKXMLGUIClient*)self)->actionCollection();
-    }
+    return self->actionCollection();
 }
 
 libqt_string KXMLGUIClient_ComponentName(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<const VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        auto _ret = self->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKXMLGUIClient*)self)->componentName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->componentName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QDomDocument* KXMLGUIClient_DomDocument(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<const VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        return new QDomDocument(self->domDocument());
-    } else {
-        return new QDomDocument(((VirtualKXMLGUIClient*)self)->domDocument());
-    }
+    return new QDomDocument(self->domDocument());
 }
 
 libqt_string KXMLGUIClient_XmlFile(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<const VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        auto _ret = self->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKXMLGUIClient*)self)->xmlFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->xmlFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string KXMLGUIClient_LocalXMLFile(const KXMLGUIClient* self) {
-    auto* vkxmlguiclient = dynamic_cast<const VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        auto _ret = self->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKXMLGUIClient*)self)->localXMLFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->localXMLFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void KXMLGUIClient_SetXMLGUIBuildDocument(KXMLGUIClient* self, const QDomDocument* doc) {

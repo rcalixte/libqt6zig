@@ -64,30 +64,15 @@ KHistoryComboBox* KHistoryComboBox_new4(bool useCompletion, QWidget* parent) {
 }
 
 QMetaObject* KHistoryComboBox_MetaObject(const KHistoryComboBox* self) {
-    auto* vkhistorycombobox = dynamic_cast<const VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKHistoryComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KHistoryComboBox_Metacast(KHistoryComboBox* self, const char* param1) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KHistoryComboBox_Metacall(KHistoryComboBox* self, int param1, int param2, void** param3) {
-    auto* vkhistorycombobox = dynamic_cast<VirtualKHistoryComboBox*>(self);
-    if (vkhistorycombobox && vkhistorycombobox->isVirtualKHistoryComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKHistoryComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KHistoryComboBox_SetHistoryItems(KHistoryComboBox* self, const libqt_list /* of libqt_string */ items) {

@@ -30,30 +30,15 @@ QWaveDecoder* QWaveDecoder_new4(QIODevice* device, const QAudioFormat* format, Q
 }
 
 QMetaObject* QWaveDecoder_MetaObject(const QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWaveDecoder*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWaveDecoder_Metacast(QWaveDecoder* self, const char* param1) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWaveDecoder*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWaveDecoder_Metacall(QWaveDecoder* self, int param1, int param2, void** param3) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWaveDecoder*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAudioFormat* QWaveDecoder_AudioFormat(const QWaveDecoder* self) {
@@ -73,39 +58,19 @@ long long QWaveDecoder_HeaderLength() {
 }
 
 bool QWaveDecoder_Open(QWaveDecoder* self, int mode) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return self->open(static_cast<QIODevice::OpenMode>(mode));
-    } else {
-        return ((VirtualQWaveDecoder*)self)->open(static_cast<QIODevice::OpenMode>(mode));
-    }
+    return self->open(static_cast<QIODevice::OpenMode>(mode));
 }
 
 void QWaveDecoder_Close(QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        self->close();
-    } else {
-        ((VirtualQWaveDecoder*)self)->close();
-    }
+    self->close();
 }
 
 bool QWaveDecoder_Seek(QWaveDecoder* self, long long pos) {
-    auto* vqwavedecoder = dynamic_cast<VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return self->seek(static_cast<qint64>(pos));
-    } else {
-        return ((VirtualQWaveDecoder*)self)->seek(static_cast<qint64>(pos));
-    }
+    return self->seek(static_cast<qint64>(pos));
 }
 
 long long QWaveDecoder_Pos(const QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return static_cast<long long>(self->pos());
-    } else {
-        return static_cast<long long>(((VirtualQWaveDecoder*)self)->pos());
-    }
+    return static_cast<long long>(self->pos());
 }
 
 void QWaveDecoder_SetIODevice(QWaveDecoder* self, QIODevice* device) {
@@ -113,30 +78,15 @@ void QWaveDecoder_SetIODevice(QWaveDecoder* self, QIODevice* device) {
 }
 
 long long QWaveDecoder_Size(const QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return static_cast<long long>(self->size());
-    } else {
-        return static_cast<long long>(((VirtualQWaveDecoder*)self)->size());
-    }
+    return static_cast<long long>(self->size());
 }
 
 bool QWaveDecoder_IsSequential(const QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return self->isSequential();
-    } else {
-        return ((VirtualQWaveDecoder*)self)->isSequential();
-    }
+    return self->isSequential();
 }
 
 long long QWaveDecoder_BytesAvailable(const QWaveDecoder* self) {
-    auto* vqwavedecoder = dynamic_cast<const VirtualQWaveDecoder*>(self);
-    if (vqwavedecoder && vqwavedecoder->isVirtualQWaveDecoder) {
-        return static_cast<long long>(self->bytesAvailable());
-    } else {
-        return static_cast<long long>(((VirtualQWaveDecoder*)self)->bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 void QWaveDecoder_FormatKnown(QWaveDecoder* self) {

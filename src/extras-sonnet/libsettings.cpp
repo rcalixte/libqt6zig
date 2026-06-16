@@ -21,30 +21,15 @@ Sonnet__Settings* Sonnet__Settings_new2(QObject* parent) {
 }
 
 QMetaObject* Sonnet__Settings_MetaObject(const Sonnet__Settings* self) {
-    auto* vsonnet__settings = dynamic_cast<const VirtualSonnetSettings*>(self);
-    if (vsonnet__settings && vsonnet__settings->isVirtualSonnetSettings) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSonnetSettings*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Sonnet__Settings_Metacast(Sonnet__Settings* self, const char* param1) {
-    auto* vsonnet__settings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnet__settings && vsonnet__settings->isVirtualSonnetSettings) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSonnetSettings*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Sonnet__Settings_Metacall(Sonnet__Settings* self, int param1, int param2, void** param3) {
-    auto* vsonnet__settings = dynamic_cast<VirtualSonnetSettings*>(self);
-    if (vsonnet__settings && vsonnet__settings->isVirtualSonnetSettings) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSonnetSettings*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void Sonnet__Settings_SetDefaultLanguage(Sonnet__Settings* self, const libqt_string lang) {

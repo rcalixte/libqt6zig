@@ -21,30 +21,15 @@ KColorSchemeManager* KColorSchemeManager_new2(QObject* parent) {
 }
 
 QMetaObject* KColorSchemeManager_MetaObject(const KColorSchemeManager* self) {
-    auto* vkcolorschememanager = dynamic_cast<const VirtualKColorSchemeManager*>(self);
-    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColorSchemeManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColorSchemeManager_Metacast(KColorSchemeManager* self, const char* param1) {
-    auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
-    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColorSchemeManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColorSchemeManager_Metacall(KColorSchemeManager* self, int param1, int param2, void** param3) {
-    auto* vkcolorschememanager = dynamic_cast<VirtualKColorSchemeManager*>(self);
-    if (vkcolorschememanager && vkcolorschememanager->isVirtualKColorSchemeManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColorSchemeManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemModel* KColorSchemeManager_Model(const KColorSchemeManager* self) {

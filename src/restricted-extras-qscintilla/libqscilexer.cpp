@@ -23,57 +23,27 @@ QsciLexer* QsciLexer_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexer_MetaObject(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexer_Metacast(QsciLexer* self, const char* param1) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexer_Metacall(QsciLexer* self, int param1, int param2, void** param3) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexer_Language(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)vqscilexer->language();
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->language();
-    }
+    return (const char*)self->language();
 }
 
 const char* QsciLexer_Lexer(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->lexer();
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->lexer();
-    }
+    return (const char*)self->lexer();
 }
 
 int QsciLexer_LexerId(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->lexerId();
-    } else {
-        return ((VirtualQsciLexer*)self)->lexerId();
-    }
+    return self->lexerId();
 }
 
 QsciAbstractAPIs* QsciLexer_Apis(const QsciLexer* self) {
@@ -81,55 +51,28 @@ QsciAbstractAPIs* QsciLexer_Apis(const QsciLexer* self) {
 }
 
 const char* QsciLexer_AutoCompletionFillups(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->autoCompletionFillups();
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->autoCompletionFillups();
-    }
+    return (const char*)self->autoCompletionFillups();
 }
 
 libqt_list /* of libqt_string */ QsciLexer_AutoCompletionWordSeparators(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        QList<QString> _ret = self->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQsciLexer*)self)->autoCompletionWordSeparators();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->autoCompletionWordSeparators();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 int QsciLexer_AutoIndentStyle(QsciLexer* self) {
@@ -137,145 +80,67 @@ int QsciLexer_AutoIndentStyle(QsciLexer* self) {
 }
 
 const char* QsciLexer_BlockEnd(const QsciLexer* self, int* style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->blockEnd(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->blockEnd(static_cast<int*>(style));
-    }
+    return (const char*)self->blockEnd(static_cast<int*>(style));
 }
 
 int QsciLexer_BlockLookback(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->blockLookback();
-    } else {
-        return ((VirtualQsciLexer*)self)->blockLookback();
-    }
+    return self->blockLookback();
 }
 
 const char* QsciLexer_BlockStart(const QsciLexer* self, int* style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->blockStart(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->blockStart(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStart(static_cast<int*>(style));
 }
 
 const char* QsciLexer_BlockStartKeyword(const QsciLexer* self, int* style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->blockStartKeyword(static_cast<int*>(style));
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->blockStartKeyword(static_cast<int*>(style));
-    }
+    return (const char*)self->blockStartKeyword(static_cast<int*>(style));
 }
 
 int QsciLexer_BraceStyle(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->braceStyle();
-    } else {
-        return ((VirtualQsciLexer*)self)->braceStyle();
-    }
+    return self->braceStyle();
 }
 
 bool QsciLexer_CaseSensitive(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->caseSensitive();
-    } else {
-        return ((VirtualQsciLexer*)self)->caseSensitive();
-    }
+    return self->caseSensitive();
 }
 
 QColor* QsciLexer_Color(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return new QColor(self->color(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexer*)self)->color(static_cast<int>(style)));
-    }
+    return new QColor(self->color(static_cast<int>(style)));
 }
 
 bool QsciLexer_EolFill(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->eolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexer*)self)->eolFill(static_cast<int>(style));
-    }
+    return self->eolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexer_Font(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return new QFont(self->font(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexer*)self)->font(static_cast<int>(style)));
-    }
+    return new QFont(self->font(static_cast<int>(style)));
 }
 
 int QsciLexer_IndentationGuideView(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexer*)self)->indentationGuideView();
-    }
+    return self->indentationGuideView();
 }
 
 const char* QsciLexer_Keywords(const QsciLexer* self, int set) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->keywords(static_cast<int>(set));
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->keywords(static_cast<int>(set));
-    }
+    return (const char*)self->keywords(static_cast<int>(set));
 }
 
 int QsciLexer_DefaultStyle(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->defaultStyle();
-    } else {
-        return ((VirtualQsciLexer*)self)->defaultStyle();
-    }
+    return self->defaultStyle();
 }
 
 libqt_string QsciLexer_Description(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        auto _ret = vqscilexer->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQsciLexer*)self)->description(static_cast<int>(style));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->description(static_cast<int>(style));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QColor* QsciLexer_Paper(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return new QColor(self->paper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexer*)self)->paper(static_cast<int>(style)));
-    }
+    return new QColor(self->paper(static_cast<int>(style)));
 }
 
 QColor* QsciLexer_DefaultColor(const QsciLexer* self) {
@@ -283,21 +148,11 @@ QColor* QsciLexer_DefaultColor(const QsciLexer* self) {
 }
 
 QColor* QsciLexer_DefaultColor2(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return new QColor(self->defaultColor(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexer*)self)->defaultColor(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultColor(static_cast<int>(style)));
 }
 
 bool QsciLexer_DefaultEolFill(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->defaultEolFill(static_cast<int>(style));
-    } else {
-        return ((VirtualQsciLexer*)self)->defaultEolFill(static_cast<int>(style));
-    }
+    return self->defaultEolFill(static_cast<int>(style));
 }
 
 QFont* QsciLexer_DefaultFont(const QsciLexer* self) {
@@ -305,12 +160,7 @@ QFont* QsciLexer_DefaultFont(const QsciLexer* self) {
 }
 
 QFont* QsciLexer_DefaultFont2(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return new QFont(self->defaultFont(static_cast<int>(style)));
-    } else {
-        return new QFont(((VirtualQsciLexer*)self)->defaultFont(static_cast<int>(style)));
-    }
+    return new QFont(self->defaultFont(static_cast<int>(style)));
 }
 
 QColor* QsciLexer_DefaultPaper(const QsciLexer* self) {
@@ -318,12 +168,7 @@ QColor* QsciLexer_DefaultPaper(const QsciLexer* self) {
 }
 
 QColor* QsciLexer_DefaultPaper2(const QsciLexer* self, int style) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return new QColor(self->defaultPaper(static_cast<int>(style)));
-    } else {
-        return new QColor(((VirtualQsciLexer*)self)->defaultPaper(static_cast<int>(style)));
-    }
+    return new QColor(self->defaultPaper(static_cast<int>(style)));
 }
 
 QsciScintilla* QsciLexer_Editor(const QsciLexer* self) {
@@ -347,12 +192,7 @@ void QsciLexer_SetDefaultPaper(QsciLexer* self, const QColor* c) {
 }
 
 void QsciLexer_SetEditor(QsciLexer* self, QsciScintilla* editor) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->setEditor(editor);
-    } else {
-        ((VirtualQsciLexer*)self)->setEditor(editor);
-    }
+    self->setEditor(editor);
 }
 
 bool QsciLexer_ReadSettings(QsciLexer* self, QSettings* qs) {
@@ -360,30 +200,15 @@ bool QsciLexer_ReadSettings(QsciLexer* self, QSettings* qs) {
 }
 
 void QsciLexer_RefreshProperties(QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->refreshProperties();
-    } else {
-        ((VirtualQsciLexer*)self)->refreshProperties();
-    }
+    self->refreshProperties();
 }
 
 int QsciLexer_StyleBitsNeeded(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return self->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexer*)self)->styleBitsNeeded();
-    }
+    return self->styleBitsNeeded();
 }
 
 const char* QsciLexer_WordCharacters(const QsciLexer* self) {
-    auto* vqscilexer = dynamic_cast<const VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        return (const char*)self->wordCharacters();
-    } else {
-        return (const char*)((VirtualQsciLexer*)self)->wordCharacters();
-    }
+    return (const char*)self->wordCharacters();
 }
 
 bool QsciLexer_WriteSettings(const QsciLexer* self, QSettings* qs) {
@@ -391,48 +216,23 @@ bool QsciLexer_WriteSettings(const QsciLexer* self, QSettings* qs) {
 }
 
 void QsciLexer_SetAutoIndentStyle(QsciLexer* self, int autoindentstyle) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    } else {
-        ((VirtualQsciLexer*)self)->setAutoIndentStyle(static_cast<int>(autoindentstyle));
-    }
+    self->setAutoIndentStyle(static_cast<int>(autoindentstyle));
 }
 
 void QsciLexer_SetColor(QsciLexer* self, const QColor* c, int style) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->setColor(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexer*)self)->setColor(*c, static_cast<int>(style));
-    }
+    self->setColor(*c, static_cast<int>(style));
 }
 
 void QsciLexer_SetEolFill(QsciLexer* self, bool eoffill, int style) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->setEolFill(eoffill, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexer*)self)->setEolFill(eoffill, static_cast<int>(style));
-    }
+    self->setEolFill(eoffill, static_cast<int>(style));
 }
 
 void QsciLexer_SetFont(QsciLexer* self, const QFont* f, int style) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->setFont(*f, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexer*)self)->setFont(*f, static_cast<int>(style));
-    }
+    self->setFont(*f, static_cast<int>(style));
 }
 
 void QsciLexer_SetPaper(QsciLexer* self, const QColor* c, int style) {
-    auto* vqscilexer = dynamic_cast<VirtualQsciLexer*>(self);
-    if (vqscilexer && vqscilexer->isVirtualQsciLexer) {
-        self->setPaper(*c, static_cast<int>(style));
-    } else {
-        ((VirtualQsciLexer*)self)->setPaper(*c, static_cast<int>(style));
-    }
+    self->setPaper(*c, static_cast<int>(style));
 }
 
 void QsciLexer_ColorChanged(QsciLexer* self, const QColor* c, int style) {

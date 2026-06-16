@@ -48,30 +48,15 @@ KPasswordLineEdit* KPasswordLineEdit_new2() {
 }
 
 QMetaObject* KPasswordLineEdit_MetaObject(const KPasswordLineEdit* self) {
-    auto* vkpasswordlineedit = dynamic_cast<const VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPasswordLineEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPasswordLineEdit_Metacast(KPasswordLineEdit* self, const char* param1) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPasswordLineEdit_Metacall(KPasswordLineEdit* self, int param1, int param2, void** param3) {
-    auto* vkpasswordlineedit = dynamic_cast<VirtualKPasswordLineEdit*>(self);
-    if (vkpasswordlineedit && vkpasswordlineedit->isVirtualKPasswordLineEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPasswordLineEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPasswordLineEdit_SetPassword(KPasswordLineEdit* self, const libqt_string password) {

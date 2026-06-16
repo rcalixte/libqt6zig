@@ -16,180 +16,85 @@ QIconEngine* QIconEngine_new() {
 }
 
 void QIconEngine_Paint(QIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        vqiconengine->paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    } else {
-        ((VirtualQIconEngine*)self)->paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    }
+    self->paint(painter, *rect, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
 }
 
 QSize* QIconEngine_ActualSize(QIconEngine* self, const QSize* size, int mode, int state) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return new QSize(self->actualSize(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
-    } else {
-        return new QSize(((VirtualQIconEngine*)self)->actualSize(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
-    }
+    return new QSize(self->actualSize(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
 }
 
 QPixmap* QIconEngine_Pixmap(QIconEngine* self, const QSize* size, int mode, int state) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return new QPixmap(self->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
-    } else {
-        return new QPixmap(((VirtualQIconEngine*)self)->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
-    }
+    return new QPixmap(self->pixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state)));
 }
 
 void QIconEngine_AddPixmap(QIconEngine* self, const QPixmap* pixmap, int mode, int state) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        self->addPixmap(*pixmap, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    } else {
-        ((VirtualQIconEngine*)self)->addPixmap(*pixmap, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    }
+    self->addPixmap(*pixmap, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
 }
 
 void QIconEngine_AddFile(QIconEngine* self, const libqt_string fileName, const QSize* size, int mode, int state) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        self->addFile(fileName_QString, *size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    } else {
-        ((VirtualQIconEngine*)self)->addFile(fileName_QString, *size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-    }
+    self->addFile(fileName_QString, *size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
 }
 
 libqt_string QIconEngine_Key(const QIconEngine* self) {
-    auto* vqiconengine = dynamic_cast<const VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        auto _ret = self->key();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQIconEngine*)self)->key();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->key();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QIconEngine* QIconEngine_Clone(const QIconEngine* self) {
-    auto* vqiconengine = dynamic_cast<const VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return vqiconengine->clone();
-    } else {
-        return ((VirtualQIconEngine*)self)->clone();
-    }
+    return self->clone();
 }
 
 bool QIconEngine_Read(QIconEngine* self, QDataStream* in) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return self->read(*in);
-    } else {
-        return ((VirtualQIconEngine*)self)->read(*in);
-    }
+    return self->read(*in);
 }
 
 bool QIconEngine_Write(const QIconEngine* self, QDataStream* out) {
-    auto* vqiconengine = dynamic_cast<const VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return self->write(*out);
-    } else {
-        return ((VirtualQIconEngine*)self)->write(*out);
-    }
+    return self->write(*out);
 }
 
 libqt_list /* of QSize* */ QIconEngine_AvailableSizes(QIconEngine* self, int mode, int state) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        QList<QSize> _ret = self->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QSize(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QSize> _ret = ((VirtualQIconEngine*)self)->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QSize(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QSize> _ret = self->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QSize(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_string QIconEngine_IconName(QIconEngine* self) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        auto _ret = self->iconName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQIconEngine*)self)->iconName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->iconName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool QIconEngine_IsNull(QIconEngine* self) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return self->isNull();
-    } else {
-        return ((VirtualQIconEngine*)self)->isNull();
-    }
+    return self->isNull();
 }
 
 QPixmap* QIconEngine_ScaledPixmap(QIconEngine* self, const QSize* size, int mode, int state, double scale) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        return new QPixmap(self->scaledPixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state), static_cast<qreal>(scale)));
-    } else {
-        return new QPixmap(((VirtualQIconEngine*)self)->scaledPixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state), static_cast<qreal>(scale)));
-    }
+    return new QPixmap(self->scaledPixmap(*size, static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state), static_cast<qreal>(scale)));
 }
 
 void QIconEngine_VirtualHook(QIconEngine* self, int id, void* data) {
-    auto* vqiconengine = dynamic_cast<VirtualQIconEngine*>(self);
-    if (vqiconengine && vqiconengine->isVirtualQIconEngine) {
-        self->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualQIconEngine*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    self->virtual_hook(static_cast<int>(id), data);
 }
 
 // Base class handler implementation

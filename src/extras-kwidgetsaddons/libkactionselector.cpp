@@ -49,30 +49,15 @@ KActionSelector* KActionSelector_new2() {
 }
 
 QMetaObject* KActionSelector_MetaObject(const KActionSelector* self) {
-    auto* vkactionselector = dynamic_cast<const VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKActionSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KActionSelector_Metacast(KActionSelector* self, const char* param1) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKActionSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KActionSelector_Metacall(KActionSelector* self, int param1, int param2, void** param3) {
-    auto* vkactionselector = dynamic_cast<VirtualKActionSelector*>(self);
-    if (vkactionselector && vkactionselector->isVirtualKActionSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKActionSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QListWidget* KActionSelector_AvailableListWidget(const KActionSelector* self) {

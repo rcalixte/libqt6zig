@@ -17,82 +17,40 @@ KFileMetaData__WriterPlugin* KFileMetaData__WriterPlugin_new(QObject* parent) {
 }
 
 QMetaObject* KFileMetaData__WriterPlugin_MetaObject(const KFileMetaData__WriterPlugin* self) {
-    auto* vkfilemetadata__writerplugin = dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadata__writerplugin && vkfilemetadata__writerplugin->isVirtualKFileMetaDataWriterPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileMetaDataWriterPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileMetaData__WriterPlugin_Metacast(KFileMetaData__WriterPlugin* self, const char* param1) {
-    auto* vkfilemetadata__writerplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadata__writerplugin && vkfilemetadata__writerplugin->isVirtualKFileMetaDataWriterPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileMetaDataWriterPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileMetaData__WriterPlugin_Metacall(KFileMetaData__WriterPlugin* self, int param1, int param2, void** param3) {
-    auto* vkfilemetadata__writerplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadata__writerplugin && vkfilemetadata__writerplugin->isVirtualKFileMetaDataWriterPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileMetaDataWriterPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ KFileMetaData__WriterPlugin_WriteMimetypes(const KFileMetaData__WriterPlugin* self) {
-    auto* vkfilemetadata__writerplugin = dynamic_cast<const VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadata__writerplugin && vkfilemetadata__writerplugin->isVirtualKFileMetaDataWriterPlugin) {
-        QList<QString> _ret = vkfilemetadata__writerplugin->writeMimetypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKFileMetaDataWriterPlugin*)self)->writeMimetypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->writeMimetypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void KFileMetaData__WriterPlugin_Write(KFileMetaData__WriterPlugin* self, const KFileMetaData__WriteData* data) {
-    auto* vkfilemetadata__writerplugin = dynamic_cast<VirtualKFileMetaDataWriterPlugin*>(self);
-    if (vkfilemetadata__writerplugin && vkfilemetadata__writerplugin->isVirtualKFileMetaDataWriterPlugin) {
-        vkfilemetadata__writerplugin->write(*data);
-    } else {
-        ((VirtualKFileMetaDataWriterPlugin*)self)->write(*data);
-    }
+    self->write(*data);
 }
 
 // Base class handler implementation

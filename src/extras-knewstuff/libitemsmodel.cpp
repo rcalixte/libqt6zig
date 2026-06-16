@@ -34,48 +34,23 @@ KNSCore__ItemsModel* KNSCore__ItemsModel_new2(KNSCore__EngineBase* engine, QObje
 }
 
 QMetaObject* KNSCore__ItemsModel_MetaObject(const KNSCore__ItemsModel* self) {
-    auto* vknscore__itemsmodel = dynamic_cast<const VirtualKNSCoreItemsModel*>(self);
-    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSCoreItemsModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSCore__ItemsModel_Metacast(KNSCore__ItemsModel* self, const char* param1) {
-    auto* vknscore__itemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
-    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSCoreItemsModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSCore__ItemsModel_Metacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3) {
-    auto* vknscore__itemsmodel = dynamic_cast<VirtualKNSCoreItemsModel*>(self);
-    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSCoreItemsModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KNSCore__ItemsModel_RowCount(const KNSCore__ItemsModel* self, const QModelIndex* parent) {
-    auto* vknscore__itemsmodel = dynamic_cast<const VirtualKNSCoreItemsModel*>(self);
-    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKNSCoreItemsModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* KNSCore__ItemsModel_Data(const KNSCore__ItemsModel* self, const QModelIndex* index, int role) {
-    auto* vknscore__itemsmodel = dynamic_cast<const VirtualKNSCoreItemsModel*>(self);
-    if (vknscore__itemsmodel && vknscore__itemsmodel->isVirtualKNSCoreItemsModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKNSCoreItemsModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int KNSCore__ItemsModel_Row(const KNSCore__ItemsModel* self, const KNSCore__Entry* entry) {

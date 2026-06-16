@@ -73,30 +73,15 @@ QTextFrame* QTextFrame_new(QTextDocument* doc) {
 }
 
 QMetaObject* QTextFrame_MetaObject(const QTextFrame* self) {
-    auto* vqtextframe = dynamic_cast<const VirtualQTextFrame*>(self);
-    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextFrame*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextFrame_Metacast(QTextFrame* self, const char* param1) {
-    auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
-    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextFrame*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextFrame_Metacall(QTextFrame* self, int param1, int param2, void** param3) {
-    auto* vqtextframe = dynamic_cast<VirtualQTextFrame*>(self);
-    if (vqtextframe && vqtextframe->isVirtualQTextFrame) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextFrame*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTextFrame_SetFrameFormat(QTextFrame* self, const QTextFrameFormat* format) {

@@ -60,30 +60,15 @@ QListView* QListView_new2() {
 }
 
 QMetaObject* QListView_MetaObject(const QListView* self) {
-    auto* vqlistview = dynamic_cast<const VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQListView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QListView_Metacast(QListView* self, const char* param1) {
-    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQListView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QListView_Metacall(QListView* self, int param1, int param2, void** param3) {
-    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQListView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QListView_SetMovement(QListView* self, int movement) {
@@ -211,57 +196,27 @@ int QListView_ItemAlignment(const QListView* self) {
 }
 
 QRect* QListView_VisualRect(const QListView* self, const QModelIndex* index) {
-    auto* vqlistview = dynamic_cast<const VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        return new QRect(self->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQListView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 void QListView_ScrollTo(QListView* self, const QModelIndex* index, int hint) {
-    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQListView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 QModelIndex* QListView_IndexAt(const QListView* self, const QPoint* p) {
-    auto* vqlistview = dynamic_cast<const VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        return new QModelIndex(self->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQListView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 void QListView_DoItemsLayout(QListView* self) {
-    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        self->doItemsLayout();
-    } else {
-        ((VirtualQListView*)self)->doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 void QListView_Reset(QListView* self) {
-    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        self->reset();
-    } else {
-        ((VirtualQListView*)self)->reset();
-    }
+    self->reset();
 }
 
 void QListView_SetRootIndex(QListView* self, const QModelIndex* index) {
-    auto* vqlistview = dynamic_cast<VirtualQListView*>(self);
-    if (vqlistview && vqlistview->isVirtualQListView) {
-        self->setRootIndex(*index);
-    } else {
-        ((VirtualQListView*)self)->setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 void QListView_IndexesMoved(QListView* self, const libqt_list /* of QModelIndex* */ indexes) {

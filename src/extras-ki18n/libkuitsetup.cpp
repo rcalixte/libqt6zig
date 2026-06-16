@@ -7,9 +7,9 @@
 #include "libkuitsetup.h"
 #include "libkuitsetup.hxx"
 
-KuitSetup* Kuit_SetupForDomain(const libqt_string param1) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    KuitSetup& _ret = Kuit::setupForDomain(param1_QByteArray);
+KuitSetup* Kuit_SetupForDomain(const libqt_string domain) {
+    QByteArray domain_QByteArray(domain.data, domain.len);
+    KuitSetup& _ret = Kuit::setupForDomain(domain_QByteArray);
     // Cast returned reference into pointer
     return &_ret;
 }

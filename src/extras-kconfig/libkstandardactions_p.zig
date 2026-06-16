@@ -234,10 +234,10 @@ pub const KStandardActions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardactions_enums.StandardAction `
+    /// ` id: kstandardactions_enums.StandardAction `
     ///
-    pub fn InfoPtr(param1: i32) KStandardActions__KStandardActionsInfo {
-        return .{ .ptr = qtc.KStandardActions_InfoPtr(@bitCast(param1)) };
+    pub fn InfoPtr(id: i32) KStandardActions__KStandardActionsInfo {
+        return .{ .ptr = qtc.KStandardActions_InfoPtr(@bitCast(id)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions.html#internal_stdNames)

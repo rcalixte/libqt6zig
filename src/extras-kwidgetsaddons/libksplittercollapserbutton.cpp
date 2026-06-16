@@ -46,30 +46,15 @@ KSplitterCollapserButton* KSplitterCollapserButton_new(QWidget* childWidget, QSp
 }
 
 QMetaObject* KSplitterCollapserButton_MetaObject(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<const VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSplitterCollapserButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSplitterCollapserButton_Metacast(KSplitterCollapserButton* self, const char* param1) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSplitterCollapserButton_Metacall(KSplitterCollapserButton* self, int param1, int param2, void** param3) {
-    auto* vksplittercollapserbutton = dynamic_cast<VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSplitterCollapserButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KSplitterCollapserButton_IsWidgetCollapsed(const KSplitterCollapserButton* self) {
@@ -77,12 +62,7 @@ bool KSplitterCollapserButton_IsWidgetCollapsed(const KSplitterCollapserButton* 
 }
 
 QSize* KSplitterCollapserButton_SizeHint(const KSplitterCollapserButton* self) {
-    auto* vksplittercollapserbutton = dynamic_cast<const VirtualKSplitterCollapserButton*>(self);
-    if (vksplittercollapserbutton && vksplittercollapserbutton->isVirtualKSplitterCollapserButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKSplitterCollapserButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KSplitterCollapserButton_Collapse(KSplitterCollapserButton* self) {

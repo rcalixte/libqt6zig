@@ -9,13 +9,13 @@ pub const KIO__SslUi = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KSslErrorUiData `
+    /// ` uiData: KSslErrorUiData `
     ///
-    /// ` param2: sslui_enums.RulesStorage `
+    /// ` storedRules: sslui_enums.RulesStorage `
     ///
-    pub fn AskIgnoreSslErrors(param1: anytype, param2: i32) bool {
-        comptime _ = @TypeOf(param1)._is_KSslErrorUiData;
-        return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(param1.ptr), @bitCast(param2));
+    pub fn AskIgnoreSslErrors(uiData: anytype, storedRules: i32) bool {
+        comptime _ = @TypeOf(uiData)._is_KSslErrorUiData;
+        return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(uiData.ptr), @bitCast(storedRules));
     }
 };
 

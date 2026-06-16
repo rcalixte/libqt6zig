@@ -49,30 +49,15 @@ KSslInfoDialog* KSslInfoDialog_new2() {
 }
 
 QMetaObject* KSslInfoDialog_MetaObject(const KSslInfoDialog* self) {
-    auto* vksslinfodialog = dynamic_cast<const VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSslInfoDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSslInfoDialog_Metacast(KSslInfoDialog* self, const char* param1) {
-    auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSslInfoDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSslInfoDialog_Metacall(KSslInfoDialog* self, int param1, int param2, void** param3) {
-    auto* vksslinfodialog = dynamic_cast<VirtualKSslInfoDialog*>(self);
-    if (vksslinfodialog && vksslinfodialog->isVirtualKSslInfoDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSslInfoDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSslInfoDialog_SetSslInfo(KSslInfoDialog* self, const libqt_list /* of QSslCertificate* */ certificateChain, const libqt_string ip, const libqt_string host, const libqt_string sslProtocol, const libqt_string cipher, int usedBits, int bits, const libqt_list /* of libqt_list of int */ validationErrors) {

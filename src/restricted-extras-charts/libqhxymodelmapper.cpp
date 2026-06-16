@@ -22,30 +22,15 @@ QHXYModelMapper* QHXYModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHXYModelMapper_MetaObject(const QHXYModelMapper* self) {
-    auto* vqhxymodelmapper = dynamic_cast<const VirtualQHXYModelMapper*>(self);
-    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHXYModelMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHXYModelMapper_Metacast(QHXYModelMapper* self, const char* param1) {
-    auto* vqhxymodelmapper = dynamic_cast<VirtualQHXYModelMapper*>(self);
-    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHXYModelMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHXYModelMapper_Metacall(QHXYModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqhxymodelmapper = dynamic_cast<VirtualQHXYModelMapper*>(self);
-    if (vqhxymodelmapper && vqhxymodelmapper->isVirtualQHXYModelMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHXYModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemModel* QHXYModelMapper_Model(const QHXYModelMapper* self) {

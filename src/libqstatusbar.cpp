@@ -46,30 +46,15 @@ QStatusBar* QStatusBar_new2() {
 }
 
 QMetaObject* QStatusBar_MetaObject(const QStatusBar* self) {
-    auto* vqstatusbar = dynamic_cast<const VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQStatusBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QStatusBar_Metacast(QStatusBar* self, const char* param1) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQStatusBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QStatusBar_Metacall(QStatusBar* self, int param1, int param2, void** param3) {
-    auto* vqstatusbar = dynamic_cast<VirtualQStatusBar*>(self);
-    if (vqstatusbar && vqstatusbar->isVirtualQStatusBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStatusBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QStatusBar_AddWidget(QStatusBar* self, QWidget* widget) {

@@ -47,30 +47,15 @@ QPdfPageSelector* QPdfPageSelector_new2() {
 }
 
 QMetaObject* QPdfPageSelector_MetaObject(const QPdfPageSelector* self) {
-    auto* vqpdfpageselector = dynamic_cast<const VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPdfPageSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPdfPageSelector_Metacast(QPdfPageSelector* self, const char* param1) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPdfPageSelector_Metacall(QPdfPageSelector* self, int param1, int param2, void** param3) {
-    auto* vqpdfpageselector = dynamic_cast<VirtualQPdfPageSelector*>(self);
-    if (vqpdfpageselector && vqpdfpageselector->isVirtualQPdfPageSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfPageSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPdfPageSelector_SetDocument(QPdfPageSelector* self, QPdfDocument* document) {

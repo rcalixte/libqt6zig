@@ -9,12 +9,7 @@ QOpenGLFunctions_2_0* QOpenGLFunctions_2_0_new() {
 }
 
 bool QOpenGLFunctions_2_0_InitializeOpenGLFunctions(QOpenGLFunctions_2_0* self) {
-    auto* vqopenglfunctions_2_0 = dynamic_cast<VirtualQOpenGLFunctions_2_0*>(self);
-    if (vqopenglfunctions_2_0 && vqopenglfunctions_2_0->isVirtualQOpenGLFunctions_2_0) {
-        return self->initializeOpenGLFunctions();
-    } else {
-        return ((VirtualQOpenGLFunctions_2_0*)self)->initializeOpenGLFunctions();
-    }
+    return self->initializeOpenGLFunctions();
 }
 
 void QOpenGLFunctions_2_0_GlViewport(QOpenGLFunctions_2_0* self, int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -521,8 +516,8 @@ void QOpenGLFunctions_2_0_GlUseProgram(QOpenGLFunctions_2_0* self, uint32_t prog
     self->glUseProgram(static_cast<GLuint>(program));
 }
 
-void QOpenGLFunctions_2_0_GlShaderSource(QOpenGLFunctions_2_0* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length) {
-    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(stringVal), static_cast<const GLint*>(length));
+void QOpenGLFunctions_2_0_GlShaderSource(QOpenGLFunctions_2_0* self, uint32_t shader, int32_t count, const GLchar** string, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(string), static_cast<const GLint*>(length));
 }
 
 void QOpenGLFunctions_2_0_GlLinkProgram(QOpenGLFunctions_2_0* self, uint32_t program) {
@@ -741,16 +736,16 @@ void QOpenGLFunctions_2_0_GlGetPolygonStipple(QOpenGLFunctions_2_0* self, uint8_
     self->glGetPolygonStipple(static_cast<GLubyte*>(mask));
 }
 
-void QOpenGLFunctions_2_0_GlGetPixelMapusv(QOpenGLFunctions_2_0* self, uint32_t mapVal, uint16_t* values) {
-    self->glGetPixelMapusv(static_cast<GLenum>(mapVal), static_cast<GLushort*>(values));
+void QOpenGLFunctions_2_0_GlGetPixelMapusv(QOpenGLFunctions_2_0* self, uint32_t map, uint16_t* values) {
+    self->glGetPixelMapusv(static_cast<GLenum>(map), static_cast<GLushort*>(values));
 }
 
-void QOpenGLFunctions_2_0_GlGetPixelMapuiv(QOpenGLFunctions_2_0* self, uint32_t mapVal, uint32_t* values) {
-    self->glGetPixelMapuiv(static_cast<GLenum>(mapVal), static_cast<GLuint*>(values));
+void QOpenGLFunctions_2_0_GlGetPixelMapuiv(QOpenGLFunctions_2_0* self, uint32_t map, uint32_t* values) {
+    self->glGetPixelMapuiv(static_cast<GLenum>(map), static_cast<GLuint*>(values));
 }
 
-void QOpenGLFunctions_2_0_GlGetPixelMapfv(QOpenGLFunctions_2_0* self, uint32_t mapVal, float* values) {
-    self->glGetPixelMapfv(static_cast<GLenum>(mapVal), static_cast<GLfloat*>(values));
+void QOpenGLFunctions_2_0_GlGetPixelMapfv(QOpenGLFunctions_2_0* self, uint32_t map, float* values) {
+    self->glGetPixelMapfv(static_cast<GLenum>(map), static_cast<GLfloat*>(values));
 }
 
 void QOpenGLFunctions_2_0_GlGetMaterialiv(QOpenGLFunctions_2_0* self, uint32_t face, uint32_t pname, int32_t* params) {
@@ -793,16 +788,16 @@ void QOpenGLFunctions_2_0_GlCopyPixels(QOpenGLFunctions_2_0* self, int32_t x, in
     self->glCopyPixels(static_cast<GLint>(x), static_cast<GLint>(y), static_cast<GLsizei>(width), static_cast<GLsizei>(height), static_cast<GLenum>(typeVal));
 }
 
-void QOpenGLFunctions_2_0_GlPixelMapusv(QOpenGLFunctions_2_0* self, uint32_t mapVal, int32_t mapsize, const uint16_t* values) {
-    self->glPixelMapusv(static_cast<GLenum>(mapVal), static_cast<GLint>(mapsize), static_cast<const GLushort*>(values));
+void QOpenGLFunctions_2_0_GlPixelMapusv(QOpenGLFunctions_2_0* self, uint32_t map, int32_t mapsize, const uint16_t* values) {
+    self->glPixelMapusv(static_cast<GLenum>(map), static_cast<GLint>(mapsize), static_cast<const GLushort*>(values));
 }
 
-void QOpenGLFunctions_2_0_GlPixelMapuiv(QOpenGLFunctions_2_0* self, uint32_t mapVal, int32_t mapsize, const uint32_t* values) {
-    self->glPixelMapuiv(static_cast<GLenum>(mapVal), static_cast<GLint>(mapsize), static_cast<const GLuint*>(values));
+void QOpenGLFunctions_2_0_GlPixelMapuiv(QOpenGLFunctions_2_0* self, uint32_t map, int32_t mapsize, const uint32_t* values) {
+    self->glPixelMapuiv(static_cast<GLenum>(map), static_cast<GLint>(mapsize), static_cast<const GLuint*>(values));
 }
 
-void QOpenGLFunctions_2_0_GlPixelMapfv(QOpenGLFunctions_2_0* self, uint32_t mapVal, int32_t mapsize, const float* values) {
-    self->glPixelMapfv(static_cast<GLenum>(mapVal), static_cast<GLint>(mapsize), static_cast<const GLfloat*>(values));
+void QOpenGLFunctions_2_0_GlPixelMapfv(QOpenGLFunctions_2_0* self, uint32_t map, int32_t mapsize, const float* values) {
+    self->glPixelMapfv(static_cast<GLenum>(map), static_cast<GLint>(mapsize), static_cast<const GLfloat*>(values));
 }
 
 void QOpenGLFunctions_2_0_GlPixelTransferi(QOpenGLFunctions_2_0* self, uint32_t pname, int32_t param) {

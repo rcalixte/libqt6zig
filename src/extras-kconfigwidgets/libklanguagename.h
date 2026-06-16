@@ -18,8 +18,8 @@ extern "C" {
 typedef struct KLanguageName KLanguageName;
 #endif
 
-libqt_string KLanguageName_NameForCode(const libqt_string param1);
-libqt_string KLanguageName_NameForCodeInLocale(const libqt_string param1, const libqt_string param2);
+libqt_string KLanguageName_NameForCode(const libqt_string code);
+libqt_string KLanguageName_NameForCodeInLocale(const libqt_string code, const libqt_string outputLocale);
 libqt_list /* of libqt_string */ KLanguageName_AllLanguageCodes();
 
 #ifdef __cplusplus

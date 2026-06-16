@@ -19,39 +19,19 @@ TextTranslator__TranslatorEnginePlugin* TextTranslator__TranslatorEnginePlugin_n
 }
 
 QMetaObject* TextTranslator__TranslatorEnginePlugin_MetaObject(const TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslator__translatorengineplugin = dynamic_cast<const VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslator__translatorengineplugin && vtexttranslator__translatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorEnginePlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorEnginePlugin_Metacast(TextTranslator__TranslatorEnginePlugin* self, const char* param1) {
-    auto* vtexttranslator__translatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslator__translatorengineplugin && vtexttranslator__translatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorEnginePlugin_Metacall(TextTranslator__TranslatorEnginePlugin* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslator__translatorengineplugin && vtexttranslator__translatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextTranslator__TranslatorEnginePlugin_Translate(TextTranslator__TranslatorEnginePlugin* self) {
-    auto* vtexttranslator__translatorengineplugin = dynamic_cast<VirtualTextTranslatorTranslatorEnginePlugin*>(self);
-    if (vtexttranslator__translatorengineplugin && vtexttranslator__translatorengineplugin->isVirtualTextTranslatorTranslatorEnginePlugin) {
-        vtexttranslator__translatorengineplugin->translate();
-    } else {
-        ((VirtualTextTranslatorTranslatorEnginePlugin*)self)->translate();
-    }
+    self->translate();
 }
 
 libqt_string TextTranslator__TranslatorEnginePlugin_ResultTranslate(const TextTranslator__TranslatorEnginePlugin* self) {

@@ -47,30 +47,15 @@ KTitleWidget* KTitleWidget_new2() {
 }
 
 QMetaObject* KTitleWidget_MetaObject(const KTitleWidget* self) {
-    auto* vktitlewidget = dynamic_cast<const VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTitleWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTitleWidget_Metacast(KTitleWidget* self, const char* param1) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTitleWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTitleWidget_Metacall(KTitleWidget* self, int param1, int param2, void** param3) {
-    auto* vktitlewidget = dynamic_cast<VirtualKTitleWidget*>(self);
-    if (vktitlewidget && vktitlewidget->isVirtualKTitleWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTitleWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KTitleWidget_SetWidget(KTitleWidget* self, QWidget* widget) {

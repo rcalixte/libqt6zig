@@ -20,30 +20,15 @@ KDirWatch* KDirWatch_new2(QObject* parent) {
 }
 
 QMetaObject* KDirWatch_MetaObject(const KDirWatch* self) {
-    auto* vkdirwatch = dynamic_cast<const VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDirWatch*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDirWatch_Metacast(KDirWatch* self, const char* param1) {
-    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDirWatch*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDirWatch_Metacall(KDirWatch* self, int param1, int param2, void** param3) {
-    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDirWatch*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KDirWatch_AddDir(KDirWatch* self, const libqt_string path) {
@@ -111,12 +96,7 @@ bool KDirWatch_Exists() {
 }
 
 bool KDirWatch_Event(KDirWatch* self, QEvent* event) {
-    auto* vkdirwatch = dynamic_cast<VirtualKDirWatch*>(self);
-    if (vkdirwatch && vkdirwatch->isVirtualKDirWatch) {
-        return self->event(event);
-    } else {
-        return ((VirtualKDirWatch*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 void KDirWatch_SetCreated(KDirWatch* self, const libqt_string path) {

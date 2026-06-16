@@ -29,192 +29,87 @@ QCommonStyle* QCommonStyle_new() {
 }
 
 QMetaObject* QCommonStyle_MetaObject(const QCommonStyle* self) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCommonStyle*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCommonStyle_Metacast(QCommonStyle* self, const char* param1) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCommonStyle*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCommonStyle_Metacall(QCommonStyle* self, int param1, int param2, void** param3) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCommonStyle*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QCommonStyle_DrawPrimitive(const QCommonStyle* self, int pe, const QStyleOption* opt, QPainter* p, const QWidget* w) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->drawPrimitive(static_cast<QStyle::PrimitiveElement>(pe), opt, p, w);
-    } else {
-        ((VirtualQCommonStyle*)self)->drawPrimitive(static_cast<QStyle::PrimitiveElement>(pe), opt, p, w);
-    }
+    self->drawPrimitive(static_cast<QStyle::PrimitiveElement>(pe), opt, p, w);
 }
 
 void QCommonStyle_DrawControl(const QCommonStyle* self, int element, const QStyleOption* opt, QPainter* p, const QWidget* w) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->drawControl(static_cast<QStyle::ControlElement>(element), opt, p, w);
-    } else {
-        ((VirtualQCommonStyle*)self)->drawControl(static_cast<QStyle::ControlElement>(element), opt, p, w);
-    }
+    self->drawControl(static_cast<QStyle::ControlElement>(element), opt, p, w);
 }
 
 QRect* QCommonStyle_SubElementRect(const QCommonStyle* self, int r, const QStyleOption* opt, const QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return new QRect(self->subElementRect(static_cast<QStyle::SubElement>(r), opt, widget));
-    } else {
-        return new QRect(((VirtualQCommonStyle*)self)->subElementRect(static_cast<QStyle::SubElement>(r), opt, widget));
-    }
+    return new QRect(self->subElementRect(static_cast<QStyle::SubElement>(r), opt, widget));
 }
 
 void QCommonStyle_DrawComplexControl(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, QPainter* p, const QWidget* w) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->drawComplexControl(static_cast<QStyle::ComplexControl>(cc), opt, p, w);
-    } else {
-        ((VirtualQCommonStyle*)self)->drawComplexControl(static_cast<QStyle::ComplexControl>(cc), opt, p, w);
-    }
+    self->drawComplexControl(static_cast<QStyle::ComplexControl>(cc), opt, p, w);
 }
 
 int QCommonStyle_HitTestComplexControl(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, const QPoint* pt, const QWidget* w) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return static_cast<int>(self->hitTestComplexControl(static_cast<QStyle::ComplexControl>(cc), opt, *pt, w));
-    } else {
-        return static_cast<int>(((VirtualQCommonStyle*)self)->hitTestComplexControl(static_cast<QStyle::ComplexControl>(cc), opt, *pt, w));
-    }
+    return static_cast<int>(self->hitTestComplexControl(static_cast<QStyle::ComplexControl>(cc), opt, *pt, w));
 }
 
 QRect* QCommonStyle_SubControlRect(const QCommonStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* w) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return new QRect(self->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), w));
-    } else {
-        return new QRect(((VirtualQCommonStyle*)self)->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), w));
-    }
+    return new QRect(self->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), w));
 }
 
 QSize* QCommonStyle_SizeFromContents(const QCommonStyle* self, int ct, const QStyleOption* opt, const QSize* contentsSize, const QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return new QSize(self->sizeFromContents(static_cast<QStyle::ContentsType>(ct), opt, *contentsSize, widget));
-    } else {
-        return new QSize(((VirtualQCommonStyle*)self)->sizeFromContents(static_cast<QStyle::ContentsType>(ct), opt, *contentsSize, widget));
-    }
+    return new QSize(self->sizeFromContents(static_cast<QStyle::ContentsType>(ct), opt, *contentsSize, widget));
 }
 
 int QCommonStyle_PixelMetric(const QCommonStyle* self, int m, const QStyleOption* opt, const QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return self->pixelMetric(static_cast<QStyle::PixelMetric>(m), opt, widget);
-    } else {
-        return ((VirtualQCommonStyle*)self)->pixelMetric(static_cast<QStyle::PixelMetric>(m), opt, widget);
-    }
+    return self->pixelMetric(static_cast<QStyle::PixelMetric>(m), opt, widget);
 }
 
 int QCommonStyle_StyleHint(const QCommonStyle* self, int sh, const QStyleOption* opt, const QWidget* w, QStyleHintReturn* shret) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return self->styleHint(static_cast<QStyle::StyleHint>(sh), opt, w, shret);
-    } else {
-        return ((VirtualQCommonStyle*)self)->styleHint(static_cast<QStyle::StyleHint>(sh), opt, w, shret);
-    }
+    return self->styleHint(static_cast<QStyle::StyleHint>(sh), opt, w, shret);
 }
 
 QIcon* QCommonStyle_StandardIcon(const QCommonStyle* self, int standardIcon, const QStyleOption* opt, const QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return new QIcon(self->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), opt, widget));
-    } else {
-        return new QIcon(((VirtualQCommonStyle*)self)->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), opt, widget));
-    }
+    return new QIcon(self->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), opt, widget));
 }
 
 QPixmap* QCommonStyle_StandardPixmap(const QCommonStyle* self, int sp, const QStyleOption* opt, const QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return new QPixmap(self->standardPixmap(static_cast<QStyle::StandardPixmap>(sp), opt, widget));
-    } else {
-        return new QPixmap(((VirtualQCommonStyle*)self)->standardPixmap(static_cast<QStyle::StandardPixmap>(sp), opt, widget));
-    }
+    return new QPixmap(self->standardPixmap(static_cast<QStyle::StandardPixmap>(sp), opt, widget));
 }
 
 QPixmap* QCommonStyle_GeneratedIconPixmap(const QCommonStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return new QPixmap(self->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
-    } else {
-        return new QPixmap(((VirtualQCommonStyle*)self)->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
-    }
+    return new QPixmap(self->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
 }
 
 int QCommonStyle_LayoutSpacing(const QCommonStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<const VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        return self->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
-    } else {
-        return ((VirtualQCommonStyle*)self)->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
-    }
+    return self->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
 }
 
 void QCommonStyle_Polish(QCommonStyle* self, QPalette* param1) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->polish(*param1);
-    } else {
-        ((VirtualQCommonStyle*)self)->polish(*param1);
-    }
+    self->polish(*param1);
 }
 
 void QCommonStyle_Polish2(QCommonStyle* self, QApplication* app) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->polish(app);
-    } else {
-        ((VirtualQCommonStyle*)self)->polish(app);
-    }
+    self->polish(app);
 }
 
 void QCommonStyle_Polish3(QCommonStyle* self, QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->polish(widget);
-    } else {
-        ((VirtualQCommonStyle*)self)->polish(widget);
-    }
+    self->polish(widget);
 }
 
 void QCommonStyle_Unpolish(QCommonStyle* self, QWidget* widget) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->unpolish(widget);
-    } else {
-        ((VirtualQCommonStyle*)self)->unpolish(widget);
-    }
+    self->unpolish(widget);
 }
 
 void QCommonStyle_Unpolish2(QCommonStyle* self, QApplication* application) {
-    auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
-    if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        self->unpolish(application);
-    } else {
-        ((VirtualQCommonStyle*)self)->unpolish(application);
-    }
+    self->unpolish(application);
 }
 
 // Base class handler implementation

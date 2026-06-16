@@ -47,7 +47,7 @@ void Konsole__Emulation_SetImageSize(Konsole__Emulation* self, int lines, int co
 void Konsole__Emulation_SendText(Konsole__Emulation* self, const libqt_string text);
 void Konsole__Emulation_SendKeyEvent(Konsole__Emulation* self, QKeyEvent* param1, bool fromPaste);
 void Konsole__Emulation_SendMouseEvent(Konsole__Emulation* self, int buttons, int column, int line, int eventType);
-void Konsole__Emulation_SendString(Konsole__Emulation* self, const char* stringVal, int length);
+void Konsole__Emulation_SendString(Konsole__Emulation* self, const char* string, int length);
 void Konsole__Emulation_ReceiveData(Konsole__Emulation* self, const char* buffer, int lenVal);
 void Konsole__Emulation_SendData(Konsole__Emulation* self, const char* data, int lenVal);
 void Konsole__Emulation_Connect_SendData(Konsole__Emulation* self, intptr_t slot);
@@ -108,7 +108,7 @@ void Konsole__Emulation_SuperSendKeyEvent(Konsole__Emulation* self, QKeyEvent* p
 void Konsole__Emulation_OnSendMouseEvent(Konsole__Emulation* self, intptr_t slot);
 void Konsole__Emulation_SuperSendMouseEvent(Konsole__Emulation* self, int buttons, int column, int line, int eventType);
 void Konsole__Emulation_OnSendString(Konsole__Emulation* self, intptr_t slot);
-void Konsole__Emulation_SuperSendString(Konsole__Emulation* self, const char* stringVal, int length);
+void Konsole__Emulation_SuperSendString(Konsole__Emulation* self, const char* string, int length);
 void Konsole__Emulation_OnSetMode(Konsole__Emulation* self, intptr_t slot);
 void Konsole__Emulation_SuperSetMode(Konsole__Emulation* self, int mode);
 void Konsole__Emulation_OnResetMode(Konsole__Emulation* self, intptr_t slot);

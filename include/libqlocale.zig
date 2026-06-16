@@ -1138,14 +1138,14 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn ToTime(self: QLocale, stringVal: []const u8) QTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToTime(self: QLocale, string: []const u8) QTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToTime(@ptrCast(self.ptr), stringVal_str) };
+        return .{ .ptr = qtc.QLocale_ToTime(@ptrCast(self.ptr), string_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toTime)
@@ -1154,20 +1154,20 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn ToTime2(self: QLocale, stringVal: []const u8, format: []const u8) QTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToTime2(self: QLocale, string: []const u8, format: []const u8) QTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToTime2(@ptrCast(self.ptr), stringVal_str, format_str) };
+        return .{ .ptr = qtc.QLocale_ToTime2(@ptrCast(self.ptr), string_str, format_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -1176,14 +1176,14 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn ToDate(self: QLocale, stringVal: []const u8) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate(self: QLocale, string: []const u8) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDate(@ptrCast(self.ptr), stringVal_str) };
+        return .{ .ptr = qtc.QLocale_ToDate(@ptrCast(self.ptr), string_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -1192,20 +1192,20 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn ToDate2(self: QLocale, stringVal: []const u8, format: []const u8) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate2(self: QLocale, string: []const u8, format: []const u8) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDate2(@ptrCast(self.ptr), stringVal_str, format_str) };
+        return .{ .ptr = qtc.QLocale_ToDate2(@ptrCast(self.ptr), string_str, format_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -1214,14 +1214,14 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn ToDateTime(self: QLocale, stringVal: []const u8) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime(self: QLocale, string: []const u8) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDateTime(@ptrCast(self.ptr), stringVal_str) };
+        return .{ .ptr = qtc.QLocale_ToDateTime(@ptrCast(self.ptr), string_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -1230,20 +1230,20 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
-    pub fn ToDateTime2(self: QLocale, stringVal: []const u8, format: []const u8) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime2(self: QLocale, string: []const u8, format: []const u8) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDateTime2(@ptrCast(self.ptr), stringVal_str, format_str) };
+        return .{ .ptr = qtc.QLocale_ToDateTime2(@ptrCast(self.ptr), string_str, format_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -1252,19 +1252,19 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
     /// ` cal: QCalendar `
     ///
-    pub fn ToDate3(self: QLocale, stringVal: []const u8, format: i32, cal: anytype) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate3(self: QLocale, string: []const u8, format: i32, cal: anytype) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDate3(@ptrCast(self.ptr), stringVal_str, @bitCast(format), @ptrCast(cal.ptr)) };
+        return .{ .ptr = qtc.QLocale_ToDate3(@ptrCast(self.ptr), string_str, @bitCast(format), @ptrCast(cal.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -1273,23 +1273,23 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
     /// ` cal: QCalendar `
     ///
-    pub fn ToDate4(self: QLocale, stringVal: []const u8, format: []const u8, cal: anytype) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate4(self: QLocale, string: []const u8, format: []const u8, cal: anytype) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDate4(@ptrCast(self.ptr), stringVal_str, format_str, @ptrCast(cal.ptr)) };
+        return .{ .ptr = qtc.QLocale_ToDate4(@ptrCast(self.ptr), string_str, format_str, @ptrCast(cal.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -1298,19 +1298,19 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
     /// ` cal: QCalendar `
     ///
-    pub fn ToDateTime3(self: QLocale, stringVal: []const u8, format: i32, cal: anytype) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime3(self: QLocale, string: []const u8, format: i32, cal: anytype) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDateTime3(@ptrCast(self.ptr), stringVal_str, @bitCast(format), @ptrCast(cal.ptr)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime3(@ptrCast(self.ptr), string_str, @bitCast(format), @ptrCast(cal.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -1319,23 +1319,23 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
     /// ` cal: QCalendar `
     ///
-    pub fn ToDateTime4(self: QLocale, stringVal: []const u8, format: []const u8, cal: anytype) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime4(self: QLocale, string: []const u8, format: []const u8, cal: anytype) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDateTime4(@ptrCast(self.ptr), stringVal_str, format_str, @ptrCast(cal.ptr)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime4(@ptrCast(self.ptr), string_str, format_str, @ptrCast(cal.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#decimalPoint)
@@ -2843,16 +2843,16 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` param2: qlocale_enums.FormatType `
     ///
-    pub fn ToTime22(self: QLocale, stringVal: []const u8, param2: i32) QTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToTime22(self: QLocale, string: []const u8, param2: i32) QTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToTime22(@ptrCast(self.ptr), stringVal_str, @bitCast(param2)) };
+        return .{ .ptr = qtc.QLocale_ToTime22(@ptrCast(self.ptr), string_str, @bitCast(param2)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2861,16 +2861,16 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` param2: qlocale_enums.FormatType `
     ///
-    pub fn ToDate22(self: QLocale, stringVal: []const u8, param2: i32) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate22(self: QLocale, string: []const u8, param2: i32) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDate22(@ptrCast(self.ptr), stringVal_str, @bitCast(param2)) };
+        return .{ .ptr = qtc.QLocale_ToDate22(@ptrCast(self.ptr), string_str, @bitCast(param2)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2879,18 +2879,18 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` param2: qlocale_enums.FormatType `
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDate32(self: QLocale, stringVal: []const u8, param2: i32, baseYear: i32) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate32(self: QLocale, string: []const u8, param2: i32, baseYear: i32) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDate32(@ptrCast(self.ptr), stringVal_str, @bitCast(param2), @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDate32(@ptrCast(self.ptr), string_str, @bitCast(param2), @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2899,22 +2899,22 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDate33(self: QLocale, stringVal: []const u8, format: []const u8, baseYear: i32) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate33(self: QLocale, string: []const u8, format: []const u8, baseYear: i32) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDate33(@ptrCast(self.ptr), stringVal_str, format_str, @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDate33(@ptrCast(self.ptr), string_str, format_str, @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2923,16 +2923,16 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
-    pub fn ToDateTime22(self: QLocale, stringVal: []const u8, format: i32) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime22(self: QLocale, string: []const u8, format: i32) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDateTime22(@ptrCast(self.ptr), stringVal_str, @bitCast(format)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime22(@ptrCast(self.ptr), string_str, @bitCast(format)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2941,18 +2941,18 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDateTime32(self: QLocale, stringVal: []const u8, format: i32, baseYear: i32) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime32(self: QLocale, string: []const u8, format: i32, baseYear: i32) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDateTime32(@ptrCast(self.ptr), stringVal_str, @bitCast(format), @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime32(@ptrCast(self.ptr), string_str, @bitCast(format), @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -2961,22 +2961,22 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDateTime33(self: QLocale, stringVal: []const u8, format: []const u8, baseYear: i32) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime33(self: QLocale, string: []const u8, format: []const u8, baseYear: i32) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
-        return .{ .ptr = qtc.QLocale_ToDateTime33(@ptrCast(self.ptr), stringVal_str, format_str, @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime33(@ptrCast(self.ptr), string_str, format_str, @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -2985,7 +2985,7 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
@@ -2993,13 +2993,13 @@ pub const QLocale = extern struct {
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDate42(self: QLocale, stringVal: []const u8, format: i32, cal: anytype, baseYear: i32) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate42(self: QLocale, string: []const u8, format: i32, cal: anytype, baseYear: i32) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDate42(@ptrCast(self.ptr), stringVal_str, @bitCast(format), @ptrCast(cal.ptr), @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDate42(@ptrCast(self.ptr), string_str, @bitCast(format), @ptrCast(cal.ptr), @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDate)
@@ -3008,7 +3008,7 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
@@ -3016,17 +3016,17 @@ pub const QLocale = extern struct {
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDate43(self: QLocale, stringVal: []const u8, format: []const u8, cal: anytype, baseYear: i32) QDate {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDate43(self: QLocale, string: []const u8, format: []const u8, cal: anytype, baseYear: i32) QDate {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDate43(@ptrCast(self.ptr), stringVal_str, format_str, @ptrCast(cal.ptr), @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDate43(@ptrCast(self.ptr), string_str, format_str, @ptrCast(cal.ptr), @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -3035,7 +3035,7 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
@@ -3043,13 +3043,13 @@ pub const QLocale = extern struct {
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDateTime42(self: QLocale, stringVal: []const u8, format: i32, cal: anytype, baseYear: i32) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime42(self: QLocale, string: []const u8, format: i32, cal: anytype, baseYear: i32) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDateTime42(@ptrCast(self.ptr), stringVal_str, @bitCast(format), @ptrCast(cal.ptr), @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime42(@ptrCast(self.ptr), string_str, @bitCast(format), @ptrCast(cal.ptr), @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#toDateTime)
@@ -3058,7 +3058,7 @@ pub const QLocale = extern struct {
     ///
     /// ` self: QLocale `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` format: []const u8 `
     ///
@@ -3066,17 +3066,17 @@ pub const QLocale = extern struct {
     ///
     /// ` baseYear: i32 `
     ///
-    pub fn ToDateTime43(self: QLocale, stringVal: []const u8, format: []const u8, cal: anytype, baseYear: i32) QDateTime {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ToDateTime43(self: QLocale, string: []const u8, format: []const u8, cal: anytype, baseYear: i32) QDateTime {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         comptime _ = @TypeOf(cal)._is_QCalendar;
-        return .{ .ptr = qtc.QLocale_ToDateTime43(@ptrCast(self.ptr), stringVal_str, format_str, @ptrCast(cal.ptr), @bitCast(baseYear)) };
+        return .{ .ptr = qtc.QLocale_ToDateTime43(@ptrCast(self.ptr), string_str, format_str, @ptrCast(cal.ptr), @bitCast(baseYear)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlocale.html#monthName)

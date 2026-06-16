@@ -63,30 +63,15 @@ QPrintPreviewWidget* QPrintPreviewWidget_new6(QWidget* parent, int flags) {
 }
 
 QMetaObject* QPrintPreviewWidget_MetaObject(const QPrintPreviewWidget* self) {
-    auto* vqprintpreviewwidget = dynamic_cast<const VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPrintPreviewWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPrintPreviewWidget_Metacast(QPrintPreviewWidget* self, const char* param1) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPrintPreviewWidget_Metacall(QPrintPreviewWidget* self, int param1, int param2, void** param3) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPrintPreviewWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 double QPrintPreviewWidget_ZoomFactor(const QPrintPreviewWidget* self) {
@@ -114,12 +99,7 @@ int QPrintPreviewWidget_PageCount(const QPrintPreviewWidget* self) {
 }
 
 void QPrintPreviewWidget_SetVisible(QPrintPreviewWidget* self, bool visible) {
-    auto* vqprintpreviewwidget = dynamic_cast<VirtualQPrintPreviewWidget*>(self);
-    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQPrintPreviewWidget*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QPrintPreviewWidget_Print(QPrintPreviewWidget* self) {

@@ -27,30 +27,15 @@ KIO__FavIconRequestJob* KIO__FavIconRequestJob_new3(const QUrl* hostUrl, int rel
 }
 
 QMetaObject* KIO__FavIconRequestJob_MetaObject(const KIO__FavIconRequestJob* self) {
-    auto* vkio__faviconrequestjob = dynamic_cast<const VirtualKIOFavIconRequestJob*>(self);
-    if (vkio__faviconrequestjob && vkio__faviconrequestjob->isVirtualKIOFavIconRequestJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOFavIconRequestJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__FavIconRequestJob_Metacast(KIO__FavIconRequestJob* self, const char* param1) {
-    auto* vkio__faviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkio__faviconrequestjob && vkio__faviconrequestjob->isVirtualKIOFavIconRequestJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOFavIconRequestJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__FavIconRequestJob_Metacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3) {
-    auto* vkio__faviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkio__faviconrequestjob && vkio__faviconrequestjob->isVirtualKIOFavIconRequestJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOFavIconRequestJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__FavIconRequestJob_SetIconUrl(KIO__FavIconRequestJob* self, const QUrl* iconUrl) {
@@ -74,12 +59,7 @@ QUrl* KIO__FavIconRequestJob_HostUrl(const KIO__FavIconRequestJob* self) {
 }
 
 void KIO__FavIconRequestJob_Start(KIO__FavIconRequestJob* self) {
-    auto* vkio__faviconrequestjob = dynamic_cast<VirtualKIOFavIconRequestJob*>(self);
-    if (vkio__faviconrequestjob && vkio__faviconrequestjob->isVirtualKIOFavIconRequestJob) {
-        self->start();
-    } else {
-        ((VirtualKIOFavIconRequestJob*)self)->start();
-    }
+    self->start();
 }
 
 // Base class handler implementation

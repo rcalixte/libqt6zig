@@ -27,30 +27,15 @@ QMediaPlayer* QMediaPlayer_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaPlayer_MetaObject(const QMediaPlayer* self) {
-    auto* vqmediaplayer = dynamic_cast<const VirtualQMediaPlayer*>(self);
-    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMediaPlayer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMediaPlayer_Metacast(QMediaPlayer* self, const char* param1) {
-    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
-    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMediaPlayer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMediaPlayer_Metacall(QMediaPlayer* self, int param1, int param2, void** param3) {
-    auto* vqmediaplayer = dynamic_cast<VirtualQMediaPlayer*>(self);
-    if (vqmediaplayer && vqmediaplayer->isVirtualQMediaPlayer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMediaPlayer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_AudioTracks(const QMediaPlayer* self) {

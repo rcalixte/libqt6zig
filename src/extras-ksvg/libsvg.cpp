@@ -28,30 +28,15 @@ KSvg__Svg* KSvg__Svg_new2(QObject* parent) {
 }
 
 QMetaObject* KSvg__Svg_MetaObject(const KSvg__Svg* self) {
-    auto* vksvg__svg = dynamic_cast<const VirtualKSvgSvg*>(self);
-    if (vksvg__svg && vksvg__svg->isVirtualKSvgSvg) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSvgSvg*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSvg__Svg_Metacast(KSvg__Svg* self, const char* param1) {
-    auto* vksvg__svg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvg__svg && vksvg__svg->isVirtualKSvgSvg) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSvgSvg*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSvg__Svg_Metacall(KSvg__Svg* self, int param1, int param2, void** param3) {
-    auto* vksvg__svg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvg__svg && vksvg__svg->isVirtualKSvgSvg) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSvgSvg*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSvg__Svg_SetDevicePixelRatio(KSvg__Svg* self, double factor) {
@@ -146,12 +131,7 @@ bool KSvg__Svg_ContainsMultipleImages(const KSvg__Svg* self) {
 
 void KSvg__Svg_SetImagePath(KSvg__Svg* self, const libqt_string svgFilePath) {
     QString svgFilePath_QString = QString::fromUtf8(svgFilePath.data, svgFilePath.len);
-    auto* vksvg__svg = dynamic_cast<VirtualKSvgSvg*>(self);
-    if (vksvg__svg && vksvg__svg->isVirtualKSvgSvg) {
-        self->setImagePath(svgFilePath_QString);
-    } else {
-        ((VirtualKSvgSvg*)self)->setImagePath(svgFilePath_QString);
-    }
+    self->setImagePath(svgFilePath_QString);
 }
 
 libqt_string KSvg__Svg_ImagePath(const KSvg__Svg* self) {

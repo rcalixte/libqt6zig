@@ -23,93 +23,43 @@ QDesignerFormWindowToolInterface* QDesignerFormWindowToolInterface_new2(QObject*
 }
 
 QMetaObject* QDesignerFormWindowToolInterface_MetaObject(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerFormWindowToolInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerFormWindowToolInterface_Metacast(QDesignerFormWindowToolInterface* self, const char* param1) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerFormWindowToolInterface_Metacall(QDesignerFormWindowToolInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerFormEditorInterface* QDesignerFormWindowToolInterface_Core(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->core();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->core();
-    }
+    return self->core();
 }
 
 QDesignerFormWindowInterface* QDesignerFormWindowToolInterface_FormWindow(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->formWindow();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->formWindow();
-    }
+    return self->formWindow();
 }
 
 QWidget* QDesignerFormWindowToolInterface_Editor(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->editor();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->editor();
-    }
+    return self->editor();
 }
 
 QAction* QDesignerFormWindowToolInterface_Action(const QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<const VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->action();
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->action();
-    }
+    return self->action();
 }
 
 void QDesignerFormWindowToolInterface_Activated(QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->activated();
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->activated();
-    }
+    self->activated();
 }
 
 void QDesignerFormWindowToolInterface_Deactivated(QDesignerFormWindowToolInterface* self) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        vqdesignerformwindowtoolinterface->deactivated();
-    } else {
-        ((VirtualQDesignerFormWindowToolInterface*)self)->deactivated();
-    }
+    self->deactivated();
 }
 
 bool QDesignerFormWindowToolInterface_HandleEvent(QDesignerFormWindowToolInterface* self, QWidget* widget, QWidget* managedWidget, QEvent* event) {
-    auto* vqdesignerformwindowtoolinterface = dynamic_cast<VirtualQDesignerFormWindowToolInterface*>(self);
-    if (vqdesignerformwindowtoolinterface && vqdesignerformwindowtoolinterface->isVirtualQDesignerFormWindowToolInterface) {
-        return vqdesignerformwindowtoolinterface->handleEvent(widget, managedWidget, event);
-    } else {
-        return ((VirtualQDesignerFormWindowToolInterface*)self)->handleEvent(widget, managedWidget, event);
-    }
+    return self->handleEvent(widget, managedWidget, event);
 }
 
 // Base class handler implementation

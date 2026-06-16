@@ -20,8 +20,8 @@ typedef struct QPainter QPainter;
 typedef struct QSizeF QSizeF;
 #endif
 
-double KFontUtils_AdaptFontSize(QPainter* param1, const libqt_string param2, double param3, double param4, double param5, double param6, int param7);
-double KFontUtils_AdaptFontSize2(QPainter* param1, const libqt_string param2, const QSizeF* param3, double param4, double param5, int param6);
+double KFontUtils_AdaptFontSize(QPainter* painter, const libqt_string text, double width, double height, double maxFontSize, double minFontSize, int flags);
+double KFontUtils_AdaptFontSize2(QPainter* painter, const libqt_string text, const QSizeF* availableSize, double maxFontSize, double minFontSize, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

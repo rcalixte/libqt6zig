@@ -5,9 +5,9 @@
 #include "libconverttext.h"
 #include "libconverttext.hxx"
 
-libqt_string TextUtils__ConvertText_Normalize(libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = TextUtils::ConvertText::normalize(param1_QString);
+libqt_string TextUtils__ConvertText_Normalize(libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = TextUtils::ConvertText::normalize(str_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -18,18 +18,18 @@ libqt_string TextUtils__ConvertText_Normalize(libqt_string param1) {
     return _str;
 }
 
-void TextUtils__ConvertText_UpperCase(QTextCursor* param1) {
-    TextUtils::ConvertText::upperCase(*param1);
+void TextUtils__ConvertText_UpperCase(QTextCursor* cursor) {
+    TextUtils::ConvertText::upperCase(*cursor);
 }
 
-void TextUtils__ConvertText_LowerCase(QTextCursor* param1) {
-    TextUtils::ConvertText::lowerCase(*param1);
+void TextUtils__ConvertText_LowerCase(QTextCursor* cursor) {
+    TextUtils::ConvertText::lowerCase(*cursor);
 }
 
-void TextUtils__ConvertText_SentenceCase(QTextCursor* param1) {
-    TextUtils::ConvertText::sentenceCase(*param1);
+void TextUtils__ConvertText_SentenceCase(QTextCursor* cursor) {
+    TextUtils::ConvertText::sentenceCase(*cursor);
 }
 
-void TextUtils__ConvertText_ReverseCase(QTextCursor* param1) {
-    TextUtils::ConvertText::reverseCase(*param1);
+void TextUtils__ConvertText_ReverseCase(QTextCursor* cursor) {
+    TextUtils::ConvertText::reverseCase(*cursor);
 }

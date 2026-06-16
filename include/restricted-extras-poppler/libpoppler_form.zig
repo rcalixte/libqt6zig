@@ -4004,10 +4004,10 @@ pub const Poppler = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: poppler_form_enums.CryptoSignBackend `
+    /// ` backend: poppler_form_enums.CryptoSignBackend `
     ///
-    pub fn SetActiveCryptoSignBackend(param1: i32) bool {
-        return qtc.Poppler_SetActiveCryptoSignBackend(@bitCast(param1));
+    pub fn SetActiveCryptoSignBackend(backend: i32) bool {
+        return qtc.Poppler_SetActiveCryptoSignBackend(@bitCast(backend));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
@@ -4062,34 +4062,34 @@ pub const Poppler = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` pathURL: []const u8 `
     ///
-    pub fn SetNSSDir(param1: []const u8) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn SetNSSDir(pathURL: []const u8) void {
+        const pathURL_str = qtc.libqt_string{
+            .len = pathURL.len,
+            .data = pathURL.ptr,
         };
-        qtc.Poppler_SetNSSDir(param1_str);
+        qtc.Poppler_SetNSSDir(pathURL_str);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: *const fn (funcparam1: [*:0]const u8) callconv(.c) qtc.libqt_string `
+    /// ` f: *const fn (funcparam1: [*:0]const u8) callconv(.c) qtc.libqt_string `
     ///
-    pub fn SetNSSPasswordCallback(param1: *const fn ([*:0]const u8) callconv(.c) qtc.libqt_string) void {
-        qtc.Poppler_SetNSSPasswordCallback(@bitCast(@intFromPtr(param1)));
+    pub fn SetNSSPasswordCallback(f: *const fn ([*:0]const u8) callconv(.c) qtc.libqt_string) void {
+        qtc.Poppler_SetNSSPasswordCallback(@bitCast(@intFromPtr(f)));
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: bool `
+    /// ` allowed: bool `
     ///
-    pub fn SetPgpSignaturesAllowed(param1: bool) void {
-        qtc.Poppler_SetPgpSignaturesAllowed(param1);
+    pub fn SetPgpSignaturesAllowed(allowed: bool) void {
+        qtc.Poppler_SetPgpSignaturesAllowed(allowed);
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)

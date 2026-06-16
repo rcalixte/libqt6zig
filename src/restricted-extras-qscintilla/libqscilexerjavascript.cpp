@@ -23,30 +23,15 @@ QsciLexerJavaScript* QsciLexerJavaScript_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerJavaScript_MetaObject(const QsciLexerJavaScript* self) {
-    auto* vqscilexerjavascript = dynamic_cast<const VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerJavaScript*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerJavaScript_Metacast(QsciLexerJavaScript* self, const char* param1) {
-    auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerJavaScript*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerJavaScript_Metacall(QsciLexerJavaScript* self, int param1, int param2, void** param3) {
-    auto* vqscilexerjavascript = dynamic_cast<VirtualQsciLexerJavaScript*>(self);
-    if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerJavaScript*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerJavaScript_Language(const QsciLexerJavaScript* self) {

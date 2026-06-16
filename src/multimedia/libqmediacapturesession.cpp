@@ -29,30 +29,15 @@ QMediaCaptureSession* QMediaCaptureSession_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaCaptureSession_MetaObject(const QMediaCaptureSession* self) {
-    auto* vqmediacapturesession = dynamic_cast<const VirtualQMediaCaptureSession*>(self);
-    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMediaCaptureSession*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMediaCaptureSession_Metacast(QMediaCaptureSession* self, const char* param1) {
-    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
-    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMediaCaptureSession*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMediaCaptureSession_Metacall(QMediaCaptureSession* self, int param1, int param2, void** param3) {
-    auto* vqmediacapturesession = dynamic_cast<VirtualQMediaCaptureSession*>(self);
-    if (vqmediacapturesession && vqmediacapturesession->isVirtualQMediaCaptureSession) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMediaCaptureSession*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAudioInput* QMediaCaptureSession_AudioInput(const QMediaCaptureSession* self) {

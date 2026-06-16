@@ -27,7 +27,7 @@ bool KIO__JobUiDelegateExtension_AskDeleteConfirmation(KIO__JobUiDelegateExtensi
 void KIO__JobUiDelegateExtension_UpdateUrlInClipboard(KIO__JobUiDelegateExtension* self, const QUrl* src, const QUrl* dest);
 
 KIO__JobUiDelegateExtension* KIO_DefaultJobUiDelegateExtension();
-void KIO_SetDefaultJobUiDelegateExtension(KIO__JobUiDelegateExtension* param1);
+void KIO_SetDefaultJobUiDelegateExtension(KIO__JobUiDelegateExtension* extension);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -21,30 +21,15 @@ QFinalState* QFinalState_new2(QState* parent) {
 }
 
 QMetaObject* QFinalState_MetaObject(const QFinalState* self) {
-    auto* vqfinalstate = dynamic_cast<const VirtualQFinalState*>(self);
-    if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFinalState*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFinalState_Metacast(QFinalState* self, const char* param1) {
-    auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
-    if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFinalState*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFinalState_Metacall(QFinalState* self, int param1, int param2, void** param3) {
-    auto* vqfinalstate = dynamic_cast<VirtualQFinalState*>(self);
-    if (vqfinalstate && vqfinalstate->isVirtualQFinalState) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFinalState*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFinalState_OnEntry(QFinalState* self, QEvent* event) {

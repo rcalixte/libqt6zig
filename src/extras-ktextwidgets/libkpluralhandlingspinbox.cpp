@@ -51,30 +51,15 @@ KPluralHandlingSpinBox* KPluralHandlingSpinBox_new2() {
 }
 
 QMetaObject* KPluralHandlingSpinBox_MetaObject(const KPluralHandlingSpinBox* self) {
-    auto* vkpluralhandlingspinbox = dynamic_cast<const VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPluralHandlingSpinBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPluralHandlingSpinBox_Metacast(KPluralHandlingSpinBox* self, const char* param1) {
-    auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPluralHandlingSpinBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPluralHandlingSpinBox_Metacall(KPluralHandlingSpinBox* self, int param1, int param2, void** param3) {
-    auto* vkpluralhandlingspinbox = dynamic_cast<VirtualKPluralHandlingSpinBox*>(self);
-    if (vkpluralhandlingspinbox && vkpluralhandlingspinbox->isVirtualKPluralHandlingSpinBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPluralHandlingSpinBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPluralHandlingSpinBox_SetSuffix(KPluralHandlingSpinBox* self, const KLocalizedString* suffix) {

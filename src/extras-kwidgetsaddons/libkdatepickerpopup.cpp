@@ -60,30 +60,15 @@ KDatePickerPopup* KDatePickerPopup_new4(int modes, QDate* date, QWidget* parent)
 }
 
 QMetaObject* KDatePickerPopup_MetaObject(const KDatePickerPopup* self) {
-    auto* vkdatepickerpopup = dynamic_cast<const VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDatePickerPopup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDatePickerPopup_Metacast(KDatePickerPopup* self, const char* param1) {
-    auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDatePickerPopup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDatePickerPopup_Metacall(KDatePickerPopup* self, int param1, int param2, void** param3) {
-    auto* vkdatepickerpopup = dynamic_cast<VirtualKDatePickerPopup*>(self);
-    if (vkdatepickerpopup && vkdatepickerpopup->isVirtualKDatePickerPopup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDatePickerPopup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KDatePickerPopup_Modes(const KDatePickerPopup* self) {

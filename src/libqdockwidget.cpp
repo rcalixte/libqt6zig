@@ -67,30 +67,15 @@ QDockWidget* QDockWidget_new6(QWidget* parent, int flags) {
 }
 
 QMetaObject* QDockWidget_MetaObject(const QDockWidget* self) {
-    auto* vqdockwidget = dynamic_cast<const VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDockWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDockWidget_Metacast(QDockWidget* self, const char* param1) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDockWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDockWidget_Metacall(QDockWidget* self, int param1, int param2, void** param3) {
-    auto* vqdockwidget = dynamic_cast<VirtualQDockWidget*>(self);
-    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDockWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* QDockWidget_Widget(const QDockWidget* self) {

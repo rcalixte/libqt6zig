@@ -24,30 +24,15 @@ KActionCategory* KActionCategory_new2(const libqt_string text, KActionCollection
 }
 
 QMetaObject* KActionCategory_MetaObject(const KActionCategory* self) {
-    auto* vkactioncategory = dynamic_cast<const VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKActionCategory*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KActionCategory_Metacast(KActionCategory* self, const char* param1) {
-    auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKActionCategory*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KActionCategory_Metacall(KActionCategory* self, int param1, int param2, void** param3) {
-    auto* vkactioncategory = dynamic_cast<VirtualKActionCategory*>(self);
-    if (vkactioncategory && vkactioncategory->isVirtualKActionCategory) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKActionCategory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAction* KActionCategory_AddAction(KActionCategory* self, const libqt_string name, QAction* action) {

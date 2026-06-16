@@ -31,39 +31,19 @@ QAbstractProxyModel* QAbstractProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractProxyModel_MetaObject(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractProxyModel_Metacast(QAbstractProxyModel* self, const char* param1) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractProxyModel_Metacall(QAbstractProxyModel* self, int param1, int param2, void** param3) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractProxyModel_SetSourceModel(QAbstractProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        self->setSourceModel(sourceModel);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->setSourceModel(sourceModel);
-    }
+    self->setSourceModel(sourceModel);
 }
 
 QAbstractItemModel* QAbstractProxyModel_SourceModel(const QAbstractProxyModel* self) {
@@ -71,130 +51,61 @@ QAbstractItemModel* QAbstractProxyModel_SourceModel(const QAbstractProxyModel* s
 }
 
 QModelIndex* QAbstractProxyModel_MapToSource(const QAbstractProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QModelIndex(vqabstractproxymodel->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->mapToSource(*proxyIndex));
 }
 
 QModelIndex* QAbstractProxyModel_MapFromSource(const QAbstractProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QModelIndex(vqabstractproxymodel->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+    return new QModelIndex(self->mapFromSource(*sourceIndex));
 }
 
 QItemSelection* QAbstractProxyModel_MapSelectionToSource(const QAbstractProxyModel* self, const QItemSelection* selection) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QItemSelection(self->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualQAbstractProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionToSource(*selection));
 }
 
 QItemSelection* QAbstractProxyModel_MapSelectionFromSource(const QAbstractProxyModel* self, const QItemSelection* selection) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QItemSelection(self->mapSelectionFromSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualQAbstractProxyModel*)self)->mapSelectionFromSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionFromSource(*selection));
 }
 
 bool QAbstractProxyModel_Submit(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->submit();
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->submit();
-    }
+    return self->submit();
 }
 
 void QAbstractProxyModel_Revert(QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        self->revert();
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->revert();
-    }
+    self->revert();
 }
 
 QVariant* QAbstractProxyModel_Data(const QAbstractProxyModel* self, const QModelIndex* proxyIndex, int role) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QVariant(self->data(*proxyIndex, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQAbstractProxyModel*)self)->data(*proxyIndex, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*proxyIndex, static_cast<int>(role)));
 }
 
 QVariant* QAbstractProxyModel_HeaderData(const QAbstractProxyModel* self, int section, int orientation, int role) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQAbstractProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 libqt_map /* of int to QVariant* */ QAbstractProxyModel_ItemData(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        QMap<int, QVariant> _ret = self->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = ((VirtualQAbstractProxyModel*)self)->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 int QAbstractProxyModel_Flags(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQAbstractProxyModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 bool QAbstractProxyModel_SetData(QAbstractProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 bool QAbstractProxyModel_SetItemData(QAbstractProxyModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
@@ -204,93 +115,43 @@ bool QAbstractProxyModel_SetItemData(QAbstractProxyModel* self, const QModelInde
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
     }
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->setItemData(*index, roles_QMap);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->setItemData(*index, roles_QMap);
-    }
+    return self->setItemData(*index, roles_QMap);
 }
 
 bool QAbstractProxyModel_SetHeaderData(QAbstractProxyModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 bool QAbstractProxyModel_ClearItemData(QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->clearItemData(*index);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->clearItemData(*index);
-    }
+    return self->clearItemData(*index);
 }
 
 QModelIndex* QAbstractProxyModel_Buddy(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QModelIndex(self->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->buddy(*index));
 }
 
 bool QAbstractProxyModel_CanFetchMore(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 void QAbstractProxyModel_FetchMore(QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        self->fetchMore(*parent);
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 void QAbstractProxyModel_Sort(QAbstractProxyModel* self, int column, int order) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQAbstractProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 QSize* QAbstractProxyModel_Span(const QAbstractProxyModel* self, const QModelIndex* index) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QSize(self->span(*index));
-    } else {
-        return new QSize(((VirtualQAbstractProxyModel*)self)->span(*index));
-    }
+    return new QSize(self->span(*index));
 }
 
 bool QAbstractProxyModel_HasChildren(const QAbstractProxyModel* self, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 QModelIndex* QAbstractProxyModel_Sibling(const QAbstractProxyModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQAbstractProxyModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 QMimeData* QAbstractProxyModel_MimeData(const QAbstractProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -300,138 +161,67 @@ QMimeData* QAbstractProxyModel_MimeData(const QAbstractProxyModel* self, const l
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 bool QAbstractProxyModel_CanDropMimeData(const QAbstractProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 bool QAbstractProxyModel_DropMimeData(QAbstractProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractproxymodel = dynamic_cast<VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQAbstractProxyModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 libqt_list /* of libqt_string */ QAbstractProxyModel_MimeTypes(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQAbstractProxyModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 int QAbstractProxyModel_SupportedDragActions(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return static_cast<int>(self->supportedDragActions());
-    } else {
-        return static_cast<int>(((VirtualQAbstractProxyModel*)self)->supportedDragActions());
-    }
+    return static_cast<int>(self->supportedDragActions());
 }
 
 int QAbstractProxyModel_SupportedDropActions(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQAbstractProxyModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 libqt_map /* of int to libqt_string */ QAbstractProxyModel_RoleNames(const QAbstractProxyModel* self) {
-    auto* vqabstractproxymodel = dynamic_cast<const VirtualQAbstractProxyModel*>(self);
-    if (vqabstractproxymodel && vqabstractproxymodel->isVirtualQAbstractProxyModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQAbstractProxyModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 // Base class handler implementation

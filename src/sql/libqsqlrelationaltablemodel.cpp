@@ -105,94 +105,44 @@ QSqlRelationalTableModel* QSqlRelationalTableModel_new3(QObject* parent, const Q
 }
 
 QMetaObject* QSqlRelationalTableModel_MetaObject(const QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSqlRelationalTableModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSqlRelationalTableModel_Metacast(QSqlRelationalTableModel* self, const char* param1) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSqlRelationalTableModel_Metacall(QSqlRelationalTableModel* self, int param1, int param2, void** param3) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVariant* QSqlRelationalTableModel_Data(const QSqlRelationalTableModel* self, const QModelIndex* item, int role) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return new QVariant(self->data(*item, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlRelationalTableModel*)self)->data(*item, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*item, static_cast<int>(role)));
 }
 
 bool QSqlRelationalTableModel_SetData(QSqlRelationalTableModel* self, const QModelIndex* item, const QVariant* value, int role) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return self->setData(*item, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->setData(*item, *value, static_cast<int>(role));
-    }
+    return self->setData(*item, *value, static_cast<int>(role));
 }
 
 bool QSqlRelationalTableModel_RemoveColumns(QSqlRelationalTableModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 void QSqlRelationalTableModel_Clear(QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        self->clear();
-    } else {
-        ((VirtualQSqlRelationalTableModel*)self)->clear();
-    }
+    self->clear();
 }
 
 bool QSqlRelationalTableModel_Select(QSqlRelationalTableModel* self) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return self->select();
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->select();
-    }
+    return self->select();
 }
 
 void QSqlRelationalTableModel_SetTable(QSqlRelationalTableModel* self, const libqt_string tableName) {
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        self->setTable(tableName_QString);
-    } else {
-        ((VirtualQSqlRelationalTableModel*)self)->setTable(tableName_QString);
-    }
+    self->setTable(tableName_QString);
 }
 
 void QSqlRelationalTableModel_SetRelation(QSqlRelationalTableModel* self, int column, const QSqlRelation* relation) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        self->setRelation(static_cast<int>(column), *relation);
-    } else {
-        ((VirtualQSqlRelationalTableModel*)self)->setRelation(static_cast<int>(column), *relation);
-    }
+    self->setRelation(static_cast<int>(column), *relation);
 }
 
 QSqlRelation* QSqlRelationalTableModel_Relation(const QSqlRelationalTableModel* self, int column) {
@@ -200,12 +150,7 @@ QSqlRelation* QSqlRelationalTableModel_Relation(const QSqlRelationalTableModel* 
 }
 
 QSqlTableModel* QSqlRelationalTableModel_RelationModel(const QSqlRelationalTableModel* self, int column) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<const VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        return self->relationModel(static_cast<int>(column));
-    } else {
-        return ((VirtualQSqlRelationalTableModel*)self)->relationModel(static_cast<int>(column));
-    }
+    return self->relationModel(static_cast<int>(column));
 }
 
 void QSqlRelationalTableModel_SetJoinMode(QSqlRelationalTableModel* self, int joinMode) {
@@ -213,12 +158,7 @@ void QSqlRelationalTableModel_SetJoinMode(QSqlRelationalTableModel* self, int jo
 }
 
 void QSqlRelationalTableModel_RevertRow(QSqlRelationalTableModel* self, int row) {
-    auto* vqsqlrelationaltablemodel = dynamic_cast<VirtualQSqlRelationalTableModel*>(self);
-    if (vqsqlrelationaltablemodel && vqsqlrelationaltablemodel->isVirtualQSqlRelationalTableModel) {
-        self->revertRow(static_cast<int>(row));
-    } else {
-        ((VirtualQSqlRelationalTableModel*)self)->revertRow(static_cast<int>(row));
-    }
+    self->revertRow(static_cast<int>(row));
 }
 
 libqt_string QSqlRelationalTableModel_SelectStatement(const QSqlRelationalTableModel* self) {

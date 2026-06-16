@@ -22,39 +22,19 @@ QPieSeries* QPieSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QPieSeries_MetaObject(const QPieSeries* self) {
-    auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPieSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPieSeries_Metacast(QPieSeries* self, const char* param1) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPieSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPieSeries_Metacall(QPieSeries* self, int param1, int param2, void** param3) {
-    auto* vqpieseries = dynamic_cast<VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPieSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPieSeries_Type(const QPieSeries* self) {
-    auto* vqpieseries = dynamic_cast<const VirtualQPieSeries*>(self);
-    if (vqpieseries && vqpieseries->isVirtualQPieSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPieSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 bool QPieSeries_Append(QPieSeries* self, QPieSlice* slice) {

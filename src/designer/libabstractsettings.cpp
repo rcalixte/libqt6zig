@@ -11,61 +11,31 @@ QDesignerSettingsInterface* QDesignerSettingsInterface_new() {
 
 void QDesignerSettingsInterface_BeginGroup(QDesignerSettingsInterface* self, const libqt_string prefix) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-    auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
-        vqdesignersettingsinterface->beginGroup(prefix_QString);
-    } else {
-        ((VirtualQDesignerSettingsInterface*)self)->beginGroup(prefix_QString);
-    }
+    self->beginGroup(prefix_QString);
 }
 
 void QDesignerSettingsInterface_EndGroup(QDesignerSettingsInterface* self) {
-    auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
-        vqdesignersettingsinterface->endGroup();
-    } else {
-        ((VirtualQDesignerSettingsInterface*)self)->endGroup();
-    }
+    self->endGroup();
 }
 
 bool QDesignerSettingsInterface_Contains(const QDesignerSettingsInterface* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqdesignersettingsinterface = dynamic_cast<const VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
-        return vqdesignersettingsinterface->contains(key_QString);
-    } else {
-        return ((VirtualQDesignerSettingsInterface*)self)->contains(key_QString);
-    }
+    return self->contains(key_QString);
 }
 
 void QDesignerSettingsInterface_SetValue(QDesignerSettingsInterface* self, const libqt_string key, const QVariant* value) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
-        vqdesignersettingsinterface->setValue(key_QString, *value);
-    } else {
-        ((VirtualQDesignerSettingsInterface*)self)->setValue(key_QString, *value);
-    }
+    self->setValue(key_QString, *value);
 }
 
 QVariant* QDesignerSettingsInterface_Value(const QDesignerSettingsInterface* self, const libqt_string key, const QVariant* defaultValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqdesignersettingsinterface = dynamic_cast<const VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
-        return new QVariant(vqdesignersettingsinterface->value(key_QString, *defaultValue));
-    } else {
-        return new QVariant(((VirtualQDesignerSettingsInterface*)self)->value(key_QString, *defaultValue));
-    }
+    return new QVariant(self->value(key_QString, *defaultValue));
 }
 
 void QDesignerSettingsInterface_Remove(QDesignerSettingsInterface* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqdesignersettingsinterface = dynamic_cast<VirtualQDesignerSettingsInterface*>(self);
-    if (vqdesignersettingsinterface && vqdesignersettingsinterface->isVirtualQDesignerSettingsInterface) {
-        vqdesignersettingsinterface->remove(key_QString);
-    } else {
-        ((VirtualQDesignerSettingsInterface*)self)->remove(key_QString);
-    }
+    self->remove(key_QString);
 }
 
 // Base class handler implementation

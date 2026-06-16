@@ -35,30 +35,15 @@ QDesignerFormEditorInterface* QDesignerFormEditorInterface_new2(QObject* parent)
 }
 
 QMetaObject* QDesignerFormEditorInterface_MetaObject(const QDesignerFormEditorInterface* self) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<const VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerFormEditorInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerFormEditorInterface_Metacast(QDesignerFormEditorInterface* self, const char* param1) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerFormEditorInterface_Metacall(QDesignerFormEditorInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerformeditorinterface = dynamic_cast<VirtualQDesignerFormEditorInterface*>(self);
-    if (vqdesignerformeditorinterface && vqdesignerformeditorinterface->isVirtualQDesignerFormEditorInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerFormEditorInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QExtensionManager* QDesignerFormEditorInterface_ExtensionManager(const QDesignerFormEditorInterface* self) {

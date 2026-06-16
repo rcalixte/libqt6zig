@@ -53,30 +53,15 @@ kImageAnnotator__KImageAnnotator* kImageAnnotator__KImageAnnotator_new() {
 }
 
 QMetaObject* kImageAnnotator__KImageAnnotator_MetaObject(const kImageAnnotator__KImageAnnotator* self) {
-    auto* vkimageannotator__kimageannotator = dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotator__kimageannotator && vkimageannotator__kimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualkImageAnnotatorKImageAnnotator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* kImageAnnotator__KImageAnnotator_Metacast(kImageAnnotator__KImageAnnotator* self, const char* param1) {
-    auto* vkimageannotator__kimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotator__kimageannotator && vkimageannotator__kimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualkImageAnnotatorKImageAnnotator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int kImageAnnotator__KImageAnnotator_Metacall(kImageAnnotator__KImageAnnotator* self, int param1, int param2, void** param3) {
-    auto* vkimageannotator__kimageannotator = dynamic_cast<VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotator__kimageannotator && vkimageannotator__kimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualkImageAnnotatorKImageAnnotator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QImage* kImageAnnotator__KImageAnnotator_Image(const kImageAnnotator__KImageAnnotator* self) {
@@ -96,12 +81,7 @@ QAction* kImageAnnotator__KImageAnnotator_RedoAction(kImageAnnotator__KImageAnno
 }
 
 QSize* kImageAnnotator__KImageAnnotator_SizeHint(const kImageAnnotator__KImageAnnotator* self) {
-    auto* vkimageannotator__kimageannotator = dynamic_cast<const VirtualkImageAnnotatorKImageAnnotator*>(self);
-    if (vkimageannotator__kimageannotator && vkimageannotator__kimageannotator->isVirtualkImageAnnotatorKImageAnnotator) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualkImageAnnotatorKImageAnnotator*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void kImageAnnotator__KImageAnnotator_ShowAnnotator(kImageAnnotator__KImageAnnotator* self) {

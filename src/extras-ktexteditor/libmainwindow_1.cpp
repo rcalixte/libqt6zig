@@ -25,30 +25,15 @@ KTextEditor__MainWindow* KTextEditor__MainWindow_new(QObject* parent) {
 }
 
 QMetaObject* KTextEditor__MainWindow_MetaObject(const KTextEditor__MainWindow* self) {
-    auto* vktexteditor__mainwindow = dynamic_cast<const VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditor__mainwindow && vktexteditor__mainwindow->isVirtualKTextEditorMainWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorMainWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__MainWindow_Metacast(KTextEditor__MainWindow* self, const char* param1) {
-    auto* vktexteditor__mainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditor__mainwindow && vktexteditor__mainwindow->isVirtualKTextEditorMainWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__MainWindow_Metacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__mainwindow = dynamic_cast<VirtualKTextEditorMainWindow*>(self);
-    if (vktexteditor__mainwindow && vktexteditor__mainwindow->isVirtualKTextEditorMainWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* KTextEditor__MainWindow_Window(KTextEditor__MainWindow* self) {

@@ -44,7 +44,7 @@ void KIO__PasteJob_CopyJobStarted(KIO__PasteJob* self, KIO__CopyJob* job);
 void KIO__PasteJob_Connect_CopyJobStarted(KIO__PasteJob* self, intptr_t slot);
 void KIO__PasteJob_Delete(KIO__PasteJob* self);
 
-KIO__PasteJob* KIO_Paste(const QMimeData* param1, const QUrl* param2, int param3);
+KIO__PasteJob* KIO_Paste(const QMimeData* mimeData, const QUrl* destDir, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

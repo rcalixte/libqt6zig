@@ -72,30 +72,15 @@ QProgressDialog* QProgressDialog_new6(const libqt_string labelText, const libqt_
 }
 
 QMetaObject* QProgressDialog_MetaObject(const QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<const VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQProgressDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QProgressDialog_Metacast(QProgressDialog* self, const char* param1) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQProgressDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QProgressDialog_Metacall(QProgressDialog* self, int param1, int param2, void** param3) {
-    auto* vqprogressdialog = dynamic_cast<VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQProgressDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QProgressDialog_SetLabel(QProgressDialog* self, QLabel* label) {
@@ -127,12 +112,7 @@ int QProgressDialog_Value(const QProgressDialog* self) {
 }
 
 QSize* QProgressDialog_SizeHint(const QProgressDialog* self) {
-    auto* vqprogressdialog = dynamic_cast<const VirtualQProgressDialog*>(self);
-    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQProgressDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 libqt_string QProgressDialog_LabelText(const QProgressDialog* self) {

@@ -20,39 +20,19 @@ QPlaceIdReply* QPlaceIdReply_new2(int operationType, QObject* parent) {
 }
 
 QMetaObject* QPlaceIdReply_MetaObject(const QPlaceIdReply* self) {
-    auto* vqplaceidreply = dynamic_cast<const VirtualQPlaceIdReply*>(self);
-    if (vqplaceidreply && vqplaceidreply->isVirtualQPlaceIdReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceIdReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceIdReply_Metacast(QPlaceIdReply* self, const char* param1) {
-    auto* vqplaceidreply = dynamic_cast<VirtualQPlaceIdReply*>(self);
-    if (vqplaceidreply && vqplaceidreply->isVirtualQPlaceIdReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceIdReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceIdReply_Metacall(QPlaceIdReply* self, int param1, int param2, void** param3) {
-    auto* vqplaceidreply = dynamic_cast<VirtualQPlaceIdReply*>(self);
-    if (vqplaceidreply && vqplaceidreply->isVirtualQPlaceIdReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceIdReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPlaceIdReply_Type(const QPlaceIdReply* self) {
-    auto* vqplaceidreply = dynamic_cast<const VirtualQPlaceIdReply*>(self);
-    if (vqplaceidreply && vqplaceidreply->isVirtualQPlaceIdReply) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPlaceIdReply*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 int QPlaceIdReply_OperationType(const QPlaceIdReply* self) {

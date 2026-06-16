@@ -39,11 +39,11 @@ pub const Poppler = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: [:0]const u8 `
+    /// ` dateString: [:0]const u8 `
     ///
-    pub fn ConvertDate(param1: [:0]const u8) QDateTime {
-        const param1_Cstring = param1.ptr;
-        return .{ .ptr = qtc.Poppler_ConvertDate(param1_Cstring) };
+    pub fn ConvertDate(dateString: [:0]const u8) QDateTime {
+        const dateString_Cstring = dateString.ptr;
+        return .{ .ptr = qtc.Poppler_ConvertDate(dateString_Cstring) };
     }
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/namespacePoppler.html)

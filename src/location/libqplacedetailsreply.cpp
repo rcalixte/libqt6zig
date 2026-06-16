@@ -21,39 +21,19 @@ QPlaceDetailsReply* QPlaceDetailsReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceDetailsReply_MetaObject(const QPlaceDetailsReply* self) {
-    auto* vqplacedetailsreply = dynamic_cast<const VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceDetailsReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceDetailsReply_Metacast(QPlaceDetailsReply* self, const char* param1) {
-    auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceDetailsReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceDetailsReply_Metacall(QPlaceDetailsReply* self, int param1, int param2, void** param3) {
-    auto* vqplacedetailsreply = dynamic_cast<VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceDetailsReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPlaceDetailsReply_Type(const QPlaceDetailsReply* self) {
-    auto* vqplacedetailsreply = dynamic_cast<const VirtualQPlaceDetailsReply*>(self);
-    if (vqplacedetailsreply && vqplacedetailsreply->isVirtualQPlaceDetailsReply) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPlaceDetailsReply*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 QPlace* QPlaceDetailsReply_Place(const QPlaceDetailsReply* self) {

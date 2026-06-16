@@ -26,30 +26,15 @@ KXMLGUIFactory* KXMLGUIFactory_new2(KXMLGUIBuilder* builder, QObject* parent) {
 }
 
 QMetaObject* KXMLGUIFactory_MetaObject(const KXMLGUIFactory* self) {
-    auto* vkxmlguifactory = dynamic_cast<const VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKXMLGUIFactory*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KXMLGUIFactory_Metacast(KXMLGUIFactory* self, const char* param1) {
-    auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKXMLGUIFactory*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KXMLGUIFactory_Metacall(KXMLGUIFactory* self, int param1, int param2, void** param3) {
-    auto* vkxmlguifactory = dynamic_cast<VirtualKXMLGUIFactory*>(self);
-    if (vkxmlguifactory && vkxmlguifactory->isVirtualKXMLGUIFactory) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKXMLGUIFactory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KXMLGUIFactory_ReadConfigFile(const libqt_string filename) {

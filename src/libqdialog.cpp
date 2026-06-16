@@ -50,30 +50,15 @@ QDialog* QDialog_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QDialog_MetaObject(const QDialog* self) {
-    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDialog_Metacast(QDialog* self, const char* param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDialog_Metacall(QDialog* self, int param1, int param2, void** param3) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QDialog_Result(const QDialog* self) {
@@ -81,30 +66,15 @@ int QDialog_Result(const QDialog* self) {
 }
 
 void QDialog_SetVisible(QDialog* self, bool visible) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 QSize* QDialog_SizeHint(const QDialog* self) {
-    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QDialog_MinimumSizeHint(const QDialog* self) {
-    auto* vqdialog = dynamic_cast<const VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QDialog_SetSizeGripEnabled(QDialog* self, bool sizeGripEnabled) {
@@ -158,48 +128,23 @@ void QDialog_Connect_Rejected(QDialog* self, intptr_t slot) {
 }
 
 void QDialog_Open(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        self->open();
-    } else {
-        ((VirtualQDialog*)self)->open();
-    }
+    self->open();
 }
 
 int QDialog_Exec(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        return self->exec();
-    } else {
-        return ((VirtualQDialog*)self)->exec();
-    }
+    return self->exec();
 }
 
 void QDialog_Done(QDialog* self, int param1) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        self->done(static_cast<int>(param1));
-    } else {
-        ((VirtualQDialog*)self)->done(static_cast<int>(param1));
-    }
+    self->done(static_cast<int>(param1));
 }
 
 void QDialog_Accept(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        self->accept();
-    } else {
-        ((VirtualQDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 void QDialog_Reject(QDialog* self) {
-    auto* vqdialog = dynamic_cast<VirtualQDialog*>(self);
-    if (vqdialog && vqdialog->isVirtualQDialog) {
-        self->reject();
-    } else {
-        ((VirtualQDialog*)self)->reject();
-    }
+    self->reject();
 }
 
 void QDialog_KeyPressEvent(QDialog* self, QKeyEvent* param1) {

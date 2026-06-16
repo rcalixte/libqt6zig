@@ -307,30 +307,15 @@ QAbstractItemModel* QAbstractItemModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractItemModel_MetaObject(const QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractItemModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractItemModel_Metacast(QAbstractItemModel* self, const char* param1) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractItemModel_Metacall(QAbstractItemModel* self, int param1, int param2, void** param3) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QAbstractItemModel_HasIndex(const QAbstractItemModel* self, int row, int column) {
@@ -338,130 +323,61 @@ bool QAbstractItemModel_HasIndex(const QAbstractItemModel* self, int row, int co
 }
 
 QModelIndex* QAbstractItemModel_Index(const QAbstractItemModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QModelIndex(vqabstractitemmodel->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQAbstractItemModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* QAbstractItemModel_Parent(const QAbstractItemModel* self, const QModelIndex* child) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QModelIndex(vqabstractitemmodel->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQAbstractItemModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 QModelIndex* QAbstractItemModel_Sibling(const QAbstractItemModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQAbstractItemModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 int QAbstractItemModel_RowCount(const QAbstractItemModel* self, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return vqabstractitemmodel->rowCount(*parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 int QAbstractItemModel_ColumnCount(const QAbstractItemModel* self, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return vqabstractitemmodel->columnCount(*parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 bool QAbstractItemModel_HasChildren(const QAbstractItemModel* self, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 QVariant* QAbstractItemModel_Data(const QAbstractItemModel* self, const QModelIndex* index, int role) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QVariant(vqabstractitemmodel->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQAbstractItemModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 bool QAbstractItemModel_SetData(QAbstractItemModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 QVariant* QAbstractItemModel_HeaderData(const QAbstractItemModel* self, int section, int orientation, int role) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQAbstractItemModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 bool QAbstractItemModel_SetHeaderData(QAbstractItemModel* self, int section, int orientation, const QVariant* value, int role) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
-    }
+    return self->setHeaderData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), *value, static_cast<int>(role));
 }
 
 libqt_map /* of int to QVariant* */ QAbstractItemModel_ItemData(const QAbstractItemModel* self, const QModelIndex* index) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        QMap<int, QVariant> _ret = self->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = ((VirtualQAbstractItemModel*)self)->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 bool QAbstractItemModel_SetItemData(QAbstractItemModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles) {
@@ -471,64 +387,32 @@ bool QAbstractItemModel_SetItemData(QAbstractItemModel* self, const QModelIndex*
     for (size_t i = 0; i < roles.len; ++i) {
         roles_QMap[static_cast<int>(roles_karr[i])] = *(roles_varr[i]);
     }
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->setItemData(*index, roles_QMap);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->setItemData(*index, roles_QMap);
-    }
+    return self->setItemData(*index, roles_QMap);
 }
 
 bool QAbstractItemModel_ClearItemData(QAbstractItemModel* self, const QModelIndex* index) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->clearItemData(*index);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->clearItemData(*index);
-    }
+    return self->clearItemData(*index);
 }
 
 libqt_list /* of libqt_string */ QAbstractItemModel_MimeTypes(const QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQAbstractItemModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QMimeData* QAbstractItemModel_MimeData(const QAbstractItemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -538,102 +422,47 @@ QMimeData* QAbstractItemModel_MimeData(const QAbstractItemModel* self, const lib
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 bool QAbstractItemModel_CanDropMimeData(const QAbstractItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->canDropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 bool QAbstractItemModel_DropMimeData(QAbstractItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 int QAbstractItemModel_SupportedDropActions(const QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQAbstractItemModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 int QAbstractItemModel_SupportedDragActions(const QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return static_cast<int>(self->supportedDragActions());
-    } else {
-        return static_cast<int>(((VirtualQAbstractItemModel*)self)->supportedDragActions());
-    }
+    return static_cast<int>(self->supportedDragActions());
 }
 
 bool QAbstractItemModel_InsertRows(QAbstractItemModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 bool QAbstractItemModel_InsertColumns(QAbstractItemModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 bool QAbstractItemModel_RemoveRows(QAbstractItemModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 bool QAbstractItemModel_RemoveColumns(QAbstractItemModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 bool QAbstractItemModel_MoveRows(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 bool QAbstractItemModel_MoveColumns(QAbstractItemModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 bool QAbstractItemModel_InsertRow(QAbstractItemModel* self, int row) {
@@ -661,131 +490,63 @@ bool QAbstractItemModel_MoveColumn(QAbstractItemModel* self, const QModelIndex* 
 }
 
 void QAbstractItemModel_FetchMore(QAbstractItemModel* self, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        self->fetchMore(*parent);
-    } else {
-        ((VirtualQAbstractItemModel*)self)->fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 bool QAbstractItemModel_CanFetchMore(const QAbstractItemModel* self, const QModelIndex* parent) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 int QAbstractItemModel_Flags(const QAbstractItemModel* self, const QModelIndex* index) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQAbstractItemModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 void QAbstractItemModel_Sort(QAbstractItemModel* self, int column, int order) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQAbstractItemModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 QModelIndex* QAbstractItemModel_Buddy(const QAbstractItemModel* self, const QModelIndex* index) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QModelIndex(self->buddy(*index));
-    } else {
-        return new QModelIndex(((VirtualQAbstractItemModel*)self)->buddy(*index));
-    }
+    return new QModelIndex(self->buddy(*index));
 }
 
 libqt_list /* of QModelIndex* */ QAbstractItemModel_Match(const QAbstractItemModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQAbstractItemModel*)self)->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QSize* QAbstractItemModel_Span(const QAbstractItemModel* self, const QModelIndex* index) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return new QSize(self->span(*index));
-    } else {
-        return new QSize(((VirtualQAbstractItemModel*)self)->span(*index));
-    }
+    return new QSize(self->span(*index));
 }
 
 libqt_map /* of int to libqt_string */ QAbstractItemModel_RoleNames(const QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQAbstractItemModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 bool QAbstractItemModel_CheckIndex(const QAbstractItemModel* self, const QModelIndex* index) {
@@ -793,12 +554,7 @@ bool QAbstractItemModel_CheckIndex(const QAbstractItemModel* self, const QModelI
 }
 
 void QAbstractItemModel_MultiData(const QAbstractItemModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan) {
-    auto* vqabstractitemmodel = dynamic_cast<const VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        self->multiData(*index, *roleDataSpan);
-    } else {
-        ((VirtualQAbstractItemModel*)self)->multiData(*index, *roleDataSpan);
-    }
+    self->multiData(*index, *roleDataSpan);
 }
 
 void QAbstractItemModel_DataChanged(QAbstractItemModel* self, const QModelIndex* topLeft, const QModelIndex* bottomRight) {
@@ -855,21 +611,11 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged(QAbstractItemModel* self,
 }
 
 bool QAbstractItemModel_Submit(QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        return self->submit();
-    } else {
-        return ((VirtualQAbstractItemModel*)self)->submit();
-    }
+    return self->submit();
 }
 
 void QAbstractItemModel_Revert(QAbstractItemModel* self) {
-    auto* vqabstractitemmodel = dynamic_cast<VirtualQAbstractItemModel*>(self);
-    if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
-        self->revert();
-    } else {
-        ((VirtualQAbstractItemModel*)self)->revert();
-    }
+    self->revert();
 }
 
 void QAbstractItemModel_ResetInternalData(QAbstractItemModel* self) {
@@ -3151,66 +2897,31 @@ QAbstractTableModel* QAbstractTableModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractTableModel_MetaObject(const QAbstractTableModel* self) {
-    auto* vqabstracttablemodel = dynamic_cast<const VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractTableModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractTableModel_Metacast(QAbstractTableModel* self, const char* param1) {
-    auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractTableModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractTableModel_Metacall(QAbstractTableModel* self, int param1, int param2, void** param3) {
-    auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractTableModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QModelIndex* QAbstractTableModel_Index(const QAbstractTableModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqabstracttablemodel = dynamic_cast<const VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQAbstractTableModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* QAbstractTableModel_Sibling(const QAbstractTableModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqabstracttablemodel = dynamic_cast<const VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQAbstractTableModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 bool QAbstractTableModel_DropMimeData(QAbstractTableModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstracttablemodel = dynamic_cast<VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQAbstractTableModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 int QAbstractTableModel_Flags(const QAbstractTableModel* self, const QModelIndex* index) {
-    auto* vqabstracttablemodel = dynamic_cast<const VirtualQAbstractTableModel*>(self);
-    if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQAbstractTableModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 // Base class handler implementation
@@ -5487,66 +5198,31 @@ QAbstractListModel* QAbstractListModel_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractListModel_MetaObject(const QAbstractListModel* self) {
-    auto* vqabstractlistmodel = dynamic_cast<const VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractListModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractListModel_Metacast(QAbstractListModel* self, const char* param1) {
-    auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractListModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractListModel_Metacall(QAbstractListModel* self, int param1, int param2, void** param3) {
-    auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractListModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QModelIndex* QAbstractListModel_Index(const QAbstractListModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractlistmodel = dynamic_cast<const VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQAbstractListModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* QAbstractListModel_Sibling(const QAbstractListModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqabstractlistmodel = dynamic_cast<const VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQAbstractListModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 bool QAbstractListModel_DropMimeData(QAbstractListModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqabstractlistmodel = dynamic_cast<VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQAbstractListModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 int QAbstractListModel_Flags(const QAbstractListModel* self, const QModelIndex* index) {
-    auto* vqabstractlistmodel = dynamic_cast<const VirtualQAbstractListModel*>(self);
-    if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQAbstractListModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 // Base class handler implementation

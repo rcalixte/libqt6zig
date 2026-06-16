@@ -21,7 +21,7 @@ typedef struct KColorSchemeMenu KColorSchemeMenu;
 typedef struct QObject QObject;
 #endif
 
-KActionMenu* KColorSchemeMenu_CreateMenu(KColorSchemeManager* param1, QObject* param2);
+KActionMenu* KColorSchemeMenu_CreateMenu(KColorSchemeManager* manager, QObject* parent);
 
 #ifdef __cplusplus
 } /* extern C */

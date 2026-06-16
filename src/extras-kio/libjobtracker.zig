@@ -22,10 +22,10 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KJobTrackerInterface `
+    /// ` tracker: KJobTrackerInterface `
     ///
-    pub fn SetJobTracker(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KJobTrackerInterface;
-        qtc.KIO_SetJobTracker(@ptrCast(param1.ptr));
+    pub fn SetJobTracker(tracker: anytype) void {
+        comptime _ = @TypeOf(tracker)._is_KJobTrackerInterface;
+        qtc.KIO_SetJobTracker(@ptrCast(tracker.ptr));
     }
 };

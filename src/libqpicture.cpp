@@ -27,12 +27,7 @@ bool QPicture_IsNull(const QPicture* self) {
 }
 
 int QPicture_DevType(const QPicture* self) {
-    auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        return self->devType();
-    } else {
-        return ((VirtualQPicture*)self)->devType();
-    }
+    return self->devType();
 }
 
 unsigned int QPicture_Size(const QPicture* self) {
@@ -44,12 +39,7 @@ const char* QPicture_Data(const QPicture* self) {
 }
 
 void QPicture_SetData(QPicture* self, const char* data, unsigned int size) {
-    auto* vqpicture = dynamic_cast<VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        self->setData(data, static_cast<uint>(size));
-    } else {
-        ((VirtualQPicture*)self)->setData(data, static_cast<uint>(size));
-    }
+    self->setData(data, static_cast<uint>(size));
 }
 
 bool QPicture_Play(QPicture* self, QPainter* p) {
@@ -99,12 +89,7 @@ bool QPicture_IsDetached(const QPicture* self) {
 }
 
 QPaintEngine* QPicture_PaintEngine(const QPicture* self) {
-    auto* vqpicture = dynamic_cast<const VirtualQPicture*>(self);
-    if (vqpicture && vqpicture->isVirtualQPicture) {
-        return self->paintEngine();
-    } else {
-        return ((VirtualQPicture*)self)->paintEngine();
-    }
+    return self->paintEngine();
 }
 
 int QPicture_Metric(const QPicture* self, int m) {

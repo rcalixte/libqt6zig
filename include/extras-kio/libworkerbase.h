@@ -198,7 +198,7 @@ void KIO__WorkerBase_OnReparseConfiguration(KIO__WorkerBase* self, intptr_t slot
 void KIO__WorkerBase_SuperReparseConfiguration(KIO__WorkerBase* self);
 void KIO__WorkerBase_Delete(KIO__WorkerBase* self);
 
-libqt_string KIO_UnsupportedActionErrorString(const libqt_string param1, int param2);
+libqt_string KIO_UnsupportedActionErrorString(const libqt_string protocol, int cmd);
 
 #ifdef __cplusplus
 } /* extern C */

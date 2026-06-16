@@ -12,21 +12,11 @@ QFileIconProvider* QFileIconProvider_new() {
 }
 
 QIcon* QFileIconProvider_Icon(const QFileIconProvider* self, int typeVal) {
-    auto* vqfileiconprovider = dynamic_cast<const VirtualQFileIconProvider*>(self);
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
-        return new QIcon(self->icon(static_cast<QAbstractFileIconProvider::IconType>(typeVal)));
-    } else {
-        return new QIcon(((VirtualQFileIconProvider*)self)->icon(static_cast<QAbstractFileIconProvider::IconType>(typeVal)));
-    }
+    return new QIcon(self->icon(static_cast<QAbstractFileIconProvider::IconType>(typeVal)));
 }
 
 QIcon* QFileIconProvider_Icon2(const QFileIconProvider* self, const QFileInfo* info) {
-    auto* vqfileiconprovider = dynamic_cast<const VirtualQFileIconProvider*>(self);
-    if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
-        return new QIcon(self->icon(*info));
-    } else {
-        return new QIcon(((VirtualQFileIconProvider*)self)->icon(*info));
-    }
+    return new QIcon(self->icon(*info));
 }
 
 // Base class handler implementation

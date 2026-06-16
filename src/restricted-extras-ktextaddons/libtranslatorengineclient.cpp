@@ -22,250 +22,120 @@ TextTranslator__TranslatorEngineClient* TextTranslator__TranslatorEngineClient_n
 }
 
 QMetaObject* TextTranslator__TranslatorEngineClient_MetaObject(const TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorEngineClient*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorEngineClient_Metacast(TextTranslator__TranslatorEngineClient* self, const char* param1) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineClient*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorEngineClient_Metacall(TextTranslator__TranslatorEngineClient* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineClient*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string TextTranslator__TranslatorEngineClient_Name(const TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        auto _ret = vtexttranslator__translatorengineclient->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string TextTranslator__TranslatorEngineClient_TranslatedName(const TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        auto _ret = vtexttranslator__translatorengineclient->translatedName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->translatedName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->translatedName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 TextTranslator__TranslatorEnginePlugin* TextTranslator__TranslatorEngineClient_CreateTranslator(TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return vtexttranslator__translatorengineclient->createTranslator();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineClient*)self)->createTranslator();
-    }
+    return self->createTranslator();
 }
 
 libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_SupportedFromLanguages(TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        QMap<TextTranslator::TranslatorUtil::Language, QString> _ret = vtexttranslator__translatorengineclient->supportedFromLanguages();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            auto _mapval_ret = _itr->second;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _mapval_b = _mapval_ret.toUtf8();
-            libqt_string _mapval_str;
-            _mapval_str.len = _mapval_b.length();
-            _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
-            memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
-            ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
-            _varr[_ctr] = _mapval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<TextTranslator::TranslatorUtil::Language, QString> _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->supportedFromLanguages();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            auto _mapval_ret = _itr->second;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _mapval_b = _mapval_ret.toUtf8();
-            libqt_string _mapval_str;
-            _mapval_str.len = _mapval_b.length();
-            _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
-            memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
-            ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
-            _varr[_ctr] = _mapval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<TextTranslator::TranslatorUtil::Language, QString> _ret = self->supportedFromLanguages();
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = static_cast<int>(_itr->first);
+        auto _mapval_ret = _itr->second;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _mapval_b = _mapval_ret.toUtf8();
+        libqt_string _mapval_str;
+        _mapval_str.len = _mapval_b.length();
+        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
+        memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
+        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
+        _varr[_ctr] = _mapval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 libqt_map /* of int to libqt_string */ TextTranslator__TranslatorEngineClient_SupportedToLanguages(TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        QMap<TextTranslator::TranslatorUtil::Language, QString> _ret = vtexttranslator__translatorengineclient->supportedToLanguages();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            auto _mapval_ret = _itr->second;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _mapval_b = _mapval_ret.toUtf8();
-            libqt_string _mapval_str;
-            _mapval_str.len = _mapval_b.length();
-            _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
-            memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
-            ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
-            _varr[_ctr] = _mapval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<TextTranslator::TranslatorUtil::Language, QString> _ret = ((VirtualTextTranslatorTranslatorEngineClient*)self)->supportedToLanguages();
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = static_cast<int>(_itr->first);
-            auto _mapval_ret = _itr->second;
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _mapval_b = _mapval_ret.toUtf8();
-            libqt_string _mapval_str;
-            _mapval_str.len = _mapval_b.length();
-            _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
-            memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
-            ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
-            _varr[_ctr] = _mapval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<TextTranslator::TranslatorUtil::Language, QString> _ret = self->supportedToLanguages();
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = static_cast<int>(_itr->first);
+        auto _mapval_ret = _itr->second;
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _mapval_b = _mapval_ret.toUtf8();
+        libqt_string _mapval_str;
+        _mapval_str.len = _mapval_b.length();
+        _mapval_str.data = static_cast<const char*>(malloc(_mapval_str.len + 1));
+        memcpy((void*)_mapval_str.data, _mapval_b.data(), _mapval_str.len);
+        ((char*)_mapval_str.data)[_mapval_str.len] = '\0';
+        _varr[_ctr] = _mapval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 void TextTranslator__TranslatorEngineClient_UpdateListLanguages(TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        self->updateListLanguages();
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineClient*)self)->updateListLanguages();
-    }
+    self->updateListLanguages();
 }
 
 bool TextTranslator__TranslatorEngineClient_HasConfigurationDialog(const TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return self->hasConfigurationDialog();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineClient*)self)->hasConfigurationDialog();
-    }
+    return self->hasConfigurationDialog();
 }
 
 bool TextTranslator__TranslatorEngineClient_ShowConfigureDialog(TextTranslator__TranslatorEngineClient* self, QWidget* parentWidget) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return self->showConfigureDialog(parentWidget);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineClient*)self)->showConfigureDialog(parentWidget);
-    }
+    return self->showConfigureDialog(parentWidget);
 }
 
 void TextTranslator__TranslatorEngineClient_GenerateToListFromCurrentToLanguage(TextTranslator__TranslatorEngineClient* self, const libqt_string languageCode) {
     QString languageCode_QString = QString::fromUtf8(languageCode.data, languageCode.len);
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        self->generateToListFromCurrentToLanguage(languageCode_QString);
-    } else {
-        ((VirtualTextTranslatorTranslatorEngineClient*)self)->generateToListFromCurrentToLanguage(languageCode_QString);
-    }
+    self->generateToListFromCurrentToLanguage(languageCode_QString);
 }
 
 bool TextTranslator__TranslatorEngineClient_HasInvertSupport(const TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return self->hasInvertSupport();
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineClient*)self)->hasInvertSupport();
-    }
+    return self->hasInvertSupport();
 }
 
 int TextTranslator__TranslatorEngineClient_EngineType(const TextTranslator__TranslatorEngineClient* self) {
-    auto* vtexttranslator__translatorengineclient = dynamic_cast<const VirtualTextTranslatorTranslatorEngineClient*>(self);
-    if (vtexttranslator__translatorengineclient && vtexttranslator__translatorengineclient->isVirtualTextTranslatorTranslatorEngineClient) {
-        return static_cast<int>(vtexttranslator__translatorengineclient->engineType());
-    } else {
-        return static_cast<int>(((VirtualTextTranslatorTranslatorEngineClient*)self)->engineType());
-    }
+    return static_cast<int>(self->engineType());
 }
 
 void TextTranslator__TranslatorEngineClient_ConfigureChanged(TextTranslator__TranslatorEngineClient* self) {

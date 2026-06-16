@@ -21,12 +21,7 @@ void QGraphicsLayout_SetContentsMargins(QGraphicsLayout* self, double left, doub
 }
 
 void QGraphicsLayout_GetContentsMargins(const QGraphicsLayout* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        ((VirtualQGraphicsLayout*)self)->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 void QGraphicsLayout_Activate(QGraphicsLayout* self) {
@@ -38,57 +33,27 @@ bool QGraphicsLayout_IsActivated(const QGraphicsLayout* self) {
 }
 
 void QGraphicsLayout_Invalidate(QGraphicsLayout* self) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQGraphicsLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 void QGraphicsLayout_UpdateGeometry(QGraphicsLayout* self) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        self->updateGeometry();
-    } else {
-        ((VirtualQGraphicsLayout*)self)->updateGeometry();
-    }
+    self->updateGeometry();
 }
 
 void QGraphicsLayout_WidgetEvent(QGraphicsLayout* self, QEvent* e) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        self->widgetEvent(e);
-    } else {
-        ((VirtualQGraphicsLayout*)self)->widgetEvent(e);
-    }
+    self->widgetEvent(e);
 }
 
 int QGraphicsLayout_Count(const QGraphicsLayout* self) {
-    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        return vqgraphicslayout->count();
-    } else {
-        return ((VirtualQGraphicsLayout*)self)->count();
-    }
+    return self->count();
 }
 
 QGraphicsLayoutItem* QGraphicsLayout_ItemAt(const QGraphicsLayout* self, int i) {
-    auto* vqgraphicslayout = dynamic_cast<const VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        return vqgraphicslayout->itemAt(static_cast<int>(i));
-    } else {
-        return ((VirtualQGraphicsLayout*)self)->itemAt(static_cast<int>(i));
-    }
+    return self->itemAt(static_cast<int>(i));
 }
 
 void QGraphicsLayout_RemoveAt(QGraphicsLayout* self, int index) {
-    auto* vqgraphicslayout = dynamic_cast<VirtualQGraphicsLayout*>(self);
-    if (vqgraphicslayout && vqgraphicslayout->isVirtualQGraphicsLayout) {
-        vqgraphicslayout->removeAt(static_cast<int>(index));
-    } else {
-        ((VirtualQGraphicsLayout*)self)->removeAt(static_cast<int>(index));
-    }
+    self->removeAt(static_cast<int>(index));
 }
 
 void QGraphicsLayout_SetInstantInvalidatePropagation(bool enable) {

@@ -176,93 +176,43 @@ int KConfigSkeletonItem_WriteFlags(const KConfigSkeletonItem* self) {
 }
 
 void KConfigSkeletonItem_ReadConfig(KConfigSkeletonItem* self, KConfig* param1) {
-    auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        vkconfigskeletonitem->readConfig(param1);
-    } else {
-        ((VirtualKConfigSkeletonItem*)self)->readConfig(param1);
-    }
+    self->readConfig(param1);
 }
 
 void KConfigSkeletonItem_WriteConfig(KConfigSkeletonItem* self, KConfig* param1) {
-    auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        vkconfigskeletonitem->writeConfig(param1);
-    } else {
-        ((VirtualKConfigSkeletonItem*)self)->writeConfig(param1);
-    }
+    self->writeConfig(param1);
 }
 
 void KConfigSkeletonItem_ReadDefault(KConfigSkeletonItem* self, KConfig* param1) {
-    auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        vkconfigskeletonitem->readDefault(param1);
-    } else {
-        ((VirtualKConfigSkeletonItem*)self)->readDefault(param1);
-    }
+    self->readDefault(param1);
 }
 
 void KConfigSkeletonItem_SetProperty(KConfigSkeletonItem* self, const QVariant* p) {
-    auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        vkconfigskeletonitem->setProperty(*p);
-    } else {
-        ((VirtualKConfigSkeletonItem*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KConfigSkeletonItem_IsEqual(const KConfigSkeletonItem* self, const QVariant* p) {
-    auto* vkconfigskeletonitem = dynamic_cast<const VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        return vkconfigskeletonitem->isEqual(*p);
-    } else {
-        return ((VirtualKConfigSkeletonItem*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KConfigSkeletonItem_Property(const KConfigSkeletonItem* self) {
-    auto* vkconfigskeletonitem = dynamic_cast<const VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        return new QVariant(vkconfigskeletonitem->property());
-    } else {
-        return new QVariant(((VirtualKConfigSkeletonItem*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 QVariant* KConfigSkeletonItem_MinValue(const KConfigSkeletonItem* self) {
-    auto* vkconfigskeletonitem = dynamic_cast<const VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        return new QVariant(self->minValue());
-    } else {
-        return new QVariant(((VirtualKConfigSkeletonItem*)self)->minValue());
-    }
+    return new QVariant(self->minValue());
 }
 
 QVariant* KConfigSkeletonItem_MaxValue(const KConfigSkeletonItem* self) {
-    auto* vkconfigskeletonitem = dynamic_cast<const VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        return new QVariant(self->maxValue());
-    } else {
-        return new QVariant(((VirtualKConfigSkeletonItem*)self)->maxValue());
-    }
+    return new QVariant(self->maxValue());
 }
 
 void KConfigSkeletonItem_SetDefault(KConfigSkeletonItem* self) {
-    auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        vkconfigskeletonitem->setDefault();
-    } else {
-        ((VirtualKConfigSkeletonItem*)self)->setDefault();
-    }
+    self->setDefault();
 }
 
 void KConfigSkeletonItem_SwapDefault(KConfigSkeletonItem* self) {
-    auto* vkconfigskeletonitem = dynamic_cast<VirtualKConfigSkeletonItem*>(self);
-    if (vkconfigskeletonitem && vkconfigskeletonitem->isVirtualKConfigSkeletonItem) {
-        vkconfigskeletonitem->swapDefault();
-    } else {
-        ((VirtualKConfigSkeletonItem*)self)->swapDefault();
-    }
+    self->swapDefault();
 }
 
 bool KConfigSkeletonItem_IsImmutable(const KConfigSkeletonItem* self) {
@@ -514,75 +464,35 @@ KPropertySkeletonItem* KPropertySkeletonItem_new2(const KPropertySkeletonItem* p
 }
 
 QVariant* KPropertySkeletonItem_Property(const KPropertySkeletonItem* self) {
-    auto* vkpropertyskeletonitem = dynamic_cast<const VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKPropertySkeletonItem*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 void KPropertySkeletonItem_SetProperty(KPropertySkeletonItem* self, const QVariant* p) {
-    auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKPropertySkeletonItem*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KPropertySkeletonItem_IsEqual(const KPropertySkeletonItem* self, const QVariant* p) {
-    auto* vkpropertyskeletonitem = dynamic_cast<const VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKPropertySkeletonItem*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 void KPropertySkeletonItem_ReadConfig(KPropertySkeletonItem* self, KConfig* param1) {
-    auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        self->readConfig(param1);
-    } else {
-        ((VirtualKPropertySkeletonItem*)self)->readConfig(param1);
-    }
+    self->readConfig(param1);
 }
 
 void KPropertySkeletonItem_WriteConfig(KPropertySkeletonItem* self, KConfig* param1) {
-    auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        self->writeConfig(param1);
-    } else {
-        ((VirtualKPropertySkeletonItem*)self)->writeConfig(param1);
-    }
+    self->writeConfig(param1);
 }
 
 void KPropertySkeletonItem_ReadDefault(KPropertySkeletonItem* self, KConfig* param1) {
-    auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        self->readDefault(param1);
-    } else {
-        ((VirtualKPropertySkeletonItem*)self)->readDefault(param1);
-    }
+    self->readDefault(param1);
 }
 
 void KPropertySkeletonItem_SetDefault(KPropertySkeletonItem* self) {
-    auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        self->setDefault();
-    } else {
-        ((VirtualKPropertySkeletonItem*)self)->setDefault();
-    }
+    self->setDefault();
 }
 
 void KPropertySkeletonItem_SwapDefault(KPropertySkeletonItem* self) {
-    auto* vkpropertyskeletonitem = dynamic_cast<VirtualKPropertySkeletonItem*>(self);
-    if (vkpropertyskeletonitem && vkpropertyskeletonitem->isVirtualKPropertySkeletonItem) {
-        self->swapDefault();
-    } else {
-        ((VirtualKPropertySkeletonItem*)self)->swapDefault();
-    }
+    self->swapDefault();
 }
 
 void KPropertySkeletonItem_SetNotifyFunction(KPropertySkeletonItem* self, intptr_t impl) {
@@ -910,39 +820,19 @@ KCoreConfigSkeleton* KCoreConfigSkeleton_new3(const libqt_string configname, QOb
 }
 
 QMetaObject* KCoreConfigSkeleton_MetaObject(const KCoreConfigSkeleton* self) {
-    auto* vkcoreconfigskeleton = dynamic_cast<const VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCoreConfigSkeleton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCoreConfigSkeleton_Metacast(KCoreConfigSkeleton* self, const char* param1) {
-    auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCoreConfigSkeleton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCoreConfigSkeleton_Metacall(KCoreConfigSkeleton* self, int param1, int param2, void** param3) {
-    auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCoreConfigSkeleton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCoreConfigSkeleton_SetDefaults(KCoreConfigSkeleton* self) {
-    auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
-        self->setDefaults();
-    } else {
-        ((VirtualKCoreConfigSkeleton*)self)->setDefaults();
-    }
+    self->setDefaults();
 }
 
 void KCoreConfigSkeleton_Load(KCoreConfigSkeleton* self) {
@@ -1134,12 +1024,7 @@ KConfigSkeletonItem* KCoreConfigSkeleton_FindItem(const KCoreConfigSkeleton* sel
 }
 
 bool KCoreConfigSkeleton_UseDefaults(KCoreConfigSkeleton* self, bool b) {
-    auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
-    if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
-        return self->useDefaults(b);
-    } else {
-        return ((VirtualKCoreConfigSkeleton*)self)->useDefaults(b);
-    }
+    return self->useDefaults(b);
 }
 
 bool KCoreConfigSkeleton_Save(KCoreConfigSkeleton* self) {
@@ -1983,48 +1868,23 @@ KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton__ItemString_new3(const libq
 }
 
 void KCoreConfigSkeleton__ItemString_WriteConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
-        self->writeConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemString*)self)->writeConfig(config);
-    }
+    self->writeConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemString_ReadConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemString*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemString_SetProperty(KCoreConfigSkeleton__ItemString* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemString*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemString_IsEqual(const KCoreConfigSkeleton__ItemString* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemString*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemString_Property(const KCoreConfigSkeleton__ItemString* self) {
-    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self);
-    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemString*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -2467,48 +2327,23 @@ KCoreConfigSkeleton__ItemUrl* KCoreConfigSkeleton__ItemUrl_new2(const libqt_stri
 }
 
 void KCoreConfigSkeleton__ItemUrl_WriteConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
-        self->writeConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUrl*)self)->writeConfig(config);
-    }
+    self->writeConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemUrl_ReadConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUrl*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemUrl_SetProperty(KCoreConfigSkeleton__ItemUrl* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUrl*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemUrl_IsEqual(const KCoreConfigSkeleton__ItemUrl* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemUrl*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemUrl_Property(const KCoreConfigSkeleton__ItemUrl* self) {
-    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self);
-    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemUrl*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -2623,39 +2458,19 @@ KCoreConfigSkeleton__ItemProperty* KCoreConfigSkeleton__ItemProperty_new2(const 
 }
 
 void KCoreConfigSkeleton__ItemProperty_ReadConfig(KCoreConfigSkeleton__ItemProperty* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
-    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemProperty*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemProperty_SetProperty(KCoreConfigSkeleton__ItemProperty* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
-    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemProperty*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemProperty_IsEqual(const KCoreConfigSkeleton__ItemProperty* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self);
-    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemProperty*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemProperty_Property(const KCoreConfigSkeleton__ItemProperty* self) {
-    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self);
-    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemProperty*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -2751,39 +2566,19 @@ KCoreConfigSkeleton__ItemBool* KCoreConfigSkeleton__ItemBool_new2(const libqt_st
 }
 
 void KCoreConfigSkeleton__ItemBool_ReadConfig(KCoreConfigSkeleton__ItemBool* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
-    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemBool*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemBool_SetProperty(KCoreConfigSkeleton__ItemBool* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
-    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemBool*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemBool_IsEqual(const KCoreConfigSkeleton__ItemBool* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itembool = dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self);
-    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemBool*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemBool_Property(const KCoreConfigSkeleton__ItemBool* self) {
-    auto* vkcoreconfigskeleton__itembool = dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self);
-    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemBool*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -2879,57 +2674,27 @@ KCoreConfigSkeleton__ItemInt* KCoreConfigSkeleton__ItemInt_new2(const libqt_stri
 }
 
 void KCoreConfigSkeleton__ItemInt_ReadConfig(KCoreConfigSkeleton__ItemInt* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemInt*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemInt_SetProperty(KCoreConfigSkeleton__ItemInt* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemInt*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemInt_IsEqual(const KCoreConfigSkeleton__ItemInt* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemInt*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemInt_Property(const KCoreConfigSkeleton__ItemInt* self) {
-    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 QVariant* KCoreConfigSkeleton__ItemInt_MinValue(const KCoreConfigSkeleton__ItemInt* self) {
-    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
-        return new QVariant(self->minValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->minValue());
-    }
+    return new QVariant(self->minValue());
 }
 
 QVariant* KCoreConfigSkeleton__ItemInt_MaxValue(const KCoreConfigSkeleton__ItemInt* self) {
-    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
-    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
-        return new QVariant(self->maxValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->maxValue());
-    }
+    return new QVariant(self->maxValue());
 }
 
 // Base class handler implementation
@@ -3063,57 +2828,27 @@ KCoreConfigSkeleton__ItemLongLong* KCoreConfigSkeleton__ItemLongLong_new2(const 
 }
 
 void KCoreConfigSkeleton__ItemLongLong_ReadConfig(KCoreConfigSkeleton__ItemLongLong* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemLongLong*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemLongLong_SetProperty(KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemLongLong*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemLongLong_IsEqual(const KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemLongLong*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemLongLong_Property(const KCoreConfigSkeleton__ItemLongLong* self) {
-    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 QVariant* KCoreConfigSkeleton__ItemLongLong_MinValue(const KCoreConfigSkeleton__ItemLongLong* self) {
-    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
-        return new QVariant(self->minValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->minValue());
-    }
+    return new QVariant(self->minValue());
 }
 
 QVariant* KCoreConfigSkeleton__ItemLongLong_MaxValue(const KCoreConfigSkeleton__ItemLongLong* self) {
-    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
-    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
-        return new QVariant(self->maxValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->maxValue());
-    }
+    return new QVariant(self->maxValue());
 }
 
 void KCoreConfigSkeleton__ItemLongLong_SetMinValue(KCoreConfigSkeleton__ItemLongLong* self, long long minValue) {
@@ -3381,21 +3116,11 @@ libqt_list /* of KCoreConfigSkeleton__ItemEnum__Choice* */ KCoreConfigSkeleton__
 }
 
 void KCoreConfigSkeleton__ItemEnum_ReadConfig(KCoreConfigSkeleton__ItemEnum* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemenum = dynamic_cast<VirtualKCoreConfigSkeletonItemEnum*>(self);
-    if (vkcoreconfigskeleton__itemenum && vkcoreconfigskeleton__itemenum->isVirtualKCoreConfigSkeletonItemEnum) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemEnum*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemEnum_WriteConfig(KCoreConfigSkeleton__ItemEnum* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemenum = dynamic_cast<VirtualKCoreConfigSkeletonItemEnum*>(self);
-    if (vkcoreconfigskeleton__itemenum && vkcoreconfigskeleton__itemenum->isVirtualKCoreConfigSkeletonItemEnum) {
-        self->writeConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemEnum*)self)->writeConfig(config);
-    }
+    self->writeConfig(config);
 }
 
 libqt_string KCoreConfigSkeleton__ItemEnum_ValueForChoice(const KCoreConfigSkeleton__ItemEnum* self, const libqt_string name) {
@@ -3617,57 +3342,27 @@ KCoreConfigSkeleton__ItemUInt* KCoreConfigSkeleton__ItemUInt_new2(const libqt_st
 }
 
 void KCoreConfigSkeleton__ItemUInt_ReadConfig(KCoreConfigSkeleton__ItemUInt* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUInt*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemUInt_SetProperty(KCoreConfigSkeleton__ItemUInt* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUInt*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemUInt_IsEqual(const KCoreConfigSkeleton__ItemUInt* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemUInt*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemUInt_Property(const KCoreConfigSkeleton__ItemUInt* self) {
-    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 QVariant* KCoreConfigSkeleton__ItemUInt_MinValue(const KCoreConfigSkeleton__ItemUInt* self) {
-    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
-        return new QVariant(self->minValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->minValue());
-    }
+    return new QVariant(self->minValue());
 }
 
 QVariant* KCoreConfigSkeleton__ItemUInt_MaxValue(const KCoreConfigSkeleton__ItemUInt* self) {
-    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
-    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
-        return new QVariant(self->maxValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->maxValue());
-    }
+    return new QVariant(self->maxValue());
 }
 
 void KCoreConfigSkeleton__ItemUInt_SetMinValue(KCoreConfigSkeleton__ItemUInt* self, unsigned int minValue) {
@@ -3809,57 +3504,27 @@ KCoreConfigSkeleton__ItemULongLong* KCoreConfigSkeleton__ItemULongLong_new2(cons
 }
 
 void KCoreConfigSkeleton__ItemULongLong_ReadConfig(KCoreConfigSkeleton__ItemULongLong* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemULongLong*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemULongLong_SetProperty(KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemULongLong*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemULongLong_IsEqual(const KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemULongLong*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemULongLong_Property(const KCoreConfigSkeleton__ItemULongLong* self) {
-    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 QVariant* KCoreConfigSkeleton__ItemULongLong_MinValue(const KCoreConfigSkeleton__ItemULongLong* self) {
-    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
-        return new QVariant(self->minValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->minValue());
-    }
+    return new QVariant(self->minValue());
 }
 
 QVariant* KCoreConfigSkeleton__ItemULongLong_MaxValue(const KCoreConfigSkeleton__ItemULongLong* self) {
-    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
-    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
-        return new QVariant(self->maxValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->maxValue());
-    }
+    return new QVariant(self->maxValue());
 }
 
 void KCoreConfigSkeleton__ItemULongLong_SetMinValue(KCoreConfigSkeleton__ItemULongLong* self, unsigned long long minValue) {
@@ -4001,57 +3666,27 @@ KCoreConfigSkeleton__ItemDouble* KCoreConfigSkeleton__ItemDouble_new2(const libq
 }
 
 void KCoreConfigSkeleton__ItemDouble_ReadConfig(KCoreConfigSkeleton__ItemDouble* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemDouble*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemDouble_SetProperty(KCoreConfigSkeleton__ItemDouble* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemDouble*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemDouble_IsEqual(const KCoreConfigSkeleton__ItemDouble* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemDouble*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemDouble_Property(const KCoreConfigSkeleton__ItemDouble* self) {
-    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 QVariant* KCoreConfigSkeleton__ItemDouble_MinValue(const KCoreConfigSkeleton__ItemDouble* self) {
-    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
-        return new QVariant(self->minValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->minValue());
-    }
+    return new QVariant(self->minValue());
 }
 
 QVariant* KCoreConfigSkeleton__ItemDouble_MaxValue(const KCoreConfigSkeleton__ItemDouble* self) {
-    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
-    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
-        return new QVariant(self->maxValue());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->maxValue());
-    }
+    return new QVariant(self->maxValue());
 }
 
 void KCoreConfigSkeleton__ItemDouble_SetMinValue(KCoreConfigSkeleton__ItemDouble* self, double minValue) {
@@ -4193,39 +3828,19 @@ KCoreConfigSkeleton__ItemRect* KCoreConfigSkeleton__ItemRect_new2(const libqt_st
 }
 
 void KCoreConfigSkeleton__ItemRect_ReadConfig(KCoreConfigSkeleton__ItemRect* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
-    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemRect*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemRect_SetProperty(KCoreConfigSkeleton__ItemRect* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
-    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemRect*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemRect_IsEqual(const KCoreConfigSkeleton__ItemRect* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self);
-    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemRect*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemRect_Property(const KCoreConfigSkeleton__ItemRect* self) {
-    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self);
-    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemRect*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -4321,39 +3936,19 @@ KCoreConfigSkeleton__ItemRectF* KCoreConfigSkeleton__ItemRectF_new2(const libqt_
 }
 
 void KCoreConfigSkeleton__ItemRectF_ReadConfig(KCoreConfigSkeleton__ItemRectF* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
-    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemRectF*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemRectF_SetProperty(KCoreConfigSkeleton__ItemRectF* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
-    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemRectF*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemRectF_IsEqual(const KCoreConfigSkeleton__ItemRectF* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self);
-    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemRectF*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemRectF_Property(const KCoreConfigSkeleton__ItemRectF* self) {
-    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self);
-    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemRectF*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -4449,39 +4044,19 @@ KCoreConfigSkeleton__ItemPoint* KCoreConfigSkeleton__ItemPoint_new2(const libqt_
 }
 
 void KCoreConfigSkeleton__ItemPoint_ReadConfig(KCoreConfigSkeleton__ItemPoint* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
-    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemPoint*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemPoint_SetProperty(KCoreConfigSkeleton__ItemPoint* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
-    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemPoint*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemPoint_IsEqual(const KCoreConfigSkeleton__ItemPoint* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self);
-    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemPoint*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemPoint_Property(const KCoreConfigSkeleton__ItemPoint* self) {
-    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self);
-    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemPoint*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -4577,39 +4152,19 @@ KCoreConfigSkeleton__ItemPointF* KCoreConfigSkeleton__ItemPointF_new2(const libq
 }
 
 void KCoreConfigSkeleton__ItemPointF_ReadConfig(KCoreConfigSkeleton__ItemPointF* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
-    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemPointF*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemPointF_SetProperty(KCoreConfigSkeleton__ItemPointF* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
-    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemPointF*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemPointF_IsEqual(const KCoreConfigSkeleton__ItemPointF* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self);
-    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemPointF*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemPointF_Property(const KCoreConfigSkeleton__ItemPointF* self) {
-    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self);
-    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemPointF*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -4705,39 +4260,19 @@ KCoreConfigSkeleton__ItemSize* KCoreConfigSkeleton__ItemSize_new2(const libqt_st
 }
 
 void KCoreConfigSkeleton__ItemSize_ReadConfig(KCoreConfigSkeleton__ItemSize* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
-    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemSize*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemSize_SetProperty(KCoreConfigSkeleton__ItemSize* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
-    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemSize*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemSize_IsEqual(const KCoreConfigSkeleton__ItemSize* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self);
-    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemSize*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemSize_Property(const KCoreConfigSkeleton__ItemSize* self) {
-    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self);
-    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemSize*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -4833,39 +4368,19 @@ KCoreConfigSkeleton__ItemSizeF* KCoreConfigSkeleton__ItemSizeF_new2(const libqt_
 }
 
 void KCoreConfigSkeleton__ItemSizeF_ReadConfig(KCoreConfigSkeleton__ItemSizeF* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
-    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemSizeF*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemSizeF_SetProperty(KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
-    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemSizeF*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemSizeF_IsEqual(const KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self);
-    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemSizeF*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemSizeF_Property(const KCoreConfigSkeleton__ItemSizeF* self) {
-    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self);
-    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemSizeF*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -4961,39 +4476,19 @@ KCoreConfigSkeleton__ItemDateTime* KCoreConfigSkeleton__ItemDateTime_new2(const 
 }
 
 void KCoreConfigSkeleton__ItemDateTime_ReadConfig(KCoreConfigSkeleton__ItemDateTime* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
-    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemDateTime*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemDateTime_SetProperty(KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
-    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemDateTime*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemDateTime_IsEqual(const KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self);
-    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemDateTime*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemDateTime_Property(const KCoreConfigSkeleton__ItemDateTime* self) {
-    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self);
-    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemDateTime*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -5110,39 +4605,19 @@ KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton__ItemStringList_new2(co
 }
 
 void KCoreConfigSkeleton__ItemStringList_ReadConfig(KCoreConfigSkeleton__ItemStringList* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
-    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemStringList*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemStringList_SetProperty(KCoreConfigSkeleton__ItemStringList* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
-    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemStringList*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemStringList_IsEqual(const KCoreConfigSkeleton__ItemStringList* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self);
-    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemStringList*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemStringList_Property(const KCoreConfigSkeleton__ItemStringList* self) {
-    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self);
-    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemStringList*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -5259,21 +4734,11 @@ KCoreConfigSkeleton__ItemPathList* KCoreConfigSkeleton__ItemPathList_new2(const 
 }
 
 void KCoreConfigSkeleton__ItemPathList_ReadConfig(KCoreConfigSkeleton__ItemPathList* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itempathlist = dynamic_cast<VirtualKCoreConfigSkeletonItemPathList*>(self);
-    if (vkcoreconfigskeleton__itempathlist && vkcoreconfigskeleton__itempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemPathList*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemPathList_WriteConfig(KCoreConfigSkeleton__ItemPathList* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itempathlist = dynamic_cast<VirtualKCoreConfigSkeletonItemPathList*>(self);
-    if (vkcoreconfigskeleton__itempathlist && vkcoreconfigskeleton__itempathlist->isVirtualKCoreConfigSkeletonItemPathList) {
-        self->writeConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemPathList*)self)->writeConfig(config);
-    }
+    self->writeConfig(config);
 }
 
 // Base class handler implementation
@@ -5436,48 +4901,23 @@ KCoreConfigSkeleton__ItemUrlList* KCoreConfigSkeleton__ItemUrlList_new2(const li
 }
 
 void KCoreConfigSkeleton__ItemUrlList_ReadConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUrlList*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemUrlList_WriteConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
-        self->writeConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUrlList*)self)->writeConfig(config);
-    }
+    self->writeConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemUrlList_SetProperty(KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemUrlList*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemUrlList_IsEqual(const KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemUrlList*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemUrlList_Property(const KCoreConfigSkeleton__ItemUrlList* self) {
-    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self);
-    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemUrlList*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -5610,39 +5050,19 @@ KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton__ItemIntList_new2(const li
 }
 
 void KCoreConfigSkeleton__ItemIntList_ReadConfig(KCoreConfigSkeleton__ItemIntList* self, KConfig* config) {
-    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
-    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemIntList*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KCoreConfigSkeleton__ItemIntList_SetProperty(KCoreConfigSkeleton__ItemIntList* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
-    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKCoreConfigSkeletonItemIntList*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KCoreConfigSkeleton__ItemIntList_IsEqual(const KCoreConfigSkeleton__ItemIntList* self, const QVariant* p) {
-    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self);
-    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKCoreConfigSkeletonItemIntList*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KCoreConfigSkeleton__ItemIntList_Property(const KCoreConfigSkeleton__ItemIntList* self) {
-    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self);
-    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKCoreConfigSkeletonItemIntList*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation

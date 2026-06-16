@@ -23,30 +23,15 @@ KSelectionOwner* KSelectionOwner_new3(const char* selection, int screen, QObject
 }
 
 QMetaObject* KSelectionOwner_MetaObject(const KSelectionOwner* self) {
-    auto* vkselectionowner = dynamic_cast<const VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSelectionOwner*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSelectionOwner_Metacast(KSelectionOwner* self, const char* param1) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSelectionOwner_Metacall(KSelectionOwner* self, int param1, int param2, void** param3) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSelectionOwner*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSelectionOwner_Claim(KSelectionOwner* self, bool force) {
@@ -62,12 +47,7 @@ bool KSelectionOwner_FilterEvent(KSelectionOwner* self, void* ev_P) {
 }
 
 void KSelectionOwner_TimerEvent(KSelectionOwner* self, QTimerEvent* event) {
-    auto* vkselectionowner = dynamic_cast<VirtualKSelectionOwner*>(self);
-    if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
-        self->timerEvent(event);
-    } else {
-        ((VirtualKSelectionOwner*)self)->timerEvent(event);
-    }
+    self->timerEvent(event);
 }
 
 void KSelectionOwner_LostOwnership(KSelectionOwner* self) {

@@ -26,30 +26,15 @@ QDesignerIntegrationInterface* QDesignerIntegrationInterface_new2(QDesignerFormE
 }
 
 QMetaObject* QDesignerIntegrationInterface_MetaObject(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerIntegrationInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerIntegrationInterface_Metacast(QDesignerIntegrationInterface* self, const char* param1) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerIntegrationInterface_Metacall(QDesignerIntegrationInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerFormEditorInterface* QDesignerIntegrationInterface_Core(const QDesignerIntegrationInterface* self) {
@@ -57,83 +42,40 @@ QDesignerFormEditorInterface* QDesignerIntegrationInterface_Core(const QDesigner
 }
 
 QWidget* QDesignerIntegrationInterface_ContainerWindow(const QDesignerIntegrationInterface* self, QWidget* widget) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->containerWindow(widget);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->containerWindow(widget);
-    }
+    return self->containerWindow(widget);
 }
 
 QDesignerResourceBrowserInterface* QDesignerIntegrationInterface_CreateResourceBrowser(QDesignerIntegrationInterface* self, QWidget* parent) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->createResourceBrowser(parent);
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->createResourceBrowser(parent);
-    }
+    return self->createResourceBrowser(parent);
 }
 
 libqt_string QDesignerIntegrationInterface_HeaderSuffix(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        auto _ret = vqdesignerintegrationinterface->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->headerSuffix();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerIntegrationInterface_SetHeaderSuffix(QDesignerIntegrationInterface* self, const libqt_string headerSuffix) {
     QString headerSuffix_QString = QString::fromUtf8(headerSuffix.data, headerSuffix.len);
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setHeaderSuffix(headerSuffix_QString);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setHeaderSuffix(headerSuffix_QString);
-    }
+    self->setHeaderSuffix(headerSuffix_QString);
 }
 
 bool QDesignerIntegrationInterface_IsHeaderLowercase(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return vqdesignerintegrationinterface->isHeaderLowercase();
-    } else {
-        return ((VirtualQDesignerIntegrationInterface*)self)->isHeaderLowercase();
-    }
+    return self->isHeaderLowercase();
 }
 
 void QDesignerIntegrationInterface_SetHeaderLowercase(QDesignerIntegrationInterface* self, bool headerLowerCase) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setHeaderLowercase(headerLowerCase);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setHeaderLowercase(headerLowerCase);
-    }
+    self->setHeaderLowercase(headerLowerCase);
 }
 
 int QDesignerIntegrationInterface_Features(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return static_cast<int>(vqdesignerintegrationinterface->features());
-    } else {
-        return static_cast<int>(((VirtualQDesignerIntegrationInterface*)self)->features());
-    }
+    return static_cast<int>(self->features());
 }
 
 bool QDesignerIntegrationInterface_HasFeature(const QDesignerIntegrationInterface* self, int f) {
@@ -141,46 +83,23 @@ bool QDesignerIntegrationInterface_HasFeature(const QDesignerIntegrationInterfac
 }
 
 int QDesignerIntegrationInterface_ResourceFileWatcherBehaviour(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        return static_cast<int>(vqdesignerintegrationinterface->resourceFileWatcherBehaviour());
-    } else {
-        return static_cast<int>(((VirtualQDesignerIntegrationInterface*)self)->resourceFileWatcherBehaviour());
-    }
+    return static_cast<int>(self->resourceFileWatcherBehaviour());
 }
 
 void QDesignerIntegrationInterface_SetResourceFileWatcherBehaviour(QDesignerIntegrationInterface* self, int behaviour) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    }
+    self->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
 }
 
 libqt_string QDesignerIntegrationInterface_ContextHelpId(const QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<const VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        auto _ret = vqdesignerintegrationinterface->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerIntegrationInterface*)self)->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->contextHelpId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerIntegrationInterface_EmitObjectNameChanged(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow, QObject* object, const libqt_string newName, const libqt_string oldName) {
@@ -249,98 +168,48 @@ void QDesignerIntegrationInterface_NavigateToSlot2(QDesignerIntegrationInterface
 }
 
 void QDesignerIntegrationInterface_SetFeatures(QDesignerIntegrationInterface* self, int f) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    }
+    self->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
 }
 
 void QDesignerIntegrationInterface_UpdateProperty(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value, bool enableSubPropertyHandling) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    }
+    self->updateProperty(name_QString, *value, enableSubPropertyHandling);
 }
 
 void QDesignerIntegrationInterface_UpdateProperty2(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->updateProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateProperty(name_QString, *value);
-    }
+    self->updateProperty(name_QString, *value);
 }
 
 void QDesignerIntegrationInterface_ResetProperty(QDesignerIntegrationInterface* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->resetProperty(name_QString);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->resetProperty(name_QString);
-    }
+    self->resetProperty(name_QString);
 }
 
 void QDesignerIntegrationInterface_AddDynamicProperty(QDesignerIntegrationInterface* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->addDynamicProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->addDynamicProperty(name_QString, *value);
-    }
+    self->addDynamicProperty(name_QString, *value);
 }
 
 void QDesignerIntegrationInterface_RemoveDynamicProperty(QDesignerIntegrationInterface* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->removeDynamicProperty(name_QString);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->removeDynamicProperty(name_QString);
-    }
+    self->removeDynamicProperty(name_QString);
 }
 
 void QDesignerIntegrationInterface_UpdateActiveFormWindow(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->updateActiveFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateActiveFormWindow(formWindow);
-    }
+    self->updateActiveFormWindow(formWindow);
 }
 
 void QDesignerIntegrationInterface_SetupFormWindow(QDesignerIntegrationInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->setupFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->setupFormWindow(formWindow);
-    }
+    self->setupFormWindow(formWindow);
 }
 
 void QDesignerIntegrationInterface_UpdateSelection(QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->updateSelection();
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateSelection();
-    }
+    self->updateSelection();
 }
 
 void QDesignerIntegrationInterface_UpdateCustomWidgetPlugins(QDesignerIntegrationInterface* self) {
-    auto* vqdesignerintegrationinterface = dynamic_cast<VirtualQDesignerIntegrationInterface*>(self);
-    if (vqdesignerintegrationinterface && vqdesignerintegrationinterface->isVirtualQDesignerIntegrationInterface) {
-        vqdesignerintegrationinterface->updateCustomWidgetPlugins();
-    } else {
-        ((VirtualQDesignerIntegrationInterface*)self)->updateCustomWidgetPlugins();
-    }
+    self->updateCustomWidgetPlugins();
 }
 
 // Base class handler implementation
@@ -1150,128 +1019,60 @@ QDesignerIntegration* QDesignerIntegration_new2(QDesignerFormEditorInterface* co
 }
 
 QMetaObject* QDesignerIntegration_MetaObject(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerIntegration*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerIntegration_Metacast(QDesignerIntegration* self, const char* param1) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerIntegration_Metacall(QDesignerIntegration* self, int param1, int param2, void** param3) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QDesignerIntegration_HeaderSuffix(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        auto _ret = self->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerIntegration*)self)->headerSuffix();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->headerSuffix();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerIntegration_SetHeaderSuffix(QDesignerIntegration* self, const libqt_string headerSuffix) {
     QString headerSuffix_QString = QString::fromUtf8(headerSuffix.data, headerSuffix.len);
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->setHeaderSuffix(headerSuffix_QString);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->setHeaderSuffix(headerSuffix_QString);
-    }
+    self->setHeaderSuffix(headerSuffix_QString);
 }
 
 bool QDesignerIntegration_IsHeaderLowercase(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return self->isHeaderLowercase();
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->isHeaderLowercase();
-    }
+    return self->isHeaderLowercase();
 }
 
 void QDesignerIntegration_SetHeaderLowercase(QDesignerIntegration* self, bool headerLowerCase) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->setHeaderLowercase(headerLowerCase);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->setHeaderLowercase(headerLowerCase);
-    }
+    self->setHeaderLowercase(headerLowerCase);
 }
 
 int QDesignerIntegration_Features(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return static_cast<int>(self->features());
-    } else {
-        return static_cast<int>(((VirtualQDesignerIntegration*)self)->features());
-    }
+    return static_cast<int>(self->features());
 }
 
 void QDesignerIntegration_SetFeatures(QDesignerIntegration* self, int f) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    } else {
-        ((VirtualQDesignerIntegration*)self)->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
-    }
+    self->setFeatures(static_cast<QDesignerIntegrationInterface::Feature>(f));
 }
 
 int QDesignerIntegration_ResourceFileWatcherBehaviour(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return static_cast<int>(self->resourceFileWatcherBehaviour());
-    } else {
-        return static_cast<int>(((VirtualQDesignerIntegration*)self)->resourceFileWatcherBehaviour());
-    }
+    return static_cast<int>(self->resourceFileWatcherBehaviour());
 }
 
 void QDesignerIntegration_SetResourceFileWatcherBehaviour(QDesignerIntegration* self, int behaviour) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    } else {
-        ((VirtualQDesignerIntegration*)self)->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
-    }
+    self->setResourceFileWatcherBehaviour(static_cast<QDesignerIntegrationInterface::ResourceFileWatcherBehaviour>(behaviour));
 }
 
 QWidget* QDesignerIntegration_ContainerWindow(const QDesignerIntegration* self, QWidget* widget) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return self->containerWindow(widget);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->containerWindow(widget);
-    }
+    return self->containerWindow(widget);
 }
 
 void QDesignerIntegration_InitializePlugins(QDesignerFormEditorInterface* formEditor) {
@@ -1279,123 +1080,60 @@ void QDesignerIntegration_InitializePlugins(QDesignerFormEditorInterface* formEd
 }
 
 QDesignerResourceBrowserInterface* QDesignerIntegration_CreateResourceBrowser(QDesignerIntegration* self, QWidget* parent) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        return self->createResourceBrowser(parent);
-    } else {
-        return ((VirtualQDesignerIntegration*)self)->createResourceBrowser(parent);
-    }
+    return self->createResourceBrowser(parent);
 }
 
 libqt_string QDesignerIntegration_ContextHelpId(const QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<const VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        auto _ret = self->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerIntegration*)self)->contextHelpId();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->contextHelpId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerIntegration_UpdateProperty(QDesignerIntegration* self, const libqt_string name, const QVariant* value, bool enableSubPropertyHandling) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->updateProperty(name_QString, *value, enableSubPropertyHandling);
-    }
+    self->updateProperty(name_QString, *value, enableSubPropertyHandling);
 }
 
 void QDesignerIntegration_UpdateProperty2(QDesignerIntegration* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->updateProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->updateProperty(name_QString, *value);
-    }
+    self->updateProperty(name_QString, *value);
 }
 
 void QDesignerIntegration_ResetProperty(QDesignerIntegration* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->resetProperty(name_QString);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->resetProperty(name_QString);
-    }
+    self->resetProperty(name_QString);
 }
 
 void QDesignerIntegration_AddDynamicProperty(QDesignerIntegration* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->addDynamicProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->addDynamicProperty(name_QString, *value);
-    }
+    self->addDynamicProperty(name_QString, *value);
 }
 
 void QDesignerIntegration_RemoveDynamicProperty(QDesignerIntegration* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->removeDynamicProperty(name_QString);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->removeDynamicProperty(name_QString);
-    }
+    self->removeDynamicProperty(name_QString);
 }
 
 void QDesignerIntegration_UpdateActiveFormWindow(QDesignerIntegration* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->updateActiveFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->updateActiveFormWindow(formWindow);
-    }
+    self->updateActiveFormWindow(formWindow);
 }
 
 void QDesignerIntegration_SetupFormWindow(QDesignerIntegration* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->setupFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerIntegration*)self)->setupFormWindow(formWindow);
-    }
+    self->setupFormWindow(formWindow);
 }
 
 void QDesignerIntegration_UpdateSelection(QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->updateSelection();
-    } else {
-        ((VirtualQDesignerIntegration*)self)->updateSelection();
-    }
+    self->updateSelection();
 }
 
 void QDesignerIntegration_UpdateCustomWidgetPlugins(QDesignerIntegration* self) {
-    auto* vqdesignerintegration = dynamic_cast<VirtualQDesignerIntegration*>(self);
-    if (vqdesignerintegration && vqdesignerintegration->isVirtualQDesignerIntegration) {
-        self->updateCustomWidgetPlugins();
-    } else {
-        ((VirtualQDesignerIntegration*)self)->updateCustomWidgetPlugins();
-    }
+    self->updateCustomWidgetPlugins();
 }
 
 // Base class handler implementation

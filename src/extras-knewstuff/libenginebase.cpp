@@ -31,30 +31,15 @@ KNSCore__EngineBase* KNSCore__EngineBase_new2(QObject* parent) {
 }
 
 QMetaObject* KNSCore__EngineBase_MetaObject(const KNSCore__EngineBase* self) {
-    auto* vknscore__enginebase = dynamic_cast<const VirtualKNSCoreEngineBase*>(self);
-    if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSCoreEngineBase*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSCore__EngineBase_Metacast(KNSCore__EngineBase* self, const char* param1) {
-    auto* vknscore__enginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSCoreEngineBase*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSCore__EngineBase_Metacall(KNSCore__EngineBase* self, int param1, int param2, void** param3) {
-    auto* vknscore__enginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSCoreEngineBase*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ KNSCore__EngineBase_AvailableConfigFiles() {
@@ -80,12 +65,7 @@ libqt_list /* of libqt_string */ KNSCore__EngineBase_AvailableConfigFiles() {
 
 bool KNSCore__EngineBase_Init(KNSCore__EngineBase* self, const libqt_string configfile) {
     QString configfile_QString = QString::fromUtf8(configfile.data, configfile.len);
-    auto* vknscore__enginebase = dynamic_cast<VirtualKNSCoreEngineBase*>(self);
-    if (vknscore__enginebase && vknscore__enginebase->isVirtualKNSCoreEngineBase) {
-        return self->init(configfile_QString);
-    } else {
-        return ((VirtualKNSCoreEngineBase*)self)->init(configfile_QString);
-    }
+    return self->init(configfile_QString);
 }
 
 libqt_string KNSCore__EngineBase_Name(const KNSCore__EngineBase* self) {

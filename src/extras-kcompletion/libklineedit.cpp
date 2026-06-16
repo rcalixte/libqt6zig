@@ -52,45 +52,30 @@ KLineEdit* KLineEdit_new(QWidget* parent) {
     return new VirtualKLineEdit(parent);
 }
 
-KLineEdit* KLineEdit_new2(const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new VirtualKLineEdit(stringVal_QString);
+KLineEdit* KLineEdit_new2(const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new VirtualKLineEdit(string_QString);
 }
 
 KLineEdit* KLineEdit_new3() {
     return new VirtualKLineEdit();
 }
 
-KLineEdit* KLineEdit_new4(const libqt_string stringVal, QWidget* parent) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new VirtualKLineEdit(stringVal_QString, parent);
+KLineEdit* KLineEdit_new4(const libqt_string string, QWidget* parent) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new VirtualKLineEdit(string_QString, parent);
 }
 
 QMetaObject* KLineEdit_MetaObject(const KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<const VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLineEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLineEdit_Metacast(KLineEdit* self, const char* param1) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLineEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLineEdit_Metacall(KLineEdit* self, int param1, int param2, void** param3) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLineEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KLineEdit_SetUrl(KLineEdit* self, const QUrl* url) {
@@ -98,12 +83,7 @@ void KLineEdit_SetUrl(KLineEdit* self, const QUrl* url) {
 }
 
 void KLineEdit_SetCompletionMode(KLineEdit* self, int mode) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        ((VirtualKLineEdit*)self)->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 void KLineEdit_SetCompletionModeDisabled(KLineEdit* self, int mode) {
@@ -123,30 +103,15 @@ bool KLineEdit_TrapReturnKey(const KLineEdit* self) {
 }
 
 KCompletionBox* KLineEdit_CompletionBox(KLineEdit* self, bool create) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        return self->completionBox(create);
-    } else {
-        return ((VirtualKLineEdit*)self)->completionBox(create);
-    }
+    return self->completionBox(create);
 }
 
 void KLineEdit_SetCompletionObject(KLineEdit* self, KCompletion* param1, bool handle) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->setCompletionObject(param1, handle);
-    } else {
-        ((VirtualKLineEdit*)self)->setCompletionObject(param1, handle);
-    }
+    self->setCompletionObject(param1, handle);
 }
 
 void KLineEdit_Copy(const KLineEdit* self) {
-    auto* vklineedit = dynamic_cast<const VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->copy();
-    } else {
-        ((VirtualKLineEdit*)self)->copy();
-    }
+    self->copy();
 }
 
 void KLineEdit_SetSqueezedTextEnabled(KLineEdit* self, bool enable) {
@@ -326,12 +291,7 @@ void KLineEdit_Connect_ClearButtonClicked(KLineEdit* self, intptr_t slot) {
 }
 
 void KLineEdit_SetReadOnly(KLineEdit* self, bool readOnly) {
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->setReadOnly(readOnly);
-    } else {
-        ((VirtualKLineEdit*)self)->setReadOnly(readOnly);
-    }
+    self->setReadOnly(readOnly);
 }
 
 void KLineEdit_RotateText(KLineEdit* self, int typeVal) {
@@ -340,12 +300,7 @@ void KLineEdit_RotateText(KLineEdit* self, int typeVal) {
 
 void KLineEdit_SetCompletedText(KLineEdit* self, const libqt_string completedText) {
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->setCompletedText(completedText_QString);
-    } else {
-        ((VirtualKLineEdit*)self)->setCompletedText(completedText_QString);
-    }
+    self->setCompletedText(completedText_QString);
 }
 
 void KLineEdit_SetCompletedItems(KLineEdit* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
@@ -356,12 +311,7 @@ void KLineEdit_SetCompletedItems(KLineEdit* self, const libqt_list /* of libqt_s
         QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
         items_QList.push_back(items_arr_i_QString);
     }
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->setCompletedItems(items_QList, autoSuggest);
-    } else {
-        ((VirtualKLineEdit*)self)->setCompletedItems(items_QList, autoSuggest);
-    }
+    self->setCompletedItems(items_QList, autoSuggest);
 }
 
 void KLineEdit_SetSqueezedText(KLineEdit* self, const libqt_string text) {
@@ -371,12 +321,7 @@ void KLineEdit_SetSqueezedText(KLineEdit* self, const libqt_string text) {
 
 void KLineEdit_SetText(KLineEdit* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vklineedit = dynamic_cast<VirtualKLineEdit*>(self);
-    if (vklineedit && vklineedit->isVirtualKLineEdit) {
-        self->setText(text_QString);
-    } else {
-        ((VirtualKLineEdit*)self)->setText(text_QString);
-    }
+    self->setText(text_QString);
 }
 
 void KLineEdit_MakeCompletion(KLineEdit* self, const libqt_string param1) {

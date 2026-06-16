@@ -21,30 +21,15 @@ KColumnResizer* KColumnResizer_new2(QObject* parent) {
 }
 
 QMetaObject* KColumnResizer_MetaObject(const KColumnResizer* self) {
-    auto* vkcolumnresizer = dynamic_cast<const VirtualKColumnResizer*>(self);
-    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColumnResizer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColumnResizer_Metacast(KColumnResizer* self, const char* param1) {
-    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
-    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColumnResizer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColumnResizer_Metacall(KColumnResizer* self, int param1, int param2, void** param3) {
-    auto* vkcolumnresizer = dynamic_cast<VirtualKColumnResizer*>(self);
-    if (vkcolumnresizer && vkcolumnresizer->isVirtualKColumnResizer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColumnResizer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KColumnResizer_AddWidgetsFromLayout(KColumnResizer* self, QLayout* layout) {

@@ -47,30 +47,15 @@ QFocusFrame* QFocusFrame_new2() {
 }
 
 QMetaObject* QFocusFrame_MetaObject(const QFocusFrame* self) {
-    auto* vqfocusframe = dynamic_cast<const VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFocusFrame*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFocusFrame_Metacast(QFocusFrame* self, const char* param1) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFocusFrame*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFocusFrame_Metacall(QFocusFrame* self, int param1, int param2, void** param3) {
-    auto* vqfocusframe = dynamic_cast<VirtualQFocusFrame*>(self);
-    if (vqfocusframe && vqfocusframe->isVirtualQFocusFrame) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFocusFrame*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFocusFrame_SetWidget(QFocusFrame* self, QWidget* widget) {

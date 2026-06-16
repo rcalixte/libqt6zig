@@ -32,8 +32,8 @@ typedef struct QUrl QUrl;
 typedef struct QXmlStreamReader QXmlStreamReader;
 #endif
 
-libqt_string KNSCore_ReplaceBBCode(const libqt_string param1);
-size_t KNSCore_QHash(const KNSCore__Entry* param1, size_t param2);
+libqt_string KNSCore_ReplaceBBCode(const libqt_string unformattedText);
+size_t KNSCore_QHash(const KNSCore__Entry* entry, size_t seed);
 
 KNSCore__Entry* KNSCore__Entry_new();
 KNSCore__Entry* KNSCore__Entry_new2(const KNSCore__Entry* other);

@@ -24,30 +24,15 @@ QNmeaPositionInfoSource* QNmeaPositionInfoSource_new2(int updateMode, QObject* p
 }
 
 QMetaObject* QNmeaPositionInfoSource_MetaObject(const QNmeaPositionInfoSource* self) {
-    auto* vqnmeapositioninfosource = dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQNmeaPositionInfoSource*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QNmeaPositionInfoSource_Metacast(QNmeaPositionInfoSource* self, const char* param1) {
-    auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQNmeaPositionInfoSource*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QNmeaPositionInfoSource_Metacall(QNmeaPositionInfoSource* self, int param1, int param2, void** param3) {
-    auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQNmeaPositionInfoSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QNmeaPositionInfoSource_SetUserEquivalentRangeError(QNmeaPositionInfoSource* self, double uere) {
@@ -71,75 +56,35 @@ QIODevice* QNmeaPositionInfoSource_Device(const QNmeaPositionInfoSource* self) {
 }
 
 void QNmeaPositionInfoSource_SetUpdateInterval(QNmeaPositionInfoSource* self, int msec) {
-    auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        self->setUpdateInterval(static_cast<int>(msec));
-    } else {
-        ((VirtualQNmeaPositionInfoSource*)self)->setUpdateInterval(static_cast<int>(msec));
-    }
+    self->setUpdateInterval(static_cast<int>(msec));
 }
 
 QGeoPositionInfo* QNmeaPositionInfoSource_LastKnownPosition(const QNmeaPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly) {
-    auto* vqnmeapositioninfosource = dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return new QGeoPositionInfo(self->lastKnownPosition(fromSatellitePositioningMethodsOnly));
-    } else {
-        return new QGeoPositionInfo(((VirtualQNmeaPositionInfoSource*)self)->lastKnownPosition(fromSatellitePositioningMethodsOnly));
-    }
+    return new QGeoPositionInfo(self->lastKnownPosition(fromSatellitePositioningMethodsOnly));
 }
 
 int QNmeaPositionInfoSource_SupportedPositioningMethods(const QNmeaPositionInfoSource* self) {
-    auto* vqnmeapositioninfosource = dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return static_cast<int>(self->supportedPositioningMethods());
-    } else {
-        return static_cast<int>(((VirtualQNmeaPositionInfoSource*)self)->supportedPositioningMethods());
-    }
+    return static_cast<int>(self->supportedPositioningMethods());
 }
 
 int QNmeaPositionInfoSource_MinimumUpdateInterval(const QNmeaPositionInfoSource* self) {
-    auto* vqnmeapositioninfosource = dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return self->minimumUpdateInterval();
-    } else {
-        return ((VirtualQNmeaPositionInfoSource*)self)->minimumUpdateInterval();
-    }
+    return self->minimumUpdateInterval();
 }
 
 int QNmeaPositionInfoSource_Error(const QNmeaPositionInfoSource* self) {
-    auto* vqnmeapositioninfosource = dynamic_cast<const VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        return static_cast<int>(self->error());
-    } else {
-        return static_cast<int>(((VirtualQNmeaPositionInfoSource*)self)->error());
-    }
+    return static_cast<int>(self->error());
 }
 
 void QNmeaPositionInfoSource_StartUpdates(QNmeaPositionInfoSource* self) {
-    auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        self->startUpdates();
-    } else {
-        ((VirtualQNmeaPositionInfoSource*)self)->startUpdates();
-    }
+    self->startUpdates();
 }
 
 void QNmeaPositionInfoSource_StopUpdates(QNmeaPositionInfoSource* self) {
-    auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        self->stopUpdates();
-    } else {
-        ((VirtualQNmeaPositionInfoSource*)self)->stopUpdates();
-    }
+    self->stopUpdates();
 }
 
 void QNmeaPositionInfoSource_RequestUpdate(QNmeaPositionInfoSource* self, int timeout) {
-    auto* vqnmeapositioninfosource = dynamic_cast<VirtualQNmeaPositionInfoSource*>(self);
-    if (vqnmeapositioninfosource && vqnmeapositioninfosource->isVirtualQNmeaPositionInfoSource) {
-        self->requestUpdate(static_cast<int>(timeout));
-    } else {
-        ((VirtualQNmeaPositionInfoSource*)self)->requestUpdate(static_cast<int>(timeout));
-    }
+    self->requestUpdate(static_cast<int>(timeout));
 }
 
 bool QNmeaPositionInfoSource_ParsePosInfoFromNmeaData(QNmeaPositionInfoSource* self, const char* data, int size, QGeoPositionInfo* posInfo, bool* hasFix) {

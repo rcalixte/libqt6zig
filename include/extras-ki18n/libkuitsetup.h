@@ -20,7 +20,7 @@ typedef struct Kuit Kuit;
 typedef struct KuitSetup KuitSetup;
 #endif
 
-KuitSetup* Kuit_SetupForDomain(const libqt_string param1);
+KuitSetup* Kuit_SetupForDomain(const libqt_string domain);
 
 void KuitSetup_SetTagPattern(KuitSetup* self, const libqt_string tagName, const libqt_list /* of libqt_string */ attribNames, int format, const KLocalizedString* pattern);
 void KuitSetup_SetTagClass(KuitSetup* self, const libqt_string tagName, int aClass);

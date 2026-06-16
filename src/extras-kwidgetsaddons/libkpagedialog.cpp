@@ -56,30 +56,15 @@ KPageDialog* KPageDialog_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* KPageDialog_MetaObject(const KPageDialog* self) {
-    auto* vkpagedialog = dynamic_cast<const VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPageDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPageDialog_Metacast(KPageDialog* self, const char* param1) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPageDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPageDialog_Metacall(KPageDialog* self, int param1, int param2, void** param3) {
-    auto* vkpagedialog = dynamic_cast<VirtualKPageDialog*>(self);
-    if (vkpagedialog && vkpagedialog->isVirtualKPageDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPageDialog_SetFaceType(KPageDialog* self, int faceType) {

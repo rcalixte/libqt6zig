@@ -25,30 +25,15 @@ KToolBarLabelAction* KToolBarLabelAction_new2(QAction* buddy, const libqt_string
 }
 
 QMetaObject* KToolBarLabelAction_MetaObject(const KToolBarLabelAction* self) {
-    auto* vktoolbarlabelaction = dynamic_cast<const VirtualKToolBarLabelAction*>(self);
-    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToolBarLabelAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToolBarLabelAction_Metacast(KToolBarLabelAction* self, const char* param1) {
-    auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
-    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToolBarLabelAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToolBarLabelAction_Metacall(KToolBarLabelAction* self, int param1, int param2, void** param3) {
-    auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
-    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToolBarLabelAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KToolBarLabelAction_SetBuddy(KToolBarLabelAction* self, QAction* buddy) {
@@ -60,12 +45,7 @@ QAction* KToolBarLabelAction_Buddy(const KToolBarLabelAction* self) {
 }
 
 QWidget* KToolBarLabelAction_CreateWidget(KToolBarLabelAction* self, QWidget* parent) {
-    auto* vktoolbarlabelaction = dynamic_cast<VirtualKToolBarLabelAction*>(self);
-    if (vktoolbarlabelaction && vktoolbarlabelaction->isVirtualKToolBarLabelAction) {
-        return self->createWidget(parent);
-    } else {
-        return ((VirtualKToolBarLabelAction*)self)->createWidget(parent);
-    }
+    return self->createWidget(parent);
 }
 
 void KToolBarLabelAction_TextChanged(KToolBarLabelAction* self, const libqt_string newText) {

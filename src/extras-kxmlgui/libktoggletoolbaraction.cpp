@@ -19,30 +19,15 @@ KToggleToolBarAction* KToggleToolBarAction_new(KToolBar* toolBar, const libqt_st
 }
 
 QMetaObject* KToggleToolBarAction_MetaObject(const KToggleToolBarAction* self) {
-    auto* vktoggletoolbaraction = dynamic_cast<const VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToggleToolBarAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToggleToolBarAction_Metacast(KToggleToolBarAction* self, const char* param1) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToggleToolBarAction_Metacall(KToggleToolBarAction* self, int param1, int param2, void** param3) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KToolBar* KToggleToolBarAction_ToolBar(KToggleToolBarAction* self) {
@@ -50,12 +35,7 @@ KToolBar* KToggleToolBarAction_ToolBar(KToggleToolBarAction* self) {
 }
 
 bool KToggleToolBarAction_EventFilter(KToggleToolBarAction* self, QObject* watched, QEvent* event) {
-    auto* vktoggletoolbaraction = dynamic_cast<VirtualKToggleToolBarAction*>(self);
-    if (vktoggletoolbaraction && vktoggletoolbaraction->isVirtualKToggleToolBarAction) {
-        return self->eventFilter(watched, event);
-    } else {
-        return ((VirtualKToggleToolBarAction*)self)->eventFilter(watched, event);
-    }
+    return self->eventFilter(watched, event);
 }
 
 // Base class handler implementation

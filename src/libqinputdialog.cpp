@@ -52,30 +52,15 @@ QInputDialog* QInputDialog_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QInputDialog_MetaObject(const QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQInputDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QInputDialog_Metacast(QInputDialog* self, const char* param1) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQInputDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QInputDialog_Metacall(QInputDialog* self, int param1, int param2, void** param3) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQInputDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QInputDialog_SetInputMode(QInputDialog* self, int mode) {
@@ -291,30 +276,15 @@ libqt_string QInputDialog_CancelButtonText(const QInputDialog* self) {
 }
 
 QSize* QInputDialog_MinimumSizeHint(const QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQInputDialog*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 QSize* QInputDialog_SizeHint(const QInputDialog* self) {
-    auto* vqinputdialog = dynamic_cast<const VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQInputDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QInputDialog_SetVisible(QInputDialog* self, bool visible) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQInputDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 libqt_string QInputDialog_GetText(QWidget* parent, const libqt_string title, const libqt_string label) {
@@ -477,12 +447,7 @@ void QInputDialog_Connect_DoubleValueSelected(QInputDialog* self, intptr_t slot)
 }
 
 void QInputDialog_Done(QInputDialog* self, int result) {
-    auto* vqinputdialog = dynamic_cast<VirtualQInputDialog*>(self);
-    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
-        self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQInputDialog*)self)->done(static_cast<int>(result));
-    }
+    self->done(static_cast<int>(result));
 }
 
 void QInputDialog_SetOption2(QInputDialog* self, int option, bool on) {

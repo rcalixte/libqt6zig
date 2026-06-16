@@ -16,15 +16,15 @@ pub const KPixmapSequenceLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` iconName: []const u8 `
     ///
-    /// ` param2: i32 `
+    /// ` size: i32 `
     ///
-    pub fn Load(param1: []const u8, param2: i32) KPixmapSequence {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn Load(iconName: []const u8, size: i32) KPixmapSequence {
+        const iconName_str = qtc.libqt_string{
+            .len = iconName.len,
+            .data = iconName.ptr,
         };
-        return .{ .ptr = qtc.KPixmapSequenceLoader_Load(param1_str, @bitCast(param2)) };
+        return .{ .ptr = qtc.KPixmapSequenceLoader_Load(iconName_str, @bitCast(size)) };
     }
 };

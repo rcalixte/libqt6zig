@@ -34,30 +34,15 @@ KCheckableProxyModel* KCheckableProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KCheckableProxyModel_MetaObject(const KCheckableProxyModel* self) {
-    auto* vkcheckableproxymodel = dynamic_cast<const VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCheckableProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCheckableProxyModel_Metacast(KCheckableProxyModel* self, const char* param1) {
-    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCheckableProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCheckableProxyModel_Metacall(KCheckableProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCheckableProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCheckableProxyModel_SetSelectionModel(KCheckableProxyModel* self, QItemSelectionModel* itemSelectionModel) {
@@ -69,86 +54,42 @@ QItemSelectionModel* KCheckableProxyModel_SelectionModel(const KCheckableProxyMo
 }
 
 int KCheckableProxyModel_Flags(const KCheckableProxyModel* self, const QModelIndex* index) {
-    auto* vkcheckableproxymodel = dynamic_cast<const VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKCheckableProxyModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 QVariant* KCheckableProxyModel_Data(const KCheckableProxyModel* self, const QModelIndex* index, int role) {
-    auto* vkcheckableproxymodel = dynamic_cast<const VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKCheckableProxyModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 bool KCheckableProxyModel_SetData(KCheckableProxyModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualKCheckableProxyModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 void KCheckableProxyModel_SetSourceModel(KCheckableProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vkcheckableproxymodel = dynamic_cast<VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        self->setSourceModel(sourceModel);
-    } else {
-        ((VirtualKCheckableProxyModel*)self)->setSourceModel(sourceModel);
-    }
+    self->setSourceModel(sourceModel);
 }
 
 libqt_map /* of int to libqt_string */ KCheckableProxyModel_RoleNames(const KCheckableProxyModel* self) {
-    auto* vkcheckableproxymodel = dynamic_cast<const VirtualKCheckableProxyModel*>(self);
-    if (vkcheckableproxymodel && vkcheckableproxymodel->isVirtualKCheckableProxyModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKCheckableProxyModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 bool KCheckableProxyModel_Select(KCheckableProxyModel* self, const QItemSelection* selection, int command) {

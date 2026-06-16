@@ -50,30 +50,15 @@ QTabBar* QTabBar_new2() {
 }
 
 QMetaObject* QTabBar_MetaObject(const QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTabBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTabBar_Metacast(QTabBar* self, const char* param1) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTabBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTabBar_Metacall(QTabBar* self, int param1, int param2, void** param3) {
-    auto* vqtabbar = dynamic_cast<VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTabBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QTabBar_Shape(const QTabBar* self) {
@@ -228,21 +213,11 @@ int QTabBar_Count(const QTabBar* self) {
 }
 
 QSize* QTabBar_SizeHint(const QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQTabBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QTabBar_MinimumSizeHint(const QTabBar* self) {
-    auto* vqtabbar = dynamic_cast<const VirtualQTabBar*>(self);
-    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTabBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QTabBar_SetDrawBase(QTabBar* self, bool drawTheBase) {

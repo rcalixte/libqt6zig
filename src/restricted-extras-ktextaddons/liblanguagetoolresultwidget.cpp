@@ -47,39 +47,19 @@ TextGrammarCheck__LanguageToolResultWidget* TextGrammarCheck__LanguageToolResult
 }
 
 QMetaObject* TextGrammarCheck__LanguageToolResultWidget_MetaObject(const TextGrammarCheck__LanguageToolResultWidget* self) {
-    auto* vtextgrammarcheck__languagetoolresultwidget = dynamic_cast<const VirtualTextGrammarCheckLanguageToolResultWidget*>(self);
-    if (vtextgrammarcheck__languagetoolresultwidget && vtextgrammarcheck__languagetoolresultwidget->isVirtualTextGrammarCheckLanguageToolResultWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckLanguageToolResultWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__LanguageToolResultWidget_Metacast(TextGrammarCheck__LanguageToolResultWidget* self, const char* param1) {
-    auto* vtextgrammarcheck__languagetoolresultwidget = dynamic_cast<VirtualTextGrammarCheckLanguageToolResultWidget*>(self);
-    if (vtextgrammarcheck__languagetoolresultwidget && vtextgrammarcheck__languagetoolresultwidget->isVirtualTextGrammarCheckLanguageToolResultWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolResultWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__LanguageToolResultWidget_Metacall(TextGrammarCheck__LanguageToolResultWidget* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__languagetoolresultwidget = dynamic_cast<VirtualTextGrammarCheckLanguageToolResultWidget*>(self);
-    if (vtextgrammarcheck__languagetoolresultwidget && vtextgrammarcheck__languagetoolresultwidget->isVirtualTextGrammarCheckLanguageToolResultWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolResultWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__LanguageToolResultWidget_CheckGrammar(TextGrammarCheck__LanguageToolResultWidget* self) {
-    auto* vtextgrammarcheck__languagetoolresultwidget = dynamic_cast<VirtualTextGrammarCheckLanguageToolResultWidget*>(self);
-    if (vtextgrammarcheck__languagetoolresultwidget && vtextgrammarcheck__languagetoolresultwidget->isVirtualTextGrammarCheckLanguageToolResultWidget) {
-        self->checkGrammar();
-    } else {
-        ((VirtualTextGrammarCheckLanguageToolResultWidget*)self)->checkGrammar();
-    }
+    self->checkGrammar();
 }
 
 void TextGrammarCheck__LanguageToolResultWidget_AddExtraWidget(TextGrammarCheck__LanguageToolResultWidget* self) {

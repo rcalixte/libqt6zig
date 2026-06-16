@@ -23,30 +23,15 @@ KFilePreviewGenerator* KFilePreviewGenerator_new2(KAbstractViewAdapter* parent, 
 }
 
 QMetaObject* KFilePreviewGenerator_MetaObject(const KFilePreviewGenerator* self) {
-    auto* vkfilepreviewgenerator = dynamic_cast<const VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFilePreviewGenerator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFilePreviewGenerator_Metacast(KFilePreviewGenerator* self, const char* param1) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFilePreviewGenerator_Metacall(KFilePreviewGenerator* self, int param1, int param2, void** param3) {
-    auto* vkfilepreviewgenerator = dynamic_cast<VirtualKFilePreviewGenerator*>(self);
-    if (vkfilepreviewgenerator && vkfilepreviewgenerator->isVirtualKFilePreviewGenerator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFilePreviewGenerator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFilePreviewGenerator_SetPreviewShown(KFilePreviewGenerator* self, bool show) {

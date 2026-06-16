@@ -56,48 +56,23 @@ QPageSetupDialog* QPageSetupDialog_new4(QPrinter* printer, QWidget* parent) {
 }
 
 QMetaObject* QPageSetupDialog_MetaObject(const QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<const VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPageSetupDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPageSetupDialog_Metacast(QPageSetupDialog* self, const char* param1) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPageSetupDialog_Metacall(QPageSetupDialog* self, int param1, int param2, void** param3) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPageSetupDialog_Exec(QPageSetupDialog* self) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        return self->exec();
-    } else {
-        return ((VirtualQPageSetupDialog*)self)->exec();
-    }
+    return self->exec();
 }
 
 void QPageSetupDialog_Done(QPageSetupDialog* self, int result) {
-    auto* vqpagesetupdialog = dynamic_cast<VirtualQPageSetupDialog*>(self);
-    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
-        self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQPageSetupDialog*)self)->done(static_cast<int>(result));
-    }
+    self->done(static_cast<int>(result));
 }
 
 QPrinter* QPageSetupDialog_Printer(QPageSetupDialog* self) {

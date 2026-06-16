@@ -20,7 +20,7 @@ typedef struct KJobTrackerInterface KJobTrackerInterface;
 #endif
 
 KJobTrackerInterface* KIO_GetJobTracker();
-void KIO_SetJobTracker(KJobTrackerInterface* param1);
+void KIO_SetJobTracker(KJobTrackerInterface* tracker);
 
 #ifdef __cplusplus
 } /* extern C */

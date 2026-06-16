@@ -40,10 +40,10 @@ void KIO__DirectorySizeJob_Delete(KIO__DirectorySizeJob* self) {
     delete self;
 }
 
-KIO__DirectorySizeJob* KIO_DirectorySize(const QUrl* param1) {
-    return KIO::directorySize(*param1);
+KIO__DirectorySizeJob* KIO_DirectorySize(const QUrl* directory) {
+    return KIO::directorySize(*directory);
 }
 
-KIO__DirectorySizeJob* KIO_DirectorySize2(const KFileItemList* param1) {
-    return KIO::directorySize(*param1);
+KIO__DirectorySizeJob* KIO_DirectorySize2(const KFileItemList* lstItems) {
+    return KIO::directorySize(*lstItems);
 }

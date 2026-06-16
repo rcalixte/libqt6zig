@@ -21,8 +21,8 @@ typedef struct QAction QAction;
 typedef struct QUndoStack QUndoStack;
 #endif
 
-QAction* KUndoActions_CreateRedoAction(QUndoStack* param1, KActionCollection* param2, const libqt_string param3);
-QAction* KUndoActions_CreateUndoAction(QUndoStack* param1, KActionCollection* param2, const libqt_string param3);
+QAction* KUndoActions_CreateRedoAction(QUndoStack* undoStack, KActionCollection* actionCollection, const libqt_string actionName);
+QAction* KUndoActions_CreateUndoAction(QUndoStack* undoStack, KActionCollection* actionCollection, const libqt_string actionName);
 
 #ifdef __cplusplus
 } /* extern C */

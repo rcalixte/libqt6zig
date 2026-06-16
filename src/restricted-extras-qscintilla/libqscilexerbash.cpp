@@ -23,30 +23,15 @@ QsciLexerBash* QsciLexerBash_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerBash_MetaObject(const QsciLexerBash* self) {
-    auto* vqscilexerbash = dynamic_cast<const VirtualQsciLexerBash*>(self);
-    if (vqscilexerbash && vqscilexerbash->isVirtualQsciLexerBash) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerBash*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerBash_Metacast(QsciLexerBash* self, const char* param1) {
-    auto* vqscilexerbash = dynamic_cast<VirtualQsciLexerBash*>(self);
-    if (vqscilexerbash && vqscilexerbash->isVirtualQsciLexerBash) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerBash*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerBash_Metacall(QsciLexerBash* self, int param1, int param2, void** param3) {
-    auto* vqscilexerbash = dynamic_cast<VirtualQsciLexerBash*>(self);
-    if (vqscilexerbash && vqscilexerbash->isVirtualQsciLexerBash) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerBash*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerBash_Language(const QsciLexerBash* self) {
@@ -110,21 +95,11 @@ bool QsciLexerBash_FoldCompact(const QsciLexerBash* self) {
 }
 
 void QsciLexerBash_SetFoldComments(QsciLexerBash* self, bool fold) {
-    auto* vqscilexerbash = dynamic_cast<VirtualQsciLexerBash*>(self);
-    if (vqscilexerbash && vqscilexerbash->isVirtualQsciLexerBash) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerBash*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerBash_SetFoldCompact(QsciLexerBash* self, bool fold) {
-    auto* vqscilexerbash = dynamic_cast<VirtualQsciLexerBash*>(self);
-    if (vqscilexerbash && vqscilexerbash->isVirtualQsciLexerBash) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerBash*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 // Base class handler implementation

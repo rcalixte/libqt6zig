@@ -22,30 +22,15 @@ QEventLoop* QEventLoop_new2(QObject* parent) {
 }
 
 QMetaObject* QEventLoop_MetaObject(const QEventLoop* self) {
-    auto* vqeventloop = dynamic_cast<const VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQEventLoop*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QEventLoop_Metacast(QEventLoop* self, const char* param1) {
-    auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQEventLoop*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QEventLoop_Metacall(QEventLoop* self, int param1, int param2, void** param3) {
-    auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQEventLoop*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QEventLoop_ProcessEvents(QEventLoop* self) {
@@ -73,12 +58,7 @@ void QEventLoop_WakeUp(QEventLoop* self) {
 }
 
 bool QEventLoop_Event(QEventLoop* self, QEvent* event) {
-    auto* vqeventloop = dynamic_cast<VirtualQEventLoop*>(self);
-    if (vqeventloop && vqeventloop->isVirtualQEventLoop) {
-        return self->event(event);
-    } else {
-        return ((VirtualQEventLoop*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 void QEventLoop_Exit(QEventLoop* self) {

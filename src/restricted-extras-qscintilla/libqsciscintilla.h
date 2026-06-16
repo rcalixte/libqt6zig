@@ -353,7 +353,7 @@ void QsciScintilla_SelectionChanged(QsciScintilla* self);
 void QsciScintilla_Connect_SelectionChanged(QsciScintilla* self, intptr_t slot);
 void QsciScintilla_TextChanged(QsciScintilla* self);
 void QsciScintilla_Connect_TextChanged(QsciScintilla* self, intptr_t slot);
-void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_string stringVal);
+void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_string string);
 void QsciScintilla_Connect_UserListActivated(QsciScintilla* self, intptr_t slot);
 bool QsciScintilla_Event(QsciScintilla* self, QEvent* e);
 void QsciScintilla_ChangeEvent(QsciScintilla* self, QEvent* e);

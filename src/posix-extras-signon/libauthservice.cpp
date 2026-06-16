@@ -23,30 +23,15 @@ SignOn__AuthService* SignOn__AuthService_new2(QObject* parent) {
 }
 
 QMetaObject* SignOn__AuthService_MetaObject(const SignOn__AuthService* self) {
-    auto* vsignon__authservice = dynamic_cast<const VirtualSignOnAuthService*>(self);
-    if (vsignon__authservice && vsignon__authservice->isVirtualSignOnAuthService) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSignOnAuthService*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* SignOn__AuthService_Metacast(SignOn__AuthService* self, const char* param1) {
-    auto* vsignon__authservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignon__authservice && vsignon__authservice->isVirtualSignOnAuthService) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSignOnAuthService*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int SignOn__AuthService_Metacall(SignOn__AuthService* self, int param1, int param2, void** param3) {
-    auto* vsignon__authservice = dynamic_cast<VirtualSignOnAuthService*>(self);
-    if (vsignon__authservice && vsignon__authservice->isVirtualSignOnAuthService) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSignOnAuthService*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void SignOn__AuthService_QueryMethods(SignOn__AuthService* self) {

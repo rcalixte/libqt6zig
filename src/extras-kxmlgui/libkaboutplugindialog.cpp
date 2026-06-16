@@ -56,30 +56,15 @@ KAboutPluginDialog* KAboutPluginDialog_new4(const KPluginMetaData* pluginMetaDat
 }
 
 QMetaObject* KAboutPluginDialog_MetaObject(const KAboutPluginDialog* self) {
-    auto* vkaboutplugindialog = dynamic_cast<const VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKAboutPluginDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KAboutPluginDialog_Metacast(KAboutPluginDialog* self, const char* param1) {
-    auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKAboutPluginDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KAboutPluginDialog_Metacall(KAboutPluginDialog* self, int param1, int param2, void** param3) {
-    auto* vkaboutplugindialog = dynamic_cast<VirtualKAboutPluginDialog*>(self);
-    if (vkaboutplugindialog && vkaboutplugindialog->isVirtualKAboutPluginDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKAboutPluginDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

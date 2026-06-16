@@ -23,13 +23,13 @@ const char* KParts_GetEnumName2(int param1) {
     return (const char*)KParts::qt_getEnumName(static_cast<KParts::PartCapabilities>(param1));
 }
 
-int KParts__PartLoader_PartCapabilities(const KPluginMetaData* param1) {
-    return static_cast<int>(KParts::PartLoader::partCapabilities(*param1));
+int KParts__PartLoader_PartCapabilities(const KPluginMetaData* data) {
+    return static_cast<int>(KParts::PartLoader::partCapabilities(*data));
 }
 
-libqt_list /* of KPluginMetaData* */ KParts__PartLoader_PartsForMimeType(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<KPluginMetaData> _ret = KParts::PartLoader::partsForMimeType(param1_QString);
+libqt_list /* of KPluginMetaData* */ KParts__PartLoader_PartsForMimeType(const libqt_string mimeType) {
+    QString mimeType_QString = QString::fromUtf8(mimeType.data, mimeType.len);
+    QList<KPluginMetaData> _ret = KParts::PartLoader::partsForMimeType(mimeType_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     KPluginMetaData** _arr = static_cast<KPluginMetaData**>(malloc(sizeof(KPluginMetaData*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

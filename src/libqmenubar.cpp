@@ -51,30 +51,15 @@ QMenuBar* QMenuBar_new2() {
 }
 
 QMetaObject* QMenuBar_MetaObject(const QMenuBar* self) {
-    auto* vqmenubar = dynamic_cast<const VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMenuBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMenuBar_Metacast(QMenuBar* self, const char* param1) {
-    auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMenuBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMenuBar_Metacall(QMenuBar* self, int param1, int param2, void** param3) {
-    auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMenuBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAction* QMenuBar_AddMenu(QMenuBar* self, QMenu* menu) {
@@ -124,30 +109,15 @@ bool QMenuBar_IsDefaultUp(const QMenuBar* self) {
 }
 
 QSize* QMenuBar_SizeHint(const QMenuBar* self) {
-    auto* vqmenubar = dynamic_cast<const VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQMenuBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QMenuBar_MinimumSizeHint(const QMenuBar* self) {
-    auto* vqmenubar = dynamic_cast<const VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMenuBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int QMenuBar_HeightForWidth(const QMenuBar* self, int param1) {
-    auto* vqmenubar = dynamic_cast<const VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQMenuBar*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 QRect* QMenuBar_ActionGeometry(const QMenuBar* self, QAction* param1) {
@@ -175,12 +145,7 @@ void QMenuBar_SetNativeMenuBar(QMenuBar* self, bool nativeMenuBar) {
 }
 
 void QMenuBar_SetVisible(QMenuBar* self, bool visible) {
-    auto* vqmenubar = dynamic_cast<VirtualQMenuBar*>(self);
-    if (vqmenubar && vqmenubar->isVirtualQMenuBar) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQMenuBar*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QMenuBar_Triggered(QMenuBar* self, QAction* action) {

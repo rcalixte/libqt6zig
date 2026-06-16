@@ -7,9 +7,9 @@
 #include "libkstringhandler.h"
 #include "libkstringhandler.hxx"
 
-libqt_string KStringHandler_Capwords(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::capwords(param1_QString);
+libqt_string KStringHandler_Capwords(const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto _ret = KStringHandler::capwords(text_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -20,15 +20,15 @@ libqt_string KStringHandler_Capwords(const libqt_string param1) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ KStringHandler_Capwords2(const libqt_list /* of libqt_string */ param1) {
-    QList<QString> param1_QList;
-    param1_QList.reserve(param1.len);
-    libqt_string* param1_arr = static_cast<libqt_string*>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_arr_i_QString = QString::fromUtf8(param1_arr[i].data, param1_arr[i].len);
-        param1_QList.push_back(param1_arr_i_QString);
+libqt_list /* of libqt_string */ KStringHandler_Capwords2(const libqt_list /* of libqt_string */ list) {
+    QList<QString> list_QList;
+    list_QList.reserve(list.len);
+    libqt_string* list_arr = static_cast<libqt_string*>(list.data);
+    for (size_t i = 0; i < list.len; ++i) {
+        QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
+        list_QList.push_back(list_arr_i_QString);
     }
-    QList<QString> _ret = KStringHandler::capwords(param1_QList);
+    QList<QString> _ret = KStringHandler::capwords(list_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -48,9 +48,9 @@ libqt_list /* of libqt_string */ KStringHandler_Capwords2(const libqt_list /* of
     return _out;
 }
 
-libqt_string KStringHandler_Lsqueeze(const libqt_string param1, int param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::lsqueeze(param1_QString, static_cast<int>(param2));
+libqt_string KStringHandler_Lsqueeze(const libqt_string str, int maxlen) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = KStringHandler::lsqueeze(str_QString, static_cast<int>(maxlen));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -61,9 +61,9 @@ libqt_string KStringHandler_Lsqueeze(const libqt_string param1, int param2) {
     return _str;
 }
 
-libqt_string KStringHandler_Csqueeze(const libqt_string param1, int param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::csqueeze(param1_QString, static_cast<int>(param2));
+libqt_string KStringHandler_Csqueeze(const libqt_string str, int maxlen) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = KStringHandler::csqueeze(str_QString, static_cast<int>(maxlen));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -74,9 +74,9 @@ libqt_string KStringHandler_Csqueeze(const libqt_string param1, int param2) {
     return _str;
 }
 
-libqt_string KStringHandler_Rsqueeze(const libqt_string param1, int param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::rsqueeze(param1_QString, static_cast<int>(param2));
+libqt_string KStringHandler_Rsqueeze(const libqt_string str, int maxlen) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = KStringHandler::rsqueeze(str_QString, static_cast<int>(maxlen));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -87,10 +87,10 @@ libqt_string KStringHandler_Rsqueeze(const libqt_string param1, int param2) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ KStringHandler_PerlSplit(const libqt_string param1, const libqt_string param2, int param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QList<QString> _ret = KStringHandler::perlSplit(param1_QString, param2_QString, static_cast<int>(param3));
+libqt_list /* of libqt_string */ KStringHandler_PerlSplit(const libqt_string sep, const libqt_string str, int max) {
+    QString sep_QString = QString::fromUtf8(sep.data, sep.len);
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QList<QString> _ret = KStringHandler::perlSplit(sep_QString, str_QString, static_cast<int>(max));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -110,10 +110,10 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit(const libqt_string par
     return _out;
 }
 
-libqt_list /* of libqt_string */ KStringHandler_PerlSplit2(const libqt_string param1, const libqt_string param2, int param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QList<QString> _ret = KStringHandler::perlSplit(param1_QString, param2_QString, static_cast<int>(param3));
+libqt_list /* of libqt_string */ KStringHandler_PerlSplit2(const libqt_string sep, const libqt_string s, int max) {
+    QString sep_QString = QString::fromUtf8(sep.data, sep.len);
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    QList<QString> _ret = KStringHandler::perlSplit(sep_QString, s_QString, static_cast<int>(max));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -133,9 +133,9 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit2(const libqt_string pa
     return _out;
 }
 
-libqt_list /* of libqt_string */ KStringHandler_PerlSplit3(const QChar* param1, const libqt_string param2, int param3) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QList<QString> _ret = KStringHandler::perlSplit(*param1, param2_QString, static_cast<int>(param3));
+libqt_list /* of libqt_string */ KStringHandler_PerlSplit3(const QChar* sep, const libqt_string s, int max) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    QList<QString> _ret = KStringHandler::perlSplit(*sep, s_QString, static_cast<int>(max));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -155,9 +155,9 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit3(const QChar* param1, 
     return _out;
 }
 
-libqt_list /* of libqt_string */ KStringHandler_PerlSplit4(const QRegularExpression* param1, const libqt_string param2, int param3) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QList<QString> _ret = KStringHandler::perlSplit(*param1, param2_QString, static_cast<int>(param3));
+libqt_list /* of libqt_string */ KStringHandler_PerlSplit4(const QRegularExpression* sep, const libqt_string s, int max) {
+    QString s_QString = QString::fromUtf8(s.data, s.len);
+    QList<QString> _ret = KStringHandler::perlSplit(*sep, s_QString, static_cast<int>(max));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -177,9 +177,9 @@ libqt_list /* of libqt_string */ KStringHandler_PerlSplit4(const QRegularExpress
     return _out;
 }
 
-libqt_string KStringHandler_TagUrls(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::tagUrls(param1_QString);
+libqt_string KStringHandler_TagUrls(const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto _ret = KStringHandler::tagUrls(text_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -190,9 +190,9 @@ libqt_string KStringHandler_TagUrls(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KStringHandler_Obscure(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::obscure(param1_QString);
+libqt_string KStringHandler_Obscure(const libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = KStringHandler::obscure(str_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -203,9 +203,9 @@ libqt_string KStringHandler_Obscure(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KStringHandler_PreProcessWrap(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KStringHandler::preProcessWrap(param1_QString);
+libqt_string KStringHandler_PreProcessWrap(const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    auto _ret = KStringHandler::preProcessWrap(text_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -216,7 +216,7 @@ libqt_string KStringHandler_PreProcessWrap(const libqt_string param1) {
     return _str;
 }
 
-int KStringHandler_LogicalLength(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return KStringHandler::logicalLength(param1_QString);
+int KStringHandler_LogicalLength(const libqt_string text) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    return KStringHandler::logicalLength(text_QString);
 }

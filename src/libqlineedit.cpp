@@ -64,30 +64,15 @@ QLineEdit* QLineEdit_new4(const libqt_string param1, QWidget* parent) {
 }
 
 QMetaObject* QLineEdit_MetaObject(const QLineEdit* self) {
-    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLineEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLineEdit_Metacast(QLineEdit* self, const char* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLineEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLineEdit_Metacall(QLineEdit* self, int param1, int param2, void** param3) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLineEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QLineEdit_Text(const QLineEdit* self) {
@@ -188,21 +173,11 @@ QCompleter* QLineEdit_Completer(const QLineEdit* self) {
 }
 
 QSize* QLineEdit_SizeHint(const QLineEdit* self) {
-    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQLineEdit*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QLineEdit_MinimumSizeHint(const QLineEdit* self) {
-    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQLineEdit*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int QLineEdit_CursorPosition(const QLineEdit* self) {
@@ -627,12 +602,7 @@ void QLineEdit_InitStyleOption(const QLineEdit* self, QStyleOptionFrame* option)
 }
 
 QVariant* QLineEdit_InputMethodQuery(const QLineEdit* self, int param1) {
-    auto* vqlineedit = dynamic_cast<const VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQLineEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 QVariant* QLineEdit_InputMethodQuery2(const QLineEdit* self, int property, QVariant* argument) {
@@ -640,21 +610,11 @@ QVariant* QLineEdit_InputMethodQuery2(const QLineEdit* self, int property, QVari
 }
 
 void QLineEdit_TimerEvent(QLineEdit* self, QTimerEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        self->timerEvent(param1);
-    } else {
-        ((VirtualQLineEdit*)self)->timerEvent(param1);
-    }
+    self->timerEvent(param1);
 }
 
 bool QLineEdit_Event(QLineEdit* self, QEvent* param1) {
-    auto* vqlineedit = dynamic_cast<VirtualQLineEdit*>(self);
-    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
-        return self->event(param1);
-    } else {
-        return ((VirtualQLineEdit*)self)->event(param1);
-    }
+    return self->event(param1);
 }
 
 void QLineEdit_CursorForward2(QLineEdit* self, bool mark, int steps) {

@@ -33,30 +33,15 @@ TextEmoticonsCore__EmojiProxyModel* TextEmoticonsCore__EmojiProxyModel_new2(QObj
 }
 
 QMetaObject* TextEmoticonsCore__EmojiProxyModel_MetaObject(const TextEmoticonsCore__EmojiProxyModel* self) {
-    auto* vtextemoticonscore__emojiproxymodel = dynamic_cast<const VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscore__emojiproxymodel && vtextemoticonscore__emojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEmoticonsCoreEmojiProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEmoticonsCore__EmojiProxyModel_Metacast(TextEmoticonsCore__EmojiProxyModel* self, const char* param1) {
-    auto* vtextemoticonscore__emojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscore__emojiproxymodel && vtextemoticonscore__emojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEmoticonsCore__EmojiProxyModel_Metacall(TextEmoticonsCore__EmojiProxyModel* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonscore__emojiproxymodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiProxyModel*>(self);
-    if (vtextemoticonscore__emojiproxymodel && vtextemoticonscore__emojiproxymodel->isVirtualTextEmoticonsCoreEmojiProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string TextEmoticonsCore__EmojiProxyModel_Category(const TextEmoticonsCore__EmojiProxyModel* self) {

@@ -41,30 +41,15 @@ KParts__ReadOnlyPart* KParts__ReadOnlyPart_new3(QObject* parent, const KPluginMe
 }
 
 QMetaObject* KParts__ReadOnlyPart_MetaObject(const KParts__ReadOnlyPart* self) {
-    auto* vkparts__readonlypart = dynamic_cast<const VirtualKPartsReadOnlyPart*>(self);
-    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsReadOnlyPart*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__ReadOnlyPart_Metacast(KParts__ReadOnlyPart* self, const char* param1) {
-    auto* vkparts__readonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsReadOnlyPart*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__ReadOnlyPart_Metacall(KParts__ReadOnlyPart* self, int param1, int param2, void** param3) {
-    auto* vkparts__readonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsReadOnlyPart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KParts__ReadOnlyPart_SetProgressInfoEnabled(KParts__ReadOnlyPart* self, bool show) {
@@ -76,12 +61,7 @@ bool KParts__ReadOnlyPart_IsProgressInfoEnabled(const KParts__ReadOnlyPart* self
 }
 
 bool KParts__ReadOnlyPart_OpenUrl(KParts__ReadOnlyPart* self, const QUrl* url) {
-    auto* vkparts__readonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
-        return self->openUrl(*url);
-    } else {
-        return ((VirtualKPartsReadOnlyPart*)self)->openUrl(*url);
-    }
+    return self->openUrl(*url);
 }
 
 QUrl* KParts__ReadOnlyPart_Url(const KParts__ReadOnlyPart* self) {
@@ -89,12 +69,7 @@ QUrl* KParts__ReadOnlyPart_Url(const KParts__ReadOnlyPart* self) {
 }
 
 bool KParts__ReadOnlyPart_CloseUrl(KParts__ReadOnlyPart* self) {
-    auto* vkparts__readonlypart = dynamic_cast<VirtualKPartsReadOnlyPart*>(self);
-    if (vkparts__readonlypart && vkparts__readonlypart->isVirtualKPartsReadOnlyPart) {
-        return self->closeUrl();
-    } else {
-        return ((VirtualKPartsReadOnlyPart*)self)->closeUrl();
-    }
+    return self->closeUrl();
 }
 
 KParts__NavigationExtension* KParts__ReadOnlyPart_NavigationExtension(const KParts__ReadOnlyPart* self) {

@@ -53,30 +53,15 @@ QPdfView* QPdfView_new2() {
 }
 
 QMetaObject* QPdfView_MetaObject(const QPdfView* self) {
-    auto* vqpdfview = dynamic_cast<const VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPdfView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPdfView_Metacast(QPdfView* self, const char* param1) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPdfView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPdfView_Metacall(QPdfView* self, int param1, int param2, void** param3) {
-    auto* vqpdfview = dynamic_cast<VirtualQPdfView*>(self);
-    if (vqpdfview && vqpdfview->isVirtualQPdfView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPdfView_SetDocument(QPdfView* self, QPdfDocument* document) {

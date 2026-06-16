@@ -23,39 +23,19 @@ QGraphicsTransform* QGraphicsTransform_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsTransform_MetaObject(const QGraphicsTransform* self) {
-    auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsTransform*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsTransform_Metacast(QGraphicsTransform* self, const char* param1) {
-    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsTransform*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsTransform_Metacall(QGraphicsTransform* self, int param1, int param2, void** param3) {
-    auto* vqgraphicstransform = dynamic_cast<VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsTransform*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
-    auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
-    if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
-        vqgraphicstransform->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
-    }
+    self->applyTo(matrix);
 }
 
 // Base class handler implementation
@@ -495,30 +475,15 @@ QGraphicsScale* QGraphicsScale_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsScale_MetaObject(const QGraphicsScale* self) {
-    auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsScale*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsScale_Metacast(QGraphicsScale* self, const char* param1) {
-    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsScale*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsScale_Metacall(QGraphicsScale* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsscale = dynamic_cast<VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsScale*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVector3D* QGraphicsScale_Origin(const QGraphicsScale* self) {
@@ -554,12 +519,7 @@ void QGraphicsScale_SetZScale(QGraphicsScale* self, double zScale) {
 }
 
 void QGraphicsScale_ApplyTo(const QGraphicsScale* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsscale = dynamic_cast<const VirtualQGraphicsScale*>(self);
-    if (vqgraphicsscale && vqgraphicsscale->isVirtualQGraphicsScale) {
-        self->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsScale*)self)->applyTo(matrix);
-    }
+    self->applyTo(matrix);
 }
 
 void QGraphicsScale_OriginChanged(QGraphicsScale* self) {
@@ -1054,30 +1014,15 @@ QGraphicsRotation* QGraphicsRotation_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsRotation_MetaObject(const QGraphicsRotation* self) {
-    auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsRotation*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsRotation_Metacast(QGraphicsRotation* self, const char* param1) {
-    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsRotation*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsRotation_Metacall(QGraphicsRotation* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsrotation = dynamic_cast<VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsRotation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVector3D* QGraphicsRotation_Origin(const QGraphicsRotation* self) {
@@ -1109,12 +1054,7 @@ void QGraphicsRotation_SetAxis2(QGraphicsRotation* self, int axis) {
 }
 
 void QGraphicsRotation_ApplyTo(const QGraphicsRotation* self, QMatrix4x4* matrix) {
-    auto* vqgraphicsrotation = dynamic_cast<const VirtualQGraphicsRotation*>(self);
-    if (vqgraphicsrotation && vqgraphicsrotation->isVirtualQGraphicsRotation) {
-        self->applyTo(matrix);
-    } else {
-        ((VirtualQGraphicsRotation*)self)->applyTo(matrix);
-    }
+    self->applyTo(matrix);
 }
 
 void QGraphicsRotation_OriginChanged(QGraphicsRotation* self) {

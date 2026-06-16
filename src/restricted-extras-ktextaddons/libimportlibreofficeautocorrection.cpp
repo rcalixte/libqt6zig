@@ -16,12 +16,7 @@ TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* TextAutoCorrectionCore_
 bool TextAutoCorrectionCore__ImportLibreOfficeAutocorrection_Import(TextAutoCorrectionCore__ImportLibreOfficeAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
-    auto* vtextautocorrectioncore__importlibreofficeautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection*>(self);
-    if (vtextautocorrectioncore__importlibreofficeautocorrection && vtextautocorrectioncore__importlibreofficeautocorrection->isVirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection) {
-        return self->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    } else {
-        return ((VirtualTextAutoCorrectionCoreImportLibreOfficeAutocorrection*)self)->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    }
+    return self->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
 }
 
 // Base class handler implementation

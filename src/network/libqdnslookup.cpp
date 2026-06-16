@@ -385,30 +385,15 @@ QDnsLookup* QDnsLookup_new11(int typeVal, const libqt_string name, uint8_t proto
 }
 
 QMetaObject* QDnsLookup_MetaObject(const QDnsLookup* self) {
-    auto* vqdnslookup = dynamic_cast<const VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDnsLookup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDnsLookup_Metacast(QDnsLookup* self, const char* param1) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDnsLookup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDnsLookup_Metacall(QDnsLookup* self, int param1, int param2, void** param3) {
-    auto* vqdnslookup = dynamic_cast<VirtualQDnsLookup*>(self);
-    if (vqdnslookup && vqdnslookup->isVirtualQDnsLookup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDnsLookup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QDnsLookup_IsAuthenticData(const QDnsLookup* self) {

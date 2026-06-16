@@ -66,30 +66,15 @@ KUrlRequester* KUrlRequester_new5(const QUrl* url, QWidget* parent) {
 }
 
 QMetaObject* KUrlRequester_MetaObject(const KUrlRequester* self) {
-    auto* vkurlrequester = dynamic_cast<const VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlRequester*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlRequester_Metacast(KUrlRequester* self, const char* param1) {
-    auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlRequester*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlRequester_Metacall(KUrlRequester* self, int param1, int param2, void** param3) {
-    auto* vkurlrequester = dynamic_cast<VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlRequester*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KUrlRequester_Url(const KUrlRequester* self) {
@@ -198,12 +183,7 @@ libqt_list /* of libqt_string */ KUrlRequester_MimeTypeFilters(const KUrlRequest
 }
 
 QFileDialog* KUrlRequester_FileDialog(const KUrlRequester* self) {
-    auto* vkurlrequester = dynamic_cast<const VirtualKUrlRequester*>(self);
-    if (vkurlrequester && vkurlrequester->isVirtualKUrlRequester) {
-        return self->fileDialog();
-    } else {
-        return ((VirtualKUrlRequester*)self)->fileDialog();
-    }
+    return self->fileDialog();
 }
 
 KLineEdit* KUrlRequester_LineEdit(const KUrlRequester* self) {
@@ -2098,30 +2078,15 @@ KUrlComboRequester* KUrlComboRequester_new2() {
 }
 
 QMetaObject* KUrlComboRequester_MetaObject(const KUrlComboRequester* self) {
-    auto* vkurlcomborequester = dynamic_cast<const VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlComboRequester*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlComboRequester_Metacast(KUrlComboRequester* self, const char* param1) {
-    auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlComboRequester*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlComboRequester_Metacall(KUrlComboRequester* self, int param1, int param2, void** param3) {
-    auto* vkurlcomborequester = dynamic_cast<VirtualKUrlComboRequester*>(self);
-    if (vkurlcomborequester && vkurlcomborequester->isVirtualKUrlComboRequester) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlComboRequester*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

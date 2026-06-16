@@ -5,12 +5,12 @@
 #include "libkurlauthorized.h"
 #include "libkurlauthorized.hxx"
 
-bool KUrlAuthorized_AuthorizeUrlAction(const libqt_string param1, const QUrl* param2, const QUrl* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return KUrlAuthorized::authorizeUrlAction(param1_QString, *param2, *param3);
+bool KUrlAuthorized_AuthorizeUrlAction(const libqt_string action, const QUrl* baseUrl, const QUrl* destUrl) {
+    QString action_QString = QString::fromUtf8(action.data, action.len);
+    return KUrlAuthorized::authorizeUrlAction(action_QString, *baseUrl, *destUrl);
 }
 
-void KUrlAuthorized_AllowUrlAction(const libqt_string param1, const QUrl* param2, const QUrl* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    KUrlAuthorized::allowUrlAction(param1_QString, *param2, *param3);
+void KUrlAuthorized_AllowUrlAction(const libqt_string action, const QUrl* baseUrl, const QUrl* destUrl) {
+    QString action_QString = QString::fromUtf8(action.data, action.len);
+    KUrlAuthorized::allowUrlAction(action_QString, *baseUrl, *destUrl);
 }

@@ -25,39 +25,19 @@ KIO__DeleteOrTrashJob* KIO__DeleteOrTrashJob_new(const libqt_list /* of QUrl* */
 }
 
 QMetaObject* KIO__DeleteOrTrashJob_MetaObject(const KIO__DeleteOrTrashJob* self) {
-    auto* vkio__deleteortrashjob = dynamic_cast<const VirtualKIODeleteOrTrashJob*>(self);
-    if (vkio__deleteortrashjob && vkio__deleteortrashjob->isVirtualKIODeleteOrTrashJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIODeleteOrTrashJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__DeleteOrTrashJob_Metacast(KIO__DeleteOrTrashJob* self, const char* param1) {
-    auto* vkio__deleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkio__deleteortrashjob && vkio__deleteortrashjob->isVirtualKIODeleteOrTrashJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIODeleteOrTrashJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__DeleteOrTrashJob_Metacall(KIO__DeleteOrTrashJob* self, int param1, int param2, void** param3) {
-    auto* vkio__deleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkio__deleteortrashjob && vkio__deleteortrashjob->isVirtualKIODeleteOrTrashJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIODeleteOrTrashJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__DeleteOrTrashJob_Start(KIO__DeleteOrTrashJob* self) {
-    auto* vkio__deleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
-    if (vkio__deleteortrashjob && vkio__deleteortrashjob->isVirtualKIODeleteOrTrashJob) {
-        self->start();
-    } else {
-        ((VirtualKIODeleteOrTrashJob*)self)->start();
-    }
+    self->start();
 }
 
 void KIO__DeleteOrTrashJob_Started(KIO__DeleteOrTrashJob* self) {

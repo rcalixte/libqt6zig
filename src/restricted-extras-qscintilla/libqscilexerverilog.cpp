@@ -23,30 +23,15 @@ QsciLexerVerilog* QsciLexerVerilog_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerVerilog_MetaObject(const QsciLexerVerilog* self) {
-    auto* vqscilexerverilog = dynamic_cast<const VirtualQsciLexerVerilog*>(self);
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerVerilog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerVerilog_Metacast(QsciLexerVerilog* self, const char* param1) {
-    auto* vqscilexerverilog = dynamic_cast<VirtualQsciLexerVerilog*>(self);
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerVerilog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerVerilog_Metacall(QsciLexerVerilog* self, int param1, int param2, void** param3) {
-    auto* vqscilexerverilog = dynamic_cast<VirtualQsciLexerVerilog*>(self);
-    if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerVerilog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerVerilog_Language(const QsciLexerVerilog* self) {

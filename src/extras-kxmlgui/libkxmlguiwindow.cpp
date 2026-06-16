@@ -63,30 +63,15 @@ KXmlGuiWindow* KXmlGuiWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* KXmlGuiWindow_MetaObject(const KXmlGuiWindow* self) {
-    auto* vkxmlguiwindow = dynamic_cast<const VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKXmlGuiWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KXmlGuiWindow_Metacast(KXmlGuiWindow* self, const char* param1) {
-    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKXmlGuiWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KXmlGuiWindow_Metacall(KXmlGuiWindow* self, int param1, int param2, void** param3) {
-    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKXmlGuiWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KXmlGuiWindow_SetHelpMenuEnabled(KXmlGuiWindow* self) {
@@ -98,12 +83,7 @@ bool KXmlGuiWindow_IsHelpMenuEnabled(const KXmlGuiWindow* self) {
 }
 
 KXMLGUIFactory* KXmlGuiWindow_GuiFactory(KXmlGuiWindow* self) {
-    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        return self->guiFactory();
-    } else {
-        return ((VirtualKXmlGuiWindow*)self)->guiFactory();
-    }
+    return self->guiFactory();
 }
 
 void KXmlGuiWindow_CreateGUI(KXmlGuiWindow* self) {
@@ -164,12 +144,7 @@ void KXmlGuiWindow_FinalizeGUI(KXmlGuiWindow* self, bool force) {
 }
 
 void KXmlGuiWindow_ApplyMainWindowSettings(KXmlGuiWindow* self, const KConfigGroup* config) {
-    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        self->applyMainWindowSettings(*config);
-    } else {
-        ((VirtualKXmlGuiWindow*)self)->applyMainWindowSettings(*config);
-    }
+    self->applyMainWindowSettings(*config);
 }
 
 void KXmlGuiWindow_SetCommandBarEnabled(KXmlGuiWindow* self, bool showCommandBar) {
@@ -181,22 +156,12 @@ bool KXmlGuiWindow_IsCommandBarEnabled(const KXmlGuiWindow* self) {
 }
 
 void KXmlGuiWindow_ConfigureToolbars(KXmlGuiWindow* self) {
-    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        self->configureToolbars();
-    } else {
-        ((VirtualKXmlGuiWindow*)self)->configureToolbars();
-    }
+    self->configureToolbars();
 }
 
 void KXmlGuiWindow_SlotStateChanged(KXmlGuiWindow* self, const libqt_string newstate) {
     QString newstate_QString = QString::fromUtf8(newstate.data, newstate.len);
-    auto* vkxmlguiwindow = dynamic_cast<VirtualKXmlGuiWindow*>(self);
-    if (vkxmlguiwindow && vkxmlguiwindow->isVirtualKXmlGuiWindow) {
-        self->slotStateChanged(newstate_QString);
-    } else {
-        ((VirtualKXmlGuiWindow*)self)->slotStateChanged(newstate_QString);
-    }
+    self->slotStateChanged(newstate_QString);
 }
 
 void KXmlGuiWindow_SlotStateChanged2(KXmlGuiWindow* self, const libqt_string newstate, bool reverse) {

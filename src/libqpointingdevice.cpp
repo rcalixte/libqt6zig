@@ -86,30 +86,15 @@ QPointingDevice* QPointingDevice_new6(const libqt_string name, long long systemI
 }
 
 QMetaObject* QPointingDevice_MetaObject(const QPointingDevice* self) {
-    auto* vqpointingdevice = dynamic_cast<const VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPointingDevice*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPointingDevice_Metacast(QPointingDevice* self, const char* param1) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPointingDevice*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPointingDevice_Metacall(QPointingDevice* self, int param1, int param2, void** param3) {
-    auto* vqpointingdevice = dynamic_cast<VirtualQPointingDevice*>(self);
-    if (vqpointingdevice && vqpointingdevice->isVirtualQPointingDevice) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPointingDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPointingDevice_SetType(QPointingDevice* self, int devType) {

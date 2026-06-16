@@ -38,31 +38,16 @@ bool KFileMetaData__SimpleExtractionResult_OperatorEqual(const KFileMetaData__Si
 }
 
 void KFileMetaData__SimpleExtractionResult_Add(KFileMetaData__SimpleExtractionResult* self, int property, const QVariant* value) {
-    auto* vkfilemetadata__simpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
-    if (vkfilemetadata__simpleextractionresult && vkfilemetadata__simpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
-        self->add(static_cast<KFileMetaData::Property::Property>(property), *value);
-    } else {
-        ((VirtualKFileMetaDataSimpleExtractionResult*)self)->add(static_cast<KFileMetaData::Property::Property>(property), *value);
-    }
+    self->add(static_cast<KFileMetaData::Property::Property>(property), *value);
 }
 
 void KFileMetaData__SimpleExtractionResult_AddType(KFileMetaData__SimpleExtractionResult* self, int typeVal) {
-    auto* vkfilemetadata__simpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
-    if (vkfilemetadata__simpleextractionresult && vkfilemetadata__simpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
-        self->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
-    } else {
-        ((VirtualKFileMetaDataSimpleExtractionResult*)self)->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
-    }
+    self->addType(static_cast<KFileMetaData::Type::Type>(typeVal));
 }
 
 void KFileMetaData__SimpleExtractionResult_Append(KFileMetaData__SimpleExtractionResult* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkfilemetadata__simpleextractionresult = dynamic_cast<VirtualKFileMetaDataSimpleExtractionResult*>(self);
-    if (vkfilemetadata__simpleextractionresult && vkfilemetadata__simpleextractionresult->isVirtualKFileMetaDataSimpleExtractionResult) {
-        self->append(text_QString);
-    } else {
-        ((VirtualKFileMetaDataSimpleExtractionResult*)self)->append(text_QString);
-    }
+    self->append(text_QString);
 }
 
 libqt_map /* of int to libqt_list of QVariant* */ KFileMetaData__SimpleExtractionResult_Properties(const KFileMetaData__SimpleExtractionResult* self) {

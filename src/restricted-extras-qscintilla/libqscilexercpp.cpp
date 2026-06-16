@@ -27,30 +27,15 @@ QsciLexerCPP* QsciLexerCPP_new3(QObject* parent, bool caseInsensitiveKeywords) {
 }
 
 QMetaObject* QsciLexerCPP_MetaObject(const QsciLexerCPP* self) {
-    auto* vqscilexercpp = dynamic_cast<const VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerCPP*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerCPP_Metacast(QsciLexerCPP* self, const char* param1) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerCPP*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerCPP_Metacall(QsciLexerCPP* self, int param1, int param2, void** param3) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerCPP*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerCPP_Language(const QsciLexerCPP* self) {
@@ -207,48 +192,23 @@ bool QsciLexerCPP_VerbatimStringEscapeSequencesAllowed(const QsciLexerCPP* self)
 }
 
 void QsciLexerCPP_SetFoldAtElse(QsciLexerCPP* self, bool fold) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        self->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerCPP*)self)->setFoldAtElse(fold);
-    }
+    self->setFoldAtElse(fold);
 }
 
 void QsciLexerCPP_SetFoldComments(QsciLexerCPP* self, bool fold) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerCPP*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerCPP_SetFoldCompact(QsciLexerCPP* self, bool fold) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerCPP*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 void QsciLexerCPP_SetFoldPreprocessor(QsciLexerCPP* self, bool fold) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        self->setFoldPreprocessor(fold);
-    } else {
-        ((VirtualQsciLexerCPP*)self)->setFoldPreprocessor(fold);
-    }
+    self->setFoldPreprocessor(fold);
 }
 
 void QsciLexerCPP_SetStylePreprocessor(QsciLexerCPP* self, bool style) {
-    auto* vqscilexercpp = dynamic_cast<VirtualQsciLexerCPP*>(self);
-    if (vqscilexercpp && vqscilexercpp->isVirtualQsciLexerCPP) {
-        self->setStylePreprocessor(style);
-    } else {
-        ((VirtualQsciLexerCPP*)self)->setStylePreprocessor(style);
-    }
+    self->setStylePreprocessor(style);
 }
 
 const char* QsciLexerCPP_BlockEnd1(const QsciLexerCPP* self, int* style) {

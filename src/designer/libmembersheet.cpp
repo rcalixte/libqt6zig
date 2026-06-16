@@ -11,251 +11,121 @@ QDesignerMemberSheetExtension* QDesignerMemberSheetExtension_new() {
 }
 
 int QDesignerMemberSheetExtension_Count(const QDesignerMemberSheetExtension* self) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        return vqdesignermembersheetextension->count();
-    } else {
-        return ((VirtualQDesignerMemberSheetExtension*)self)->count();
-    }
+    return self->count();
 }
 
 int QDesignerMemberSheetExtension_IndexOf(const QDesignerMemberSheetExtension* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        return vqdesignermembersheetextension->indexOf(name_QString);
-    } else {
-        return ((VirtualQDesignerMemberSheetExtension*)self)->indexOf(name_QString);
-    }
+    return self->indexOf(name_QString);
 }
 
 libqt_string QDesignerMemberSheetExtension_MemberName(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        auto _ret = vqdesignermembersheetextension->memberName(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberName(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->memberName(static_cast<int>(index));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QDesignerMemberSheetExtension_MemberGroup(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        auto _ret = vqdesignermembersheetextension->memberGroup(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->memberGroup(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->memberGroup(static_cast<int>(index));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerMemberSheetExtension_SetMemberGroup(QDesignerMemberSheetExtension* self, int index, const libqt_string group) {
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    auto* vqdesignermembersheetextension = dynamic_cast<VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        vqdesignermembersheetextension->setMemberGroup(static_cast<int>(index), group_QString);
-    } else {
-        ((VirtualQDesignerMemberSheetExtension*)self)->setMemberGroup(static_cast<int>(index), group_QString);
-    }
+    self->setMemberGroup(static_cast<int>(index), group_QString);
 }
 
 bool QDesignerMemberSheetExtension_IsVisible(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        return vqdesignermembersheetextension->isVisible(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerMemberSheetExtension*)self)->isVisible(static_cast<int>(index));
-    }
+    return self->isVisible(static_cast<int>(index));
 }
 
 void QDesignerMemberSheetExtension_SetVisible(QDesignerMemberSheetExtension* self, int index, bool b) {
-    auto* vqdesignermembersheetextension = dynamic_cast<VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        vqdesignermembersheetextension->setVisible(static_cast<int>(index), b);
-    } else {
-        ((VirtualQDesignerMemberSheetExtension*)self)->setVisible(static_cast<int>(index), b);
-    }
+    self->setVisible(static_cast<int>(index), b);
 }
 
 bool QDesignerMemberSheetExtension_IsSignal(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        return vqdesignermembersheetextension->isSignal(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerMemberSheetExtension*)self)->isSignal(static_cast<int>(index));
-    }
+    return self->isSignal(static_cast<int>(index));
 }
 
 bool QDesignerMemberSheetExtension_IsSlot(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        return vqdesignermembersheetextension->isSlot(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerMemberSheetExtension*)self)->isSlot(static_cast<int>(index));
-    }
+    return self->isSlot(static_cast<int>(index));
 }
 
 bool QDesignerMemberSheetExtension_InheritedFromWidget(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        return vqdesignermembersheetextension->inheritedFromWidget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerMemberSheetExtension*)self)->inheritedFromWidget(static_cast<int>(index));
-    }
+    return self->inheritedFromWidget(static_cast<int>(index));
 }
 
 libqt_string QDesignerMemberSheetExtension_DeclaredInClass(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        auto _ret = vqdesignermembersheetextension->declaredInClass(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->declaredInClass(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->declaredInClass(static_cast<int>(index));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string QDesignerMemberSheetExtension_Signature(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        auto _ret = vqdesignermembersheetextension->signature(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerMemberSheetExtension*)self)->signature(static_cast<int>(index));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->signature(static_cast<int>(index));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterTypes(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        QList<QByteArray> _ret = vqdesignermembersheetextension->parameterTypes(static_cast<int>(index));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QByteArray _lv_qb = _ret[i];
-            libqt_string _lv_str;
-            _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
-            memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QByteArray> _ret = ((VirtualQDesignerMemberSheetExtension*)self)->parameterTypes(static_cast<int>(index));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QByteArray _lv_qb = _ret[i];
-            libqt_string _lv_str;
-            _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
-            memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QByteArray> _ret = self->parameterTypes(static_cast<int>(index));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        QByteArray _lv_qb = _ret[i];
+        libqt_string _lv_str;
+        _lv_str.len = _lv_qb.length();
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
+        memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_list /* of libqt_string */ QDesignerMemberSheetExtension_ParameterNames(const QDesignerMemberSheetExtension* self, int index) {
-    auto* vqdesignermembersheetextension = dynamic_cast<const VirtualQDesignerMemberSheetExtension*>(self);
-    if (vqdesignermembersheetextension && vqdesignermembersheetextension->isVirtualQDesignerMemberSheetExtension) {
-        QList<QByteArray> _ret = vqdesignermembersheetextension->parameterNames(static_cast<int>(index));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QByteArray _lv_qb = _ret[i];
-            libqt_string _lv_str;
-            _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
-            memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QByteArray> _ret = ((VirtualQDesignerMemberSheetExtension*)self)->parameterNames(static_cast<int>(index));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            QByteArray _lv_qb = _ret[i];
-            libqt_string _lv_str;
-            _lv_str.len = _lv_qb.length();
-            _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
-            memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QByteArray> _ret = self->parameterNames(static_cast<int>(index));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        QByteArray _lv_qb = _ret[i];
+        libqt_string _lv_str;
+        _lv_str.len = _lv_qb.length();
+        _lv_str.data = static_cast<char*>(malloc(_lv_str.len));
+        memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation

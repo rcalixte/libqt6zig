@@ -61,66 +61,31 @@ QTableView* QTableView_new2() {
 }
 
 QMetaObject* QTableView_MetaObject(const QTableView* self) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTableView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTableView_Metacast(QTableView* self, const char* param1) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTableView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTableView_Metacall(QTableView* self, int param1, int param2, void** param3) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTableView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QTableView_SetModel(QTableView* self, QAbstractItemModel* model) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        self->setModel(model);
-    } else {
-        ((VirtualQTableView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 void QTableView_SetRootIndex(QTableView* self, const QModelIndex* index) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        self->setRootIndex(*index);
-    } else {
-        ((VirtualQTableView*)self)->setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 void QTableView_SetSelectionModel(QTableView* self, QItemSelectionModel* selectionModel) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        self->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQTableView*)self)->setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 void QTableView_DoItemsLayout(QTableView* self) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        self->doItemsLayout();
-    } else {
-        ((VirtualQTableView*)self)->doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 QHeaderView* QTableView_HorizontalHeader(const QTableView* self) {
@@ -224,30 +189,15 @@ bool QTableView_IsCornerButtonEnabled(const QTableView* self) {
 }
 
 QRect* QTableView_VisualRect(const QTableView* self, const QModelIndex* index) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        return new QRect(self->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQTableView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 void QTableView_ScrollTo(QTableView* self, const QModelIndex* index, int hint) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQTableView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 QModelIndex* QTableView_IndexAt(const QTableView* self, const QPoint* p) {
-    auto* vqtableview = dynamic_cast<const VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        return new QModelIndex(self->indexAt(*p));
-    } else {
-        return new QModelIndex(((VirtualQTableView*)self)->indexAt(*p));
-    }
+    return new QModelIndex(self->indexAt(*p));
 }
 
 void QTableView_SetSpan(QTableView* self, int row, int column, int rowSpan, int columnSpan) {

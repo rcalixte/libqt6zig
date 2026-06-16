@@ -35,30 +35,15 @@ KStatusNotifierItem* KStatusNotifierItem_new4(const libqt_string id, QObject* pa
 }
 
 QMetaObject* KStatusNotifierItem_MetaObject(const KStatusNotifierItem* self) {
-    auto* vkstatusnotifieritem = dynamic_cast<const VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKStatusNotifierItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KStatusNotifierItem_Metacast(KStatusNotifierItem* self, const char* param1) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KStatusNotifierItem_Metacall(KStatusNotifierItem* self, int param1, int param2, void** param3) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKStatusNotifierItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KStatusNotifierItem_Id(const KStatusNotifierItem* self) {
@@ -346,12 +331,7 @@ void KStatusNotifierItem_AbortQuit(KStatusNotifierItem* self) {
 }
 
 void KStatusNotifierItem_Activate(KStatusNotifierItem* self, const QPoint* pos) {
-    auto* vkstatusnotifieritem = dynamic_cast<VirtualKStatusNotifierItem*>(self);
-    if (vkstatusnotifieritem && vkstatusnotifieritem->isVirtualKStatusNotifierItem) {
-        self->activate(*pos);
-    } else {
-        ((VirtualKStatusNotifierItem*)self)->activate(*pos);
-    }
+    self->activate(*pos);
 }
 
 void KStatusNotifierItem_HideAssociatedWindow(KStatusNotifierItem* self) {

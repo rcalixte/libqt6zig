@@ -6,12 +6,12 @@
 #include "libkfontutils.h"
 #include "libkfontutils.hxx"
 
-double KFontUtils_AdaptFontSize(QPainter* param1, const libqt_string param2, double param3, double param4, double param5, double param6, int param7) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return static_cast<double>(KFontUtils::adaptFontSize(*param1, param2_QString, static_cast<qreal>(param3), static_cast<qreal>(param4), static_cast<qreal>(param5), static_cast<qreal>(param6), static_cast<KFontUtils::AdaptFontSizeOptions>(param7)));
+double KFontUtils_AdaptFontSize(QPainter* painter, const libqt_string text, double width, double height, double maxFontSize, double minFontSize, int flags) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    return static_cast<double>(KFontUtils::adaptFontSize(*painter, text_QString, static_cast<qreal>(width), static_cast<qreal>(height), static_cast<qreal>(maxFontSize), static_cast<qreal>(minFontSize), static_cast<KFontUtils::AdaptFontSizeOptions>(flags)));
 }
 
-double KFontUtils_AdaptFontSize2(QPainter* param1, const libqt_string param2, const QSizeF* param3, double param4, double param5, int param6) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return static_cast<double>(KFontUtils::adaptFontSize(*param1, param2_QString, *param3, static_cast<qreal>(param4), static_cast<qreal>(param5), static_cast<KFontUtils::AdaptFontSizeOptions>(param6)));
+double KFontUtils_AdaptFontSize2(QPainter* painter, const libqt_string text, const QSizeF* availableSize, double maxFontSize, double minFontSize, int flags) {
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    return static_cast<double>(KFontUtils::adaptFontSize(*painter, text_QString, *availableSize, static_cast<qreal>(maxFontSize), static_cast<qreal>(minFontSize), static_cast<KFontUtils::AdaptFontSizeOptions>(flags)));
 }

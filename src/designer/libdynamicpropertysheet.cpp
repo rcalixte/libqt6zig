@@ -10,50 +10,25 @@ QDesignerDynamicPropertySheetExtension* QDesignerDynamicPropertySheetExtension_n
 }
 
 bool QDesignerDynamicPropertySheetExtension_DynamicPropertiesAllowed(const QDesignerDynamicPropertySheetExtension* self) {
-    auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<const VirtualQDesignerDynamicPropertySheetExtension*>(self);
-    if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
-        return vqdesignerdynamicpropertysheetextension->dynamicPropertiesAllowed();
-    } else {
-        return ((VirtualQDesignerDynamicPropertySheetExtension*)self)->dynamicPropertiesAllowed();
-    }
+    return self->dynamicPropertiesAllowed();
 }
 
 int QDesignerDynamicPropertySheetExtension_AddDynamicProperty(QDesignerDynamicPropertySheetExtension* self, const libqt_string propertyName, const QVariant* value) {
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
-    auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<VirtualQDesignerDynamicPropertySheetExtension*>(self);
-    if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
-        return vqdesignerdynamicpropertysheetextension->addDynamicProperty(propertyName_QString, *value);
-    } else {
-        return ((VirtualQDesignerDynamicPropertySheetExtension*)self)->addDynamicProperty(propertyName_QString, *value);
-    }
+    return self->addDynamicProperty(propertyName_QString, *value);
 }
 
 bool QDesignerDynamicPropertySheetExtension_RemoveDynamicProperty(QDesignerDynamicPropertySheetExtension* self, int index) {
-    auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<VirtualQDesignerDynamicPropertySheetExtension*>(self);
-    if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
-        return vqdesignerdynamicpropertysheetextension->removeDynamicProperty(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerDynamicPropertySheetExtension*)self)->removeDynamicProperty(static_cast<int>(index));
-    }
+    return self->removeDynamicProperty(static_cast<int>(index));
 }
 
 bool QDesignerDynamicPropertySheetExtension_IsDynamicProperty(const QDesignerDynamicPropertySheetExtension* self, int index) {
-    auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<const VirtualQDesignerDynamicPropertySheetExtension*>(self);
-    if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
-        return vqdesignerdynamicpropertysheetextension->isDynamicProperty(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerDynamicPropertySheetExtension*)self)->isDynamicProperty(static_cast<int>(index));
-    }
+    return self->isDynamicProperty(static_cast<int>(index));
 }
 
 bool QDesignerDynamicPropertySheetExtension_CanAddDynamicProperty(const QDesignerDynamicPropertySheetExtension* self, const libqt_string propertyName) {
     QString propertyName_QString = QString::fromUtf8(propertyName.data, propertyName.len);
-    auto* vqdesignerdynamicpropertysheetextension = dynamic_cast<const VirtualQDesignerDynamicPropertySheetExtension*>(self);
-    if (vqdesignerdynamicpropertysheetextension && vqdesignerdynamicpropertysheetextension->isVirtualQDesignerDynamicPropertySheetExtension) {
-        return vqdesignerdynamicpropertysheetextension->canAddDynamicProperty(propertyName_QString);
-    } else {
-        return ((VirtualQDesignerDynamicPropertySheetExtension*)self)->canAddDynamicProperty(propertyName_QString);
-    }
+    return self->canAddDynamicProperty(propertyName_QString);
 }
 
 // Base class handler implementation

@@ -2052,28 +2052,28 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Del(param1: anytype, param2: i32) KIO__DeleteJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Del(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn Del(src: anytype, flags: i32) KIO__DeleteJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Del(@ptrCast(src.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#del)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Del2(param1: []QUrl, param2: i32) KIO__DeleteJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn Del2(src: []QUrl, flags: i32) KIO__DeleteJob {
+        const src_list = qtc.libqt_list{
+            .len = src.len,
+            .data = @ptrCast(src.ptr),
         };
-        return .{ .ptr = qtc.KIO_Del2(param1_list, @bitCast(param2)) };
+        return .{ .ptr = qtc.KIO_Del2(src_list, @bitCast(flags)) };
     }
 };

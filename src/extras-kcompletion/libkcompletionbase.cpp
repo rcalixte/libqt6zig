@@ -17,21 +17,11 @@ KCompletion* KCompletionBase_CompletionObject(KCompletionBase* self) {
 }
 
 void KCompletionBase_SetCompletionObject(KCompletionBase* self, KCompletion* completionObject, bool handleSignals) {
-    auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
-        self->setCompletionObject(completionObject, handleSignals);
-    } else {
-        ((VirtualKCompletionBase*)self)->setCompletionObject(completionObject, handleSignals);
-    }
+    self->setCompletionObject(completionObject, handleSignals);
 }
 
 void KCompletionBase_SetHandleSignals(KCompletionBase* self, bool handle) {
-    auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
-        self->setHandleSignals(handle);
-    } else {
-        ((VirtualKCompletionBase*)self)->setHandleSignals(handle);
-    }
+    self->setHandleSignals(handle);
 }
 
 bool KCompletionBase_IsCompletionObjectAutoDeleted(const KCompletionBase* self) {
@@ -59,12 +49,7 @@ void KCompletionBase_SetEmitSignals(KCompletionBase* self, bool emitRotationSign
 }
 
 void KCompletionBase_SetCompletionMode(KCompletionBase* self, int mode) {
-    auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
-        self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    } else {
-        ((VirtualKCompletionBase*)self)->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
-    }
+    self->setCompletionMode(static_cast<KCompletion::CompletionMode>(mode));
 }
 
 int KCompletionBase_CompletionMode(const KCompletionBase* self) {
@@ -100,12 +85,7 @@ void KCompletionBase_UseGlobalKeyBindings(KCompletionBase* self) {
 
 void KCompletionBase_SetCompletedText(KCompletionBase* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
-        vkcompletionbase->setCompletedText(text_QString);
-    } else {
-        ((VirtualKCompletionBase*)self)->setCompletedText(text_QString);
-    }
+    self->setCompletedText(text_QString);
 }
 
 void KCompletionBase_SetCompletedItems(KCompletionBase* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
@@ -116,12 +96,7 @@ void KCompletionBase_SetCompletedItems(KCompletionBase* self, const libqt_list /
         QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
         items_QList.push_back(items_arr_i_QString);
     }
-    auto* vkcompletionbase = dynamic_cast<VirtualKCompletionBase*>(self);
-    if (vkcompletionbase && vkcompletionbase->isVirtualKCompletionBase) {
-        vkcompletionbase->setCompletedItems(items_QList, autoSuggest);
-    } else {
-        ((VirtualKCompletionBase*)self)->setCompletedItems(items_QList, autoSuggest);
-    }
+    self->setCompletedItems(items_QList, autoSuggest);
 }
 
 KCompletion* KCompletionBase_CompObj(const KCompletionBase* self) {

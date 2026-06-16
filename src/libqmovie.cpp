@@ -58,30 +58,15 @@ QMovie* QMovie_new8(const libqt_string fileName, const libqt_string format, QObj
 }
 
 QMetaObject* QMovie_MetaObject(const QMovie* self) {
-    auto* vqmovie = dynamic_cast<const VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMovie*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMovie_Metacast(QMovie* self, const char* param1) {
-    auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMovie*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMovie_Metacall(QMovie* self, int param1, int param2, void** param3) {
-    auto* vqmovie = dynamic_cast<VirtualQMovie*>(self);
-    if (vqmovie && vqmovie->isVirtualQMovie) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMovie*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QMovie_SupportedFormats() {

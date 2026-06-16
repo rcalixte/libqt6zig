@@ -52,57 +52,27 @@ KImageFilePreview* KImageFilePreview_new2() {
 }
 
 QMetaObject* KImageFilePreview_MetaObject(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<const VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKImageFilePreview*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KImageFilePreview_Metacast(KImageFilePreview* self, const char* param1) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KImageFilePreview_Metacall(KImageFilePreview* self, int param1, int param2, void** param3) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKImageFilePreview*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KImageFilePreview_SizeHint(const KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<const VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKImageFilePreview*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KImageFilePreview_ShowPreview(KImageFilePreview* self, const QUrl* url) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        self->showPreview(*url);
-    } else {
-        ((VirtualKImageFilePreview*)self)->showPreview(*url);
-    }
+    self->showPreview(*url);
 }
 
 void KImageFilePreview_ClearPreview(KImageFilePreview* self) {
-    auto* vkimagefilepreview = dynamic_cast<VirtualKImageFilePreview*>(self);
-    if (vkimagefilepreview && vkimagefilepreview->isVirtualKImageFilePreview) {
-        self->clearPreview();
-    } else {
-        ((VirtualKImageFilePreview*)self)->clearPreview();
-    }
+    self->clearPreview();
 }
 
 void KImageFilePreview_GotPreview(KImageFilePreview* self, const KFileItem* param1, const QPixmap* param2) {

@@ -18,8 +18,8 @@ extern "C" {
 typedef struct KFileSystemType KFileSystemType;
 #endif
 
-int KFileSystemType_FileSystemType(const libqt_string param1);
-libqt_string KFileSystemType_FileSystemName(int param1);
+int KFileSystemType_FileSystemType(const libqt_string path);
+libqt_string KFileSystemType_FileSystemName(int type);
 
 #ifdef __cplusplus
 } /* extern C */

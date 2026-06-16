@@ -20,7 +20,7 @@ typedef struct QObject QObject;
 #endif
 
 int KNotificationPermission_CheckPermission();
-void KNotificationPermission_RequestPermission(QObject* param1, intptr_t param2);
+void KNotificationPermission_RequestPermission(QObject* context, intptr_t callback);
 
 #ifdef __cplusplus
 } /* extern C */

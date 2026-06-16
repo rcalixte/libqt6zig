@@ -20,338 +20,162 @@ QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseItemInterface_new()
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_Name(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetName(QDesignerWidgetDataBaseItemInterface* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setName(name_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setName(name_QString);
-    }
+    self->setName(name_QString);
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_Group(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->group();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->group();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->group();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetGroup(QDesignerWidgetDataBaseItemInterface* self, const libqt_string group) {
     QString group_QString = QString::fromUtf8(group.data, group.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setGroup(group_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setGroup(group_QString);
-    }
+    self->setGroup(group_QString);
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_ToolTip(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->toolTip();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->toolTip();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->toolTip();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetToolTip(QDesignerWidgetDataBaseItemInterface* self, const libqt_string toolTip) {
     QString toolTip_QString = QString::fromUtf8(toolTip.data, toolTip.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setToolTip(toolTip_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setToolTip(toolTip_QString);
-    }
+    self->setToolTip(toolTip_QString);
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_WhatsThis(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->whatsThis();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->whatsThis();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->whatsThis();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetWhatsThis(QDesignerWidgetDataBaseItemInterface* self, const libqt_string whatsThis) {
     QString whatsThis_QString = QString::fromUtf8(whatsThis.data, whatsThis.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setWhatsThis(whatsThis_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setWhatsThis(whatsThis_QString);
-    }
+    self->setWhatsThis(whatsThis_QString);
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_IncludeFile(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->includeFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->includeFile();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->includeFile();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetIncludeFile(QDesignerWidgetDataBaseItemInterface* self, const libqt_string includeFile) {
     QString includeFile_QString = QString::fromUtf8(includeFile.data, includeFile.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setIncludeFile(includeFile_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setIncludeFile(includeFile_QString);
-    }
+    self->setIncludeFile(includeFile_QString);
 }
 
 QIcon* QDesignerWidgetDataBaseItemInterface_Icon(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        return new QIcon(vqdesignerwidgetdatabaseiteminterface->icon());
-    } else {
-        return new QIcon(((VirtualQDesignerWidgetDataBaseItemInterface*)self)->icon());
-    }
+    return new QIcon(self->icon());
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetIcon(QDesignerWidgetDataBaseItemInterface* self, const QIcon* icon) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setIcon(*icon);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setIcon(*icon);
-    }
+    self->setIcon(*icon);
 }
 
 bool QDesignerWidgetDataBaseItemInterface_IsCompat(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        return vqdesignerwidgetdatabaseiteminterface->isCompat();
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->isCompat();
-    }
+    return self->isCompat();
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetCompat(QDesignerWidgetDataBaseItemInterface* self, bool compat) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setCompat(compat);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setCompat(compat);
-    }
+    self->setCompat(compat);
 }
 
 bool QDesignerWidgetDataBaseItemInterface_IsContainer(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        return vqdesignerwidgetdatabaseiteminterface->isContainer();
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->isContainer();
-    }
+    return self->isContainer();
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetContainer(QDesignerWidgetDataBaseItemInterface* self, bool container) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setContainer(container);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setContainer(container);
-    }
+    self->setContainer(container);
 }
 
 bool QDesignerWidgetDataBaseItemInterface_IsCustom(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        return vqdesignerwidgetdatabaseiteminterface->isCustom();
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->isCustom();
-    }
+    return self->isCustom();
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetCustom(QDesignerWidgetDataBaseItemInterface* self, bool custom) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setCustom(custom);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setCustom(custom);
-    }
+    self->setCustom(custom);
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_PluginPath(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->pluginPath();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->pluginPath();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->pluginPath();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetPluginPath(QDesignerWidgetDataBaseItemInterface* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setPluginPath(path_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setPluginPath(path_QString);
-    }
+    self->setPluginPath(path_QString);
 }
 
 bool QDesignerWidgetDataBaseItemInterface_IsPromoted(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        return vqdesignerwidgetdatabaseiteminterface->isPromoted();
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->isPromoted();
-    }
+    return self->isPromoted();
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetPromoted(QDesignerWidgetDataBaseItemInterface* self, bool b) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setPromoted(b);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setPromoted(b);
-    }
+    self->setPromoted(b);
 }
 
 libqt_string QDesignerWidgetDataBaseItemInterface_Extends(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        auto _ret = vqdesignerwidgetdatabaseiteminterface->extends();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->extends();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->extends();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetExtends(QDesignerWidgetDataBaseItemInterface* self, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setExtends(s_QString);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setExtends(s_QString);
-    }
+    self->setExtends(s_QString);
 }
 
 void QDesignerWidgetDataBaseItemInterface_SetDefaultPropertyValues(QDesignerWidgetDataBaseItemInterface* self, const libqt_list /* of QVariant* */ list) {
@@ -361,39 +185,20 @@ void QDesignerWidgetDataBaseItemInterface_SetDefaultPropertyValues(QDesignerWidg
     for (size_t i = 0; i < list.len; ++i) {
         list_QList.push_back(*(list_arr[i]));
     }
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        vqdesignerwidgetdatabaseiteminterface->setDefaultPropertyValues(list_QList);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->setDefaultPropertyValues(list_QList);
-    }
+    self->setDefaultPropertyValues(list_QList);
 }
 
 libqt_list /* of QVariant* */ QDesignerWidgetDataBaseItemInterface_DefaultPropertyValues(const QDesignerWidgetDataBaseItemInterface* self) {
-    auto* vqdesignerwidgetdatabaseiteminterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseItemInterface*>(self);
-    if (vqdesignerwidgetdatabaseiteminterface && vqdesignerwidgetdatabaseiteminterface->isVirtualQDesignerWidgetDataBaseItemInterface) {
-        QList<QVariant> _ret = vqdesignerwidgetdatabaseiteminterface->defaultPropertyValues();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVariant(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QVariant> _ret = ((VirtualQDesignerWidgetDataBaseItemInterface*)self)->defaultPropertyValues();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVariant(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QVariant> _ret = self->defaultPropertyValues();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QVariant(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation
@@ -1046,103 +851,48 @@ QDesignerWidgetDataBaseInterface* QDesignerWidgetDataBaseInterface_new2(QObject*
 }
 
 QMetaObject* QDesignerWidgetDataBaseInterface_MetaObject(const QDesignerWidgetDataBaseInterface* self) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerWidgetDataBaseInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerWidgetDataBaseInterface_Metacast(QDesignerWidgetDataBaseInterface* self, const char* param1) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerWidgetDataBaseInterface_Metacall(QDesignerWidgetDataBaseInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QDesignerWidgetDataBaseInterface_Count(const QDesignerWidgetDataBaseInterface* self) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->count();
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->count();
-    }
+    return self->count();
 }
 
 QDesignerWidgetDataBaseItemInterface* QDesignerWidgetDataBaseInterface_Item(const QDesignerWidgetDataBaseInterface* self, int index) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->item(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->item(static_cast<int>(index));
-    }
+    return self->item(static_cast<int>(index));
 }
 
 int QDesignerWidgetDataBaseInterface_IndexOf(const QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->indexOf(item);
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->indexOf(item);
-    }
+    return self->indexOf(item);
 }
 
 void QDesignerWidgetDataBaseInterface_Insert(QDesignerWidgetDataBaseInterface* self, int index, QDesignerWidgetDataBaseItemInterface* item) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        self->insert(static_cast<int>(index), item);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseInterface*)self)->insert(static_cast<int>(index), item);
-    }
+    self->insert(static_cast<int>(index), item);
 }
 
 void QDesignerWidgetDataBaseInterface_Append(QDesignerWidgetDataBaseInterface* self, QDesignerWidgetDataBaseItemInterface* item) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        self->append(item);
-    } else {
-        ((VirtualQDesignerWidgetDataBaseInterface*)self)->append(item);
-    }
+    self->append(item);
 }
 
 int QDesignerWidgetDataBaseInterface_IndexOfObject(const QDesignerWidgetDataBaseInterface* self, QObject* object, bool resolveName) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->indexOfObject(object, resolveName);
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->indexOfObject(object, resolveName);
-    }
+    return self->indexOfObject(object, resolveName);
 }
 
 int QDesignerWidgetDataBaseInterface_IndexOfClassName(const QDesignerWidgetDataBaseInterface* self, const libqt_string className, bool resolveName) {
     QString className_QString = QString::fromUtf8(className.data, className.len);
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->indexOfClassName(className_QString, resolveName);
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->indexOfClassName(className_QString, resolveName);
-    }
+    return self->indexOfClassName(className_QString, resolveName);
 }
 
 QDesignerFormEditorInterface* QDesignerWidgetDataBaseInterface_Core(const QDesignerWidgetDataBaseInterface* self) {
-    auto* vqdesignerwidgetdatabaseinterface = dynamic_cast<const VirtualQDesignerWidgetDataBaseInterface*>(self);
-    if (vqdesignerwidgetdatabaseinterface && vqdesignerwidgetdatabaseinterface->isVirtualQDesignerWidgetDataBaseInterface) {
-        return self->core();
-    } else {
-        return ((VirtualQDesignerWidgetDataBaseInterface*)self)->core();
-    }
+    return self->core();
 }
 
 bool QDesignerWidgetDataBaseInterface_IsContainer(const QDesignerWidgetDataBaseInterface* self, QObject* object) {

@@ -9,16 +9,16 @@ pub const KFileMetaData__MimeUtils = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` filePath: []const u8 `
     ///
-    /// ` param2: QMimeDatabase `
+    /// ` db: QMimeDatabase `
     ///
-    pub fn StrictMimeType(param1: []const u8, param2: anytype) QMimeType {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn StrictMimeType(filePath: []const u8, db: anytype) QMimeType {
+        const filePath_str = qtc.libqt_string{
+            .len = filePath.len,
+            .data = filePath.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QMimeDatabase;
-        return .{ .ptr = qtc.KFileMetaData__MimeUtils_StrictMimeType(param1_str, @ptrCast(param2.ptr)) };
+        comptime _ = @TypeOf(db)._is_QMimeDatabase;
+        return .{ .ptr = qtc.KFileMetaData__MimeUtils_StrictMimeType(filePath_str, @ptrCast(db.ptr)) };
     }
 };

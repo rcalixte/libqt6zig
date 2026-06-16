@@ -47,30 +47,15 @@ QVideoWidget* QVideoWidget_new2() {
 }
 
 QMetaObject* QVideoWidget_MetaObject(const QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<const VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQVideoWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QVideoWidget_Metacast(QVideoWidget* self, const char* param1) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQVideoWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QVideoWidget_Metacall(QVideoWidget* self, int param1, int param2, void** param3) {
-    auto* vqvideowidget = dynamic_cast<VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVideoWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVideoSink* QVideoWidget_VideoSink(const QVideoWidget* self) {
@@ -82,12 +67,7 @@ int QVideoWidget_AspectRatioMode(const QVideoWidget* self) {
 }
 
 QSize* QVideoWidget_SizeHint(const QVideoWidget* self) {
-    auto* vqvideowidget = dynamic_cast<const VirtualQVideoWidget*>(self);
-    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQVideoWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QVideoWidget_SetFullScreen(QVideoWidget* self, bool fullScreen) {

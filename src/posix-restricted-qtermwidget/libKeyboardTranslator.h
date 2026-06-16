@@ -75,7 +75,7 @@ libqt_list /* of libqt_string */ Konsole__KeyboardTranslatorManager_AllTranslato
 Konsole__KeyboardTranslatorManager* Konsole__KeyboardTranslatorManager_Instance();
 void Konsole__KeyboardTranslatorManager_Delete(Konsole__KeyboardTranslatorManager* self);
 
-int Konsole_OneOrZero(int param1);
+int Konsole_OneOrZero(int value);
 
 Konsole__KeyboardTranslator__Entry* Konsole__KeyboardTranslator__Entry_new();
 Konsole__KeyboardTranslator__Entry* Konsole__KeyboardTranslator__Entry_new2(const Konsole__KeyboardTranslator__Entry* param1);

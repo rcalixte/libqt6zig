@@ -71,11 +71,11 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KIO__JobUiDelegateExtension `
+    /// ` extension: KIO__JobUiDelegateExtension `
     ///
-    pub fn SetDefaultJobUiDelegateExtension(param1: anytype) void {
-        comptime _ = @TypeOf(param1)._is_KIO__JobUiDelegateExtension;
-        qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(param1.ptr));
+    pub fn SetDefaultJobUiDelegateExtension(extension: anytype) void {
+        comptime _ = @TypeOf(extension)._is_KIO__JobUiDelegateExtension;
+        qtc.KIO_SetDefaultJobUiDelegateExtension(@ptrCast(extension.ptr));
     }
 };
 

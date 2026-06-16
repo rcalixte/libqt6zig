@@ -37,7 +37,7 @@ void KIO__MkpathJob_DirectoryCreated(KIO__MkpathJob* self, const QUrl* url);
 void KIO__MkpathJob_Connect_DirectoryCreated(KIO__MkpathJob* self, intptr_t slot);
 void KIO__MkpathJob_Delete(KIO__MkpathJob* self);
 
-KIO__MkpathJob* KIO_Mkpath(const QUrl* param1, const QUrl* param2, int param3);
+KIO__MkpathJob* KIO_Mkpath(const QUrl* url, const QUrl* baseUrl, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

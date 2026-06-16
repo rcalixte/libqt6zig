@@ -46,30 +46,15 @@ KCollapsibleGroupBox* KCollapsibleGroupBox_new2() {
 }
 
 QMetaObject* KCollapsibleGroupBox_MetaObject(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCollapsibleGroupBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCollapsibleGroupBox_Metacast(KCollapsibleGroupBox* self, const char* param1) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCollapsibleGroupBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCollapsibleGroupBox_Metacall(KCollapsibleGroupBox* self, int param1, int param2, void** param3) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCollapsibleGroupBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCollapsibleGroupBox_SetTitle(KCollapsibleGroupBox* self, const libqt_string title) {
@@ -98,21 +83,11 @@ bool KCollapsibleGroupBox_IsExpanded(const KCollapsibleGroupBox* self) {
 }
 
 QSize* KCollapsibleGroupBox_SizeHint(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKCollapsibleGroupBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* KCollapsibleGroupBox_MinimumSizeHint(const KCollapsibleGroupBox* self) {
-    auto* vkcollapsiblegroupbox = dynamic_cast<const VirtualKCollapsibleGroupBox*>(self);
-    if (vkcollapsiblegroupbox && vkcollapsiblegroupbox->isVirtualKCollapsibleGroupBox) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCollapsibleGroupBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void KCollapsibleGroupBox_Toggle(KCollapsibleGroupBox* self) {

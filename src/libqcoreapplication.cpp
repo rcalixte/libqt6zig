@@ -25,30 +25,15 @@ QCoreApplication* QCoreApplication_new2(int* argc, char** argv, int param3) {
 }
 
 QMetaObject* QCoreApplication_MetaObject(const QCoreApplication* self) {
-    auto* vqcoreapplication = dynamic_cast<const VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCoreApplication*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCoreApplication_Metacast(QCoreApplication* self, const char* param1) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCoreApplication*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCoreApplication_Metacall(QCoreApplication* self, int param1, int param2, void** param3) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCoreApplication*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QCoreApplication_Arguments() {
@@ -201,12 +186,7 @@ void QCoreApplication_SetEventDispatcher(QAbstractEventDispatcher* eventDispatch
 }
 
 bool QCoreApplication_Notify(QCoreApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqcoreapplication = dynamic_cast<VirtualQCoreApplication*>(self);
-    if (vqcoreapplication && vqcoreapplication->isVirtualQCoreApplication) {
-        return self->notify(param1, param2);
-    } else {
-        return ((VirtualQCoreApplication*)self)->notify(param1, param2);
-    }
+    return self->notify(param1, param2);
 }
 
 bool QCoreApplication_StartingUp() {

@@ -19,30 +19,15 @@ QsciMacro* QsciMacro_new2(const libqt_string asc, QsciScintilla* parent) {
 }
 
 QMetaObject* QsciMacro_MetaObject(const QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<const VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciMacro*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciMacro_Metacast(QsciMacro* self, const char* param1) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciMacro*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciMacro_Metacall(QsciMacro* self, int param1, int param2, void** param3) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciMacro*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QsciMacro_Clear(QsciMacro* self) {
@@ -67,30 +52,15 @@ libqt_string QsciMacro_Save(const QsciMacro* self) {
 }
 
 void QsciMacro_Play(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        self->play();
-    } else {
-        ((VirtualQsciMacro*)self)->play();
-    }
+    self->play();
 }
 
 void QsciMacro_StartRecording(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        self->startRecording();
-    } else {
-        ((VirtualQsciMacro*)self)->startRecording();
-    }
+    self->startRecording();
 }
 
 void QsciMacro_EndRecording(QsciMacro* self) {
-    auto* vqscimacro = dynamic_cast<VirtualQsciMacro*>(self);
-    if (vqscimacro && vqscimacro->isVirtualQsciMacro) {
-        self->endRecording();
-    } else {
-        ((VirtualQsciMacro*)self)->endRecording();
-    }
+    self->endRecording();
 }
 
 // Base class handler implementation

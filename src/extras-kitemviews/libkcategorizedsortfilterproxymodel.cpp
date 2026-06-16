@@ -33,39 +33,19 @@ KCategorizedSortFilterProxyModel* KCategorizedSortFilterProxyModel_new2(QObject*
 }
 
 QMetaObject* KCategorizedSortFilterProxyModel_MetaObject(const KCategorizedSortFilterProxyModel* self) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<const VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCategorizedSortFilterProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCategorizedSortFilterProxyModel_Metacast(KCategorizedSortFilterProxyModel* self, const char* param1) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCategorizedSortFilterProxyModel_Metacall(KCategorizedSortFilterProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCategorizedSortFilterProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCategorizedSortFilterProxyModel_Sort(KCategorizedSortFilterProxyModel* self, int column, int order) {
-    auto* vkcategorizedsortfilterproxymodel = dynamic_cast<VirtualKCategorizedSortFilterProxyModel*>(self);
-    if (vkcategorizedsortfilterproxymodel && vkcategorizedsortfilterproxymodel->isVirtualKCategorizedSortFilterProxyModel) {
-        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualKCategorizedSortFilterProxyModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 bool KCategorizedSortFilterProxyModel_IsCategorizedModel(const KCategorizedSortFilterProxyModel* self) {

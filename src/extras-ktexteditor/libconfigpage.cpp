@@ -43,116 +43,55 @@ KTextEditor__ConfigPage* KTextEditor__ConfigPage_new(QWidget* parent) {
 }
 
 QMetaObject* KTextEditor__ConfigPage_MetaObject(const KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorConfigPage*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__ConfigPage_Metacast(KTextEditor__ConfigPage* self, const char* param1) {
-    auto* vktexteditor__configpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorConfigPage*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__ConfigPage_Metacall(KTextEditor__ConfigPage* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__configpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorConfigPage*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KTextEditor__ConfigPage_Name(const KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        auto _ret = vktexteditor__configpage->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKTextEditorConfigPage*)self)->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_string KTextEditor__ConfigPage_FullName(const KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        auto _ret = self->fullName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKTextEditorConfigPage*)self)->fullName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->fullName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QIcon* KTextEditor__ConfigPage_Icon(const KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<const VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        return new QIcon(self->icon());
-    } else {
-        return new QIcon(((VirtualKTextEditorConfigPage*)self)->icon());
-    }
+    return new QIcon(self->icon());
 }
 
 void KTextEditor__ConfigPage_Apply(KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        vktexteditor__configpage->apply();
-    } else {
-        ((VirtualKTextEditorConfigPage*)self)->apply();
-    }
+    self->apply();
 }
 
 void KTextEditor__ConfigPage_Reset(KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        vktexteditor__configpage->reset();
-    } else {
-        ((VirtualKTextEditorConfigPage*)self)->reset();
-    }
+    self->reset();
 }
 
 void KTextEditor__ConfigPage_Defaults(KTextEditor__ConfigPage* self) {
-    auto* vktexteditor__configpage = dynamic_cast<VirtualKTextEditorConfigPage*>(self);
-    if (vktexteditor__configpage && vktexteditor__configpage->isVirtualKTextEditorConfigPage) {
-        vktexteditor__configpage->defaults();
-    } else {
-        ((VirtualKTextEditorConfigPage*)self)->defaults();
-    }
+    self->defaults();
 }
 
 void KTextEditor__ConfigPage_Changed(KTextEditor__ConfigPage* self) {

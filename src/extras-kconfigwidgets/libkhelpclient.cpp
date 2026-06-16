@@ -4,8 +4,8 @@
 #include "libkhelpclient.h"
 #include "libkhelpclient.hxx"
 
-void KHelpClient_InvokeHelp(const libqt_string param1, const libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    KHelpClient::invokeHelp(param1_QString, param2_QString);
+void KHelpClient_InvokeHelp(const libqt_string anchor, const libqt_string appname) {
+    QString anchor_QString = QString::fromUtf8(anchor.data, anchor.len);
+    QString appname_QString = QString::fromUtf8(appname.data, appname.len);
+    KHelpClient::invokeHelp(anchor_QString, appname_QString);
 }

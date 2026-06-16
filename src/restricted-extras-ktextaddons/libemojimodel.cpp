@@ -34,48 +34,23 @@ TextEmoticonsCore__EmojiModel* TextEmoticonsCore__EmojiModel_new2(QObject* paren
 }
 
 QMetaObject* TextEmoticonsCore__EmojiModel_MetaObject(const TextEmoticonsCore__EmojiModel* self) {
-    auto* vtextemoticonscore__emojimodel = dynamic_cast<const VirtualTextEmoticonsCoreEmojiModel*>(self);
-    if (vtextemoticonscore__emojimodel && vtextemoticonscore__emojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEmoticonsCoreEmojiModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEmoticonsCore__EmojiModel_Metacast(TextEmoticonsCore__EmojiModel* self, const char* param1) {
-    auto* vtextemoticonscore__emojimodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiModel*>(self);
-    if (vtextemoticonscore__emojimodel && vtextemoticonscore__emojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEmoticonsCore__EmojiModel_Metacall(TextEmoticonsCore__EmojiModel* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonscore__emojimodel = dynamic_cast<VirtualTextEmoticonsCoreEmojiModel*>(self);
-    if (vtextemoticonscore__emojimodel && vtextemoticonscore__emojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int TextEmoticonsCore__EmojiModel_RowCount(const TextEmoticonsCore__EmojiModel* self, const QModelIndex* parent) {
-    auto* vtextemoticonscore__emojimodel = dynamic_cast<const VirtualTextEmoticonsCoreEmojiModel*>(self);
-    if (vtextemoticonscore__emojimodel && vtextemoticonscore__emojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* TextEmoticonsCore__EmojiModel_Data(const TextEmoticonsCore__EmojiModel* self, const QModelIndex* index, int role) {
-    auto* vtextemoticonscore__emojimodel = dynamic_cast<const VirtualTextEmoticonsCoreEmojiModel*>(self);
-    if (vtextemoticonscore__emojimodel && vtextemoticonscore__emojimodel->isVirtualTextEmoticonsCoreEmojiModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualTextEmoticonsCoreEmojiModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 libqt_list /* of TextEmoticonsCore__UnicodeEmoticon* */ TextEmoticonsCore__EmojiModel_EmoticonList(const TextEmoticonsCore__EmojiModel* self) {

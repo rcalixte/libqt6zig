@@ -8,36 +8,36 @@
 #include "libkurlmimedata.h"
 #include "libkurlmimedata.hxx"
 
-void KUrlMimeData_SetUrls(const libqt_list /* of QUrl* */ param1, const libqt_list /* of QUrl* */ param2, QMimeData* param3) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+void KUrlMimeData_SetUrls(const libqt_list /* of QUrl* */ urls, const libqt_list /* of QUrl* */ mostLocalUrls, QMimeData* mimeData) {
+    QList<QUrl> urls_QList;
+    urls_QList.reserve(urls.len);
+    QUrl** urls_arr = static_cast<QUrl**>(urls.data);
+    for (size_t i = 0; i < urls.len; ++i) {
+        urls_QList.push_back(*(urls_arr[i]));
     }
-    QList<QUrl> param2_QList;
-    param2_QList.reserve(param2.len);
-    QUrl** param2_arr = static_cast<QUrl**>(param2.data);
-    for (size_t i = 0; i < param2.len; ++i) {
-        param2_QList.push_back(*(param2_arr[i]));
+    QList<QUrl> mostLocalUrls_QList;
+    mostLocalUrls_QList.reserve(mostLocalUrls.len);
+    QUrl** mostLocalUrls_arr = static_cast<QUrl**>(mostLocalUrls.data);
+    for (size_t i = 0; i < mostLocalUrls.len; ++i) {
+        mostLocalUrls_QList.push_back(*(mostLocalUrls_arr[i]));
     }
-    KUrlMimeData::setUrls(param1_QList, param2_QList, param3);
+    KUrlMimeData::setUrls(urls_QList, mostLocalUrls_QList, mimeData);
 }
 
-bool KUrlMimeData_ExportUrlsToPortal(QMimeData* param1) {
-    return KUrlMimeData::exportUrlsToPortal(param1);
+bool KUrlMimeData_ExportUrlsToPortal(QMimeData* mimeData) {
+    return KUrlMimeData::exportUrlsToPortal(mimeData);
 }
 
-void KUrlMimeData_SetMetaData(const libqt_map /* of libqt_string to libqt_string */ param1, QMimeData* param2) {
-    QMap<QString, QString> param1_QMap;
-    libqt_string* param1_karr = static_cast<libqt_string*>(param1.keys);
-    libqt_string* param1_varr = static_cast<libqt_string*>(param1.values);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_karr_i_QString = QString::fromUtf8(param1_karr[i].data, param1_karr[i].len);
-        QString param1_varr_i_QString = QString::fromUtf8(param1_varr[i].data, param1_varr[i].len);
-        param1_QMap[param1_karr_i_QString] = param1_varr_i_QString;
+void KUrlMimeData_SetMetaData(const libqt_map /* of libqt_string to libqt_string */ metaData, QMimeData* mimeData) {
+    QMap<QString, QString> metaData_QMap;
+    libqt_string* metaData_karr = static_cast<libqt_string*>(metaData.keys);
+    libqt_string* metaData_varr = static_cast<libqt_string*>(metaData.values);
+    for (size_t i = 0; i < metaData.len; ++i) {
+        QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
+        QString metaData_varr_i_QString = QString::fromUtf8(metaData_varr[i].data, metaData_varr[i].len);
+        metaData_QMap[metaData_karr_i_QString] = metaData_varr_i_QString;
     }
-    KUrlMimeData::setMetaData(param1_QMap, param2);
+    KUrlMimeData::setMetaData(metaData_QMap, mimeData);
 }
 
 libqt_list /* of libqt_string */ KUrlMimeData_MimeDataTypes() {
@@ -61,16 +61,16 @@ libqt_list /* of libqt_string */ KUrlMimeData_MimeDataTypes() {
     return _out;
 }
 
-libqt_list /* of QUrl* */ KUrlMimeData_UrlsFromMimeData(const QMimeData* param1, int param2, libqt_map* /* of libqt_string to libqt_string */ param3) {
-    QMap<QString, QString>* param3_QMap;
-    libqt_string* param3_karr = static_cast<libqt_string*>(param3->keys);
-    libqt_string* param3_varr = static_cast<libqt_string*>(param3->values);
-    for (size_t i = 0; i < param3->len; ++i) {
-        QString param3_karr_i_QString = QString::fromUtf8(param3_karr[i].data, param3_karr[i].len);
-        QString param3_varr_i_QString = QString::fromUtf8(param3_varr[i].data, param3_varr[i].len);
-        (*param3_QMap)[param3_karr_i_QString] = param3_varr_i_QString;
+libqt_list /* of QUrl* */ KUrlMimeData_UrlsFromMimeData(const QMimeData* mimeData, int decodeOptions, libqt_map* /* of libqt_string to libqt_string */ metaData) {
+    QMap<QString, QString>* metaData_QMap;
+    libqt_string* metaData_karr = static_cast<libqt_string*>(metaData->keys);
+    libqt_string* metaData_varr = static_cast<libqt_string*>(metaData->values);
+    for (size_t i = 0; i < metaData->len; ++i) {
+        QString metaData_karr_i_QString = QString::fromUtf8(metaData_karr[i].data, metaData_karr[i].len);
+        QString metaData_varr_i_QString = QString::fromUtf8(metaData_varr[i].data, metaData_varr[i].len);
+        (*metaData_QMap)[metaData_karr_i_QString] = metaData_varr_i_QString;
     }
-    QList<QUrl> _ret = KUrlMimeData::urlsFromMimeData(param1, static_cast<KUrlMimeData::DecodeOptions>(param2), param3_QMap);
+    QList<QUrl> _ret = KUrlMimeData::urlsFromMimeData(mimeData, static_cast<KUrlMimeData::DecodeOptions>(decodeOptions), metaData_QMap);
     // Convert QList<> from C++ memory to manually-managed C memory
     QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

@@ -48,30 +48,15 @@ QDial* QDial_new2() {
 }
 
 QMetaObject* QDial_MetaObject(const QDial* self) {
-    auto* vqdial = dynamic_cast<const VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDial*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDial_Metacast(QDial* self, const char* param1) {
-    auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDial*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDial_Metacall(QDial* self, int param1, int param2, void** param3) {
-    auto* vqdial = dynamic_cast<VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDial*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QDial_Wrapping(const QDial* self) {
@@ -95,21 +80,11 @@ bool QDial_NotchesVisible(const QDial* self) {
 }
 
 QSize* QDial_SizeHint(const QDial* self) {
-    auto* vqdial = dynamic_cast<const VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQDial*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QDial_MinimumSizeHint(const QDial* self) {
-    auto* vqdial = dynamic_cast<const VirtualQDial*>(self);
-    if (vqdial && vqdial->isVirtualQDial) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQDial*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QDial_SetNotchesVisible(QDial* self, bool visible) {

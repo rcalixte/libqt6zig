@@ -15,39 +15,19 @@ KPropertiesDialogPlugin* KPropertiesDialogPlugin_new(QObject* parent) {
 }
 
 QMetaObject* KPropertiesDialogPlugin_MetaObject(const KPropertiesDialogPlugin* self) {
-    auto* vkpropertiesdialogplugin = dynamic_cast<const VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPropertiesDialogPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPropertiesDialogPlugin_Metacast(KPropertiesDialogPlugin* self, const char* param1) {
-    auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPropertiesDialogPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPropertiesDialogPlugin_Metacall(KPropertiesDialogPlugin* self, int param1, int param2, void** param3) {
-    auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPropertiesDialogPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPropertiesDialogPlugin_ApplyChanges(KPropertiesDialogPlugin* self) {
-    auto* vkpropertiesdialogplugin = dynamic_cast<VirtualKPropertiesDialogPlugin*>(self);
-    if (vkpropertiesdialogplugin && vkpropertiesdialogplugin->isVirtualKPropertiesDialogPlugin) {
-        self->applyChanges();
-    } else {
-        ((VirtualKPropertiesDialogPlugin*)self)->applyChanges();
-    }
+    self->applyChanges();
 }
 
 void KPropertiesDialogPlugin_SetDirty(KPropertiesDialogPlugin* self) {

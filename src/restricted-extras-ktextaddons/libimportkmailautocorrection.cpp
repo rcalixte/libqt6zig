@@ -16,12 +16,7 @@ TextAutoCorrectionCore__ImportKMailAutocorrection* TextAutoCorrectionCore__Impor
 bool TextAutoCorrectionCore__ImportKMailAutocorrection_Import(TextAutoCorrectionCore__ImportKMailAutocorrection* self, const libqt_string fileName, libqt_string errorMessage, int loadAttribute) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
-    auto* vtextautocorrectioncore__importkmailautocorrection = dynamic_cast<VirtualTextAutoCorrectionCoreImportKMailAutocorrection*>(self);
-    if (vtextautocorrectioncore__importkmailautocorrection && vtextautocorrectioncore__importkmailautocorrection->isVirtualTextAutoCorrectionCoreImportKMailAutocorrection) {
-        return self->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    } else {
-        return ((VirtualTextAutoCorrectionCoreImportKMailAutocorrection*)self)->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
-    }
+    return self->import(fileName_QString, errorMessage_QString, static_cast<TextAutoCorrectionCore::ImportAbstractAutocorrection::LoadAttribute>(loadAttribute));
 }
 
 void TextAutoCorrectionCore__ImportKMailAutocorrection_OperatorAssign(TextAutoCorrectionCore__ImportKMailAutocorrection* self, const TextAutoCorrectionCore__ImportKMailAutocorrection* param1) {

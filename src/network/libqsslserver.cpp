@@ -26,30 +26,15 @@ QSslServer* QSslServer_new2(QObject* parent) {
 }
 
 QMetaObject* QSslServer_MetaObject(const QSslServer* self) {
-    auto* vqsslserver = dynamic_cast<const VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSslServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSslServer_Metacast(QSslServer* self, const char* param1) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSslServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSslServer_Metacall(QSslServer* self, int param1, int param2, void** param3) {
-    auto* vqsslserver = dynamic_cast<VirtualQSslServer*>(self);
-    if (vqsslserver && vqsslserver->isVirtualQSslServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSslServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSslServer_SetSslConfiguration(QSslServer* self, const QSslConfiguration* sslConfiguration) {

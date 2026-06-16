@@ -64,30 +64,15 @@ KSeparator* KSeparator_new6(int orientation, QWidget* parent, int f) {
 }
 
 QMetaObject* KSeparator_MetaObject(const KSeparator* self) {
-    auto* vkseparator = dynamic_cast<const VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSeparator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSeparator_Metacast(KSeparator* self, const char* param1) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSeparator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSeparator_Metacall(KSeparator* self, int param1, int param2, void** param3) {
-    auto* vkseparator = dynamic_cast<VirtualKSeparator*>(self);
-    if (vkseparator && vkseparator->isVirtualKSeparator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSeparator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KSeparator_Orientation(const KSeparator* self) {

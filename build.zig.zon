@@ -9,6 +9,7 @@
         "assets",
         "build.zig",
         "build.zig.zon",
+        "exports.zig",
         "include",
         "modules.zig",
         "src",

@@ -9,21 +9,11 @@ KTextEditor__SessionConfigInterface* KTextEditor__SessionConfigInterface_new() {
 }
 
 void KTextEditor__SessionConfigInterface_ReadSessionConfig(KTextEditor__SessionConfigInterface* self, const KConfigGroup* config) {
-    auto* vktexteditor__sessionconfiginterface = dynamic_cast<VirtualKTextEditorSessionConfigInterface*>(self);
-    if (vktexteditor__sessionconfiginterface && vktexteditor__sessionconfiginterface->isVirtualKTextEditorSessionConfigInterface) {
-        vktexteditor__sessionconfiginterface->readSessionConfig(*config);
-    } else {
-        ((VirtualKTextEditorSessionConfigInterface*)self)->readSessionConfig(*config);
-    }
+    self->readSessionConfig(*config);
 }
 
 void KTextEditor__SessionConfigInterface_WriteSessionConfig(KTextEditor__SessionConfigInterface* self, KConfigGroup* config) {
-    auto* vktexteditor__sessionconfiginterface = dynamic_cast<VirtualKTextEditorSessionConfigInterface*>(self);
-    if (vktexteditor__sessionconfiginterface && vktexteditor__sessionconfiginterface->isVirtualKTextEditorSessionConfigInterface) {
-        vktexteditor__sessionconfiginterface->writeSessionConfig(*config);
-    } else {
-        ((VirtualKTextEditorSessionConfigInterface*)self)->writeSessionConfig(*config);
-    }
+    self->writeSessionConfig(*config);
 }
 
 // Base class handler implementation

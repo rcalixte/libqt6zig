@@ -32,219 +32,100 @@ QIdentityProxyModel* QIdentityProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* QIdentityProxyModel_MetaObject(const QIdentityProxyModel* self) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQIdentityProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QIdentityProxyModel_Metacast(QIdentityProxyModel* self, const char* param1) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QIdentityProxyModel_Metacall(QIdentityProxyModel* self, int param1, int param2, void** param3) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QIdentityProxyModel_ColumnCount(const QIdentityProxyModel* self, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QModelIndex* QIdentityProxyModel_Index(const QIdentityProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQIdentityProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* QIdentityProxyModel_MapFromSource(const QIdentityProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QModelIndex(self->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualQIdentityProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+    return new QModelIndex(self->mapFromSource(*sourceIndex));
 }
 
 QModelIndex* QIdentityProxyModel_MapToSource(const QIdentityProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QModelIndex(self->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualQIdentityProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->mapToSource(*proxyIndex));
 }
 
 QModelIndex* QIdentityProxyModel_Parent(const QIdentityProxyModel* self, const QModelIndex* child) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QModelIndex(self->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQIdentityProxyModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 int QIdentityProxyModel_RowCount(const QIdentityProxyModel* self, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* QIdentityProxyModel_HeaderData(const QIdentityProxyModel* self, int section, int orientation, int role) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQIdentityProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 bool QIdentityProxyModel_DropMimeData(QIdentityProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 QModelIndex* QIdentityProxyModel_Sibling(const QIdentityProxyModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQIdentityProxyModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 QItemSelection* QIdentityProxyModel_MapSelectionFromSource(const QIdentityProxyModel* self, const QItemSelection* selection) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QItemSelection(self->mapSelectionFromSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualQIdentityProxyModel*)self)->mapSelectionFromSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionFromSource(*selection));
 }
 
 QItemSelection* QIdentityProxyModel_MapSelectionToSource(const QIdentityProxyModel* self, const QItemSelection* selection) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return new QItemSelection(self->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualQIdentityProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionToSource(*selection));
 }
 
 libqt_list /* of QModelIndex* */ QIdentityProxyModel_Match(const QIdentityProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vqidentityproxymodel = dynamic_cast<const VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualQIdentityProxyModel*)self)->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QIdentityProxyModel_SetSourceModel(QIdentityProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        self->setSourceModel(sourceModel);
-    } else {
-        ((VirtualQIdentityProxyModel*)self)->setSourceModel(sourceModel);
-    }
+    self->setSourceModel(sourceModel);
 }
 
 bool QIdentityProxyModel_InsertColumns(QIdentityProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->insertColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 bool QIdentityProxyModel_InsertRows(QIdentityProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 bool QIdentityProxyModel_RemoveColumns(QIdentityProxyModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 bool QIdentityProxyModel_RemoveRows(QIdentityProxyModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 bool QIdentityProxyModel_MoveRows(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveRows(*sourceParent, static_cast<int>(sourceRow), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 bool QIdentityProxyModel_MoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild) {
-    auto* vqidentityproxymodel = dynamic_cast<VirtualQIdentityProxyModel*>(self);
-    if (vqidentityproxymodel && vqidentityproxymodel->isVirtualQIdentityProxyModel) {
-        return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    } else {
-        return ((VirtualQIdentityProxyModel*)self)->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
-    }
+    return self->moveColumns(*sourceParent, static_cast<int>(sourceColumn), static_cast<int>(count), *destinationParent, static_cast<int>(destinationChild));
 }
 
 bool QIdentityProxyModel_HandleSourceLayoutChanges(const QIdentityProxyModel* self) {

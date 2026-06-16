@@ -5,18 +5,18 @@
 #include "libkwindoweffects.h"
 #include "libkwindoweffects.hxx"
 
-bool KWindowEffects_IsEffectAvailable(int param1) {
-    return KWindowEffects::isEffectAvailable(static_cast<KWindowEffects::Effect>(param1));
+bool KWindowEffects_IsEffectAvailable(int effect) {
+    return KWindowEffects::isEffectAvailable(static_cast<KWindowEffects::Effect>(effect));
 }
 
-void KWindowEffects_EnableBlurBehind(QWindow* param1, bool param2, const QRegion* param3) {
-    KWindowEffects::enableBlurBehind(param1, param2, *param3);
+void KWindowEffects_EnableBlurBehind(QWindow* window, bool enable, const QRegion* region) {
+    KWindowEffects::enableBlurBehind(window, enable, *region);
 }
 
-void KWindowEffects_EnableBackgroundContrast(QWindow* param1, bool param2, double param3, double param4, double param5, const QRegion* param6) {
-    KWindowEffects::enableBackgroundContrast(param1, param2, static_cast<qreal>(param3), static_cast<qreal>(param4), static_cast<qreal>(param5), *param6);
+void KWindowEffects_EnableBackgroundContrast(QWindow* window, bool enable, double contrast, double intensity, double saturation, const QRegion* region) {
+    KWindowEffects::enableBackgroundContrast(window, enable, static_cast<qreal>(contrast), static_cast<qreal>(intensity), static_cast<qreal>(saturation), *region);
 }
 
-void KWindowEffects_SlideWindow(QWindow* param1, int param2, int param3) {
-    KWindowEffects::slideWindow(param1, static_cast<KWindowEffects::SlideFromLocation>(param2), static_cast<int>(param3));
+void KWindowEffects_SlideWindow(QWindow* window, int location, int offset) {
+    KWindowEffects::slideWindow(window, static_cast<KWindowEffects::SlideFromLocation>(location), static_cast<int>(offset));
 }

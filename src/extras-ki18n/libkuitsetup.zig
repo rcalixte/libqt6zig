@@ -18,14 +18,14 @@ pub const Kuit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
+    /// ` domain: []u8 `
     ///
-    pub fn SetupForDomain(param1: []u8) KuitSetup {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn SetupForDomain(domain: []u8) KuitSetup {
+        const domain_str = qtc.libqt_string{
+            .len = domain.len,
+            .data = domain.ptr,
         };
-        return .{ .ptr = qtc.Kuit_SetupForDomain(param1_str) };
+        return .{ .ptr = qtc.Kuit_SetupForDomain(domain_str) };
     }
 };
 

@@ -25,8 +25,8 @@ const char* KParts_GetEnumName(int param1);
 QMetaObject* KParts_GetEnumMetaObject2(int param1);
 const char* KParts_GetEnumName2(int param1);
 
-int KParts__PartLoader_PartCapabilities(const KPluginMetaData* param1);
-libqt_list /* of KPluginMetaData* */ KParts__PartLoader_PartsForMimeType(const libqt_string param1);
+int KParts__PartLoader_PartCapabilities(const KPluginMetaData* data);
+libqt_list /* of KPluginMetaData* */ KParts__PartLoader_PartsForMimeType(const libqt_string mimeType);
 
 #ifdef __cplusplus
 } /* extern C */

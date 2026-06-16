@@ -18,30 +18,15 @@ QAudioRoom* QAudioRoom_new(QAudioEngine* engine) {
 }
 
 QMetaObject* QAudioRoom_MetaObject(const QAudioRoom* self) {
-    auto* vqaudioroom = dynamic_cast<const VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioRoom*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioRoom_Metacast(QAudioRoom* self, const char* param1) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioRoom*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioRoom_Metacall(QAudioRoom* self, int param1, int param2, void** param3) {
-    auto* vqaudioroom = dynamic_cast<VirtualQAudioRoom*>(self);
-    if (vqaudioroom && vqaudioroom->isVirtualQAudioRoom) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioRoom*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAudioRoom_SetPosition(QAudioRoom* self, QVector3D* pos) {

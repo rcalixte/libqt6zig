@@ -36,22 +36,12 @@ void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_ToggleSpellHighli
 }
 
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_SetDefinition(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, const KSyntaxHighlighting__Definition* def) {
-    auto* vtextcustomeditor__plaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditor__plaintextsyntaxspellcheckinghighlighter && vtextcustomeditor__plaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
-        self->setDefinition(*def);
-    } else {
-        ((VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*)self)->setDefinition(*def);
-    }
+    self->setDefinition(*def);
 }
 
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_HighlightBlock(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vtextcustomeditor__plaintextsyntaxspellcheckinghighlighter = dynamic_cast<VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*>(self);
-    if (vtextcustomeditor__plaintextsyntaxspellcheckinghighlighter && vtextcustomeditor__plaintextsyntaxspellcheckinghighlighter->isVirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter) {
-        self->highlightBlock(text_QString);
-    } else {
-        ((VirtualTextCustomEditorPlainTextSyntaxSpellCheckingHighlighter*)self)->highlightBlock(text_QString);
-    }
+    self->highlightBlock(text_QString);
 }
 
 void TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter_UnsetMisspelled(TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter* self, int start, int count) {

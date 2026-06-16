@@ -33,55 +33,27 @@ QFile* QFile_new4(const libqt_string name, QObject* parent) {
 }
 
 QMetaObject* QFile_MetaObject(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFile*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFile_Metacast(QFile* self, const char* param1) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFile*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFile_Metacall(QFile* self, int param1, int param2, void** param3) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFile*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QFile_FileName(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        auto _ret = self->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQFile*)self)->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->fileName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QFile_SetFileName(QFile* self, const libqt_string name) {
@@ -210,12 +182,7 @@ bool QFile_Copy2(const libqt_string fileName, const libqt_string newName) {
 }
 
 bool QFile_Open(QFile* self, int flags) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    } else {
-        return ((VirtualQFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    }
+    return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
 }
 
 bool QFile_Open2(QFile* self, int flags, int permissions) {
@@ -227,21 +194,11 @@ bool QFile_Open4(QFile* self, int fd, int ioFlags) {
 }
 
 long long QFile_Size(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return static_cast<long long>(self->size());
-    } else {
-        return static_cast<long long>(((VirtualQFile*)self)->size());
-    }
+    return static_cast<long long>(self->size());
 }
 
 bool QFile_Resize(QFile* self, long long sz) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return self->resize(static_cast<qint64>(sz));
-    } else {
-        return ((VirtualQFile*)self)->resize(static_cast<qint64>(sz));
-    }
+    return self->resize(static_cast<qint64>(sz));
 }
 
 bool QFile_Resize2(const libqt_string filename, long long sz) {
@@ -250,12 +207,7 @@ bool QFile_Resize2(const libqt_string filename, long long sz) {
 }
 
 int QFile_Permissions(const QFile* self) {
-    auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return static_cast<int>(self->permissions());
-    } else {
-        return static_cast<int>(((VirtualQFile*)self)->permissions());
-    }
+    return static_cast<int>(self->permissions());
 }
 
 int QFile_Permissions2(const libqt_string filename) {
@@ -264,12 +216,7 @@ int QFile_Permissions2(const libqt_string filename) {
 }
 
 bool QFile_SetPermissions(QFile* self, int permissionSpec) {
-    auto* vqfile = dynamic_cast<VirtualQFile*>(self);
-    if (vqfile && vqfile->isVirtualQFile) {
-        return self->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    } else {
-        return ((VirtualQFile*)self)->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
-    }
+    return self->setPermissions(static_cast<QFileDevice::Permissions>(permissionSpec));
 }
 
 bool QFile_SetPermissions2(const libqt_string filename, int permissionSpec) {

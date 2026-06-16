@@ -50,30 +50,15 @@ KPixmapRegionSelectorWidget* KPixmapRegionSelectorWidget_new2() {
 }
 
 QMetaObject* KPixmapRegionSelectorWidget_MetaObject(const KPixmapRegionSelectorWidget* self) {
-    auto* vkpixmapregionselectorwidget = dynamic_cast<const VirtualKPixmapRegionSelectorWidget*>(self);
-    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPixmapRegionSelectorWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPixmapRegionSelectorWidget_Metacast(KPixmapRegionSelectorWidget* self, const char* param1) {
-    auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
-    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPixmapRegionSelectorWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPixmapRegionSelectorWidget_Metacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3) {
-    auto* vkpixmapregionselectorwidget = dynamic_cast<VirtualKPixmapRegionSelectorWidget*>(self);
-    if (vkpixmapregionselectorwidget && vkpixmapregionselectorwidget->isVirtualKPixmapRegionSelectorWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPixmapRegionSelectorWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPixmapRegionSelectorWidget_SetPixmap(KPixmapRegionSelectorWidget* self, const QPixmap* pixmap) {

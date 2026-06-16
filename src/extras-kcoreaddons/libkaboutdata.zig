@@ -21,10 +21,10 @@ pub const KCrash = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` sig: i32 `
     ///
-    pub fn DefaultCrashHandler(param1: i32) void {
-        qtc.KCrash_DefaultCrashHandler(@bitCast(param1));
+    pub fn DefaultCrashHandler(sig: i32) void {
+        qtc.KCrash_DefaultCrashHandler(@bitCast(sig));
     }
 };
 

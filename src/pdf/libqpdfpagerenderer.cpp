@@ -23,30 +23,15 @@ QPdfPageRenderer* QPdfPageRenderer_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfPageRenderer_MetaObject(const QPdfPageRenderer* self) {
-    auto* vqpdfpagerenderer = dynamic_cast<const VirtualQPdfPageRenderer*>(self);
-    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPdfPageRenderer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPdfPageRenderer_Metacast(QPdfPageRenderer* self, const char* param1) {
-    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
-    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPdfPageRenderer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPdfPageRenderer_Metacall(QPdfPageRenderer* self, int param1, int param2, void** param3) {
-    auto* vqpdfpagerenderer = dynamic_cast<VirtualQPdfPageRenderer*>(self);
-    if (vqpdfpagerenderer && vqpdfpagerenderer->isVirtualQPdfPageRenderer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfPageRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPdfPageRenderer_RenderMode(const QPdfPageRenderer* self) {

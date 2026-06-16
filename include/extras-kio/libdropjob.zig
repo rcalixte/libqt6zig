@@ -2024,34 +2024,34 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QDropEvent `
+    /// ` dropEvent: QDropEvent `
     ///
-    /// ` param2: QUrl `
+    /// ` destUrl: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Drop(param1: anytype, param2: anytype, param3: i32) KIO__DropJob {
-        comptime _ = @TypeOf(param1)._is_QDropEvent;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Drop(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Drop(dropEvent: anytype, destUrl: anytype, flags: i32) KIO__DropJob {
+        comptime _ = @TypeOf(dropEvent)._is_QDropEvent;
+        comptime _ = @TypeOf(destUrl)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Drop(@ptrCast(dropEvent.ptr), @ptrCast(destUrl.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#drop)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QDropEvent `
+    /// ` dropEvent: QDropEvent `
     ///
-    /// ` param2: QUrl `
+    /// ` destUrl: QUrl `
     ///
-    /// ` param3: flag of dropjob_enums.DropJobFlag `
+    /// ` dropjobFlags: flag of dropjob_enums.DropJobFlag `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Drop2(param1: anytype, param2: anytype, param3: i32, param4: i32) KIO__DropJob {
-        comptime _ = @TypeOf(param1)._is_QDropEvent;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Drop2(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+    pub fn Drop2(dropEvent: anytype, destUrl: anytype, dropjobFlags: i32, flags: i32) KIO__DropJob {
+        comptime _ = @TypeOf(dropEvent)._is_QDropEvent;
+        comptime _ = @TypeOf(destUrl)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Drop2(@ptrCast(dropEvent.ptr), @ptrCast(destUrl.ptr), @bitCast(dropjobFlags), @bitCast(flags)) };
     }
 };
 

@@ -1739,8 +1739,6 @@ pub const KIO__OpenFileManagerWindowJob = extern struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: KIO__OpenFileManagerWindowJob`
@@ -3128,20 +3126,20 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` urls: []QUrl `
     ///
-    /// ` param2: []u8 `
+    /// ` asn: []u8 `
     ///
-    pub fn HighlightInFileManager(param1: []QUrl, param2: []u8) KIO__OpenFileManagerWindowJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn HighlightInFileManager(urls: []QUrl, asn: []u8) KIO__OpenFileManagerWindowJob {
+        const urls_list = qtc.libqt_list{
+            .len = urls.len,
+            .data = @ptrCast(urls.ptr),
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const asn_str = qtc.libqt_string{
+            .len = asn.len,
+            .data = asn.ptr,
         };
-        return .{ .ptr = qtc.KIO_HighlightInFileManager(param1_list, param2_str) };
+        return .{ .ptr = qtc.KIO_HighlightInFileManager(urls_list, asn_str) };
     }
 };
 

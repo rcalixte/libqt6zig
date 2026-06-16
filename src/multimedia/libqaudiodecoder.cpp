@@ -23,30 +23,15 @@ QAudioDecoder* QAudioDecoder_new2(QObject* parent) {
 }
 
 QMetaObject* QAudioDecoder_MetaObject(const QAudioDecoder* self) {
-    auto* vqaudiodecoder = dynamic_cast<const VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioDecoder*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioDecoder_Metacast(QAudioDecoder* self, const char* param1) {
-    auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioDecoder*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioDecoder_Metacall(QAudioDecoder* self, int param1, int param2, void** param3) {
-    auto* vqaudiodecoder = dynamic_cast<VirtualQAudioDecoder*>(self);
-    if (vqaudiodecoder && vqaudiodecoder->isVirtualQAudioDecoder) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioDecoder*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QAudioDecoder_IsSupported(const QAudioDecoder* self) {

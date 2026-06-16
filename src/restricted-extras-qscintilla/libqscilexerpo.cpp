@@ -23,30 +23,15 @@ QsciLexerPO* QsciLexerPO_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPO_MetaObject(const QsciLexerPO* self) {
-    auto* vqscilexerpo = dynamic_cast<const VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerPO*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerPO_Metacast(QsciLexerPO* self, const char* param1) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerPO*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerPO_Metacall(QsciLexerPO* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPO*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerPO_Language(const QsciLexerPO* self) {
@@ -90,21 +75,11 @@ bool QsciLexerPO_FoldCompact(const QsciLexerPO* self) {
 }
 
 void QsciLexerPO_SetFoldComments(QsciLexerPO* self, bool fold) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPO*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerPO_SetFoldCompact(QsciLexerPO* self, bool fold) {
-    auto* vqscilexerpo = dynamic_cast<VirtualQsciLexerPO*>(self);
-    if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPO*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 // Base class handler implementation

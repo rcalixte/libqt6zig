@@ -54,30 +54,15 @@ KUrlRequesterDialog* KUrlRequesterDialog_new3(const QUrl* url, QWidget* parent) 
 }
 
 QMetaObject* KUrlRequesterDialog_MetaObject(const KUrlRequesterDialog* self) {
-    auto* vkurlrequesterdialog = dynamic_cast<const VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlRequesterDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlRequesterDialog_Metacast(KUrlRequesterDialog* self, const char* param1) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlRequesterDialog_Metacall(KUrlRequesterDialog* self, int param1, int param2, void** param3) {
-    auto* vkurlrequesterdialog = dynamic_cast<VirtualKUrlRequesterDialog*>(self);
-    if (vkurlrequesterdialog && vkurlrequesterdialog->isVirtualKUrlRequesterDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlRequesterDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KUrlRequesterDialog_SelectedUrl(const KUrlRequesterDialog* self) {

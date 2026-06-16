@@ -65,57 +65,28 @@ KRichTextWidget* KRichTextWidget_new3(const libqt_string text, QWidget* parent) 
 }
 
 QMetaObject* KRichTextWidget_MetaObject(const KRichTextWidget* self) {
-    auto* vkrichtextwidget = dynamic_cast<const VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKRichTextWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KRichTextWidget_Metacast(KRichTextWidget* self, const char* param1) {
-    auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKRichTextWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KRichTextWidget_Metacall(KRichTextWidget* self, int param1, int param2, void** param3) {
-    auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRichTextWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QAction* */ KRichTextWidget_CreateActions(KRichTextWidget* self) {
-    auto* vkrichtextwidget = dynamic_cast<VirtualKRichTextWidget*>(self);
-    if (vkrichtextwidget && vkrichtextwidget->isVirtualKRichTextWidget) {
-        QList<QAction*> _ret = self->createActions();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QAction*> _ret = ((VirtualKRichTextWidget*)self)->createActions();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QAction*> _ret = self->createActions();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void KRichTextWidget_SetRichTextSupport(KRichTextWidget* self, const int* support) {

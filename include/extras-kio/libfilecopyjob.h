@@ -45,8 +45,8 @@ void KIO__FileCopyJob_MimeTypeFound(KIO__FileCopyJob* self, KIO__Job* job, const
 void KIO__FileCopyJob_Connect_MimeTypeFound(KIO__FileCopyJob* self, intptr_t slot);
 void KIO__FileCopyJob_Delete(KIO__FileCopyJob* self);
 
-KIO__FileCopyJob* KIO_FileCopy(const QUrl* param1, const QUrl* param2, int param3, int param4);
-KIO__FileCopyJob* KIO_FileMove(const QUrl* param1, const QUrl* param2, int param3, int param4);
+KIO__FileCopyJob* KIO_FileCopy(const QUrl* src, const QUrl* dest, int permissions, int flags);
+KIO__FileCopyJob* KIO_FileMove(const QUrl* src, const QUrl* dest, int permissions, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

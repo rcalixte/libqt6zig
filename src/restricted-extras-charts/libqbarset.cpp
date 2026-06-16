@@ -26,30 +26,15 @@ QBarSet* QBarSet_new2(const libqt_string label, QObject* parent) {
 }
 
 QMetaObject* QBarSet_MetaObject(const QBarSet* self) {
-    auto* vqbarset = dynamic_cast<const VirtualQBarSet*>(self);
-    if (vqbarset && vqbarset->isVirtualQBarSet) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBarSet*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBarSet_Metacast(QBarSet* self, const char* param1) {
-    auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
-    if (vqbarset && vqbarset->isVirtualQBarSet) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBarSet*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBarSet_Metacall(QBarSet* self, int param1, int param2, void** param3) {
-    auto* vqbarset = dynamic_cast<VirtualQBarSet*>(self);
-    if (vqbarset && vqbarset->isVirtualQBarSet) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBarSet*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QBarSet_SetLabel(QBarSet* self, const libqt_string label) {

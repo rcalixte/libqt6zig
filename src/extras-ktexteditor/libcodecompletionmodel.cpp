@@ -28,30 +28,15 @@ KTextEditor__CodeCompletionModel* KTextEditor__CodeCompletionModel_new(QObject* 
 }
 
 QMetaObject* KTextEditor__CodeCompletionModel_MetaObject(const KTextEditor__CodeCompletionModel* self) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorCodeCompletionModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__CodeCompletionModel_Metacast(KTextEditor__CodeCompletionModel* self, const char* param1) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__CodeCompletionModel_Metacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KTextEditor__CodeCompletionModel_SetRowCount(KTextEditor__CodeCompletionModel* self, int rowCount) {
@@ -59,94 +44,45 @@ void KTextEditor__CodeCompletionModel_SetRowCount(KTextEditor__CodeCompletionMod
 }
 
 void KTextEditor__CodeCompletionModel_CompletionInvoked(KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* range, int invocationType) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        self->completionInvoked(view, *range, static_cast<KTextEditor::CodeCompletionModel::InvocationType>(invocationType));
-    } else {
-        ((VirtualKTextEditorCodeCompletionModel*)self)->completionInvoked(view, *range, static_cast<KTextEditor::CodeCompletionModel::InvocationType>(invocationType));
-    }
+    self->completionInvoked(view, *range, static_cast<KTextEditor::CodeCompletionModel::InvocationType>(invocationType));
 }
 
 void KTextEditor__CodeCompletionModel_ExecuteCompletionItem(const KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* word, const QModelIndex* index) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        self->executeCompletionItem(view, *word, *index);
-    } else {
-        ((VirtualKTextEditorCodeCompletionModel*)self)->executeCompletionItem(view, *word, *index);
-    }
+    self->executeCompletionItem(view, *word, *index);
 }
 
 int KTextEditor__CodeCompletionModel_ColumnCount(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QModelIndex* KTextEditor__CodeCompletionModel_Index(const KTextEditor__CodeCompletionModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKTextEditorCodeCompletionModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 libqt_map /* of int to QVariant* */ KTextEditor__CodeCompletionModel_ItemData(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        QMap<int, QVariant> _ret = self->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QMap<int, QVariant> _ret = ((VirtualKTextEditorCodeCompletionModel*)self)->itemData(*index);
-        // Convert QMap<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            _varr[_ctr] = new QVariant(_itr->second);
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QMap<int, QVariant> _ret = self->itemData(*index);
+    // Convert QMap<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        _varr[_ctr] = new QVariant(_itr->second);
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 QModelIndex* KTextEditor__CodeCompletionModel_Parent(const KTextEditor__CodeCompletionModel* self, const QModelIndex* index) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return new QModelIndex(self->parent(*index));
-    } else {
-        return new QModelIndex(((VirtualKTextEditorCodeCompletionModel*)self)->parent(*index));
-    }
+    return new QModelIndex(self->parent(*index));
 }
 
 int KTextEditor__CodeCompletionModel_RowCount(const KTextEditor__CodeCompletionModel* self, const QModelIndex* parent) {
-    auto* vktexteditor__codecompletionmodel = dynamic_cast<const VirtualKTextEditorCodeCompletionModel*>(self);
-    if (vktexteditor__codecompletionmodel && vktexteditor__codecompletionmodel->isVirtualKTextEditorCodeCompletionModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 bool KTextEditor__CodeCompletionModel_HasGroups(const KTextEditor__CodeCompletionModel* self) {

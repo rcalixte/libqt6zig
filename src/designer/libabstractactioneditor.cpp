@@ -49,66 +49,31 @@ QDesignerActionEditorInterface* QDesignerActionEditorInterface_new2(QWidget* par
 }
 
 QMetaObject* QDesignerActionEditorInterface_MetaObject(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerActionEditorInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerActionEditorInterface_Metacast(QDesignerActionEditorInterface* self, const char* param1) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerActionEditorInterface_Metacall(QDesignerActionEditorInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerFormEditorInterface* QDesignerActionEditorInterface_Core(const QDesignerActionEditorInterface* self) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<const VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        return self->core();
-    } else {
-        return ((VirtualQDesignerActionEditorInterface*)self)->core();
-    }
+    return self->core();
 }
 
 void QDesignerActionEditorInterface_ManageAction(QDesignerActionEditorInterface* self, QAction* action) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->manageAction(action);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->manageAction(action);
-    }
+    self->manageAction(action);
 }
 
 void QDesignerActionEditorInterface_UnmanageAction(QDesignerActionEditorInterface* self, QAction* action) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->unmanageAction(action);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->unmanageAction(action);
-    }
+    self->unmanageAction(action);
 }
 
 void QDesignerActionEditorInterface_SetFormWindow(QDesignerActionEditorInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesigneractioneditorinterface = dynamic_cast<VirtualQDesignerActionEditorInterface*>(self);
-    if (vqdesigneractioneditorinterface && vqdesigneractioneditorinterface->isVirtualQDesignerActionEditorInterface) {
-        vqdesigneractioneditorinterface->setFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerActionEditorInterface*)self)->setFormWindow(formWindow);
-    }
+    self->setFormWindow(formWindow);
 }
 
 // Base class handler implementation

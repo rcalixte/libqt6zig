@@ -18,7 +18,7 @@ extern "C" {
 
 #endif
 
-bool KSyntaxHighlighting__WildcardMatcher_ExactMatch(libqt_string param1, libqt_string param2);
+bool KSyntaxHighlighting__WildcardMatcher_ExactMatch(libqt_string candidate, libqt_string wildcard);
 
 #ifdef __cplusplus
 } /* extern C */

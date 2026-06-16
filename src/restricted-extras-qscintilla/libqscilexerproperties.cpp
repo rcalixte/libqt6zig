@@ -23,30 +23,15 @@ QsciLexerProperties* QsciLexerProperties_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerProperties_MetaObject(const QsciLexerProperties* self) {
-    auto* vqscilexerproperties = dynamic_cast<const VirtualQsciLexerProperties*>(self);
-    if (vqscilexerproperties && vqscilexerproperties->isVirtualQsciLexerProperties) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerProperties*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerProperties_Metacast(QsciLexerProperties* self, const char* param1) {
-    auto* vqscilexerproperties = dynamic_cast<VirtualQsciLexerProperties*>(self);
-    if (vqscilexerproperties && vqscilexerproperties->isVirtualQsciLexerProperties) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerProperties*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerProperties_Metacall(QsciLexerProperties* self, int param1, int param2, void** param3) {
-    auto* vqscilexerproperties = dynamic_cast<VirtualQsciLexerProperties*>(self);
-    if (vqscilexerproperties && vqscilexerproperties->isVirtualQsciLexerProperties) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerProperties*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerProperties_Language(const QsciLexerProperties* self) {
@@ -106,12 +91,7 @@ bool QsciLexerProperties_InitialSpaces(const QsciLexerProperties* self) {
 }
 
 void QsciLexerProperties_SetFoldCompact(QsciLexerProperties* self, bool fold) {
-    auto* vqscilexerproperties = dynamic_cast<VirtualQsciLexerProperties*>(self);
-    if (vqscilexerproperties && vqscilexerproperties->isVirtualQsciLexerProperties) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerProperties*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 // Base class handler implementation

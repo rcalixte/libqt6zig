@@ -21,39 +21,19 @@ QColorAxis* QColorAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QColorAxis_MetaObject(const QColorAxis* self) {
-    auto* vqcoloraxis = dynamic_cast<const VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQColorAxis*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QColorAxis_Metacast(QColorAxis* self, const char* param1) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQColorAxis*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QColorAxis_Metacall(QColorAxis* self, int param1, int param2, void** param3) {
-    auto* vqcoloraxis = dynamic_cast<VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQColorAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QColorAxis_Type(const QColorAxis* self) {
-    auto* vqcoloraxis = dynamic_cast<const VirtualQColorAxis*>(self);
-    if (vqcoloraxis && vqcoloraxis->isVirtualQColorAxis) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQColorAxis*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QColorAxis_SetMin(QColorAxis* self, double min) {

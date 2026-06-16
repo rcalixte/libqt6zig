@@ -57,30 +57,15 @@ KFileCustomDialog* KFileCustomDialog_new4(const QUrl* startDir, QWidget* parent)
 }
 
 QMetaObject* KFileCustomDialog_MetaObject(const KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<const VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileCustomDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileCustomDialog_Metacast(KFileCustomDialog* self, const char* param1) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileCustomDialog_Metacall(KFileCustomDialog* self, int param1, int param2, void** param3) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileCustomDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFileCustomDialog_SetUrl(KFileCustomDialog* self, const QUrl* url) {
@@ -100,12 +85,7 @@ void KFileCustomDialog_SetOperationMode(KFileCustomDialog* self, int op) {
 }
 
 void KFileCustomDialog_Accept(KFileCustomDialog* self) {
-    auto* vkfilecustomdialog = dynamic_cast<VirtualKFileCustomDialog*>(self);
-    if (vkfilecustomdialog && vkfilecustomdialog->isVirtualKFileCustomDialog) {
-        self->accept();
-    } else {
-        ((VirtualKFileCustomDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation

@@ -15,53 +15,53 @@ pub const KBackup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` filename: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` backupDir: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` backupExtension: []const u8 `
     ///
-    pub fn SimpleBackupFile(param1: []const u8, param2: []const u8, param3: []const u8) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn SimpleBackupFile(filename: []const u8, backupDir: []const u8, backupExtension: []const u8) bool {
+        const filename_str = qtc.libqt_string{
+            .len = filename.len,
+            .data = filename.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const backupDir_str = qtc.libqt_string{
+            .len = backupDir.len,
+            .data = backupDir.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const backupExtension_str = qtc.libqt_string{
+            .len = backupExtension.len,
+            .data = backupExtension.ptr,
         };
-        return qtc.KBackup_SimpleBackupFile(param1_str, param2_str, param3_str);
+        return qtc.KBackup_SimpleBackupFile(filename_str, backupDir_str, backupExtension_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kbackup.html#numberedBackupFile)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` filename: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` backupDir: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` backupExtension: []const u8 `
     ///
-    /// ` param4: u32 `
+    /// ` maxBackups: u32 `
     ///
-    pub fn NumberedBackupFile(param1: []const u8, param2: []const u8, param3: []const u8, param4: u32) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn NumberedBackupFile(filename: []const u8, backupDir: []const u8, backupExtension: []const u8, maxBackups: u32) bool {
+        const filename_str = qtc.libqt_string{
+            .len = filename.len,
+            .data = filename.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const backupDir_str = qtc.libqt_string{
+            .len = backupDir.len,
+            .data = backupDir.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const backupExtension_str = qtc.libqt_string{
+            .len = backupExtension.len,
+            .data = backupExtension.ptr,
         };
-        return qtc.KBackup_NumberedBackupFile(param1_str, param2_str, param3_str, @bitCast(param4));
+        return qtc.KBackup_NumberedBackupFile(filename_str, backupDir_str, backupExtension_str, @bitCast(maxBackups));
     }
 };

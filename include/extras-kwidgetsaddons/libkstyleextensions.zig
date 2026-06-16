@@ -17,62 +17,62 @@ pub const KStyleExtensions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` element: []const u8 `
     ///
-    /// ` param2: QWidget `
+    /// ` widget: QWidget `
     ///
     /// ## Returns:
     ///
     /// ` qstyle_enums.ControlElement `
     ///
-    pub fn CustomControlElement(param1: []const u8, param2: anytype) i32 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn CustomControlElement(element: []const u8, widget: anytype) i32 {
+        const element_str = qtc.libqt_string{
+            .len = element.len,
+            .data = element.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QWidget;
-        return qtc.KStyleExtensions_CustomControlElement(param1_str, @ptrCast(param2.ptr));
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.KStyleExtensions_CustomControlElement(element_str, @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstyleextensions.html#customStyleHint)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` element: []const u8 `
     ///
-    /// ` param2: QWidget `
+    /// ` widget: QWidget `
     ///
     /// ## Returns:
     ///
     /// ` qstyle_enums.StyleHint `
     ///
-    pub fn CustomStyleHint(param1: []const u8, param2: anytype) i32 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn CustomStyleHint(element: []const u8, widget: anytype) i32 {
+        const element_str = qtc.libqt_string{
+            .len = element.len,
+            .data = element.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QWidget;
-        return qtc.KStyleExtensions_CustomStyleHint(param1_str, @ptrCast(param2.ptr));
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.KStyleExtensions_CustomStyleHint(element_str, @ptrCast(widget.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstyleextensions.html#customSubElement)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` element: []const u8 `
     ///
-    /// ` param2: QWidget `
+    /// ` widget: QWidget `
     ///
     /// ## Returns:
     ///
     /// ` qstyle_enums.SubElement `
     ///
-    pub fn CustomSubElement(param1: []const u8, param2: anytype) i32 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn CustomSubElement(element: []const u8, widget: anytype) i32 {
+        const element_str = qtc.libqt_string{
+            .len = element.len,
+            .data = element.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QWidget;
-        return qtc.KStyleExtensions_CustomSubElement(param1_str, @ptrCast(param2.ptr));
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        return qtc.KStyleExtensions_CustomSubElement(element_str, @ptrCast(widget.ptr));
     }
 };

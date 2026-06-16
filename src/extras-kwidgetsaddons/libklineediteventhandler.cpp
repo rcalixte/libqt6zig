@@ -4,10 +4,10 @@
 #include "libklineediteventhandler.h"
 #include "libklineediteventhandler.hxx"
 
-void KLineEditEventHandler_CatchReturnKey(QObject* param1) {
-    KLineEditEventHandler::catchReturnKey(param1);
+void KLineEditEventHandler_CatchReturnKey(QObject* lineEdit) {
+    KLineEditEventHandler::catchReturnKey(lineEdit);
 }
 
-void KLineEditEventHandler_HandleUrlDrops(QObject* param1) {
-    KLineEditEventHandler::handleUrlDrops(param1);
+void KLineEditEventHandler_HandleUrlDrops(QObject* lineEdit) {
+    KLineEditEventHandler::handleUrlDrops(lineEdit);
 }

@@ -19,30 +19,15 @@ QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_new(QObject* parent) {
 }
 
 QMetaObject* QGeoSatelliteInfoSource_MetaObject(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoSatelliteInfoSource*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoSatelliteInfoSource_Metacast(QGeoSatelliteInfoSource* self, const char* param1) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoSatelliteInfoSource_Metacall(QGeoSatelliteInfoSource* self, int param1, int param2, void** param3) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QGeoSatelliteInfoSource* QGeoSatelliteInfoSource_CreateDefaultSource(QObject* parent) {
@@ -111,12 +96,7 @@ libqt_string QGeoSatelliteInfoSource_SourceName(const QGeoSatelliteInfoSource* s
 }
 
 void QGeoSatelliteInfoSource_SetUpdateInterval(QGeoSatelliteInfoSource* self, int msec) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        self->setUpdateInterval(static_cast<int>(msec));
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->setUpdateInterval(static_cast<int>(msec));
-    }
+    self->setUpdateInterval(static_cast<int>(msec));
 }
 
 int QGeoSatelliteInfoSource_UpdateInterval(const QGeoSatelliteInfoSource* self) {
@@ -124,68 +104,33 @@ int QGeoSatelliteInfoSource_UpdateInterval(const QGeoSatelliteInfoSource* self) 
 }
 
 int QGeoSatelliteInfoSource_MinimumUpdateInterval(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return vqgeosatelliteinfosource->minimumUpdateInterval();
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->minimumUpdateInterval();
-    }
+    return self->minimumUpdateInterval();
 }
 
 int QGeoSatelliteInfoSource_Error(const QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return static_cast<int>(vqgeosatelliteinfosource->error());
-    } else {
-        return static_cast<int>(((VirtualQGeoSatelliteInfoSource*)self)->error());
-    }
+    return static_cast<int>(self->error());
 }
 
 bool QGeoSatelliteInfoSource_SetBackendProperty(QGeoSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return self->setBackendProperty(name_QString, *value);
-    } else {
-        return ((VirtualQGeoSatelliteInfoSource*)self)->setBackendProperty(name_QString, *value);
-    }
+    return self->setBackendProperty(name_QString, *value);
 }
 
 QVariant* QGeoSatelliteInfoSource_BackendProperty(const QGeoSatelliteInfoSource* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqgeosatelliteinfosource = dynamic_cast<const VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        return new QVariant(self->backendProperty(name_QString));
-    } else {
-        return new QVariant(((VirtualQGeoSatelliteInfoSource*)self)->backendProperty(name_QString));
-    }
+    return new QVariant(self->backendProperty(name_QString));
 }
 
 void QGeoSatelliteInfoSource_StartUpdates(QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->startUpdates();
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->startUpdates();
-    }
+    self->startUpdates();
 }
 
 void QGeoSatelliteInfoSource_StopUpdates(QGeoSatelliteInfoSource* self) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->stopUpdates();
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->stopUpdates();
-    }
+    self->stopUpdates();
 }
 
 void QGeoSatelliteInfoSource_RequestUpdate(QGeoSatelliteInfoSource* self, int timeout) {
-    auto* vqgeosatelliteinfosource = dynamic_cast<VirtualQGeoSatelliteInfoSource*>(self);
-    if (vqgeosatelliteinfosource && vqgeosatelliteinfosource->isVirtualQGeoSatelliteInfoSource) {
-        vqgeosatelliteinfosource->requestUpdate(static_cast<int>(timeout));
-    } else {
-        ((VirtualQGeoSatelliteInfoSource*)self)->requestUpdate(static_cast<int>(timeout));
-    }
+    self->requestUpdate(static_cast<int>(timeout));
 }
 
 void QGeoSatelliteInfoSource_SatellitesInViewUpdated(QGeoSatelliteInfoSource* self, const libqt_list /* of QGeoSatelliteInfo* */ satellites) {

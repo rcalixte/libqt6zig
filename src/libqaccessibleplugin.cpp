@@ -20,40 +20,20 @@ QAccessiblePlugin* QAccessiblePlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QAccessiblePlugin_MetaObject(const QAccessiblePlugin* self) {
-    auto* vqaccessibleplugin = dynamic_cast<const VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAccessiblePlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAccessiblePlugin_Metacast(QAccessiblePlugin* self, const char* param1) {
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAccessiblePlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAccessiblePlugin_Metacall(QAccessiblePlugin* self, int param1, int param2, void** param3) {
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAccessiblePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAccessibleInterface* QAccessiblePlugin_Create(QAccessiblePlugin* self, const libqt_string key, QObject* object) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqaccessibleplugin = dynamic_cast<VirtualQAccessiblePlugin*>(self);
-    if (vqaccessibleplugin && vqaccessibleplugin->isVirtualQAccessiblePlugin) {
-        return vqaccessibleplugin->create(key_QString, object);
-    } else {
-        return ((VirtualQAccessiblePlugin*)self)->create(key_QString, object);
-    }
+    return self->create(key_QString, object);
 }
 
 // Base class handler implementation

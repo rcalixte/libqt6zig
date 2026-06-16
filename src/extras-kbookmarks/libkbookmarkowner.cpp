@@ -13,143 +13,68 @@ KBookmarkOwner* KBookmarkOwner_new() {
 }
 
 libqt_string KBookmarkOwner_CurrentTitle(const KBookmarkOwner* self) {
-    auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        auto _ret = self->currentTitle();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKBookmarkOwner*)self)->currentTitle();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->currentTitle();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QUrl* KBookmarkOwner_CurrentUrl(const KBookmarkOwner* self) {
-    auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        return new QUrl(self->currentUrl());
-    } else {
-        return new QUrl(((VirtualKBookmarkOwner*)self)->currentUrl());
-    }
+    return new QUrl(self->currentUrl());
 }
 
 libqt_string KBookmarkOwner_CurrentIcon(const KBookmarkOwner* self) {
-    auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        auto _ret = self->currentIcon();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKBookmarkOwner*)self)->currentIcon();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->currentIcon();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool KBookmarkOwner_SupportsTabs(const KBookmarkOwner* self) {
-    auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        return self->supportsTabs();
-    } else {
-        return ((VirtualKBookmarkOwner*)self)->supportsTabs();
-    }
+    return self->supportsTabs();
 }
 
 libqt_list /* of KBookmarkOwner__FutureBookmark* */ KBookmarkOwner_CurrentBookmarkList(const KBookmarkOwner* self) {
-    auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        QList<KBookmarkOwner::FutureBookmark> _ret = self->currentBookmarkList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<KBookmarkOwner::FutureBookmark> _ret = ((VirtualKBookmarkOwner*)self)->currentBookmarkList();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<KBookmarkOwner::FutureBookmark> _ret = self->currentBookmarkList();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    KBookmarkOwner__FutureBookmark** _arr = static_cast<KBookmarkOwner__FutureBookmark**>(malloc(sizeof(KBookmarkOwner__FutureBookmark*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new KBookmarkOwner::FutureBookmark(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 bool KBookmarkOwner_EnableOption(const KBookmarkOwner* self, int option) {
-    auto* vkbookmarkowner = dynamic_cast<const VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        return self->enableOption(static_cast<KBookmarkOwner::BookmarkOption>(option));
-    } else {
-        return ((VirtualKBookmarkOwner*)self)->enableOption(static_cast<KBookmarkOwner::BookmarkOption>(option));
-    }
+    return self->enableOption(static_cast<KBookmarkOwner::BookmarkOption>(option));
 }
 
 void KBookmarkOwner_OpenBookmark(KBookmarkOwner* self, const KBookmark* bm, int mb, int km) {
-    auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        vkbookmarkowner->openBookmark(*bm, static_cast<Qt::MouseButtons>(mb), static_cast<Qt::KeyboardModifiers>(km));
-    } else {
-        ((VirtualKBookmarkOwner*)self)->openBookmark(*bm, static_cast<Qt::MouseButtons>(mb), static_cast<Qt::KeyboardModifiers>(km));
-    }
+    self->openBookmark(*bm, static_cast<Qt::MouseButtons>(mb), static_cast<Qt::KeyboardModifiers>(km));
 }
 
 void KBookmarkOwner_OpenFolderinTabs(KBookmarkOwner* self, const KBookmarkGroup* bm) {
-    auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        self->openFolderinTabs(*bm);
-    } else {
-        ((VirtualKBookmarkOwner*)self)->openFolderinTabs(*bm);
-    }
+    self->openFolderinTabs(*bm);
 }
 
 void KBookmarkOwner_OpenInNewTab(KBookmarkOwner* self, const KBookmark* bm) {
-    auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        self->openInNewTab(*bm);
-    } else {
-        ((VirtualKBookmarkOwner*)self)->openInNewTab(*bm);
-    }
+    self->openInNewTab(*bm);
 }
 
 void KBookmarkOwner_OpenInNewWindow(KBookmarkOwner* self, const KBookmark* bm) {
-    auto* vkbookmarkowner = dynamic_cast<VirtualKBookmarkOwner*>(self);
-    if (vkbookmarkowner && vkbookmarkowner->isVirtualKBookmarkOwner) {
-        self->openInNewWindow(*bm);
-    } else {
-        ((VirtualKBookmarkOwner*)self)->openInNewWindow(*bm);
-    }
+    self->openInNewWindow(*bm);
 }
 
 // Base class handler implementation

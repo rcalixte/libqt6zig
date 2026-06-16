@@ -20,30 +20,15 @@ KJobUiDelegate* KJobUiDelegate_new2(int flags) {
 }
 
 QMetaObject* KJobUiDelegate_MetaObject(const KJobUiDelegate* self) {
-    auto* vkjobuidelegate = dynamic_cast<const VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKJobUiDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KJobUiDelegate_Metacast(KJobUiDelegate* self, const char* param1) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKJobUiDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KJobUiDelegate_Metacall(KJobUiDelegate* self, int param1, int param2, void** param3) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKJobUiDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KJobUiDelegate_SetJob(KJobUiDelegate* self, KJob* job) {
@@ -55,12 +40,7 @@ bool KJobUiDelegate_SetJob(KJobUiDelegate* self, KJob* job) {
 }
 
 void KJobUiDelegate_ShowErrorMessage(KJobUiDelegate* self) {
-    auto* vkjobuidelegate = dynamic_cast<VirtualKJobUiDelegate*>(self);
-    if (vkjobuidelegate && vkjobuidelegate->isVirtualKJobUiDelegate) {
-        self->showErrorMessage();
-    } else {
-        ((VirtualKJobUiDelegate*)self)->showErrorMessage();
-    }
+    self->showErrorMessage();
 }
 
 void KJobUiDelegate_SetAutoErrorHandlingEnabled(KJobUiDelegate* self, bool enable) {

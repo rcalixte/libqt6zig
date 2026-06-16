@@ -71,30 +71,15 @@ QGraphicsScene* QGraphicsScene_new6(double x, double y, double width, double hei
 }
 
 QMetaObject* QGraphicsScene_MetaObject(const QGraphicsScene* self) {
-    auto* vqgraphicsscene = dynamic_cast<const VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsScene*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsScene_Metacast(QGraphicsScene* self, const char* param1) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsScene_Metacall(QGraphicsScene* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsscene = dynamic_cast<VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsScene*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRectF* QGraphicsScene_SceneRect(const QGraphicsScene* self) {
@@ -369,12 +354,7 @@ void QGraphicsScene_SetForegroundBrush(QGraphicsScene* self, const QBrush* brush
 }
 
 QVariant* QGraphicsScene_InputMethodQuery(const QGraphicsScene* self, int query) {
-    auto* vqgraphicsscene = dynamic_cast<const VirtualQGraphicsScene*>(self);
-    if (vqgraphicsscene && vqgraphicsscene->isVirtualQGraphicsScene) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQGraphicsScene*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 libqt_list /* of QGraphicsView* */ QGraphicsScene_Views(const QGraphicsScene* self) {

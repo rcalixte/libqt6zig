@@ -9,12 +9,7 @@ QOpenGLFunctions_3_1* QOpenGLFunctions_3_1_new() {
 }
 
 bool QOpenGLFunctions_3_1_InitializeOpenGLFunctions(QOpenGLFunctions_3_1* self) {
-    auto* vqopenglfunctions_3_1 = dynamic_cast<VirtualQOpenGLFunctions_3_1*>(self);
-    if (vqopenglfunctions_3_1 && vqopenglfunctions_3_1->isVirtualQOpenGLFunctions_3_1) {
-        return self->initializeOpenGLFunctions();
-    } else {
-        return ((VirtualQOpenGLFunctions_3_1*)self)->initializeOpenGLFunctions();
-    }
+    return self->initializeOpenGLFunctions();
 }
 
 void QOpenGLFunctions_3_1_GlViewport(QOpenGLFunctions_3_1* self, int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -509,8 +504,8 @@ void QOpenGLFunctions_3_1_GlUseProgram(QOpenGLFunctions_3_1* self, uint32_t prog
     self->glUseProgram(static_cast<GLuint>(program));
 }
 
-void QOpenGLFunctions_3_1_GlShaderSource(QOpenGLFunctions_3_1* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length) {
-    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(stringVal), static_cast<const GLint*>(length));
+void QOpenGLFunctions_3_1_GlShaderSource(QOpenGLFunctions_3_1* self, uint32_t shader, int32_t count, const GLchar** string, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), static_cast<const GLchar**>(string), static_cast<const GLint*>(length));
 }
 
 void QOpenGLFunctions_3_1_GlLinkProgram(QOpenGLFunctions_3_1* self, uint32_t program) {

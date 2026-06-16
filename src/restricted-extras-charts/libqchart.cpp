@@ -59,30 +59,15 @@ QChart* QChart_new3(QGraphicsItem* parent, int wFlags) {
 }
 
 QMetaObject* QChart_MetaObject(const QChart* self) {
-    auto* vqchart = dynamic_cast<const VirtualQChart*>(self);
-    if (vqchart && vqchart->isVirtualQChart) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQChart*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QChart_Metacast(QChart* self, const char* param1) {
-    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
-    if (vqchart && vqchart->isVirtualQChart) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQChart*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QChart_Metacall(QChart* self, int param1, int param2, void** param3) {
-    auto* vqchart = dynamic_cast<VirtualQChart*>(self);
-    if (vqchart && vqchart->isVirtualQChart) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQChart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QChart_AddSeries(QChart* self, QAbstractSeries* series) {

@@ -39,30 +39,15 @@ QProxyStyle* QProxyStyle_new3(QStyle* style) {
 }
 
 QMetaObject* QProxyStyle_MetaObject(const QProxyStyle* self) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQProxyStyle*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QProxyStyle_Metacast(QProxyStyle* self, const char* param1) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQProxyStyle*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QProxyStyle_Metacall(QProxyStyle* self, int param1, int param2, void** param3) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQProxyStyle*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QStyle* QProxyStyle_BaseStyle(const QProxyStyle* self) {
@@ -74,212 +59,97 @@ void QProxyStyle_SetBaseStyle(QProxyStyle* self, QStyle* style) {
 }
 
 void QProxyStyle_DrawPrimitive(const QProxyStyle* self, int element, const QStyleOption* option, QPainter* painter, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->drawPrimitive(static_cast<QStyle::PrimitiveElement>(element), option, painter, widget);
-    } else {
-        ((VirtualQProxyStyle*)self)->drawPrimitive(static_cast<QStyle::PrimitiveElement>(element), option, painter, widget);
-    }
+    self->drawPrimitive(static_cast<QStyle::PrimitiveElement>(element), option, painter, widget);
 }
 
 void QProxyStyle_DrawControl(const QProxyStyle* self, int element, const QStyleOption* option, QPainter* painter, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->drawControl(static_cast<QStyle::ControlElement>(element), option, painter, widget);
-    } else {
-        ((VirtualQProxyStyle*)self)->drawControl(static_cast<QStyle::ControlElement>(element), option, painter, widget);
-    }
+    self->drawControl(static_cast<QStyle::ControlElement>(element), option, painter, widget);
 }
 
 void QProxyStyle_DrawComplexControl(const QProxyStyle* self, int control, const QStyleOptionComplex* option, QPainter* painter, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->drawComplexControl(static_cast<QStyle::ComplexControl>(control), option, painter, widget);
-    } else {
-        ((VirtualQProxyStyle*)self)->drawComplexControl(static_cast<QStyle::ComplexControl>(control), option, painter, widget);
-    }
+    self->drawComplexControl(static_cast<QStyle::ComplexControl>(control), option, painter, widget);
 }
 
 void QProxyStyle_DrawItemText(const QProxyStyle* self, QPainter* painter, const QRect* rect, int flags, const QPalette* pal, bool enabled, const libqt_string text, int textRole) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
-    } else {
-        ((VirtualQProxyStyle*)self)->drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
-    }
+    self->drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
 }
 
 void QProxyStyle_DrawItemPixmap(const QProxyStyle* self, QPainter* painter, const QRect* rect, int alignment, const QPixmap* pixmap) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
-    } else {
-        ((VirtualQProxyStyle*)self)->drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
-    }
+    self->drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
 }
 
 QSize* QProxyStyle_SizeFromContents(const QProxyStyle* self, int typeVal, const QStyleOption* option, const QSize* size, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QSize(self->sizeFromContents(static_cast<QStyle::ContentsType>(typeVal), option, *size, widget));
-    } else {
-        return new QSize(((VirtualQProxyStyle*)self)->sizeFromContents(static_cast<QStyle::ContentsType>(typeVal), option, *size, widget));
-    }
+    return new QSize(self->sizeFromContents(static_cast<QStyle::ContentsType>(typeVal), option, *size, widget));
 }
 
 QRect* QProxyStyle_SubElementRect(const QProxyStyle* self, int element, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QRect(self->subElementRect(static_cast<QStyle::SubElement>(element), option, widget));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->subElementRect(static_cast<QStyle::SubElement>(element), option, widget));
-    }
+    return new QRect(self->subElementRect(static_cast<QStyle::SubElement>(element), option, widget));
 }
 
 QRect* QProxyStyle_SubControlRect(const QProxyStyle* self, int cc, const QStyleOptionComplex* opt, int sc, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QRect(self->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), widget));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), widget));
-    }
+    return new QRect(self->subControlRect(static_cast<QStyle::ComplexControl>(cc), opt, static_cast<QStyle::SubControl>(sc), widget));
 }
 
 QRect* QProxyStyle_ItemTextRect(const QProxyStyle* self, const QFontMetrics* fm, const QRect* r, int flags, bool enabled, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QRect(self->itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
-    }
+    return new QRect(self->itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
 }
 
 QRect* QProxyStyle_ItemPixmapRect(const QProxyStyle* self, const QRect* r, int flags, const QPixmap* pixmap) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QRect(self->itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
-    } else {
-        return new QRect(((VirtualQProxyStyle*)self)->itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
-    }
+    return new QRect(self->itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
 }
 
 int QProxyStyle_HitTestComplexControl(const QProxyStyle* self, int control, const QStyleOptionComplex* option, const QPoint* pos, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return static_cast<int>(self->hitTestComplexControl(static_cast<QStyle::ComplexControl>(control), option, *pos, widget));
-    } else {
-        return static_cast<int>(((VirtualQProxyStyle*)self)->hitTestComplexControl(static_cast<QStyle::ComplexControl>(control), option, *pos, widget));
-    }
+    return static_cast<int>(self->hitTestComplexControl(static_cast<QStyle::ComplexControl>(control), option, *pos, widget));
 }
 
 int QProxyStyle_StyleHint(const QProxyStyle* self, int hint, const QStyleOption* option, const QWidget* widget, QStyleHintReturn* returnData) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return self->styleHint(static_cast<QStyle::StyleHint>(hint), option, widget, returnData);
-    } else {
-        return ((VirtualQProxyStyle*)self)->styleHint(static_cast<QStyle::StyleHint>(hint), option, widget, returnData);
-    }
+    return self->styleHint(static_cast<QStyle::StyleHint>(hint), option, widget, returnData);
 }
 
 int QProxyStyle_PixelMetric(const QProxyStyle* self, int metric, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return self->pixelMetric(static_cast<QStyle::PixelMetric>(metric), option, widget);
-    } else {
-        return ((VirtualQProxyStyle*)self)->pixelMetric(static_cast<QStyle::PixelMetric>(metric), option, widget);
-    }
+    return self->pixelMetric(static_cast<QStyle::PixelMetric>(metric), option, widget);
 }
 
 int QProxyStyle_LayoutSpacing(const QProxyStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return self->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
-    } else {
-        return ((VirtualQProxyStyle*)self)->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
-    }
+    return self->layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
 }
 
 QIcon* QProxyStyle_StandardIcon(const QProxyStyle* self, int standardIcon, const QStyleOption* option, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QIcon(self->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), option, widget));
-    } else {
-        return new QIcon(((VirtualQProxyStyle*)self)->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), option, widget));
-    }
+    return new QIcon(self->standardIcon(static_cast<QStyle::StandardPixmap>(standardIcon), option, widget));
 }
 
 QPixmap* QProxyStyle_StandardPixmap(const QProxyStyle* self, int standardPixmap, const QStyleOption* opt, const QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QPixmap(self->standardPixmap(static_cast<QStyle::StandardPixmap>(standardPixmap), opt, widget));
-    } else {
-        return new QPixmap(((VirtualQProxyStyle*)self)->standardPixmap(static_cast<QStyle::StandardPixmap>(standardPixmap), opt, widget));
-    }
+    return new QPixmap(self->standardPixmap(static_cast<QStyle::StandardPixmap>(standardPixmap), opt, widget));
 }
 
 QPixmap* QProxyStyle_GeneratedIconPixmap(const QProxyStyle* self, int iconMode, const QPixmap* pixmap, const QStyleOption* opt) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QPixmap(self->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
-    } else {
-        return new QPixmap(((VirtualQProxyStyle*)self)->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
-    }
+    return new QPixmap(self->generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
 }
 
 QPalette* QProxyStyle_StandardPalette(const QProxyStyle* self) {
-    auto* vqproxystyle = dynamic_cast<const VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        return new QPalette(self->standardPalette());
-    } else {
-        return new QPalette(((VirtualQProxyStyle*)self)->standardPalette());
-    }
+    return new QPalette(self->standardPalette());
 }
 
 void QProxyStyle_Polish(QProxyStyle* self, QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->polish(widget);
-    } else {
-        ((VirtualQProxyStyle*)self)->polish(widget);
-    }
+    self->polish(widget);
 }
 
 void QProxyStyle_Polish2(QProxyStyle* self, QPalette* pal) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->polish(*pal);
-    } else {
-        ((VirtualQProxyStyle*)self)->polish(*pal);
-    }
+    self->polish(*pal);
 }
 
 void QProxyStyle_Polish3(QProxyStyle* self, QApplication* app) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->polish(app);
-    } else {
-        ((VirtualQProxyStyle*)self)->polish(app);
-    }
+    self->polish(app);
 }
 
 void QProxyStyle_Unpolish(QProxyStyle* self, QWidget* widget) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->unpolish(widget);
-    } else {
-        ((VirtualQProxyStyle*)self)->unpolish(widget);
-    }
+    self->unpolish(widget);
 }
 
 void QProxyStyle_Unpolish2(QProxyStyle* self, QApplication* app) {
-    auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
-    if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        self->unpolish(app);
-    } else {
-        ((VirtualQProxyStyle*)self)->unpolish(app);
-    }
+    self->unpolish(app);
 }
 
 bool QProxyStyle_Event(QProxyStyle* self, QEvent* e) {

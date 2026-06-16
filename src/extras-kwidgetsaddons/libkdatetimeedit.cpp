@@ -53,30 +53,15 @@ KDateTimeEdit* KDateTimeEdit_new2() {
 }
 
 QMetaObject* KDateTimeEdit_MetaObject(const KDateTimeEdit* self) {
-    auto* vkdatetimeedit = dynamic_cast<const VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDateTimeEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDateTimeEdit_Metacast(KDateTimeEdit* self, const char* param1) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDateTimeEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDateTimeEdit_Metacall(KDateTimeEdit* self, int param1, int param2, void** param3) {
-    auto* vkdatetimeedit = dynamic_cast<VirtualKDateTimeEdit*>(self);
-    if (vkdatetimeedit && vkdatetimeedit->isVirtualKDateTimeEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDateTimeEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KDateTimeEdit_Options(const KDateTimeEdit* self) {

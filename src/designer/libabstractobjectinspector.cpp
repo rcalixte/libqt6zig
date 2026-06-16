@@ -48,48 +48,23 @@ QDesignerObjectInspectorInterface* QDesignerObjectInspectorInterface_new2(QWidge
 }
 
 QMetaObject* QDesignerObjectInspectorInterface_MetaObject(const QDesignerObjectInspectorInterface* self) {
-    auto* vqdesignerobjectinspectorinterface = dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerObjectInspectorInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerObjectInspectorInterface_Metacast(QDesignerObjectInspectorInterface* self, const char* param1) {
-    auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerObjectInspectorInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerObjectInspectorInterface_Metacall(QDesignerObjectInspectorInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerObjectInspectorInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerFormEditorInterface* QDesignerObjectInspectorInterface_Core(const QDesignerObjectInspectorInterface* self) {
-    auto* vqdesignerobjectinspectorinterface = dynamic_cast<const VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
-        return self->core();
-    } else {
-        return ((VirtualQDesignerObjectInspectorInterface*)self)->core();
-    }
+    return self->core();
 }
 
 void QDesignerObjectInspectorInterface_SetFormWindow(QDesignerObjectInspectorInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerobjectinspectorinterface = dynamic_cast<VirtualQDesignerObjectInspectorInterface*>(self);
-    if (vqdesignerobjectinspectorinterface && vqdesignerobjectinspectorinterface->isVirtualQDesignerObjectInspectorInterface) {
-        vqdesignerobjectinspectorinterface->setFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerObjectInspectorInterface*)self)->setFormWindow(formWindow);
-    }
+    self->setFormWindow(formWindow);
 }
 
 // Base class handler implementation

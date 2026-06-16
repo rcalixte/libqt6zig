@@ -70,30 +70,15 @@ KUrlLabel* KUrlLabel_new5(const libqt_string url, const libqt_string text, QWidg
 }
 
 QMetaObject* KUrlLabel_MetaObject(const KUrlLabel* self) {
-    auto* vkurllabel = dynamic_cast<const VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlLabel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlLabel_Metacast(KUrlLabel* self, const char* param1) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlLabel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlLabel_Metacall(KUrlLabel* self, int param1, int param2, void** param3) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlLabel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KUrlLabel_Url(const KUrlLabel* self) {
@@ -150,12 +135,7 @@ void KUrlLabel_SetUrl(KUrlLabel* self, const libqt_string url) {
 }
 
 void KUrlLabel_SetFont(KUrlLabel* self, const QFont* font) {
-    auto* vkurllabel = dynamic_cast<VirtualKUrlLabel*>(self);
-    if (vkurllabel && vkurllabel->isVirtualKUrlLabel) {
-        self->setFont(*font);
-    } else {
-        ((VirtualKUrlLabel*)self)->setFont(*font);
-    }
+    self->setFont(*font);
 }
 
 void KUrlLabel_SetUseTips(KUrlLabel* self) {

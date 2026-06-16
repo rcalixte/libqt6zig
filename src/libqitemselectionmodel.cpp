@@ -134,30 +134,15 @@ QItemSelectionModel* QItemSelectionModel_new3(QAbstractItemModel* model) {
 }
 
 QMetaObject* QItemSelectionModel_MetaObject(const QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<const VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQItemSelectionModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QItemSelectionModel_Metacast(QItemSelectionModel* self, const char* param1) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQItemSelectionModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QItemSelectionModel_Metacall(QItemSelectionModel* self, int param1, int param2, void** param3) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQItemSelectionModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QModelIndex* QItemSelectionModel_CurrentIndex(const QItemSelectionModel* self) {
@@ -244,48 +229,23 @@ void QItemSelectionModel_SetModel(QItemSelectionModel* self, QAbstractItemModel*
 }
 
 void QItemSelectionModel_SetCurrentIndex(QItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        self->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQItemSelectionModel*)self)->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->setCurrentIndex(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 void QItemSelectionModel_Select(QItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQItemSelectionModel*)self)->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 void QItemSelectionModel_Select2(QItemSelectionModel* self, const QItemSelection* selection, int command) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualQItemSelectionModel*)self)->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 void QItemSelectionModel_Clear(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        self->clear();
-    } else {
-        ((VirtualQItemSelectionModel*)self)->clear();
-    }
+    self->clear();
 }
 
 void QItemSelectionModel_Reset(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        self->reset();
-    } else {
-        ((VirtualQItemSelectionModel*)self)->reset();
-    }
+    self->reset();
 }
 
 void QItemSelectionModel_ClearSelection(QItemSelectionModel* self) {
@@ -293,12 +253,7 @@ void QItemSelectionModel_ClearSelection(QItemSelectionModel* self) {
 }
 
 void QItemSelectionModel_ClearCurrentIndex(QItemSelectionModel* self) {
-    auto* vqitemselectionmodel = dynamic_cast<VirtualQItemSelectionModel*>(self);
-    if (vqitemselectionmodel && vqitemselectionmodel->isVirtualQItemSelectionModel) {
-        self->clearCurrentIndex();
-    } else {
-        ((VirtualQItemSelectionModel*)self)->clearCurrentIndex();
-    }
+    self->clearCurrentIndex();
 }
 
 void QItemSelectionModel_SelectionChanged(QItemSelectionModel* self, const QItemSelection* selected, const QItemSelection* deselected) {

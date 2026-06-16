@@ -55,30 +55,15 @@ KListWidgetSearchLine* KListWidgetSearchLine_new3(QWidget* parent, QListWidget* 
 }
 
 QMetaObject* KListWidgetSearchLine_MetaObject(const KListWidgetSearchLine* self) {
-    auto* vklistwidgetsearchline = dynamic_cast<const VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKListWidgetSearchLine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KListWidgetSearchLine_Metacast(KListWidgetSearchLine* self, const char* param1) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKListWidgetSearchLine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KListWidgetSearchLine_Metacall(KListWidgetSearchLine* self, int param1, int param2, void** param3) {
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKListWidgetSearchLine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KListWidgetSearchLine_CaseSensitive(const KListWidgetSearchLine* self) {
@@ -91,12 +76,7 @@ QListWidget* KListWidgetSearchLine_ListWidget(const KListWidgetSearchLine* self)
 
 void KListWidgetSearchLine_UpdateSearch(KListWidgetSearchLine* self, const libqt_string s) {
     QString s_QString = QString::fromUtf8(s.data, s.len);
-    auto* vklistwidgetsearchline = dynamic_cast<VirtualKListWidgetSearchLine*>(self);
-    if (vklistwidgetsearchline && vklistwidgetsearchline->isVirtualKListWidgetSearchLine) {
-        self->updateSearch(s_QString);
-    } else {
-        ((VirtualKListWidgetSearchLine*)self)->updateSearch(s_QString);
-    }
+    self->updateSearch(s_QString);
 }
 
 void KListWidgetSearchLine_SetCaseSensitivity(KListWidgetSearchLine* self, int cs) {

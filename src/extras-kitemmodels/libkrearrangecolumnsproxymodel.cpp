@@ -33,30 +33,15 @@ KRearrangeColumnsProxyModel* KRearrangeColumnsProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KRearrangeColumnsProxyModel_MetaObject(const KRearrangeColumnsProxyModel* self) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKRearrangeColumnsProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KRearrangeColumnsProxyModel_Metacast(KRearrangeColumnsProxyModel* self, const char* param1) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KRearrangeColumnsProxyModel_Metacall(KRearrangeColumnsProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KRearrangeColumnsProxyModel_SetSourceColumns(KRearrangeColumnsProxyModel* self, const libqt_list /* of int */ columns) {
@@ -70,84 +55,39 @@ void KRearrangeColumnsProxyModel_SetSourceColumns(KRearrangeColumnsProxyModel* s
 }
 
 int KRearrangeColumnsProxyModel_ColumnCount(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 int KRearrangeColumnsProxyModel_RowCount(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QModelIndex* KRearrangeColumnsProxyModel_Index(const KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* KRearrangeColumnsProxyModel_Parent(const KRearrangeColumnsProxyModel* self, const QModelIndex* child) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QModelIndex(self->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 QModelIndex* KRearrangeColumnsProxyModel_MapFromSource(const KRearrangeColumnsProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QModelIndex(self->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+    return new QModelIndex(self->mapFromSource(*sourceIndex));
 }
 
 QModelIndex* KRearrangeColumnsProxyModel_MapToSource(const KRearrangeColumnsProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QModelIndex(self->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->mapToSource(*proxyIndex));
 }
 
 QVariant* KRearrangeColumnsProxyModel_HeaderData(const KRearrangeColumnsProxyModel* self, int section, int orientation, int role) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKRearrangeColumnsProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 bool KRearrangeColumnsProxyModel_HasChildren(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualKRearrangeColumnsProxyModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 QModelIndex* KRearrangeColumnsProxyModel_Sibling(const KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vkrearrangecolumnsproxymodel = dynamic_cast<const VirtualKRearrangeColumnsProxyModel*>(self);
-    if (vkrearrangecolumnsproxymodel && vkrearrangecolumnsproxymodel->isVirtualKRearrangeColumnsProxyModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualKRearrangeColumnsProxyModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 int KRearrangeColumnsProxyModel_ProxyColumnForSourceColumn(const KRearrangeColumnsProxyModel* self, int sourceColumn) {

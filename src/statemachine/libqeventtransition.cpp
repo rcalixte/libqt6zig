@@ -29,30 +29,15 @@ QEventTransition* QEventTransition_new4(QObject* object, int typeVal, QState* so
 }
 
 QMetaObject* QEventTransition_MetaObject(const QEventTransition* self) {
-    auto* vqeventtransition = dynamic_cast<const VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQEventTransition*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QEventTransition_Metacast(QEventTransition* self, const char* param1) {
-    auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQEventTransition*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QEventTransition_Metacall(QEventTransition* self, int param1, int param2, void** param3) {
-    auto* vqeventtransition = dynamic_cast<VirtualQEventTransition*>(self);
-    if (vqeventtransition && vqeventtransition->isVirtualQEventTransition) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQEventTransition*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QEventTransition_EventSource(const QEventTransition* self) {

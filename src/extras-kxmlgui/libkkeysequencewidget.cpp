@@ -50,30 +50,15 @@ KKeySequenceWidget* KKeySequenceWidget_new2() {
 }
 
 QMetaObject* KKeySequenceWidget_MetaObject(const KKeySequenceWidget* self) {
-    auto* vkkeysequencewidget = dynamic_cast<const VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKKeySequenceWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KKeySequenceWidget_Metacast(KKeySequenceWidget* self, const char* param1) {
-    auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKKeySequenceWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KKeySequenceWidget_Metacall(KKeySequenceWidget* self, int param1, int param2, void** param3) {
-    auto* vkkeysequencewidget = dynamic_cast<VirtualKKeySequenceWidget*>(self);
-    if (vkkeysequencewidget && vkkeysequencewidget->isVirtualKKeySequenceWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKKeySequenceWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KKeySequenceWidget_SetCheckForConflictsAgainst(KKeySequenceWidget* self, int types) {

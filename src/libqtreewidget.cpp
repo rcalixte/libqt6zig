@@ -168,12 +168,7 @@ QTreeWidgetItem* QTreeWidgetItem_new17(QTreeWidgetItem* parent, QTreeWidgetItem*
 }
 
 QTreeWidgetItem* QTreeWidgetItem_Clone(const QTreeWidgetItem* self) {
-    auto* vqtreewidgetitem = dynamic_cast<const VirtualQTreeWidgetItem*>(self);
-    if (vqtreewidgetitem && vqtreewidgetitem->isVirtualQTreeWidgetItem) {
-        return self->clone();
-    } else {
-        return ((VirtualQTreeWidgetItem*)self)->clone();
-    }
+    return self->clone();
 }
 
 QTreeWidget* QTreeWidgetItem_TreeWidget(const QTreeWidgetItem* self) {
@@ -369,48 +364,23 @@ void QTreeWidgetItem_SetSizeHint(QTreeWidgetItem* self, int column, const QSize*
 }
 
 QVariant* QTreeWidgetItem_Data(const QTreeWidgetItem* self, int column, int role) {
-    auto* vqtreewidgetitem = dynamic_cast<const VirtualQTreeWidgetItem*>(self);
-    if (vqtreewidgetitem && vqtreewidgetitem->isVirtualQTreeWidgetItem) {
-        return new QVariant(self->data(static_cast<int>(column), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQTreeWidgetItem*)self)->data(static_cast<int>(column), static_cast<int>(role)));
-    }
+    return new QVariant(self->data(static_cast<int>(column), static_cast<int>(role)));
 }
 
 void QTreeWidgetItem_SetData(QTreeWidgetItem* self, int column, int role, const QVariant* value) {
-    auto* vqtreewidgetitem = dynamic_cast<VirtualQTreeWidgetItem*>(self);
-    if (vqtreewidgetitem && vqtreewidgetitem->isVirtualQTreeWidgetItem) {
-        self->setData(static_cast<int>(column), static_cast<int>(role), *value);
-    } else {
-        ((VirtualQTreeWidgetItem*)self)->setData(static_cast<int>(column), static_cast<int>(role), *value);
-    }
+    self->setData(static_cast<int>(column), static_cast<int>(role), *value);
 }
 
 bool QTreeWidgetItem_OperatorLesser(const QTreeWidgetItem* self, const QTreeWidgetItem* other) {
-    auto* vqtreewidgetitem = dynamic_cast<const VirtualQTreeWidgetItem*>(self);
-    if (vqtreewidgetitem && vqtreewidgetitem->isVirtualQTreeWidgetItem) {
-        return (*self < *other);
-    } else {
-        return ((VirtualQTreeWidgetItem*)self)->operator<(*other);
-    }
+    return self->operator<(*other);
 }
 
 void QTreeWidgetItem_Read(QTreeWidgetItem* self, QDataStream* in) {
-    auto* vqtreewidgetitem = dynamic_cast<VirtualQTreeWidgetItem*>(self);
-    if (vqtreewidgetitem && vqtreewidgetitem->isVirtualQTreeWidgetItem) {
-        self->read(*in);
-    } else {
-        ((VirtualQTreeWidgetItem*)self)->read(*in);
-    }
+    self->read(*in);
 }
 
 void QTreeWidgetItem_Write(const QTreeWidgetItem* self, QDataStream* out) {
-    auto* vqtreewidgetitem = dynamic_cast<const VirtualQTreeWidgetItem*>(self);
-    if (vqtreewidgetitem && vqtreewidgetitem->isVirtualQTreeWidgetItem) {
-        self->write(*out);
-    } else {
-        ((VirtualQTreeWidgetItem*)self)->write(*out);
-    }
+    self->write(*out);
 }
 
 void QTreeWidgetItem_OperatorAssign(QTreeWidgetItem* self, const QTreeWidgetItem* other) {
@@ -650,30 +620,15 @@ QTreeWidget* QTreeWidget_new2() {
 }
 
 QMetaObject* QTreeWidget_MetaObject(const QTreeWidget* self) {
-    auto* vqtreewidget = dynamic_cast<const VirtualQTreeWidget*>(self);
-    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTreeWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTreeWidget_Metacast(QTreeWidget* self, const char* param1) {
-    auto* vqtreewidget = dynamic_cast<VirtualQTreeWidget*>(self);
-    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTreeWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTreeWidget_Metacall(QTreeWidget* self, int param1, int param2, void** param3) {
-    auto* vqtreewidget = dynamic_cast<VirtualQTreeWidget*>(self);
-    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTreeWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QTreeWidget_ColumnCount(const QTreeWidget* self) {
@@ -868,12 +823,7 @@ QTreeWidgetItem* QTreeWidget_ItemFromIndex(const QTreeWidget* self, const QModel
 }
 
 void QTreeWidget_SetSelectionModel(QTreeWidget* self, QItemSelectionModel* selectionModel) {
-    auto* vqtreewidget = dynamic_cast<VirtualQTreeWidget*>(self);
-    if (vqtreewidget && vqtreewidget->isVirtualQTreeWidget) {
-        self->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQTreeWidget*)self)->setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 void QTreeWidget_ScrollToItem(QTreeWidget* self, const QTreeWidgetItem* item) {

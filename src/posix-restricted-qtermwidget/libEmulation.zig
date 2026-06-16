@@ -592,13 +592,13 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` stringVal: [:0]const u8 `
+    /// ` string: [:0]const u8 `
     ///
     /// ` length: i32 `
     ///
-    pub fn SendString(self: Konsole__Emulation, stringVal: [:0]const u8, length: i32) void {
-        const stringVal_Cstring = stringVal.ptr;
-        qtc.Konsole__Emulation_SendString(@ptrCast(self.ptr), stringVal_Cstring, @bitCast(length));
+    pub fn SendString(self: Konsole__Emulation, string: [:0]const u8, length: i32) void {
+        const string_Cstring = string.ptr;
+        qtc.Konsole__Emulation_SendString(@ptrCast(self.ptr), string_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -609,7 +609,7 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: Konsole__Emulation, stringVal: [*:0]const u8, length: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__Emulation, string: [*:0]const u8, length: i32) callconv(.c) void `
     ///
     pub fn OnSendString(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_OnSendString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -627,13 +627,13 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` stringVal: [:0]const u8 `
+    /// ` string: [:0]const u8 `
     ///
     /// ` length: i32 `
     ///
-    pub fn SuperSendString(self: Konsole__Emulation, stringVal: [:0]const u8, length: i32) void {
-        const stringVal_Cstring = stringVal.ptr;
-        qtc.Konsole__Emulation_SuperSendString(@ptrCast(self.ptr), stringVal_Cstring, @bitCast(length));
+    pub fn SuperSendString(self: Konsole__Emulation, string: [:0]const u8, length: i32) void {
+        const string_Cstring = string.ptr;
+        qtc.Konsole__Emulation_SuperSendString(@ptrCast(self.ptr), string_Cstring, @bitCast(length));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)

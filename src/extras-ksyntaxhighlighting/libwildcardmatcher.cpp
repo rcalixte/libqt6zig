@@ -4,8 +4,8 @@
 #include "libwildcardmatcher.h"
 #include "libwildcardmatcher.hxx"
 
-bool KSyntaxHighlighting__WildcardMatcher_ExactMatch(libqt_string param1, libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return KSyntaxHighlighting::WildcardMatcher::exactMatch(param1_QString, param2_QString);
+bool KSyntaxHighlighting__WildcardMatcher_ExactMatch(libqt_string candidate, libqt_string wildcard) {
+    QString candidate_QString = QString::fromUtf8(candidate.data, candidate.len);
+    QString wildcard_QString = QString::fromUtf8(wildcard.data, wildcard.len);
+    return KSyntaxHighlighting::WildcardMatcher::exactMatch(candidate_QString, wildcard_QString);
 }

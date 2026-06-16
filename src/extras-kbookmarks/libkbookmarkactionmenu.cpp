@@ -27,30 +27,15 @@ KBookmarkActionMenu* KBookmarkActionMenu_new2(const KBookmark* bm, const libqt_s
 }
 
 QMetaObject* KBookmarkActionMenu_MetaObject(const KBookmarkActionMenu* self) {
-    auto* vkbookmarkactionmenu = dynamic_cast<const VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBookmarkActionMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBookmarkActionMenu_Metacast(KBookmarkActionMenu* self, const char* param1) {
-    auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBookmarkActionMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBookmarkActionMenu_Metacall(KBookmarkActionMenu* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkactionmenu = dynamic_cast<VirtualKBookmarkActionMenu*>(self);
-    if (vkbookmarkactionmenu && vkbookmarkactionmenu->isVirtualKBookmarkActionMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBookmarkActionMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

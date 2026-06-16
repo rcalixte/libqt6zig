@@ -19,9 +19,9 @@ typedef struct KStyleExtensions KStyleExtensions;
 typedef struct QWidget QWidget;
 #endif
 
-int KStyleExtensions_CustomControlElement(const libqt_string param1, const QWidget* param2);
-int KStyleExtensions_CustomStyleHint(const libqt_string param1, const QWidget* param2);
-int KStyleExtensions_CustomSubElement(const libqt_string param1, const QWidget* param2);
+int KStyleExtensions_CustomControlElement(const libqt_string element, const QWidget* widget);
+int KStyleExtensions_CustomStyleHint(const libqt_string element, const QWidget* widget);
+int KStyleExtensions_CustomSubElement(const libqt_string element, const QWidget* widget);
 
 #ifdef __cplusplus
 } /* extern C */
