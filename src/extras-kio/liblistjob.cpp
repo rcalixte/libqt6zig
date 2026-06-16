@@ -115,10 +115,10 @@ void KIO__ListJob_Delete(KIO__ListJob* self) {
     delete self;
 }
 
-KIO__ListJob* KIO_ListDir(const QUrl* param1, int param2, int param3) {
-    return KIO::listDir(*param1, static_cast<KIO::JobFlags>(param2), static_cast<KIO::ListJob::ListFlags>(param3));
+KIO__ListJob* KIO_ListDir(const QUrl* url, int flags, int listFlags) {
+    return KIO::listDir(*url, static_cast<KIO::JobFlags>(flags), static_cast<KIO::ListJob::ListFlags>(listFlags));
 }
 
-KIO__ListJob* KIO_ListRecursive(const QUrl* param1, int param2, int param3) {
-    return KIO::listRecursive(*param1, static_cast<KIO::JobFlags>(param2), static_cast<KIO::ListJob::ListFlags>(param3));
+KIO__ListJob* KIO_ListRecursive(const QUrl* url, int flags, int listFlags) {
+    return KIO::listRecursive(*url, static_cast<KIO::JobFlags>(flags), static_cast<KIO::ListJob::ListFlags>(listFlags));
 }

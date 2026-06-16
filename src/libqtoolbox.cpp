@@ -53,30 +53,15 @@ QToolBox* QToolBox_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QToolBox_MetaObject(const QToolBox* self) {
-    auto* vqtoolbox = dynamic_cast<const VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQToolBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QToolBox_Metacast(QToolBox* self, const char* param1) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQToolBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QToolBox_Metacall(QToolBox* self, int param1, int param2, void** param3) {
-    auto* vqtoolbox = dynamic_cast<VirtualQToolBox*>(self);
-    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQToolBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QToolBox_AddItem(QToolBox* self, QWidget* widget, const libqt_string text) {

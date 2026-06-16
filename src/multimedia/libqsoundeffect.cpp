@@ -30,30 +30,15 @@ QSoundEffect* QSoundEffect_new4(const QAudioDevice* audioDevice, QObject* parent
 }
 
 QMetaObject* QSoundEffect_MetaObject(const QSoundEffect* self) {
-    auto* vqsoundeffect = dynamic_cast<const VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSoundEffect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSoundEffect_Metacast(QSoundEffect* self, const char* param1) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSoundEffect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSoundEffect_Metacall(QSoundEffect* self, int param1, int param2, void** param3) {
-    auto* vqsoundeffect = dynamic_cast<VirtualQSoundEffect*>(self);
-    if (vqsoundeffect && vqsoundeffect->isVirtualQSoundEffect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSoundEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QSoundEffect_SupportedMimeTypes() {

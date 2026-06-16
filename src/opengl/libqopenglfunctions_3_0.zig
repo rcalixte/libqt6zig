@@ -2164,16 +2164,16 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` stringVal: []const [:0]const u8 `
+    /// ` string: []const [:0]const u8 `
     ///
     /// ` length: []const i32 `
     ///
-    pub fn GlShaderSource(self: QOpenGLFunctions_3_0, allocator: std.mem.Allocator, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32) void {
-        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions_3_0.GlShaderSource: Memory allocation failed");
-        defer allocator.free(stringVal_chararr);
-        for (stringVal, 0..stringVal.len) |str, i|
-            stringVal_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_3_0_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), stringVal_chararr.ptr, length.ptr);
+    pub fn GlShaderSource(self: QOpenGLFunctions_3_0, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
+        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglfunctions_3_0.GlShaderSource: Memory allocation failed");
+        defer allocator.free(string_chararr);
+        for (string, 0..string.len) |str, i|
+            string_chararr[i] = @ptrCast(str.ptr);
+        qtc.QOpenGLFunctions_3_0_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glLinkProgram)
@@ -4088,12 +4088,12 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []u16 `
     ///
-    pub fn GlGetPixelMapusv(self: QOpenGLFunctions_3_0, mapVal: u32, values: []u16) void {
-        qtc.QOpenGLFunctions_3_0_GlGetPixelMapusv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapusv(self: QOpenGLFunctions_3_0, map: u32, values: []u16) void {
+        qtc.QOpenGLFunctions_3_0_GlGetPixelMapusv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetPixelMapuiv)
@@ -4102,12 +4102,12 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []u32 `
     ///
-    pub fn GlGetPixelMapuiv(self: QOpenGLFunctions_3_0, mapVal: u32, values: []u32) void {
-        qtc.QOpenGLFunctions_3_0_GlGetPixelMapuiv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapuiv(self: QOpenGLFunctions_3_0, map: u32, values: []u32) void {
+        qtc.QOpenGLFunctions_3_0_GlGetPixelMapuiv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetPixelMapfv)
@@ -4116,12 +4116,12 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []f32 `
     ///
-    pub fn GlGetPixelMapfv(self: QOpenGLFunctions_3_0, mapVal: u32, values: []f32) void {
-        qtc.QOpenGLFunctions_3_0_GlGetPixelMapfv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapfv(self: QOpenGLFunctions_3_0, map: u32, values: []f32) void {
+        qtc.QOpenGLFunctions_3_0_GlGetPixelMapfv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetMaterialiv)
@@ -4296,14 +4296,14 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const u16 `
     ///
-    pub fn GlPixelMapusv(self: QOpenGLFunctions_3_0, mapVal: u32, mapsize: i32, values: []const u16) void {
-        qtc.QOpenGLFunctions_3_0_GlPixelMapusv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapusv(self: QOpenGLFunctions_3_0, map: u32, mapsize: i32, values: []const u16) void {
+        qtc.QOpenGLFunctions_3_0_GlPixelMapusv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glPixelMapuiv)
@@ -4312,14 +4312,14 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const u32 `
     ///
-    pub fn GlPixelMapuiv(self: QOpenGLFunctions_3_0, mapVal: u32, mapsize: i32, values: []const u32) void {
-        qtc.QOpenGLFunctions_3_0_GlPixelMapuiv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapuiv(self: QOpenGLFunctions_3_0, map: u32, mapsize: i32, values: []const u32) void {
+        qtc.QOpenGLFunctions_3_0_GlPixelMapuiv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glPixelMapfv)
@@ -4328,14 +4328,14 @@ pub const QOpenGLFunctions_3_0 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_3_0 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const f32 `
     ///
-    pub fn GlPixelMapfv(self: QOpenGLFunctions_3_0, mapVal: u32, mapsize: i32, values: []const f32) void {
-        qtc.QOpenGLFunctions_3_0_GlPixelMapfv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapfv(self: QOpenGLFunctions_3_0, map: u32, mapsize: i32, values: []const f32) void {
+        qtc.QOpenGLFunctions_3_0_GlPixelMapfv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glPixelTransferi)

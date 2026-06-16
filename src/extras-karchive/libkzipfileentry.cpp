@@ -65,31 +65,16 @@ libqt_string KZipFileEntry_Path(const KZipFileEntry* self) {
 }
 
 libqt_string KZipFileEntry_Data(const KZipFileEntry* self) {
-    auto* vkzipfileentry = dynamic_cast<const VirtualKZipFileEntry*>(self);
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        QByteArray _qb = self->data();
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualKZipFileEntry*)self)->data();
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    QByteArray _qb = self->data();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
 }
 
 QIODevice* KZipFileEntry_CreateDevice(const KZipFileEntry* self) {
-    auto* vkzipfileentry = dynamic_cast<const VirtualKZipFileEntry*>(self);
-    if (vkzipfileentry && vkzipfileentry->isVirtualKZipFileEntry) {
-        return self->createDevice();
-    } else {
-        return ((VirtualKZipFileEntry*)self)->createDevice();
-    }
+    return self->createDevice();
 }
 
 // Base class handler implementation

@@ -108,14 +108,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn New2(stringVal: []const u8) KLineEdit {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn New2(string: []const u8) KLineEdit {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.KLineEdit_new2(stringVal_str) };
+        return .{ .ptr = qtc.KLineEdit_new2(string_str) };
     }
 
     /// New3 constructs a new KLineEdit object.
@@ -128,17 +128,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
     /// ` parent: QWidget `
     ///
-    pub fn New4(stringVal: []const u8, parent: anytype) KLineEdit {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn New4(string: []const u8, parent: anytype) KLineEdit {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
         comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KLineEdit_new4(stringVal_str, @ptrCast(parent.ptr)) };
+        return .{ .ptr = qtc.KLineEdit_new4(string_str, @ptrCast(parent.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)

@@ -23,30 +23,15 @@ QsciLexerCMake* QsciLexerCMake_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerCMake_MetaObject(const QsciLexerCMake* self) {
-    auto* vqscilexercmake = dynamic_cast<const VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerCMake*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerCMake_Metacast(QsciLexerCMake* self, const char* param1) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerCMake*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerCMake_Metacall(QsciLexerCMake* self, int param1, int param2, void** param3) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerCMake*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerCMake_Language(const QsciLexerCMake* self) {
@@ -94,12 +79,7 @@ bool QsciLexerCMake_FoldAtElse(const QsciLexerCMake* self) {
 }
 
 void QsciLexerCMake_SetFoldAtElse(QsciLexerCMake* self, bool fold) {
-    auto* vqscilexercmake = dynamic_cast<VirtualQsciLexerCMake*>(self);
-    if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        self->setFoldAtElse(fold);
-    } else {
-        ((VirtualQsciLexerCMake*)self)->setFoldAtElse(fold);
-    }
+    self->setFoldAtElse(fold);
 }
 
 // Base class handler implementation

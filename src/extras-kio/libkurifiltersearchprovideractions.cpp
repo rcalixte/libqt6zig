@@ -20,30 +20,15 @@ KIO__KUriFilterSearchProviderActions* KIO__KUriFilterSearchProviderActions_new2(
 }
 
 QMetaObject* KIO__KUriFilterSearchProviderActions_MetaObject(const KIO__KUriFilterSearchProviderActions* self) {
-    auto* vkio__kurifiltersearchprovideractions = dynamic_cast<const VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkio__kurifiltersearchprovideractions && vkio__kurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOKUriFilterSearchProviderActions*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__KUriFilterSearchProviderActions_Metacast(KIO__KUriFilterSearchProviderActions* self, const char* param1) {
-    auto* vkio__kurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkio__kurifiltersearchprovideractions && vkio__kurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__KUriFilterSearchProviderActions_Metacall(KIO__KUriFilterSearchProviderActions* self, int param1, int param2, void** param3) {
-    auto* vkio__kurifiltersearchprovideractions = dynamic_cast<VirtualKIOKUriFilterSearchProviderActions*>(self);
-    if (vkio__kurifiltersearchprovideractions && vkio__kurifiltersearchprovideractions->isVirtualKIOKUriFilterSearchProviderActions) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOKUriFilterSearchProviderActions*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KIO__KUriFilterSearchProviderActions_SelectedText(const KIO__KUriFilterSearchProviderActions* self) {

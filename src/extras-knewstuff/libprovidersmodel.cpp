@@ -31,95 +31,46 @@ KNSCore__ProvidersModel* KNSCore__ProvidersModel_new2(QObject* parent) {
 }
 
 QMetaObject* KNSCore__ProvidersModel_MetaObject(const KNSCore__ProvidersModel* self) {
-    auto* vknscore__providersmodel = dynamic_cast<const VirtualKNSCoreProvidersModel*>(self);
-    if (vknscore__providersmodel && vknscore__providersmodel->isVirtualKNSCoreProvidersModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSCoreProvidersModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSCore__ProvidersModel_Metacast(KNSCore__ProvidersModel* self, const char* param1) {
-    auto* vknscore__providersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscore__providersmodel && vknscore__providersmodel->isVirtualKNSCoreProvidersModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSCoreProvidersModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSCore__ProvidersModel_Metacall(KNSCore__ProvidersModel* self, int param1, int param2, void** param3) {
-    auto* vknscore__providersmodel = dynamic_cast<VirtualKNSCoreProvidersModel*>(self);
-    if (vknscore__providersmodel && vknscore__providersmodel->isVirtualKNSCoreProvidersModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSCoreProvidersModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_map /* of int to libqt_string */ KNSCore__ProvidersModel_RoleNames(const KNSCore__ProvidersModel* self) {
-    auto* vknscore__providersmodel = dynamic_cast<const VirtualKNSCoreProvidersModel*>(self);
-    if (vknscore__providersmodel && vknscore__providersmodel->isVirtualKNSCoreProvidersModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKNSCoreProvidersModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 QVariant* KNSCore__ProvidersModel_Data(const KNSCore__ProvidersModel* self, const QModelIndex* index, int role) {
-    auto* vknscore__providersmodel = dynamic_cast<const VirtualKNSCoreProvidersModel*>(self);
-    if (vknscore__providersmodel && vknscore__providersmodel->isVirtualKNSCoreProvidersModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKNSCoreProvidersModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int KNSCore__ProvidersModel_RowCount(const KNSCore__ProvidersModel* self, const QModelIndex* parent) {
-    auto* vknscore__providersmodel = dynamic_cast<const VirtualKNSCoreProvidersModel*>(self);
-    if (vknscore__providersmodel && vknscore__providersmodel->isVirtualKNSCoreProvidersModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKNSCoreProvidersModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QObject* KNSCore__ProvidersModel_Engine(const KNSCore__ProvidersModel* self) {

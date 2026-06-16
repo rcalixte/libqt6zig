@@ -46,13 +46,13 @@ void KIO__BatchRenameJob_Delete(KIO__BatchRenameJob* self) {
     delete self;
 }
 
-KIO__BatchRenameJob* KIO_BatchRename(const libqt_list /* of QUrl* */ param1, const libqt_string param2, int param3, QChar* param4, int param5) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__BatchRenameJob* KIO_BatchRename(const libqt_list /* of QUrl* */ src, const libqt_string newName, int index, QChar* placeHolder, int flags) {
+    QList<QUrl> src_QList;
+    src_QList.reserve(src.len);
+    QUrl** src_arr = static_cast<QUrl**>(src.data);
+    for (size_t i = 0; i < src.len; ++i) {
+        src_QList.push_back(*(src_arr[i]));
     }
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return KIO::batchRename(param1_QList, param2_QString, static_cast<int>(param3), *param4, static_cast<KIO::JobFlags>(param5));
+    QString newName_QString = QString::fromUtf8(newName.data, newName.len);
+    return KIO::batchRename(src_QList, newName_QString, static_cast<int>(index), *placeHolder, static_cast<KIO::JobFlags>(flags));
 }

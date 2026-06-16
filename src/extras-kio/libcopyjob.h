@@ -63,17 +63,17 @@ void KIO__CopyJob_CopyingLinkDone(KIO__CopyJob* self, KIO__Job* job, const QUrl*
 void KIO__CopyJob_Connect_CopyingLinkDone(KIO__CopyJob* self, intptr_t slot);
 void KIO__CopyJob_Delete(KIO__CopyJob* self);
 
-KIO__CopyJob* KIO_Copy(const QUrl* param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_CopyAs(const QUrl* param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_Copy2(const libqt_list /* of QUrl* */ param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_Move(const QUrl* param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_MoveAs(const QUrl* param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_Move2(const libqt_list /* of QUrl* */ param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_Link(const QUrl* param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_Link2(const libqt_list /* of QUrl* */ param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_LinkAs(const QUrl* param1, const QUrl* param2, int param3);
-KIO__CopyJob* KIO_Trash(const QUrl* param1, int param2);
-KIO__CopyJob* KIO_Trash2(const libqt_list /* of QUrl* */ param1, int param2);
+KIO__CopyJob* KIO_Copy(const QUrl* src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_CopyAs(const QUrl* src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_Copy2(const libqt_list /* of QUrl* */ src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_Move(const QUrl* src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_MoveAs(const QUrl* src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_Move2(const libqt_list /* of QUrl* */ src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_Link(const QUrl* src, const QUrl* destDir, int flags);
+KIO__CopyJob* KIO_Link2(const libqt_list /* of QUrl* */ src, const QUrl* destDir, int flags);
+KIO__CopyJob* KIO_LinkAs(const QUrl* src, const QUrl* dest, int flags);
+KIO__CopyJob* KIO_Trash(const QUrl* src, int flags);
+KIO__CopyJob* KIO_Trash2(const libqt_list /* of QUrl* */ src, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

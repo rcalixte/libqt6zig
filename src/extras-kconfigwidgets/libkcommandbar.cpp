@@ -47,30 +47,15 @@ KCommandBar* KCommandBar_new(QWidget* parent) {
 }
 
 QMetaObject* KCommandBar_MetaObject(const KCommandBar* self) {
-    auto* vkcommandbar = dynamic_cast<const VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCommandBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCommandBar_Metacast(KCommandBar* self, const char* param1) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCommandBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCommandBar_Metacall(KCommandBar* self, int param1, int param2, void** param3) {
-    auto* vkcommandbar = dynamic_cast<VirtualKCommandBar*>(self);
-    if (vkcommandbar && vkcommandbar->isVirtualKCommandBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCommandBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCommandBar_SetActions(KCommandBar* self, const libqt_list /* of KCommandBar__ActionGroup* */ actions) {

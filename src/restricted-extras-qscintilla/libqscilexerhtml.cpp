@@ -23,30 +23,15 @@ QsciLexerHTML* QsciLexerHTML_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerHTML_MetaObject(const QsciLexerHTML* self) {
-    auto* vqscilexerhtml = dynamic_cast<const VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerHTML*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerHTML_Metacast(QsciLexerHTML* self, const char* param1) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerHTML*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerHTML_Metacall(QsciLexerHTML* self, int param1, int param2, void** param3) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerHTML*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerHTML_Language(const QsciLexerHTML* self) {
@@ -146,30 +131,15 @@ bool QsciLexerHTML_MakoTemplates(const QsciLexerHTML* self) {
 }
 
 void QsciLexerHTML_SetFoldCompact(QsciLexerHTML* self, bool fold) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 void QsciLexerHTML_SetFoldPreprocessor(QsciLexerHTML* self, bool fold) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        self->setFoldPreprocessor(fold);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setFoldPreprocessor(fold);
-    }
+    self->setFoldPreprocessor(fold);
 }
 
 void QsciLexerHTML_SetCaseSensitiveTags(QsciLexerHTML* self, bool sens) {
-    auto* vqscilexerhtml = dynamic_cast<VirtualQsciLexerHTML*>(self);
-    if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        self->setCaseSensitiveTags(sens);
-    } else {
-        ((VirtualQsciLexerHTML*)self)->setCaseSensitiveTags(sens);
-    }
+    self->setCaseSensitiveTags(sens);
 }
 
 // Base class handler implementation

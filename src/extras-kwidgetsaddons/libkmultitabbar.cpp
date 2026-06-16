@@ -61,30 +61,15 @@ KMultiTabBar* KMultiTabBar_new4(int pos, QWidget* parent) {
 }
 
 QMetaObject* KMultiTabBar_MetaObject(const KMultiTabBar* self) {
-    auto* vkmultitabbar = dynamic_cast<const VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKMultiTabBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KMultiTabBar_Metacast(KMultiTabBar* self, const char* param1) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KMultiTabBar_Metacall(KMultiTabBar* self, int param1, int param2, void** param3) {
-    auto* vkmultitabbar = dynamic_cast<VirtualKMultiTabBar*>(self);
-    if (vkmultitabbar && vkmultitabbar->isVirtualKMultiTabBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKMultiTabBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KMultiTabBar_AppendButton(KMultiTabBar* self, const QIcon* icon) {

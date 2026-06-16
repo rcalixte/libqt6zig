@@ -27,30 +27,15 @@ QChronoTimer* QChronoTimer_new4(QObject* parent) {
 }
 
 QMetaObject* QChronoTimer_MetaObject(const QChronoTimer* self) {
-    auto* vqchronotimer = dynamic_cast<const VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQChronoTimer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QChronoTimer_Metacast(QChronoTimer* self, const char* param1) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQChronoTimer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QChronoTimer_Metacall(QChronoTimer* self, int param1, int param2, void** param3) {
-    auto* vqchronotimer = dynamic_cast<VirtualQChronoTimer*>(self);
-    if (vqchronotimer && vqchronotimer->isVirtualQChronoTimer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQChronoTimer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QChronoTimer_IsActive(const QChronoTimer* self) {

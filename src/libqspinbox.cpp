@@ -50,30 +50,15 @@ QSpinBox* QSpinBox_new2() {
 }
 
 QMetaObject* QSpinBox_MetaObject(const QSpinBox* self) {
-    auto* vqspinbox = dynamic_cast<const VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSpinBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSpinBox_Metacast(QSpinBox* self, const char* param1) {
-    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSpinBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSpinBox_Metacall(QSpinBox* self, int param1, int param2, void** param3) {
-    auto* vqspinbox = dynamic_cast<VirtualQSpinBox*>(self);
-    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSpinBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QSpinBox_Value(const QSpinBox* self) {
@@ -2241,30 +2226,15 @@ QDoubleSpinBox* QDoubleSpinBox_new2() {
 }
 
 QMetaObject* QDoubleSpinBox_MetaObject(const QDoubleSpinBox* self) {
-    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDoubleSpinBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDoubleSpinBox_Metacast(QDoubleSpinBox* self, const char* param1) {
-    auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDoubleSpinBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDoubleSpinBox_Metacall(QDoubleSpinBox* self, int param1, int param2, void** param3) {
-    auto* vqdoublespinbox = dynamic_cast<VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDoubleSpinBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 double QDoubleSpinBox_Value(const QDoubleSpinBox* self) {
@@ -2363,57 +2333,29 @@ void QDoubleSpinBox_SetDecimals(QDoubleSpinBox* self, int prec) {
 
 int QDoubleSpinBox_Validate(const QDoubleSpinBox* self, libqt_string input, int* pos) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQDoubleSpinBox*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
+    return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
 }
 
 double QDoubleSpinBox_ValueFromText(const QDoubleSpinBox* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        return self->valueFromText(text_QString);
-    } else {
-        return ((VirtualQDoubleSpinBox*)self)->valueFromText(text_QString);
-    }
+    return self->valueFromText(text_QString);
 }
 
 libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val) {
-    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        auto _ret = self->textFromValue(static_cast<double>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDoubleSpinBox*)self)->textFromValue(static_cast<double>(val));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->textFromValue(static_cast<double>(val));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDoubleSpinBox_Fixup(const QDoubleSpinBox* self, libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    auto* vqdoublespinbox = dynamic_cast<const VirtualQDoubleSpinBox*>(self);
-    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
-        self->fixup(str_QString);
-    } else {
-        ((VirtualQDoubleSpinBox*)self)->fixup(str_QString);
-    }
+    self->fixup(str_QString);
 }
 
 void QDoubleSpinBox_SetValue(QDoubleSpinBox* self, double val) {

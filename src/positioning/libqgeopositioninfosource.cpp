@@ -19,39 +19,19 @@ QGeoPositionInfoSource* QGeoPositionInfoSource_new(QObject* parent) {
 }
 
 QMetaObject* QGeoPositionInfoSource_MetaObject(const QGeoPositionInfoSource* self) {
-    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoPositionInfoSource*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoPositionInfoSource_Metacast(QGeoPositionInfoSource* self, const char* param1) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoPositionInfoSource*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoPositionInfoSource_Metacall(QGeoPositionInfoSource* self, int param1, int param2, void** param3) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoPositionInfoSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QGeoPositionInfoSource_SetUpdateInterval(QGeoPositionInfoSource* self, int msec) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        self->setUpdateInterval(static_cast<int>(msec));
-    } else {
-        ((VirtualQGeoPositionInfoSource*)self)->setUpdateInterval(static_cast<int>(msec));
-    }
+    self->setUpdateInterval(static_cast<int>(msec));
 }
 
 int QGeoPositionInfoSource_UpdateInterval(const QGeoPositionInfoSource* self) {
@@ -59,12 +39,7 @@ int QGeoPositionInfoSource_UpdateInterval(const QGeoPositionInfoSource* self) {
 }
 
 void QGeoPositionInfoSource_SetPreferredPositioningMethods(QGeoPositionInfoSource* self, int methods) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        self->setPreferredPositioningMethods(static_cast<QGeoPositionInfoSource::PositioningMethods>(methods));
-    } else {
-        ((VirtualQGeoPositionInfoSource*)self)->setPreferredPositioningMethods(static_cast<QGeoPositionInfoSource::PositioningMethods>(methods));
-    }
+    self->setPreferredPositioningMethods(static_cast<QGeoPositionInfoSource::PositioningMethods>(methods));
 }
 
 int QGeoPositionInfoSource_PreferredPositioningMethods(const QGeoPositionInfoSource* self) {
@@ -72,30 +47,15 @@ int QGeoPositionInfoSource_PreferredPositioningMethods(const QGeoPositionInfoSou
 }
 
 QGeoPositionInfo* QGeoPositionInfoSource_LastKnownPosition(const QGeoPositionInfoSource* self, bool fromSatellitePositioningMethodsOnly) {
-    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return new QGeoPositionInfo(vqgeopositioninfosource->lastKnownPosition(fromSatellitePositioningMethodsOnly));
-    } else {
-        return new QGeoPositionInfo(((VirtualQGeoPositionInfoSource*)self)->lastKnownPosition(fromSatellitePositioningMethodsOnly));
-    }
+    return new QGeoPositionInfo(self->lastKnownPosition(fromSatellitePositioningMethodsOnly));
 }
 
 int QGeoPositionInfoSource_SupportedPositioningMethods(const QGeoPositionInfoSource* self) {
-    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return static_cast<int>(vqgeopositioninfosource->supportedPositioningMethods());
-    } else {
-        return static_cast<int>(((VirtualQGeoPositionInfoSource*)self)->supportedPositioningMethods());
-    }
+    return static_cast<int>(self->supportedPositioningMethods());
 }
 
 int QGeoPositionInfoSource_MinimumUpdateInterval(const QGeoPositionInfoSource* self) {
-    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return vqgeopositioninfosource->minimumUpdateInterval();
-    } else {
-        return ((VirtualQGeoPositionInfoSource*)self)->minimumUpdateInterval();
-    }
+    return self->minimumUpdateInterval();
 }
 
 libqt_string QGeoPositionInfoSource_SourceName(const QGeoPositionInfoSource* self) {
@@ -112,22 +72,12 @@ libqt_string QGeoPositionInfoSource_SourceName(const QGeoPositionInfoSource* sel
 
 bool QGeoPositionInfoSource_SetBackendProperty(QGeoPositionInfoSource* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return self->setBackendProperty(name_QString, *value);
-    } else {
-        return ((VirtualQGeoPositionInfoSource*)self)->setBackendProperty(name_QString, *value);
-    }
+    return self->setBackendProperty(name_QString, *value);
 }
 
 QVariant* QGeoPositionInfoSource_BackendProperty(const QGeoPositionInfoSource* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return new QVariant(self->backendProperty(name_QString));
-    } else {
-        return new QVariant(((VirtualQGeoPositionInfoSource*)self)->backendProperty(name_QString));
-    }
+    return new QVariant(self->backendProperty(name_QString));
 }
 
 QGeoPositionInfoSource* QGeoPositionInfoSource_CreateDefaultSource(QObject* parent) {
@@ -184,39 +134,19 @@ libqt_list /* of libqt_string */ QGeoPositionInfoSource_AvailableSources() {
 }
 
 int QGeoPositionInfoSource_Error(const QGeoPositionInfoSource* self) {
-    auto* vqgeopositioninfosource = dynamic_cast<const VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        return static_cast<int>(vqgeopositioninfosource->error());
-    } else {
-        return static_cast<int>(((VirtualQGeoPositionInfoSource*)self)->error());
-    }
+    return static_cast<int>(self->error());
 }
 
 void QGeoPositionInfoSource_StartUpdates(QGeoPositionInfoSource* self) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        vqgeopositioninfosource->startUpdates();
-    } else {
-        ((VirtualQGeoPositionInfoSource*)self)->startUpdates();
-    }
+    self->startUpdates();
 }
 
 void QGeoPositionInfoSource_StopUpdates(QGeoPositionInfoSource* self) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        vqgeopositioninfosource->stopUpdates();
-    } else {
-        ((VirtualQGeoPositionInfoSource*)self)->stopUpdates();
-    }
+    self->stopUpdates();
 }
 
 void QGeoPositionInfoSource_RequestUpdate(QGeoPositionInfoSource* self, int timeout) {
-    auto* vqgeopositioninfosource = dynamic_cast<VirtualQGeoPositionInfoSource*>(self);
-    if (vqgeopositioninfosource && vqgeopositioninfosource->isVirtualQGeoPositionInfoSource) {
-        vqgeopositioninfosource->requestUpdate(static_cast<int>(timeout));
-    } else {
-        ((VirtualQGeoPositionInfoSource*)self)->requestUpdate(static_cast<int>(timeout));
-    }
+    self->requestUpdate(static_cast<int>(timeout));
 }
 
 void QGeoPositionInfoSource_PositionUpdated(QGeoPositionInfoSource* self, const QGeoPositionInfo* update) {

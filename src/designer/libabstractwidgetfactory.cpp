@@ -22,94 +22,44 @@ QDesignerWidgetFactoryInterface* QDesignerWidgetFactoryInterface_new2(QObject* p
 }
 
 QMetaObject* QDesignerWidgetFactoryInterface_MetaObject(const QDesignerWidgetFactoryInterface* self) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerWidgetFactoryInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerWidgetFactoryInterface_Metacast(QDesignerWidgetFactoryInterface* self, const char* param1) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerWidgetFactoryInterface_Metacall(QDesignerWidgetFactoryInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QDesignerFormEditorInterface* QDesignerWidgetFactoryInterface_Core(const QDesignerWidgetFactoryInterface* self) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return vqdesignerwidgetfactoryinterface->core();
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->core();
-    }
+    return self->core();
 }
 
 QWidget* QDesignerWidgetFactoryInterface_ContainerOfWidget(const QDesignerWidgetFactoryInterface* self, QWidget* w) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return vqdesignerwidgetfactoryinterface->containerOfWidget(w);
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->containerOfWidget(w);
-    }
+    return self->containerOfWidget(w);
 }
 
 QWidget* QDesignerWidgetFactoryInterface_WidgetOfContainer(const QDesignerWidgetFactoryInterface* self, QWidget* w) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return vqdesignerwidgetfactoryinterface->widgetOfContainer(w);
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->widgetOfContainer(w);
-    }
+    return self->widgetOfContainer(w);
 }
 
 QWidget* QDesignerWidgetFactoryInterface_CreateWidget(const QDesignerWidgetFactoryInterface* self, const libqt_string name, QWidget* parentWidget) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return vqdesignerwidgetfactoryinterface->createWidget(name_QString, parentWidget);
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->createWidget(name_QString, parentWidget);
-    }
+    return self->createWidget(name_QString, parentWidget);
 }
 
 QLayout* QDesignerWidgetFactoryInterface_CreateLayout(const QDesignerWidgetFactoryInterface* self, QWidget* widget, QLayout* layout, int typeVal) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return vqdesignerwidgetfactoryinterface->createLayout(widget, layout, static_cast<int>(typeVal));
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->createLayout(widget, layout, static_cast<int>(typeVal));
-    }
+    return self->createLayout(widget, layout, static_cast<int>(typeVal));
 }
 
 bool QDesignerWidgetFactoryInterface_IsPassiveInteractor(QDesignerWidgetFactoryInterface* self, QWidget* widget) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        return vqdesignerwidgetfactoryinterface->isPassiveInteractor(widget);
-    } else {
-        return ((VirtualQDesignerWidgetFactoryInterface*)self)->isPassiveInteractor(widget);
-    }
+    return self->isPassiveInteractor(widget);
 }
 
 void QDesignerWidgetFactoryInterface_Initialize(const QDesignerWidgetFactoryInterface* self, QObject* object) {
-    auto* vqdesignerwidgetfactoryinterface = dynamic_cast<const VirtualQDesignerWidgetFactoryInterface*>(self);
-    if (vqdesignerwidgetfactoryinterface && vqdesignerwidgetfactoryinterface->isVirtualQDesignerWidgetFactoryInterface) {
-        vqdesignerwidgetfactoryinterface->initialize(object);
-    } else {
-        ((VirtualQDesignerWidgetFactoryInterface*)self)->initialize(object);
-    }
+    self->initialize(object);
 }
 
 // Base class handler implementation

@@ -80,30 +80,15 @@ QUndoView* QUndoView_new6(QUndoGroup* group, QWidget* parent) {
 }
 
 QMetaObject* QUndoView_MetaObject(const QUndoView* self) {
-    auto* vqundoview = dynamic_cast<const VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQUndoView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QUndoView_Metacast(QUndoView* self, const char* param1) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQUndoView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QUndoView_Metacall(QUndoView* self, int param1, int param2, void** param3) {
-    auto* vqundoview = dynamic_cast<VirtualQUndoView*>(self);
-    if (vqundoview && vqundoview->isVirtualQUndoView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUndoView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUndoStack* QUndoView_Stack(const QUndoView* self) {

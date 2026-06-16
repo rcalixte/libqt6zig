@@ -58,11 +58,11 @@ void KIO__TransferJob_CanResume(KIO__TransferJob* self, KIO__Job* job, unsigned 
 void KIO__TransferJob_Connect_CanResume(KIO__TransferJob* self, intptr_t slot);
 void KIO__TransferJob_Delete(KIO__TransferJob* self);
 
-KIO__TransferJob* KIO_Get(const QUrl* param1, int param2, int param3);
-KIO__TransferJob* KIO_Put(const QUrl* param1, int param2, int param3);
-KIO__TransferJob* KIO_HttpPost(const QUrl* param1, const libqt_string param2, int param3);
-KIO__TransferJob* KIO_HttpPost2(const QUrl* param1, QIODevice* param2, long long param3, int param4);
-KIO__TransferJob* KIO_HttpDelete(const QUrl* param1, int param2);
+KIO__TransferJob* KIO_Get(const QUrl* url, int reload, int flags);
+KIO__TransferJob* KIO_Put(const QUrl* url, int permissions, int flags);
+KIO__TransferJob* KIO_HttpPost(const QUrl* url, const libqt_string postData, int flags);
+KIO__TransferJob* KIO_HttpPost2(const QUrl* url, QIODevice* device, long long size, int flags);
+KIO__TransferJob* KIO_HttpDelete(const QUrl* url, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

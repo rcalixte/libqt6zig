@@ -72,12 +72,7 @@ bool QPixmap_IsNull(const QPixmap* self) {
 }
 
 int QPixmap_DevType(const QPixmap* self) {
-    auto* vqpixmap = dynamic_cast<const VirtualQPixmap*>(self);
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
-        return self->devType();
-    } else {
-        return ((VirtualQPixmap*)self)->devType();
-    }
+    return self->devType();
 }
 
 int QPixmap_Width(const QPixmap* self) {
@@ -240,12 +235,7 @@ bool QPixmap_IsQBitmap(const QPixmap* self) {
 }
 
 QPaintEngine* QPixmap_PaintEngine(const QPixmap* self) {
-    auto* vqpixmap = dynamic_cast<const VirtualQPixmap*>(self);
-    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
-        return self->paintEngine();
-    } else {
-        return ((VirtualQPixmap*)self)->paintEngine();
-    }
+    return self->paintEngine();
 }
 
 bool QPixmap_OperatorNot(const QPixmap* self) {

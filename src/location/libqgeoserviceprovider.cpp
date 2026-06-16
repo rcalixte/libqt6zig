@@ -47,30 +47,15 @@ QGeoServiceProvider* QGeoServiceProvider_new3(const libqt_string providerName, c
 }
 
 QMetaObject* QGeoServiceProvider_MetaObject(const QGeoServiceProvider* self) {
-    auto* vqgeoserviceprovider = dynamic_cast<const VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoServiceProvider*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoServiceProvider_Metacast(QGeoServiceProvider* self, const char* param1) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoServiceProvider_Metacall(QGeoServiceProvider* self, int param1, int param2, void** param3) {
-    auto* vqgeoserviceprovider = dynamic_cast<VirtualQGeoServiceProvider*>(self);
-    if (vqgeoserviceprovider && vqgeoserviceprovider->isVirtualQGeoServiceProvider) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoServiceProvider*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QGeoServiceProvider_AvailableServiceProviders() {

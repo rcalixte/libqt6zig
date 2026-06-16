@@ -54,30 +54,15 @@ kColorPicker__KColorPicker* kColorPicker__KColorPicker_new3(bool showAlphaChanne
 }
 
 QMetaObject* kColorPicker__KColorPicker_MetaObject(const kColorPicker__KColorPicker* self) {
-    auto* vkcolorpicker__kcolorpicker = dynamic_cast<const VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpicker__kcolorpicker && vkcolorpicker__kcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualkColorPickerKColorPicker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* kColorPicker__KColorPicker_Metacast(kColorPicker__KColorPicker* self, const char* param1) {
-    auto* vkcolorpicker__kcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpicker__kcolorpicker && vkcolorpicker__kcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int kColorPicker__KColorPicker_Metacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3) {
-    auto* vkcolorpicker__kcolorpicker = dynamic_cast<VirtualkColorPickerKColorPicker*>(self);
-    if (vkcolorpicker__kcolorpicker && vkcolorpicker__kcolorpicker->isVirtualkColorPickerKColorPicker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualkColorPickerKColorPicker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void kColorPicker__KColorPicker_SetFixedSize(kColorPicker__KColorPicker* self, const QSize* size) {

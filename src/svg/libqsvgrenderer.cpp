@@ -54,30 +54,15 @@ QSvgRenderer* QSvgRenderer_new8(QXmlStreamReader* contents, QObject* parent) {
 }
 
 QMetaObject* QSvgRenderer_MetaObject(const QSvgRenderer* self) {
-    auto* vqsvgrenderer = dynamic_cast<const VirtualQSvgRenderer*>(self);
-    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSvgRenderer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSvgRenderer_Metacast(QSvgRenderer* self, const char* param1) {
-    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
-    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSvgRenderer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSvgRenderer_Metacall(QSvgRenderer* self, int param1, int param2, void** param3) {
-    auto* vqsvgrenderer = dynamic_cast<VirtualQSvgRenderer*>(self);
-    if (vqsvgrenderer && vqsvgrenderer->isVirtualQSvgRenderer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSvgRenderer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QSvgRenderer_IsValid(const QSvgRenderer* self) {

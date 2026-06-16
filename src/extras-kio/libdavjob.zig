@@ -2301,99 +2301,99 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` properties: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` depth: []const u8 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn DavPropFind(param1: anytype, param2: []const u8, param3: []const u8, param4: i32) KIO__DavJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn DavPropFind(url: anytype, properties: []const u8, depth: []const u8, flags: i32) KIO__DavJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const properties_str = qtc.libqt_string{
+            .len = properties.len,
+            .data = properties.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const depth_str = qtc.libqt_string{
+            .len = depth.len,
+            .data = depth.ptr,
         };
-        return .{ .ptr = qtc.KIO_DavPropFind(@ptrCast(param1.ptr), param2_str, param3_str, @bitCast(param4)) };
+        return .{ .ptr = qtc.KIO_DavPropFind(@ptrCast(url.ptr), properties_str, depth_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#davPropPatch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` properties: []const u8 `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn DavPropPatch(param1: anytype, param2: []const u8, param3: i32) KIO__DavJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn DavPropPatch(url: anytype, properties: []const u8, flags: i32) KIO__DavJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const properties_str = qtc.libqt_string{
+            .len = properties.len,
+            .data = properties.ptr,
         };
-        return .{ .ptr = qtc.KIO_DavPropPatch(@ptrCast(param1.ptr), param2_str, @bitCast(param3)) };
+        return .{ .ptr = qtc.KIO_DavPropPatch(@ptrCast(url.ptr), properties_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#davSearch)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` nsURI: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` qName: []const u8 `
     ///
-    /// ` param4: []const u8 `
+    /// ` query: []const u8 `
     ///
-    /// ` param5: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn DavSearch(param1: anytype, param2: []const u8, param3: []const u8, param4: []const u8, param5: i32) KIO__DavJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn DavSearch(url: anytype, nsURI: []const u8, qName: []const u8, query: []const u8, flags: i32) KIO__DavJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const nsURI_str = qtc.libqt_string{
+            .len = nsURI.len,
+            .data = nsURI.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const qName_str = qtc.libqt_string{
+            .len = qName.len,
+            .data = qName.ptr,
         };
-        const param4_str = qtc.libqt_string{
-            .len = param4.len,
-            .data = param4.ptr,
+        const query_str = qtc.libqt_string{
+            .len = query.len,
+            .data = query.ptr,
         };
-        return .{ .ptr = qtc.KIO_DavSearch(@ptrCast(param1.ptr), param2_str, param3_str, param4_str, @bitCast(param5)) };
+        return .{ .ptr = qtc.KIO_DavSearch(@ptrCast(url.ptr), nsURI_str, qName_str, query_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#davReport)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` report: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` depth: []const u8 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn DavReport(param1: anytype, param2: []const u8, param3: []const u8, param4: i32) KIO__DavJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn DavReport(url: anytype, report: []const u8, depth: []const u8, flags: i32) KIO__DavJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const report_str = qtc.libqt_string{
+            .len = report.len,
+            .data = report.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const depth_str = qtc.libqt_string{
+            .len = depth.len,
+            .data = depth.ptr,
         };
-        return .{ .ptr = qtc.KIO_DavReport(@ptrCast(param1.ptr), param2_str, param3_str, @bitCast(param4)) };
+        return .{ .ptr = qtc.KIO_DavReport(@ptrCast(url.ptr), report_str, depth_str, @bitCast(flags)) };
     }
 };

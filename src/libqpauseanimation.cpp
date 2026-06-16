@@ -28,39 +28,19 @@ QPauseAnimation* QPauseAnimation_new4(int msecs, QObject* parent) {
 }
 
 QMetaObject* QPauseAnimation_MetaObject(const QPauseAnimation* self) {
-    auto* vqpauseanimation = dynamic_cast<const VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPauseAnimation*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPauseAnimation_Metacast(QPauseAnimation* self, const char* param1) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPauseAnimation_Metacall(QPauseAnimation* self, int param1, int param2, void** param3) {
-    auto* vqpauseanimation = dynamic_cast<VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPauseAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPauseAnimation_Duration(const QPauseAnimation* self) {
-    auto* vqpauseanimation = dynamic_cast<const VirtualQPauseAnimation*>(self);
-    if (vqpauseanimation && vqpauseanimation->isVirtualQPauseAnimation) {
-        return self->duration();
-    } else {
-        return ((VirtualQPauseAnimation*)self)->duration();
-    }
+    return self->duration();
 }
 
 void QPauseAnimation_SetDuration(QPauseAnimation* self, int msecs) {

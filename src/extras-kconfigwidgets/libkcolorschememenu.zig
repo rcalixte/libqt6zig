@@ -18,13 +18,13 @@ pub const KColorSchemeMenu = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KColorSchemeManager `
+    /// ` manager: KColorSchemeManager `
     ///
-    /// ` param2: QObject `
+    /// ` parent: QObject `
     ///
-    pub fn CreateMenu(param1: anytype, param2: anytype) KActionMenu {
-        comptime _ = @TypeOf(param1)._is_KColorSchemeManager;
-        comptime _ = @TypeOf(param2)._is_QObject;
-        return .{ .ptr = qtc.KColorSchemeMenu_CreateMenu(@ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
+    pub fn CreateMenu(manager: anytype, parent: anytype) KActionMenu {
+        comptime _ = @TypeOf(manager)._is_KColorSchemeManager;
+        comptime _ = @TypeOf(parent)._is_QObject;
+        return .{ .ptr = qtc.KColorSchemeMenu_CreateMenu(@ptrCast(manager.ptr), @ptrCast(parent.ptr)) };
     }
 };

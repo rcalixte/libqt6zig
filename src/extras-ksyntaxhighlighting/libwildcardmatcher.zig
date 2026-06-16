@@ -7,19 +7,19 @@ pub const KSyntaxHighlighting__WildcardMatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` candidate: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` wildcard: []const u8 `
     ///
-    pub fn ExactMatch(param1: []const u8, param2: []const u8) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn ExactMatch(candidate: []const u8, wildcard: []const u8) bool {
+        const candidate_str = qtc.libqt_string{
+            .len = candidate.len,
+            .data = candidate.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const wildcard_str = qtc.libqt_string{
+            .len = wildcard.len,
+            .data = wildcard.ptr,
         };
-        return qtc.KSyntaxHighlighting__WildcardMatcher_ExactMatch(param1_str, param2_str);
+        return qtc.KSyntaxHighlighting__WildcardMatcher_ExactMatch(candidate_str, wildcard_str);
     }
 };

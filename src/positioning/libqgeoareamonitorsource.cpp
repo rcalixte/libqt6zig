@@ -21,30 +21,15 @@ QGeoAreaMonitorSource* QGeoAreaMonitorSource_new(QObject* parent) {
 }
 
 QMetaObject* QGeoAreaMonitorSource_MetaObject(const QGeoAreaMonitorSource* self) {
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoAreaMonitorSource*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoAreaMonitorSource_Metacast(QGeoAreaMonitorSource* self, const char* param1) {
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoAreaMonitorSource_Metacall(QGeoAreaMonitorSource* self, int param1, int param2, void** param3) {
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QGeoAreaMonitorSource* QGeoAreaMonitorSource_CreateDefaultSource(QObject* parent) {
@@ -78,21 +63,11 @@ libqt_list /* of libqt_string */ QGeoAreaMonitorSource_AvailableSources() {
 }
 
 void QGeoAreaMonitorSource_SetPositionInfoSource(QGeoAreaMonitorSource* self, QGeoPositionInfoSource* source) {
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        self->setPositionInfoSource(source);
-    } else {
-        ((VirtualQGeoAreaMonitorSource*)self)->setPositionInfoSource(source);
-    }
+    self->setPositionInfoSource(source);
 }
 
 QGeoPositionInfoSource* QGeoAreaMonitorSource_PositionInfoSource(const QGeoAreaMonitorSource* self) {
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return self->positionInfoSource();
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->positionInfoSource();
-    }
+    return self->positionInfoSource();
 }
 
 libqt_string QGeoAreaMonitorSource_SourceName(const QGeoAreaMonitorSource* self) {
@@ -108,122 +83,59 @@ libqt_string QGeoAreaMonitorSource_SourceName(const QGeoAreaMonitorSource* self)
 }
 
 int QGeoAreaMonitorSource_Error(const QGeoAreaMonitorSource* self) {
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return static_cast<int>(vqgeoareamonitorsource->error());
-    } else {
-        return static_cast<int>(((VirtualQGeoAreaMonitorSource*)self)->error());
-    }
+    return static_cast<int>(self->error());
 }
 
 int QGeoAreaMonitorSource_SupportedAreaMonitorFeatures(const QGeoAreaMonitorSource* self) {
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return static_cast<int>(vqgeoareamonitorsource->supportedAreaMonitorFeatures());
-    } else {
-        return static_cast<int>(((VirtualQGeoAreaMonitorSource*)self)->supportedAreaMonitorFeatures());
-    }
+    return static_cast<int>(self->supportedAreaMonitorFeatures());
 }
 
 bool QGeoAreaMonitorSource_StartMonitoring(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor) {
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return vqgeoareamonitorsource->startMonitoring(*monitor);
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->startMonitoring(*monitor);
-    }
+    return self->startMonitoring(*monitor);
 }
 
 bool QGeoAreaMonitorSource_StopMonitoring(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor) {
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return vqgeoareamonitorsource->stopMonitoring(*monitor);
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->stopMonitoring(*monitor);
-    }
+    return self->stopMonitoring(*monitor);
 }
 
 bool QGeoAreaMonitorSource_RequestUpdate(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor, const char* signal) {
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return vqgeoareamonitorsource->requestUpdate(*monitor, signal);
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->requestUpdate(*monitor, signal);
-    }
+    return self->requestUpdate(*monitor, signal);
 }
 
 libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_ActiveMonitors(const QGeoAreaMonitorSource* self) {
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        QList<QGeoAreaMonitorInfo> _ret = vqgeoareamonitorsource->activeMonitors();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QGeoAreaMonitorInfo> _ret = ((VirtualQGeoAreaMonitorSource*)self)->activeMonitors();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QGeoAreaMonitorInfo> _ret = self->activeMonitors();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_list /* of QGeoAreaMonitorInfo* */ QGeoAreaMonitorSource_ActiveMonitors2(const QGeoAreaMonitorSource* self, const QGeoShape* lookupArea) {
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        QList<QGeoAreaMonitorInfo> _ret = vqgeoareamonitorsource->activeMonitors(*lookupArea);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QGeoAreaMonitorInfo> _ret = ((VirtualQGeoAreaMonitorSource*)self)->activeMonitors(*lookupArea);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QGeoAreaMonitorInfo> _ret = self->activeMonitors(*lookupArea);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QGeoAreaMonitorInfo** _arr = static_cast<QGeoAreaMonitorInfo**>(malloc(sizeof(QGeoAreaMonitorInfo*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QGeoAreaMonitorInfo(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 bool QGeoAreaMonitorSource_SetBackendProperty(QGeoAreaMonitorSource* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqgeoareamonitorsource = dynamic_cast<VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return self->setBackendProperty(name_QString, *value);
-    } else {
-        return ((VirtualQGeoAreaMonitorSource*)self)->setBackendProperty(name_QString, *value);
-    }
+    return self->setBackendProperty(name_QString, *value);
 }
 
 QVariant* QGeoAreaMonitorSource_BackendProperty(const QGeoAreaMonitorSource* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqgeoareamonitorsource = dynamic_cast<const VirtualQGeoAreaMonitorSource*>(self);
-    if (vqgeoareamonitorsource && vqgeoareamonitorsource->isVirtualQGeoAreaMonitorSource) {
-        return new QVariant(self->backendProperty(name_QString));
-    } else {
-        return new QVariant(((VirtualQGeoAreaMonitorSource*)self)->backendProperty(name_QString));
-    }
+    return new QVariant(self->backendProperty(name_QString));
 }
 
 void QGeoAreaMonitorSource_AreaEntered(QGeoAreaMonitorSource* self, const QGeoAreaMonitorInfo* monitor, const QGeoPositionInfo* update) {

@@ -38,30 +38,15 @@ QAudioSource* QAudioSource_new6(const QAudioDevice* audioDeviceInfo, const QAudi
 }
 
 QMetaObject* QAudioSource_MetaObject(const QAudioSource* self) {
-    auto* vqaudiosource = dynamic_cast<const VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioSource*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioSource_Metacast(QAudioSource* self, const char* param1) {
-    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioSource*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioSource_Metacall(QAudioSource* self, int param1, int param2, void** param3) {
-    auto* vqaudiosource = dynamic_cast<VirtualQAudioSource*>(self);
-    if (vqaudiosource && vqaudiosource->isVirtualQAudioSource) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QAudioSource_IsNull(const QAudioSource* self) {

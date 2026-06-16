@@ -41,7 +41,7 @@ void KIO__MkdirJob_PermanentRedirection(KIO__MkdirJob* self, KIO__Job* job, cons
 void KIO__MkdirJob_Connect_PermanentRedirection(KIO__MkdirJob* self, intptr_t slot);
 void KIO__MkdirJob_Delete(KIO__MkdirJob* self);
 
-KIO__MkdirJob* KIO_Mkdir(const QUrl* param1, int param2);
+KIO__MkdirJob* KIO_Mkdir(const QUrl* url, int permissions);
 
 #ifdef __cplusplus
 } /* extern C */

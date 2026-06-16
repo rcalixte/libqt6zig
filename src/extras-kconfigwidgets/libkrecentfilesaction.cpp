@@ -34,30 +34,15 @@ KRecentFilesAction* KRecentFilesAction_new3(const QIcon* icon, const libqt_strin
 }
 
 QMetaObject* KRecentFilesAction_MetaObject(const KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = dynamic_cast<const VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKRecentFilesAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KRecentFilesAction_Metacast(KRecentFilesAction* self, const char* param1) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KRecentFilesAction_Metacall(KRecentFilesAction* self, int param1, int param2, void** param3) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KRecentFilesAction_AddAction(KRecentFilesAction* self, QAction* action, const QUrl* url, const libqt_string name) {
@@ -66,12 +51,7 @@ void KRecentFilesAction_AddAction(KRecentFilesAction* self, QAction* action, con
 }
 
 QAction* KRecentFilesAction_RemoveAction(KRecentFilesAction* self, QAction* action) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        return self->removeAction(action);
-    } else {
-        return ((VirtualKRecentFilesAction*)self)->removeAction(action);
-    }
+    return self->removeAction(action);
 }
 
 int KRecentFilesAction_MaxItems(const KRecentFilesAction* self) {
@@ -118,12 +98,7 @@ libqt_list /* of QUrl* */ KRecentFilesAction_Urls(const KRecentFilesAction* self
 }
 
 void KRecentFilesAction_Clear(KRecentFilesAction* self) {
-    auto* vkrecentfilesaction = dynamic_cast<VirtualKRecentFilesAction*>(self);
-    if (vkrecentfilesaction && vkrecentfilesaction->isVirtualKRecentFilesAction) {
-        self->clear();
-    } else {
-        ((VirtualKRecentFilesAction*)self)->clear();
-    }
+    self->clear();
 }
 
 void KRecentFilesAction_UrlSelected(KRecentFilesAction* self, const QUrl* url) {

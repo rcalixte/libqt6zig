@@ -18,7 +18,7 @@ extern "C" {
 typedef struct KSslErrorUiData KSslErrorUiData;
 #endif
 
-bool KIO__SslUi_AskIgnoreSslErrors(const KSslErrorUiData* param1, int param2);
+bool KIO__SslUi_AskIgnoreSslErrors(const KSslErrorUiData* uiData, int storedRules);
 
 #ifdef __cplusplus
 } /* extern C */

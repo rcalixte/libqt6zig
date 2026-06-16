@@ -52,48 +52,23 @@ QMdiSubWindow* QMdiSubWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QMdiSubWindow_MetaObject(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<const VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMdiSubWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMdiSubWindow_Metacast(QMdiSubWindow* self, const char* param1) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMdiSubWindow_Metacall(QMdiSubWindow* self, int param1, int param2, void** param3) {
-    auto* vqmdisubwindow = dynamic_cast<VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMdiSubWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QMdiSubWindow_SizeHint(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<const VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQMdiSubWindow*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QMdiSubWindow_MinimumSizeHint(const QMdiSubWindow* self) {
-    auto* vqmdisubwindow = dynamic_cast<const VirtualQMdiSubWindow*>(self);
-    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQMdiSubWindow*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QMdiSubWindow_SetWidget(QMdiSubWindow* self, QWidget* widget) {

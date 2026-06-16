@@ -32,55 +32,27 @@ QSaveFile* QSaveFile_new4(QObject* parent) {
 }
 
 QMetaObject* QSaveFile_MetaObject(const QSaveFile* self) {
-    auto* vqsavefile = dynamic_cast<const VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSaveFile*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSaveFile_Metacast(QSaveFile* self, const char* param1) {
-    auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSaveFile*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSaveFile_Metacall(QSaveFile* self, int param1, int param2, void** param3) {
-    auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSaveFile*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QSaveFile_FileName(const QSaveFile* self) {
-    auto* vqsavefile = dynamic_cast<const VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        auto _ret = self->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQSaveFile*)self)->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->fileName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QSaveFile_SetFileName(QSaveFile* self, const libqt_string name) {
@@ -89,12 +61,7 @@ void QSaveFile_SetFileName(QSaveFile* self, const libqt_string name) {
 }
 
 bool QSaveFile_Open(QSaveFile* self, int flags) {
-    auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
-    if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    } else {
-        return ((VirtualQSaveFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
-    }
+    return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
 }
 
 bool QSaveFile_Commit(QSaveFile* self) {

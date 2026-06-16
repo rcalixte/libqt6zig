@@ -18,10 +18,10 @@ extern "C" {
 typedef struct KLibexec KLibexec;
 #endif
 
-libqt_string KLibexec_PathFromAddress(const libqt_string param1, void* param2);
-libqt_list /* of libqt_string */ KLibexec_PathCandidates(const libqt_string param1);
-libqt_string KLibexec_Path(const libqt_string param1);
-libqt_list /* of libqt_string */ KLibexec_KdeFrameworksPaths(const libqt_string param1);
+libqt_string KLibexec_PathFromAddress(const libqt_string relativePath, void* address);
+libqt_list /* of libqt_string */ KLibexec_PathCandidates(const libqt_string relativePath);
+libqt_string KLibexec_Path(const libqt_string relativePath);
+libqt_list /* of libqt_string */ KLibexec_KdeFrameworksPaths(const libqt_string relativePath);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -1916,15 +1916,15 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` urls: []QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn RestoreFromTrash(param1: []QUrl, param2: i32) KIO__RestoreJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn RestoreFromTrash(urls: []QUrl, flags: i32) KIO__RestoreJob {
+        const urls_list = qtc.libqt_list{
+            .len = urls.len,
+            .data = @ptrCast(urls.ptr),
         };
-        return .{ .ptr = qtc.KIO_RestoreFromTrash(param1_list, @bitCast(param2)) };
+        return .{ .ptr = qtc.KIO_RestoreFromTrash(urls_list, @bitCast(flags)) };
     }
 };

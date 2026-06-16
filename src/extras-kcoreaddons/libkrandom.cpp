@@ -4,8 +4,8 @@
 #include "libkrandom.h"
 #include "libkrandom.hxx"
 
-libqt_string KRandom_RandomString(int param1) {
-    auto _ret = KRandom::randomString(static_cast<int>(param1));
+libqt_string KRandom_RandomString(int length) {
+    auto _ret = KRandom::randomString(static_cast<int>(length));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

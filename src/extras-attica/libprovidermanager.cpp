@@ -22,30 +22,15 @@ Attica__ProviderManager* Attica__ProviderManager_new2(const int* flags) {
 }
 
 QMetaObject* Attica__ProviderManager_MetaObject(const Attica__ProviderManager* self) {
-    auto* vattica__providermanager = dynamic_cast<const VirtualAtticaProviderManager*>(self);
-    if (vattica__providermanager && vattica__providermanager->isVirtualAtticaProviderManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualAtticaProviderManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Attica__ProviderManager_Metacast(Attica__ProviderManager* self, const char* param1) {
-    auto* vattica__providermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vattica__providermanager && vattica__providermanager->isVirtualAtticaProviderManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualAtticaProviderManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Attica__ProviderManager_Metacall(Attica__ProviderManager* self, int param1, int param2, void** param3) {
-    auto* vattica__providermanager = dynamic_cast<VirtualAtticaProviderManager*>(self);
-    if (vattica__providermanager && vattica__providermanager->isVirtualAtticaProviderManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualAtticaProviderManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void Attica__ProviderManager_LoadDefaultProviders(Attica__ProviderManager* self) {

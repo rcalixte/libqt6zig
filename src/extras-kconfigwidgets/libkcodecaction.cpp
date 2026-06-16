@@ -46,30 +46,15 @@ KCodecAction* KCodecAction_new6(const QIcon* icon, const libqt_string text, QObj
 }
 
 QMetaObject* KCodecAction_MetaObject(const KCodecAction* self) {
-    auto* vkcodecaction = dynamic_cast<const VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCodecAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCodecAction_Metacast(KCodecAction* self, const char* param1) {
-    auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCodecAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCodecAction_Metacall(KCodecAction* self, int param1, int param2, void** param3) {
-    auto* vkcodecaction = dynamic_cast<VirtualKCodecAction*>(self);
-    if (vkcodecaction && vkcodecaction->isVirtualKCodecAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCodecAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KCodecAction_CurrentCodecName(const KCodecAction* self) {

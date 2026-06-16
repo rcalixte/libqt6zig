@@ -94,30 +94,15 @@ QMessageBox* QMessageBox_new9(const libqt_string title, const libqt_string text,
 }
 
 QMetaObject* QMessageBox_MetaObject(const QMessageBox* self) {
-    auto* vqmessagebox = dynamic_cast<const VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMessageBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMessageBox_Metacast(QMessageBox* self, const char* param1) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMessageBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMessageBox_Metacall(QMessageBox* self, int param1, int param2, void** param3) {
-    auto* vqmessagebox = dynamic_cast<VirtualQMessageBox*>(self);
-    if (vqmessagebox && vqmessagebox->isVirtualQMessageBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMessageBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QMessageBox_AddButton(QMessageBox* self, QAbstractButton* button, int role) {

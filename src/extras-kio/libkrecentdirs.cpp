@@ -5,9 +5,9 @@
 #include "libkrecentdirs.h"
 #include "libkrecentdirs.hxx"
 
-libqt_list /* of libqt_string */ KRecentDirs_List(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> _ret = KRecentDirs::list(param1_QString);
+libqt_list /* of libqt_string */ KRecentDirs_List(const libqt_string fileClass) {
+    QString fileClass_QString = QString::fromUtf8(fileClass.data, fileClass.len);
+    QList<QString> _ret = KRecentDirs::list(fileClass_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -27,9 +27,9 @@ libqt_list /* of libqt_string */ KRecentDirs_List(const libqt_string param1) {
     return _out;
 }
 
-libqt_string KRecentDirs_Dir(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KRecentDirs::dir(param1_QString);
+libqt_string KRecentDirs_Dir(const libqt_string fileClass) {
+    QString fileClass_QString = QString::fromUtf8(fileClass.data, fileClass.len);
+    auto _ret = KRecentDirs::dir(fileClass_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -40,8 +40,8 @@ libqt_string KRecentDirs_Dir(const libqt_string param1) {
     return _str;
 }
 
-void KRecentDirs_Add(const libqt_string param1, const libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    KRecentDirs::add(param1_QString, param2_QString);
+void KRecentDirs_Add(const libqt_string fileClass, const libqt_string directory) {
+    QString fileClass_QString = QString::fromUtf8(fileClass.data, fileClass.len);
+    QString directory_QString = QString::fromUtf8(directory.data, directory.len);
+    KRecentDirs::add(fileClass_QString, directory_QString);
 }

@@ -25,273 +25,127 @@ QTextToSpeechEngine* QTextToSpeechEngine_new2(QObject* parent) {
 }
 
 QMetaObject* QTextToSpeechEngine_MetaObject(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextToSpeechEngine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextToSpeechEngine_Metacast(QTextToSpeechEngine* self, const char* param1) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextToSpeechEngine_Metacall(QTextToSpeechEngine* self, int param1, int param2, void** param3) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QTextToSpeechEngine_Capabilities(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return static_cast<int>(self->capabilities());
-    } else {
-        return static_cast<int>(((VirtualQTextToSpeechEngine*)self)->capabilities());
-    }
+    return static_cast<int>(self->capabilities());
 }
 
 libqt_list /* of QLocale* */ QTextToSpeechEngine_AvailableLocales(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        QList<QLocale> _ret = vqtexttospeechengine->availableLocales();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QLocale(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QLocale> _ret = ((VirtualQTextToSpeechEngine*)self)->availableLocales();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QLocale(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QLocale> _ret = self->availableLocales();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QLocale(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_list /* of QVoice* */ QTextToSpeechEngine_AvailableVoices(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        QList<QVoice> _ret = vqtexttospeechengine->availableVoices();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVoice(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QVoice> _ret = ((VirtualQTextToSpeechEngine*)self)->availableVoices();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QVoice(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QVoice> _ret = self->availableVoices();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QVoice** _arr = static_cast<QVoice**>(malloc(sizeof(QVoice*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QVoice(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QTextToSpeechEngine_Say(QTextToSpeechEngine* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        vqtexttospeechengine->say(text_QString);
-    } else {
-        ((VirtualQTextToSpeechEngine*)self)->say(text_QString);
-    }
+    self->say(text_QString);
 }
 
 void QTextToSpeechEngine_Synthesize(QTextToSpeechEngine* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        vqtexttospeechengine->synthesize(text_QString);
-    } else {
-        ((VirtualQTextToSpeechEngine*)self)->synthesize(text_QString);
-    }
+    self->synthesize(text_QString);
 }
 
 void QTextToSpeechEngine_Stop(QTextToSpeechEngine* self, int boundaryHint) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        vqtexttospeechengine->stop(static_cast<QTextToSpeech::BoundaryHint>(boundaryHint));
-    } else {
-        ((VirtualQTextToSpeechEngine*)self)->stop(static_cast<QTextToSpeech::BoundaryHint>(boundaryHint));
-    }
+    self->stop(static_cast<QTextToSpeech::BoundaryHint>(boundaryHint));
 }
 
 void QTextToSpeechEngine_Pause(QTextToSpeechEngine* self, int boundaryHint) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        vqtexttospeechengine->pause(static_cast<QTextToSpeech::BoundaryHint>(boundaryHint));
-    } else {
-        ((VirtualQTextToSpeechEngine*)self)->pause(static_cast<QTextToSpeech::BoundaryHint>(boundaryHint));
-    }
+    self->pause(static_cast<QTextToSpeech::BoundaryHint>(boundaryHint));
 }
 
 void QTextToSpeechEngine_Resume(QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        vqtexttospeechengine->resume();
-    } else {
-        ((VirtualQTextToSpeechEngine*)self)->resume();
-    }
+    self->resume();
 }
 
 double QTextToSpeechEngine_Rate(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->rate();
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->rate();
-    }
+    return self->rate();
 }
 
 bool QTextToSpeechEngine_SetRate(QTextToSpeechEngine* self, double rate) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->setRate(static_cast<double>(rate));
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->setRate(static_cast<double>(rate));
-    }
+    return self->setRate(static_cast<double>(rate));
 }
 
 double QTextToSpeechEngine_Pitch(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->pitch();
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->pitch();
-    }
+    return self->pitch();
 }
 
 bool QTextToSpeechEngine_SetPitch(QTextToSpeechEngine* self, double pitch) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->setPitch(static_cast<double>(pitch));
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->setPitch(static_cast<double>(pitch));
-    }
+    return self->setPitch(static_cast<double>(pitch));
 }
 
 QLocale* QTextToSpeechEngine_Locale(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return new QLocale(vqtexttospeechengine->locale());
-    } else {
-        return new QLocale(((VirtualQTextToSpeechEngine*)self)->locale());
-    }
+    return new QLocale(self->locale());
 }
 
 bool QTextToSpeechEngine_SetLocale(QTextToSpeechEngine* self, const QLocale* locale) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->setLocale(*locale);
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->setLocale(*locale);
-    }
+    return self->setLocale(*locale);
 }
 
 double QTextToSpeechEngine_Volume(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->volume();
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->volume();
-    }
+    return self->volume();
 }
 
 bool QTextToSpeechEngine_SetVolume(QTextToSpeechEngine* self, double volume) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->setVolume(static_cast<double>(volume));
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->setVolume(static_cast<double>(volume));
-    }
+    return self->setVolume(static_cast<double>(volume));
 }
 
 QVoice* QTextToSpeechEngine_Voice(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return new QVoice(vqtexttospeechengine->voice());
-    } else {
-        return new QVoice(((VirtualQTextToSpeechEngine*)self)->voice());
-    }
+    return new QVoice(self->voice());
 }
 
 bool QTextToSpeechEngine_SetVoice(QTextToSpeechEngine* self, const QVoice* voice) {
-    auto* vqtexttospeechengine = dynamic_cast<VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return vqtexttospeechengine->setVoice(*voice);
-    } else {
-        return ((VirtualQTextToSpeechEngine*)self)->setVoice(*voice);
-    }
+    return self->setVoice(*voice);
 }
 
 int QTextToSpeechEngine_State(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return static_cast<int>(vqtexttospeechengine->state());
-    } else {
-        return static_cast<int>(((VirtualQTextToSpeechEngine*)self)->state());
-    }
+    return static_cast<int>(self->state());
 }
 
 int QTextToSpeechEngine_ErrorReason(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        return static_cast<int>(vqtexttospeechengine->errorReason());
-    } else {
-        return static_cast<int>(((VirtualQTextToSpeechEngine*)self)->errorReason());
-    }
+    return static_cast<int>(self->errorReason());
 }
 
 libqt_string QTextToSpeechEngine_ErrorString(const QTextToSpeechEngine* self) {
-    auto* vqtexttospeechengine = dynamic_cast<const VirtualQTextToSpeechEngine*>(self);
-    if (vqtexttospeechengine && vqtexttospeechengine->isVirtualQTextToSpeechEngine) {
-        auto _ret = vqtexttospeechengine->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQTextToSpeechEngine*)self)->errorString();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->errorString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QTextToSpeechEngine_StateChanged(QTextToSpeechEngine* self, int state) {

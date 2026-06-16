@@ -34,40 +34,20 @@ void KArchiveFile_SetSize(KArchiveFile* self, long long s) {
 }
 
 libqt_string KArchiveFile_Data(const KArchiveFile* self) {
-    auto* vkarchivefile = dynamic_cast<const VirtualKArchiveFile*>(self);
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
-        QByteArray _qb = self->data();
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    } else {
-        QByteArray _qb = ((VirtualKArchiveFile*)self)->data();
-        libqt_string _str;
-        _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc(_str.len));
-        memcpy((void*)_str.data, _qb.data(), _str.len);
-        return _str;
-    }
+    QByteArray _qb = self->data();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<char*>(malloc(_str.len));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    return _str;
 }
 
 QIODevice* KArchiveFile_CreateDevice(const KArchiveFile* self) {
-    auto* vkarchivefile = dynamic_cast<const VirtualKArchiveFile*>(self);
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
-        return self->createDevice();
-    } else {
-        return ((VirtualKArchiveFile*)self)->createDevice();
-    }
+    return self->createDevice();
 }
 
 bool KArchiveFile_IsFile(const KArchiveFile* self) {
-    auto* vkarchivefile = dynamic_cast<const VirtualKArchiveFile*>(self);
-    if (vkarchivefile && vkarchivefile->isVirtualKArchiveFile) {
-        return self->isFile();
-    } else {
-        return ((VirtualKArchiveFile*)self)->isFile();
-    }
+    return self->isFile();
 }
 
 bool KArchiveFile_CopyTo(const KArchiveFile* self, const libqt_string dest) {

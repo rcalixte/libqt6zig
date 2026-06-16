@@ -54,102 +54,47 @@ QDesignerWidgetBoxInterface* QDesignerWidgetBoxInterface_new3(QWidget* parent, i
 }
 
 QMetaObject* QDesignerWidgetBoxInterface_MetaObject(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerWidgetBoxInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerWidgetBoxInterface_Metacast(QDesignerWidgetBoxInterface* self, const char* param1) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerWidgetBoxInterface_Metacall(QDesignerWidgetBoxInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QDesignerWidgetBoxInterface_CategoryCount(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->categoryCount();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->categoryCount();
-    }
+    return self->categoryCount();
 }
 
 QDesignerWidgetBoxInterface__Category* QDesignerWidgetBoxInterface_Category(const QDesignerWidgetBoxInterface* self, int cat_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return new QDesignerWidgetBoxInterface::Category(vqdesignerwidgetboxinterface->category(static_cast<int>(cat_idx)));
-    } else {
-        return new QDesignerWidgetBoxInterface::Category(((VirtualQDesignerWidgetBoxInterface*)self)->category(static_cast<int>(cat_idx)));
-    }
+    return new QDesignerWidgetBoxInterface::Category(self->category(static_cast<int>(cat_idx)));
 }
 
 void QDesignerWidgetBoxInterface_AddCategory(QDesignerWidgetBoxInterface* self, const QDesignerWidgetBoxInterface__Category* cat) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->addCategory(*cat);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->addCategory(*cat);
-    }
+    self->addCategory(*cat);
 }
 
 void QDesignerWidgetBoxInterface_RemoveCategory(QDesignerWidgetBoxInterface* self, int cat_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->removeCategory(static_cast<int>(cat_idx));
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->removeCategory(static_cast<int>(cat_idx));
-    }
+    self->removeCategory(static_cast<int>(cat_idx));
 }
 
 int QDesignerWidgetBoxInterface_WidgetCount(const QDesignerWidgetBoxInterface* self, int cat_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->widgetCount(static_cast<int>(cat_idx));
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->widgetCount(static_cast<int>(cat_idx));
-    }
+    return self->widgetCount(static_cast<int>(cat_idx));
 }
 
 QDesignerWidgetBoxInterface__Widget* QDesignerWidgetBoxInterface_Widget(const QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return new QDesignerWidgetBoxInterface::Widget(vqdesignerwidgetboxinterface->widget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx)));
-    } else {
-        return new QDesignerWidgetBoxInterface::Widget(((VirtualQDesignerWidgetBoxInterface*)self)->widget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx)));
-    }
+    return new QDesignerWidgetBoxInterface::Widget(self->widget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx)));
 }
 
 void QDesignerWidgetBoxInterface_AddWidget(QDesignerWidgetBoxInterface* self, int cat_idx, const QDesignerWidgetBoxInterface__Widget* wgt) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->addWidget(static_cast<int>(cat_idx), *wgt);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->addWidget(static_cast<int>(cat_idx), *wgt);
-    }
+    self->addWidget(static_cast<int>(cat_idx), *wgt);
 }
 
 void QDesignerWidgetBoxInterface_RemoveWidget(QDesignerWidgetBoxInterface* self, int cat_idx, int wgt_idx) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->removeWidget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx));
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->removeWidget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx));
-    }
+    self->removeWidget(static_cast<int>(cat_idx), static_cast<int>(wgt_idx));
 }
 
 int QDesignerWidgetBoxInterface_FindOrInsertCategory(QDesignerWidgetBoxInterface* self, const libqt_string categoryName) {
@@ -164,65 +109,32 @@ void QDesignerWidgetBoxInterface_DropWidgets(QDesignerWidgetBoxInterface* self, 
     for (size_t i = 0; i < item_list.len; ++i) {
         item_list_QList.push_back(item_list_arr[i]);
     }
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->dropWidgets(item_list_QList, *global_mouse_pos);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->dropWidgets(item_list_QList, *global_mouse_pos);
-    }
+    self->dropWidgets(item_list_QList, *global_mouse_pos);
 }
 
 void QDesignerWidgetBoxInterface_SetFileName(QDesignerWidgetBoxInterface* self, const libqt_string file_name) {
     QString file_name_QString = QString::fromUtf8(file_name.data, file_name.len);
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        vqdesignerwidgetboxinterface->setFileName(file_name_QString);
-    } else {
-        ((VirtualQDesignerWidgetBoxInterface*)self)->setFileName(file_name_QString);
-    }
+    self->setFileName(file_name_QString);
 }
 
 libqt_string QDesignerWidgetBoxInterface_FileName(const QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<const VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        auto _ret = vqdesignerwidgetboxinterface->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerWidgetBoxInterface*)self)->fileName();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->fileName();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool QDesignerWidgetBoxInterface_Load(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->load();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->load();
-    }
+    return self->load();
 }
 
 bool QDesignerWidgetBoxInterface_Save(QDesignerWidgetBoxInterface* self) {
-    auto* vqdesignerwidgetboxinterface = dynamic_cast<VirtualQDesignerWidgetBoxInterface*>(self);
-    if (vqdesignerwidgetboxinterface && vqdesignerwidgetboxinterface->isVirtualQDesignerWidgetBoxInterface) {
-        return vqdesignerwidgetboxinterface->save();
-    } else {
-        return ((VirtualQDesignerWidgetBoxInterface*)self)->save();
-    }
+    return self->save();
 }
 
 // Base class handler implementation

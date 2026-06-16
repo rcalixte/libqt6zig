@@ -54,30 +54,15 @@ KPasswordDialog* KPasswordDialog_new3(QWidget* parent, const int* flags) {
 }
 
 QMetaObject* KPasswordDialog_MetaObject(const KPasswordDialog* self) {
-    auto* vkpassworddialog = dynamic_cast<const VirtualKPasswordDialog*>(self);
-    if (vkpassworddialog && vkpassworddialog->isVirtualKPasswordDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPasswordDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPasswordDialog_Metacast(KPasswordDialog* self, const char* param1) {
-    auto* vkpassworddialog = dynamic_cast<VirtualKPasswordDialog*>(self);
-    if (vkpassworddialog && vkpassworddialog->isVirtualKPasswordDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPasswordDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPasswordDialog_Metacall(KPasswordDialog* self, int param1, int param2, void** param3) {
-    auto* vkpassworddialog = dynamic_cast<VirtualKPasswordDialog*>(self);
-    if (vkpassworddialog && vkpassworddialog->isVirtualKPasswordDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPasswordDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KPasswordDialog_SetPrompt(KPasswordDialog* self, const libqt_string prompt) {
@@ -200,12 +185,7 @@ void KPasswordDialog_SetKnownLogins(KPasswordDialog* self, const libqt_map /* of
 }
 
 void KPasswordDialog_Accept(KPasswordDialog* self) {
-    auto* vkpassworddialog = dynamic_cast<VirtualKPasswordDialog*>(self);
-    if (vkpassworddialog && vkpassworddialog->isVirtualKPasswordDialog) {
-        self->accept();
-    } else {
-        ((VirtualKPasswordDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 QDialogButtonBox* KPasswordDialog_ButtonBox(const KPasswordDialog* self) {

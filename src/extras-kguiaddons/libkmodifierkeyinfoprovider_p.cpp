@@ -16,30 +16,15 @@ KModifierKeyInfoProvider* KModifierKeyInfoProvider_new() {
 }
 
 QMetaObject* KModifierKeyInfoProvider_MetaObject(const KModifierKeyInfoProvider* self) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<const VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKModifierKeyInfoProvider*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KModifierKeyInfoProvider_Metacast(KModifierKeyInfoProvider* self, const char* param1) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKModifierKeyInfoProvider*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KModifierKeyInfoProvider_Metacall(KModifierKeyInfoProvider* self, int param1, int param2, void** param3) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKModifierKeyInfoProvider*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KModifierKeyInfoProvider_IsKeyPressed(const KModifierKeyInfoProvider* self, int key) {
@@ -51,12 +36,7 @@ bool KModifierKeyInfoProvider_IsKeyLatched(const KModifierKeyInfoProvider* self,
 }
 
 bool KModifierKeyInfoProvider_SetKeyLatched(KModifierKeyInfoProvider* self, int key, bool latched) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return self->setKeyLatched(static_cast<Qt::Key>(key), latched);
-    } else {
-        return ((VirtualKModifierKeyInfoProvider*)self)->setKeyLatched(static_cast<Qt::Key>(key), latched);
-    }
+    return self->setKeyLatched(static_cast<Qt::Key>(key), latched);
 }
 
 bool KModifierKeyInfoProvider_IsKeyLocked(const KModifierKeyInfoProvider* self, int key) {
@@ -64,12 +44,7 @@ bool KModifierKeyInfoProvider_IsKeyLocked(const KModifierKeyInfoProvider* self, 
 }
 
 bool KModifierKeyInfoProvider_SetKeyLocked(KModifierKeyInfoProvider* self, int key, bool locked) {
-    auto* vkmodifierkeyinfoprovider = dynamic_cast<VirtualKModifierKeyInfoProvider*>(self);
-    if (vkmodifierkeyinfoprovider && vkmodifierkeyinfoprovider->isVirtualKModifierKeyInfoProvider) {
-        return self->setKeyLocked(static_cast<Qt::Key>(key), locked);
-    } else {
-        return ((VirtualKModifierKeyInfoProvider*)self)->setKeyLocked(static_cast<Qt::Key>(key), locked);
-    }
+    return self->setKeyLocked(static_cast<Qt::Key>(key), locked);
 }
 
 bool KModifierKeyInfoProvider_IsButtonPressed(const KModifierKeyInfoProvider* self, int button) {

@@ -30,30 +30,15 @@ QVideoFrameInput* QVideoFrameInput_new4(const QVideoFrameFormat* format, QObject
 }
 
 QMetaObject* QVideoFrameInput_MetaObject(const QVideoFrameInput* self) {
-    auto* vqvideoframeinput = dynamic_cast<const VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQVideoFrameInput*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QVideoFrameInput_Metacast(QVideoFrameInput* self, const char* param1) {
-    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQVideoFrameInput*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QVideoFrameInput_Metacall(QVideoFrameInput* self, int param1, int param2, void** param3) {
-    auto* vqvideoframeinput = dynamic_cast<VirtualQVideoFrameInput*>(self);
-    if (vqvideoframeinput && vqvideoframeinput->isVirtualQVideoFrameInput) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVideoFrameInput*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QVideoFrameInput_SendVideoFrame(QVideoFrameInput* self, const QVideoFrame* frame) {

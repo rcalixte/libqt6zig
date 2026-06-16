@@ -67,30 +67,15 @@ KComboBox* KComboBox_new4(bool rw, QWidget* parent) {
 }
 
 QMetaObject* KComboBox_MetaObject(const KComboBox* self) {
-    auto* vkcombobox = dynamic_cast<const VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KComboBox_Metacast(KComboBox* self, const char* param1) {
-    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KComboBox_Metacall(KComboBox* self, int param1, int param2, void** param3) {
-    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KComboBox_SetEditUrl(KComboBox* self, const QUrl* url) {
@@ -126,12 +111,7 @@ int KComboBox_CursorPosition(const KComboBox* self) {
 }
 
 void KComboBox_SetAutoCompletion(KComboBox* self, bool autocomplete) {
-    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        self->setAutoCompletion(autocomplete);
-    } else {
-        ((VirtualKComboBox*)self)->setAutoCompletion(autocomplete);
-    }
+    self->setAutoCompletion(autocomplete);
 }
 
 bool KComboBox_AutoCompletion(const KComboBox* self) {
@@ -160,12 +140,7 @@ KCompletionBox* KComboBox_CompletionBox(KComboBox* self) {
 }
 
 void KComboBox_SetLineEdit(KComboBox* self, QLineEdit* lineEdit) {
-    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        self->setLineEdit(lineEdit);
-    } else {
-        ((VirtualKComboBox*)self)->setLineEdit(lineEdit);
-    }
+    self->setLineEdit(lineEdit);
 }
 
 void KComboBox_SetEditable(KComboBox* self, bool editable) {
@@ -177,12 +152,7 @@ QMenu* KComboBox_ContextMenu(const KComboBox* self) {
 }
 
 QSize* KComboBox_MinimumSizeHint(const KComboBox* self) {
-    auto* vkcombobox = dynamic_cast<const VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void KComboBox_ReturnPressed(KComboBox* self, const libqt_string text) {
@@ -290,12 +260,7 @@ void KComboBox_RotateText(KComboBox* self, int typeVal) {
 
 void KComboBox_SetCompletedText(KComboBox* self, const libqt_string completedText) {
     QString completedText_QString = QString::fromUtf8(completedText.data, completedText.len);
-    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        self->setCompletedText(completedText_QString);
-    } else {
-        ((VirtualKComboBox*)self)->setCompletedText(completedText_QString);
-    }
+    self->setCompletedText(completedText_QString);
 }
 
 void KComboBox_SetCompletedItems(KComboBox* self, const libqt_list /* of libqt_string */ items, bool autoSuggest) {
@@ -306,12 +271,7 @@ void KComboBox_SetCompletedItems(KComboBox* self, const libqt_list /* of libqt_s
         QString items_arr_i_QString = QString::fromUtf8(items_arr[i].data, items_arr[i].len);
         items_QList.push_back(items_arr_i_QString);
     }
-    auto* vkcombobox = dynamic_cast<VirtualKComboBox*>(self);
-    if (vkcombobox && vkcombobox->isVirtualKComboBox) {
-        self->setCompletedItems(items_QList, autoSuggest);
-    } else {
-        ((VirtualKComboBox*)self)->setCompletedItems(items_QList, autoSuggest);
-    }
+    self->setCompletedItems(items_QList, autoSuggest);
 }
 
 void KComboBox_SetCurrentItem(KComboBox* self, const libqt_string item) {

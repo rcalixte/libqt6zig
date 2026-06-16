@@ -2373,8 +2373,6 @@ pub const KIO__PreviewJob = extern struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: KIO__PreviewJob`
@@ -4104,27 +4102,27 @@ pub const KIO = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: KFileItemList `
+    /// ` items: KFileItemList `
     ///
-    /// ` param2: QSize `
+    /// ` size: QSize `
     ///
-    /// ` param3: []const []const u8 `
+    /// ` enabledPlugins: []const []const u8 `
     ///
-    pub fn FilePreview(allocator: std.mem.Allocator, param1: anytype, param2: anytype, param3: []const []const u8) KIO__PreviewJob {
-        comptime _ = @TypeOf(param1)._is_KFileItemList;
-        comptime _ = @TypeOf(param2)._is_QSize;
-        const param3_arr = allocator.alloc(qtc.libqt_string, param3.len) catch @panic("kio.FilePreview: Memory allocation failed");
-        defer allocator.free(param3_arr);
-        for (param3, 0..param3.len) |item, i|
-            param3_arr[i] = .{
+    pub fn FilePreview(allocator: std.mem.Allocator, items: anytype, size: anytype, enabledPlugins: []const []const u8) KIO__PreviewJob {
+        comptime _ = @TypeOf(items)._is_KFileItemList;
+        comptime _ = @TypeOf(size)._is_QSize;
+        const enabledPlugins_arr = allocator.alloc(qtc.libqt_string, enabledPlugins.len) catch @panic("kio.FilePreview: Memory allocation failed");
+        defer allocator.free(enabledPlugins_arr);
+        for (enabledPlugins, 0..enabledPlugins.len) |item, i|
+            enabledPlugins_arr[i] = .{
                 .len = item.len,
                 .data = item.ptr,
             };
-        const param3_list = qtc.libqt_list{
-            .len = param3.len,
-            .data = param3_arr.ptr,
+        const enabledPlugins_list = qtc.libqt_list{
+            .len = enabledPlugins.len,
+            .data = enabledPlugins_arr.ptr,
         };
-        return .{ .ptr = qtc.KIO_FilePreview(@ptrCast(param1.ptr), @ptrCast(param2.ptr), param3_list) };
+        return .{ .ptr = qtc.KIO_FilePreview(@ptrCast(items.ptr), @ptrCast(size.ptr), enabledPlugins_list) };
     }
 };
 

@@ -83,9 +83,9 @@ libqt_string QNativeIpcKey_ToString(const QNativeIpcKey* self) {
     return _str;
 }
 
-QNativeIpcKey* QNativeIpcKey_FromString(const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QNativeIpcKey(QNativeIpcKey::fromString(stringVal_QString));
+QNativeIpcKey* QNativeIpcKey_FromString(const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QNativeIpcKey(QNativeIpcKey::fromString(string_QString));
 }
 
 void QNativeIpcKey_Delete(QNativeIpcKey* self) {

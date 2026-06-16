@@ -56,30 +56,15 @@ QsciScintillaBase* QsciScintillaBase_new2() {
 }
 
 QMetaObject* QsciScintillaBase_MetaObject(const QsciScintillaBase* self) {
-    auto* vqsciscintillabase = dynamic_cast<const VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciScintillaBase*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciScintillaBase_Metacast(QsciScintillaBase* self, const char* param1) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciScintillaBase_Metacall(QsciScintillaBase* self, int param1, int param2, void** param3) {
-    auto* vqsciscintillabase = dynamic_cast<VirtualQsciScintillaBase*>(self);
-    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciScintillaBase*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QsciScintillaBase* QsciScintillaBase_Pool() {

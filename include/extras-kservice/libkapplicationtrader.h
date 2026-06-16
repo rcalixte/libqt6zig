@@ -18,7 +18,7 @@ extern "C" {
 typedef struct KApplicationTrader KApplicationTrader;
 #endif
 
-bool KApplicationTrader_IsSubsequence(const libqt_string param1, const libqt_string param2, int param3);
+bool KApplicationTrader_IsSubsequence(const libqt_string pattern, const libqt_string text, int cs);
 
 #ifdef __cplusplus
 } /* extern C */

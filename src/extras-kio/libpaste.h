@@ -20,10 +20,10 @@ typedef struct KIO KIO;
 typedef struct QMimeData QMimeData;
 #endif
 
-bool KIO_CanPasteMimeData(const QMimeData* param1);
-libqt_string KIO_PasteActionText(const QMimeData* param1, bool* param2, const KFileItem* param3);
-void KIO_SetClipboardDataCut(QMimeData* param1, bool param2);
-bool KIO_IsClipboardDataCut(const QMimeData* param1);
+bool KIO_CanPasteMimeData(const QMimeData* data);
+libqt_string KIO_PasteActionText(const QMimeData* mimeData, bool* enable, const KFileItem* destItem);
+void KIO_SetClipboardDataCut(QMimeData* mimeData, bool cut);
+bool KIO_IsClipboardDataCut(const QMimeData* mimeData);
 
 #ifdef __cplusplus
 } /* extern C */

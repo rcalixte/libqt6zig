@@ -30,30 +30,15 @@ QSignalTransition* QSignalTransition_new4(const QObject* sender, const char* sig
 }
 
 QMetaObject* QSignalTransition_MetaObject(const QSignalTransition* self) {
-    auto* vqsignaltransition = dynamic_cast<const VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSignalTransition*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSignalTransition_Metacast(QSignalTransition* self, const char* param1) {
-    auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSignalTransition*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSignalTransition_Metacall(QSignalTransition* self, int param1, int param2, void** param3) {
-    auto* vqsignaltransition = dynamic_cast<VirtualQSignalTransition*>(self);
-    if (vqsignaltransition && vqsignaltransition->isVirtualQSignalTransition) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSignalTransition*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QSignalTransition_SenderObject(const QSignalTransition* self) {

@@ -60,30 +60,15 @@ KSelector* KSelector_new4(int o, QWidget* parent) {
 }
 
 QMetaObject* KSelector_MetaObject(const KSelector* self) {
-    auto* vkselector = dynamic_cast<const VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSelector_Metacast(KSelector* self, const char* param1) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSelector_Metacall(KSelector* self, int param1, int param2, void** param3) {
-    auto* vkselector = dynamic_cast<VirtualKSelector*>(self);
-    if (vkselector && vkselector->isVirtualKSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRect* KSelector_ContentsRect(const KSelector* self) {
@@ -1963,30 +1948,15 @@ KGradientSelector* KGradientSelector_new4(int o, QWidget* parent) {
 }
 
 QMetaObject* KGradientSelector_MetaObject(const KGradientSelector* self) {
-    auto* vkgradientselector = dynamic_cast<const VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKGradientSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KGradientSelector_Metacast(KGradientSelector* self, const char* param1) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKGradientSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KGradientSelector_Metacall(KGradientSelector* self, int param1, int param2, void** param3) {
-    auto* vkgradientselector = dynamic_cast<VirtualKGradientSelector*>(self);
-    if (vkgradientselector && vkgradientselector->isVirtualKGradientSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKGradientSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of pair_double_qcolor tuple of double and QColor* */ stops) {

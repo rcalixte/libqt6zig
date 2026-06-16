@@ -19,20 +19,20 @@ pub const KTextToHTML = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` plainText: []const u8 `
     ///
-    /// ` param2: *const flag of ktexttohtml_enums.Option `
+    /// ` options: *const flag of ktexttohtml_enums.Option `
     ///
-    /// ` param3: i32 `
+    /// ` maxUrlLen: i32 `
     ///
-    /// ` param4: i32 `
+    /// ` maxAddressLen: i32 `
     ///
-    pub fn ConvertToHtml(allocator: std.mem.Allocator, param1: []const u8, param2: *const i32, param3: i32, param4: i32) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn ConvertToHtml(allocator: std.mem.Allocator, plainText: []const u8, options: *const i32, maxUrlLen: i32, maxAddressLen: i32) []const u8 {
+        const plainText_str = qtc.libqt_string{
+            .len = plainText.len,
+            .data = plainText.ptr,
         };
-        var _str = qtc.KTextToHTML_ConvertToHtml(param1_str, @ptrCast(param2), @bitCast(param3), @bitCast(param4));
+        var _str = qtc.KTextToHTML_ConvertToHtml(plainText_str, @ptrCast(options), @bitCast(maxUrlLen), @bitCast(maxAddressLen));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexttohtml.ConvertToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

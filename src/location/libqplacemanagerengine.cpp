@@ -53,30 +53,15 @@ QPlaceManagerEngine* QPlaceManagerEngine_new2(const libqt_map /* of libqt_string
 }
 
 QMetaObject* QPlaceManagerEngine_MetaObject(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceManagerEngine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceManagerEngine_Metacast(QPlaceManagerEngine* self, const char* param1) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceManagerEngine_Metacall(QPlaceManagerEngine* self, int param1, int param2, void** param3) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QPlaceManagerEngine_ManagerName(const QPlaceManagerEngine* self) {
@@ -97,222 +82,109 @@ int QPlaceManagerEngine_ManagerVersion(const QPlaceManagerEngine* self) {
 
 QPlaceDetailsReply* QPlaceManagerEngine_GetPlaceDetails(QPlaceManagerEngine* self, const libqt_string placeId) {
     QString placeId_QString = QString::fromUtf8(placeId.data, placeId.len);
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->getPlaceDetails(placeId_QString);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->getPlaceDetails(placeId_QString);
-    }
+    return self->getPlaceDetails(placeId_QString);
 }
 
 QPlaceContentReply* QPlaceManagerEngine_GetPlaceContent(QPlaceManagerEngine* self, const QPlaceContentRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->getPlaceContent(*request);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->getPlaceContent(*request);
-    }
+    return self->getPlaceContent(*request);
 }
 
 QPlaceSearchReply* QPlaceManagerEngine_Search(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->search(*request);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->search(*request);
-    }
+    return self->search(*request);
 }
 
 QPlaceSearchSuggestionReply* QPlaceManagerEngine_SearchSuggestions(QPlaceManagerEngine* self, const QPlaceSearchRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->searchSuggestions(*request);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->searchSuggestions(*request);
-    }
+    return self->searchSuggestions(*request);
 }
 
 QPlaceIdReply* QPlaceManagerEngine_SavePlace(QPlaceManagerEngine* self, const QPlace* place) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->savePlace(*place);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->savePlace(*place);
-    }
+    return self->savePlace(*place);
 }
 
 QPlaceIdReply* QPlaceManagerEngine_RemovePlace(QPlaceManagerEngine* self, const libqt_string placeId) {
     QString placeId_QString = QString::fromUtf8(placeId.data, placeId.len);
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->removePlace(placeId_QString);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->removePlace(placeId_QString);
-    }
+    return self->removePlace(placeId_QString);
 }
 
 QPlaceIdReply* QPlaceManagerEngine_SaveCategory(QPlaceManagerEngine* self, const QPlaceCategory* category, const libqt_string parentId) {
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->saveCategory(*category, parentId_QString);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->saveCategory(*category, parentId_QString);
-    }
+    return self->saveCategory(*category, parentId_QString);
 }
 
 QPlaceIdReply* QPlaceManagerEngine_RemoveCategory(QPlaceManagerEngine* self, const libqt_string categoryId) {
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->removeCategory(categoryId_QString);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->removeCategory(categoryId_QString);
-    }
+    return self->removeCategory(categoryId_QString);
 }
 
 QPlaceReply* QPlaceManagerEngine_InitializeCategories(QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->initializeCategories();
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->initializeCategories();
-    }
+    return self->initializeCategories();
 }
 
 libqt_string QPlaceManagerEngine_ParentCategoryId(const QPlaceManagerEngine* self, const libqt_string categoryId) {
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        auto _ret = self->parentCategoryId(categoryId_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQPlaceManagerEngine*)self)->parentCategoryId(categoryId_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->parentCategoryId(categoryId_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 libqt_list /* of libqt_string */ QPlaceManagerEngine_ChildCategoryIds(const QPlaceManagerEngine* self, const libqt_string categoryId) {
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        QList<QString> _ret = self->childCategoryIds(categoryId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQPlaceManagerEngine*)self)->childCategoryIds(categoryId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->childCategoryIds(categoryId_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QPlaceCategory* QPlaceManagerEngine_Category(const QPlaceManagerEngine* self, const libqt_string categoryId) {
     QString categoryId_QString = QString::fromUtf8(categoryId.data, categoryId.len);
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return new QPlaceCategory(self->category(categoryId_QString));
-    } else {
-        return new QPlaceCategory(((VirtualQPlaceManagerEngine*)self)->category(categoryId_QString));
-    }
+    return new QPlaceCategory(self->category(categoryId_QString));
 }
 
 libqt_list /* of QPlaceCategory* */ QPlaceManagerEngine_ChildCategories(const QPlaceManagerEngine* self, const libqt_string parentId) {
     QString parentId_QString = QString::fromUtf8(parentId.data, parentId.len);
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        QList<QPlaceCategory> _ret = self->childCategories(parentId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QPlaceCategory(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QPlaceCategory> _ret = ((VirtualQPlaceManagerEngine*)self)->childCategories(parentId_QString);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QPlaceCategory(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QPlaceCategory> _ret = self->childCategories(parentId_QString);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QPlaceCategory** _arr = static_cast<QPlaceCategory**>(malloc(sizeof(QPlaceCategory*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QPlaceCategory(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 libqt_list /* of QLocale* */ QPlaceManagerEngine_Locales(const QPlaceManagerEngine* self) {
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        QList<QLocale> _ret = self->locales();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QLocale(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QLocale> _ret = ((VirtualQPlaceManagerEngine*)self)->locales();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QLocale(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QLocale> _ret = self->locales();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QLocale(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QPlaceManagerEngine_SetLocales(QPlaceManagerEngine* self, const libqt_list /* of QLocale* */ locales) {
@@ -322,39 +194,19 @@ void QPlaceManagerEngine_SetLocales(QPlaceManagerEngine* self, const libqt_list 
     for (size_t i = 0; i < locales.len; ++i) {
         locales_QList.push_back(*(locales_arr[i]));
     }
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        self->setLocales(locales_QList);
-    } else {
-        ((VirtualQPlaceManagerEngine*)self)->setLocales(locales_QList);
-    }
+    self->setLocales(locales_QList);
 }
 
 QUrl* QPlaceManagerEngine_ConstructIconUrl(const QPlaceManagerEngine* self, const QPlaceIcon* icon, const QSize* size) {
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return new QUrl(self->constructIconUrl(*icon, *size));
-    } else {
-        return new QUrl(((VirtualQPlaceManagerEngine*)self)->constructIconUrl(*icon, *size));
-    }
+    return new QUrl(self->constructIconUrl(*icon, *size));
 }
 
 QPlace* QPlaceManagerEngine_CompatiblePlace(const QPlaceManagerEngine* self, const QPlace* original) {
-    auto* vqplacemanagerengine = dynamic_cast<const VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return new QPlace(self->compatiblePlace(*original));
-    } else {
-        return new QPlace(((VirtualQPlaceManagerEngine*)self)->compatiblePlace(*original));
-    }
+    return new QPlace(self->compatiblePlace(*original));
 }
 
 QPlaceMatchReply* QPlaceManagerEngine_MatchingPlaces(QPlaceManagerEngine* self, const QPlaceMatchRequest* request) {
-    auto* vqplacemanagerengine = dynamic_cast<VirtualQPlaceManagerEngine*>(self);
-    if (vqplacemanagerengine && vqplacemanagerengine->isVirtualQPlaceManagerEngine) {
-        return self->matchingPlaces(*request);
-    } else {
-        return ((VirtualQPlaceManagerEngine*)self)->matchingPlaces(*request);
-    }
+    return self->matchingPlaces(*request);
 }
 
 void QPlaceManagerEngine_Finished(QPlaceManagerEngine* self, QPlaceReply* reply) {

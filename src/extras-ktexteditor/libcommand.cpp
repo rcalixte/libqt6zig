@@ -37,30 +37,15 @@ KTextEditor__Command* KTextEditor__Command_new2(const libqt_list /* of libqt_str
 }
 
 QMetaObject* KTextEditor__Command_MetaObject(const KTextEditor__Command* self) {
-    auto* vktexteditor__command = dynamic_cast<const VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorCommand*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__Command_Metacast(KTextEditor__Command* self, const char* param1) {
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__Command_Metacall(KTextEditor__Command* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ KTextEditor__Command_Cmds(const KTextEditor__Command* self) {
@@ -86,64 +71,34 @@ libqt_list /* of libqt_string */ KTextEditor__Command_Cmds(const KTextEditor__Co
 
 bool KTextEditor__Command_SupportsRange(KTextEditor__Command* self, const libqt_string cmd) {
     QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return self->supportsRange(cmd_QString);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->supportsRange(cmd_QString);
-    }
+    return self->supportsRange(cmd_QString);
 }
 
 bool KTextEditor__Command_Exec(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg, const KTextEditor__Range* range) {
     QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return vktexteditor__command->exec(view, cmd_QString, msg_QString, *range);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->exec(view, cmd_QString, msg_QString, *range);
-    }
+    return self->exec(view, cmd_QString, msg_QString, *range);
 }
 
 bool KTextEditor__Command_Help(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg) {
     QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
     QString msg_QString = QString::fromUtf8(msg.data, msg.len);
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return vktexteditor__command->help(view, cmd_QString, msg_QString);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->help(view, cmd_QString, msg_QString);
-    }
+    return self->help(view, cmd_QString, msg_QString);
 }
 
 KCompletion* KTextEditor__Command_CompletionObject(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmdname) {
     QString cmdname_QString = QString::fromUtf8(cmdname.data, cmdname.len);
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return self->completionObject(view, cmdname_QString);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->completionObject(view, cmdname_QString);
-    }
+    return self->completionObject(view, cmdname_QString);
 }
 
 bool KTextEditor__Command_WantsToProcessText(KTextEditor__Command* self, const libqt_string cmdname) {
     QString cmdname_QString = QString::fromUtf8(cmdname.data, cmdname.len);
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        return self->wantsToProcessText(cmdname_QString);
-    } else {
-        return ((VirtualKTextEditorCommand*)self)->wantsToProcessText(cmdname_QString);
-    }
+    return self->wantsToProcessText(cmdname_QString);
 }
 
 void KTextEditor__Command_ProcessText(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vktexteditor__command = dynamic_cast<VirtualKTextEditorCommand*>(self);
-    if (vktexteditor__command && vktexteditor__command->isVirtualKTextEditorCommand) {
-        self->processText(view, text_QString);
-    } else {
-        ((VirtualKTextEditorCommand*)self)->processText(view, text_QString);
-    }
+    self->processText(view, text_QString);
 }
 
 // Base class handler implementation

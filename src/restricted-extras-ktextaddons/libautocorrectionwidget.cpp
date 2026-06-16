@@ -47,30 +47,15 @@ TextAutoCorrectionWidgets__AutoCorrectionWidget* TextAutoCorrectionWidgets__Auto
 }
 
 QMetaObject* TextAutoCorrectionWidgets__AutoCorrectionWidget_MetaObject(const TextAutoCorrectionWidgets__AutoCorrectionWidget* self) {
-    auto* vtextautocorrectionwidgets__autocorrectionwidget = dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget*>(self);
-    if (vtextautocorrectionwidgets__autocorrectionwidget && vtextautocorrectionwidgets__autocorrectionwidget->isVirtualTextAutoCorrectionWidgetsAutoCorrectionWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacast(TextAutoCorrectionWidgets__AutoCorrectionWidget* self, const char* param1) {
-    auto* vtextautocorrectionwidgets__autocorrectionwidget = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget*>(self);
-    if (vtextautocorrectionwidgets__autocorrectionwidget && vtextautocorrectionwidgets__autocorrectionwidget->isVirtualTextAutoCorrectionWidgetsAutoCorrectionWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextAutoCorrectionWidgets__AutoCorrectionWidget_Metacall(TextAutoCorrectionWidgets__AutoCorrectionWidget* self, int param1, int param2, void** param3) {
-    auto* vtextautocorrectionwidgets__autocorrectionwidget = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget*>(self);
-    if (vtextautocorrectionwidgets__autocorrectionwidget && vtextautocorrectionwidgets__autocorrectionwidget->isVirtualTextAutoCorrectionWidgetsAutoCorrectionWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextAutoCorrectionWidgetsAutoCorrectionWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextAutoCorrectionWidgets__AutoCorrectionWidget_SetAutoCorrection(TextAutoCorrectionWidgets__AutoCorrectionWidget* self, TextAutoCorrectionCore__AutoCorrection* autoCorrect) {

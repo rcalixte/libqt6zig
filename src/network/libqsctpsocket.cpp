@@ -26,48 +26,23 @@ QSctpSocket* QSctpSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QSctpSocket_MetaObject(const QSctpSocket* self) {
-    auto* vqsctpsocket = dynamic_cast<const VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSctpSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSctpSocket_Metacast(QSctpSocket* self, const char* param1) {
-    auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSctpSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSctpSocket_Metacall(QSctpSocket* self, int param1, int param2, void** param3) {
-    auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSctpSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSctpSocket_Close(QSctpSocket* self) {
-    auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
-        self->close();
-    } else {
-        ((VirtualQSctpSocket*)self)->close();
-    }
+    self->close();
 }
 
 void QSctpSocket_DisconnectFromHost(QSctpSocket* self) {
-    auto* vqsctpsocket = dynamic_cast<VirtualQSctpSocket*>(self);
-    if (vqsctpsocket && vqsctpsocket->isVirtualQSctpSocket) {
-        self->disconnectFromHost();
-    } else {
-        ((VirtualQSctpSocket*)self)->disconnectFromHost();
-    }
+    self->disconnectFromHost();
 }
 
 void QSctpSocket_SetMaximumChannelCount(QSctpSocket* self, int count) {

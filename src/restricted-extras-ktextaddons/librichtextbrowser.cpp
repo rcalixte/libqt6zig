@@ -56,30 +56,15 @@ TextCustomEditor__RichTextBrowser* TextCustomEditor__RichTextBrowser_new2() {
 }
 
 QMetaObject* TextCustomEditor__RichTextBrowser_MetaObject(const TextCustomEditor__RichTextBrowser* self) {
-    auto* vtextcustomeditor__richtextbrowser = dynamic_cast<const VirtualTextCustomEditorRichTextBrowser*>(self);
-    if (vtextcustomeditor__richtextbrowser && vtextcustomeditor__richtextbrowser->isVirtualTextCustomEditorRichTextBrowser) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorRichTextBrowser*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__RichTextBrowser_Metacast(TextCustomEditor__RichTextBrowser* self, const char* param1) {
-    auto* vtextcustomeditor__richtextbrowser = dynamic_cast<VirtualTextCustomEditorRichTextBrowser*>(self);
-    if (vtextcustomeditor__richtextbrowser && vtextcustomeditor__richtextbrowser->isVirtualTextCustomEditorRichTextBrowser) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowser*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__RichTextBrowser_Metacall(TextCustomEditor__RichTextBrowser* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__richtextbrowser = dynamic_cast<VirtualTextCustomEditorRichTextBrowser*>(self);
-    if (vtextcustomeditor__richtextbrowser && vtextcustomeditor__richtextbrowser->isVirtualTextCustomEditorRichTextBrowser) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowser*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__RichTextBrowser_SetSearchSupport(TextCustomEditor__RichTextBrowser* self, bool b) {

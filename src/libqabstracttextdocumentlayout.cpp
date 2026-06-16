@@ -32,48 +32,23 @@ QAbstractTextDocumentLayout* QAbstractTextDocumentLayout_new(QTextDocument* doc)
 }
 
 QMetaObject* QAbstractTextDocumentLayout_MetaObject(const QAbstractTextDocumentLayout* self) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractTextDocumentLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractTextDocumentLayout_Metacast(QAbstractTextDocumentLayout* self, const char* param1) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractTextDocumentLayout_Metacall(QAbstractTextDocumentLayout* self, int param1, int param2, void** param3) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractTextDocumentLayout_Draw(QAbstractTextDocumentLayout* self, QPainter* painter, const QAbstractTextDocumentLayout__PaintContext* context) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        vqabstracttextdocumentlayout->draw(painter, *context);
-    } else {
-        ((VirtualQAbstractTextDocumentLayout*)self)->draw(painter, *context);
-    }
+    self->draw(painter, *context);
 }
 
 int QAbstractTextDocumentLayout_HitTest(const QAbstractTextDocumentLayout* self, const QPointF* point, int accuracy) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return vqabstracttextdocumentlayout->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
-    }
+    return self->hitTest(*point, static_cast<Qt::HitTestAccuracy>(accuracy));
 }
 
 libqt_string QAbstractTextDocumentLayout_AnchorAt(const QAbstractTextDocumentLayout* self, const QPointF* pos) {
@@ -109,39 +84,19 @@ QTextBlock* QAbstractTextDocumentLayout_BlockWithMarkerAt(const QAbstractTextDoc
 }
 
 int QAbstractTextDocumentLayout_PageCount(const QAbstractTextDocumentLayout* self) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return vqabstracttextdocumentlayout->pageCount();
-    } else {
-        return ((VirtualQAbstractTextDocumentLayout*)self)->pageCount();
-    }
+    return self->pageCount();
 }
 
 QSizeF* QAbstractTextDocumentLayout_DocumentSize(const QAbstractTextDocumentLayout* self) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return new QSizeF(vqabstracttextdocumentlayout->documentSize());
-    } else {
-        return new QSizeF(((VirtualQAbstractTextDocumentLayout*)self)->documentSize());
-    }
+    return new QSizeF(self->documentSize());
 }
 
 QRectF* QAbstractTextDocumentLayout_FrameBoundingRect(const QAbstractTextDocumentLayout* self, QTextFrame* frame) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return new QRectF(vqabstracttextdocumentlayout->frameBoundingRect(frame));
-    } else {
-        return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->frameBoundingRect(frame));
-    }
+    return new QRectF(self->frameBoundingRect(frame));
 }
 
 QRectF* QAbstractTextDocumentLayout_BlockBoundingRect(const QAbstractTextDocumentLayout* self, const QTextBlock* block) {
-    auto* vqabstracttextdocumentlayout = dynamic_cast<const VirtualQAbstractTextDocumentLayout*>(self);
-    if (vqabstracttextdocumentlayout && vqabstracttextdocumentlayout->isVirtualQAbstractTextDocumentLayout) {
-        return new QRectF(vqabstracttextdocumentlayout->blockBoundingRect(*block));
-    } else {
-        return new QRectF(((VirtualQAbstractTextDocumentLayout*)self)->blockBoundingRect(*block));
-    }
+    return new QRectF(self->blockBoundingRect(*block));
 }
 
 void QAbstractTextDocumentLayout_SetPaintDevice(QAbstractTextDocumentLayout* self, QPaintDevice* device) {

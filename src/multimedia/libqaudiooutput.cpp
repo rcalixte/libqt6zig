@@ -28,30 +28,15 @@ QAudioOutput* QAudioOutput_new4(const QAudioDevice* device, QObject* parent) {
 }
 
 QMetaObject* QAudioOutput_MetaObject(const QAudioOutput* self) {
-    auto* vqaudiooutput = dynamic_cast<const VirtualQAudioOutput*>(self);
-    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioOutput*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioOutput_Metacast(QAudioOutput* self, const char* param1) {
-    auto* vqaudiooutput = dynamic_cast<VirtualQAudioOutput*>(self);
-    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioOutput*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioOutput_Metacall(QAudioOutput* self, int param1, int param2, void** param3) {
-    auto* vqaudiooutput = dynamic_cast<VirtualQAudioOutput*>(self);
-    if (vqaudiooutput && vqaudiooutput->isVirtualQAudioOutput) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioOutput*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAudioDevice* QAudioOutput_Device(const QAudioOutput* self) {

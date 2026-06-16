@@ -21,73 +21,36 @@ KOverlayIconPlugin* KOverlayIconPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* KOverlayIconPlugin_MetaObject(const KOverlayIconPlugin* self) {
-    auto* vkoverlayiconplugin = dynamic_cast<const VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKOverlayIconPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KOverlayIconPlugin_Metacast(KOverlayIconPlugin* self, const char* param1) {
-    auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKOverlayIconPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KOverlayIconPlugin_Metacall(KOverlayIconPlugin* self, int param1, int param2, void** param3) {
-    auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKOverlayIconPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ KOverlayIconPlugin_GetOverlays(KOverlayIconPlugin* self, const QUrl* item) {
-    auto* vkoverlayiconplugin = dynamic_cast<VirtualKOverlayIconPlugin*>(self);
-    if (vkoverlayiconplugin && vkoverlayiconplugin->isVirtualKOverlayIconPlugin) {
-        QList<QString> _ret = vkoverlayiconplugin->getOverlays(*item);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKOverlayIconPlugin*)self)->getOverlays(*item);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->getOverlays(*item);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void KOverlayIconPlugin_OverlaysChanged(KOverlayIconPlugin* self, const QUrl* url, const libqt_list /* of libqt_string */ overlays) {

@@ -66,30 +66,15 @@ KColorButton* KColorButton_new6(const QColor* c, const QColor* defaultColor, QWi
 }
 
 QMetaObject* KColorButton_MetaObject(const KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<const VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColorButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColorButton_Metacast(KColorButton* self, const char* param1) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColorButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColorButton_Metacall(KColorButton* self, int param1, int param2, void** param3) {
-    auto* vkcolorbutton = dynamic_cast<VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColorButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* KColorButton_Color(const KColorButton* self) {
@@ -117,21 +102,11 @@ void KColorButton_SetDefaultColor(KColorButton* self, const QColor* c) {
 }
 
 QSize* KColorButton_SizeHint(const KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<const VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKColorButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* KColorButton_MinimumSizeHint(const KColorButton* self) {
-    auto* vkcolorbutton = dynamic_cast<const VirtualKColorButton*>(self);
-    if (vkcolorbutton && vkcolorbutton->isVirtualKColorButton) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKColorButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void KColorButton_Changed(KColorButton* self, const QColor* newColor) {

@@ -33,30 +33,15 @@ QGuiApplication* QGuiApplication_new2(int* argc, char** argv, int param3) {
 }
 
 QMetaObject* QGuiApplication_MetaObject(const QGuiApplication* self) {
-    auto* vqguiapplication = dynamic_cast<const VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGuiApplication*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGuiApplication_Metacast(QGuiApplication* self, const char* param1) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGuiApplication*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGuiApplication_Metacall(QGuiApplication* self, int param1, int param2, void** param3) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGuiApplication*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QGuiApplication_SetApplicationDisplayName(const libqt_string name) {
@@ -294,12 +279,7 @@ int QGuiApplication_Exec() {
 }
 
 bool QGuiApplication_Notify(QGuiApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqguiapplication = dynamic_cast<VirtualQGuiApplication*>(self);
-    if (vqguiapplication && vqguiapplication->isVirtualQGuiApplication) {
-        return self->notify(param1, param2);
-    } else {
-        return ((VirtualQGuiApplication*)self)->notify(param1, param2);
-    }
+    return self->notify(param1, param2);
 }
 
 bool QGuiApplication_IsSessionRestored(const QGuiApplication* self) {

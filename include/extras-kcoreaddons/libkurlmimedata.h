@@ -20,11 +20,11 @@ typedef struct QMimeData QMimeData;
 typedef struct QUrl QUrl;
 #endif
 
-void KUrlMimeData_SetUrls(const libqt_list /* of QUrl* */ param1, const libqt_list /* of QUrl* */ param2, QMimeData* param3);
-bool KUrlMimeData_ExportUrlsToPortal(QMimeData* param1);
-void KUrlMimeData_SetMetaData(const libqt_map /* of libqt_string to libqt_string */ param1, QMimeData* param2);
+void KUrlMimeData_SetUrls(const libqt_list /* of QUrl* */ urls, const libqt_list /* of QUrl* */ mostLocalUrls, QMimeData* mimeData);
+bool KUrlMimeData_ExportUrlsToPortal(QMimeData* mimeData);
+void KUrlMimeData_SetMetaData(const libqt_map /* of libqt_string to libqt_string */ metaData, QMimeData* mimeData);
 libqt_list /* of libqt_string */ KUrlMimeData_MimeDataTypes();
-libqt_list /* of QUrl* */ KUrlMimeData_UrlsFromMimeData(const QMimeData* param1, int param2, libqt_map* /* of libqt_string to libqt_string */ param3);
+libqt_list /* of QUrl* */ KUrlMimeData_UrlsFromMimeData(const QMimeData* mimeData, int decodeOptions, libqt_map* /* of libqt_string to libqt_string */ metaData);
 
 #ifdef __cplusplus
 } /* extern C */

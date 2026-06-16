@@ -63,7 +63,7 @@ QTextLayout* QTextLayout_new5(const libqt_string text, const QFont* font, const 
 void QTextLayout_SetFont(QTextLayout* self, const QFont* f);
 QFont* QTextLayout_Font(const QTextLayout* self);
 void QTextLayout_SetRawFont(QTextLayout* self, const QRawFont* rawFont);
-void QTextLayout_SetText(QTextLayout* self, const libqt_string stringVal);
+void QTextLayout_SetText(QTextLayout* self, const libqt_string string);
 libqt_string QTextLayout_Text(const QTextLayout* self);
 void QTextLayout_SetTextOption(QTextLayout* self, const QTextOption* option);
 QTextOption* QTextLayout_TextOption(const QTextLayout* self);

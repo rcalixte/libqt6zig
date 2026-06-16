@@ -22,30 +22,15 @@ KParts__PartManager* KParts__PartManager_new2(QWidget* topLevel, QObject* parent
 }
 
 QMetaObject* KParts__PartManager_MetaObject(const KParts__PartManager* self) {
-    auto* vkparts__partmanager = dynamic_cast<const VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsPartManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__PartManager_Metacast(KParts__PartManager* self, const char* param1) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__PartManager_Metacall(KParts__PartManager* self, int param1, int param2, void** param3) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KParts__PartManager_SetSelectionPolicy(KParts__PartManager* self, int policy) {
@@ -81,66 +66,31 @@ int16_t KParts__PartManager_ActivationButtonMask(const KParts__PartManager* self
 }
 
 bool KParts__PartManager_EventFilter(KParts__PartManager* self, QObject* obj, QEvent* ev) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        return self->eventFilter(obj, ev);
-    } else {
-        return ((VirtualKPartsPartManager*)self)->eventFilter(obj, ev);
-    }
+    return self->eventFilter(obj, ev);
 }
 
 void KParts__PartManager_AddPart(KParts__PartManager* self, KParts__Part* part, bool setActive) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        self->addPart(part, setActive);
-    } else {
-        ((VirtualKPartsPartManager*)self)->addPart(part, setActive);
-    }
+    self->addPart(part, setActive);
 }
 
 void KParts__PartManager_RemovePart(KParts__PartManager* self, KParts__Part* part) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        self->removePart(part);
-    } else {
-        ((VirtualKPartsPartManager*)self)->removePart(part);
-    }
+    self->removePart(part);
 }
 
 void KParts__PartManager_ReplacePart(KParts__PartManager* self, KParts__Part* oldPart, KParts__Part* newPart, bool setActive) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        self->replacePart(oldPart, newPart, setActive);
-    } else {
-        ((VirtualKPartsPartManager*)self)->replacePart(oldPart, newPart, setActive);
-    }
+    self->replacePart(oldPart, newPart, setActive);
 }
 
 void KParts__PartManager_SetActivePart(KParts__PartManager* self, KParts__Part* part, QWidget* widget) {
-    auto* vkparts__partmanager = dynamic_cast<VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        self->setActivePart(part, widget);
-    } else {
-        ((VirtualKPartsPartManager*)self)->setActivePart(part, widget);
-    }
+    self->setActivePart(part, widget);
 }
 
 KParts__Part* KParts__PartManager_ActivePart(const KParts__PartManager* self) {
-    auto* vkparts__partmanager = dynamic_cast<const VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        return self->activePart();
-    } else {
-        return ((VirtualKPartsPartManager*)self)->activePart();
-    }
+    return self->activePart();
 }
 
 QWidget* KParts__PartManager_ActiveWidget(const KParts__PartManager* self) {
-    auto* vkparts__partmanager = dynamic_cast<const VirtualKPartsPartManager*>(self);
-    if (vkparts__partmanager && vkparts__partmanager->isVirtualKPartsPartManager) {
-        return self->activeWidget();
-    } else {
-        return ((VirtualKPartsPartManager*)self)->activeWidget();
-    }
+    return self->activeWidget();
 }
 
 libqt_list /* of KParts__Part* */ KParts__PartManager_Parts(const KParts__PartManager* self) {

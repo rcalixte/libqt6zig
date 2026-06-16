@@ -23,73 +23,35 @@ KNSCore__Provider* KNSCore__Provider_new() {
 }
 
 QMetaObject* KNSCore__Provider_MetaObject(const KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSCoreProvider*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSCore__Provider_Metacast(KNSCore__Provider* self, const char* param1) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSCore__Provider_Metacall(KNSCore__Provider* self, int param1, int param2, void** param3) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KNSCore__Provider_Id(const KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        auto _ret = vknscore__provider->id();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKNSCoreProvider*)self)->id();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->id();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool KNSCore__Provider_SetProviderXML(KNSCore__Provider* self, const QDomElement* xmldata) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return vknscore__provider->setProviderXML(*xmldata);
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->setProviderXML(*xmldata);
-    }
+    return self->setProviderXML(*xmldata);
 }
 
 bool KNSCore__Provider_IsInitialized(const KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return vknscore__provider->isInitialized();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->isInitialized();
-    }
+    return self->isInitialized();
 }
 
 void KNSCore__Provider_SetCachedEntries(KNSCore__Provider* self, const libqt_list /* of KNSCore__Entry* */ cachedEntries) {
@@ -99,101 +61,48 @@ void KNSCore__Provider_SetCachedEntries(KNSCore__Provider* self, const libqt_lis
     for (size_t i = 0; i < cachedEntries.len; ++i) {
         cachedEntries_QList.push_back(*(cachedEntries_arr[i]));
     }
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        vknscore__provider->setCachedEntries(cachedEntries_QList);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->setCachedEntries(cachedEntries_QList);
-    }
+    self->setCachedEntries(cachedEntries_QList);
 }
 
 libqt_string KNSCore__Provider_Name(const KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        auto _ret = self->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKNSCoreProvider*)self)->name();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 QUrl* KNSCore__Provider_Icon(const KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<const VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return new QUrl(self->icon());
-    } else {
-        return new QUrl(((VirtualKNSCoreProvider*)self)->icon());
-    }
+    return new QUrl(self->icon());
 }
 
 void KNSCore__Provider_LoadEntries(KNSCore__Provider* self, const KNSCore__Provider__SearchRequest* request) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        vknscore__provider->loadEntries(*request);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadEntries(*request);
-    }
+    self->loadEntries(*request);
 }
 
 void KNSCore__Provider_LoadEntryDetails(KNSCore__Provider* self, const KNSCore__Entry* param1) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->loadEntryDetails(*param1);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadEntryDetails(*param1);
-    }
+    self->loadEntryDetails(*param1);
 }
 
 void KNSCore__Provider_LoadPayloadLink(KNSCore__Provider* self, const KNSCore__Entry* entry, int linkId) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        vknscore__provider->loadPayloadLink(*entry, static_cast<int>(linkId));
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadPayloadLink(*entry, static_cast<int>(linkId));
-    }
+    self->loadPayloadLink(*entry, static_cast<int>(linkId));
 }
 
 void KNSCore__Provider_LoadComments(KNSCore__Provider* self, const KNSCore__Entry* param1, int param2, int param3) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->loadComments(*param1, static_cast<int>(param2), static_cast<int>(param3));
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadComments(*param1, static_cast<int>(param2), static_cast<int>(param3));
-    }
+    self->loadComments(*param1, static_cast<int>(param2), static_cast<int>(param3));
 }
 
 void KNSCore__Provider_LoadPerson(KNSCore__Provider* self, const libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->loadPerson(param1_QString);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadPerson(param1_QString);
-    }
+    self->loadPerson(param1_QString);
 }
 
 void KNSCore__Provider_LoadBasics(KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->loadBasics();
-    } else {
-        ((VirtualKNSCoreProvider*)self)->loadBasics();
-    }
+    self->loadBasics();
 }
 
 libqt_string KNSCore__Provider_Version(const KNSCore__Provider* self) {
@@ -255,39 +164,19 @@ void KNSCore__Provider_SetSupportsSsl(KNSCore__Provider* self, bool supportsSsl)
 }
 
 bool KNSCore__Provider_UserCanVote(KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return self->userCanVote();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->userCanVote();
-    }
+    return self->userCanVote();
 }
 
 void KNSCore__Provider_Vote(KNSCore__Provider* self, const KNSCore__Entry* param1, unsigned int param2) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->vote(*param1, static_cast<uint>(param2));
-    } else {
-        ((VirtualKNSCoreProvider*)self)->vote(*param1, static_cast<uint>(param2));
-    }
+    self->vote(*param1, static_cast<uint>(param2));
 }
 
 bool KNSCore__Provider_UserCanBecomeFan(KNSCore__Provider* self) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        return self->userCanBecomeFan();
-    } else {
-        return ((VirtualKNSCoreProvider*)self)->userCanBecomeFan();
-    }
+    return self->userCanBecomeFan();
 }
 
 void KNSCore__Provider_BecomeFan(KNSCore__Provider* self, const KNSCore__Entry* param1) {
-    auto* vknscore__provider = dynamic_cast<VirtualKNSCoreProvider*>(self);
-    if (vknscore__provider && vknscore__provider->isVirtualKNSCoreProvider) {
-        self->becomeFan(*param1);
-    } else {
-        ((VirtualKNSCoreProvider*)self)->becomeFan(*param1);
-    }
+    self->becomeFan(*param1);
 }
 
 void KNSCore__Provider_SetTagFilter(KNSCore__Provider* self, const libqt_list /* of libqt_string */ tagFilter) {

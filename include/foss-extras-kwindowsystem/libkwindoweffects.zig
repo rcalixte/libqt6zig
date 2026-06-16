@@ -18,63 +18,63 @@ pub const KWindowEffects = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kwindoweffects_enums.Effect `
+    /// ` effect: kwindoweffects_enums.Effect `
     ///
-    pub fn IsEffectAvailable(param1: i32) bool {
-        return qtc.KWindowEffects_IsEffectAvailable(@bitCast(param1));
+    pub fn IsEffectAvailable(effect: i32) bool {
+        return qtc.KWindowEffects_IsEffectAvailable(@bitCast(effect));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#enableBlurBehind)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: bool `
+    /// ` enable: bool `
     ///
-    /// ` param3: QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn EnableBlurBehind(param1: anytype, param2: bool, param3: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param3)._is_QRegion;
-        qtc.KWindowEffects_EnableBlurBehind(@ptrCast(param1.ptr), param2, @ptrCast(param3.ptr));
+    pub fn EnableBlurBehind(window: anytype, enable: bool, region: anytype) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.KWindowEffects_EnableBlurBehind(@ptrCast(window.ptr), enable, @ptrCast(region.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#enableBackgroundContrast)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: bool `
+    /// ` enable: bool `
     ///
-    /// ` param3: f64 `
+    /// ` contrast: f64 `
     ///
-    /// ` param4: f64 `
+    /// ` intensity: f64 `
     ///
-    /// ` param5: f64 `
+    /// ` saturation: f64 `
     ///
-    /// ` param6: QRegion `
+    /// ` region: QRegion `
     ///
-    pub fn EnableBackgroundContrast(param1: anytype, param2: bool, param3: f64, param4: f64, param5: f64, param6: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param6)._is_QRegion;
-        qtc.KWindowEffects_EnableBackgroundContrast(@ptrCast(param1.ptr), param2, @bitCast(param3), @bitCast(param4), @bitCast(param5), @ptrCast(param6.ptr));
+    pub fn EnableBackgroundContrast(window: anytype, enable: bool, contrast: f64, intensity: f64, saturation: f64, region: anytype) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(region)._is_QRegion;
+        qtc.KWindowEffects_EnableBackgroundContrast(@ptrCast(window.ptr), enable, @bitCast(contrast), @bitCast(intensity), @bitCast(saturation), @ptrCast(region.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindoweffects.html#slideWindow)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: kwindoweffects_enums.SlideFromLocation `
+    /// ` location: kwindoweffects_enums.SlideFromLocation `
     ///
-    /// ` param3: i32 `
+    /// ` offset: i32 `
     ///
-    pub fn SlideWindow(param1: anytype, param2: i32, param3: i32) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        qtc.KWindowEffects_SlideWindow(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
+    pub fn SlideWindow(window: anytype, location: i32, offset: i32) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        qtc.KWindowEffects_SlideWindow(@ptrCast(window.ptr), @bitCast(location), @bitCast(offset));
     }
 };
 

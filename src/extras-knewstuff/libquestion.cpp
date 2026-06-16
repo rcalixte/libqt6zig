@@ -25,30 +25,15 @@ KNSCore__Question* KNSCore__Question_new3(int param1, QObject* parent) {
 }
 
 QMetaObject* KNSCore__Question_MetaObject(const KNSCore__Question* self) {
-    auto* vknscore__question = dynamic_cast<const VirtualKNSCoreQuestion*>(self);
-    if (vknscore__question && vknscore__question->isVirtualKNSCoreQuestion) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSCoreQuestion*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSCore__Question_Metacast(KNSCore__Question* self, const char* param1) {
-    auto* vknscore__question = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscore__question && vknscore__question->isVirtualKNSCoreQuestion) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSCoreQuestion*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSCore__Question_Metacall(KNSCore__Question* self, int param1, int param2, void** param3) {
-    auto* vknscore__question = dynamic_cast<VirtualKNSCoreQuestion*>(self);
-    if (vknscore__question && vknscore__question->isVirtualKNSCoreQuestion) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSCoreQuestion*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KNSCore__Question_Ask(KNSCore__Question* self) {

@@ -19,30 +19,15 @@ KColorSchemeWatcher* KColorSchemeWatcher_new2(QObject* parent) {
 }
 
 QMetaObject* KColorSchemeWatcher_MetaObject(const KColorSchemeWatcher* self) {
-    auto* vkcolorschemewatcher = dynamic_cast<const VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColorSchemeWatcher*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColorSchemeWatcher_Metacast(KColorSchemeWatcher* self, const char* param1) {
-    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColorSchemeWatcher*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColorSchemeWatcher_Metacall(KColorSchemeWatcher* self, int param1, int param2, void** param3) {
-    auto* vkcolorschemewatcher = dynamic_cast<VirtualKColorSchemeWatcher*>(self);
-    if (vkcolorschemewatcher && vkcolorschemewatcher->isVirtualKColorSchemeWatcher) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColorSchemeWatcher*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KColorSchemeWatcher_SystemPreference(const KColorSchemeWatcher* self) {

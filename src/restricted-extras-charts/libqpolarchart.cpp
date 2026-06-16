@@ -53,30 +53,15 @@ QPolarChart* QPolarChart_new3(QGraphicsItem* parent, int wFlags) {
 }
 
 QMetaObject* QPolarChart_MetaObject(const QPolarChart* self) {
-    auto* vqpolarchart = dynamic_cast<const VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPolarChart*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPolarChart_Metacast(QPolarChart* self, const char* param1) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPolarChart*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPolarChart_Metacall(QPolarChart* self, int param1, int param2, void** param3) {
-    auto* vqpolarchart = dynamic_cast<VirtualQPolarChart*>(self);
-    if (vqpolarchart && vqpolarchart->isVirtualQPolarChart) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPolarChart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPolarChart_AddAxis(QPolarChart* self, QAbstractAxis* axis, int polarOrientation) {

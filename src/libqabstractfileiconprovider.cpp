@@ -11,64 +11,31 @@ QAbstractFileIconProvider* QAbstractFileIconProvider_new() {
 }
 
 QIcon* QAbstractFileIconProvider_Icon(const QAbstractFileIconProvider* self, int param1) {
-    auto* vqabstractfileiconprovider = dynamic_cast<const VirtualQAbstractFileIconProvider*>(self);
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
-        return new QIcon(self->icon(static_cast<QAbstractFileIconProvider::IconType>(param1)));
-    } else {
-        return new QIcon(((VirtualQAbstractFileIconProvider*)self)->icon(static_cast<QAbstractFileIconProvider::IconType>(param1)));
-    }
+    return new QIcon(self->icon(static_cast<QAbstractFileIconProvider::IconType>(param1)));
 }
 
 QIcon* QAbstractFileIconProvider_Icon2(const QAbstractFileIconProvider* self, const QFileInfo* param1) {
-    auto* vqabstractfileiconprovider = dynamic_cast<const VirtualQAbstractFileIconProvider*>(self);
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
-        return new QIcon(self->icon(*param1));
-    } else {
-        return new QIcon(((VirtualQAbstractFileIconProvider*)self)->icon(*param1));
-    }
+    return new QIcon(self->icon(*param1));
 }
 
 libqt_string QAbstractFileIconProvider_Type(const QAbstractFileIconProvider* self, const QFileInfo* param1) {
-    auto* vqabstractfileiconprovider = dynamic_cast<const VirtualQAbstractFileIconProvider*>(self);
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
-        auto _ret = self->type(*param1);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQAbstractFileIconProvider*)self)->type(*param1);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->type(*param1);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QAbstractFileIconProvider_SetOptions(QAbstractFileIconProvider* self, int options) {
-    auto* vqabstractfileiconprovider = dynamic_cast<VirtualQAbstractFileIconProvider*>(self);
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
-        self->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
-    } else {
-        ((VirtualQAbstractFileIconProvider*)self)->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
-    }
+    self->setOptions(static_cast<QAbstractFileIconProvider::Options>(options));
 }
 
 int QAbstractFileIconProvider_Options(const QAbstractFileIconProvider* self) {
-    auto* vqabstractfileiconprovider = dynamic_cast<const VirtualQAbstractFileIconProvider*>(self);
-    if (vqabstractfileiconprovider && vqabstractfileiconprovider->isVirtualQAbstractFileIconProvider) {
-        return static_cast<int>(self->options());
-    } else {
-        return static_cast<int>(((VirtualQAbstractFileIconProvider*)self)->options());
-    }
+    return static_cast<int>(self->options());
 }
 
 // Base class handler implementation

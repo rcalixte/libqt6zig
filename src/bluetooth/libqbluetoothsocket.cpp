@@ -32,30 +32,15 @@ QBluetoothSocket* QBluetoothSocket_new4(QObject* parent) {
 }
 
 QMetaObject* QBluetoothSocket_MetaObject(const QBluetoothSocket* self) {
-    auto* vqbluetoothsocket = dynamic_cast<const VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBluetoothSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBluetoothSocket_Metacast(QBluetoothSocket* self, const char* param1) {
-    auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBluetoothSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBluetoothSocket_Metacall(QBluetoothSocket* self, int param1, int param2, void** param3) {
-    auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBluetoothSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QBluetoothSocket_Abort(QBluetoothSocket* self) {
@@ -63,48 +48,23 @@ void QBluetoothSocket_Abort(QBluetoothSocket* self) {
 }
 
 void QBluetoothSocket_Close(QBluetoothSocket* self) {
-    auto* vqbluetoothsocket = dynamic_cast<VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        self->close();
-    } else {
-        ((VirtualQBluetoothSocket*)self)->close();
-    }
+    self->close();
 }
 
 bool QBluetoothSocket_IsSequential(const QBluetoothSocket* self) {
-    auto* vqbluetoothsocket = dynamic_cast<const VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return self->isSequential();
-    } else {
-        return ((VirtualQBluetoothSocket*)self)->isSequential();
-    }
+    return self->isSequential();
 }
 
 long long QBluetoothSocket_BytesAvailable(const QBluetoothSocket* self) {
-    auto* vqbluetoothsocket = dynamic_cast<const VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return static_cast<long long>(self->bytesAvailable());
-    } else {
-        return static_cast<long long>(((VirtualQBluetoothSocket*)self)->bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 long long QBluetoothSocket_BytesToWrite(const QBluetoothSocket* self) {
-    auto* vqbluetoothsocket = dynamic_cast<const VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return static_cast<long long>(self->bytesToWrite());
-    } else {
-        return static_cast<long long>(((VirtualQBluetoothSocket*)self)->bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 bool QBluetoothSocket_CanReadLine(const QBluetoothSocket* self) {
-    auto* vqbluetoothsocket = dynamic_cast<const VirtualQBluetoothSocket*>(self);
-    if (vqbluetoothsocket && vqbluetoothsocket->isVirtualQBluetoothSocket) {
-        return self->canReadLine();
-    } else {
-        return ((VirtualQBluetoothSocket*)self)->canReadLine();
-    }
+    return self->canReadLine();
 }
 
 void QBluetoothSocket_ConnectToService(QBluetoothSocket* self, const QBluetoothServiceInfo* service) {

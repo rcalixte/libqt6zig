@@ -2285,12 +2285,12 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Mimetype(param1: anytype, param2: i32) KIO__MimetypeJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Mimetype(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn Mimetype(url: anytype, flags: i32) KIO__MimetypeJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Mimetype(@ptrCast(url.ptr), @bitCast(flags)) };
     }
 };

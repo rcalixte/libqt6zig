@@ -2270,12 +2270,12 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(param1: anytype, param2: i32) KIO__FileJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Open(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn Open(url: anytype, mode: i32) KIO__FileJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Open(@ptrCast(url.ptr), @bitCast(mode)) };
     }
 };

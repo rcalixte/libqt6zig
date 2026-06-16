@@ -47,30 +47,15 @@ KIconDialog* KIconDialog_new2() {
 }
 
 QMetaObject* KIconDialog_MetaObject(const KIconDialog* self) {
-    auto* vkicondialog = dynamic_cast<const VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIconDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIconDialog_Metacast(KIconDialog* self, const char* param1) {
-    auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIconDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIconDialog_Metacall(KIconDialog* self, int param1, int param2, void** param3) {
-    auto* vkicondialog = dynamic_cast<VirtualKIconDialog*>(self);
-    if (vkicondialog && vkicondialog->isVirtualKIconDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIconDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIconDialog_SetStrictIconSize(KIconDialog* self, bool policy) {

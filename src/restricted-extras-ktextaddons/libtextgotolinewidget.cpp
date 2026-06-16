@@ -46,30 +46,15 @@ TextCustomEditor__TextGoToLineWidget* TextCustomEditor__TextGoToLineWidget_new2(
 }
 
 QMetaObject* TextCustomEditor__TextGoToLineWidget_MetaObject(const TextCustomEditor__TextGoToLineWidget* self) {
-    auto* vtextcustomeditor__textgotolinewidget = dynamic_cast<const VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditor__textgotolinewidget && vtextcustomeditor__textgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorTextGoToLineWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__TextGoToLineWidget_Metacast(TextCustomEditor__TextGoToLineWidget* self, const char* param1) {
-    auto* vtextcustomeditor__textgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditor__textgotolinewidget && vtextcustomeditor__textgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__TextGoToLineWidget_Metacall(TextCustomEditor__TextGoToLineWidget* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__textgotolinewidget = dynamic_cast<VirtualTextCustomEditorTextGoToLineWidget*>(self);
-    if (vtextcustomeditor__textgotolinewidget && vtextcustomeditor__textgotolinewidget->isVirtualTextCustomEditorTextGoToLineWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorTextGoToLineWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__TextGoToLineWidget_GoToLine(TextCustomEditor__TextGoToLineWidget* self) {

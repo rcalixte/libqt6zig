@@ -38,7 +38,7 @@ void KIO__BatchRenameJob_FileRenamed(KIO__BatchRenameJob* self, const QUrl* oldU
 void KIO__BatchRenameJob_Connect_FileRenamed(KIO__BatchRenameJob* self, intptr_t slot);
 void KIO__BatchRenameJob_Delete(KIO__BatchRenameJob* self);
 
-KIO__BatchRenameJob* KIO_BatchRename(const libqt_list /* of QUrl* */ param1, const libqt_string param2, int param3, QChar* param4, int param5);
+KIO__BatchRenameJob* KIO_BatchRename(const libqt_list /* of QUrl* */ src, const libqt_string newName, int index, QChar* placeHolder, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

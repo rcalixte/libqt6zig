@@ -19,39 +19,19 @@ KToolBarSpacerAction* KToolBarSpacerAction_new(QObject* parent) {
 }
 
 QMetaObject* KToolBarSpacerAction_MetaObject(const KToolBarSpacerAction* self) {
-    auto* vktoolbarspaceraction = dynamic_cast<const VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToolBarSpacerAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToolBarSpacerAction_Metacast(KToolBarSpacerAction* self, const char* param1) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToolBarSpacerAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToolBarSpacerAction_Metacall(KToolBarSpacerAction* self, int param1, int param2, void** param3) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToolBarSpacerAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* KToolBarSpacerAction_CreateWidget(KToolBarSpacerAction* self, QWidget* parent) {
-    auto* vktoolbarspaceraction = dynamic_cast<VirtualKToolBarSpacerAction*>(self);
-    if (vktoolbarspaceraction && vktoolbarspaceraction->isVirtualKToolBarSpacerAction) {
-        return self->createWidget(parent);
-    } else {
-        return ((VirtualKToolBarSpacerAction*)self)->createWidget(parent);
-    }
+    return self->createWidget(parent);
 }
 
 // Base class handler implementation

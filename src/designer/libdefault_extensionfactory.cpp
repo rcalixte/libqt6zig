@@ -21,40 +21,20 @@ QExtensionFactory* QExtensionFactory_new2(QExtensionManager* parent) {
 }
 
 QMetaObject* QExtensionFactory_MetaObject(const QExtensionFactory* self) {
-    auto* vqextensionfactory = dynamic_cast<const VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQExtensionFactory*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QExtensionFactory_Metacast(QExtensionFactory* self, const char* param1) {
-    auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQExtensionFactory*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QExtensionFactory_Metacall(QExtensionFactory* self, int param1, int param2, void** param3) {
-    auto* vqextensionfactory = dynamic_cast<VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQExtensionFactory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QExtensionFactory_Extension(const QExtensionFactory* self, QObject* object, const libqt_string iid) {
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
-    auto* vqextensionfactory = dynamic_cast<const VirtualQExtensionFactory*>(self);
-    if (vqextensionfactory && vqextensionfactory->isVirtualQExtensionFactory) {
-        return self->extension(object, iid_QString);
-    } else {
-        return ((VirtualQExtensionFactory*)self)->extension(object, iid_QString);
-    }
+    return self->extension(object, iid_QString);
 }
 
 QExtensionManager* QExtensionFactory_ExtensionManager(const QExtensionFactory* self) {

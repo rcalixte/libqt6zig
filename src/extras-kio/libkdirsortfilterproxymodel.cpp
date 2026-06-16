@@ -35,48 +35,23 @@ KDirSortFilterProxyModel* KDirSortFilterProxyModel_new2(QObject* parent) {
 }
 
 QMetaObject* KDirSortFilterProxyModel_MetaObject(const KDirSortFilterProxyModel* self) {
-    auto* vkdirsortfilterproxymodel = dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDirSortFilterProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDirSortFilterProxyModel_Metacast(KDirSortFilterProxyModel* self, const char* param1) {
-    auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDirSortFilterProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDirSortFilterProxyModel_Metacall(KDirSortFilterProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkdirsortfilterproxymodel = dynamic_cast<VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDirSortFilterProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KDirSortFilterProxyModel_HasChildren(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
-    auto* vkdirsortfilterproxymodel = dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualKDirSortFilterProxyModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 bool KDirSortFilterProxyModel_CanFetchMore(const KDirSortFilterProxyModel* self, const QModelIndex* parent) {
-    auto* vkdirsortfilterproxymodel = dynamic_cast<const VirtualKDirSortFilterProxyModel*>(self);
-    if (vkdirsortfilterproxymodel && vkdirsortfilterproxymodel->isVirtualKDirSortFilterProxyModel) {
-        return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualKDirSortFilterProxyModel*)self)->canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 int KDirSortFilterProxyModel_PointsForPermissions(const QFileInfo* info) {

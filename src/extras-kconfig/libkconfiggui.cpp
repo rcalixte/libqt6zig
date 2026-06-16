@@ -9,10 +9,10 @@ KConfig* KConfigGui_SessionConfig() {
     return KConfigGui::sessionConfig();
 }
 
-void KConfigGui_SetSessionConfig(const libqt_string param1, const libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    KConfigGui::setSessionConfig(param1_QString, param2_QString);
+void KConfigGui_SetSessionConfig(const libqt_string id, const libqt_string key) {
+    QString id_QString = QString::fromUtf8(id.data, id.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    KConfigGui::setSessionConfig(id_QString, key_QString);
 }
 
 bool KConfigGui_HasSessionConfig() {

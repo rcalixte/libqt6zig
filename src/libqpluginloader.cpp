@@ -32,30 +32,15 @@ QPluginLoader* QPluginLoader_new4(const libqt_string fileName, QObject* parent) 
 }
 
 QMetaObject* QPluginLoader_MetaObject(const QPluginLoader* self) {
-    auto* vqpluginloader = dynamic_cast<const VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPluginLoader*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPluginLoader_Metacast(QPluginLoader* self, const char* param1) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPluginLoader*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPluginLoader_Metacall(QPluginLoader* self, int param1, int param2, void** param3) {
-    auto* vqpluginloader = dynamic_cast<VirtualQPluginLoader*>(self);
-    if (vqpluginloader && vqpluginloader->isVirtualQPluginLoader) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPluginLoader*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* QPluginLoader_Instance(QPluginLoader* self) {

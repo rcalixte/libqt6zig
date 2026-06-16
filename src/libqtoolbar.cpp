@@ -59,30 +59,15 @@ QToolBar* QToolBar_new4(const libqt_string title, QWidget* parent) {
 }
 
 QMetaObject* QToolBar_MetaObject(const QToolBar* self) {
-    auto* vqtoolbar = dynamic_cast<const VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQToolBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QToolBar_Metacast(QToolBar* self, const char* param1) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQToolBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QToolBar_Metacall(QToolBar* self, int param1, int param2, void** param3) {
-    auto* vqtoolbar = dynamic_cast<VirtualQToolBar*>(self);
-    if (vqtoolbar && vqtoolbar->isVirtualQToolBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQToolBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QToolBar_SetMovable(QToolBar* self, bool movable) {

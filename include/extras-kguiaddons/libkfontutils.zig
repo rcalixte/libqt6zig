@@ -18,53 +18,53 @@ pub const KFontUtils = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` param2: []const u8 `
+    /// ` text: []const u8 `
     ///
-    /// ` param3: f64 `
+    /// ` width: f64 `
     ///
-    /// ` param4: f64 `
+    /// ` height: f64 `
     ///
-    /// ` param5: f64 `
+    /// ` maxFontSize: f64 `
     ///
-    /// ` param6: f64 `
+    /// ` minFontSize: f64 `
     ///
-    /// ` param7: flag of kfontutils_enums.AdaptFontSizeOption `
+    /// ` flags: flag of kfontutils_enums.AdaptFontSizeOption `
     ///
-    pub fn AdaptFontSize(param1: anytype, param2: []const u8, param3: f64, param4: f64, param5: f64, param6: f64, param7: i32) f64 {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn AdaptFontSize(painter: anytype, text: []const u8, width: f64, height: f64, maxFontSize: f64, minFontSize: f64, flags: i32) f64 {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
         };
-        return qtc.KFontUtils_AdaptFontSize(@ptrCast(param1.ptr), param2_str, @bitCast(param3), @bitCast(param4), @bitCast(param5), @bitCast(param6), @bitCast(param7));
+        return qtc.KFontUtils_AdaptFontSize(@ptrCast(painter.ptr), text_str, @bitCast(width), @bitCast(height), @bitCast(maxFontSize), @bitCast(minFontSize), @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfontutils.html#adaptFontSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QPainter `
+    /// ` painter: QPainter `
     ///
-    /// ` param2: []const u8 `
+    /// ` text: []const u8 `
     ///
-    /// ` param3: QSizeF `
+    /// ` availableSize: QSizeF `
     ///
-    /// ` param4: f64 `
+    /// ` maxFontSize: f64 `
     ///
-    /// ` param5: f64 `
+    /// ` minFontSize: f64 `
     ///
-    /// ` param6: flag of kfontutils_enums.AdaptFontSizeOption `
+    /// ` flags: flag of kfontutils_enums.AdaptFontSizeOption `
     ///
-    pub fn AdaptFontSize2(param1: anytype, param2: []const u8, param3: anytype, param4: f64, param5: f64, param6: i32) f64 {
-        comptime _ = @TypeOf(param1)._is_QPainter;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn AdaptFontSize2(painter: anytype, text: []const u8, availableSize: anytype, maxFontSize: f64, minFontSize: f64, flags: i32) f64 {
+        comptime _ = @TypeOf(painter)._is_QPainter;
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
         };
-        comptime _ = @TypeOf(param3)._is_QSizeF;
-        return qtc.KFontUtils_AdaptFontSize2(@ptrCast(param1.ptr), param2_str, @ptrCast(param3.ptr), @bitCast(param4), @bitCast(param5), @bitCast(param6));
+        comptime _ = @TypeOf(availableSize)._is_QSizeF;
+        return qtc.KFontUtils_AdaptFontSize2(@ptrCast(painter.ptr), text_str, @ptrCast(availableSize.ptr), @bitCast(maxFontSize), @bitCast(minFontSize), @bitCast(flags));
     }
 };
 

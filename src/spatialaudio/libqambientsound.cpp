@@ -17,30 +17,15 @@ QAmbientSound* QAmbientSound_new(QAudioEngine* engine) {
 }
 
 QMetaObject* QAmbientSound_MetaObject(const QAmbientSound* self) {
-    auto* vqambientsound = dynamic_cast<const VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAmbientSound*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAmbientSound_Metacast(QAmbientSound* self, const char* param1) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAmbientSound*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAmbientSound_Metacall(QAmbientSound* self, int param1, int param2, void** param3) {
-    auto* vqambientsound = dynamic_cast<VirtualQAmbientSound*>(self);
-    if (vqambientsound && vqambientsound->isVirtualQAmbientSound) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAmbientSound*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAmbientSound_SetSource(QAmbientSound* self, const QUrl* url) {

@@ -18,7 +18,7 @@ extern "C" {
 typedef struct KTextToHTML KTextToHTML;
 #endif
 
-libqt_string KTextToHTML_ConvertToHtml(const libqt_string param1, const int* param2, int param3, int param4);
+libqt_string KTextToHTML_ConvertToHtml(const libqt_string plainText, const int* options, int maxUrlLen, int maxAddressLen);
 
 #ifdef __cplusplus
 } /* extern C */

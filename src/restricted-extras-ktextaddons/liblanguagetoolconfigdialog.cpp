@@ -47,30 +47,15 @@ TextGrammarCheck__LanguageToolConfigDialog* TextGrammarCheck__LanguageToolConfig
 }
 
 QMetaObject* TextGrammarCheck__LanguageToolConfigDialog_MetaObject(const TextGrammarCheck__LanguageToolConfigDialog* self) {
-    auto* vtextgrammarcheck__languagetoolconfigdialog = dynamic_cast<const VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarcheck__languagetoolconfigdialog && vtextgrammarcheck__languagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckLanguageToolConfigDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__LanguageToolConfigDialog_Metacast(TextGrammarCheck__LanguageToolConfigDialog* self, const char* param1) {
-    auto* vtextgrammarcheck__languagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarcheck__languagetoolconfigdialog && vtextgrammarcheck__languagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolConfigDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__LanguageToolConfigDialog_Metacall(TextGrammarCheck__LanguageToolConfigDialog* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__languagetoolconfigdialog = dynamic_cast<VirtualTextGrammarCheckLanguageToolConfigDialog*>(self);
-    if (vtextgrammarcheck__languagetoolconfigdialog && vtextgrammarcheck__languagetoolconfigdialog->isVirtualTextGrammarCheckLanguageToolConfigDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolConfigDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

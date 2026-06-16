@@ -7,12 +7,12 @@
 #include "libkstandardactions.h"
 #include "libkstandardactions.hxx"
 
-QAction* KStandardActions_KguiCreateInternal(int param1, QObject* param2) {
-    return KStandardActions::_kgui_createInternal(static_cast<KStandardActions::StandardAction>(param1), param2);
+QAction* KStandardActions_KguiCreateInternal(int id, QObject* parent) {
+    return KStandardActions::_kgui_createInternal(static_cast<KStandardActions::StandardAction>(id), parent);
 }
 
-libqt_string KStandardActions_Name(int param1) {
-    auto _ret = KStandardActions::name(static_cast<KStandardActions::StandardAction>(param1));
+libqt_string KStandardActions_Name(int id) {
+    auto _ret = KStandardActions::name(static_cast<KStandardActions::StandardAction>(id));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -36,6 +36,6 @@ libqt_list /* of int */ KStandardActions_ActionIds() {
     return _out;
 }
 
-int KStandardActions_ShortcutForActionId(int param1) {
-    return static_cast<int>(KStandardActions::shortcutForActionId(static_cast<KStandardActions::StandardAction>(param1)));
+int KStandardActions_ShortcutForActionId(int id) {
+    return static_cast<int>(KStandardActions::shortcutForActionId(static_cast<KStandardActions::StandardAction>(id)));
 }

@@ -31,95 +31,46 @@ KColumnHeadersModel* KColumnHeadersModel_new2(QObject* parent) {
 }
 
 QMetaObject* KColumnHeadersModel_MetaObject(const KColumnHeadersModel* self) {
-    auto* vkcolumnheadersmodel = dynamic_cast<const VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColumnHeadersModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColumnHeadersModel_Metacast(KColumnHeadersModel* self, const char* param1) {
-    auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColumnHeadersModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColumnHeadersModel_Metacall(KColumnHeadersModel* self, int param1, int param2, void** param3) {
-    auto* vkcolumnheadersmodel = dynamic_cast<VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColumnHeadersModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KColumnHeadersModel_RowCount(const KColumnHeadersModel* self, const QModelIndex* parent) {
-    auto* vkcolumnheadersmodel = dynamic_cast<const VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKColumnHeadersModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* KColumnHeadersModel_Data(const KColumnHeadersModel* self, const QModelIndex* index, int role) {
-    auto* vkcolumnheadersmodel = dynamic_cast<const VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKColumnHeadersModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 libqt_map /* of int to libqt_string */ KColumnHeadersModel_RoleNames(const KColumnHeadersModel* self) {
-    auto* vkcolumnheadersmodel = dynamic_cast<const VirtualKColumnHeadersModel*>(self);
-    if (vkcolumnheadersmodel && vkcolumnheadersmodel->isVirtualKColumnHeadersModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKColumnHeadersModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 QAbstractItemModel* KColumnHeadersModel_SourceModel(const KColumnHeadersModel* self) {

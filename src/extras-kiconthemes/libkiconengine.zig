@@ -389,8 +389,6 @@ pub const KIconEngine = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: KIconEngine `
@@ -552,8 +550,6 @@ pub const KIconEngine = extern struct {
     /// ### [Upstream resources](https://api.kde.org/kiconengine.html#key)
     ///
     /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

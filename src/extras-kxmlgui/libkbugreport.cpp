@@ -48,39 +48,19 @@ KBugReport* KBugReport_new2(const KAboutData* aboutData, QWidget* parent) {
 }
 
 QMetaObject* KBugReport_MetaObject(const KBugReport* self) {
-    auto* vkbugreport = dynamic_cast<const VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBugReport*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBugReport_Metacast(KBugReport* self, const char* param1) {
-    auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBugReport*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBugReport_Metacall(KBugReport* self, int param1, int param2, void** param3) {
-    auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBugReport*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KBugReport_Accept(KBugReport* self) {
-    auto* vkbugreport = dynamic_cast<VirtualKBugReport*>(self);
-    if (vkbugreport && vkbugreport->isVirtualKBugReport) {
-        self->accept();
-    } else {
-        ((VirtualKBugReport*)self)->accept();
-    }
+    self->accept();
 }
 
 // Base class handler implementation

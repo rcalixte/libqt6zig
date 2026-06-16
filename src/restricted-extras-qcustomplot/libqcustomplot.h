@@ -176,10 +176,10 @@ QMetaObject* QCP_GetEnumMetaObject12(int param1);
 const char* QCP_GetEnumName12(int param1);
 QMetaObject* QCP_GetEnumMetaObject13(int param1);
 const char* QCP_GetEnumName13(int param1);
-bool QCP_IsInvalidData(double param1);
-bool QCP_IsInvalidData2(double param1, double param2);
-void QCP_SetMarginValue(QMargins* param1, int param2, int param3);
-int QCP_GetMarginValue(const QMargins* param1, int param2);
+bool QCP_IsInvalidData(double value);
+bool QCP_IsInvalidData2(double value1, double value2);
+void QCP_SetMarginValue(QMargins* margins, int side, int value);
+int QCP_GetMarginValue(const QMargins* margins, int side);
 
 QCPVector2D* QCPVector2D_new(const QCPVector2D* other);
 QCPVector2D* QCPVector2D_new2(QCPVector2D* other);

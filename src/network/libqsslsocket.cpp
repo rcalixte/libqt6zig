@@ -34,39 +34,19 @@ QSslSocket* QSslSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QSslSocket_MetaObject(const QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<const VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSslSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSslSocket_Metacast(QSslSocket* self, const char* param1) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSslSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSslSocket_Metacall(QSslSocket* self, int param1, int param2, void** param3) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSslSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSslSocket_Resume(QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        self->resume();
-    } else {
-        ((VirtualQSslSocket*)self)->resume();
-    }
+    self->resume();
 }
 
 void QSslSocket_ConnectToHostEncrypted(QSslSocket* self, const libqt_string hostName, uint16_t port) {
@@ -81,49 +61,24 @@ void QSslSocket_ConnectToHostEncrypted2(QSslSocket* self, const libqt_string hos
 }
 
 bool QSslSocket_SetSocketDescriptor(QSslSocket* self, intptr_t socketDescriptor, int state, int openMode) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QAbstractSocket::SocketState>(state), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    } else {
-        return ((VirtualQSslSocket*)self)->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QAbstractSocket::SocketState>(state), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    }
+    return self->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QAbstractSocket::SocketState>(state), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 void QSslSocket_ConnectToHost(QSslSocket* self, const libqt_string hostName, uint16_t port, int openMode, int protocol) {
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        self->connectToHost(hostName_QString, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
-    } else {
-        ((VirtualQSslSocket*)self)->connectToHost(hostName_QString, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
-    }
+    self->connectToHost(hostName_QString, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
 }
 
 void QSslSocket_DisconnectFromHost(QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        self->disconnectFromHost();
-    } else {
-        ((VirtualQSslSocket*)self)->disconnectFromHost();
-    }
+    self->disconnectFromHost();
 }
 
 void QSslSocket_SetSocketOption(QSslSocket* self, int option, const QVariant* value) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        self->setSocketOption(static_cast<QAbstractSocket::SocketOption>(option), *value);
-    } else {
-        ((VirtualQSslSocket*)self)->setSocketOption(static_cast<QAbstractSocket::SocketOption>(option), *value);
-    }
+    self->setSocketOption(static_cast<QAbstractSocket::SocketOption>(option), *value);
 }
 
 QVariant* QSslSocket_SocketOption(QSslSocket* self, int option) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return new QVariant(self->socketOption(static_cast<QAbstractSocket::SocketOption>(option)));
-    } else {
-        return new QVariant(((VirtualQSslSocket*)self)->socketOption(static_cast<QAbstractSocket::SocketOption>(option)));
-    }
+    return new QVariant(self->socketOption(static_cast<QAbstractSocket::SocketOption>(option)));
 }
 
 int QSslSocket_Mode(const QSslSocket* self) {
@@ -176,57 +131,27 @@ void QSslSocket_SetPeerVerifyName(QSslSocket* self, const libqt_string hostName)
 }
 
 long long QSslSocket_BytesAvailable(const QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<const VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return static_cast<long long>(self->bytesAvailable());
-    } else {
-        return static_cast<long long>(((VirtualQSslSocket*)self)->bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 long long QSslSocket_BytesToWrite(const QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<const VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return static_cast<long long>(self->bytesToWrite());
-    } else {
-        return static_cast<long long>(((VirtualQSslSocket*)self)->bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 bool QSslSocket_CanReadLine(const QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<const VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->canReadLine();
-    } else {
-        return ((VirtualQSslSocket*)self)->canReadLine();
-    }
+    return self->canReadLine();
 }
 
 void QSslSocket_Close(QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        self->close();
-    } else {
-        ((VirtualQSslSocket*)self)->close();
-    }
+    self->close();
 }
 
 bool QSslSocket_AtEnd(const QSslSocket* self) {
-    auto* vqsslsocket = dynamic_cast<const VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->atEnd();
-    } else {
-        return ((VirtualQSslSocket*)self)->atEnd();
-    }
+    return self->atEnd();
 }
 
 void QSslSocket_SetReadBufferSize(QSslSocket* self, long long size) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        self->setReadBufferSize(static_cast<qint64>(size));
-    } else {
-        ((VirtualQSslSocket*)self)->setReadBufferSize(static_cast<qint64>(size));
-    }
+    self->setReadBufferSize(static_cast<qint64>(size));
 }
 
 long long QSslSocket_EncryptedBytesAvailable(const QSslSocket* self) {
@@ -333,12 +258,7 @@ QSslKey* QSslSocket_PrivateKey(const QSslSocket* self) {
 }
 
 bool QSslSocket_WaitForConnected(QSslSocket* self, int msecs) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->waitForConnected(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQSslSocket*)self)->waitForConnected(static_cast<int>(msecs));
-    }
+    return self->waitForConnected(static_cast<int>(msecs));
 }
 
 bool QSslSocket_WaitForEncrypted(QSslSocket* self) {
@@ -346,30 +266,15 @@ bool QSslSocket_WaitForEncrypted(QSslSocket* self) {
 }
 
 bool QSslSocket_WaitForReadyRead(QSslSocket* self, int msecs) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQSslSocket*)self)->waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 bool QSslSocket_WaitForBytesWritten(QSslSocket* self, int msecs) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQSslSocket*)self)->waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 bool QSslSocket_WaitForDisconnected(QSslSocket* self, int msecs) {
-    auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
-    if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return self->waitForDisconnected(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQSslSocket*)self)->waitForDisconnected(static_cast<int>(msecs));
-    }
+    return self->waitForDisconnected(static_cast<int>(msecs));
 }
 
 libqt_list /* of QSslError* */ QSslSocket_SslHandshakeErrors(const QSslSocket* self) {

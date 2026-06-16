@@ -15,101 +15,48 @@ KTextEditor__CodeCompletionModelControllerInterface* KTextEditor__CodeCompletion
 
 bool KTextEditor__CodeCompletionModelControllerInterface_ShouldStartCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const libqt_string insertedText, bool userInsertion, const KTextEditor__Cursor* position) {
     QString insertedText_QString = QString::fromUtf8(insertedText.data, insertedText.len);
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return self->shouldStartCompletion(view, insertedText_QString, userInsertion, *position);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->shouldStartCompletion(view, insertedText_QString, userInsertion, *position);
-    }
+    return self->shouldStartCompletion(view, insertedText_QString, userInsertion, *position);
 }
 
 KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_CompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Cursor* position) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return new KTextEditor::Range(self->completionRange(view, *position));
-    } else {
-        return new KTextEditor::Range(((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->completionRange(view, *position));
-    }
+    return new KTextEditor::Range(self->completionRange(view, *position));
 }
 
 KTextEditor__Range* KTextEditor__CodeCompletionModelControllerInterface_UpdateCompletionRange(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return new KTextEditor::Range(self->updateCompletionRange(view, *range));
-    } else {
-        return new KTextEditor::Range(((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->updateCompletionRange(view, *range));
-    }
+    return new KTextEditor::Range(self->updateCompletionRange(view, *range));
 }
 
 libqt_string KTextEditor__CodeCompletionModelControllerInterface_FilterString(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const KTextEditor__Cursor* position) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        auto _ret = self->filterString(view, *range, *position);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->filterString(view, *range, *position);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->filterString(view, *range, *position);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool KTextEditor__CodeCompletionModelControllerInterface_ShouldAbortCompletion(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view, const KTextEditor__Range* range, const libqt_string currentCompletion) {
     QString currentCompletion_QString = QString::fromUtf8(currentCompletion.data, currentCompletion.len);
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return self->shouldAbortCompletion(view, *range, currentCompletion_QString);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->shouldAbortCompletion(view, *range, currentCompletion_QString);
-    }
+    return self->shouldAbortCompletion(view, *range, currentCompletion_QString);
 }
 
 bool KTextEditor__CodeCompletionModelControllerInterface_ShouldExecute(KTextEditor__CodeCompletionModelControllerInterface* self, const QModelIndex* selected, QChar* inserted) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return self->shouldExecute(*selected, *inserted);
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->shouldExecute(*selected, *inserted);
-    }
+    return self->shouldExecute(*selected, *inserted);
 }
 
 void KTextEditor__CodeCompletionModelControllerInterface_Aborted(KTextEditor__CodeCompletionModelControllerInterface* self, KTextEditor__View* view) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        self->aborted(view);
-    } else {
-        ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->aborted(view);
-    }
+    self->aborted(view);
 }
 
 int KTextEditor__CodeCompletionModelControllerInterface_MatchingItem(KTextEditor__CodeCompletionModelControllerInterface* self, const QModelIndex* matched) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return static_cast<int>(self->matchingItem(*matched));
-    } else {
-        return static_cast<int>(((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->matchingItem(*matched));
-    }
+    return static_cast<int>(self->matchingItem(*matched));
 }
 
 bool KTextEditor__CodeCompletionModelControllerInterface_ShouldHideItemsWithEqualNames(const KTextEditor__CodeCompletionModelControllerInterface* self) {
-    auto* vktexteditor__codecompletionmodelcontrollerinterface = dynamic_cast<const VirtualKTextEditorCodeCompletionModelControllerInterface*>(self);
-    if (vktexteditor__codecompletionmodelcontrollerinterface && vktexteditor__codecompletionmodelcontrollerinterface->isVirtualKTextEditorCodeCompletionModelControllerInterface) {
-        return self->shouldHideItemsWithEqualNames();
-    } else {
-        return ((VirtualKTextEditorCodeCompletionModelControllerInterface*)self)->shouldHideItemsWithEqualNames();
-    }
+    return self->shouldHideItemsWithEqualNames();
 }
 
 void KTextEditor__CodeCompletionModelControllerInterface_OperatorAssign(KTextEditor__CodeCompletionModelControllerInterface* self, const KTextEditor__CodeCompletionModelControllerInterface* param1) {

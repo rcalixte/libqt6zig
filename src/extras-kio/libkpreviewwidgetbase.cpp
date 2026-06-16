@@ -44,30 +44,15 @@ KPreviewWidgetBase* KPreviewWidgetBase_new(QWidget* parent) {
 }
 
 QMetaObject* KPreviewWidgetBase_MetaObject(const KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<const VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPreviewWidgetBase*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPreviewWidgetBase_Metacast(KPreviewWidgetBase* self, const char* param1) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPreviewWidgetBase_Metacall(KPreviewWidgetBase* self, int param1, int param2, void** param3) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPreviewWidgetBase*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ KPreviewWidgetBase_SupportedMimeTypes(const KPreviewWidgetBase* self) {
@@ -92,21 +77,11 @@ libqt_list /* of libqt_string */ KPreviewWidgetBase_SupportedMimeTypes(const KPr
 }
 
 void KPreviewWidgetBase_ShowPreview(KPreviewWidgetBase* self, const QUrl* url) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->showPreview(*url);
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->showPreview(*url);
-    }
+    self->showPreview(*url);
 }
 
 void KPreviewWidgetBase_ClearPreview(KPreviewWidgetBase* self) {
-    auto* vkpreviewwidgetbase = dynamic_cast<VirtualKPreviewWidgetBase*>(self);
-    if (vkpreviewwidgetbase && vkpreviewwidgetbase->isVirtualKPreviewWidgetBase) {
-        vkpreviewwidgetbase->clearPreview();
-    } else {
-        ((VirtualKPreviewWidgetBase*)self)->clearPreview();
-    }
+    self->clearPreview();
 }
 
 // Base class handler implementation

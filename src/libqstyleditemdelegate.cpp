@@ -32,84 +32,39 @@ QStyledItemDelegate* QStyledItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* QStyledItemDelegate_MetaObject(const QStyledItemDelegate* self) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQStyledItemDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QStyledItemDelegate_Metacast(QStyledItemDelegate* self, const char* param1) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QStyledItemDelegate_Metacall(QStyledItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vqstyleditemdelegate = dynamic_cast<VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QStyledItemDelegate_Paint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        self->paint(painter, *option, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->paint(painter, *option, *index);
-    }
+    self->paint(painter, *option, *index);
 }
 
 QSize* QStyledItemDelegate_SizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return new QSize(self->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQStyledItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->sizeHint(*option, *index));
 }
 
 QWidget* QStyledItemDelegate_CreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        return self->createEditor(parent, *option, *index);
-    } else {
-        return ((VirtualQStyledItemDelegate*)self)->createEditor(parent, *option, *index);
-    }
+    return self->createEditor(parent, *option, *index);
 }
 
 void QStyledItemDelegate_SetEditorData(const QStyledItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        self->setEditorData(editor, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->setEditorData(editor, *index);
-    }
+    self->setEditorData(editor, *index);
 }
 
 void QStyledItemDelegate_SetModelData(const QStyledItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        self->setModelData(editor, model, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->setModelData(editor, model, *index);
-    }
+    self->setModelData(editor, model, *index);
 }
 
 void QStyledItemDelegate_UpdateEditorGeometry(const QStyledItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        self->updateEditorGeometry(editor, *option, *index);
-    } else {
-        ((VirtualQStyledItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
-    }
+    self->updateEditorGeometry(editor, *option, *index);
 }
 
 QItemEditorFactory* QStyledItemDelegate_ItemEditorFactory(const QStyledItemDelegate* self) {
@@ -121,28 +76,15 @@ void QStyledItemDelegate_SetItemEditorFactory(QStyledItemDelegate* self, QItemEd
 }
 
 libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, const QVariant* value, const QLocale* locale) {
-    auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
-    if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
-        auto _ret = self->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQStyledItemDelegate*)self)->displayText(*value, *locale);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->displayText(*value, *locale);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QStyledItemDelegate_InitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index) {

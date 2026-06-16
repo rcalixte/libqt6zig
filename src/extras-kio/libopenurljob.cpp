@@ -34,30 +34,15 @@ KIO__OpenUrlJob* KIO__OpenUrlJob_new4(const QUrl* url, const libqt_string mimeTy
 }
 
 QMetaObject* KIO__OpenUrlJob_MetaObject(const KIO__OpenUrlJob* self) {
-    auto* vkio__openurljob = dynamic_cast<const VirtualKIOOpenUrlJob*>(self);
-    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOOpenUrlJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__OpenUrlJob_Metacast(KIO__OpenUrlJob* self, const char* param1) {
-    auto* vkio__openurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__OpenUrlJob_Metacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3) {
-    auto* vkio__openurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOOpenUrlJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__OpenUrlJob_SetDeleteTemporaryFile(KIO__OpenUrlJob* self, bool b) {
@@ -91,12 +76,7 @@ void KIO__OpenUrlJob_SetFollowRedirections(KIO__OpenUrlJob* self, bool b) {
 }
 
 void KIO__OpenUrlJob_Start(KIO__OpenUrlJob* self) {
-    auto* vkio__openurljob = dynamic_cast<VirtualKIOOpenUrlJob*>(self);
-    if (vkio__openurljob && vkio__openurljob->isVirtualKIOOpenUrlJob) {
-        self->start();
-    } else {
-        ((VirtualKIOOpenUrlJob*)self)->start();
-    }
+    self->start();
 }
 
 bool KIO__OpenUrlJob_IsExecutableFile(const QUrl* url, const libqt_string mimetypeName) {

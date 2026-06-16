@@ -27,12 +27,12 @@ pub const KNotificationPermission = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QObject `
+    /// ` context: QObject `
     ///
-    /// ` param2: *const fn (funcparam1: qnamespace_enums.PermissionStatus) callconv(.c) void `
+    /// ` callback: *const fn (funcparam1: qnamespace_enums.PermissionStatus) callconv(.c) void `
     ///
-    pub fn RequestPermission(param1: anytype, param2: *const fn (i32) callconv(.c) void) void {
-        comptime _ = @TypeOf(param1)._is_QObject;
-        qtc.KNotificationPermission_RequestPermission(@ptrCast(param1.ptr), @bitCast(@intFromPtr(param2)));
+    pub fn RequestPermission(context: anytype, callback: *const fn (i32) callconv(.c) void) void {
+        comptime _ = @TypeOf(context)._is_QObject;
+        qtc.KNotificationPermission_RequestPermission(@ptrCast(context.ptr), @bitCast(@intFromPtr(callback)));
     }
 };

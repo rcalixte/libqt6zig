@@ -42,30 +42,15 @@ QRasterWindow* QRasterWindow_new2(QWindow* parent) {
 }
 
 QMetaObject* QRasterWindow_MetaObject(const QRasterWindow* self) {
-    auto* vqrasterwindow = dynamic_cast<const VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQRasterWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QRasterWindow_Metacast(QRasterWindow* self, const char* param1) {
-    auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQRasterWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QRasterWindow_Metacall(QRasterWindow* self, int param1, int param2, void** param3) {
-    auto* vqrasterwindow = dynamic_cast<VirtualQRasterWindow*>(self);
-    if (vqrasterwindow && vqrasterwindow->isVirtualQRasterWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQRasterWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QRasterWindow_Metric(const QRasterWindow* self, int metric) {

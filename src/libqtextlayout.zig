@@ -354,14 +354,14 @@ pub const QTextLayout = extern struct {
     ///
     /// ` self: QTextLayout `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn SetText(self: QTextLayout, stringVal: []const u8) void {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn SetText(self: QTextLayout, string: []const u8) void {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        qtc.QTextLayout_SetText(@ptrCast(self.ptr), stringVal_str);
+        qtc.QTextLayout_SetText(@ptrCast(self.ptr), string_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextlayout.html#text)

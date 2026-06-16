@@ -23,30 +23,15 @@ QBluetoothServer* QBluetoothServer_new2(int serverType, QObject* parent) {
 }
 
 QMetaObject* QBluetoothServer_MetaObject(const QBluetoothServer* self) {
-    auto* vqbluetoothserver = dynamic_cast<const VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBluetoothServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBluetoothServer_Metacast(QBluetoothServer* self, const char* param1) {
-    auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBluetoothServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBluetoothServer_Metacall(QBluetoothServer* self, int param1, int param2, void** param3) {
-    auto* vqbluetoothserver = dynamic_cast<VirtualQBluetoothServer*>(self);
-    if (vqbluetoothserver && vqbluetoothserver->isVirtualQBluetoothServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBluetoothServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QBluetoothServer_Close(QBluetoothServer* self) {

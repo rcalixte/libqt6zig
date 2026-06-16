@@ -245,70 +245,70 @@ void KIO__CopyJob_Delete(KIO__CopyJob* self) {
     delete self;
 }
 
-KIO__CopyJob* KIO_Copy(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::copy(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__CopyJob* KIO_Copy(const QUrl* src, const QUrl* dest, int flags) {
+    return KIO::copy(*src, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_CopyAs(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::copyAs(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__CopyJob* KIO_CopyAs(const QUrl* src, const QUrl* dest, int flags) {
+    return KIO::copyAs(*src, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Copy2(const libqt_list /* of QUrl* */ param1, const QUrl* param2, int param3) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__CopyJob* KIO_Copy2(const libqt_list /* of QUrl* */ src, const QUrl* dest, int flags) {
+    QList<QUrl> src_QList;
+    src_QList.reserve(src.len);
+    QUrl** src_arr = static_cast<QUrl**>(src.data);
+    for (size_t i = 0; i < src.len; ++i) {
+        src_QList.push_back(*(src_arr[i]));
     }
-    return KIO::copy(param1_QList, *param2, static_cast<KIO::JobFlags>(param3));
+    return KIO::copy(src_QList, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Move(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::move(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__CopyJob* KIO_Move(const QUrl* src, const QUrl* dest, int flags) {
+    return KIO::move(*src, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_MoveAs(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::moveAs(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__CopyJob* KIO_MoveAs(const QUrl* src, const QUrl* dest, int flags) {
+    return KIO::moveAs(*src, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Move2(const libqt_list /* of QUrl* */ param1, const QUrl* param2, int param3) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__CopyJob* KIO_Move2(const libqt_list /* of QUrl* */ src, const QUrl* dest, int flags) {
+    QList<QUrl> src_QList;
+    src_QList.reserve(src.len);
+    QUrl** src_arr = static_cast<QUrl**>(src.data);
+    for (size_t i = 0; i < src.len; ++i) {
+        src_QList.push_back(*(src_arr[i]));
     }
-    return KIO::move(param1_QList, *param2, static_cast<KIO::JobFlags>(param3));
+    return KIO::move(src_QList, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Link(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::link(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__CopyJob* KIO_Link(const QUrl* src, const QUrl* destDir, int flags) {
+    return KIO::link(*src, *destDir, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Link2(const libqt_list /* of QUrl* */ param1, const QUrl* param2, int param3) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__CopyJob* KIO_Link2(const libqt_list /* of QUrl* */ src, const QUrl* destDir, int flags) {
+    QList<QUrl> src_QList;
+    src_QList.reserve(src.len);
+    QUrl** src_arr = static_cast<QUrl**>(src.data);
+    for (size_t i = 0; i < src.len; ++i) {
+        src_QList.push_back(*(src_arr[i]));
     }
-    return KIO::link(param1_QList, *param2, static_cast<KIO::JobFlags>(param3));
+    return KIO::link(src_QList, *destDir, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_LinkAs(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::linkAs(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__CopyJob* KIO_LinkAs(const QUrl* src, const QUrl* dest, int flags) {
+    return KIO::linkAs(*src, *dest, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Trash(const QUrl* param1, int param2) {
-    return KIO::trash(*param1, static_cast<KIO::JobFlags>(param2));
+KIO__CopyJob* KIO_Trash(const QUrl* src, int flags) {
+    return KIO::trash(*src, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__CopyJob* KIO_Trash2(const libqt_list /* of QUrl* */ param1, int param2) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__CopyJob* KIO_Trash2(const libqt_list /* of QUrl* */ src, int flags) {
+    QList<QUrl> src_QList;
+    src_QList.reserve(src.len);
+    QUrl** src_arr = static_cast<QUrl**>(src.data);
+    for (size_t i = 0; i < src.len; ++i) {
+        src_QList.push_back(*(src_arr[i]));
     }
-    return KIO::trash(param1_QList, static_cast<KIO::JobFlags>(param2));
+    return KIO::trash(src_QList, static_cast<KIO::JobFlags>(flags));
 }

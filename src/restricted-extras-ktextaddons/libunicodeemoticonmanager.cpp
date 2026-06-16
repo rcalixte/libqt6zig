@@ -22,30 +22,15 @@ TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonMan
 }
 
 QMetaObject* TextEmoticonsCore__UnicodeEmoticonManager_MetaObject(const TextEmoticonsCore__UnicodeEmoticonManager* self) {
-    auto* vtextemoticonscore__unicodeemoticonmanager = dynamic_cast<const VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscore__unicodeemoticonmanager && vtextemoticonscore__unicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEmoticonsCore__UnicodeEmoticonManager_Metacast(TextEmoticonsCore__UnicodeEmoticonManager* self, const char* param1) {
-    auto* vtextemoticonscore__unicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscore__unicodeemoticonmanager && vtextemoticonscore__unicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEmoticonsCore__UnicodeEmoticonManager_Metacall(TextEmoticonsCore__UnicodeEmoticonManager* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonscore__unicodeemoticonmanager = dynamic_cast<VirtualTextEmoticonsCoreUnicodeEmoticonManager*>(self);
-    if (vtextemoticonscore__unicodeemoticonmanager && vtextemoticonscore__unicodeemoticonmanager->isVirtualTextEmoticonsCoreUnicodeEmoticonManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEmoticonsCoreUnicodeEmoticonManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextEmoticonsCore__UnicodeEmoticonManager* TextEmoticonsCore__UnicodeEmoticonManager_Self() {

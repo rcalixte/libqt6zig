@@ -2119,30 +2119,30 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    /// ` param3: flag of listjob_enums.ListFlag `
+    /// ` listFlags: flag of listjob_enums.ListFlag `
     ///
-    pub fn ListDir(param1: anytype, param2: i32, param3: i32) KIO__ListJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_ListDir(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+    pub fn ListDir(url: anytype, flags: i32, listFlags: i32) KIO__ListJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_ListDir(@ptrCast(url.ptr), @bitCast(flags), @bitCast(listFlags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#listRecursive)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    /// ` param3: flag of listjob_enums.ListFlag `
+    /// ` listFlags: flag of listjob_enums.ListFlag `
     ///
-    pub fn ListRecursive(param1: anytype, param2: i32, param3: i32) KIO__ListJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_ListRecursive(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+    pub fn ListRecursive(url: anytype, flags: i32, listFlags: i32) KIO__ListJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_ListRecursive(@ptrCast(url.ptr), @bitCast(flags), @bitCast(listFlags)) };
     }
 };
 

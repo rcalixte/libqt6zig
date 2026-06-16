@@ -48,30 +48,15 @@ KXYSelector* KXYSelector_new2() {
 }
 
 QMetaObject* KXYSelector_MetaObject(const KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<const VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKXYSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KXYSelector_Metacast(KXYSelector* self, const char* param1) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKXYSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KXYSelector_Metacall(KXYSelector* self, int param1, int param2, void** param3) {
-    auto* vkxyselector = dynamic_cast<VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKXYSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KXYSelector_SetValues(KXYSelector* self, int xPos, int yPos) {
@@ -107,12 +92,7 @@ QRect* KXYSelector_ContentsRect(const KXYSelector* self) {
 }
 
 QSize* KXYSelector_MinimumSizeHint(const KXYSelector* self) {
-    auto* vkxyselector = dynamic_cast<const VirtualKXYSelector*>(self);
-    if (vkxyselector && vkxyselector->isVirtualKXYSelector) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKXYSelector*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void KXYSelector_ValueChanged(KXYSelector* self, int x, int y) {

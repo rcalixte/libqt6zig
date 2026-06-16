@@ -21,30 +21,15 @@ KCompositeJob* KCompositeJob_new2(QObject* parent) {
 }
 
 QMetaObject* KCompositeJob_MetaObject(const KCompositeJob* self) {
-    auto* vkcompositejob = dynamic_cast<const VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCompositeJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCompositeJob_Metacast(KCompositeJob* self, const char* param1) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCompositeJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCompositeJob_Metacall(KCompositeJob* self, int param1, int param2, void** param3) {
-    auto* vkcompositejob = dynamic_cast<VirtualKCompositeJob*>(self);
-    if (vkcompositejob && vkcompositejob->isVirtualKCompositeJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCompositeJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KCompositeJob_AddSubjob(KCompositeJob* self, KJob* job) {

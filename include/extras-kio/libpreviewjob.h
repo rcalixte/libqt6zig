@@ -175,7 +175,7 @@ void KIO__PreviewJob_OnIsSignalConnected(const KIO__PreviewJob* self, intptr_t s
 bool KIO__PreviewJob_SuperIsSignalConnected(const KIO__PreviewJob* self, const QMetaMethod* signal);
 void KIO__PreviewJob_Delete(KIO__PreviewJob* self);
 
-KIO__PreviewJob* KIO_FilePreview(const KFileItemList* param1, const QSize* param2, const libqt_list /* of libqt_string */ param3);
+KIO__PreviewJob* KIO_FilePreview(const KFileItemList* items, const QSize* size, const libqt_list /* of libqt_string */ enabledPlugins);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -57,30 +57,15 @@ KFontChooser* KFontChooser_new4(int flags, QWidget* parent) {
 }
 
 QMetaObject* KFontChooser_MetaObject(const KFontChooser* self) {
-    auto* vkfontchooser = dynamic_cast<const VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFontChooser*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFontChooser_Metacast(KFontChooser* self, const char* param1) {
-    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFontChooser*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFontChooser_Metacall(KFontChooser* self, int param1, int param2, void** param3) {
-    auto* vkfontchooser = dynamic_cast<VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontChooser*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFontChooser_EnableColumn(KFontChooser* self, int column, bool state) {
@@ -173,12 +158,7 @@ void KFontChooser_SetMinVisibleItems(KFontChooser* self, int visibleItems) {
 }
 
 QSize* KFontChooser_SizeHint(const KFontChooser* self) {
-    auto* vkfontchooser = dynamic_cast<const VirtualKFontChooser*>(self);
-    if (vkfontchooser && vkfontchooser->isVirtualKFontChooser) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKFontChooser*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KFontChooser_FontSelected(KFontChooser* self, const QFont* font) {

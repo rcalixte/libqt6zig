@@ -20,7 +20,7 @@ typedef struct KConfigGui KConfigGui;
 #endif
 
 KConfig* KConfigGui_SessionConfig();
-void KConfigGui_SetSessionConfig(const libqt_string param1, const libqt_string param2);
+void KConfigGui_SetSessionConfig(const libqt_string id, const libqt_string key);
 bool KConfigGui_HasSessionConfig();
 
 #ifdef __cplusplus

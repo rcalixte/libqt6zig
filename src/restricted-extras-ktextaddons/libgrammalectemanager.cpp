@@ -20,30 +20,15 @@ TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_new2(
 }
 
 QMetaObject* TextGrammarCheck__GrammalecteManager_MetaObject(const TextGrammarCheck__GrammalecteManager* self) {
-    auto* vtextgrammarcheck__grammalectemanager = dynamic_cast<const VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheck__grammalectemanager && vtextgrammarcheck__grammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckGrammalecteManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__GrammalecteManager_Metacast(TextGrammarCheck__GrammalecteManager* self, const char* param1) {
-    auto* vtextgrammarcheck__grammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheck__grammalectemanager && vtextgrammarcheck__grammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__GrammalecteManager_Metacall(TextGrammarCheck__GrammalecteManager* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__grammalectemanager = dynamic_cast<VirtualTextGrammarCheckGrammalecteManager*>(self);
-    if (vtextgrammarcheck__grammalectemanager && vtextgrammarcheck__grammalectemanager->isVirtualTextGrammarCheckGrammalecteManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextGrammarCheck__GrammalecteManager* TextGrammarCheck__GrammalecteManager_Self() {

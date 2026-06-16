@@ -59,30 +59,15 @@ TextTranslator__TranslatorTextEdit* TextTranslator__TranslatorTextEdit_new2() {
 }
 
 QMetaObject* TextTranslator__TranslatorTextEdit_MetaObject(const TextTranslator__TranslatorTextEdit* self) {
-    auto* vtexttranslator__translatortextedit = dynamic_cast<const VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslator__translatortextedit && vtexttranslator__translatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorTextEdit_Metacast(TextTranslator__TranslatorTextEdit* self, const char* param1) {
-    auto* vtexttranslator__translatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslator__translatortextedit && vtexttranslator__translatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorTextEdit_Metacall(TextTranslator__TranslatorTextEdit* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatortextedit = dynamic_cast<VirtualTextTranslatorTranslatorTextEdit*>(self);
-    if (vtexttranslator__translatortextedit && vtexttranslator__translatortextedit->isVirtualTextTranslatorTranslatorTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextTranslator__TranslatorTextEdit_TranslateText(TextTranslator__TranslatorTextEdit* self) {
@@ -2365,30 +2350,15 @@ TextTranslator__TranslatorWidget* TextTranslator__TranslatorWidget_new4(const li
 }
 
 QMetaObject* TextTranslator__TranslatorWidget_MetaObject(const TextTranslator__TranslatorWidget* self) {
-    auto* vtexttranslator__translatorwidget = dynamic_cast<const VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslator__translatorwidget && vtexttranslator__translatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorWidget_Metacast(TextTranslator__TranslatorWidget* self, const char* param1) {
-    auto* vtexttranslator__translatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslator__translatorwidget && vtexttranslator__translatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorWidget_Metacall(TextTranslator__TranslatorWidget* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorwidget = dynamic_cast<VirtualTextTranslatorTranslatorWidget*>(self);
-    if (vtexttranslator__translatorwidget && vtexttranslator__translatorwidget->isVirtualTextTranslatorTranslatorWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextTranslator__TranslatorWidget_SetTextToTranslate(TextTranslator__TranslatorWidget* self, const libqt_string textToTranslate) {

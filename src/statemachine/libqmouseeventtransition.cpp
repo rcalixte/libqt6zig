@@ -31,30 +31,15 @@ QMouseEventTransition* QMouseEventTransition_new4(QObject* object, int typeVal, 
 }
 
 QMetaObject* QMouseEventTransition_MetaObject(const QMouseEventTransition* self) {
-    auto* vqmouseeventtransition = dynamic_cast<const VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMouseEventTransition*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMouseEventTransition_Metacast(QMouseEventTransition* self, const char* param1) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMouseEventTransition_Metacall(QMouseEventTransition* self, int param1, int param2, void** param3) {
-    auto* vqmouseeventtransition = dynamic_cast<VirtualQMouseEventTransition*>(self);
-    if (vqmouseeventtransition && vqmouseeventtransition->isVirtualQMouseEventTransition) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMouseEventTransition*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QMouseEventTransition_Button(const QMouseEventTransition* self) {

@@ -57,39 +57,19 @@ KCharSelect* KCharSelect_new4(QWidget* parent, QObject* actionParent, const int 
 }
 
 QMetaObject* KCharSelect_MetaObject(const KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<const VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCharSelect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCharSelect_Metacast(KCharSelect* self, const char* param1) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCharSelect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCharSelect_Metacall(KCharSelect* self, int param1, int param2, void** param3) {
-    auto* vkcharselect = dynamic_cast<VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCharSelect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KCharSelect_SizeHint(const KCharSelect* self) {
-    auto* vkcharselect = dynamic_cast<const VirtualKCharSelect*>(self);
-    if (vkcharselect && vkcharselect->isVirtualKCharSelect) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKCharSelect*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KCharSelect_SetAllPlanesEnabled(KCharSelect* self, bool all) {

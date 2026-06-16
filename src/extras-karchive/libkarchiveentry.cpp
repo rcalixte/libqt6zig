@@ -71,21 +71,11 @@ libqt_string KArchiveEntry_SymLinkTarget(const KArchiveEntry* self) {
 }
 
 bool KArchiveEntry_IsFile(const KArchiveEntry* self) {
-    auto* vkarchiveentry = dynamic_cast<const VirtualKArchiveEntry*>(self);
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        return self->isFile();
-    } else {
-        return ((VirtualKArchiveEntry*)self)->isFile();
-    }
+    return self->isFile();
 }
 
 bool KArchiveEntry_IsDirectory(const KArchiveEntry* self) {
-    auto* vkarchiveentry = dynamic_cast<const VirtualKArchiveEntry*>(self);
-    if (vkarchiveentry && vkarchiveentry->isVirtualKArchiveEntry) {
-        return self->isDirectory();
-    } else {
-        return ((VirtualKArchiveEntry*)self)->isDirectory();
-    }
+    return self->isDirectory();
 }
 
 void KArchiveEntry_VirtualHook(KArchiveEntry* self, int id, void* data) {

@@ -13,9 +13,9 @@ QTextBoundaryFinder* QTextBoundaryFinder_new2(const QTextBoundaryFinder* other) 
     return new QTextBoundaryFinder(*other);
 }
 
-QTextBoundaryFinder* QTextBoundaryFinder_new3(int typeVal, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QTextBoundaryFinder(static_cast<QTextBoundaryFinder::BoundaryType>(typeVal), stringVal_QString);
+QTextBoundaryFinder* QTextBoundaryFinder_new3(int typeVal, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QTextBoundaryFinder(static_cast<QTextBoundaryFinder::BoundaryType>(typeVal), string_QString);
 }
 
 QTextBoundaryFinder* QTextBoundaryFinder_new4(int typeVal, const QChar* chars, ptrdiff_t length) {

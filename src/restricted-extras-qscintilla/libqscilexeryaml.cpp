@@ -23,30 +23,15 @@ QsciLexerYAML* QsciLexerYAML_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerYAML_MetaObject(const QsciLexerYAML* self) {
-    auto* vqscilexeryaml = dynamic_cast<const VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerYAML*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerYAML_Metacast(QsciLexerYAML* self, const char* param1) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerYAML*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerYAML_Metacall(QsciLexerYAML* self, int param1, int param2, void** param3) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerYAML*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerYAML_Language(const QsciLexerYAML* self) {
@@ -98,12 +83,7 @@ bool QsciLexerYAML_FoldComments(const QsciLexerYAML* self) {
 }
 
 void QsciLexerYAML_SetFoldComments(QsciLexerYAML* self, bool fold) {
-    auto* vqscilexeryaml = dynamic_cast<VirtualQsciLexerYAML*>(self);
-    if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerYAML*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 // Base class handler implementation

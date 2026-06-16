@@ -31,19 +31,19 @@ typedef struct KCodecs__Encoder KCodecs__Encoder;
 typedef struct QByteArrayView QByteArrayView;
 #endif
 
-libqt_string KCodecs_QuotedPrintableEncode(libqt_string param1, bool param2);
-void KCodecs_QuotedPrintableEncode2(libqt_string param1, libqt_string param2, bool param3);
-libqt_string KCodecs_QuotedPrintableDecode(libqt_string param1);
-void KCodecs_QuotedPrintableDecode2(libqt_string param1, libqt_string param2);
-libqt_string KCodecs_Uudecode(libqt_string param1);
-void KCodecs_Uudecode2(libqt_string param1, libqt_string param2);
-libqt_string KCodecs_Base64Encode(libqt_string param1);
-void KCodecs_Base64Encode2(libqt_string param1, libqt_string param2, bool param3);
-libqt_string KCodecs_Base64Decode(libqt_string param1);
-void KCodecs_Base64Decode2(libqt_string param1, libqt_string param2);
-libqt_string KCodecs_DecodeRFC2047String(libqt_string param1);
-libqt_string KCodecs_EncodeRFC2047String(libqt_string param1, const libqt_string param2);
-libqt_string KCodecs_Base45Decode(libqt_string param1);
+libqt_string KCodecs_QuotedPrintableEncode(libqt_string in, bool useCRLF);
+void KCodecs_QuotedPrintableEncode2(libqt_string in, libqt_string out, bool useCRLF);
+libqt_string KCodecs_QuotedPrintableDecode(libqt_string in);
+void KCodecs_QuotedPrintableDecode2(libqt_string in, libqt_string out);
+libqt_string KCodecs_Uudecode(libqt_string in);
+void KCodecs_Uudecode2(libqt_string in, libqt_string out);
+libqt_string KCodecs_Base64Encode(libqt_string in);
+void KCodecs_Base64Encode2(libqt_string in, libqt_string out, bool insertLFs);
+libqt_string KCodecs_Base64Decode(libqt_string in);
+void KCodecs_Base64Decode2(libqt_string in, libqt_string out);
+libqt_string KCodecs_DecodeRFC2047String(libqt_string text);
+libqt_string KCodecs_EncodeRFC2047String(libqt_string src, const libqt_string charset);
+libqt_string KCodecs_Base45Decode(libqt_string in);
 
 KCodecs__Codec* KCodecs__Codec_CodecForName(libqt_string name);
 ptrdiff_t KCodecs__Codec_MaxEncodedSizeFor(const KCodecs__Codec* self, ptrdiff_t insize, int newline);

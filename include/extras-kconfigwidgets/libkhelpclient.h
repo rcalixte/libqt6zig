@@ -18,7 +18,7 @@ extern "C" {
 typedef struct KHelpClient KHelpClient;
 #endif
 
-void KHelpClient_InvokeHelp(const libqt_string param1, const libqt_string param2);
+void KHelpClient_InvokeHelp(const libqt_string anchor, const libqt_string appname);
 
 #ifdef __cplusplus
 } /* extern C */

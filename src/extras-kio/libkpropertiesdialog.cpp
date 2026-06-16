@@ -109,30 +109,15 @@ KPropertiesDialog* KPropertiesDialog_new12(const libqt_string title, QWidget* pa
 }
 
 QMetaObject* KPropertiesDialog_MetaObject(const KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<const VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPropertiesDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPropertiesDialog_Metacast(KPropertiesDialog* self, const char* param1) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPropertiesDialog_Metacall(KPropertiesDialog* self, int param1, int param2, void** param3) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPropertiesDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KPropertiesDialog_CanDisplay(const KFileItemList* _items) {
@@ -217,21 +202,11 @@ void KPropertiesDialog_SetFileNameReadOnly(KPropertiesDialog* self, bool ro) {
 }
 
 void KPropertiesDialog_Accept(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        self->accept();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 void KPropertiesDialog_Reject(KPropertiesDialog* self) {
-    auto* vkpropertiesdialog = dynamic_cast<VirtualKPropertiesDialog*>(self);
-    if (vkpropertiesdialog && vkpropertiesdialog->isVirtualKPropertiesDialog) {
-        self->reject();
-    } else {
-        ((VirtualKPropertiesDialog*)self)->reject();
-    }
+    self->reject();
 }
 
 void KPropertiesDialog_PropertiesClosed(KPropertiesDialog* self) {

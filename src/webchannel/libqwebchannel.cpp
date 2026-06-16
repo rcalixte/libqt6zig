@@ -21,30 +21,15 @@ QWebChannel* QWebChannel_new2(QObject* parent) {
 }
 
 QMetaObject* QWebChannel_MetaObject(const QWebChannel* self) {
-    auto* vqwebchannel = dynamic_cast<const VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebChannel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebChannel_Metacast(QWebChannel* self, const char* param1) {
-    auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebChannel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebChannel_Metacall(QWebChannel* self, int param1, int param2, void** param3) {
-    auto* vqwebchannel = dynamic_cast<VirtualQWebChannel*>(self);
-    if (vqwebchannel && vqwebchannel->isVirtualQWebChannel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebChannel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QWebChannel_RegisterObjects(QWebChannel* self, const libqt_map /* of libqt_string to QObject* */ objects) {

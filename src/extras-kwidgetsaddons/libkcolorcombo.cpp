@@ -51,30 +51,15 @@ KColorCombo* KColorCombo_new2() {
 }
 
 QMetaObject* KColorCombo_MetaObject(const KColorCombo* self) {
-    auto* vkcolorcombo = dynamic_cast<const VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColorCombo*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColorCombo_Metacast(KColorCombo* self, const char* param1) {
-    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColorCombo*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColorCombo_Metacall(KColorCombo* self, int param1, int param2, void** param3) {
-    auto* vkcolorcombo = dynamic_cast<VirtualKColorCombo*>(self);
-    if (vkcolorcombo && vkcolorcombo->isVirtualKColorCombo) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColorCombo*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KColorCombo_SetColor(KColorCombo* self, const QColor* col) {

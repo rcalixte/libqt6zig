@@ -34,48 +34,23 @@ KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_n
 }
 
 QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_MetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self) {
-    auto* vksyntaxhighlighting__syntaxhighlighter = dynamic_cast<const VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlighting__syntaxhighlighter && vksyntaxhighlighting__syntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSyntaxHighlightingSyntaxHighlighter*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSyntaxHighlighting__SyntaxHighlighter_Metacast(KSyntaxHighlighting__SyntaxHighlighter* self, const char* param1) {
-    auto* vksyntaxhighlighting__syntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlighting__syntaxhighlighter && vksyntaxhighlighting__syntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSyntaxHighlightingSyntaxHighlighter*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSyntaxHighlighting__SyntaxHighlighter_Metacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3) {
-    auto* vksyntaxhighlighting__syntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlighting__syntaxhighlighter && vksyntaxhighlighting__syntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSyntaxHighlightingSyntaxHighlighter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSyntaxHighlighting__SyntaxHighlighter_SetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Definition* def) {
-    auto* vksyntaxhighlighting__syntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlighting__syntaxhighlighter && vksyntaxhighlighting__syntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
-        self->setDefinition(*def);
-    } else {
-        ((VirtualKSyntaxHighlightingSyntaxHighlighter*)self)->setDefinition(*def);
-    }
+    self->setDefinition(*def);
 }
 
 void KSyntaxHighlighting__SyntaxHighlighter_SetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Theme* theme) {
-    auto* vksyntaxhighlighting__syntaxhighlighter = dynamic_cast<VirtualKSyntaxHighlightingSyntaxHighlighter*>(self);
-    if (vksyntaxhighlighting__syntaxhighlighter && vksyntaxhighlighting__syntaxhighlighter->isVirtualKSyntaxHighlightingSyntaxHighlighter) {
-        self->setTheme(*theme);
-    } else {
-        ((VirtualKSyntaxHighlightingSyntaxHighlighter*)self)->setTheme(*theme);
-    }
+    self->setTheme(*theme);
 }
 
 bool KSyntaxHighlighting__SyntaxHighlighter_StartsFoldingRegion(const KSyntaxHighlighting__SyntaxHighlighter* self, const QTextBlock* startBlock) {

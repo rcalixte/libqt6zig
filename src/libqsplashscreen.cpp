@@ -65,30 +65,15 @@ QSplashScreen* QSplashScreen_new6(QScreen* screen, const QPixmap* pixmap, int f)
 }
 
 QMetaObject* QSplashScreen_MetaObject(const QSplashScreen* self) {
-    auto* vqsplashscreen = dynamic_cast<const VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSplashScreen*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSplashScreen_Metacast(QSplashScreen* self, const char* param1) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSplashScreen*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSplashScreen_Metacall(QSplashScreen* self, int param1, int param2, void** param3) {
-    auto* vqsplashscreen = dynamic_cast<VirtualQSplashScreen*>(self);
-    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSplashScreen*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSplashScreen_SetPixmap(QSplashScreen* self, const QPixmap* pixmap) {

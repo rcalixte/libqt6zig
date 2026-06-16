@@ -26,30 +26,15 @@ QUiLoader* QUiLoader_new2(QObject* parent) {
 }
 
 QMetaObject* QUiLoader_MetaObject(const QUiLoader* self) {
-    auto* vquiloader = dynamic_cast<const VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQUiLoader*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QUiLoader_Metacast(QUiLoader* self, const char* param1) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQUiLoader*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QUiLoader_Metacall(QUiLoader* self, int param1, int param2, void** param3) {
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUiLoader*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QUiLoader_PluginPaths(const QUiLoader* self) {
@@ -131,43 +116,23 @@ libqt_list /* of libqt_string */ QUiLoader_AvailableLayouts(const QUiLoader* sel
 QWidget* QUiLoader_CreateWidget(QUiLoader* self, const libqt_string className, QWidget* parent, const libqt_string name) {
     QString className_QString = QString::fromUtf8(className.data, className.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return self->createWidget(className_QString, parent, name_QString);
-    } else {
-        return ((VirtualQUiLoader*)self)->createWidget(className_QString, parent, name_QString);
-    }
+    return self->createWidget(className_QString, parent, name_QString);
 }
 
 QLayout* QUiLoader_CreateLayout(QUiLoader* self, const libqt_string className, QObject* parent, const libqt_string name) {
     QString className_QString = QString::fromUtf8(className.data, className.len);
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return self->createLayout(className_QString, parent, name_QString);
-    } else {
-        return ((VirtualQUiLoader*)self)->createLayout(className_QString, parent, name_QString);
-    }
+    return self->createLayout(className_QString, parent, name_QString);
 }
 
 QActionGroup* QUiLoader_CreateActionGroup(QUiLoader* self, QObject* parent, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return self->createActionGroup(parent, name_QString);
-    } else {
-        return ((VirtualQUiLoader*)self)->createActionGroup(parent, name_QString);
-    }
+    return self->createActionGroup(parent, name_QString);
 }
 
 QAction* QUiLoader_CreateAction(QUiLoader* self, QObject* parent, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vquiloader = dynamic_cast<VirtualQUiLoader*>(self);
-    if (vquiloader && vquiloader->isVirtualQUiLoader) {
-        return self->createAction(parent, name_QString);
-    } else {
-        return ((VirtualQUiLoader*)self)->createAction(parent, name_QString);
-    }
+    return self->createAction(parent, name_QString);
 }
 
 void QUiLoader_SetWorkingDirectory(QUiLoader* self, const QDir* dir) {

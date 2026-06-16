@@ -61,30 +61,15 @@ KRecentFilesMenu* KRecentFilesMenu_new4(const libqt_string title, QWidget* paren
 }
 
 QMetaObject* KRecentFilesMenu_MetaObject(const KRecentFilesMenu* self) {
-    auto* vkrecentfilesmenu = dynamic_cast<const VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKRecentFilesMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KRecentFilesMenu_Metacast(KRecentFilesMenu* self, const char* param1) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KRecentFilesMenu_Metacall(KRecentFilesMenu* self, int param1, int param2, void** param3) {
-    auto* vkrecentfilesmenu = dynamic_cast<VirtualKRecentFilesMenu*>(self);
-    if (vkrecentfilesmenu && vkrecentfilesmenu->isVirtualKRecentFilesMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRecentFilesMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KRecentFilesMenu_Group(const KRecentFilesMenu* self) {

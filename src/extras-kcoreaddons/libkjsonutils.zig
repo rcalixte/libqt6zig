@@ -18,20 +18,20 @@ pub const KJsonUtils = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QJsonObject `
+    /// ` jo: QJsonObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` key: []const u8 `
     ///
-    /// ` param3: QJsonValue `
+    /// ` defaultValue: QJsonValue `
     ///
-    pub fn ReadTranslatedValue(param1: anytype, param2: []const u8, param3: anytype) QJsonValue {
-        comptime _ = @TypeOf(param1)._is_QJsonObject;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn ReadTranslatedValue(jo: anytype, key: []const u8, defaultValue: anytype) QJsonValue {
+        comptime _ = @TypeOf(jo)._is_QJsonObject;
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
         };
-        comptime _ = @TypeOf(param3)._is_QJsonValue;
-        return .{ .ptr = qtc.KJsonUtils_ReadTranslatedValue(@ptrCast(param1.ptr), param2_str, @ptrCast(param3.ptr)) };
+        comptime _ = @TypeOf(defaultValue)._is_QJsonValue;
+        return .{ .ptr = qtc.KJsonUtils_ReadTranslatedValue(@ptrCast(jo.ptr), key_str, @ptrCast(defaultValue.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kjsonutils.html#readTranslatedString)
@@ -40,23 +40,23 @@ pub const KJsonUtils = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: QJsonObject `
+    /// ` jo: QJsonObject `
     ///
-    /// ` param2: []const u8 `
+    /// ` key: []const u8 `
     ///
-    /// ` param3: []const u8 `
+    /// ` defaultValue: []const u8 `
     ///
-    pub fn ReadTranslatedString(allocator: std.mem.Allocator, param1: anytype, param2: []const u8, param3: []const u8) []const u8 {
-        comptime _ = @TypeOf(param1)._is_QJsonObject;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn ReadTranslatedString(allocator: std.mem.Allocator, jo: anytype, key: []const u8, defaultValue: []const u8) []const u8 {
+        comptime _ = @TypeOf(jo)._is_QJsonObject;
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
         };
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
         };
-        var _str = qtc.KJsonUtils_ReadTranslatedString(@ptrCast(param1.ptr), param2_str, param3_str);
+        var _str = qtc.KJsonUtils_ReadTranslatedString(@ptrCast(jo.ptr), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kjsonutils.ReadTranslatedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

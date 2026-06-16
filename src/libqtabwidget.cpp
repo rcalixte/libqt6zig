@@ -49,30 +49,15 @@ QTabWidget* QTabWidget_new2() {
 }
 
 QMetaObject* QTabWidget_MetaObject(const QTabWidget* self) {
-    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTabWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTabWidget_Metacast(QTabWidget* self, const char* param1) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTabWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTabWidget_Metacall(QTabWidget* self, int param1, int param2, void** param3) {
-    auto* vqtabwidget = dynamic_cast<VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTabWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QTabWidget_AddTab(QTabWidget* self, QWidget* widget, const libqt_string param2) {
@@ -227,39 +212,19 @@ void QTabWidget_SetTabShape(QTabWidget* self, int s) {
 }
 
 QSize* QTabWidget_SizeHint(const QTabWidget* self) {
-    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQTabWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QTabWidget_MinimumSizeHint(const QTabWidget* self) {
-    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQTabWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int QTabWidget_HeightForWidth(const QTabWidget* self, int width) {
-    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return self->heightForWidth(static_cast<int>(width));
-    } else {
-        return ((VirtualQTabWidget*)self)->heightForWidth(static_cast<int>(width));
-    }
+    return self->heightForWidth(static_cast<int>(width));
 }
 
 bool QTabWidget_HasHeightForWidth(const QTabWidget* self) {
-    auto* vqtabwidget = dynamic_cast<const VirtualQTabWidget*>(self);
-    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQTabWidget*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 void QTabWidget_SetCornerWidget(QTabWidget* self, QWidget* w) {

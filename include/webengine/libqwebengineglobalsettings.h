@@ -28,7 +28,7 @@ libqt_list /* of libqt_string */ QWebEngineGlobalSettings__DnsMode_ServerTemplat
 void QWebEngineGlobalSettings__DnsMode_SetServerTemplates(QWebEngineGlobalSettings__DnsMode* self, libqt_list /* of libqt_string */ serverTemplates);
 void QWebEngineGlobalSettings__DnsMode_Delete(QWebEngineGlobalSettings__DnsMode* self);
 
-bool QWebEngineGlobalSettings_SetDnsMode(QWebEngineGlobalSettings__DnsMode* param1);
+bool QWebEngineGlobalSettings_SetDnsMode(QWebEngineGlobalSettings__DnsMode* dnsMode);
 
 #ifdef __cplusplus
 } /* extern C */

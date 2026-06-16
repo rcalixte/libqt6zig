@@ -28,9 +28,9 @@ KJobUiDelegate* KIO__JobUiDelegateFactory_CreateDelegate(const KIO__JobUiDelegat
 KJobUiDelegate* KIO__JobUiDelegateFactory_CreateDelegate2(const KIO__JobUiDelegateFactory* self, int flags, QWidget* window);
 
 KJobUiDelegate* KIO_CreateDefaultJobUiDelegate();
-KJobUiDelegate* KIO_CreateDefaultJobUiDelegate2(int param1, QWidget* param2);
+KJobUiDelegate* KIO_CreateDefaultJobUiDelegate2(int flags, QWidget* window);
 KIO__JobUiDelegateFactory* KIO_DefaultJobUiDelegateFactory();
-void KIO_SetDefaultJobUiDelegateFactory(KIO__JobUiDelegateFactory* param1);
+void KIO_SetDefaultJobUiDelegateFactory(KIO__JobUiDelegateFactory* factory);
 
 #ifdef __cplusplus
 } /* extern C */

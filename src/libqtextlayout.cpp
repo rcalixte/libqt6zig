@@ -130,9 +130,9 @@ void QTextLayout_SetRawFont(QTextLayout* self, const QRawFont* rawFont) {
     self->setRawFont(*rawFont);
 }
 
-void QTextLayout_SetText(QTextLayout* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    self->setText(stringVal_QString);
+void QTextLayout_SetText(QTextLayout* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    self->setText(string_QString);
 }
 
 libqt_string QTextLayout_Text(const QTextLayout* self) {

@@ -35,7 +35,7 @@ libqt_string KProcessList__KProcessInfo_Command(const KProcessList__KProcessInfo
 void KProcessList__KProcessInfo_Delete(KProcessList__KProcessInfo* self);
 
 libqt_list /* of KProcessList__KProcessInfo* */ KProcessList_ProcessInfoList();
-KProcessList__KProcessInfo* KProcessList_ProcessInfo(long long param1);
+KProcessList__KProcessInfo* KProcessList_ProcessInfo(long long pid);
 
 #ifdef __cplusplus
 } /* extern C */

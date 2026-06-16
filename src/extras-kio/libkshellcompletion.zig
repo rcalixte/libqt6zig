@@ -206,8 +206,6 @@ pub const KShellCompletion = extern struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
-    ///
     /// ## Parameters:
     ///
     /// ` self: KShellCompletion `
@@ -543,14 +541,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn SubstringCompletion(self: KShellCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn SubstringCompletion(self: KShellCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KCompletion_SubstringCompletion(@ptrCast(self.ptr), stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KCompletion_SubstringCompletion(@ptrCast(self.ptr), string_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -701,14 +699,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn AllMatches2(self: KShellCompletion, allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn AllMatches2(self: KShellCompletion, allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches2(@ptrCast(self.ptr), stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KCompletion_AllMatches2(@ptrCast(self.ptr), string_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -745,14 +743,14 @@ pub const KShellCompletion = extern struct {
     ///
     /// ` self: KShellCompletion `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn AllWeightedMatches2(self: KShellCompletion, stringVal: []const u8) KCompletionMatches {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn AllWeightedMatches2(self: KShellCompletion, string: []const u8) KCompletionMatches {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), stringVal_str) };
+        return .{ .ptr = qtc.KCompletion_AllWeightedMatches2(@ptrCast(self.ptr), string_str) };
     }
 
     /// Inherited from KCompletion
@@ -2323,8 +2321,6 @@ pub const KShellCompletion = extern struct {
     /// ### [Upstream resources](https://api.kde.org/kcompletion.html#lastMatch)
     ///
     /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

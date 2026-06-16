@@ -57,30 +57,15 @@ TextGrammarCheck__GrammarResultTextEdit* TextGrammarCheck__GrammarResultTextEdit
 }
 
 QMetaObject* TextGrammarCheck__GrammarResultTextEdit_MetaObject(const TextGrammarCheck__GrammarResultTextEdit* self) {
-    auto* vtextgrammarcheck__grammarresulttextedit = dynamic_cast<const VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheck__grammarresulttextedit && vtextgrammarcheck__grammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckGrammarResultTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__GrammarResultTextEdit_Metacast(TextGrammarCheck__GrammarResultTextEdit* self, const char* param1) {
-    auto* vtextgrammarcheck__grammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheck__grammarresulttextedit && vtextgrammarcheck__grammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__GrammarResultTextEdit_Metacall(TextGrammarCheck__GrammarResultTextEdit* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__grammarresulttextedit = dynamic_cast<VirtualTextGrammarCheckGrammarResultTextEdit*>(self);
-    if (vtextgrammarcheck__grammarresulttextedit && vtextgrammarcheck__grammarresulttextedit->isVirtualTextGrammarCheckGrammarResultTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__GrammarResultTextEdit_ApplyGrammarResult(TextGrammarCheck__GrammarResultTextEdit* self, const libqt_list /* of TextGrammarCheck__GrammarError* */ infos) {

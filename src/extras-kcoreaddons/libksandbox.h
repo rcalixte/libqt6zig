@@ -26,8 +26,8 @@ typedef struct QProcess QProcess;
 bool KSandbox_IsInside();
 bool KSandbox_IsFlatpak();
 bool KSandbox_IsSnap();
-KSandbox__ProcessContext* KSandbox_MakeHostContext(const QProcess* param1);
-void KSandbox_StartHostProcess(QProcess* param1, int param2);
+KSandbox__ProcessContext* KSandbox_MakeHostContext(const QProcess* process);
+void KSandbox_StartHostProcess(QProcess* process, int mode);
 
 KSandbox__ProcessContext* KSandbox__ProcessContext_new(const KSandbox__ProcessContext* param1);
 void KSandbox__ProcessContext_Delete(KSandbox__ProcessContext* self);

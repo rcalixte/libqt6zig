@@ -23,39 +23,19 @@ QPlaceContentReply* QPlaceContentReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceContentReply_MetaObject(const QPlaceContentReply* self) {
-    auto* vqplacecontentreply = dynamic_cast<const VirtualQPlaceContentReply*>(self);
-    if (vqplacecontentreply && vqplacecontentreply->isVirtualQPlaceContentReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceContentReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceContentReply_Metacast(QPlaceContentReply* self, const char* param1) {
-    auto* vqplacecontentreply = dynamic_cast<VirtualQPlaceContentReply*>(self);
-    if (vqplacecontentreply && vqplacecontentreply->isVirtualQPlaceContentReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceContentReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceContentReply_Metacall(QPlaceContentReply* self, int param1, int param2, void** param3) {
-    auto* vqplacecontentreply = dynamic_cast<VirtualQPlaceContentReply*>(self);
-    if (vqplacecontentreply && vqplacecontentreply->isVirtualQPlaceContentReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceContentReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPlaceContentReply_Type(const QPlaceContentReply* self) {
-    auto* vqplacecontentreply = dynamic_cast<const VirtualQPlaceContentReply*>(self);
-    if (vqplacecontentreply && vqplacecontentreply->isVirtualQPlaceContentReply) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPlaceContentReply*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 libqt_map /* of int to QPlaceContent* */ QPlaceContentReply_Content(const QPlaceContentReply* self) {

@@ -76,9 +76,9 @@ TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrecti
     return new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes(TextAutoCorrectionCore::AutoCorrectionUtils::typographicDefaultFrenchQuotes());
 }
 
-libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreofficeFile(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = TextAutoCorrectionCore::AutoCorrectionUtils::libreofficeFile(param1_QString);
+libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreofficeFile(const libqt_string lang) {
+    QString lang_QString = QString::fromUtf8(lang.data, lang.len);
+    auto _ret = TextAutoCorrectionCore::AutoCorrectionUtils::libreofficeFile(lang_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -131,15 +131,15 @@ libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_Sea
     return _out;
 }
 
-libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_AutoCorrectLibreOfficeLanguageToString(const libqt_list /* of libqt_string */ param1) {
-    QList<QString> param1_QList;
-    param1_QList.reserve(param1.len);
-    libqt_string* param1_arr = static_cast<libqt_string*>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_arr_i_QString = QString::fromUtf8(param1_arr[i].data, param1_arr[i].len);
-        param1_QList.push_back(param1_arr_i_QString);
+libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_AutoCorrectLibreOfficeLanguageToString(const libqt_list /* of libqt_string */ langs) {
+    QList<QString> langs_QList;
+    langs_QList.reserve(langs.len);
+    libqt_string* langs_arr = static_cast<libqt_string*>(langs.data);
+    for (size_t i = 0; i < langs.len; ++i) {
+        QString langs_arr_i_QString = QString::fromUtf8(langs_arr[i].data, langs_arr[i].len);
+        langs_QList.push_back(langs_arr_i_QString);
     }
-    QList<QString> _ret = TextAutoCorrectionCore::AutoCorrectionUtils::autoCorrectLibreOfficeLanguageToString(param1_QList);
+    QList<QString> _ret = TextAutoCorrectionCore::AutoCorrectionUtils::autoCorrectLibreOfficeLanguageToString(langs_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -171,11 +171,11 @@ libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeWritableLoca
     return _str;
 }
 
-libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_ContainsAutoCorrectionFile(const libqt_string param1, const libqt_string param2, const libqt_string param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    auto _ret = TextAutoCorrectionCore::AutoCorrectionUtils::containsAutoCorrectionFile(param1_QString, param2_QString, param3_QString);
+libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_ContainsAutoCorrectionFile(const libqt_string lang, const libqt_string customSystemPath, const libqt_string customWritablePath) {
+    QString lang_QString = QString::fromUtf8(lang.data, lang.len);
+    QString customSystemPath_QString = QString::fromUtf8(customSystemPath.data, customSystemPath.len);
+    QString customWritablePath_QString = QString::fromUtf8(customWritablePath.data, customWritablePath.len);
+    auto _ret = TextAutoCorrectionCore::AutoCorrectionUtils::containsAutoCorrectionFile(lang_QString, customSystemPath_QString, customWritablePath_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -210,9 +210,9 @@ libqt_string TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeLocalPath() 
     return _str;
 }
 
-libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_WordsFromSentence(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> _ret = TextAutoCorrectionCore::AutoCorrectionUtils::wordsFromSentence(param1_QString);
+libqt_list /* of libqt_string */ TextAutoCorrectionCore__AutoCorrectionUtils_WordsFromSentence(const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    QList<QString> _ret = TextAutoCorrectionCore::AutoCorrectionUtils::wordsFromSentence(string_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

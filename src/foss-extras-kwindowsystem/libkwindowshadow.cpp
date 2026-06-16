@@ -47,30 +47,15 @@ KWindowShadow* KWindowShadow_new2(QObject* parent) {
 }
 
 QMetaObject* KWindowShadow_MetaObject(const KWindowShadow* self) {
-    auto* vkwindowshadow = dynamic_cast<const VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKWindowShadow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KWindowShadow_Metacast(KWindowShadow* self, const char* param1) {
-    auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKWindowShadow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KWindowShadow_Metacall(KWindowShadow* self, int param1, int param2, void** param3) {
-    auto* vkwindowshadow = dynamic_cast<VirtualKWindowShadow*>(self);
-    if (vkwindowshadow && vkwindowshadow->isVirtualKWindowShadow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKWindowShadow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QMargins* KWindowShadow_Padding(const KWindowShadow* self) {

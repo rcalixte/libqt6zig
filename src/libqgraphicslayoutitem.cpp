@@ -116,12 +116,7 @@ double QGraphicsLayoutItem_MaximumHeight(const QGraphicsLayoutItem* self) {
 }
 
 void QGraphicsLayoutItem_SetGeometry(QGraphicsLayoutItem* self, const QRectF* rect) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 QRectF* QGraphicsLayoutItem_Geometry(const QGraphicsLayoutItem* self) {
@@ -129,12 +124,7 @@ QRectF* QGraphicsLayoutItem_Geometry(const QGraphicsLayoutItem* self) {
 }
 
 void QGraphicsLayoutItem_GetContentsMargins(const QGraphicsLayoutItem* self, double* left, double* top, double* right, double* bottom) {
-    auto* vqgraphicslayoutitem = dynamic_cast<const VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
-    }
+    self->getContentsMargins(static_cast<qreal*>(left), static_cast<qreal*>(top), static_cast<qreal*>(right), static_cast<qreal*>(bottom));
 }
 
 QRectF* QGraphicsLayoutItem_ContentsRect(const QGraphicsLayoutItem* self) {
@@ -146,21 +136,11 @@ QSizeF* QGraphicsLayoutItem_EffectiveSizeHint(const QGraphicsLayoutItem* self, i
 }
 
 void QGraphicsLayoutItem_UpdateGeometry(QGraphicsLayoutItem* self) {
-    auto* vqgraphicslayoutitem = dynamic_cast<VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        self->updateGeometry();
-    } else {
-        ((VirtualQGraphicsLayoutItem*)self)->updateGeometry();
-    }
+    self->updateGeometry();
 }
 
 bool QGraphicsLayoutItem_IsEmpty(const QGraphicsLayoutItem* self) {
-    auto* vqgraphicslayoutitem = dynamic_cast<const VirtualQGraphicsLayoutItem*>(self);
-    if (vqgraphicslayoutitem && vqgraphicslayoutitem->isVirtualQGraphicsLayoutItem) {
-        return self->isEmpty();
-    } else {
-        return ((VirtualQGraphicsLayoutItem*)self)->isEmpty();
-    }
+    return self->isEmpty();
 }
 
 QGraphicsLayoutItem* QGraphicsLayoutItem_ParentLayoutItem(const QGraphicsLayoutItem* self) {

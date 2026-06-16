@@ -33,30 +33,15 @@ KDirModel* KDirModel_new2(QObject* parent) {
 }
 
 QMetaObject* KDirModel_MetaObject(const KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDirModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDirModel_Metacast(KDirModel* self, const char* param1) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDirModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDirModel_Metacall(KDirModel* self, int param1, int param2, void** param3) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDirModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KDirModel_OpenUrl(KDirModel* self, const QUrl* url) {
@@ -100,84 +85,39 @@ void KDirModel_SetDropsAllowed(KDirModel* self, int dropsAllowed) {
 }
 
 bool KDirModel_CanFetchMore(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualKDirModel*)self)->canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 int KDirModel_ColumnCount(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualKDirModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QVariant* KDirModel_Data(const KDirModel* self, const QModelIndex* index, int role) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKDirModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 bool KDirModel_DropMimeData(KDirModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualKDirModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 void KDirModel_FetchMore(KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        self->fetchMore(*parent);
-    } else {
-        ((VirtualKDirModel*)self)->fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 int KDirModel_Flags(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKDirModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 bool KDirModel_HasChildren(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualKDirModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 QVariant* KDirModel_HeaderData(const KDirModel* self, int section, int orientation, int role) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKDirModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 QModelIndex* KDirModel_Index(const KDirModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QMimeData* KDirModel_MimeData(const KDirModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -187,147 +127,71 @@ QMimeData* KDirModel_MimeData(const KDirModel* self, const libqt_list /* of QMod
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualKDirModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 libqt_list /* of libqt_string */ KDirModel_MimeTypes(const KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKDirModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QModelIndex* KDirModel_Parent(const KDirModel* self, const QModelIndex* index) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QModelIndex(self->parent(*index));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->parent(*index));
-    }
+    return new QModelIndex(self->parent(*index));
 }
 
 QModelIndex* KDirModel_Sibling(const KDirModel* self, int row, int column, const QModelIndex* index) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *index));
-    } else {
-        return new QModelIndex(((VirtualKDirModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *index));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *index));
 }
 
 int KDirModel_RowCount(const KDirModel* self, const QModelIndex* parent) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKDirModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 bool KDirModel_SetData(KDirModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualKDirModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 void KDirModel_Sort(KDirModel* self, int column, int order) {
-    auto* vkdirmodel = dynamic_cast<VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualKDirModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 libqt_map /* of int to libqt_string */ KDirModel_RoleNames(const KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKDirModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 libqt_list /* of QUrl* */ KDirModel_SimplifiedUrlList(const libqt_list /* of QUrl* */ urls) {
@@ -362,12 +226,7 @@ bool KDirModel_JobTransfersVisible(const KDirModel* self) {
 }
 
 int KDirModel_SupportedDropActions(const KDirModel* self) {
-    auto* vkdirmodel = dynamic_cast<const VirtualKDirModel*>(self);
-    if (vkdirmodel && vkdirmodel->isVirtualKDirModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualKDirModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 void KDirModel_Expand(KDirModel* self, const QModelIndex* index) {

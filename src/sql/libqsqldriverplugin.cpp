@@ -20,40 +20,20 @@ QSqlDriverPlugin* QSqlDriverPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QSqlDriverPlugin_MetaObject(const QSqlDriverPlugin* self) {
-    auto* vqsqldriverplugin = dynamic_cast<const VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSqlDriverPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSqlDriverPlugin_Metacast(QSqlDriverPlugin* self, const char* param1) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSqlDriverPlugin_Metacall(QSqlDriverPlugin* self, int param1, int param2, void** param3) {
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSqlDriver* QSqlDriverPlugin_Create(QSqlDriverPlugin* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
-    if (vqsqldriverplugin && vqsqldriverplugin->isVirtualQSqlDriverPlugin) {
-        return vqsqldriverplugin->create(key_QString);
-    } else {
-        return ((VirtualQSqlDriverPlugin*)self)->create(key_QString);
-    }
+    return self->create(key_QString);
 }
 
 // Base class handler implementation

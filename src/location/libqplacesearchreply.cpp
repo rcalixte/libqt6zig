@@ -23,39 +23,19 @@ QPlaceSearchReply* QPlaceSearchReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceSearchReply_MetaObject(const QPlaceSearchReply* self) {
-    auto* vqplacesearchreply = dynamic_cast<const VirtualQPlaceSearchReply*>(self);
-    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceSearchReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceSearchReply_Metacast(QPlaceSearchReply* self, const char* param1) {
-    auto* vqplacesearchreply = dynamic_cast<VirtualQPlaceSearchReply*>(self);
-    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceSearchReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceSearchReply_Metacall(QPlaceSearchReply* self, int param1, int param2, void** param3) {
-    auto* vqplacesearchreply = dynamic_cast<VirtualQPlaceSearchReply*>(self);
-    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceSearchReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPlaceSearchReply_Type(const QPlaceSearchReply* self) {
-    auto* vqplacesearchreply = dynamic_cast<const VirtualQPlaceSearchReply*>(self);
-    if (vqplacesearchreply && vqplacesearchreply->isVirtualQPlaceSearchReply) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPlaceSearchReply*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 libqt_list /* of QPlaceSearchResult* */ QPlaceSearchReply_Results(const QPlaceSearchReply* self) {

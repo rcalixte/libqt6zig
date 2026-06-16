@@ -479,12 +479,7 @@ void QGraphicsItem_SetTransformOriginPoint2(QGraphicsItem* self, double ax, doub
 }
 
 void QGraphicsItem_Advance(QGraphicsItem* self, int phase) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        self->advance(static_cast<int>(phase));
-    } else {
-        ((VirtualQGraphicsItem*)self)->advance(static_cast<int>(phase));
-    }
+    self->advance(static_cast<int>(phase));
 }
 
 double QGraphicsItem_ZValue(const QGraphicsItem* self) {
@@ -500,12 +495,7 @@ void QGraphicsItem_StackBefore(QGraphicsItem* self, const QGraphicsItem* sibling
 }
 
 QRectF* QGraphicsItem_BoundingRect(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return new QRectF(vqgraphicsitem->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QRectF* QGraphicsItem_ChildrenBoundingRect(const QGraphicsItem* self) {
@@ -517,12 +507,7 @@ QRectF* QGraphicsItem_SceneBoundingRect(const QGraphicsItem* self) {
 }
 
 QPainterPath* QGraphicsItem_Shape(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsItem_IsClipped(const QGraphicsItem* self) {
@@ -534,30 +519,15 @@ QPainterPath* QGraphicsItem_ClipPath(const QGraphicsItem* self) {
 }
 
 bool QGraphicsItem_Contains(const QGraphicsItem* self, const QPointF* point) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 bool QGraphicsItem_CollidesWithItem(const QGraphicsItem* self, const QGraphicsItem* other, int mode) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return self->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return ((VirtualQGraphicsItem*)self)->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 bool QGraphicsItem_CollidesWithPath(const QGraphicsItem* self, const QPainterPath* path, int mode) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return self->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    } else {
-        return ((VirtualQGraphicsItem*)self)->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
-    }
+    return self->collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
 }
 
 libqt_list /* of QGraphicsItem* */ QGraphicsItem_CollidingItems(const QGraphicsItem* self) {
@@ -582,21 +552,11 @@ bool QGraphicsItem_IsObscured2(const QGraphicsItem* self, double x, double y, do
 }
 
 bool QGraphicsItem_IsObscuredBy(const QGraphicsItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsItem_OpaqueArea(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 QRegion* QGraphicsItem_BoundingRegion(const QGraphicsItem* self, const QTransform* itemToDeviceTransform) {
@@ -612,12 +572,7 @@ void QGraphicsItem_SetBoundingRegionGranularity(QGraphicsItem* self, double gran
 }
 
 void QGraphicsItem_Paint(QGraphicsItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsitem = dynamic_cast<VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        vqgraphicsitem->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 void QGraphicsItem_Update(QGraphicsItem* self) {
@@ -781,12 +736,7 @@ void QGraphicsItem_SetInputMethodHints(QGraphicsItem* self, int hints) {
 }
 
 int QGraphicsItem_Type(const QGraphicsItem* self) {
-    auto* vqgraphicsitem = dynamic_cast<const VirtualQGraphicsItem*>(self);
-    if (vqgraphicsitem && vqgraphicsitem->isVirtualQGraphicsItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsItem*)self)->type();
-    }
+    return self->type();
 }
 
 void QGraphicsItem_InstallSceneEventFilter(QGraphicsItem* self, QGraphicsItem* filterItem) {
@@ -1838,30 +1788,15 @@ QGraphicsObject* QGraphicsObject_new2(QGraphicsItem* parent) {
 }
 
 QMetaObject* QGraphicsObject_MetaObject(const QGraphicsObject* self) {
-    auto* vqgraphicsobject = dynamic_cast<const VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsObject*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsObject_Metacast(QGraphicsObject* self, const char* param1) {
-    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsObject*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsObject_Metacall(QGraphicsObject* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsobject = dynamic_cast<VirtualQGraphicsObject*>(self);
-    if (vqgraphicsobject && vqgraphicsobject->isVirtualQGraphicsObject) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QGraphicsObject_GrabGesture(QGraphicsObject* self, int typeVal) {
@@ -3536,21 +3471,11 @@ void QAbstractGraphicsShapeItem_SetBrush(QAbstractGraphicsShapeItem* self, const
 }
 
 bool QAbstractGraphicsShapeItem_IsObscuredBy(const QAbstractGraphicsShapeItem* self, const QGraphicsItem* item) {
-    auto* vqabstractgraphicsshapeitem = dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self);
-    if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQAbstractGraphicsShapeItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QAbstractGraphicsShapeItem_OpaqueArea(const QAbstractGraphicsShapeItem* self) {
-    auto* vqabstractgraphicsshapeitem = dynamic_cast<const VirtualQAbstractGraphicsShapeItem*>(self);
-    if (vqabstractgraphicsshapeitem && vqabstractgraphicsshapeitem->isVirtualQAbstractGraphicsShapeItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQAbstractGraphicsShapeItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 // Base class handler implementation
@@ -4687,66 +4612,31 @@ void QGraphicsPathItem_SetPath(QGraphicsPathItem* self, const QPainterPath* path
 }
 
 QRectF* QGraphicsPathItem_BoundingRect(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsPathItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsPathItem_Shape(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPathItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsPathItem_Contains(const QGraphicsPathItem* self, const QPointF* point) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsPathItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsPathItem_Paint(QGraphicsPathItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicspathitem = dynamic_cast<VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsPathItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsPathItem_IsObscuredBy(const QGraphicsPathItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsPathItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsPathItem_OpaqueArea(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPathItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsPathItem_Type(const QGraphicsPathItem* self) {
-    auto* vqgraphicspathitem = dynamic_cast<const VirtualQGraphicsPathItem*>(self);
-    if (vqgraphicspathitem && vqgraphicspathitem->isVirtualQGraphicsPathItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsPathItem*)self)->type();
-    }
+    return self->type();
 }
 
 bool QGraphicsPathItem_SupportsExtension(const QGraphicsPathItem* self, int extension) {
@@ -5839,66 +5729,31 @@ void QGraphicsRectItem_SetRect2(QGraphicsRectItem* self, double x, double y, dou
 }
 
 QRectF* QGraphicsRectItem_BoundingRect(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsRectItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsRectItem_Shape(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsRectItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsRectItem_Contains(const QGraphicsRectItem* self, const QPointF* point) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsRectItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsRectItem_Paint(QGraphicsRectItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsrectitem = dynamic_cast<VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsRectItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsRectItem_IsObscuredBy(const QGraphicsRectItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsRectItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsRectItem_OpaqueArea(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsRectItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsRectItem_Type(const QGraphicsRectItem* self) {
-    auto* vqgraphicsrectitem = dynamic_cast<const VirtualQGraphicsRectItem*>(self);
-    if (vqgraphicsrectitem && vqgraphicsrectitem->isVirtualQGraphicsRectItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsRectItem*)self)->type();
-    }
+    return self->type();
 }
 
 bool QGraphicsRectItem_SupportsExtension(const QGraphicsRectItem* self, int extension) {
@@ -7007,66 +6862,31 @@ void QGraphicsEllipseItem_SetSpanAngle(QGraphicsEllipseItem* self, int angle) {
 }
 
 QRectF* QGraphicsEllipseItem_BoundingRect(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsEllipseItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsEllipseItem_Shape(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsEllipseItem_Contains(const QGraphicsEllipseItem* self, const QPointF* point) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsEllipseItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsEllipseItem_Paint(QGraphicsEllipseItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsellipseitem = dynamic_cast<VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsEllipseItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsEllipseItem_IsObscuredBy(const QGraphicsEllipseItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsEllipseItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsEllipseItem_OpaqueArea(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsEllipseItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsEllipseItem_Type(const QGraphicsEllipseItem* self) {
-    auto* vqgraphicsellipseitem = dynamic_cast<const VirtualQGraphicsEllipseItem*>(self);
-    if (vqgraphicsellipseitem && vqgraphicsellipseitem->isVirtualQGraphicsEllipseItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsEllipseItem*)self)->type();
-    }
+    return self->type();
 }
 
 bool QGraphicsEllipseItem_SupportsExtension(const QGraphicsEllipseItem* self, int extension) {
@@ -8139,66 +7959,31 @@ void QGraphicsPolygonItem_SetFillRule(QGraphicsPolygonItem* self, int rule) {
 }
 
 QRectF* QGraphicsPolygonItem_BoundingRect(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsPolygonItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsPolygonItem_Shape(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsPolygonItem_Contains(const QGraphicsPolygonItem* self, const QPointF* point) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsPolygonItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsPolygonItem_Paint(QGraphicsPolygonItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicspolygonitem = dynamic_cast<VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsPolygonItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsPolygonItem_IsObscuredBy(const QGraphicsPolygonItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsPolygonItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsPolygonItem_OpaqueArea(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPolygonItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsPolygonItem_Type(const QGraphicsPolygonItem* self) {
-    auto* vqgraphicspolygonitem = dynamic_cast<const VirtualQGraphicsPolygonItem*>(self);
-    if (vqgraphicspolygonitem && vqgraphicspolygonitem->isVirtualQGraphicsPolygonItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsPolygonItem*)self)->type();
-    }
+    return self->type();
 }
 
 bool QGraphicsPolygonItem_SupportsExtension(const QGraphicsPolygonItem* self, int extension) {
@@ -9299,66 +9084,31 @@ void QGraphicsLineItem_SetLine2(QGraphicsLineItem* self, double x1, double y1, d
 }
 
 QRectF* QGraphicsLineItem_BoundingRect(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsLineItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsLineItem_Shape(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsLineItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsLineItem_Contains(const QGraphicsLineItem* self, const QPointF* point) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsLineItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsLineItem_Paint(QGraphicsLineItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicslineitem = dynamic_cast<VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsLineItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsLineItem_IsObscuredBy(const QGraphicsLineItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsLineItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsLineItem_OpaqueArea(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsLineItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsLineItem_Type(const QGraphicsLineItem* self) {
-    auto* vqgraphicslineitem = dynamic_cast<const VirtualQGraphicsLineItem*>(self);
-    if (vqgraphicslineitem && vqgraphicslineitem->isVirtualQGraphicsLineItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsLineItem*)self)->type();
-    }
+    return self->type();
 }
 
 bool QGraphicsLineItem_SupportsExtension(const QGraphicsLineItem* self, int extension) {
@@ -10459,66 +10209,31 @@ void QGraphicsPixmapItem_SetOffset2(QGraphicsPixmapItem* self, double x, double 
 }
 
 QRectF* QGraphicsPixmapItem_BoundingRect(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsPixmapItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsPixmapItem_Shape(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsPixmapItem_Contains(const QGraphicsPixmapItem* self, const QPointF* point) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsPixmapItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsPixmapItem_Paint(QGraphicsPixmapItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicspixmapitem = dynamic_cast<VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsPixmapItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsPixmapItem_IsObscuredBy(const QGraphicsPixmapItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsPixmapItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsPixmapItem_OpaqueArea(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsPixmapItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsPixmapItem_Type(const QGraphicsPixmapItem* self) {
-    auto* vqgraphicspixmapitem = dynamic_cast<const VirtualQGraphicsPixmapItem*>(self);
-    if (vqgraphicspixmapitem && vqgraphicspixmapitem->isVirtualQGraphicsPixmapItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsPixmapItem*)self)->type();
-    }
+    return self->type();
 }
 
 int QGraphicsPixmapItem_ShapeMode(const QGraphicsPixmapItem* self) {
@@ -11601,30 +11316,15 @@ QGraphicsTextItem* QGraphicsTextItem_new4(const libqt_string text, QGraphicsItem
 }
 
 QMetaObject* QGraphicsTextItem_MetaObject(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsTextItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsTextItem_Metacast(QGraphicsTextItem* self, const char* param1) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsTextItem_Metacall(QGraphicsTextItem* self, int param1, int param2, void** param3) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QGraphicsTextItem_ToHtml(const QGraphicsTextItem* self) {
@@ -11678,66 +11378,31 @@ QColor* QGraphicsTextItem_DefaultTextColor(const QGraphicsTextItem* self) {
 }
 
 QRectF* QGraphicsTextItem_BoundingRect(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsTextItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsTextItem_Shape(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsTextItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsTextItem_Contains(const QGraphicsTextItem* self, const QPointF* point) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsTextItem_Paint(QGraphicsTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicstextitem = dynamic_cast<VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsTextItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsTextItem_IsObscuredBy(const QGraphicsTextItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsTextItem_OpaqueArea(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsTextItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsTextItem_Type(const QGraphicsTextItem* self) {
-    auto* vqgraphicstextitem = dynamic_cast<const VirtualQGraphicsTextItem*>(self);
-    if (vqgraphicstextitem && vqgraphicstextitem->isVirtualQGraphicsTextItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsTextItem*)self)->type();
-    }
+    return self->type();
 }
 
 void QGraphicsTextItem_SetTextWidth(QGraphicsTextItem* self, double width) {
@@ -13253,66 +12918,31 @@ QFont* QGraphicsSimpleTextItem_Font(const QGraphicsSimpleTextItem* self) {
 }
 
 QRectF* QGraphicsSimpleTextItem_BoundingRect(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsSimpleTextItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 QPainterPath* QGraphicsSimpleTextItem_Shape(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return new QPainterPath(self->shape());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->shape());
-    }
+    return new QPainterPath(self->shape());
 }
 
 bool QGraphicsSimpleTextItem_Contains(const QGraphicsSimpleTextItem* self, const QPointF* point) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return self->contains(*point);
-    } else {
-        return ((VirtualQGraphicsSimpleTextItem*)self)->contains(*point);
-    }
+    return self->contains(*point);
 }
 
 void QGraphicsSimpleTextItem_Paint(QGraphicsSimpleTextItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsSimpleTextItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsSimpleTextItem_IsObscuredBy(const QGraphicsSimpleTextItem* self, const QGraphicsItem* item) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsSimpleTextItem*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsSimpleTextItem_OpaqueArea(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsSimpleTextItem*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsSimpleTextItem_Type(const QGraphicsSimpleTextItem* self) {
-    auto* vqgraphicssimpletextitem = dynamic_cast<const VirtualQGraphicsSimpleTextItem*>(self);
-    if (vqgraphicssimpletextitem && vqgraphicssimpletextitem->isVirtualQGraphicsSimpleTextItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsSimpleTextItem*)self)->type();
-    }
+    return self->type();
 }
 
 bool QGraphicsSimpleTextItem_SupportsExtension(const QGraphicsSimpleTextItem* self, int extension) {
@@ -14385,48 +14015,23 @@ void QGraphicsItemGroup_RemoveFromGroup(QGraphicsItemGroup* self, QGraphicsItem*
 }
 
 QRectF* QGraphicsItemGroup_BoundingRect(const QGraphicsItemGroup* self) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsItemGroup*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 void QGraphicsItemGroup_Paint(QGraphicsItemGroup* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsitemgroup = dynamic_cast<VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsItemGroup*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 bool QGraphicsItemGroup_IsObscuredBy(const QGraphicsItemGroup* self, const QGraphicsItem* item) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        return self->isObscuredBy(item);
-    } else {
-        return ((VirtualQGraphicsItemGroup*)self)->isObscuredBy(item);
-    }
+    return self->isObscuredBy(item);
 }
 
 QPainterPath* QGraphicsItemGroup_OpaqueArea(const QGraphicsItemGroup* self) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        return new QPainterPath(self->opaqueArea());
-    } else {
-        return new QPainterPath(((VirtualQGraphicsItemGroup*)self)->opaqueArea());
-    }
+    return new QPainterPath(self->opaqueArea());
 }
 
 int QGraphicsItemGroup_Type(const QGraphicsItemGroup* self) {
-    auto* vqgraphicsitemgroup = dynamic_cast<const VirtualQGraphicsItemGroup*>(self);
-    if (vqgraphicsitemgroup && vqgraphicsitemgroup->isVirtualQGraphicsItemGroup) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsItemGroup*)self)->type();
-    }
+    return self->type();
 }
 
 // Base class handler implementation

@@ -2283,90 +2283,90 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: job_base_enums.LoadType `
+    /// ` reload: job_base_enums.LoadType `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn StoredGet(param1: anytype, param2: i32, param3: i32) KIO__StoredTransferJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_StoredGet(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+    pub fn StoredGet(url: anytype, reload: i32, flags: i32) KIO__StoredTransferJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_StoredGet(@ptrCast(url.ptr), @bitCast(reload), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#storedPut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QIODevice `
+    /// ` input: QIODevice `
     ///
-    /// ` param2: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param3: i32 `
+    /// ` permissions: i32 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn StoredPut(param1: anytype, param2: anytype, param3: i32, param4: i32) KIO__StoredTransferJob {
-        comptime _ = @TypeOf(param1)._is_QIODevice;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_StoredPut(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+    pub fn StoredPut(input: anytype, url: anytype, permissions: i32, flags: i32) KIO__StoredTransferJob {
+        comptime _ = @TypeOf(input)._is_QIODevice;
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_StoredPut(@ptrCast(input.ptr), @ptrCast(url.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#storedPut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
+    /// ` arr: []u8 `
     ///
-    /// ` param2: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param3: i32 `
+    /// ` permissions: i32 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn StoredPut2(param1: []u8, param2: anytype, param3: i32, param4: i32) KIO__StoredTransferJob {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn StoredPut2(arr: []u8, url: anytype, permissions: i32, flags: i32) KIO__StoredTransferJob {
+        const arr_str = qtc.libqt_string{
+            .len = arr.len,
+            .data = arr.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_StoredPut2(param1_str, @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_StoredPut2(arr_str, @ptrCast(url.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#storedHttpPost)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []u8 `
+    /// ` arr: []u8 `
     ///
-    /// ` param2: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn StoredHttpPost(param1: []u8, param2: anytype, param3: i32) KIO__StoredTransferJob {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn StoredHttpPost(arr: []u8, url: anytype, flags: i32) KIO__StoredTransferJob {
+        const arr_str = qtc.libqt_string{
+            .len = arr.len,
+            .data = arr.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_StoredHttpPost(param1_str, @ptrCast(param2.ptr), @bitCast(param3)) };
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_StoredHttpPost(arr_str, @ptrCast(url.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#storedHttpPost)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QIODevice `
+    /// ` device: QIODevice `
     ///
-    /// ` param2: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param3: i64 `
+    /// ` size: i64 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn StoredHttpPost2(param1: anytype, param2: anytype, param3: i64, param4: i32) KIO__StoredTransferJob {
-        comptime _ = @TypeOf(param1)._is_QIODevice;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_StoredHttpPost2(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+    pub fn StoredHttpPost2(device: anytype, url: anytype, size: i64, flags: i32) KIO__StoredTransferJob {
+        comptime _ = @TypeOf(device)._is_QIODevice;
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_StoredHttpPost2(@ptrCast(device.ptr), @ptrCast(url.ptr), @bitCast(size), @bitCast(flags)) };
     }
 };

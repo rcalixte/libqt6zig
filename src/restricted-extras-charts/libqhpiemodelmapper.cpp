@@ -22,30 +22,15 @@ QHPieModelMapper* QHPieModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHPieModelMapper_MetaObject(const QHPieModelMapper* self) {
-    auto* vqhpiemodelmapper = dynamic_cast<const VirtualQHPieModelMapper*>(self);
-    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHPieModelMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHPieModelMapper_Metacast(QHPieModelMapper* self, const char* param1) {
-    auto* vqhpiemodelmapper = dynamic_cast<VirtualQHPieModelMapper*>(self);
-    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHPieModelMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHPieModelMapper_Metacall(QHPieModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqhpiemodelmapper = dynamic_cast<VirtualQHPieModelMapper*>(self);
-    if (vqhpiemodelmapper && vqhpiemodelmapper->isVirtualQHPieModelMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHPieModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemModel* QHPieModelMapper_Model(const QHPieModelMapper* self) {

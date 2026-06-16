@@ -20,30 +20,15 @@ QAnimationGroup* QAnimationGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QAnimationGroup_MetaObject(const QAnimationGroup* self) {
-    auto* vqanimationgroup = dynamic_cast<const VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAnimationGroup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAnimationGroup_Metacast(QAnimationGroup* self, const char* param1) {
-    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAnimationGroup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAnimationGroup_Metacall(QAnimationGroup* self, int param1, int param2, void** param3) {
-    auto* vqanimationgroup = dynamic_cast<VirtualQAnimationGroup*>(self);
-    if (vqanimationgroup && vqanimationgroup->isVirtualQAnimationGroup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAnimationGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractAnimation* QAnimationGroup_AnimationAt(const QAnimationGroup* self, int index) {

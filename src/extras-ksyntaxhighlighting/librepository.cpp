@@ -19,30 +19,15 @@ KSyntaxHighlighting__Repository* KSyntaxHighlighting__Repository_new() {
 }
 
 QMetaObject* KSyntaxHighlighting__Repository_MetaObject(const KSyntaxHighlighting__Repository* self) {
-    auto* vksyntaxhighlighting__repository = dynamic_cast<const VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlighting__repository && vksyntaxhighlighting__repository->isVirtualKSyntaxHighlightingRepository) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSyntaxHighlightingRepository*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSyntaxHighlighting__Repository_Metacast(KSyntaxHighlighting__Repository* self, const char* param1) {
-    auto* vksyntaxhighlighting__repository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlighting__repository && vksyntaxhighlighting__repository->isVirtualKSyntaxHighlightingRepository) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSyntaxHighlightingRepository*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSyntaxHighlighting__Repository_Metacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3) {
-    auto* vksyntaxhighlighting__repository = dynamic_cast<VirtualKSyntaxHighlightingRepository*>(self);
-    if (vksyntaxhighlighting__repository && vksyntaxhighlighting__repository->isVirtualKSyntaxHighlightingRepository) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSyntaxHighlightingRepository*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KSyntaxHighlighting__Definition* KSyntaxHighlighting__Repository_DefinitionForName(const KSyntaxHighlighting__Repository* self, const libqt_string defName) {

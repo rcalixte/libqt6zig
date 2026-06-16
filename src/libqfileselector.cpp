@@ -21,30 +21,15 @@ QFileSelector* QFileSelector_new2(QObject* parent) {
 }
 
 QMetaObject* QFileSelector_MetaObject(const QFileSelector* self) {
-    auto* vqfileselector = dynamic_cast<const VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFileSelector*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFileSelector_Metacast(QFileSelector* self, const char* param1) {
-    auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFileSelector*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFileSelector_Metacall(QFileSelector* self, int param1, int param2, void** param3) {
-    auto* vqfileselector = dynamic_cast<VirtualQFileSelector*>(self);
-    if (vqfileselector && vqfileselector->isVirtualQFileSelector) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFileSelector*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QFileSelector_Select(const QFileSelector* self, const libqt_string filePath) {

@@ -38,39 +38,19 @@ KSelectionProxyModel* KSelectionProxyModel_new3(QItemSelectionModel* selectionMo
 }
 
 QMetaObject* KSelectionProxyModel_MetaObject(const KSelectionProxyModel* self) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSelectionProxyModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSelectionProxyModel_Metacast(KSelectionProxyModel* self, const char* param1) {
-    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSelectionProxyModel_Metacall(KSelectionProxyModel* self, int param1, int param2, void** param3) {
-    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSelectionProxyModel_SetSourceModel(KSelectionProxyModel* self, QAbstractItemModel* sourceModel) {
-    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        self->setSourceModel(sourceModel);
-    } else {
-        ((VirtualKSelectionProxyModel*)self)->setSourceModel(sourceModel);
-    }
+    self->setSourceModel(sourceModel);
 }
 
 QItemSelectionModel* KSelectionProxyModel_SelectionModel(const KSelectionProxyModel* self) {
@@ -90,75 +70,35 @@ int KSelectionProxyModel_FilterBehavior(const KSelectionProxyModel* self) {
 }
 
 QModelIndex* KSelectionProxyModel_MapFromSource(const KSelectionProxyModel* self, const QModelIndex* sourceIndex) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QModelIndex(self->mapFromSource(*sourceIndex));
-    } else {
-        return new QModelIndex(((VirtualKSelectionProxyModel*)self)->mapFromSource(*sourceIndex));
-    }
+    return new QModelIndex(self->mapFromSource(*sourceIndex));
 }
 
 QModelIndex* KSelectionProxyModel_MapToSource(const KSelectionProxyModel* self, const QModelIndex* proxyIndex) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QModelIndex(self->mapToSource(*proxyIndex));
-    } else {
-        return new QModelIndex(((VirtualKSelectionProxyModel*)self)->mapToSource(*proxyIndex));
-    }
+    return new QModelIndex(self->mapToSource(*proxyIndex));
 }
 
 QItemSelection* KSelectionProxyModel_MapSelectionFromSource(const KSelectionProxyModel* self, const QItemSelection* selection) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QItemSelection(self->mapSelectionFromSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKSelectionProxyModel*)self)->mapSelectionFromSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionFromSource(*selection));
 }
 
 QItemSelection* KSelectionProxyModel_MapSelectionToSource(const KSelectionProxyModel* self, const QItemSelection* selection) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QItemSelection(self->mapSelectionToSource(*selection));
-    } else {
-        return new QItemSelection(((VirtualKSelectionProxyModel*)self)->mapSelectionToSource(*selection));
-    }
+    return new QItemSelection(self->mapSelectionToSource(*selection));
 }
 
 int KSelectionProxyModel_Flags(const KSelectionProxyModel* self, const QModelIndex* index) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKSelectionProxyModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 QVariant* KSelectionProxyModel_Data(const KSelectionProxyModel* self, const QModelIndex* index, int role) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKSelectionProxyModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int KSelectionProxyModel_RowCount(const KSelectionProxyModel* self, const QModelIndex* parent) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* KSelectionProxyModel_HeaderData(const KSelectionProxyModel* self, int section, int orientation, int role) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKSelectionProxyModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 QMimeData* KSelectionProxyModel_MimeData(const KSelectionProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -168,136 +108,65 @@ QMimeData* KSelectionProxyModel_MimeData(const KSelectionProxyModel* self, const
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 libqt_list /* of libqt_string */ KSelectionProxyModel_MimeTypes(const KSelectionProxyModel* self) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKSelectionProxyModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 int KSelectionProxyModel_SupportedDropActions(const KSelectionProxyModel* self) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualKSelectionProxyModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 bool KSelectionProxyModel_DropMimeData(KSelectionProxyModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkselectionproxymodel = dynamic_cast<VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 bool KSelectionProxyModel_HasChildren(const KSelectionProxyModel* self, const QModelIndex* parent) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 QModelIndex* KSelectionProxyModel_Index(const KSelectionProxyModel* self, int param1, int param2, const QModelIndex* param3) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QModelIndex(self->index(static_cast<int>(param1), static_cast<int>(param2), *param3));
-    } else {
-        return new QModelIndex(((VirtualKSelectionProxyModel*)self)->index(static_cast<int>(param1), static_cast<int>(param2), *param3));
-    }
+    return new QModelIndex(self->index(static_cast<int>(param1), static_cast<int>(param2), *param3));
 }
 
 QModelIndex* KSelectionProxyModel_Parent(const KSelectionProxyModel* self, const QModelIndex* param1) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return new QModelIndex(self->parent(*param1));
-    } else {
-        return new QModelIndex(((VirtualKSelectionProxyModel*)self)->parent(*param1));
-    }
+    return new QModelIndex(self->parent(*param1));
 }
 
 int KSelectionProxyModel_ColumnCount(const KSelectionProxyModel* self, const QModelIndex* param1) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        return self->columnCount(*param1);
-    } else {
-        return ((VirtualKSelectionProxyModel*)self)->columnCount(*param1);
-    }
+    return self->columnCount(*param1);
 }
 
 libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
-    auto* vkselectionproxymodel = dynamic_cast<const VirtualKSelectionProxyModel*>(self);
-    if (vkselectionproxymodel && vkselectionproxymodel->isVirtualKSelectionProxyModel) {
-        QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QModelIndex> _ret = ((VirtualKSelectionProxyModel*)self)->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = new QModelIndex(_ret[i]);
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QModelIndex> _ret = self->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QModelIndex(_ret[i]);
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation

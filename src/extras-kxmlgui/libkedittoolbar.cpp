@@ -57,30 +57,15 @@ KEditToolBar* KEditToolBar_new4(KXMLGUIFactory* factory, QWidget* parent) {
 }
 
 QMetaObject* KEditToolBar_MetaObject(const KEditToolBar* self) {
-    auto* vkedittoolbar = dynamic_cast<const VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKEditToolBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KEditToolBar_Metacast(KEditToolBar* self, const char* param1) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKEditToolBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KEditToolBar_Metacall(KEditToolBar* self, int param1, int param2, void** param3) {
-    auto* vkedittoolbar = dynamic_cast<VirtualKEditToolBar*>(self);
-    if (vkedittoolbar && vkedittoolbar->isVirtualKEditToolBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKEditToolBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KEditToolBar_SetDefaultToolBar(KEditToolBar* self, const libqt_string toolBarName) {

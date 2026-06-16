@@ -68,30 +68,15 @@ KRichTextEdit* KRichTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* KRichTextEdit_MetaObject(const KRichTextEdit* self) {
-    auto* vkrichtextedit = dynamic_cast<const VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKRichTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KRichTextEdit_Metacast(KRichTextEdit* self, const char* param1) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KRichTextEdit_Metacall(KRichTextEdit* self, int param1, int param2, void** param3) {
-    auto* vkrichtextedit = dynamic_cast<VirtualKRichTextEdit*>(self);
-    if (vkrichtextedit && vkrichtextedit->isVirtualKRichTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKRichTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KRichTextEdit_EnableRichTextMode(KRichTextEdit* self) {

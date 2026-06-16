@@ -32,30 +32,15 @@ KConfigSkeleton* KConfigSkeleton_new3(const libqt_string configname, QObject* pa
 }
 
 QMetaObject* KConfigSkeleton_MetaObject(const KConfigSkeleton* self) {
-    auto* vkconfigskeleton = dynamic_cast<const VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKConfigSkeleton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KConfigSkeleton_Metacast(KConfigSkeleton* self, const char* param1) {
-    auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKConfigSkeleton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KConfigSkeleton_Metacall(KConfigSkeleton* self, int param1, int param2, void** param3) {
-    auto* vkconfigskeleton = dynamic_cast<VirtualKConfigSkeleton*>(self);
-    if (vkconfigskeleton && vkconfigskeleton->isVirtualKConfigSkeleton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKConfigSkeleton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor(KConfigSkeleton* self, const libqt_string name, QColor* reference) {
@@ -657,39 +642,19 @@ KConfigSkeleton__ItemColor* KConfigSkeleton__ItemColor_new2(const libqt_string _
 }
 
 void KConfigSkeleton__ItemColor_ReadConfig(KConfigSkeleton__ItemColor* self, KConfig* config) {
-    auto* vkconfigskeleton__itemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
-    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKConfigSkeletonItemColor*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KConfigSkeleton__ItemColor_SetProperty(KConfigSkeleton__ItemColor* self, const QVariant* p) {
-    auto* vkconfigskeleton__itemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
-    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKConfigSkeletonItemColor*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KConfigSkeleton__ItemColor_IsEqual(const KConfigSkeleton__ItemColor* self, const QVariant* p) {
-    auto* vkconfigskeleton__itemcolor = dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self);
-    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKConfigSkeletonItemColor*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KConfigSkeleton__ItemColor_Property(const KConfigSkeleton__ItemColor* self) {
-    auto* vkconfigskeleton__itemcolor = dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self);
-    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKConfigSkeletonItemColor*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation
@@ -785,39 +750,19 @@ KConfigSkeleton__ItemFont* KConfigSkeleton__ItemFont_new2(const libqt_string _gr
 }
 
 void KConfigSkeleton__ItemFont_ReadConfig(KConfigSkeleton__ItemFont* self, KConfig* config) {
-    auto* vkconfigskeleton__itemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
-    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
-        self->readConfig(config);
-    } else {
-        ((VirtualKConfigSkeletonItemFont*)self)->readConfig(config);
-    }
+    self->readConfig(config);
 }
 
 void KConfigSkeleton__ItemFont_SetProperty(KConfigSkeleton__ItemFont* self, const QVariant* p) {
-    auto* vkconfigskeleton__itemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
-    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
-        self->setProperty(*p);
-    } else {
-        ((VirtualKConfigSkeletonItemFont*)self)->setProperty(*p);
-    }
+    self->setProperty(*p);
 }
 
 bool KConfigSkeleton__ItemFont_IsEqual(const KConfigSkeleton__ItemFont* self, const QVariant* p) {
-    auto* vkconfigskeleton__itemfont = dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self);
-    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
-        return self->isEqual(*p);
-    } else {
-        return ((VirtualKConfigSkeletonItemFont*)self)->isEqual(*p);
-    }
+    return self->isEqual(*p);
 }
 
 QVariant* KConfigSkeleton__ItemFont_Property(const KConfigSkeleton__ItemFont* self) {
-    auto* vkconfigskeleton__itemfont = dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self);
-    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
-        return new QVariant(self->property());
-    } else {
-        return new QVariant(((VirtualKConfigSkeletonItemFont*)self)->property());
-    }
+    return new QVariant(self->property());
 }
 
 // Base class handler implementation

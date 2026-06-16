@@ -62,30 +62,15 @@ KShortcutsDialog* KShortcutsDialog_new5(int actionTypes, int allowLetterShortcut
 }
 
 QMetaObject* KShortcutsDialog_MetaObject(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<const VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKShortcutsDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KShortcutsDialog_Metacast(KShortcutsDialog* self, const char* param1) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KShortcutsDialog_Metacall(KShortcutsDialog* self, int param1, int param2, void** param3) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKShortcutsDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KShortcutsDialog_AddCollection(KShortcutsDialog* self, KActionCollection* collection) {
@@ -110,12 +95,7 @@ bool KShortcutsDialog_Configure(KShortcutsDialog* self) {
 }
 
 QSize* KShortcutsDialog_SizeHint(const KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<const VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKShortcutsDialog*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KShortcutsDialog_ShowDialog(KActionCollection* collection) {
@@ -141,12 +121,7 @@ void KShortcutsDialog_AddActionToSchemesMoreButton(KShortcutsDialog* self, QActi
 }
 
 void KShortcutsDialog_Accept(KShortcutsDialog* self) {
-    auto* vkshortcutsdialog = dynamic_cast<VirtualKShortcutsDialog*>(self);
-    if (vkshortcutsdialog && vkshortcutsdialog->isVirtualKShortcutsDialog) {
-        self->accept();
-    } else {
-        ((VirtualKShortcutsDialog*)self)->accept();
-    }
+    self->accept();
 }
 
 void KShortcutsDialog_Saved(KShortcutsDialog* self) {

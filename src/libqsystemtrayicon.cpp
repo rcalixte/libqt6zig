@@ -30,30 +30,15 @@ QSystemTrayIcon* QSystemTrayIcon_new4(const QIcon* icon, QObject* parent) {
 }
 
 QMetaObject* QSystemTrayIcon_MetaObject(const QSystemTrayIcon* self) {
-    auto* vqsystemtrayicon = dynamic_cast<const VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSystemTrayIcon*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSystemTrayIcon_Metacast(QSystemTrayIcon* self, const char* param1) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSystemTrayIcon_Metacall(QSystemTrayIcon* self, int param1, int param2, void** param3) {
-    auto* vqsystemtrayicon = dynamic_cast<VirtualQSystemTrayIcon*>(self);
-    if (vqsystemtrayicon && vqsystemtrayicon->isVirtualQSystemTrayIcon) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSystemTrayIcon*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSystemTrayIcon_SetContextMenu(QSystemTrayIcon* self, QMenu* menu) {

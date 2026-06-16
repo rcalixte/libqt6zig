@@ -23,6 +23,6 @@ KIO__JobUiDelegateExtension* KIO_DefaultJobUiDelegateExtension() {
     return KIO::defaultJobUiDelegateExtension();
 }
 
-void KIO_SetDefaultJobUiDelegateExtension(KIO__JobUiDelegateExtension* param1) {
-    KIO::setDefaultJobUiDelegateExtension(param1);
+void KIO_SetDefaultJobUiDelegateExtension(KIO__JobUiDelegateExtension* extension) {
+    KIO::setDefaultJobUiDelegateExtension(extension);
 }

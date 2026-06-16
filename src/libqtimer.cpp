@@ -19,30 +19,15 @@ QTimer* QTimer_new2(QObject* parent) {
 }
 
 QMetaObject* QTimer_MetaObject(const QTimer* self) {
-    auto* vqtimer = dynamic_cast<const VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTimer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTimer_Metacast(QTimer* self, const char* param1) {
-    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTimer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTimer_Metacall(QTimer* self, int param1, int param2, void** param3) {
-    auto* vqtimer = dynamic_cast<VirtualQTimer*>(self);
-    if (vqtimer && vqtimer->isVirtualQTimer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTimer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QTimer_IsActive(const QTimer* self) {

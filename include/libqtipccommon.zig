@@ -204,14 +204,14 @@ pub const QNativeIpcKey = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn FromString(stringVal: []const u8) QNativeIpcKey {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn FromString(string: []const u8) QNativeIpcKey {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QNativeIpcKey_FromString(stringVal_str) };
+        return .{ .ptr = qtc.QNativeIpcKey_FromString(string_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

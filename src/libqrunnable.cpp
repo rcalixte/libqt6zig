@@ -8,12 +8,7 @@ QRunnable* QRunnable_new() {
 }
 
 void QRunnable_Run(QRunnable* self) {
-    auto* vqrunnable = dynamic_cast<VirtualQRunnable*>(self);
-    if (vqrunnable && vqrunnable->isVirtualQRunnable) {
-        vqrunnable->run();
-    } else {
-        ((VirtualQRunnable*)self)->run();
-    }
+    self->run();
 }
 
 bool QRunnable_AutoDelete(const QRunnable* self) {

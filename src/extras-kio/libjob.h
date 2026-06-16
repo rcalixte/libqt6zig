@@ -19,8 +19,8 @@ typedef struct KIO KIO;
 typedef struct QUrl QUrl;
 #endif
 
-libqt_string KIO_BuildErrorString(int param1, const libqt_string param2);
-libqt_string KIO_RawErrorDetail(int param1, const libqt_string param2, const QUrl* param3, int param4);
+libqt_string KIO_BuildErrorString(int errorCode, const libqt_string errorText);
+libqt_string KIO_RawErrorDetail(int errorCode, const libqt_string errorText, const QUrl* reqUrl, int method);
 
 #ifdef __cplusplus
 } /* extern C */

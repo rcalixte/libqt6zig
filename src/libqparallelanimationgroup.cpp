@@ -21,39 +21,19 @@ QParallelAnimationGroup* QParallelAnimationGroup_new2(QObject* parent) {
 }
 
 QMetaObject* QParallelAnimationGroup_MetaObject(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = dynamic_cast<const VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQParallelAnimationGroup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QParallelAnimationGroup_Metacast(QParallelAnimationGroup* self, const char* param1) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QParallelAnimationGroup_Metacall(QParallelAnimationGroup* self, int param1, int param2, void** param3) {
-    auto* vqparallelanimationgroup = dynamic_cast<VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QParallelAnimationGroup_Duration(const QParallelAnimationGroup* self) {
-    auto* vqparallelanimationgroup = dynamic_cast<const VirtualQParallelAnimationGroup*>(self);
-    if (vqparallelanimationgroup && vqparallelanimationgroup->isVirtualQParallelAnimationGroup) {
-        return self->duration();
-    } else {
-        return ((VirtualQParallelAnimationGroup*)self)->duration();
-    }
+    return self->duration();
 }
 
 bool QParallelAnimationGroup_Event(QParallelAnimationGroup* self, QEvent* event) {

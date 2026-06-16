@@ -55,30 +55,15 @@ TextCustomEditor__RichTextBrowserWidget* TextCustomEditor__RichTextBrowserWidget
 }
 
 QMetaObject* TextCustomEditor__RichTextBrowserWidget_MetaObject(const TextCustomEditor__RichTextBrowserWidget* self) {
-    auto* vtextcustomeditor__richtextbrowserwidget = dynamic_cast<const VirtualTextCustomEditorRichTextBrowserWidget*>(self);
-    if (vtextcustomeditor__richtextbrowserwidget && vtextcustomeditor__richtextbrowserwidget->isVirtualTextCustomEditorRichTextBrowserWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorRichTextBrowserWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__RichTextBrowserWidget_Metacast(TextCustomEditor__RichTextBrowserWidget* self, const char* param1) {
-    auto* vtextcustomeditor__richtextbrowserwidget = dynamic_cast<VirtualTextCustomEditorRichTextBrowserWidget*>(self);
-    if (vtextcustomeditor__richtextbrowserwidget && vtextcustomeditor__richtextbrowserwidget->isVirtualTextCustomEditorRichTextBrowserWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__RichTextBrowserWidget_Metacall(TextCustomEditor__RichTextBrowserWidget* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__richtextbrowserwidget = dynamic_cast<VirtualTextCustomEditorRichTextBrowserWidget*>(self);
-    if (vtextcustomeditor__richtextbrowserwidget && vtextcustomeditor__richtextbrowserwidget->isVirtualTextCustomEditorRichTextBrowserWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorRichTextBrowserWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__RichTextBrowserWidget_Clear(TextCustomEditor__RichTextBrowserWidget* self) {

@@ -32,8 +32,8 @@ struct pair_kguiitem_kguiitem {
 };
 #endif
 
-KGuiItem* KStandardGuiItem_GuiItem(int param1);
-libqt_string KStandardGuiItem_StandardItem(int param1);
+KGuiItem* KStandardGuiItem_GuiItem(int id);
+libqt_string KStandardGuiItem_StandardItem(int id);
 KGuiItem* KStandardGuiItem_Ok();
 KGuiItem* KStandardGuiItem_Cancel();
 KGuiItem* KStandardGuiItem_Insert();
@@ -56,8 +56,8 @@ KGuiItem* KStandardGuiItem_AdminMode();
 KGuiItem* KStandardGuiItem_Cont();
 KGuiItem* KStandardGuiItem_Del();
 KGuiItem* KStandardGuiItem_Open();
-KGuiItem* KStandardGuiItem_Back(int param1);
-KGuiItem* KStandardGuiItem_Forward(int param1);
+KGuiItem* KStandardGuiItem_Back(int useBidi);
+KGuiItem* KStandardGuiItem_Forward(int useBidi);
 KGuiItem* KStandardGuiItem_Configure();
 pair_kguiitem_kguiitem /* tuple of KGuiItem* and KGuiItem* */ KStandardGuiItem_BackAndForward();
 KGuiItem* KStandardGuiItem_Quit();
@@ -66,7 +66,7 @@ KGuiItem* KStandardGuiItem_Stop();
 KGuiItem* KStandardGuiItem_Add();
 KGuiItem* KStandardGuiItem_Remove();
 KGuiItem* KStandardGuiItem_Test();
-void KStandardGuiItem_Assign(QPushButton* param1, int param2);
+void KStandardGuiItem_Assign(QPushButton* button, int item);
 
 #ifdef __cplusplus
 } /* extern C */

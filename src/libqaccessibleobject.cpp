@@ -18,49 +18,24 @@ QAccessibleObject* QAccessibleObject_new(QObject* object) {
 }
 
 bool QAccessibleObject_IsValid(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return self->isValid();
-    } else {
-        return ((VirtualQAccessibleObject*)self)->isValid();
-    }
+    return self->isValid();
 }
 
 QObject* QAccessibleObject_Object(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return self->object();
-    } else {
-        return ((VirtualQAccessibleObject*)self)->object();
-    }
+    return self->object();
 }
 
 QRect* QAccessibleObject_Rect(const QAccessibleObject* self) {
-    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return new QRect(self->rect());
-    } else {
-        return new QRect(((VirtualQAccessibleObject*)self)->rect());
-    }
+    return new QRect(self->rect());
 }
 
 void QAccessibleObject_SetText(QAccessibleObject* self, int t, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vqaccessibleobject = dynamic_cast<VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        self->setText(static_cast<QAccessible::Text>(t), text_QString);
-    } else {
-        ((VirtualQAccessibleObject*)self)->setText(static_cast<QAccessible::Text>(t), text_QString);
-    }
+    self->setText(static_cast<QAccessible::Text>(t), text_QString);
 }
 
 QAccessibleInterface* QAccessibleObject_ChildAt(const QAccessibleObject* self, int x, int y) {
-    auto* vqaccessibleobject = dynamic_cast<const VirtualQAccessibleObject*>(self);
-    if (vqaccessibleobject && vqaccessibleobject->isVirtualQAccessibleObject) {
-        return self->childAt(static_cast<int>(x), static_cast<int>(y));
-    } else {
-        return ((VirtualQAccessibleObject*)self)->childAt(static_cast<int>(x), static_cast<int>(y));
-    }
+    return self->childAt(static_cast<int>(x), static_cast<int>(y));
 }
 
 // Base class handler implementation
@@ -658,100 +633,47 @@ QAccessibleApplication* QAccessibleApplication_new() {
 }
 
 QWindow* QAccessibleApplication_Window(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return self->window();
-    } else {
-        return ((VirtualQAccessibleApplication*)self)->window();
-    }
+    return self->window();
 }
 
 int QAccessibleApplication_ChildCount(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return self->childCount();
-    } else {
-        return ((VirtualQAccessibleApplication*)self)->childCount();
-    }
+    return self->childCount();
 }
 
 int QAccessibleApplication_IndexOfChild(const QAccessibleApplication* self, const QAccessibleInterface* param1) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return self->indexOfChild(param1);
-    } else {
-        return ((VirtualQAccessibleApplication*)self)->indexOfChild(param1);
-    }
+    return self->indexOfChild(param1);
 }
 
 QAccessibleInterface* QAccessibleApplication_FocusChild(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return self->focusChild();
-    } else {
-        return ((VirtualQAccessibleApplication*)self)->focusChild();
-    }
+    return self->focusChild();
 }
 
 QAccessibleInterface* QAccessibleApplication_Parent(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return self->parent();
-    } else {
-        return ((VirtualQAccessibleApplication*)self)->parent();
-    }
+    return self->parent();
 }
 
 QAccessibleInterface* QAccessibleApplication_Child(const QAccessibleApplication* self, int index) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return self->child(static_cast<int>(index));
-    } else {
-        return ((VirtualQAccessibleApplication*)self)->child(static_cast<int>(index));
-    }
+    return self->child(static_cast<int>(index));
 }
 
 libqt_string QAccessibleApplication_Text(const QAccessibleApplication* self, int t) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        auto _ret = self->text(static_cast<QAccessible::Text>(t));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQAccessibleApplication*)self)->text(static_cast<QAccessible::Text>(t));
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->text(static_cast<QAccessible::Text>(t));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 int QAccessibleApplication_Role(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return static_cast<int>(self->role());
-    } else {
-        return static_cast<int>(((VirtualQAccessibleApplication*)self)->role());
-    }
+    return static_cast<int>(self->role());
 }
 
 QAccessible__State* QAccessibleApplication_State(const QAccessibleApplication* self) {
-    auto* vqaccessibleapplication = dynamic_cast<const VirtualQAccessibleApplication*>(self);
-    if (vqaccessibleapplication && vqaccessibleapplication->isVirtualQAccessibleApplication) {
-        return new QAccessible::State(self->state());
-    } else {
-        return new QAccessible::State(((VirtualQAccessibleApplication*)self)->state());
-    }
+    return new QAccessible::State(self->state());
 }
 
 // Base class handler implementation

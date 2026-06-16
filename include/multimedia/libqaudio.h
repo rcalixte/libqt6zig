@@ -18,7 +18,7 @@ extern "C" {
 typedef struct QAudio QAudio;
 #endif
 
-float QAudio_ConvertVolume(float param1, int param2, int param3);
+float QAudio_ConvertVolume(float volume, int from, int to);
 
 #ifdef __cplusplus
 } /* extern C */

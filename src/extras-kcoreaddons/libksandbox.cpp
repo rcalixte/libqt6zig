@@ -17,12 +17,12 @@ bool KSandbox_IsSnap() {
     return KSandbox::isSnap();
 }
 
-KSandbox__ProcessContext* KSandbox_MakeHostContext(const QProcess* param1) {
-    return new KSandbox::ProcessContext(KSandbox::makeHostContext(*param1));
+KSandbox__ProcessContext* KSandbox_MakeHostContext(const QProcess* process) {
+    return new KSandbox::ProcessContext(KSandbox::makeHostContext(*process));
 }
 
-void KSandbox_StartHostProcess(QProcess* param1, int param2) {
-    KSandbox::startHostProcess(*param1, static_cast<QProcess::OpenMode>(param2));
+void KSandbox_StartHostProcess(QProcess* process, int mode) {
+    KSandbox::startHostProcess(*process, static_cast<QProcess::OpenMode>(mode));
 }
 
 KSandbox__ProcessContext* KSandbox__ProcessContext_new(const KSandbox__ProcessContext* param1) {

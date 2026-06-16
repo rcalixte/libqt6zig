@@ -18,9 +18,9 @@ extern "C" {
 typedef struct KRecentDirs KRecentDirs;
 #endif
 
-libqt_list /* of libqt_string */ KRecentDirs_List(const libqt_string param1);
-libqt_string KRecentDirs_Dir(const libqt_string param1);
-void KRecentDirs_Add(const libqt_string param1, const libqt_string param2);
+libqt_list /* of libqt_string */ KRecentDirs_List(const libqt_string fileClass);
+libqt_string KRecentDirs_Dir(const libqt_string fileClass);
+void KRecentDirs_Add(const libqt_string fileClass, const libqt_string directory);
 
 #ifdef __cplusplus
 } /* extern C */

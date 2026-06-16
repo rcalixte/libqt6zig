@@ -6621,14 +6621,14 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` id: i32 `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn UserListActivated(self: QsciScintilla, id: i32, stringVal: []const u8) void {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn UserListActivated(self: QsciScintilla, id: i32, string: []const u8) void {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        qtc.QsciScintilla_UserListActivated(@ptrCast(self.ptr), @bitCast(id), stringVal_str);
+        qtc.QsciScintilla_UserListActivated(@ptrCast(self.ptr), @bitCast(id), string_str);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6637,7 +6637,7 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QsciScintilla, id: i32, stringVal: [*:0]const u8) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, id: i32, string: [*:0]const u8) callconv(.c) void `
     ///
     pub fn OnUserListActivated(self: QsciScintilla, callback: *const fn (QsciScintilla, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_UserListActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

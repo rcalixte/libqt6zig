@@ -52,30 +52,15 @@ QFrame* QFrame_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QFrame_MetaObject(const QFrame* self) {
-    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFrame*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFrame_Metacast(QFrame* self, const char* param1) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFrame*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFrame_Metacall(QFrame* self, int param1, int param2, void** param3) {
-    auto* vqframe = dynamic_cast<VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFrame*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QFrame_FrameStyle(const QFrame* self) {
@@ -91,12 +76,7 @@ int QFrame_FrameWidth(const QFrame* self) {
 }
 
 QSize* QFrame_SizeHint(const QFrame* self) {
-    auto* vqframe = dynamic_cast<const VirtualQFrame*>(self);
-    if (vqframe && vqframe->isVirtualQFrame) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQFrame*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 int QFrame_FrameShape(const QFrame* self) {

@@ -49,30 +49,15 @@ QGraphicsProxyWidget* QGraphicsProxyWidget_new3(QGraphicsItem* parent, int wFlag
 }
 
 QMetaObject* QGraphicsProxyWidget_MetaObject(const QGraphicsProxyWidget* self) {
-    auto* vqgraphicsproxywidget = dynamic_cast<const VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsProxyWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsProxyWidget_Metacast(QGraphicsProxyWidget* self, const char* param1) {
-    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsProxyWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsProxyWidget_Metacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsProxyWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QGraphicsProxyWidget_SetWidget(QGraphicsProxyWidget* self, QWidget* widget) {
@@ -88,30 +73,15 @@ QRectF* QGraphicsProxyWidget_SubWidgetRect(const QGraphicsProxyWidget* self, con
 }
 
 void QGraphicsProxyWidget_SetGeometry(QGraphicsProxyWidget* self, const QRectF* rect) {
-    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQGraphicsProxyWidget*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 void QGraphicsProxyWidget_Paint(QGraphicsProxyWidget* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsproxywidget = dynamic_cast<VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsProxyWidget*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 int QGraphicsProxyWidget_Type(const QGraphicsProxyWidget* self) {
-    auto* vqgraphicsproxywidget = dynamic_cast<const VirtualQGraphicsProxyWidget*>(self);
-    if (vqgraphicsproxywidget && vqgraphicsproxywidget->isVirtualQGraphicsProxyWidget) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsProxyWidget*)self)->type();
-    }
+    return self->type();
 }
 
 QGraphicsProxyWidget* QGraphicsProxyWidget_CreateProxyForChildWidget(QGraphicsProxyWidget* self, QWidget* child) {

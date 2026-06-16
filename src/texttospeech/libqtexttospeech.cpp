@@ -58,30 +58,15 @@ QTextToSpeech* QTextToSpeech_new6(const libqt_string engine, const libqt_map /* 
 }
 
 QMetaObject* QTextToSpeech_MetaObject(const QTextToSpeech* self) {
-    auto* vqtexttospeech = dynamic_cast<const VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextToSpeech*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextToSpeech_Metacast(QTextToSpeech* self, const char* param1) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextToSpeech*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextToSpeech_Metacall(QTextToSpeech* self, int param1, int param2, void** param3) {
-    auto* vqtexttospeech = dynamic_cast<VirtualQTextToSpeech*>(self);
-    if (vqtexttospeech && vqtexttospeech->isVirtualQTextToSpeech) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextToSpeech*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QTextToSpeech_SetEngine(QTextToSpeech* self, const libqt_string engine) {

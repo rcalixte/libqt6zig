@@ -227,14 +227,14 @@ void Poppler__FormFieldSignature_Delete(Poppler__FormFieldSignature* self);
 
 libqt_list /* of int */ Poppler_AvailableCryptoSignBackends();
 int Poppler_ActiveCryptoSignBackend();
-bool Poppler_SetActiveCryptoSignBackend(int param1);
+bool Poppler_SetActiveCryptoSignBackend(int backend);
 bool Poppler_HasCryptoSignBackendFeature(int param1, int param2);
 bool Poppler_HasNSSSupport();
 libqt_list /* of Poppler__CertificateInfo* */ Poppler_GetAvailableSigningCertificates();
 libqt_string Poppler_GetNSSDir();
-void Poppler_SetNSSDir(const libqt_string param1);
-void Poppler_SetNSSPasswordCallback(intptr_t param1);
-void Poppler_SetPgpSignaturesAllowed(bool param1);
+void Poppler_SetNSSDir(const libqt_string pathURL);
+void Poppler_SetNSSPasswordCallback(intptr_t f);
+void Poppler_SetPgpSignaturesAllowed(bool allowed);
 bool Poppler_ArePgpSignaturesAllowed();
 
 #ifdef __cplusplus

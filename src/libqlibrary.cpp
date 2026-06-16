@@ -51,30 +51,15 @@ QLibrary* QLibrary_new8(const libqt_string fileName, const libqt_string version,
 }
 
 QMetaObject* QLibrary_MetaObject(const QLibrary* self) {
-    auto* vqlibrary = dynamic_cast<const VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLibrary*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLibrary_Metacast(QLibrary* self, const char* param1) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLibrary*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLibrary_Metacall(QLibrary* self, int param1, int param2, void** param3) {
-    auto* vqlibrary = dynamic_cast<VirtualQLibrary*>(self);
-    if (vqlibrary && vqlibrary->isVirtualQLibrary) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLibrary*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 intptr_t QLibrary_Resolve(QLibrary* self, const char* symbol) {

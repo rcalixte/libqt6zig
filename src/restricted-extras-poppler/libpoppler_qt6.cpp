@@ -37,8 +37,8 @@
 #include "libpoppler_qt6.h"
 #include "libpoppler_qt6.hxx"
 
-QDateTime* Poppler_ConvertDate(const char* param1) {
-    return new QDateTime(Poppler::convertDate(param1));
+QDateTime* Poppler_ConvertDate(const char* dateString) {
+    return new QDateTime(Poppler::convertDate(dateString));
 }
 
 bool Poppler_IsCmsAvailable() {

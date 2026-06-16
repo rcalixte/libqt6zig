@@ -16,30 +16,15 @@ KNotificationReplyAction* KNotificationReplyAction_new(const libqt_string label)
 }
 
 QMetaObject* KNotificationReplyAction_MetaObject(const KNotificationReplyAction* self) {
-    auto* vknotificationreplyaction = dynamic_cast<const VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNotificationReplyAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNotificationReplyAction_Metacast(KNotificationReplyAction* self, const char* param1) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNotificationReplyAction_Metacall(KNotificationReplyAction* self, int param1, int param2, void** param3) {
-    auto* vknotificationreplyaction = dynamic_cast<VirtualKNotificationReplyAction*>(self);
-    if (vknotificationreplyaction && vknotificationreplyaction->isVirtualKNotificationReplyAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNotificationReplyAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KNotificationReplyAction_Label(const KNotificationReplyAction* self) {

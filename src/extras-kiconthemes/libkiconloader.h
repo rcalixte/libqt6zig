@@ -128,9 +128,9 @@ void KIconLoader_OnIsSignalConnected(const KIconLoader* self, intptr_t slot);
 bool KIconLoader_SuperIsSignalConnected(const KIconLoader* self, const QMetaMethod* signal);
 void KIconLoader_Delete(KIconLoader* self);
 
-QIcon* KDE_Icon(const libqt_string param1, KIconLoader* param2);
-QIcon* KDE_Icon2(const libqt_string param1, const KIconColors* param2, KIconLoader* param3);
-QIcon* KDE_Icon3(const libqt_string param1, const libqt_list /* of libqt_string */ param2, KIconLoader* param3);
+QIcon* KDE_Icon(const libqt_string iconName, KIconLoader* iconLoader);
+QIcon* KDE_Icon2(const libqt_string iconName, const KIconColors* colors, KIconLoader* iconLoader);
+QIcon* KDE_Icon3(const libqt_string iconName, const libqt_list /* of libqt_string */ overlays, KIconLoader* iconLoader);
 
 #ifdef __cplusplus
 } /* extern C */

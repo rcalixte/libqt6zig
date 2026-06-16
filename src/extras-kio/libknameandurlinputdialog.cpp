@@ -46,30 +46,15 @@ KNameAndUrlInputDialog* KNameAndUrlInputDialog_new(const libqt_string nameLabel,
 }
 
 QMetaObject* KNameAndUrlInputDialog_MetaObject(const KNameAndUrlInputDialog* self) {
-    auto* vknameandurlinputdialog = dynamic_cast<const VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNameAndUrlInputDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNameAndUrlInputDialog_Metacast(KNameAndUrlInputDialog* self, const char* param1) {
-    auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNameAndUrlInputDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNameAndUrlInputDialog_Metacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3) {
-    auto* vknameandurlinputdialog = dynamic_cast<VirtualKNameAndUrlInputDialog*>(self);
-    if (vknameandurlinputdialog && vknameandurlinputdialog->isVirtualKNameAndUrlInputDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNameAndUrlInputDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KNameAndUrlInputDialog_SetSuggestedName(KNameAndUrlInputDialog* self, const libqt_string name) {

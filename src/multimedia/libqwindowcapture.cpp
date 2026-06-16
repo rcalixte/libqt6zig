@@ -22,30 +22,15 @@ QWindowCapture* QWindowCapture_new2(QObject* parent) {
 }
 
 QMetaObject* QWindowCapture_MetaObject(const QWindowCapture* self) {
-    auto* vqwindowcapture = dynamic_cast<const VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWindowCapture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWindowCapture_Metacast(QWindowCapture* self, const char* param1) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWindowCapture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWindowCapture_Metacall(QWindowCapture* self, int param1, int param2, void** param3) {
-    auto* vqwindowcapture = dynamic_cast<VirtualQWindowCapture*>(self);
-    if (vqwindowcapture && vqwindowcapture->isVirtualQWindowCapture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWindowCapture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QCapturableWindow* */ QWindowCapture_CapturableWindows() {

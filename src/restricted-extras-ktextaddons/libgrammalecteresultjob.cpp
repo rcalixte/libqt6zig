@@ -20,30 +20,15 @@ TextGrammarCheck__GrammalecteResultJob* TextGrammarCheck__GrammalecteResultJob_n
 }
 
 QMetaObject* TextGrammarCheck__GrammalecteResultJob_MetaObject(const TextGrammarCheck__GrammalecteResultJob* self) {
-    auto* vtextgrammarcheck__grammalecteresultjob = dynamic_cast<const VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheck__grammalecteresultjob && vtextgrammarcheck__grammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckGrammalecteResultJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__GrammalecteResultJob_Metacast(TextGrammarCheck__GrammalecteResultJob* self, const char* param1) {
-    auto* vtextgrammarcheck__grammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheck__grammalecteresultjob && vtextgrammarcheck__grammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__GrammalecteResultJob_Metacall(TextGrammarCheck__GrammalecteResultJob* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__grammalecteresultjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteResultJob*>(self);
-    if (vtextgrammarcheck__grammalecteresultjob && vtextgrammarcheck__grammalecteresultjob->isVirtualTextGrammarCheckGrammalecteResultJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteResultJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__GrammalecteResultJob_Start(TextGrammarCheck__GrammalecteResultJob* self) {

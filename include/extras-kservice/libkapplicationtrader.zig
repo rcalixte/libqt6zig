@@ -16,21 +16,21 @@ pub const KApplicationTrader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` pattern: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` text: []const u8 `
     ///
-    /// ` param3: qnamespace_enums.CaseSensitivity `
+    /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn IsSubsequence(param1: []const u8, param2: []const u8, param3: i32) bool {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn IsSubsequence(pattern: []const u8, text: []const u8, cs: i32) bool {
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
         };
-        return qtc.KApplicationTrader_IsSubsequence(param1_str, param2_str, @bitCast(param3));
+        return qtc.KApplicationTrader_IsSubsequence(pattern_str, text_str, @bitCast(cs));
     }
 };

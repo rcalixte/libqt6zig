@@ -11,30 +11,15 @@ QGestureRecognizer* QGestureRecognizer_new() {
 }
 
 QGesture* QGestureRecognizer_Create(QGestureRecognizer* self, QObject* target) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
-        return self->create(target);
-    } else {
-        return ((VirtualQGestureRecognizer*)self)->create(target);
-    }
+    return self->create(target);
 }
 
 int QGestureRecognizer_Recognize(QGestureRecognizer* self, QGesture* state, QObject* watched, QEvent* event) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
-        return static_cast<int>(vqgesturerecognizer->recognize(state, watched, event));
-    } else {
-        return static_cast<int>(((VirtualQGestureRecognizer*)self)->recognize(state, watched, event));
-    }
+    return static_cast<int>(self->recognize(state, watched, event));
 }
 
 void QGestureRecognizer_Reset(QGestureRecognizer* self, QGesture* state) {
-    auto* vqgesturerecognizer = dynamic_cast<VirtualQGestureRecognizer*>(self);
-    if (vqgesturerecognizer && vqgesturerecognizer->isVirtualQGestureRecognizer) {
-        self->reset(state);
-    } else {
-        ((VirtualQGestureRecognizer*)self)->reset(state);
-    }
+    self->reset(state);
 }
 
 int QGestureRecognizer_RegisterRecognizer(QGestureRecognizer* recognizer) {

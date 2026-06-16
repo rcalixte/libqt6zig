@@ -20,30 +20,15 @@ KConfigDialogManager* KConfigDialogManager_new(QWidget* parent, KCoreConfigSkele
 }
 
 QMetaObject* KConfigDialogManager_MetaObject(const KConfigDialogManager* self) {
-    auto* vkconfigdialogmanager = dynamic_cast<const VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKConfigDialogManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KConfigDialogManager_Metacast(KConfigDialogManager* self, const char* param1) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KConfigDialogManager_Metacall(KConfigDialogManager* self, int param1, int param2, void** param3) {
-    auto* vkconfigdialogmanager = dynamic_cast<VirtualKConfigDialogManager*>(self);
-    if (vkconfigdialogmanager && vkconfigdialogmanager->isVirtualKConfigDialogManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKConfigDialogManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KConfigDialogManager_SettingsChanged(KConfigDialogManager* self) {

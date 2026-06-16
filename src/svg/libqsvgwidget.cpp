@@ -57,30 +57,15 @@ QSvgWidget* QSvgWidget_new4(const libqt_string file, QWidget* parent) {
 }
 
 QMetaObject* QSvgWidget_MetaObject(const QSvgWidget* self) {
-    auto* vqsvgwidget = dynamic_cast<const VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSvgWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSvgWidget_Metacast(QSvgWidget* self, const char* param1) {
-    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSvgWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSvgWidget_Metacall(QSvgWidget* self, int param1, int param2, void** param3) {
-    auto* vqsvgwidget = dynamic_cast<VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSvgWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSvgRenderer* QSvgWidget_Renderer(const QSvgWidget* self) {
@@ -88,12 +73,7 @@ QSvgRenderer* QSvgWidget_Renderer(const QSvgWidget* self) {
 }
 
 QSize* QSvgWidget_SizeHint(const QSvgWidget* self) {
-    auto* vqsvgwidget = dynamic_cast<const VirtualQSvgWidget*>(self);
-    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQSvgWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 uint32_t QSvgWidget_Options(const QSvgWidget* self) {

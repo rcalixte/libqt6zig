@@ -5,9 +5,9 @@
 #include "libkshell.h"
 #include "libkshell.hxx"
 
-libqt_list /* of libqt_string */ KShell_SplitArgs(const libqt_string param1, int param2, int* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> _ret = KShell::splitArgs(param1_QString, static_cast<KShell::Options>(param2), reinterpret_cast<KShell::Errors*>(param3));
+libqt_list /* of libqt_string */ KShell_SplitArgs(const libqt_string cmd, int flags, int* err) {
+    QString cmd_QString = QString::fromUtf8(cmd.data, cmd.len);
+    QList<QString> _ret = KShell::splitArgs(cmd_QString, static_cast<KShell::Options>(flags), reinterpret_cast<KShell::Errors*>(err));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -27,15 +27,15 @@ libqt_list /* of libqt_string */ KShell_SplitArgs(const libqt_string param1, int
     return _out;
 }
 
-libqt_string KShell_JoinArgs(const libqt_list /* of libqt_string */ param1) {
-    QList<QString> param1_QList;
-    param1_QList.reserve(param1.len);
-    libqt_string* param1_arr = static_cast<libqt_string*>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        QString param1_arr_i_QString = QString::fromUtf8(param1_arr[i].data, param1_arr[i].len);
-        param1_QList.push_back(param1_arr_i_QString);
+libqt_string KShell_JoinArgs(const libqt_list /* of libqt_string */ args) {
+    QList<QString> args_QList;
+    args_QList.reserve(args.len);
+    libqt_string* args_arr = static_cast<libqt_string*>(args.data);
+    for (size_t i = 0; i < args.len; ++i) {
+        QString args_arr_i_QString = QString::fromUtf8(args_arr[i].data, args_arr[i].len);
+        args_QList.push_back(args_arr_i_QString);
     }
-    auto _ret = KShell::joinArgs(param1_QList);
+    auto _ret = KShell::joinArgs(args_QList);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -46,9 +46,9 @@ libqt_string KShell_JoinArgs(const libqt_list /* of libqt_string */ param1) {
     return _str;
 }
 
-libqt_string KShell_QuoteArg(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KShell::quoteArg(param1_QString);
+libqt_string KShell_QuoteArg(const libqt_string arg) {
+    QString arg_QString = QString::fromUtf8(arg.data, arg.len);
+    auto _ret = KShell::quoteArg(arg_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -59,9 +59,9 @@ libqt_string KShell_QuoteArg(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KShell_TildeExpand(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KShell::tildeExpand(param1_QString);
+libqt_string KShell_TildeExpand(const libqt_string path) {
+    QString path_QString = QString::fromUtf8(path.data, path.len);
+    auto _ret = KShell::tildeExpand(path_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -72,9 +72,9 @@ libqt_string KShell_TildeExpand(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KShell_TildeCollapse(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KShell::tildeCollapse(param1_QString);
+libqt_string KShell_TildeCollapse(const libqt_string path) {
+    QString path_QString = QString::fromUtf8(path.data, path.len);
+    auto _ret = KShell::tildeCollapse(path_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

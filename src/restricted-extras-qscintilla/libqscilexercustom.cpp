@@ -23,30 +23,15 @@ QsciLexerCustom* QsciLexerCustom_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerCustom_MetaObject(const QsciLexerCustom* self) {
-    auto* vqscilexercustom = dynamic_cast<const VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerCustom*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerCustom_Metacast(QsciLexerCustom* self, const char* param1) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerCustom*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerCustom_Metacall(QsciLexerCustom* self, int param1, int param2, void** param3) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerCustom*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QsciLexerCustom_SetStyling(QsciLexerCustom* self, int length, int style) {
@@ -62,30 +47,15 @@ void QsciLexerCustom_StartStyling(QsciLexerCustom* self, int pos) {
 }
 
 void QsciLexerCustom_StyleText(QsciLexerCustom* self, int start, int end) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        vqscilexercustom->styleText(static_cast<int>(start), static_cast<int>(end));
-    } else {
-        ((VirtualQsciLexerCustom*)self)->styleText(static_cast<int>(start), static_cast<int>(end));
-    }
+    self->styleText(static_cast<int>(start), static_cast<int>(end));
 }
 
 void QsciLexerCustom_SetEditor(QsciLexerCustom* self, QsciScintilla* editor) {
-    auto* vqscilexercustom = dynamic_cast<VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        self->setEditor(editor);
-    } else {
-        ((VirtualQsciLexerCustom*)self)->setEditor(editor);
-    }
+    self->setEditor(editor);
 }
 
 int QsciLexerCustom_StyleBitsNeeded(const QsciLexerCustom* self) {
-    auto* vqscilexercustom = dynamic_cast<const VirtualQsciLexerCustom*>(self);
-    if (vqscilexercustom && vqscilexercustom->isVirtualQsciLexerCustom) {
-        return self->styleBitsNeeded();
-    } else {
-        return ((VirtualQsciLexerCustom*)self)->styleBitsNeeded();
-    }
+    return self->styleBitsNeeded();
 }
 
 void QsciLexerCustom_StartStyling2(QsciLexerCustom* self, int pos, int styleBits) {

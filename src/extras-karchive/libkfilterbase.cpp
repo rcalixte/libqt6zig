@@ -18,130 +18,60 @@ QIODevice* KFilterBase_Device(KFilterBase* self) {
 }
 
 bool KFilterBase_Init(KFilterBase* self, int mode) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return vkfilterbase->init(static_cast<int>(mode));
-    } else {
-        return ((VirtualKFilterBase*)self)->init(static_cast<int>(mode));
-    }
+    return self->init(static_cast<int>(mode));
 }
 
 int KFilterBase_Mode(const KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<const VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return vkfilterbase->mode();
-    } else {
-        return ((VirtualKFilterBase*)self)->mode();
-    }
+    return self->mode();
 }
 
 bool KFilterBase_Terminate(KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return self->terminate();
-    } else {
-        return ((VirtualKFilterBase*)self)->terminate();
-    }
+    return self->terminate();
 }
 
 void KFilterBase_Reset(KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        self->reset();
-    } else {
-        ((VirtualKFilterBase*)self)->reset();
-    }
+    self->reset();
 }
 
 bool KFilterBase_ReadHeader(KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return vkfilterbase->readHeader();
-    } else {
-        return ((VirtualKFilterBase*)self)->readHeader();
-    }
+    return self->readHeader();
 }
 
 bool KFilterBase_WriteHeader(KFilterBase* self, const libqt_string filename) {
     QByteArray filename_QByteArray(filename.data, filename.len);
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return vkfilterbase->writeHeader(filename_QByteArray);
-    } else {
-        return ((VirtualKFilterBase*)self)->writeHeader(filename_QByteArray);
-    }
+    return self->writeHeader(filename_QByteArray);
 }
 
 void KFilterBase_SetOutBuffer(KFilterBase* self, char* data, unsigned int maxlen) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        vkfilterbase->setOutBuffer(data, static_cast<uint>(maxlen));
-    } else {
-        ((VirtualKFilterBase*)self)->setOutBuffer(data, static_cast<uint>(maxlen));
-    }
+    self->setOutBuffer(data, static_cast<uint>(maxlen));
 }
 
 void KFilterBase_SetInBuffer(KFilterBase* self, const char* data, unsigned int size) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        vkfilterbase->setInBuffer(data, static_cast<uint>(size));
-    } else {
-        ((VirtualKFilterBase*)self)->setInBuffer(data, static_cast<uint>(size));
-    }
+    self->setInBuffer(data, static_cast<uint>(size));
 }
 
 bool KFilterBase_InBufferEmpty(const KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<const VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return self->inBufferEmpty();
-    } else {
-        return ((VirtualKFilterBase*)self)->inBufferEmpty();
-    }
+    return self->inBufferEmpty();
 }
 
 int KFilterBase_InBufferAvailable(const KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<const VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return vkfilterbase->inBufferAvailable();
-    } else {
-        return ((VirtualKFilterBase*)self)->inBufferAvailable();
-    }
+    return self->inBufferAvailable();
 }
 
 bool KFilterBase_OutBufferFull(const KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<const VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return self->outBufferFull();
-    } else {
-        return ((VirtualKFilterBase*)self)->outBufferFull();
-    }
+    return self->outBufferFull();
 }
 
 int KFilterBase_OutBufferAvailable(const KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<const VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return vkfilterbase->outBufferAvailable();
-    } else {
-        return ((VirtualKFilterBase*)self)->outBufferAvailable();
-    }
+    return self->outBufferAvailable();
 }
 
 int KFilterBase_Uncompress(KFilterBase* self) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return static_cast<int>(vkfilterbase->uncompress());
-    } else {
-        return static_cast<int>(((VirtualKFilterBase*)self)->uncompress());
-    }
+    return static_cast<int>(self->uncompress());
 }
 
 int KFilterBase_Compress(KFilterBase* self, bool finish) {
-    auto* vkfilterbase = dynamic_cast<VirtualKFilterBase*>(self);
-    if (vkfilterbase && vkfilterbase->isVirtualKFilterBase) {
-        return static_cast<int>(vkfilterbase->compress(finish));
-    } else {
-        return static_cast<int>(((VirtualKFilterBase*)self)->compress(finish));
-    }
+    return static_cast<int>(self->compress(finish));
 }
 
 void KFilterBase_SetFilterFlags(KFilterBase* self, int flags) {

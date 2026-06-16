@@ -24,139 +24,64 @@ KIO__ForwardingWorkerBase* KIO__ForwardingWorkerBase_new(const libqt_string prot
 }
 
 QMetaObject* KIO__ForwardingWorkerBase_MetaObject(const KIO__ForwardingWorkerBase* self) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<const VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOForwardingWorkerBase*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__ForwardingWorkerBase_Metacast(KIO__ForwardingWorkerBase* self, const char* param1) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOForwardingWorkerBase*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__ForwardingWorkerBase_Metacall(KIO__ForwardingWorkerBase* self, int param1, int param2, void** param3) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOForwardingWorkerBase*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Get(KIO__ForwardingWorkerBase* self, const QUrl* url) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->get(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->get(*url));
-    }
+    return new KIO::WorkerResult(self->get(*url));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Put(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions, int flags) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Stat(KIO__ForwardingWorkerBase* self, const QUrl* url) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->stat(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->stat(*url));
-    }
+    return new KIO::WorkerResult(self->stat(*url));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Mimetype(KIO__ForwardingWorkerBase* self, const QUrl* url) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->mimetype(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->mimetype(*url));
-    }
+    return new KIO::WorkerResult(self->mimetype(*url));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_ListDir(KIO__ForwardingWorkerBase* self, const QUrl* url) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->listDir(*url));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->listDir(*url));
-    }
+    return new KIO::WorkerResult(self->listDir(*url));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Mkdir(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->mkdir(*url, static_cast<int>(permissions)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->mkdir(*url, static_cast<int>(permissions)));
-    }
+    return new KIO::WorkerResult(self->mkdir(*url, static_cast<int>(permissions)));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Rename(KIO__ForwardingWorkerBase* self, const QUrl* src, const QUrl* dest, int flags) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->rename(*src, *dest, static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->rename(*src, *dest, static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->rename(*src, *dest, static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Symlink(KIO__ForwardingWorkerBase* self, const libqt_string target, const QUrl* dest, int flags) {
     QString target_QString = QString::fromUtf8(target.data, target.len);
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->symlink(target_QString, *dest, static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->symlink(target_QString, *dest, static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->symlink(target_QString, *dest, static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Chmod(KIO__ForwardingWorkerBase* self, const QUrl* url, int permissions) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->chmod(*url, static_cast<int>(permissions)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->chmod(*url, static_cast<int>(permissions)));
-    }
+    return new KIO::WorkerResult(self->chmod(*url, static_cast<int>(permissions)));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_SetModificationTime(KIO__ForwardingWorkerBase* self, const QUrl* url, const QDateTime* mtime) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->setModificationTime(*url, *mtime));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->setModificationTime(*url, *mtime));
-    }
+    return new KIO::WorkerResult(self->setModificationTime(*url, *mtime));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Copy(KIO__ForwardingWorkerBase* self, const QUrl* src, const QUrl* dest, int permissions, int flags) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
-    }
+    return new KIO::WorkerResult(self->copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags)));
 }
 
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Del(KIO__ForwardingWorkerBase* self, const QUrl* url, bool isfile) {
-    auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
-    if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
-        return new KIO::WorkerResult(self->del(*url, isfile));
-    } else {
-        return new KIO::WorkerResult(((VirtualKIOForwardingWorkerBase*)self)->del(*url, isfile));
-    }
+    return new KIO::WorkerResult(self->del(*url, isfile));
 }
 
 bool KIO__ForwardingWorkerBase_RewriteUrl(KIO__ForwardingWorkerBase* self, const QUrl* url, QUrl* newURL) {

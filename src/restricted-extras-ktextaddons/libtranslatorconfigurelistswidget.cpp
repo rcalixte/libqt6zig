@@ -46,30 +46,15 @@ TextTranslator__TranslatorConfigureListsWidget* TextTranslator__TranslatorConfig
 }
 
 QMetaObject* TextTranslator__TranslatorConfigureListsWidget_MetaObject(const TextTranslator__TranslatorConfigureListsWidget* self) {
-    auto* vtexttranslator__translatorconfigurelistswidget = dynamic_cast<const VirtualTextTranslatorTranslatorConfigureListsWidget*>(self);
-    if (vtexttranslator__translatorconfigurelistswidget && vtexttranslator__translatorconfigurelistswidget->isVirtualTextTranslatorTranslatorConfigureListsWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorConfigureListsWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorConfigureListsWidget_Metacast(TextTranslator__TranslatorConfigureListsWidget* self, const char* param1) {
-    auto* vtexttranslator__translatorconfigurelistswidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureListsWidget*>(self);
-    if (vtexttranslator__translatorconfigurelistswidget && vtexttranslator__translatorconfigurelistswidget->isVirtualTextTranslatorTranslatorConfigureListsWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorConfigureListsWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorConfigureListsWidget_Metacall(TextTranslator__TranslatorConfigureListsWidget* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorconfigurelistswidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureListsWidget*>(self);
-    if (vtexttranslator__translatorconfigurelistswidget && vtexttranslator__translatorconfigurelistswidget->isVirtualTextTranslatorTranslatorConfigureListsWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorConfigureListsWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextTranslator__TranslatorConfigureListsWidget_Save(TextTranslator__TranslatorConfigureListsWidget* self) {

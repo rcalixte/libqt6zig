@@ -62,39 +62,19 @@ KCategorizedView* KCategorizedView_new2() {
 }
 
 QMetaObject* KCategorizedView_MetaObject(const KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCategorizedView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCategorizedView_Metacast(KCategorizedView* self, const char* param1) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCategorizedView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCategorizedView_Metacall(KCategorizedView* self, int param1, int param2, void** param3) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCategorizedView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCategorizedView_SetModel(KCategorizedView* self, QAbstractItemModel* model) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        self->setModel(model);
-    } else {
-        ((VirtualKCategorizedView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 void KCategorizedView_SetGridSize(KCategorizedView* self, const QSize* size) {
@@ -106,12 +86,7 @@ void KCategorizedView_SetGridSizeOwn(KCategorizedView* self, const QSize* size) 
 }
 
 QRect* KCategorizedView_VisualRect(const KCategorizedView* self, const QModelIndex* index) {
-    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return new QRect(self->visualRect(*index));
-    } else {
-        return new QRect(((VirtualKCategorizedView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 KCategoryDrawer* KCategorizedView_CategoryDrawer(const KCategorizedView* self) {
@@ -174,21 +149,11 @@ libqt_list /* of QModelIndex* */ KCategorizedView_Block2(KCategorizedView* self,
 }
 
 QModelIndex* KCategorizedView_IndexAt(const KCategorizedView* self, const QPoint* point) {
-    auto* vkcategorizedview = dynamic_cast<const VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        return new QModelIndex(self->indexAt(*point));
-    } else {
-        return new QModelIndex(((VirtualKCategorizedView*)self)->indexAt(*point));
-    }
+    return new QModelIndex(self->indexAt(*point));
 }
 
 void KCategorizedView_Reset(KCategorizedView* self) {
-    auto* vkcategorizedview = dynamic_cast<VirtualKCategorizedView*>(self);
-    if (vkcategorizedview && vkcategorizedview->isVirtualKCategorizedView) {
-        self->reset();
-    } else {
-        ((VirtualKCategorizedView*)self)->reset();
-    }
+    self->reset();
 }
 
 void KCategorizedView_CategorySpacingChanged(KCategorizedView* self, int spacing) {

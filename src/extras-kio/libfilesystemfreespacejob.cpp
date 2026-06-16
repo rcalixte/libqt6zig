@@ -37,6 +37,6 @@ void KIO__FileSystemFreeSpaceJob_Delete(KIO__FileSystemFreeSpaceJob* self) {
     delete self;
 }
 
-KIO__FileSystemFreeSpaceJob* KIO_FileSystemFreeSpace(const QUrl* param1) {
-    return KIO::fileSystemFreeSpace(*param1);
+KIO__FileSystemFreeSpaceJob* KIO_FileSystemFreeSpace(const QUrl* url) {
+    return KIO::fileSystemFreeSpace(*url);
 }

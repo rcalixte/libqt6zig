@@ -49,30 +49,15 @@ QShortcut* QShortcut_new9(int key, QObject* parent, const char* member, const ch
 }
 
 QMetaObject* QShortcut_MetaObject(const QShortcut* self) {
-    auto* vqshortcut = dynamic_cast<const VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQShortcut*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QShortcut_Metacast(QShortcut* self, const char* param1) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQShortcut*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QShortcut_Metacall(QShortcut* self, int param1, int param2, void** param3) {
-    auto* vqshortcut = dynamic_cast<VirtualQShortcut*>(self);
-    if (vqshortcut && vqshortcut->isVirtualQShortcut) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQShortcut*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QShortcut_SetKey(QShortcut* self, const QKeySequence* key) {

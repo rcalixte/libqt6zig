@@ -66,39 +66,19 @@ KParts__MainWindow* KParts__MainWindow_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* KParts__MainWindow_MetaObject(const KParts__MainWindow* self) {
-    auto* vkparts__mainwindow = dynamic_cast<const VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsMainWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__MainWindow_Metacast(KParts__MainWindow* self, const char* param1) {
-    auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__MainWindow_Metacall(KParts__MainWindow* self, int param1, int param2, void** param3) {
-    auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KParts__MainWindow_ConfigureToolbars(KParts__MainWindow* self) {
-    auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
-    if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
-        self->configureToolbars();
-    } else {
-        ((VirtualKPartsMainWindow*)self)->configureToolbars();
-    }
+    self->configureToolbars();
 }
 
 void KParts__MainWindow_SlotSetStatusBarText(KParts__MainWindow* self, const libqt_string param1) {

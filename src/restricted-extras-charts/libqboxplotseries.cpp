@@ -24,30 +24,15 @@ QBoxPlotSeries* QBoxPlotSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QBoxPlotSeries_MetaObject(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = dynamic_cast<const VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBoxPlotSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBoxPlotSeries_Metacast(QBoxPlotSeries* self, const char* param1) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBoxPlotSeries_Metacall(QBoxPlotSeries* self, int param1, int param2, void** param3) {
-    auto* vqboxplotseries = dynamic_cast<VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBoxPlotSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QBoxPlotSeries_Append(QBoxPlotSeries* self, QBoxSet* box) {
@@ -98,12 +83,7 @@ void QBoxPlotSeries_Clear(QBoxPlotSeries* self) {
 }
 
 int QBoxPlotSeries_Type(const QBoxPlotSeries* self) {
-    auto* vqboxplotseries = dynamic_cast<const VirtualQBoxPlotSeries*>(self);
-    if (vqboxplotseries && vqboxplotseries->isVirtualQBoxPlotSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQBoxPlotSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QBoxPlotSeries_SetBoxOutlineVisible(QBoxPlotSeries* self, bool visible) {

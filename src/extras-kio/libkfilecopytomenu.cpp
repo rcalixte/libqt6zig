@@ -19,30 +19,15 @@ KFileCopyToMenu* KFileCopyToMenu_new(QWidget* parentWidget) {
 }
 
 QMetaObject* KFileCopyToMenu_MetaObject(const KFileCopyToMenu* self) {
-    auto* vkfilecopytomenu = dynamic_cast<const VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileCopyToMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileCopyToMenu_Metacast(KFileCopyToMenu* self, const char* param1) {
-    auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileCopyToMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileCopyToMenu_Metacall(KFileCopyToMenu* self, int param1, int param2, void** param3) {
-    auto* vkfilecopytomenu = dynamic_cast<VirtualKFileCopyToMenu*>(self);
-    if (vkfilecopytomenu && vkfilecopytomenu->isVirtualKFileCopyToMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileCopyToMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFileCopyToMenu_SetUrls(KFileCopyToMenu* self, const libqt_list /* of QUrl* */ urls) {

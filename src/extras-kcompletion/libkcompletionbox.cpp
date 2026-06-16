@@ -63,39 +63,19 @@ KCompletionBox* KCompletionBox_new2() {
 }
 
 QMetaObject* KCompletionBox_MetaObject(const KCompletionBox* self) {
-    auto* vkcompletionbox = dynamic_cast<const VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCompletionBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCompletionBox_Metacast(KCompletionBox* self, const char* param1) {
-    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCompletionBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCompletionBox_Metacall(KCompletionBox* self, int param1, int param2, void** param3) {
-    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCompletionBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KCompletionBox_SizeHint(const KCompletionBox* self) {
-    auto* vkcompletionbox = dynamic_cast<const VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKCompletionBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 bool KCompletionBox_ActivateOnSelect(const KCompletionBox* self) {
@@ -162,12 +142,7 @@ void KCompletionBox_SetItems(KCompletionBox* self, const libqt_list /* of libqt_
 }
 
 void KCompletionBox_Popup(KCompletionBox* self) {
-    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
-        self->popup();
-    } else {
-        ((VirtualKCompletionBox*)self)->popup();
-    }
+    self->popup();
 }
 
 void KCompletionBox_SetTabHandling(KCompletionBox* self, bool enable) {
@@ -208,12 +183,7 @@ void KCompletionBox_End(KCompletionBox* self) {
 }
 
 void KCompletionBox_SetVisible(KCompletionBox* self, bool visible) {
-    auto* vkcompletionbox = dynamic_cast<VirtualKCompletionBox*>(self);
-    if (vkcompletionbox && vkcompletionbox->isVirtualKCompletionBox) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualKCompletionBox*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void KCompletionBox_TextActivated(KCompletionBox* self, const libqt_string text) {

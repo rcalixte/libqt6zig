@@ -26,40 +26,20 @@ KSvg__FrameSvg* KSvg__FrameSvg_new2(QObject* parent) {
 }
 
 QMetaObject* KSvg__FrameSvg_MetaObject(const KSvg__FrameSvg* self) {
-    auto* vksvg__framesvg = dynamic_cast<const VirtualKSvgFrameSvg*>(self);
-    if (vksvg__framesvg && vksvg__framesvg->isVirtualKSvgFrameSvg) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSvgFrameSvg*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSvg__FrameSvg_Metacast(KSvg__FrameSvg* self, const char* param1) {
-    auto* vksvg__framesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvg__framesvg && vksvg__framesvg->isVirtualKSvgFrameSvg) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSvgFrameSvg*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSvg__FrameSvg_Metacall(KSvg__FrameSvg* self, int param1, int param2, void** param3) {
-    auto* vksvg__framesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvg__framesvg && vksvg__framesvg->isVirtualKSvgFrameSvg) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSvgFrameSvg*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KSvg__FrameSvg_SetImagePath(KSvg__FrameSvg* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    auto* vksvg__framesvg = dynamic_cast<VirtualKSvgFrameSvg*>(self);
-    if (vksvg__framesvg && vksvg__framesvg->isVirtualKSvgFrameSvg) {
-        self->setImagePath(path_QString);
-    } else {
-        ((VirtualKSvgFrameSvg*)self)->setImagePath(path_QString);
-    }
+    self->setImagePath(path_QString);
 }
 
 void KSvg__FrameSvg_SetEnabledBorders(KSvg__FrameSvg* self, const int borders) {

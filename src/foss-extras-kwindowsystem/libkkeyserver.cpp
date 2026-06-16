@@ -5,8 +5,8 @@
 #include "libkkeyserver.h"
 #include "libkkeyserver.hxx"
 
-libqt_string KKeyServer_ModToStringUser(unsigned int param1) {
-    auto _ret = KKeyServer::modToStringUser(static_cast<uint>(param1));
+libqt_string KKeyServer_ModToStringUser(unsigned int mod) {
+    auto _ret = KKeyServer::modToStringUser(static_cast<uint>(mod));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -17,13 +17,13 @@ libqt_string KKeyServer_ModToStringUser(unsigned int param1) {
     return _str;
 }
 
-unsigned int KKeyServer_StringUserToMod(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return static_cast<unsigned int>(KKeyServer::stringUserToMod(param1_QString));
+unsigned int KKeyServer_StringUserToMod(const libqt_string mod) {
+    QString mod_QString = QString::fromUtf8(mod.data, mod.len);
+    return static_cast<unsigned int>(KKeyServer::stringUserToMod(mod_QString));
 }
 
-bool KKeyServer_IsShiftAsModifierAllowed(int param1) {
-    return KKeyServer::isShiftAsModifierAllowed(static_cast<int>(param1));
+bool KKeyServer_IsShiftAsModifierAllowed(int keyQt) {
+    return KKeyServer::isShiftAsModifierAllowed(static_cast<int>(keyQt));
 }
 
 bool KKeyServer_InitializeMods() {
@@ -70,12 +70,12 @@ unsigned int KKeyServer_AccelModMaskX() {
     return static_cast<unsigned int>(KKeyServer::accelModMaskX());
 }
 
-bool KKeyServer_KeyQtToSymX(int param1, int* param2) {
-    return KKeyServer::keyQtToSymX(static_cast<int>(param1), static_cast<int*>(param2));
+bool KKeyServer_KeyQtToSymX(int keyQt, int* sym) {
+    return KKeyServer::keyQtToSymX(static_cast<int>(keyQt), static_cast<int*>(sym));
 }
 
-libqt_list /* of int */ KKeyServer_KeyQtToSymXs(int param1) {
-    QList<int> _ret = KKeyServer::keyQtToSymXs(static_cast<int>(param1));
+libqt_list /* of int */ KKeyServer_KeyQtToSymXs(int keyQt) {
+    QList<int> _ret = KKeyServer::keyQtToSymXs(static_cast<int>(keyQt));
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -87,12 +87,12 @@ libqt_list /* of int */ KKeyServer_KeyQtToSymXs(int param1) {
     return _out;
 }
 
-bool KKeyServer_KeyQtToCodeX(int param1, int* param2) {
-    return KKeyServer::keyQtToCodeX(static_cast<int>(param1), static_cast<int*>(param2));
+bool KKeyServer_KeyQtToCodeX(int keyQt, int* keyCode) {
+    return KKeyServer::keyQtToCodeX(static_cast<int>(keyQt), static_cast<int*>(keyCode));
 }
 
-libqt_list /* of int */ KKeyServer_KeyQtToCodeXs(int param1) {
-    QList<int> _ret = KKeyServer::keyQtToCodeXs(static_cast<int>(param1));
+libqt_list /* of int */ KKeyServer_KeyQtToCodeXs(int keyQt) {
+    QList<int> _ret = KKeyServer::keyQtToCodeXs(static_cast<int>(keyQt));
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -104,14 +104,14 @@ libqt_list /* of int */ KKeyServer_KeyQtToCodeXs(int param1) {
     return _out;
 }
 
-bool KKeyServer_KeyQtToModX(int param1, unsigned int* param2) {
-    return KKeyServer::keyQtToModX(static_cast<int>(param1), static_cast<uint*>(param2));
+bool KKeyServer_KeyQtToModX(int keyQt, unsigned int* mod) {
+    return KKeyServer::keyQtToModX(static_cast<int>(keyQt), static_cast<uint*>(mod));
 }
 
-bool KKeyServer_SymXModXToKeyQt(uint32_t param1, uint16_t param2, int* param3) {
-    return KKeyServer::symXModXToKeyQt(static_cast<uint32_t>(param1), static_cast<uint16_t>(param2), static_cast<int*>(param3));
+bool KKeyServer_SymXModXToKeyQt(uint32_t keySym, uint16_t modX, int* keyQt) {
+    return KKeyServer::symXModXToKeyQt(static_cast<uint32_t>(keySym), static_cast<uint16_t>(modX), static_cast<int*>(keyQt));
 }
 
-bool KKeyServer_ModXToQt(unsigned int param1, int* param2) {
-    return KKeyServer::modXToQt(static_cast<uint>(param1), static_cast<int*>(param2));
+bool KKeyServer_ModXToQt(unsigned int modX, int* modQt) {
+    return KKeyServer::modXToQt(static_cast<uint>(modX), static_cast<int*>(modQt));
 }

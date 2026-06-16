@@ -18,7 +18,7 @@ extern "C" {
 typedef struct KRandom KRandom;
 #endif
 
-libqt_string KRandom_RandomString(int param1);
+libqt_string KRandom_RandomString(int length);
 
 #ifdef __cplusplus
 } /* extern C */

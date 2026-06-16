@@ -21,39 +21,19 @@ QDateTimeAxis* QDateTimeAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QDateTimeAxis_MetaObject(const QDateTimeAxis* self) {
-    auto* vqdatetimeaxis = dynamic_cast<const VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDateTimeAxis*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDateTimeAxis_Metacast(QDateTimeAxis* self, const char* param1) {
-    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDateTimeAxis*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDateTimeAxis_Metacall(QDateTimeAxis* self, int param1, int param2, void** param3) {
-    auto* vqdatetimeaxis = dynamic_cast<VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDateTimeAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QDateTimeAxis_Type(const QDateTimeAxis* self) {
-    auto* vqdatetimeaxis = dynamic_cast<const VirtualQDateTimeAxis*>(self);
-    if (vqdatetimeaxis && vqdatetimeaxis->isVirtualQDateTimeAxis) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQDateTimeAxis*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QDateTimeAxis_SetMin(QDateTimeAxis* self, QDateTime* min) {

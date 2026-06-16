@@ -20,39 +20,19 @@ QLogValueAxis* QLogValueAxis_new2(QObject* parent) {
 }
 
 QMetaObject* QLogValueAxis_MetaObject(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = dynamic_cast<const VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLogValueAxis*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLogValueAxis_Metacast(QLogValueAxis* self, const char* param1) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLogValueAxis_Metacall(QLogValueAxis* self, int param1, int param2, void** param3) {
-    auto* vqlogvalueaxis = dynamic_cast<VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLogValueAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QLogValueAxis_Type(const QLogValueAxis* self) {
-    auto* vqlogvalueaxis = dynamic_cast<const VirtualQLogValueAxis*>(self);
-    if (vqlogvalueaxis && vqlogvalueaxis->isVirtualQLogValueAxis) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQLogValueAxis*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QLogValueAxis_SetMin(QLogValueAxis* self, double min) {

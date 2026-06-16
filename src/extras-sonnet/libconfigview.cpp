@@ -47,30 +47,15 @@ Sonnet__ConfigView* Sonnet__ConfigView_new2() {
 }
 
 QMetaObject* Sonnet__ConfigView_MetaObject(const Sonnet__ConfigView* self) {
-    auto* vsonnet__configview = dynamic_cast<const VirtualSonnetConfigView*>(self);
-    if (vsonnet__configview && vsonnet__configview->isVirtualSonnetConfigView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSonnetConfigView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Sonnet__ConfigView_Metacast(Sonnet__ConfigView* self, const char* param1) {
-    auto* vsonnet__configview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnet__configview && vsonnet__configview->isVirtualSonnetConfigView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Sonnet__ConfigView_Metacall(Sonnet__ConfigView* self, int param1, int param2, void** param3) {
-    auto* vsonnet__configview = dynamic_cast<VirtualSonnetConfigView*>(self);
-    if (vsonnet__configview && vsonnet__configview->isVirtualSonnetConfigView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSonnetConfigView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool Sonnet__ConfigView_BackgroundCheckingButtonShown(const Sonnet__ConfigView* self) {

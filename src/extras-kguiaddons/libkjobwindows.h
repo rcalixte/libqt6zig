@@ -20,8 +20,8 @@ typedef struct QObject QObject;
 typedef struct QWindow QWindow;
 #endif
 
-void KJobWindows_SetWindow(QObject* param1, QWindow* param2);
-QWindow* KJobWindows_Window(QObject* param1);
+void KJobWindows_SetWindow(QObject* job, QWindow* window);
+QWindow* KJobWindows_Window(QObject* job);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -36,30 +36,15 @@ QFileSystemModel* QFileSystemModel_new2(QObject* parent) {
 }
 
 QMetaObject* QFileSystemModel_MetaObject(const QFileSystemModel* self) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFileSystemModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFileSystemModel_Metacast(QFileSystemModel* self, const char* param1) {
-    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFileSystemModel_Metacall(QFileSystemModel* self, int param1, int param2, void** param3) {
-    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFileSystemModel_RootPathChanged(QFileSystemModel* self, const libqt_string newPath) {
@@ -146,12 +131,7 @@ void QFileSystemModel_Connect_DirectoryLoaded(QFileSystemModel* self, intptr_t s
 }
 
 QModelIndex* QFileSystemModel_Index(const QFileSystemModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualQFileSystemModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* QFileSystemModel_Index2(const QFileSystemModel* self, const libqt_string path) {
@@ -160,66 +140,31 @@ QModelIndex* QFileSystemModel_Index2(const QFileSystemModel* self, const libqt_s
 }
 
 QModelIndex* QFileSystemModel_Parent(const QFileSystemModel* self, const QModelIndex* child) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return new QModelIndex(self->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualQFileSystemModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 QModelIndex* QFileSystemModel_Sibling(const QFileSystemModel* self, int row, int column, const QModelIndex* idx) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    } else {
-        return new QModelIndex(((VirtualQFileSystemModel*)self)->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
-    }
+    return new QModelIndex(self->sibling(static_cast<int>(row), static_cast<int>(column), *idx));
 }
 
 bool QFileSystemModel_HasChildren(const QFileSystemModel* self, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->hasChildren(*parent);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->hasChildren(*parent);
-    }
+    return self->hasChildren(*parent);
 }
 
 bool QFileSystemModel_CanFetchMore(const QFileSystemModel* self, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->canFetchMore(*parent);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->canFetchMore(*parent);
-    }
+    return self->canFetchMore(*parent);
 }
 
 void QFileSystemModel_FetchMore(QFileSystemModel* self, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        self->fetchMore(*parent);
-    } else {
-        ((VirtualQFileSystemModel*)self)->fetchMore(*parent);
-    }
+    self->fetchMore(*parent);
 }
 
 int QFileSystemModel_RowCount(const QFileSystemModel* self, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 int QFileSystemModel_ColumnCount(const QFileSystemModel* self, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QVariant* QFileSystemModel_MyComputer(const QFileSystemModel* self) {
@@ -227,91 +172,44 @@ QVariant* QFileSystemModel_MyComputer(const QFileSystemModel* self) {
 }
 
 QVariant* QFileSystemModel_Data(const QFileSystemModel* self, const QModelIndex* index, int role) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQFileSystemModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 bool QFileSystemModel_SetData(QFileSystemModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQFileSystemModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 QVariant* QFileSystemModel_HeaderData(const QFileSystemModel* self, int section, int orientation, int role) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQFileSystemModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 int QFileSystemModel_Flags(const QFileSystemModel* self, const QModelIndex* index) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQFileSystemModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 void QFileSystemModel_Sort(QFileSystemModel* self, int column, int order) {
-    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQFileSystemModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 libqt_list /* of libqt_string */ QFileSystemModel_MimeTypes(const QFileSystemModel* self) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualQFileSystemModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QMimeData* QFileSystemModel_MimeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -321,77 +219,38 @@ QMimeData* QFileSystemModel_MimeData(const QFileSystemModel* self, const libqt_l
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 bool QFileSystemModel_DropMimeData(QFileSystemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualQFileSystemModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 int QFileSystemModel_SupportedDropActions(const QFileSystemModel* self) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualQFileSystemModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 libqt_map /* of int to libqt_string */ QFileSystemModel_RoleNames(const QFileSystemModel* self) {
-    auto* vqfilesystemmodel = dynamic_cast<const VirtualQFileSystemModel*>(self);
-    if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQFileSystemModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 QModelIndex* QFileSystemModel_SetRootPath(QFileSystemModel* self, const libqt_string path) {

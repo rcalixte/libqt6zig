@@ -104,12 +104,7 @@ QListWidgetItem* QListWidgetItem_new10(const QIcon* icon, const libqt_string tex
 }
 
 QListWidgetItem* QListWidgetItem_Clone(const QListWidgetItem* self) {
-    auto* vqlistwidgetitem = dynamic_cast<const VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        return self->clone();
-    } else {
-        return ((VirtualQListWidgetItem*)self)->clone();
-    }
+    return self->clone();
 }
 
 QListWidget* QListWidgetItem_ListWidget(const QListWidgetItem* self) {
@@ -273,48 +268,23 @@ void QListWidgetItem_SetSizeHint(QListWidgetItem* self, const QSize* size) {
 }
 
 QVariant* QListWidgetItem_Data(const QListWidgetItem* self, int role) {
-    auto* vqlistwidgetitem = dynamic_cast<const VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        return new QVariant(self->data(static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQListWidgetItem*)self)->data(static_cast<int>(role)));
-    }
+    return new QVariant(self->data(static_cast<int>(role)));
 }
 
 void QListWidgetItem_SetData(QListWidgetItem* self, int role, const QVariant* value) {
-    auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        self->setData(static_cast<int>(role), *value);
-    } else {
-        ((VirtualQListWidgetItem*)self)->setData(static_cast<int>(role), *value);
-    }
+    self->setData(static_cast<int>(role), *value);
 }
 
 bool QListWidgetItem_OperatorLesser(const QListWidgetItem* self, const QListWidgetItem* other) {
-    auto* vqlistwidgetitem = dynamic_cast<const VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        return (*self < *other);
-    } else {
-        return ((VirtualQListWidgetItem*)self)->operator<(*other);
-    }
+    return self->operator<(*other);
 }
 
 void QListWidgetItem_Read(QListWidgetItem* self, QDataStream* in) {
-    auto* vqlistwidgetitem = dynamic_cast<VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        self->read(*in);
-    } else {
-        ((VirtualQListWidgetItem*)self)->read(*in);
-    }
+    self->read(*in);
 }
 
 void QListWidgetItem_Write(const QListWidgetItem* self, QDataStream* out) {
-    auto* vqlistwidgetitem = dynamic_cast<const VirtualQListWidgetItem*>(self);
-    if (vqlistwidgetitem && vqlistwidgetitem->isVirtualQListWidgetItem) {
-        self->write(*out);
-    } else {
-        ((VirtualQListWidgetItem*)self)->write(*out);
-    }
+    self->write(*out);
 }
 
 void QListWidgetItem_OperatorAssign(QListWidgetItem* self, const QListWidgetItem* other) {
@@ -452,39 +422,19 @@ QListWidget* QListWidget_new2() {
 }
 
 QMetaObject* QListWidget_MetaObject(const QListWidget* self) {
-    auto* vqlistwidget = dynamic_cast<const VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQListWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QListWidget_Metacast(QListWidget* self, const char* param1) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQListWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QListWidget_Metacall(QListWidget* self, int param1, int param2, void** param3) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQListWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QListWidget_SetSelectionModel(QListWidget* self, QItemSelectionModel* selectionModel) {
-    auto* vqlistwidget = dynamic_cast<VirtualQListWidget*>(self);
-    if (vqlistwidget && vqlistwidget->isVirtualQListWidget) {
-        self->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQListWidget*)self)->setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 QListWidgetItem* QListWidget_Item(const QListWidget* self, int row) {

@@ -23,30 +23,15 @@ QsciLexerPerl* QsciLexerPerl_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPerl_MetaObject(const QsciLexerPerl* self) {
-    auto* vqscilexerperl = dynamic_cast<const VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerPerl*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerPerl_Metacast(QsciLexerPerl* self, const char* param1) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerPerl*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerPerl_Metacall(QsciLexerPerl* self, int param1, int param2, void** param3) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPerl*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerPerl_Language(const QsciLexerPerl* self) {
@@ -163,21 +148,11 @@ bool QsciLexerPerl_FoldPODBlocks(const QsciLexerPerl* self) {
 }
 
 void QsciLexerPerl_SetFoldComments(QsciLexerPerl* self, bool fold) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPerl*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerPerl_SetFoldCompact(QsciLexerPerl* self, bool fold) {
-    auto* vqscilexerperl = dynamic_cast<VirtualQsciLexerPerl*>(self);
-    if (vqscilexerperl && vqscilexerperl->isVirtualQsciLexerPerl) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPerl*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 const char* QsciLexerPerl_BlockEnd1(const QsciLexerPerl* self, int* style) {

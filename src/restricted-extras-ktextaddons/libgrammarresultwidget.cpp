@@ -49,30 +49,15 @@ TextGrammarCheck__GrammarResultWidget* TextGrammarCheck__GrammarResultWidget_new
 }
 
 QMetaObject* TextGrammarCheck__GrammarResultWidget_MetaObject(const TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheck__grammarresultwidget = dynamic_cast<const VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheck__grammarresultwidget && vtextgrammarcheck__grammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckGrammarResultWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__GrammarResultWidget_Metacast(TextGrammarCheck__GrammarResultWidget* self, const char* param1) {
-    auto* vtextgrammarcheck__grammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheck__grammarresultwidget && vtextgrammarcheck__grammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__GrammarResultWidget_Metacall(TextGrammarCheck__GrammarResultWidget* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__grammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheck__grammarresultwidget && vtextgrammarcheck__grammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckGrammarResultWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__GrammarResultWidget_SetText(TextGrammarCheck__GrammarResultWidget* self, const libqt_string str) {
@@ -81,12 +66,7 @@ void TextGrammarCheck__GrammarResultWidget_SetText(TextGrammarCheck__GrammarResu
 }
 
 void TextGrammarCheck__GrammarResultWidget_CheckGrammar(TextGrammarCheck__GrammarResultWidget* self) {
-    auto* vtextgrammarcheck__grammarresultwidget = dynamic_cast<VirtualTextGrammarCheckGrammarResultWidget*>(self);
-    if (vtextgrammarcheck__grammarresultwidget && vtextgrammarcheck__grammarresultwidget->isVirtualTextGrammarCheckGrammarResultWidget) {
-        vtextgrammarcheck__grammarresultwidget->checkGrammar();
-    } else {
-        ((VirtualTextGrammarCheckGrammarResultWidget*)self)->checkGrammar();
-    }
+    self->checkGrammar();
 }
 
 void TextGrammarCheck__GrammarResultWidget_ApplyGrammarResult(TextGrammarCheck__GrammarResultWidget* self, const libqt_list /* of TextGrammarCheck__GrammarError* */ infos) {

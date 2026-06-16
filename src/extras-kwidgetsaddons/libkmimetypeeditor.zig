@@ -16,16 +16,16 @@ pub const KMimeTypeEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` mimeType: []const u8 `
     ///
-    /// ` param2: QWidget `
+    /// ` widget: QWidget `
     ///
-    pub fn EditMimeType(param1: []const u8, param2: anytype) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn EditMimeType(mimeType: []const u8, widget: anytype) void {
+        const mimeType_str = qtc.libqt_string{
+            .len = mimeType.len,
+            .data = mimeType.ptr,
         };
-        comptime _ = @TypeOf(param2)._is_QWidget;
-        qtc.KMimeTypeEditor_EditMimeType(param1_str, @ptrCast(param2.ptr));
+        comptime _ = @TypeOf(widget)._is_QWidget;
+        qtc.KMimeTypeEditor_EditMimeType(mimeType_str, @ptrCast(widget.ptr));
     }
 };

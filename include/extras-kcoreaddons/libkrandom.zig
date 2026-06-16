@@ -18,10 +18,10 @@ pub const KRandom = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: i32 `
+    /// ` length: i32 `
     ///
-    pub fn RandomString(allocator: std.mem.Allocator, param1: i32) []const u8 {
-        var _str = qtc.KRandom_RandomString(@bitCast(param1));
+    pub fn RandomString(allocator: std.mem.Allocator, length: i32) []const u8 {
+        var _str = qtc.KRandom_RandomString(@bitCast(length));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("krandom.RandomString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

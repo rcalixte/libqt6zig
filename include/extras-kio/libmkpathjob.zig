@@ -1923,15 +1923,15 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` baseUrl: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Mkpath(param1: anytype, param2: anytype, param3: i32) KIO__MkpathJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Mkpath(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Mkpath(url: anytype, baseUrl: anytype, flags: i32) KIO__MkpathJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        comptime _ = @TypeOf(baseUrl)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Mkpath(@ptrCast(url.ptr), @ptrCast(baseUrl.ptr), @bitCast(flags)) };
     }
 };

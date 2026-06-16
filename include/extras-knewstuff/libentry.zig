@@ -24,14 +24,14 @@ pub const KNSCore = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` unformattedText: []const u8 `
     ///
-    pub fn ReplaceBBCode(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn ReplaceBBCode(allocator: std.mem.Allocator, unformattedText: []const u8) []const u8 {
+        const unformattedText_str = qtc.libqt_string{
+            .len = unformattedText.len,
+            .data = unformattedText.ptr,
         };
-        var _str = qtc.KNSCore_ReplaceBBCode(param1_str);
+        var _str = qtc.KNSCore_ReplaceBBCode(unformattedText_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore.ReplaceBBCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -42,13 +42,13 @@ pub const KNSCore = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KNSCore__Entry `
+    /// ` entry: KNSCore__Entry `
     ///
-    /// ` param2: usize `
+    /// ` seed: usize `
     ///
-    pub fn QHash(param1: anytype, param2: usize) usize {
-        comptime _ = @TypeOf(param1)._is_KNSCore__Entry;
-        return qtc.KNSCore_QHash(@ptrCast(param1.ptr), @bitCast(param2));
+    pub fn QHash(entry: anytype, seed: usize) usize {
+        comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
+        return qtc.KNSCore_QHash(@ptrCast(entry.ptr), @bitCast(seed));
     }
 };
 

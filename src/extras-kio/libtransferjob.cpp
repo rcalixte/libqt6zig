@@ -177,23 +177,23 @@ void KIO__TransferJob_Delete(KIO__TransferJob* self) {
     delete self;
 }
 
-KIO__TransferJob* KIO_Get(const QUrl* param1, int param2, int param3) {
-    return KIO::get(*param1, static_cast<KIO::LoadType>(param2), static_cast<KIO::JobFlags>(param3));
+KIO__TransferJob* KIO_Get(const QUrl* url, int reload, int flags) {
+    return KIO::get(*url, static_cast<KIO::LoadType>(reload), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__TransferJob* KIO_Put(const QUrl* param1, int param2, int param3) {
-    return KIO::put(*param1, static_cast<int>(param2), static_cast<KIO::JobFlags>(param3));
+KIO__TransferJob* KIO_Put(const QUrl* url, int permissions, int flags) {
+    return KIO::put(*url, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__TransferJob* KIO_HttpPost(const QUrl* param1, const libqt_string param2, int param3) {
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    return KIO::http_post(*param1, param2_QByteArray, static_cast<KIO::JobFlags>(param3));
+KIO__TransferJob* KIO_HttpPost(const QUrl* url, const libqt_string postData, int flags) {
+    QByteArray postData_QByteArray(postData.data, postData.len);
+    return KIO::http_post(*url, postData_QByteArray, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__TransferJob* KIO_HttpPost2(const QUrl* param1, QIODevice* param2, long long param3, int param4) {
-    return KIO::http_post(*param1, param2, static_cast<qint64>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__TransferJob* KIO_HttpPost2(const QUrl* url, QIODevice* device, long long size, int flags) {
+    return KIO::http_post(*url, device, static_cast<qint64>(size), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__TransferJob* KIO_HttpDelete(const QUrl* param1, int param2) {
-    return KIO::http_delete(*param1, static_cast<KIO::JobFlags>(param2));
+KIO__TransferJob* KIO_HttpDelete(const QUrl* url, int flags) {
+    return KIO::http_delete(*url, static_cast<KIO::JobFlags>(flags));
 }

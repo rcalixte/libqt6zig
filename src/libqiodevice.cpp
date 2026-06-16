@@ -21,30 +21,15 @@ QIODevice* QIODevice_new2(QObject* parent) {
 }
 
 QMetaObject* QIODevice_MetaObject(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQIODevice*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QIODevice_Metacast(QIODevice* self, const char* param1) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQIODevice*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QIODevice_Metacall(QIODevice* self, int param1, int param2, void** param3) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQIODevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QIODevice_OpenMode(const QIODevice* self) {
@@ -72,12 +57,7 @@ bool QIODevice_IsWritable(const QIODevice* self) {
 }
 
 bool QIODevice_IsSequential(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->isSequential();
-    } else {
-        return ((VirtualQIODevice*)self)->isSequential();
-    }
+    return self->isSequential();
 }
 
 int QIODevice_ReadChannelCount(const QIODevice* self) {
@@ -105,84 +85,39 @@ void QIODevice_SetCurrentWriteChannel(QIODevice* self, int channel) {
 }
 
 bool QIODevice_Open(QIODevice* self, int mode) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->open(static_cast<QIODeviceBase::OpenMode>(mode));
-    } else {
-        return ((VirtualQIODevice*)self)->open(static_cast<QIODeviceBase::OpenMode>(mode));
-    }
+    return self->open(static_cast<QIODeviceBase::OpenMode>(mode));
 }
 
 void QIODevice_Close(QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        self->close();
-    } else {
-        ((VirtualQIODevice*)self)->close();
-    }
+    self->close();
 }
 
 long long QIODevice_Pos(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return static_cast<long long>(self->pos());
-    } else {
-        return static_cast<long long>(((VirtualQIODevice*)self)->pos());
-    }
+    return static_cast<long long>(self->pos());
 }
 
 long long QIODevice_Size(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return static_cast<long long>(self->size());
-    } else {
-        return static_cast<long long>(((VirtualQIODevice*)self)->size());
-    }
+    return static_cast<long long>(self->size());
 }
 
 bool QIODevice_Seek(QIODevice* self, long long pos) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->seek(static_cast<qint64>(pos));
-    } else {
-        return ((VirtualQIODevice*)self)->seek(static_cast<qint64>(pos));
-    }
+    return self->seek(static_cast<qint64>(pos));
 }
 
 bool QIODevice_AtEnd(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->atEnd();
-    } else {
-        return ((VirtualQIODevice*)self)->atEnd();
-    }
+    return self->atEnd();
 }
 
 bool QIODevice_Reset(QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->reset();
-    } else {
-        return ((VirtualQIODevice*)self)->reset();
-    }
+    return self->reset();
 }
 
 long long QIODevice_BytesAvailable(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return static_cast<long long>(self->bytesAvailable());
-    } else {
-        return static_cast<long long>(((VirtualQIODevice*)self)->bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 long long QIODevice_BytesToWrite(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return static_cast<long long>(self->bytesToWrite());
-    } else {
-        return static_cast<long long>(((VirtualQIODevice*)self)->bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 long long QIODevice_Read(QIODevice* self, char* data, long long maxlen) {
@@ -221,12 +156,7 @@ libqt_string QIODevice_ReadLine2(QIODevice* self) {
 }
 
 bool QIODevice_CanReadLine(const QIODevice* self) {
-    auto* vqiodevice = dynamic_cast<const VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->canReadLine();
-    } else {
-        return ((VirtualQIODevice*)self)->canReadLine();
-    }
+    return self->canReadLine();
 }
 
 void QIODevice_StartTransaction(QIODevice* self) {
@@ -276,21 +206,11 @@ long long QIODevice_Skip(QIODevice* self, long long maxSize) {
 }
 
 bool QIODevice_WaitForReadyRead(QIODevice* self, int msecs) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQIODevice*)self)->waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 bool QIODevice_WaitForBytesWritten(QIODevice* self, int msecs) {
-    auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
-    if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return self->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQIODevice*)self)->waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 void QIODevice_UngetChar(QIODevice* self, char c) {

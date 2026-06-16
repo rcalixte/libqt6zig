@@ -30,30 +30,15 @@ QHistoryState* QHistoryState_new4(int typeVal, QState* parent) {
 }
 
 QMetaObject* QHistoryState_MetaObject(const QHistoryState* self) {
-    auto* vqhistorystate = dynamic_cast<const VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHistoryState*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHistoryState_Metacast(QHistoryState* self, const char* param1) {
-    auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHistoryState*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHistoryState_Metacall(QHistoryState* self, int param1, int param2, void** param3) {
-    auto* vqhistorystate = dynamic_cast<VirtualQHistoryState*>(self);
-    if (vqhistorystate && vqhistorystate->isVirtualQHistoryState) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHistoryState*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractTransition* QHistoryState_DefaultTransition(const QHistoryState* self) {

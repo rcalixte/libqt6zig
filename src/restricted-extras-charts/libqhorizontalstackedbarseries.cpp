@@ -21,39 +21,19 @@ QHorizontalStackedBarSeries* QHorizontalStackedBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QHorizontalStackedBarSeries_MetaObject(const QHorizontalStackedBarSeries* self) {
-    auto* vqhorizontalstackedbarseries = dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHorizontalStackedBarSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHorizontalStackedBarSeries_Metacast(QHorizontalStackedBarSeries* self, const char* param1) {
-    auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHorizontalStackedBarSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHorizontalStackedBarSeries_Metacall(QHorizontalStackedBarSeries* self, int param1, int param2, void** param3) {
-    auto* vqhorizontalstackedbarseries = dynamic_cast<VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHorizontalStackedBarSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QHorizontalStackedBarSeries_Type(const QHorizontalStackedBarSeries* self) {
-    auto* vqhorizontalstackedbarseries = dynamic_cast<const VirtualQHorizontalStackedBarSeries*>(self);
-    if (vqhorizontalstackedbarseries && vqhorizontalstackedbarseries->isVirtualQHorizontalStackedBarSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQHorizontalStackedBarSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 // Base class handler implementation

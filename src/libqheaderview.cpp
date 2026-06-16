@@ -60,39 +60,19 @@ QHeaderView* QHeaderView_new2(int orientation, QWidget* parent) {
 }
 
 QMetaObject* QHeaderView_MetaObject(const QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHeaderView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHeaderView_Metacast(QHeaderView* self, const char* param1) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHeaderView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHeaderView_Metacall(QHeaderView* self, int param1, int param2, void** param3) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHeaderView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QHeaderView_SetModel(QHeaderView* self, QAbstractItemModel* model) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        self->setModel(model);
-    } else {
-        ((VirtualQHeaderView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 int QHeaderView_Orientation(const QHeaderView* self) {
@@ -108,21 +88,11 @@ int QHeaderView_Length(const QHeaderView* self) {
 }
 
 QSize* QHeaderView_SizeHint(const QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<const VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQHeaderView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QHeaderView_SetVisible(QHeaderView* self, bool v) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        self->setVisible(v);
-    } else {
-        ((VirtualQHeaderView*)self)->setVisible(v);
-    }
+    self->setVisible(v);
 }
 
 int QHeaderView_SectionSizeHint(const QHeaderView* self, int logicalIndex) {
@@ -342,12 +312,7 @@ void QHeaderView_SetDefaultAlignment(QHeaderView* self, int alignment) {
 }
 
 void QHeaderView_DoItemsLayout(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        self->doItemsLayout();
-    } else {
-        ((VirtualQHeaderView*)self)->doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 bool QHeaderView_SectionsMoved(const QHeaderView* self) {
@@ -373,12 +338,7 @@ bool QHeaderView_RestoreState(QHeaderView* self, const libqt_string state) {
 }
 
 void QHeaderView_Reset(QHeaderView* self) {
-    auto* vqheaderview = dynamic_cast<VirtualQHeaderView*>(self);
-    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        self->reset();
-    } else {
-        ((VirtualQHeaderView*)self)->reset();
-    }
+    self->reset();
 }
 
 void QHeaderView_SetOffset(QHeaderView* self, int offset) {

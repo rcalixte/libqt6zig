@@ -49,30 +49,15 @@ QAbstractButton* QAbstractButton_new2() {
 }
 
 QMetaObject* QAbstractButton_MetaObject(const QAbstractButton* self) {
-    auto* vqabstractbutton = dynamic_cast<const VirtualQAbstractButton*>(self);
-    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractButton_Metacast(QAbstractButton* self, const char* param1) {
-    auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
-    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractButton_Metacall(QAbstractButton* self, int param1, int param2, void** param3) {
-    auto* vqabstractbutton = dynamic_cast<VirtualQAbstractButton*>(self);
-    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractButton_SetText(QAbstractButton* self, const libqt_string text) {

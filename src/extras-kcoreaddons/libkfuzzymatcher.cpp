@@ -70,22 +70,22 @@ void KFuzzyMatcher__Range_Delete(KFuzzyMatcher__Range* self) {
     delete self;
 }
 
-bool KFuzzyMatcher_MatchSimple(libqt_string param1, libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return KFuzzyMatcher::matchSimple(param1_QString, param2_QString);
+bool KFuzzyMatcher_MatchSimple(libqt_string pattern, libqt_string str) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    return KFuzzyMatcher::matchSimple(pattern_QString, str_QString);
 }
 
-KFuzzyMatcher__Result* KFuzzyMatcher_Match(libqt_string param1, libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return new KFuzzyMatcher::Result(KFuzzyMatcher::match(param1_QString, param2_QString));
+KFuzzyMatcher__Result* KFuzzyMatcher_Match(libqt_string pattern, libqt_string str) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    return new KFuzzyMatcher::Result(KFuzzyMatcher::match(pattern_QString, str_QString));
 }
 
-libqt_list /* of KFuzzyMatcher__Range* */ KFuzzyMatcher_MatchedRanges(libqt_string param1, libqt_string param2, unsigned char param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QList<KFuzzyMatcher::Range> _ret = KFuzzyMatcher::matchedRanges(param1_QString, param2_QString, static_cast<KFuzzyMatcher::RangeType>(param3));
+libqt_list /* of KFuzzyMatcher__Range* */ KFuzzyMatcher_MatchedRanges(libqt_string pattern, libqt_string str, unsigned char type) {
+    QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QList<KFuzzyMatcher::Range> _ret = KFuzzyMatcher::matchedRanges(pattern_QString, str_QString, static_cast<KFuzzyMatcher::RangeType>(type));
     // Convert QList<> from C++ memory to manually-managed C memory
     KFuzzyMatcher__Range** _arr = static_cast<KFuzzyMatcher__Range**>(malloc(sizeof(KFuzzyMatcher__Range*) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

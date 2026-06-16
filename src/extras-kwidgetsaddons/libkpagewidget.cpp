@@ -49,30 +49,15 @@ KPageWidget* KPageWidget_new2() {
 }
 
 QMetaObject* KPageWidget_MetaObject(const KPageWidget* self) {
-    auto* vkpagewidget = dynamic_cast<const VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPageWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPageWidget_Metacast(KPageWidget* self, const char* param1) {
-    auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPageWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPageWidget_Metacall(KPageWidget* self, int param1, int param2, void** param3) {
-    auto* vkpagewidget = dynamic_cast<VirtualKPageWidget*>(self);
-    if (vkpagewidget && vkpagewidget->isVirtualKPageWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KPageWidgetItem* KPageWidget_AddPage(KPageWidget* self, QWidget* widget, const libqt_string name) {

@@ -26,30 +26,15 @@ QFormLayout* QFormLayout_new2() {
 }
 
 QMetaObject* QFormLayout_MetaObject(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQFormLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QFormLayout_Metacast(QFormLayout* self, const char* param1) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQFormLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QFormLayout_Metacall(QFormLayout* self, int param1, int param2, void** param3) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQFormLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QFormLayout_SetFieldGrowthPolicy(QFormLayout* self, int policy) {
@@ -101,21 +86,11 @@ int QFormLayout_VerticalSpacing(const QFormLayout* self) {
 }
 
 int QFormLayout_Spacing(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->spacing();
-    } else {
-        return ((VirtualQFormLayout*)self)->spacing();
-    }
+    return self->spacing();
 }
 
 void QFormLayout_SetSpacing(QFormLayout* self, int spacing) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        self->setSpacing(static_cast<int>(spacing));
-    } else {
-        ((VirtualQFormLayout*)self)->setSpacing(static_cast<int>(spacing));
-    }
+    self->setSpacing(static_cast<int>(spacing));
 }
 
 void QFormLayout_AddRow(QFormLayout* self, QWidget* label, QWidget* field) {
@@ -255,102 +230,47 @@ QWidget* QFormLayout_LabelForField2(const QFormLayout* self, QLayout* field) {
 }
 
 void QFormLayout_AddItem(QFormLayout* self, QLayoutItem* item) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        self->addItem(item);
-    } else {
-        ((VirtualQFormLayout*)self)->addItem(item);
-    }
+    self->addItem(item);
 }
 
 QLayoutItem* QFormLayout_ItemAt2(const QFormLayout* self, int index) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQFormLayout*)self)->itemAt(static_cast<int>(index));
-    }
+    return self->itemAt(static_cast<int>(index));
 }
 
 QLayoutItem* QFormLayout_TakeAt(QFormLayout* self, int index) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQFormLayout*)self)->takeAt(static_cast<int>(index));
-    }
+    return self->takeAt(static_cast<int>(index));
 }
 
 void QFormLayout_SetGeometry(QFormLayout* self, const QRect* rect) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQFormLayout*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 QSize* QFormLayout_MinimumSize(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQFormLayout*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QFormLayout_SizeHint(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQFormLayout*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QFormLayout_Invalidate(QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQFormLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 bool QFormLayout_HasHeightForWidth(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQFormLayout*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 int QFormLayout_HeightForWidth(const QFormLayout* self, int width) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->heightForWidth(static_cast<int>(width));
-    } else {
-        return ((VirtualQFormLayout*)self)->heightForWidth(static_cast<int>(width));
-    }
+    return self->heightForWidth(static_cast<int>(width));
 }
 
 int QFormLayout_ExpandingDirections(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return static_cast<int>(self->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQFormLayout*)self)->expandingDirections());
-    }
+    return static_cast<int>(self->expandingDirections());
 }
 
 int QFormLayout_Count(const QFormLayout* self) {
-    auto* vqformlayout = dynamic_cast<const VirtualQFormLayout*>(self);
-    if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        return self->count();
-    } else {
-        return ((VirtualQFormLayout*)self)->count();
-    }
+    return self->count();
 }
 
 int QFormLayout_RowCount(const QFormLayout* self) {

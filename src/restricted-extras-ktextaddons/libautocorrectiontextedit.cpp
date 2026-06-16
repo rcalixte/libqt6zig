@@ -55,30 +55,15 @@ TextAutoCorrectionWidgets__AutoCorrectionTextEdit* TextAutoCorrectionWidgets__Au
 }
 
 QMetaObject* TextAutoCorrectionWidgets__AutoCorrectionTextEdit_MetaObject(const TextAutoCorrectionWidgets__AutoCorrectionTextEdit* self) {
-    auto* vtextautocorrectionwidgets__autocorrectiontextedit = dynamic_cast<const VirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit*>(self);
-    if (vtextautocorrectionwidgets__autocorrectiontextedit && vtextautocorrectionwidgets__autocorrectiontextedit->isVirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Metacast(TextAutoCorrectionWidgets__AutoCorrectionTextEdit* self, const char* param1) {
-    auto* vtextautocorrectionwidgets__autocorrectiontextedit = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit*>(self);
-    if (vtextautocorrectionwidgets__autocorrectiontextedit && vtextautocorrectionwidgets__autocorrectiontextedit->isVirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Metacall(TextAutoCorrectionWidgets__AutoCorrectionTextEdit* self, int param1, int param2, void** param3) {
-    auto* vtextautocorrectionwidgets__autocorrectiontextedit = dynamic_cast<VirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit*>(self);
-    if (vtextautocorrectionwidgets__autocorrectiontextedit && vtextautocorrectionwidgets__autocorrectiontextedit->isVirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextAutoCorrectionWidgetsAutoCorrectionTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextAutoCorrectionCore__AutoCorrection* TextAutoCorrectionWidgets__AutoCorrectionTextEdit_Autocorrection(const TextAutoCorrectionWidgets__AutoCorrectionTextEdit* self) {

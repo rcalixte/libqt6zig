@@ -21,30 +21,15 @@ QAbstractAnimation* QAbstractAnimation_new2(QObject* parent) {
 }
 
 QMetaObject* QAbstractAnimation_MetaObject(const QAbstractAnimation* self) {
-    auto* vqabstractanimation = dynamic_cast<const VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractAnimation*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractAnimation_Metacast(QAbstractAnimation* self, const char* param1) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractAnimation*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractAnimation_Metacall(QAbstractAnimation* self, int param1, int param2, void** param3) {
-    auto* vqabstractanimation = dynamic_cast<VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractAnimation*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QAbstractAnimation_State(const QAbstractAnimation* self) {
@@ -84,12 +69,7 @@ int QAbstractAnimation_CurrentLoop(const QAbstractAnimation* self) {
 }
 
 int QAbstractAnimation_Duration(const QAbstractAnimation* self) {
-    auto* vqabstractanimation = dynamic_cast<const VirtualQAbstractAnimation*>(self);
-    if (vqabstractanimation && vqabstractanimation->isVirtualQAbstractAnimation) {
-        return vqabstractanimation->duration();
-    } else {
-        return ((VirtualQAbstractAnimation*)self)->duration();
-    }
+    return self->duration();
 }
 
 int QAbstractAnimation_TotalDuration(const QAbstractAnimation* self) {
@@ -656,39 +636,19 @@ QAnimationDriver* QAnimationDriver_new2(QObject* parent) {
 }
 
 QMetaObject* QAnimationDriver_MetaObject(const QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<const VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAnimationDriver*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAnimationDriver_Metacast(QAnimationDriver* self, const char* param1) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAnimationDriver*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAnimationDriver_Metacall(QAnimationDriver* self, int param1, int param2, void** param3) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAnimationDriver*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAnimationDriver_Advance(QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        self->advance();
-    } else {
-        ((VirtualQAnimationDriver*)self)->advance();
-    }
+    self->advance();
 }
 
 void QAnimationDriver_Install(QAnimationDriver* self) {
@@ -704,12 +664,7 @@ bool QAnimationDriver_IsRunning(const QAnimationDriver* self) {
 }
 
 long long QAnimationDriver_Elapsed(const QAnimationDriver* self) {
-    auto* vqanimationdriver = dynamic_cast<const VirtualQAnimationDriver*>(self);
-    if (vqanimationdriver && vqanimationdriver->isVirtualQAnimationDriver) {
-        return static_cast<long long>(self->elapsed());
-    } else {
-        return static_cast<long long>(((VirtualQAnimationDriver*)self)->elapsed());
-    }
+    return static_cast<long long>(self->elapsed());
 }
 
 void QAnimationDriver_Started(QAnimationDriver* self) {

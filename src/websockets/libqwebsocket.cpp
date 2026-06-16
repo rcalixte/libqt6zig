@@ -42,30 +42,15 @@ QWebSocket* QWebSocket_new4(const libqt_string origin, int version, QObject* par
 }
 
 QMetaObject* QWebSocket_MetaObject(const QWebSocket* self) {
-    auto* vqwebsocket = dynamic_cast<const VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebSocket_Metacast(QWebSocket* self, const char* param1) {
-    auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebSocket_Metacall(QWebSocket* self, int param1, int param2, void** param3) {
-    auto* vqwebsocket = dynamic_cast<VirtualQWebSocket*>(self);
-    if (vqwebsocket && vqwebsocket->isVirtualQWebSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QWebSocket_Abort(QWebSocket* self) {

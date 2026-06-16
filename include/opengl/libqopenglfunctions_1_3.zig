@@ -1740,12 +1740,12 @@ pub const QOpenGLFunctions_1_3 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []u16 `
     ///
-    pub fn GlGetPixelMapusv(self: QOpenGLFunctions_1_3, mapVal: u32, values: []u16) void {
-        qtc.QOpenGLFunctions_1_3_GlGetPixelMapusv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapusv(self: QOpenGLFunctions_1_3, map: u32, values: []u16) void {
+        qtc.QOpenGLFunctions_1_3_GlGetPixelMapusv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-3.html#glGetPixelMapuiv)
@@ -1754,12 +1754,12 @@ pub const QOpenGLFunctions_1_3 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []u32 `
     ///
-    pub fn GlGetPixelMapuiv(self: QOpenGLFunctions_1_3, mapVal: u32, values: []u32) void {
-        qtc.QOpenGLFunctions_1_3_GlGetPixelMapuiv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapuiv(self: QOpenGLFunctions_1_3, map: u32, values: []u32) void {
+        qtc.QOpenGLFunctions_1_3_GlGetPixelMapuiv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-3.html#glGetPixelMapfv)
@@ -1768,12 +1768,12 @@ pub const QOpenGLFunctions_1_3 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []f32 `
     ///
-    pub fn GlGetPixelMapfv(self: QOpenGLFunctions_1_3, mapVal: u32, values: []f32) void {
-        qtc.QOpenGLFunctions_1_3_GlGetPixelMapfv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapfv(self: QOpenGLFunctions_1_3, map: u32, values: []f32) void {
+        qtc.QOpenGLFunctions_1_3_GlGetPixelMapfv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-3.html#glGetMaterialiv)
@@ -1948,14 +1948,14 @@ pub const QOpenGLFunctions_1_3 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const u16 `
     ///
-    pub fn GlPixelMapusv(self: QOpenGLFunctions_1_3, mapVal: u32, mapsize: i32, values: []const u16) void {
-        qtc.QOpenGLFunctions_1_3_GlPixelMapusv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapusv(self: QOpenGLFunctions_1_3, map: u32, mapsize: i32, values: []const u16) void {
+        qtc.QOpenGLFunctions_1_3_GlPixelMapusv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-3.html#glPixelMapuiv)
@@ -1964,14 +1964,14 @@ pub const QOpenGLFunctions_1_3 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const u32 `
     ///
-    pub fn GlPixelMapuiv(self: QOpenGLFunctions_1_3, mapVal: u32, mapsize: i32, values: []const u32) void {
-        qtc.QOpenGLFunctions_1_3_GlPixelMapuiv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapuiv(self: QOpenGLFunctions_1_3, map: u32, mapsize: i32, values: []const u32) void {
+        qtc.QOpenGLFunctions_1_3_GlPixelMapuiv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-3.html#glPixelMapfv)
@@ -1980,14 +1980,14 @@ pub const QOpenGLFunctions_1_3 = extern struct {
     ///
     /// ` self: QOpenGLFunctions_1_3 `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const f32 `
     ///
-    pub fn GlPixelMapfv(self: QOpenGLFunctions_1_3, mapVal: u32, mapsize: i32, values: []const f32) void {
-        qtc.QOpenGLFunctions_1_3_GlPixelMapfv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapfv(self: QOpenGLFunctions_1_3, map: u32, mapsize: i32, values: []const f32) void {
+        qtc.QOpenGLFunctions_1_3_GlPixelMapfv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-1-3.html#glPixelTransferi)

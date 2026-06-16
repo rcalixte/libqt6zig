@@ -56,30 +56,15 @@ QMainWindow* QMainWindow_new3(QWidget* parent, int flags) {
 }
 
 QMetaObject* QMainWindow_MetaObject(const QMainWindow* self) {
-    auto* vqmainwindow = dynamic_cast<const VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMainWindow*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMainWindow_Metacast(QMainWindow* self, const char* param1) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMainWindow*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMainWindow_Metacall(QMainWindow* self, int param1, int param2, void** param3) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMainWindow*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QMainWindow_IconSize(const QMainWindow* self) {
@@ -303,12 +288,7 @@ bool QMainWindow_RestoreState(QMainWindow* self, const libqt_string state) {
 }
 
 QMenu* QMainWindow_CreatePopupMenu(QMainWindow* self) {
-    auto* vqmainwindow = dynamic_cast<VirtualQMainWindow*>(self);
-    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
-        return self->createPopupMenu();
-    } else {
-        return ((VirtualQMainWindow*)self)->createPopupMenu();
-    }
+    return self->createPopupMenu();
 }
 
 void QMainWindow_SetAnimated(QMainWindow* self, bool enabled) {

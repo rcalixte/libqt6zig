@@ -79,8 +79,8 @@ void KStandardActions__KStandardActionsInfo_Delete(KStandardActions__KStandardAc
     delete self;
 }
 
-KStandardActions__KStandardActionsInfo* KStandardActions_InfoPtr(int param1) {
-    return (KStandardActions__KStandardActionsInfo*)KStandardActions::infoPtr(static_cast<KStandardActions::StandardAction>(param1));
+KStandardActions__KStandardActionsInfo* KStandardActions_InfoPtr(int id) {
+    return (KStandardActions__KStandardActionsInfo*)KStandardActions::infoPtr(static_cast<KStandardActions::StandardAction>(id));
 }
 
 libqt_list /* of libqt_string */ KStandardActions_InternalStdNames() {

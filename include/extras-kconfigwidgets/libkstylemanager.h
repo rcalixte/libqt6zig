@@ -21,7 +21,7 @@ typedef struct QObject QObject;
 #endif
 
 void KStyleManager_InitStyle();
-QAction* KStyleManager_CreateConfigureAction(QObject* param1);
+QAction* KStyleManager_CreateConfigureAction(QObject* parent);
 
 #ifdef __cplusplus
 } /* extern C */

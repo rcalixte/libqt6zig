@@ -29,15 +29,15 @@ void QJsonObject_Swap(QJsonObject* self, QJsonObject* other) {
     self->swap(*other);
 }
 
-QJsonObject* QJsonObject_FromVariantMap(const libqt_map /* of libqt_string to QVariant* */ mapVal) {
-    QMap<QString, QVariant> mapVal_QMap;
-    libqt_string* mapVal_karr = static_cast<libqt_string*>(mapVal.keys);
-    QVariant** mapVal_varr = static_cast<QVariant**>(mapVal.values);
-    for (size_t i = 0; i < mapVal.len; ++i) {
-        QString mapVal_karr_i_QString = QString::fromUtf8(mapVal_karr[i].data, mapVal_karr[i].len);
-        mapVal_QMap[mapVal_karr_i_QString] = *(mapVal_varr[i]);
+QJsonObject* QJsonObject_FromVariantMap(const libqt_map /* of libqt_string to QVariant* */ map) {
+    QMap<QString, QVariant> map_QMap;
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    QVariant** map_varr = static_cast<QVariant**>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        map_QMap[map_karr_i_QString] = *(map_varr[i]);
     }
-    return new QJsonObject(QJsonObject::fromVariantMap(mapVal_QMap));
+    return new QJsonObject(QJsonObject::fromVariantMap(map_QMap));
 }
 
 libqt_map /* of libqt_string to QVariant* */ QJsonObject_ToVariantMap(const QJsonObject* self) {
@@ -66,16 +66,16 @@ libqt_map /* of libqt_string to QVariant* */ QJsonObject_ToVariantMap(const QJso
     return _out;
 }
 
-QJsonObject* QJsonObject_FromVariantHash(const libqt_map /* of libqt_string to QVariant* */ mapVal) {
-    QHash<QString, QVariant> mapVal_QHash;
-    mapVal_QHash.reserve(mapVal.len);
-    libqt_string* mapVal_karr = static_cast<libqt_string*>(mapVal.keys);
-    QVariant** mapVal_varr = static_cast<QVariant**>(mapVal.values);
-    for (size_t i = 0; i < mapVal.len; ++i) {
-        QString mapVal_karr_i_QString = QString::fromUtf8(mapVal_karr[i].data, mapVal_karr[i].len);
-        mapVal_QHash[mapVal_karr_i_QString] = *(mapVal_varr[i]);
+QJsonObject* QJsonObject_FromVariantHash(const libqt_map /* of libqt_string to QVariant* */ map) {
+    QHash<QString, QVariant> map_QHash;
+    map_QHash.reserve(map.len);
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    QVariant** map_varr = static_cast<QVariant**>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        map_QHash[map_karr_i_QString] = *(map_varr[i]);
     }
-    return new QJsonObject(QJsonObject::fromVariantHash(mapVal_QHash));
+    return new QJsonObject(QJsonObject::fromVariantHash(map_QHash));
 }
 
 libqt_map /* of libqt_string to QVariant* */ QJsonObject_ToVariantHash(const QJsonObject* self) {

@@ -508,10 +508,10 @@ pub const Konsole = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` value: i32 `
     ///
-    pub fn OneOrZero(param1: i32) i32 {
-        return qtc.Konsole_OneOrZero(@bitCast(param1));
+    pub fn OneOrZero(value: i32) i32 {
+        return qtc.Konsole_OneOrZero(@bitCast(value));
     }
 };
 

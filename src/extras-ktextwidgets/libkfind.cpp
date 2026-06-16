@@ -24,30 +24,15 @@ KFind* KFind_new2(const libqt_string pattern, long options, QWidget* parent, QWi
 }
 
 QMetaObject* KFind_MetaObject(const KFind* self) {
-    auto* vkfind = dynamic_cast<const VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFind*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFind_Metacast(KFind* self, const char* param1) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFind*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFind_Metacall(KFind* self, int param1, int param2, void** param3) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFind*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KFind_NeedData(const KFind* self) {
@@ -73,12 +58,7 @@ long KFind_Options(const KFind* self) {
 }
 
 void KFind_SetOptions(KFind* self, long options) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        self->setOptions(static_cast<long>(options));
-    } else {
-        ((VirtualKFind*)self)->setOptions(static_cast<long>(options));
-    }
+    self->setOptions(static_cast<long>(options));
 }
 
 libqt_string KFind_Pattern(const KFind* self) {
@@ -103,31 +83,16 @@ int KFind_NumMatches(const KFind* self) {
 }
 
 void KFind_ResetCounts(KFind* self) {
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        self->resetCounts();
-    } else {
-        ((VirtualKFind*)self)->resetCounts();
-    }
+    self->resetCounts();
 }
 
 bool KFind_ValidateMatch(KFind* self, const libqt_string text, int index, int matchedlength) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkfind = dynamic_cast<VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return self->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    } else {
-        return ((VirtualKFind*)self)->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
-    }
+    return self->validateMatch(text_QString, static_cast<int>(index), static_cast<int>(matchedlength));
 }
 
 bool KFind_ShouldRestart(const KFind* self, bool forceAsking, bool showNumMatches) {
-    auto* vkfind = dynamic_cast<const VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        return self->shouldRestart(forceAsking, showNumMatches);
-    } else {
-        return ((VirtualKFind*)self)->shouldRestart(forceAsking, showNumMatches);
-    }
+    return self->shouldRestart(forceAsking, showNumMatches);
 }
 
 int KFind_Find2(const libqt_string text, const libqt_string pattern, int index, long options, int* matchedLength, QRegularExpressionMatch* rmatch) {
@@ -137,12 +102,7 @@ int KFind_Find2(const libqt_string text, const libqt_string pattern, int index, 
 }
 
 void KFind_DisplayFinalDialog(const KFind* self) {
-    auto* vkfind = dynamic_cast<const VirtualKFind*>(self);
-    if (vkfind && vkfind->isVirtualKFind) {
-        self->displayFinalDialog();
-    } else {
-        ((VirtualKFind*)self)->displayFinalDialog();
-    }
+    self->displayFinalDialog();
 }
 
 QDialog* KFind_FindNextDialog(KFind* self) {

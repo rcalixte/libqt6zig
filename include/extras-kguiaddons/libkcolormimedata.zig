@@ -19,49 +19,49 @@ pub const KColorMimeData = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    /// ` param2: QColor `
+    /// ` color: QColor `
     ///
-    pub fn PopulateMimeData(param1: anytype, param2: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        comptime _ = @TypeOf(param2)._is_QColor;
-        qtc.KColorMimeData_PopulateMimeData(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
+    pub fn PopulateMimeData(mimeData: anytype, color: anytype) void {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        comptime _ = @TypeOf(color)._is_QColor;
+        qtc.KColorMimeData_PopulateMimeData(@ptrCast(mimeData.ptr), @ptrCast(color.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolormimedata.html#canDecode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    pub fn CanDecode(param1: anytype) bool {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        return qtc.KColorMimeData_CanDecode(@ptrCast(param1.ptr));
+    pub fn CanDecode(mimeData: anytype) bool {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        return qtc.KColorMimeData_CanDecode(@ptrCast(mimeData.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolormimedata.html#fromMimeData)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    pub fn FromMimeData(param1: anytype) QColor {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        return .{ .ptr = qtc.KColorMimeData_FromMimeData(@ptrCast(param1.ptr)) };
+    pub fn FromMimeData(mimeData: anytype) QColor {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        return .{ .ptr = qtc.KColorMimeData_FromMimeData(@ptrCast(mimeData.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcolormimedata.html#createDrag)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QColor `
+    /// ` color: QColor `
     ///
-    /// ` param2: QObject `
+    /// ` dragsource: QObject `
     ///
-    pub fn CreateDrag(param1: anytype, param2: anytype) QDrag {
-        comptime _ = @TypeOf(param1)._is_QColor;
-        comptime _ = @TypeOf(param2)._is_QObject;
-        return .{ .ptr = qtc.KColorMimeData_CreateDrag(@ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
+    pub fn CreateDrag(color: anytype, dragsource: anytype) QDrag {
+        comptime _ = @TypeOf(color)._is_QColor;
+        comptime _ = @TypeOf(dragsource)._is_QObject;
+        return .{ .ptr = qtc.KColorMimeData_CreateDrag(@ptrCast(color.ptr), @ptrCast(dragsource.ptr)) };
     }
 };

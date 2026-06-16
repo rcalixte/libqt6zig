@@ -23,30 +23,15 @@ KParts__StatusBarExtension* KParts__StatusBarExtension_new2(KParts__ReadOnlyPart
 }
 
 QMetaObject* KParts__StatusBarExtension_MetaObject(const KParts__StatusBarExtension* self) {
-    auto* vkparts__statusbarextension = dynamic_cast<const VirtualKPartsStatusBarExtension*>(self);
-    if (vkparts__statusbarextension && vkparts__statusbarextension->isVirtualKPartsStatusBarExtension) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsStatusBarExtension*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__StatusBarExtension_Metacast(KParts__StatusBarExtension* self, const char* param1) {
-    auto* vkparts__statusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkparts__statusbarextension && vkparts__statusbarextension->isVirtualKPartsStatusBarExtension) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsStatusBarExtension*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__StatusBarExtension_Metacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3) {
-    auto* vkparts__statusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkparts__statusbarextension && vkparts__statusbarextension->isVirtualKPartsStatusBarExtension) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsStatusBarExtension*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KParts__StatusBarExtension_AddStatusBarItem(KParts__StatusBarExtension* self, QWidget* widget, int stretch, bool permanent) {
@@ -70,12 +55,7 @@ KParts__StatusBarExtension* KParts__StatusBarExtension_ChildObject(QObject* obj)
 }
 
 bool KParts__StatusBarExtension_EventFilter(KParts__StatusBarExtension* self, QObject* watched, QEvent* ev) {
-    auto* vkparts__statusbarextension = dynamic_cast<VirtualKPartsStatusBarExtension*>(self);
-    if (vkparts__statusbarextension && vkparts__statusbarextension->isVirtualKPartsStatusBarExtension) {
-        return self->eventFilter(watched, ev);
-    } else {
-        return ((VirtualKPartsStatusBarExtension*)self)->eventFilter(watched, ev);
-    }
+    return self->eventFilter(watched, ev);
 }
 
 // Base class handler implementation

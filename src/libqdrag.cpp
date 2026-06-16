@@ -18,30 +18,15 @@ QDrag* QDrag_new(QObject* dragSource) {
 }
 
 QMetaObject* QDrag_MetaObject(const QDrag* self) {
-    auto* vqdrag = dynamic_cast<const VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDrag*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDrag_Metacast(QDrag* self, const char* param1) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDrag*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDrag_Metacall(QDrag* self, int param1, int param2, void** param3) {
-    auto* vqdrag = dynamic_cast<VirtualQDrag*>(self);
-    if (vqdrag && vqdrag->isVirtualQDrag) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDrag*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QDrag_SetMimeData(QDrag* self, QMimeData* data) {

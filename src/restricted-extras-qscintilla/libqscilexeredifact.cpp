@@ -23,30 +23,15 @@ QsciLexerEDIFACT* QsciLexerEDIFACT_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerEDIFACT_MetaObject(const QsciLexerEDIFACT* self) {
-    auto* vqscilexeredifact = dynamic_cast<const VirtualQsciLexerEDIFACT*>(self);
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerEDIFACT*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerEDIFACT_Metacast(QsciLexerEDIFACT* self, const char* param1) {
-    auto* vqscilexeredifact = dynamic_cast<VirtualQsciLexerEDIFACT*>(self);
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerEDIFACT*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerEDIFACT_Metacall(QsciLexerEDIFACT* self, int param1, int param2, void** param3) {
-    auto* vqscilexeredifact = dynamic_cast<VirtualQsciLexerEDIFACT*>(self);
-    if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerEDIFACT*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerEDIFACT_Language(const QsciLexerEDIFACT* self) {

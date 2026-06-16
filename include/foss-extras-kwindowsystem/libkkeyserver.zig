@@ -18,10 +18,10 @@ pub const KKeyServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: u32 `
+    /// ` mod: u32 `
     ///
-    pub fn ModToStringUser(allocator: std.mem.Allocator, param1: u32) []const u8 {
-        var _str = qtc.KKeyServer_ModToStringUser(@bitCast(param1));
+    pub fn ModToStringUser(allocator: std.mem.Allocator, mod: u32) []const u8 {
+        var _str = qtc.KKeyServer_ModToStringUser(@bitCast(mod));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kkeyserver.ModToStringUser: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -32,24 +32,24 @@ pub const KKeyServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` mod: []const u8 `
     ///
-    pub fn StringUserToMod(param1: []const u8) u32 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn StringUserToMod(mod: []const u8) u32 {
+        const mod_str = qtc.libqt_string{
+            .len = mod.len,
+            .data = mod.ptr,
         };
-        return qtc.KKeyServer_StringUserToMod(param1_str);
+        return qtc.KKeyServer_StringUserToMod(mod_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#isShiftAsModifierAllowed)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` keyQt: i32 `
     ///
-    pub fn IsShiftAsModifierAllowed(param1: i32) bool {
-        return qtc.KKeyServer_IsShiftAsModifierAllowed(@bitCast(param1));
+    pub fn IsShiftAsModifierAllowed(keyQt: i32) bool {
+        return qtc.KKeyServer_IsShiftAsModifierAllowed(@bitCast(keyQt));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#initializeMods)
@@ -122,12 +122,12 @@ pub const KKeyServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` keyQt: i32 `
     ///
-    /// ` param2: *i32 `
+    /// ` sym: *i32 `
     ///
-    pub fn KeyQtToSymX(param1: i32, param2: *i32) bool {
-        return qtc.KKeyServer_KeyQtToSymX(@bitCast(param1), @ptrCast(param2));
+    pub fn KeyQtToSymX(keyQt: i32, sym: *i32) bool {
+        return qtc.KKeyServer_KeyQtToSymX(@bitCast(keyQt), @ptrCast(sym));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#keyQtToSymXs)
@@ -136,10 +136,10 @@ pub const KKeyServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: i32 `
+    /// ` keyQt: i32 `
     ///
-    pub fn KeyQtToSymXs(allocator: std.mem.Allocator, param1: i32) []i32 {
-        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToSymXs(@bitCast(param1));
+    pub fn KeyQtToSymXs(allocator: std.mem.Allocator, keyQt: i32) []i32 {
+        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToSymXs(@bitCast(keyQt));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kkeyserver.KeyQtToSymXs: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -151,12 +151,12 @@ pub const KKeyServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` keyQt: i32 `
     ///
-    /// ` param2: *i32 `
+    /// ` keyCode: *i32 `
     ///
-    pub fn KeyQtToCodeX(param1: i32, param2: *i32) bool {
-        return qtc.KKeyServer_KeyQtToCodeX(@bitCast(param1), @ptrCast(param2));
+    pub fn KeyQtToCodeX(keyQt: i32, keyCode: *i32) bool {
+        return qtc.KKeyServer_KeyQtToCodeX(@bitCast(keyQt), @ptrCast(keyCode));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#keyQtToCodeXs)
@@ -165,10 +165,10 @@ pub const KKeyServer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: i32 `
+    /// ` keyQt: i32 `
     ///
-    pub fn KeyQtToCodeXs(allocator: std.mem.Allocator, param1: i32) []i32 {
-        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToCodeXs(@bitCast(param1));
+    pub fn KeyQtToCodeXs(allocator: std.mem.Allocator, keyQt: i32) []i32 {
+        const _arr: qtc.libqt_list = qtc.KKeyServer_KeyQtToCodeXs(@bitCast(keyQt));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("kkeyserver.KeyQtToCodeXs: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -180,37 +180,37 @@ pub const KKeyServer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` keyQt: i32 `
     ///
-    /// ` param2: *u32 `
+    /// ` mod: *u32 `
     ///
-    pub fn KeyQtToModX(param1: i32, param2: *u32) bool {
-        return qtc.KKeyServer_KeyQtToModX(@bitCast(param1), @ptrCast(param2));
+    pub fn KeyQtToModX(keyQt: i32, mod: *u32) bool {
+        return qtc.KKeyServer_KeyQtToModX(@bitCast(keyQt), @ptrCast(mod));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#symXModXToKeyQt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u32 `
+    /// ` keySym: u32 `
     ///
-    /// ` param2: u16 `
+    /// ` modX: u16 `
     ///
-    /// ` param3: *i32 `
+    /// ` keyQt: *i32 `
     ///
-    pub fn SymXModXToKeyQt(param1: u32, param2: u16, param3: *i32) bool {
-        return qtc.KKeyServer_SymXModXToKeyQt(@bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    pub fn SymXModXToKeyQt(keySym: u32, modX: u16, keyQt: *i32) bool {
+        return qtc.KKeyServer_SymXModXToKeyQt(@bitCast(keySym), @bitCast(modX), @ptrCast(keyQt));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kkeyserver.html#modXToQt)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: u32 `
+    /// ` modX: u32 `
     ///
-    /// ` param2: *i32 `
+    /// ` modQt: *i32 `
     ///
-    pub fn ModXToQt(param1: u32, param2: *i32) bool {
-        return qtc.KKeyServer_ModXToQt(@bitCast(param1), @ptrCast(param2));
+    pub fn ModXToQt(modX: u32, modQt: *i32) bool {
+        return qtc.KKeyServer_ModXToQt(@bitCast(modX), @ptrCast(modQt));
     }
 };

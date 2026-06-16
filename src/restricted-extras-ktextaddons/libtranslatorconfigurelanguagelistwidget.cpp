@@ -49,30 +49,15 @@ TextTranslator__TranslatorConfigureLanguageListWidget* TextTranslator__Translato
 }
 
 QMetaObject* TextTranslator__TranslatorConfigureLanguageListWidget_MetaObject(const TextTranslator__TranslatorConfigureLanguageListWidget* self) {
-    auto* vtexttranslator__translatorconfigurelanguagelistwidget = dynamic_cast<const VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslator__translatorconfigurelanguagelistwidget && vtexttranslator__translatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorConfigureLanguageListWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorConfigureLanguageListWidget_Metacast(TextTranslator__TranslatorConfigureLanguageListWidget* self, const char* param1) {
-    auto* vtexttranslator__translatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslator__translatorconfigurelanguagelistwidget && vtexttranslator__translatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorConfigureLanguageListWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorConfigureLanguageListWidget_Metacall(TextTranslator__TranslatorConfigureLanguageListWidget* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorconfigurelanguagelistwidget = dynamic_cast<VirtualTextTranslatorTranslatorConfigureLanguageListWidget*>(self);
-    if (vtexttranslator__translatorconfigurelanguagelistwidget && vtexttranslator__translatorconfigurelanguagelistwidget->isVirtualTextTranslatorTranslatorConfigureLanguageListWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorConfigureLanguageListWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextTranslator__TranslatorConfigureLanguageListWidget_Clear(TextTranslator__TranslatorConfigureLanguageListWidget* self) {

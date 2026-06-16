@@ -57,39 +57,19 @@ KDatePicker* KDatePicker_new4(const QDate* dt, QWidget* parent) {
 }
 
 QMetaObject* KDatePicker_MetaObject(const KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<const VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDatePicker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDatePicker_Metacast(KDatePicker* self, const char* param1) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDatePicker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDatePicker_Metacall(KDatePicker* self, int param1, int param2, void** param3) {
-    auto* vkdatepicker = dynamic_cast<VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDatePicker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KDatePicker_SizeHint(const KDatePicker* self) {
-    auto* vkdatepicker = dynamic_cast<const VirtualKDatePicker*>(self);
-    if (vkdatepicker && vkdatepicker->isVirtualKDatePicker) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKDatePicker*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 bool KDatePicker_SetDate(KDatePicker* self, const QDate* date) {

@@ -21,30 +21,15 @@ QLocalSocket* QLocalSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QLocalSocket_MetaObject(const QLocalSocket* self) {
-    auto* vqlocalsocket = dynamic_cast<const VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLocalSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLocalSocket_Metacast(QLocalSocket* self, const char* param1) {
-    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLocalSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLocalSocket_Metacall(QLocalSocket* self, int param1, int param2, void** param3) {
-    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLocalSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QLocalSocket_ConnectToServer(QLocalSocket* self) {
@@ -94,57 +79,27 @@ void QLocalSocket_Abort(QLocalSocket* self) {
 }
 
 bool QLocalSocket_IsSequential(const QLocalSocket* self) {
-    auto* vqlocalsocket = dynamic_cast<const VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->isSequential();
-    } else {
-        return ((VirtualQLocalSocket*)self)->isSequential();
-    }
+    return self->isSequential();
 }
 
 long long QLocalSocket_BytesAvailable(const QLocalSocket* self) {
-    auto* vqlocalsocket = dynamic_cast<const VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return static_cast<long long>(self->bytesAvailable());
-    } else {
-        return static_cast<long long>(((VirtualQLocalSocket*)self)->bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 long long QLocalSocket_BytesToWrite(const QLocalSocket* self) {
-    auto* vqlocalsocket = dynamic_cast<const VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return static_cast<long long>(self->bytesToWrite());
-    } else {
-        return static_cast<long long>(((VirtualQLocalSocket*)self)->bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 bool QLocalSocket_CanReadLine(const QLocalSocket* self) {
-    auto* vqlocalsocket = dynamic_cast<const VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->canReadLine();
-    } else {
-        return ((VirtualQLocalSocket*)self)->canReadLine();
-    }
+    return self->canReadLine();
 }
 
 bool QLocalSocket_Open(QLocalSocket* self, int openMode) {
-    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    } else {
-        return ((VirtualQLocalSocket*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    }
+    return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 void QLocalSocket_Close(QLocalSocket* self) {
-    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        self->close();
-    } else {
-        ((VirtualQLocalSocket*)self)->close();
-    }
+    self->close();
 }
 
 int QLocalSocket_Error(const QLocalSocket* self) {
@@ -189,12 +144,7 @@ int QLocalSocket_State(const QLocalSocket* self) {
 }
 
 bool QLocalSocket_WaitForBytesWritten(QLocalSocket* self, int msecs) {
-    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQLocalSocket*)self)->waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 bool QLocalSocket_WaitForConnected(QLocalSocket* self) {
@@ -206,12 +156,7 @@ bool QLocalSocket_WaitForDisconnected(QLocalSocket* self) {
 }
 
 bool QLocalSocket_WaitForReadyRead(QLocalSocket* self, int msecs) {
-    auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
-    if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return self->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQLocalSocket*)self)->waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 void QLocalSocket_Connected(QLocalSocket* self) {

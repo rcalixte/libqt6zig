@@ -617,30 +617,15 @@ Poppler__AsyncObject* Poppler__AsyncObject_new() {
 }
 
 QMetaObject* Poppler__AsyncObject_MetaObject(const Poppler__AsyncObject* self) {
-    auto* vpoppler__asyncobject = dynamic_cast<const VirtualPopplerAsyncObject*>(self);
-    if (vpoppler__asyncobject && vpoppler__asyncobject->isVirtualPopplerAsyncObject) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualPopplerAsyncObject*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Poppler__AsyncObject_Metacast(Poppler__AsyncObject* self, const char* param1) {
-    auto* vpoppler__asyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpoppler__asyncobject && vpoppler__asyncobject->isVirtualPopplerAsyncObject) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Poppler__AsyncObject_Metacall(Poppler__AsyncObject* self, int param1, int param2, void** param3) {
-    auto* vpoppler__asyncobject = dynamic_cast<VirtualPopplerAsyncObject*>(self);
-    if (vpoppler__asyncobject && vpoppler__asyncobject->isVirtualPopplerAsyncObject) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualPopplerAsyncObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void Poppler__AsyncObject_Done(Poppler__AsyncObject* self) {
@@ -1080,8 +1065,8 @@ int Poppler_ActiveCryptoSignBackend() {
     return static_cast<int>(Poppler::activeCryptoSignBackend().value_or(static_cast<Poppler::CryptoSignBackend>(-1)));
 }
 
-bool Poppler_SetActiveCryptoSignBackend(int param1) {
-    return Poppler::setActiveCryptoSignBackend(static_cast<Poppler::CryptoSignBackend>(param1));
+bool Poppler_SetActiveCryptoSignBackend(int backend) {
+    return Poppler::setActiveCryptoSignBackend(static_cast<Poppler::CryptoSignBackend>(backend));
 }
 
 bool Poppler_HasCryptoSignBackendFeature(int param1, int param2) {
@@ -1117,22 +1102,22 @@ libqt_string Poppler_GetNSSDir() {
     return _str;
 }
 
-void Poppler_SetNSSDir(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    Poppler::setNSSDir(param1_QString);
+void Poppler_SetNSSDir(const libqt_string pathURL) {
+    QString pathURL_QString = QString::fromUtf8(pathURL.data, pathURL.len);
+    Poppler::setNSSDir(pathURL_QString);
 }
 
-void Poppler_SetNSSPasswordCallback(intptr_t param1) {
-    auto param1_func = [param1](const char* funcparam1_fp) -> char* {
+void Poppler_SetNSSPasswordCallback(intptr_t f) {
+    auto f_func = [f](const char* funcparam1_fp) -> char* {
         const char* funcparam1_fv = (const char*)funcparam1_fp;
-        auto param1_funcret = reinterpret_cast<char* (*)(const char*)>(param1)(funcparam1_fv);
-        return static_cast<char*>(param1_funcret);
+        auto f_funcret = reinterpret_cast<char* (*)(const char*)>(f)(funcparam1_fv);
+        return static_cast<char*>(f_funcret);
     };
-    Poppler::setNSSPasswordCallback(param1_func);
+    Poppler::setNSSPasswordCallback(f_func);
 }
 
-void Poppler_SetPgpSignaturesAllowed(bool param1) {
-    Poppler::setPgpSignaturesAllowed(param1);
+void Poppler_SetPgpSignaturesAllowed(bool allowed) {
+    Poppler::setPgpSignaturesAllowed(allowed);
 }
 
 bool Poppler_ArePgpSignaturesAllowed() {

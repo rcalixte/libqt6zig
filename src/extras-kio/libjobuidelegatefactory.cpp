@@ -17,14 +17,14 @@ KJobUiDelegate* KIO_CreateDefaultJobUiDelegate() {
     return KIO::createDefaultJobUiDelegate();
 }
 
-KJobUiDelegate* KIO_CreateDefaultJobUiDelegate2(int param1, QWidget* param2) {
-    return KIO::createDefaultJobUiDelegate(static_cast<KJobUiDelegate::Flags>(param1), param2);
+KJobUiDelegate* KIO_CreateDefaultJobUiDelegate2(int flags, QWidget* window) {
+    return KIO::createDefaultJobUiDelegate(static_cast<KJobUiDelegate::Flags>(flags), window);
 }
 
 KIO__JobUiDelegateFactory* KIO_DefaultJobUiDelegateFactory() {
     return KIO::defaultJobUiDelegateFactory();
 }
 
-void KIO_SetDefaultJobUiDelegateFactory(KIO__JobUiDelegateFactory* param1) {
-    KIO::setDefaultJobUiDelegateFactory(param1);
+void KIO_SetDefaultJobUiDelegateFactory(KIO__JobUiDelegateFactory* factory) {
+    KIO::setDefaultJobUiDelegateFactory(factory);
 }

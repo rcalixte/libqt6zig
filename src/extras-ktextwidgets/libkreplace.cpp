@@ -32,30 +32,15 @@ KReplace* KReplace_new3(const libqt_string pattern, const libqt_string replaceme
 }
 
 QMetaObject* KReplace_MetaObject(const KReplace* self) {
-    auto* vkreplace = dynamic_cast<const VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKReplace*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KReplace_Metacast(KReplace* self, const char* param1) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKReplace*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KReplace_Metacall(KReplace* self, int param1, int param2, void** param3) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKReplace*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KReplace_NumReplacements(const KReplace* self) {
@@ -63,12 +48,7 @@ int KReplace_NumReplacements(const KReplace* self) {
 }
 
 void KReplace_ResetCounts(KReplace* self) {
-    auto* vkreplace = dynamic_cast<VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        self->resetCounts();
-    } else {
-        ((VirtualKReplace*)self)->resetCounts();
-    }
+    self->resetCounts();
 }
 
 int KReplace_Replace(KReplace* self) {
@@ -91,21 +71,11 @@ int KReplace_Replace2(libqt_string text, const libqt_string pattern, const libqt
 }
 
 bool KReplace_ShouldRestart(const KReplace* self, bool forceAsking, bool showNumMatches) {
-    auto* vkreplace = dynamic_cast<const VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        return self->shouldRestart(forceAsking, showNumMatches);
-    } else {
-        return ((VirtualKReplace*)self)->shouldRestart(forceAsking, showNumMatches);
-    }
+    return self->shouldRestart(forceAsking, showNumMatches);
 }
 
 void KReplace_DisplayFinalDialog(const KReplace* self) {
-    auto* vkreplace = dynamic_cast<const VirtualKReplace*>(self);
-    if (vkreplace && vkreplace->isVirtualKReplace) {
-        self->displayFinalDialog();
-    } else {
-        ((VirtualKReplace*)self)->displayFinalDialog();
-    }
+    self->displayFinalDialog();
 }
 
 void KReplace_TextReplaced(KReplace* self, const libqt_string text, int replacementIndex, int replacedLength, int matchedLength) {

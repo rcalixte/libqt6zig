@@ -21,65 +21,32 @@ QDBusVirtualObject* QDBusVirtualObject_new2(QObject* parent) {
 }
 
 QMetaObject* QDBusVirtualObject_MetaObject(const QDBusVirtualObject* self) {
-    auto* vqdbusvirtualobject = dynamic_cast<const VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDBusVirtualObject*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDBusVirtualObject_Metacast(QDBusVirtualObject* self, const char* param1) {
-    auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDBusVirtualObject*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDBusVirtualObject_Metacall(QDBusVirtualObject* self, int param1, int param2, void** param3) {
-    auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDBusVirtualObject*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QDBusVirtualObject_Introspect(const QDBusVirtualObject* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
-    auto* vqdbusvirtualobject = dynamic_cast<const VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
-        auto _ret = vqdbusvirtualobject->introspect(path_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDBusVirtualObject*)self)->introspect(path_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->introspect(path_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool QDBusVirtualObject_HandleMessage(QDBusVirtualObject* self, const QDBusMessage* message, const QDBusConnection* connection) {
-    auto* vqdbusvirtualobject = dynamic_cast<VirtualQDBusVirtualObject*>(self);
-    if (vqdbusvirtualobject && vqdbusvirtualobject->isVirtualQDBusVirtualObject) {
-        return vqdbusvirtualobject->handleMessage(*message, *connection);
-    } else {
-        return ((VirtualQDBusVirtualObject*)self)->handleMessage(*message, *connection);
-    }
+    return self->handleMessage(*message, *connection);
 }
 
 // Base class handler implementation

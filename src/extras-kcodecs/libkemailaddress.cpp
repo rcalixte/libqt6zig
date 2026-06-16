@@ -7,9 +7,9 @@
 #include "libkemailaddress.h"
 #include "libkemailaddress.hxx"
 
-libqt_list /* of libqt_string */ KEmailAddress_SplitAddressList(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> _ret = KEmailAddress::splitAddressList(param1_QString);
+libqt_list /* of libqt_string */ KEmailAddress_SplitAddressList(const libqt_string aStr) {
+    QString aStr_QString = QString::fromUtf8(aStr.data, aStr.len);
+    QList<QString> _ret = KEmailAddress::splitAddressList(aStr_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -29,35 +29,35 @@ libqt_list /* of libqt_string */ KEmailAddress_SplitAddressList(const libqt_stri
     return _out;
 }
 
-int KEmailAddress_SplitAddress(const libqt_string param1, libqt_string param2, libqt_string param3, libqt_string param4) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    QByteArray param3_QByteArray(param3.data, param3.len);
-    QByteArray param4_QByteArray(param4.data, param4.len);
-    return static_cast<int>(KEmailAddress::splitAddress(param1_QByteArray, param2_QByteArray, param3_QByteArray, param4_QByteArray));
+int KEmailAddress_SplitAddress(const libqt_string address, libqt_string displayName, libqt_string addrSpec, libqt_string comment) {
+    QByteArray address_QByteArray(address.data, address.len);
+    QByteArray displayName_QByteArray(displayName.data, displayName.len);
+    QByteArray addrSpec_QByteArray(addrSpec.data, addrSpec.len);
+    QByteArray comment_QByteArray(comment.data, comment.len);
+    return static_cast<int>(KEmailAddress::splitAddress(address_QByteArray, displayName_QByteArray, addrSpec_QByteArray, comment_QByteArray));
 }
 
-int KEmailAddress_SplitAddress2(const libqt_string param1, libqt_string param2, libqt_string param3, libqt_string param4) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    QString param4_QString = QString::fromUtf8(param4.data, param4.len);
-    return static_cast<int>(KEmailAddress::splitAddress(param1_QString, param2_QString, param3_QString, param4_QString));
+int KEmailAddress_SplitAddress2(const libqt_string address, libqt_string displayName, libqt_string addrSpec, libqt_string comment) {
+    QString address_QString = QString::fromUtf8(address.data, address.len);
+    QString displayName_QString = QString::fromUtf8(displayName.data, displayName.len);
+    QString addrSpec_QString = QString::fromUtf8(addrSpec.data, addrSpec.len);
+    QString comment_QString = QString::fromUtf8(comment.data, comment.len);
+    return static_cast<int>(KEmailAddress::splitAddress(address_QString, displayName_QString, addrSpec_QString, comment_QString));
 }
 
-int KEmailAddress_IsValidAddress(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return static_cast<int>(KEmailAddress::isValidAddress(param1_QString));
+int KEmailAddress_IsValidAddress(const libqt_string aStr) {
+    QString aStr_QString = QString::fromUtf8(aStr.data, aStr.len);
+    return static_cast<int>(KEmailAddress::isValidAddress(aStr_QString));
 }
 
-int KEmailAddress_IsValidAddressList(const libqt_string param1, libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return static_cast<int>(KEmailAddress::isValidAddressList(param1_QString, param2_QString));
+int KEmailAddress_IsValidAddressList(const libqt_string aStr, libqt_string badAddr) {
+    QString aStr_QString = QString::fromUtf8(aStr.data, aStr.len);
+    QString badAddr_QString = QString::fromUtf8(badAddr.data, badAddr.len);
+    return static_cast<int>(KEmailAddress::isValidAddressList(aStr_QString, badAddr_QString));
 }
 
-libqt_string KEmailAddress_EmailParseResultToString(int param1) {
-    auto _ret = KEmailAddress::emailParseResultToString(static_cast<KEmailAddress::EmailParseResult>(param1));
+libqt_string KEmailAddress_EmailParseResultToString(int errorCode) {
+    auto _ret = KEmailAddress::emailParseResultToString(static_cast<KEmailAddress::EmailParseResult>(errorCode));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -68,9 +68,9 @@ libqt_string KEmailAddress_EmailParseResultToString(int param1) {
     return _str;
 }
 
-bool KEmailAddress_IsValidSimpleAddress(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return KEmailAddress::isValidSimpleAddress(param1_QString);
+bool KEmailAddress_IsValidSimpleAddress(const libqt_string aStr) {
+    QString aStr_QString = QString::fromUtf8(aStr.data, aStr.len);
+    return KEmailAddress::isValidSimpleAddress(aStr_QString);
 }
 
 libqt_string KEmailAddress_SimpleEmailAddressErrorMsg() {
@@ -85,9 +85,9 @@ libqt_string KEmailAddress_SimpleEmailAddressErrorMsg() {
     return _str;
 }
 
-libqt_string KEmailAddress_ExtractEmailAddress(const libqt_string param1) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    QByteArray _qb = KEmailAddress::extractEmailAddress(param1_QByteArray);
+libqt_string KEmailAddress_ExtractEmailAddress(const libqt_string address) {
+    QByteArray address_QByteArray(address.data, address.len);
+    QByteArray _qb = KEmailAddress::extractEmailAddress(address_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -95,10 +95,10 @@ libqt_string KEmailAddress_ExtractEmailAddress(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KEmailAddress_ExtractEmailAddress2(const libqt_string param1, libqt_string param2) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QByteArray _qb = KEmailAddress::extractEmailAddress(param1_QByteArray, param2_QString);
+libqt_string KEmailAddress_ExtractEmailAddress2(const libqt_string address, libqt_string errorMessage) {
+    QByteArray address_QByteArray(address.data, address.len);
+    QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
+    QByteArray _qb = KEmailAddress::extractEmailAddress(address_QByteArray, errorMessage_QString);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -106,9 +106,9 @@ libqt_string KEmailAddress_ExtractEmailAddress2(const libqt_string param1, libqt
     return _str;
 }
 
-libqt_string KEmailAddress_ExtractEmailAddress3(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::extractEmailAddress(param1_QString);
+libqt_string KEmailAddress_ExtractEmailAddress3(const libqt_string address) {
+    QString address_QString = QString::fromUtf8(address.data, address.len);
+    auto _ret = KEmailAddress::extractEmailAddress(address_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -119,10 +119,10 @@ libqt_string KEmailAddress_ExtractEmailAddress3(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KEmailAddress_ExtractEmailAddress4(const libqt_string param1, libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    auto _ret = KEmailAddress::extractEmailAddress(param1_QString, param2_QString);
+libqt_string KEmailAddress_ExtractEmailAddress4(const libqt_string address, libqt_string errorMessage) {
+    QString address_QString = QString::fromUtf8(address.data, address.len);
+    QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
+    auto _ret = KEmailAddress::extractEmailAddress(address_QString, errorMessage_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -133,9 +133,9 @@ libqt_string KEmailAddress_ExtractEmailAddress4(const libqt_string param1, libqt
     return _str;
 }
 
-libqt_string KEmailAddress_FirstEmailAddress(const libqt_string param1) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    QByteArray _qb = KEmailAddress::firstEmailAddress(param1_QByteArray);
+libqt_string KEmailAddress_FirstEmailAddress(const libqt_string addresses) {
+    QByteArray addresses_QByteArray(addresses.data, addresses.len);
+    QByteArray _qb = KEmailAddress::firstEmailAddress(addresses_QByteArray);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -143,10 +143,10 @@ libqt_string KEmailAddress_FirstEmailAddress(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KEmailAddress_FirstEmailAddress2(const libqt_string param1, libqt_string param2) {
-    QByteArray param1_QByteArray(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QByteArray _qb = KEmailAddress::firstEmailAddress(param1_QByteArray, param2_QString);
+libqt_string KEmailAddress_FirstEmailAddress2(const libqt_string addresses, libqt_string errorMessage) {
+    QByteArray addresses_QByteArray(addresses.data, addresses.len);
+    QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
+    QByteArray _qb = KEmailAddress::firstEmailAddress(addresses_QByteArray, errorMessage_QString);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -154,9 +154,9 @@ libqt_string KEmailAddress_FirstEmailAddress2(const libqt_string param1, libqt_s
     return _str;
 }
 
-libqt_string KEmailAddress_FirstEmailAddress3(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::firstEmailAddress(param1_QString);
+libqt_string KEmailAddress_FirstEmailAddress3(const libqt_string addresses) {
+    QString addresses_QString = QString::fromUtf8(addresses.data, addresses.len);
+    auto _ret = KEmailAddress::firstEmailAddress(addresses_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -167,10 +167,10 @@ libqt_string KEmailAddress_FirstEmailAddress3(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KEmailAddress_FirstEmailAddress4(const libqt_string param1, libqt_string param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    auto _ret = KEmailAddress::firstEmailAddress(param1_QString, param2_QString);
+libqt_string KEmailAddress_FirstEmailAddress4(const libqt_string addresses, libqt_string errorMessage) {
+    QString addresses_QString = QString::fromUtf8(addresses.data, addresses.len);
+    QString errorMessage_QString = QString::fromUtf8(errorMessage.data, errorMessage.len);
+    auto _ret = KEmailAddress::firstEmailAddress(addresses_QString, errorMessage_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -181,24 +181,24 @@ libqt_string KEmailAddress_FirstEmailAddress4(const libqt_string param1, libqt_s
     return _str;
 }
 
-bool KEmailAddress_ExtractEmailAddressAndName(const libqt_string param1, libqt_string param2, libqt_string param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    return KEmailAddress::extractEmailAddressAndName(param1_QString, param2_QString, param3_QString);
+bool KEmailAddress_ExtractEmailAddressAndName(const libqt_string aStr, libqt_string mail, libqt_string name) {
+    QString aStr_QString = QString::fromUtf8(aStr.data, aStr.len);
+    QString mail_QString = QString::fromUtf8(mail.data, mail.len);
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return KEmailAddress::extractEmailAddressAndName(aStr_QString, mail_QString, name_QString);
 }
 
-bool KEmailAddress_CompareEmail(const libqt_string param1, const libqt_string param2, bool param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return KEmailAddress::compareEmail(param1_QString, param2_QString, param3);
+bool KEmailAddress_CompareEmail(const libqt_string email1, const libqt_string email2, bool matchName) {
+    QString email1_QString = QString::fromUtf8(email1.data, email1.len);
+    QString email2_QString = QString::fromUtf8(email2.data, email2.len);
+    return KEmailAddress::compareEmail(email1_QString, email2_QString, matchName);
 }
 
-libqt_string KEmailAddress_NormalizedAddress(const libqt_string param1, const libqt_string param2, const libqt_string param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    auto _ret = KEmailAddress::normalizedAddress(param1_QString, param2_QString, param3_QString);
+libqt_string KEmailAddress_NormalizedAddress(const libqt_string displayName, const libqt_string addrSpec, const libqt_string comment) {
+    QString displayName_QString = QString::fromUtf8(displayName.data, displayName.len);
+    QString addrSpec_QString = QString::fromUtf8(addrSpec.data, addrSpec.len);
+    QString comment_QString = QString::fromUtf8(comment.data, comment.len);
+    auto _ret = KEmailAddress::normalizedAddress(displayName_QString, addrSpec_QString, comment_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -209,9 +209,9 @@ libqt_string KEmailAddress_NormalizedAddress(const libqt_string param1, const li
     return _str;
 }
 
-libqt_string KEmailAddress_FromIdn(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::fromIdn(param1_QString);
+libqt_string KEmailAddress_FromIdn(const libqt_string addrSpec) {
+    QString addrSpec_QString = QString::fromUtf8(addrSpec.data, addrSpec.len);
+    auto _ret = KEmailAddress::fromIdn(addrSpec_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -222,9 +222,9 @@ libqt_string KEmailAddress_FromIdn(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KEmailAddress_ToIdn(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::toIdn(param1_QString);
+libqt_string KEmailAddress_ToIdn(const libqt_string addrSpec) {
+    QString addrSpec_QString = QString::fromUtf8(addrSpec.data, addrSpec.len);
+    auto _ret = KEmailAddress::toIdn(addrSpec_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -235,9 +235,9 @@ libqt_string KEmailAddress_ToIdn(const libqt_string param1) {
     return _str;
 }
 
-libqt_string KEmailAddress_NormalizeAddressesAndDecodeIdn(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::normalizeAddressesAndDecodeIdn(param1_QString);
+libqt_string KEmailAddress_NormalizeAddressesAndDecodeIdn(const libqt_string addresses) {
+    QString addresses_QString = QString::fromUtf8(addresses.data, addresses.len);
+    auto _ret = KEmailAddress::normalizeAddressesAndDecodeIdn(addresses_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -248,9 +248,9 @@ libqt_string KEmailAddress_NormalizeAddressesAndDecodeIdn(const libqt_string par
     return _str;
 }
 
-libqt_string KEmailAddress_NormalizeAddressesAndEncodeIdn(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::normalizeAddressesAndEncodeIdn(param1_QString);
+libqt_string KEmailAddress_NormalizeAddressesAndEncodeIdn(const libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = KEmailAddress::normalizeAddressesAndEncodeIdn(str_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -261,9 +261,9 @@ libqt_string KEmailAddress_NormalizeAddressesAndEncodeIdn(const libqt_string par
     return _str;
 }
 
-libqt_string KEmailAddress_QuoteNameIfNecessary(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KEmailAddress::quoteNameIfNecessary(param1_QString);
+libqt_string KEmailAddress_QuoteNameIfNecessary(const libqt_string str) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    auto _ret = KEmailAddress::quoteNameIfNecessary(str_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -274,13 +274,13 @@ libqt_string KEmailAddress_QuoteNameIfNecessary(const libqt_string param1) {
     return _str;
 }
 
-QUrl* KEmailAddress_EncodeMailtoUrl(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return new QUrl(KEmailAddress::encodeMailtoUrl(param1_QString));
+QUrl* KEmailAddress_EncodeMailtoUrl(const libqt_string mailbox) {
+    QString mailbox_QString = QString::fromUtf8(mailbox.data, mailbox.len);
+    return new QUrl(KEmailAddress::encodeMailtoUrl(mailbox_QString));
 }
 
-libqt_string KEmailAddress_DecodeMailtoUrl(const QUrl* param1) {
-    auto _ret = KEmailAddress::decodeMailtoUrl(*param1);
+libqt_string KEmailAddress_DecodeMailtoUrl(const QUrl* mailtoUrl) {
+    auto _ret = KEmailAddress::decodeMailtoUrl(*mailtoUrl);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

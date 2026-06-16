@@ -271,9 +271,9 @@ class VirtualKLineEdit final : public KLineEdit {
 
   public:
     VirtualKLineEdit(QWidget* parent) : KLineEdit(parent) {};
-    VirtualKLineEdit(const QString& stringVal) : KLineEdit(stringVal) {};
+    VirtualKLineEdit(const QString& string) : KLineEdit(string) {};
     VirtualKLineEdit() : KLineEdit() {};
-    VirtualKLineEdit(const QString& stringVal, QWidget* parent) : KLineEdit(stringVal, parent) {};
+    VirtualKLineEdit(const QString& string, QWidget* parent) : KLineEdit(string, parent) {};
 
     // Callback setters
     inline void setKLineEdit_MetaObject_Callback(KLineEdit_MetaObject_Callback cb) { klineedit_metaobject_callback = cb; }

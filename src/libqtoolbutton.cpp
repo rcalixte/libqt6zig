@@ -50,48 +50,23 @@ QToolButton* QToolButton_new2() {
 }
 
 QMetaObject* QToolButton_MetaObject(const QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQToolButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QToolButton_Metacast(QToolButton* self, const char* param1) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQToolButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QToolButton_Metacall(QToolButton* self, int param1, int param2, void** param3) {
-    auto* vqtoolbutton = dynamic_cast<VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQToolButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QToolButton_SizeHint(const QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQToolButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QToolButton_MinimumSizeHint(const QToolButton* self) {
-    auto* vqtoolbutton = dynamic_cast<const VirtualQToolButton*>(self);
-    if (vqtoolbutton && vqtoolbutton->isVirtualQToolButton) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQToolButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int QToolButton_ToolButtonStyle(const QToolButton* self) {

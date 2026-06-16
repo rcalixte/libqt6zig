@@ -21,12 +21,7 @@ bool QEvent_Spontaneous(const QEvent* self) {
 }
 
 void QEvent_SetAccepted(QEvent* self, bool accepted) {
-    auto* vqevent = dynamic_cast<VirtualQEvent*>(self);
-    if (vqevent && vqevent->isVirtualQEvent) {
-        self->setAccepted(accepted);
-    } else {
-        ((VirtualQEvent*)self)->setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 bool QEvent_IsAccepted(const QEvent* self) {
@@ -58,12 +53,7 @@ int QEvent_RegisterEventType() {
 }
 
 QEvent* QEvent_Clone(const QEvent* self) {
-    auto* vqevent = dynamic_cast<const VirtualQEvent*>(self);
-    if (vqevent && vqevent->isVirtualQEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QEvent_RegisterEventType1(int hint) {
@@ -121,12 +111,7 @@ QTimerEvent* QTimerEvent_new2(int timerId) {
 }
 
 QTimerEvent* QTimerEvent_Clone(const QTimerEvent* self) {
-    auto* vqtimerevent = dynamic_cast<const VirtualQTimerEvent*>(self);
-    if (vqtimerevent && vqtimerevent->isVirtualQTimerEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQTimerEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QTimerEvent_TimerId(const QTimerEvent* self) {
@@ -194,12 +179,7 @@ QChildEvent* QChildEvent_new(int typeVal, QObject* child) {
 }
 
 QChildEvent* QChildEvent_Clone(const QChildEvent* self) {
-    auto* vqchildevent = dynamic_cast<const VirtualQChildEvent*>(self);
-    if (vqchildevent && vqchildevent->isVirtualQChildEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQChildEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QObject* QChildEvent_Child(const QChildEvent* self) {
@@ -276,12 +256,7 @@ QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_new(const libqt_string 
 }
 
 QDynamicPropertyChangeEvent* QDynamicPropertyChangeEvent_Clone(const QDynamicPropertyChangeEvent* self) {
-    auto* vqdynamicpropertychangeevent = dynamic_cast<const VirtualQDynamicPropertyChangeEvent*>(self);
-    if (vqdynamicpropertychangeevent && vqdynamicpropertychangeevent->isVirtualQDynamicPropertyChangeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQDynamicPropertyChangeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 libqt_string QDynamicPropertyChangeEvent_PropertyName(const QDynamicPropertyChangeEvent* self) {

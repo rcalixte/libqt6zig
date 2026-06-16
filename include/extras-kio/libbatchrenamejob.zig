@@ -1927,26 +1927,26 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` param2: []const u8 `
+    /// ` newName: []const u8 `
     ///
-    /// ` param3: i32 `
+    /// ` index: i32 `
     ///
-    /// ` param4: QChar `
+    /// ` placeHolder: QChar `
     ///
-    /// ` param5: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn BatchRename(param1: []QUrl, param2: []const u8, param3: i32, param4: anytype, param5: i32) KIO__BatchRenameJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn BatchRename(src: []QUrl, newName: []const u8, index: i32, placeHolder: anytype, flags: i32) KIO__BatchRenameJob {
+        const src_list = qtc.libqt_list{
+            .len = src.len,
+            .data = @ptrCast(src.ptr),
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const newName_str = qtc.libqt_string{
+            .len = newName.len,
+            .data = newName.ptr,
         };
-        comptime _ = @TypeOf(param4)._is_QChar;
-        return .{ .ptr = qtc.KIO_BatchRename(param1_list, param2_str, @bitCast(param3), @ptrCast(param4.ptr), @bitCast(param5)) };
+        comptime _ = @TypeOf(placeHolder)._is_QChar;
+        return .{ .ptr = qtc.KIO_BatchRename(src_list, newName_str, @bitCast(index), @ptrCast(placeHolder.ptr), @bitCast(flags)) };
     }
 };

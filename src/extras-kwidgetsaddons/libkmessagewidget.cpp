@@ -60,30 +60,15 @@ KMessageWidget* KMessageWidget_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* KMessageWidget_MetaObject(const KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKMessageWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KMessageWidget_Metacast(KMessageWidget* self, const char* param1) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKMessageWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KMessageWidget_Metacall(KMessageWidget* self, int param1, int param2, void** param3) {
-    auto* vkmessagewidget = dynamic_cast<VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKMessageWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KMessageWidget_Position(const KMessageWidget* self) {
@@ -135,30 +120,15 @@ void KMessageWidget_ClearActions(KMessageWidget* self) {
 }
 
 QSize* KMessageWidget_SizeHint(const KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKMessageWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* KMessageWidget_MinimumSizeHint(const KMessageWidget* self) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKMessageWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int KMessageWidget_HeightForWidth(const KMessageWidget* self, int width) {
-    auto* vkmessagewidget = dynamic_cast<const VirtualKMessageWidget*>(self);
-    if (vkmessagewidget && vkmessagewidget->isVirtualKMessageWidget) {
-        return self->heightForWidth(static_cast<int>(width));
-    } else {
-        return ((VirtualKMessageWidget*)self)->heightForWidth(static_cast<int>(width));
-    }
+    return self->heightForWidth(static_cast<int>(width));
 }
 
 QIcon* KMessageWidget_Icon(const KMessageWidget* self) {

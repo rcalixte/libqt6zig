@@ -60,30 +60,15 @@ QWebEnginePage* QWebEnginePage_new4(QWebEngineProfile* profile, QObject* parent)
 }
 
 QMetaObject* QWebEnginePage_MetaObject(const QWebEnginePage* self) {
-    auto* vqwebenginepage = dynamic_cast<const VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebEnginePage*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebEnginePage_Metacast(QWebEnginePage* self, const char* param1) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebEnginePage_Metacall(QWebEnginePage* self, int param1, int param2, void** param3) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWebEngineHistory* QWebEnginePage_History(const QWebEnginePage* self) {
@@ -115,12 +100,7 @@ QAction* QWebEnginePage_Action(const QWebEnginePage* self, int action) {
 }
 
 void QWebEnginePage_TriggerAction(QWebEnginePage* self, int action, bool checked) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        self->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
-    } else {
-        ((VirtualQWebEnginePage*)self)->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
-    }
+    self->triggerAction(static_cast<QWebEnginePage::WebAction>(action), checked);
 }
 
 void QWebEnginePage_ReplaceMisspelledWord(QWebEnginePage* self, const libqt_string replacement) {
@@ -129,12 +109,7 @@ void QWebEnginePage_ReplaceMisspelledWord(QWebEnginePage* self, const libqt_stri
 }
 
 bool QWebEnginePage_Event(QWebEnginePage* self, QEvent* param1) {
-    auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        return self->event(param1);
-    } else {
-        return ((VirtualQWebEnginePage*)self)->event(param1);
-    }
+    return self->event(param1);
 }
 
 void QWebEnginePage_FindText(QWebEnginePage* self, const libqt_string subString) {

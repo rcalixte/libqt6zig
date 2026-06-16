@@ -23,30 +23,15 @@ KProcess* KProcess_new2(QObject* parent) {
 }
 
 QMetaObject* KProcess_MetaObject(const KProcess* self) {
-    auto* vkprocess = dynamic_cast<const VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKProcess*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KProcess_Metacast(KProcess* self, const char* param1) {
-    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKProcess*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KProcess_Metacall(KProcess* self, int param1, int param2, void** param3) {
-    auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
-    if (vkprocess && vkprocess->isVirtualKProcess) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKProcess*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KProcess_SetOutputChannelMode(KProcess* self, int mode) {

@@ -44,7 +44,7 @@ const char* KStandardActions__KStandardActionsInfo_PsToolTip(const KStandardActi
 void KStandardActions__KStandardActionsInfo_SetPsToolTip(KStandardActions__KStandardActionsInfo* self, const char* psToolTip);
 void KStandardActions__KStandardActionsInfo_Delete(KStandardActions__KStandardActionsInfo* self);
 
-KStandardActions__KStandardActionsInfo* KStandardActions_InfoPtr(int param1);
+KStandardActions__KStandardActionsInfo* KStandardActions_InfoPtr(int id);
 libqt_list /* of libqt_string */ KStandardActions_InternalStdNames();
 
 #ifdef __cplusplus

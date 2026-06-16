@@ -21,30 +21,15 @@ TextGrammarCheck__GrammalecteGenerateConfigOptionJob* TextGrammarCheck__Grammale
 }
 
 QMetaObject* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_MetaObject(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {
-    auto* vtextgrammarcheck__grammalectegenerateconfigoptionjob = dynamic_cast<const VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheck__grammalectegenerateconfigoptionjob && vtextgrammarcheck__grammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacast(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, const char* param1) {
-    auto* vtextgrammarcheck__grammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheck__grammalectegenerateconfigoptionjob && vtextgrammarcheck__grammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Metacall(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__grammalectegenerateconfigoptionjob = dynamic_cast<VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*>(self);
-    if (vtextgrammarcheck__grammalectegenerateconfigoptionjob && vtextgrammarcheck__grammalectegenerateconfigoptionjob->isVirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteGenerateConfigOptionJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Start(TextGrammarCheck__GrammalecteGenerateConfigOptionJob* self) {

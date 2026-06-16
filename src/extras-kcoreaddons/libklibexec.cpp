@@ -5,9 +5,9 @@
 #include "libklibexec.h"
 #include "libklibexec.hxx"
 
-libqt_string KLibexec_PathFromAddress(const libqt_string param1, void* param2) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KLibexec::pathFromAddress(param1_QString, param2);
+libqt_string KLibexec_PathFromAddress(const libqt_string relativePath, void* address) {
+    QString relativePath_QString = QString::fromUtf8(relativePath.data, relativePath.len);
+    auto _ret = KLibexec::pathFromAddress(relativePath_QString, address);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -18,9 +18,9 @@ libqt_string KLibexec_PathFromAddress(const libqt_string param1, void* param2) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ KLibexec_PathCandidates(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> _ret = KLibexec::pathCandidates(param1_QString);
+libqt_list /* of libqt_string */ KLibexec_PathCandidates(const libqt_string relativePath) {
+    QString relativePath_QString = QString::fromUtf8(relativePath.data, relativePath.len);
+    QList<QString> _ret = KLibexec::pathCandidates(relativePath_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -40,9 +40,9 @@ libqt_list /* of libqt_string */ KLibexec_PathCandidates(const libqt_string para
     return _out;
 }
 
-libqt_string KLibexec_Path(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto _ret = KLibexec::path(param1_QString);
+libqt_string KLibexec_Path(const libqt_string relativePath) {
+    QString relativePath_QString = QString::fromUtf8(relativePath.data, relativePath.len);
+    auto _ret = KLibexec::path(relativePath_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -53,9 +53,9 @@ libqt_string KLibexec_Path(const libqt_string param1) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ KLibexec_KdeFrameworksPaths(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QList<QString> _ret = KLibexec::kdeFrameworksPaths(param1_QString);
+libqt_list /* of libqt_string */ KLibexec_KdeFrameworksPaths(const libqt_string relativePath) {
+    QString relativePath_QString = QString::fromUtf8(relativePath.data, relativePath.len);
+    QList<QString> _ret = KLibexec::kdeFrameworksPaths(relativePath_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {

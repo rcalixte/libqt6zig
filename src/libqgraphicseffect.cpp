@@ -30,39 +30,19 @@ QGraphicsEffect* QGraphicsEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsEffect_MetaObject(const QGraphicsEffect* self) {
-    auto* vqgraphicseffect = dynamic_cast<const VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsEffect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsEffect_Metacast(QGraphicsEffect* self, const char* param1) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsEffect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsEffect_Metacall(QGraphicsEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicseffect = dynamic_cast<VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRectF* QGraphicsEffect_BoundingRectFor(const QGraphicsEffect* self, const QRectF* sourceRect) {
-    auto* vqgraphicseffect = dynamic_cast<const VirtualQGraphicsEffect*>(self);
-    if (vqgraphicseffect && vqgraphicseffect->isVirtualQGraphicsEffect) {
-        return new QRectF(self->boundingRectFor(*sourceRect));
-    } else {
-        return new QRectF(((VirtualQGraphicsEffect*)self)->boundingRectFor(*sourceRect));
-    }
+    return new QRectF(self->boundingRectFor(*sourceRect));
 }
 
 QRectF* QGraphicsEffect_BoundingRect(const QGraphicsEffect* self) {
@@ -802,30 +782,15 @@ QGraphicsColorizeEffect* QGraphicsColorizeEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsColorizeEffect_MetaObject(const QGraphicsColorizeEffect* self) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<const VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsColorizeEffect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsColorizeEffect_Metacast(QGraphicsColorizeEffect* self, const char* param1) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsColorizeEffect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsColorizeEffect_Metacall(QGraphicsColorizeEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicscolorizeeffect = dynamic_cast<VirtualQGraphicsColorizeEffect*>(self);
-    if (vqgraphicscolorizeeffect && vqgraphicscolorizeeffect->isVirtualQGraphicsColorizeEffect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsColorizeEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* QGraphicsColorizeEffect_Color(const QGraphicsColorizeEffect* self) {
@@ -1484,39 +1449,19 @@ QGraphicsBlurEffect* QGraphicsBlurEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsBlurEffect_MetaObject(const QGraphicsBlurEffect* self) {
-    auto* vqgraphicsblureffect = dynamic_cast<const VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsBlurEffect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsBlurEffect_Metacast(QGraphicsBlurEffect* self, const char* param1) {
-    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsBlurEffect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsBlurEffect_Metacall(QGraphicsBlurEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsblureffect = dynamic_cast<VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsBlurEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRectF* QGraphicsBlurEffect_BoundingRectFor(const QGraphicsBlurEffect* self, const QRectF* rect) {
-    auto* vqgraphicsblureffect = dynamic_cast<const VirtualQGraphicsBlurEffect*>(self);
-    if (vqgraphicsblureffect && vqgraphicsblureffect->isVirtualQGraphicsBlurEffect) {
-        return new QRectF(self->boundingRectFor(*rect));
-    } else {
-        return new QRectF(((VirtualQGraphicsBlurEffect*)self)->boundingRectFor(*rect));
-    }
+    return new QRectF(self->boundingRectFor(*rect));
 }
 
 double QGraphicsBlurEffect_BlurRadius(const QGraphicsBlurEffect* self) {
@@ -2163,39 +2108,19 @@ QGraphicsDropShadowEffect* QGraphicsDropShadowEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsDropShadowEffect_MetaObject(const QGraphicsDropShadowEffect* self) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsDropShadowEffect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsDropShadowEffect_Metacast(QGraphicsDropShadowEffect* self, const char* param1) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsDropShadowEffect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsDropShadowEffect_Metacall(QGraphicsDropShadowEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsDropShadowEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRectF* QGraphicsDropShadowEffect_BoundingRectFor(const QGraphicsDropShadowEffect* self, const QRectF* rect) {
-    auto* vqgraphicsdropshadoweffect = dynamic_cast<const VirtualQGraphicsDropShadowEffect*>(self);
-    if (vqgraphicsdropshadoweffect && vqgraphicsdropshadoweffect->isVirtualQGraphicsDropShadowEffect) {
-        return new QRectF(self->boundingRectFor(*rect));
-    } else {
-        return new QRectF(((VirtualQGraphicsDropShadowEffect*)self)->boundingRectFor(*rect));
-    }
+    return new QRectF(self->boundingRectFor(*rect));
 }
 
 QPointF* QGraphicsDropShadowEffect_Offset(const QGraphicsDropShadowEffect* self) {
@@ -2890,30 +2815,15 @@ QGraphicsOpacityEffect* QGraphicsOpacityEffect_new2(QObject* parent) {
 }
 
 QMetaObject* QGraphicsOpacityEffect_MetaObject(const QGraphicsOpacityEffect* self) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<const VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsOpacityEffect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsOpacityEffect_Metacast(QGraphicsOpacityEffect* self, const char* param1) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsOpacityEffect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsOpacityEffect_Metacall(QGraphicsOpacityEffect* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsopacityeffect = dynamic_cast<VirtualQGraphicsOpacityEffect*>(self);
-    if (vqgraphicsopacityeffect && vqgraphicsopacityeffect->isVirtualQGraphicsOpacityEffect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsOpacityEffect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 double QGraphicsOpacityEffect_Opacity(const QGraphicsOpacityEffect* self) {

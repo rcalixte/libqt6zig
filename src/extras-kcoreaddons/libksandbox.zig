@@ -35,24 +35,24 @@ pub const KSandbox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QProcess `
+    /// ` process: QProcess `
     ///
-    pub fn MakeHostContext(param1: anytype) KSandbox__ProcessContext {
-        comptime _ = @TypeOf(param1)._is_QProcess;
-        return .{ .ptr = qtc.KSandbox_MakeHostContext(@ptrCast(param1.ptr)) };
+    pub fn MakeHostContext(process: anytype) KSandbox__ProcessContext {
+        comptime _ = @TypeOf(process)._is_QProcess;
+        return .{ .ptr = qtc.KSandbox_MakeHostContext(@ptrCast(process.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/ksandbox.html#startHostProcess)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QProcess `
+    /// ` process: QProcess `
     ///
-    /// ` param2: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn StartHostProcess(param1: anytype, param2: i32) void {
-        comptime _ = @TypeOf(param1)._is_QProcess;
-        qtc.KSandbox_StartHostProcess(@ptrCast(param1.ptr), @bitCast(param2));
+    pub fn StartHostProcess(process: anytype, mode: i32) void {
+        comptime _ = @TypeOf(process)._is_QProcess;
+        qtc.KSandbox_StartHostProcess(@ptrCast(process.ptr), @bitCast(mode));
     }
 };
 

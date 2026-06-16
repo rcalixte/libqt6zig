@@ -34,93 +34,43 @@ KFileItemDelegate* KFileItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* KFileItemDelegate_MetaObject(const KFileItemDelegate* self) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileItemDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileItemDelegate_Metacast(KFileItemDelegate* self, const char* param1) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileItemDelegate_Metacall(KFileItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KFileItemDelegate_SizeHint(const KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return new QSize(self->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualKFileItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->sizeHint(*option, *index));
 }
 
 void KFileItemDelegate_Paint(const KFileItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        self->paint(painter, *option, *index);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->paint(painter, *option, *index);
-    }
+    self->paint(painter, *option, *index);
 }
 
 QWidget* KFileItemDelegate_CreateEditor(const KFileItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return self->createEditor(parent, *option, *index);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->createEditor(parent, *option, *index);
-    }
+    return self->createEditor(parent, *option, *index);
 }
 
 bool KFileItemDelegate_EditorEvent(KFileItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return self->editorEvent(event, model, *option, *index);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->editorEvent(event, model, *option, *index);
-    }
+    return self->editorEvent(event, model, *option, *index);
 }
 
 void KFileItemDelegate_SetEditorData(const KFileItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        self->setEditorData(editor, *index);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->setEditorData(editor, *index);
-    }
+    self->setEditorData(editor, *index);
 }
 
 void KFileItemDelegate_SetModelData(const KFileItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        self->setModelData(editor, model, *index);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->setModelData(editor, model, *index);
-    }
+    self->setModelData(editor, model, *index);
 }
 
 void KFileItemDelegate_UpdateEditorGeometry(const KFileItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<const VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        self->updateEditorGeometry(editor, *option, *index);
-    } else {
-        ((VirtualKFileItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
-    }
+    self->updateEditorGeometry(editor, *option, *index);
 }
 
 void KFileItemDelegate_SetShowInformation(KFileItemDelegate* self, const libqt_list /* of int */ list) {
@@ -211,12 +161,7 @@ bool KFileItemDelegate_JobTransfersVisible(const KFileItemDelegate* self) {
 }
 
 bool KFileItemDelegate_EventFilter(KFileItemDelegate* self, QObject* object, QEvent* event) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return self->eventFilter(object, event);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->eventFilter(object, event);
-    }
+    return self->eventFilter(object, event);
 }
 
 QRect* KFileItemDelegate_SelectionEmblemRect(const KFileItemDelegate* self) {
@@ -232,12 +177,7 @@ KFileItem* KFileItemDelegate_FileItem(const KFileItemDelegate* self, const QMode
 }
 
 bool KFileItemDelegate_HelpEvent(KFileItemDelegate* self, QHelpEvent* event, QAbstractItemView* view, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vkfileitemdelegate = dynamic_cast<VirtualKFileItemDelegate*>(self);
-    if (vkfileitemdelegate && vkfileitemdelegate->isVirtualKFileItemDelegate) {
-        return self->helpEvent(event, view, *option, *index);
-    } else {
-        return ((VirtualKFileItemDelegate*)self)->helpEvent(event, view, *option, *index);
-    }
+    return self->helpEvent(event, view, *option, *index);
 }
 
 QRegion* KFileItemDelegate_Shape(KFileItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {

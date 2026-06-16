@@ -18,11 +18,11 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` data: QMimeData `
     ///
-    pub fn CanPasteMimeData(param1: anytype) bool {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        return qtc.KIO_CanPasteMimeData(@ptrCast(param1.ptr));
+    pub fn CanPasteMimeData(data: anytype) bool {
+        comptime _ = @TypeOf(data)._is_QMimeData;
+        return qtc.KIO_CanPasteMimeData(@ptrCast(data.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#pasteActionText)
@@ -31,16 +31,16 @@ pub const KIO = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    /// ` param2: *bool `
+    /// ` enable: *bool `
     ///
-    /// ` param3: KFileItem `
+    /// ` destItem: KFileItem `
     ///
-    pub fn PasteActionText(allocator: std.mem.Allocator, param1: anytype, param2: *bool, param3: anytype) []const u8 {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        comptime _ = @TypeOf(param3)._is_KFileItem;
-        var _str = qtc.KIO_PasteActionText(@ptrCast(param1.ptr), @ptrCast(param2), @ptrCast(param3.ptr));
+    pub fn PasteActionText(allocator: std.mem.Allocator, mimeData: anytype, enable: *bool, destItem: anytype) []const u8 {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        comptime _ = @TypeOf(destItem)._is_KFileItem;
+        var _str = qtc.KIO_PasteActionText(@ptrCast(mimeData.ptr), @ptrCast(enable), @ptrCast(destItem.ptr));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.PasteActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -51,23 +51,23 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    /// ` param2: bool `
+    /// ` cut: bool `
     ///
-    pub fn SetClipboardDataCut(param1: anytype, param2: bool) void {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        qtc.KIO_SetClipboardDataCut(@ptrCast(param1.ptr), param2);
+    pub fn SetClipboardDataCut(mimeData: anytype, cut: bool) void {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        qtc.KIO_SetClipboardDataCut(@ptrCast(mimeData.ptr), cut);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#isClipboardDataCut)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    pub fn IsClipboardDataCut(param1: anytype) bool {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        return qtc.KIO_IsClipboardDataCut(@ptrCast(param1.ptr));
+    pub fn IsClipboardDataCut(mimeData: anytype) bool {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        return qtc.KIO_IsClipboardDataCut(@ptrCast(mimeData.ptr));
     }
 };

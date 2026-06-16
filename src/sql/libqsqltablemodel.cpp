@@ -40,40 +40,20 @@ QSqlTableModel* QSqlTableModel_new3(QObject* parent, const QSqlDatabase* db) {
 }
 
 QMetaObject* QSqlTableModel_MetaObject(const QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSqlTableModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSqlTableModel_Metacast(QSqlTableModel* self, const char* param1) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSqlTableModel_Metacall(QSqlTableModel* self, int param1, int param2, void** param3) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSqlTableModel_SetTable(QSqlTableModel* self, const libqt_string tableName) {
     QString tableName_QString = QString::fromUtf8(tableName.data, tableName.len);
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->setTable(tableName_QString);
-    } else {
-        ((VirtualQSqlTableModel*)self)->setTable(tableName_QString);
-    }
+    self->setTable(tableName_QString);
 }
 
 libqt_string QSqlTableModel_TableName(const QSqlTableModel* self) {
@@ -89,12 +69,7 @@ libqt_string QSqlTableModel_TableName(const QSqlTableModel* self) {
 }
 
 int QSqlTableModel_Flags(const QSqlTableModel* self, const QModelIndex* index) {
-    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualQSqlTableModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 QSqlRecord* QSqlTableModel_Record(const QSqlTableModel* self) {
@@ -106,39 +81,19 @@ QSqlRecord* QSqlTableModel_Record2(const QSqlTableModel* self, int row) {
 }
 
 QVariant* QSqlTableModel_Data(const QSqlTableModel* self, const QModelIndex* idx, int role) {
-    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return new QVariant(self->data(*idx, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlTableModel*)self)->data(*idx, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*idx, static_cast<int>(role)));
 }
 
 bool QSqlTableModel_SetData(QSqlTableModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualQSqlTableModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 bool QSqlTableModel_ClearItemData(QSqlTableModel* self, const QModelIndex* index) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->clearItemData(*index);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->clearItemData(*index);
-    }
+    return self->clearItemData(*index);
 }
 
 QVariant* QSqlTableModel_HeaderData(const QSqlTableModel* self, int section, int orientation, int role) {
-    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQSqlTableModel*)self)->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
-    }
+    return new QVariant(self->headerData(static_cast<int>(section), static_cast<Qt::Orientation>(orientation), static_cast<int>(role)));
 }
 
 bool QSqlTableModel_IsDirty(const QSqlTableModel* self) {
@@ -150,21 +105,11 @@ bool QSqlTableModel_IsDirty2(const QSqlTableModel* self, const QModelIndex* inde
 }
 
 void QSqlTableModel_Clear(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->clear();
-    } else {
-        ((VirtualQSqlTableModel*)self)->clear();
-    }
+    self->clear();
 }
 
 void QSqlTableModel_SetEditStrategy(QSqlTableModel* self, int strategy) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
-    } else {
-        ((VirtualQSqlTableModel*)self)->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
-    }
+    self->setEditStrategy(static_cast<QSqlTableModel::EditStrategy>(strategy));
 }
 
 int QSqlTableModel_EditStrategy(const QSqlTableModel* self) {
@@ -185,21 +130,11 @@ int QSqlTableModel_FieldIndex(const QSqlTableModel* self, const libqt_string fie
 }
 
 void QSqlTableModel_Sort(QSqlTableModel* self, int column, int order) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQSqlTableModel*)self)->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->sort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 void QSqlTableModel_SetSort(QSqlTableModel* self, int column, int order) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    } else {
-        ((VirtualQSqlTableModel*)self)->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
-    }
+    self->setSort(static_cast<int>(column), static_cast<Qt::SortOrder>(order));
 }
 
 libqt_string QSqlTableModel_Filter(const QSqlTableModel* self) {
@@ -216,48 +151,23 @@ libqt_string QSqlTableModel_Filter(const QSqlTableModel* self) {
 
 void QSqlTableModel_SetFilter(QSqlTableModel* self, const libqt_string filter) {
     QString filter_QString = QString::fromUtf8(filter.data, filter.len);
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->setFilter(filter_QString);
-    } else {
-        ((VirtualQSqlTableModel*)self)->setFilter(filter_QString);
-    }
+    self->setFilter(filter_QString);
 }
 
 int QSqlTableModel_RowCount(const QSqlTableModel* self, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<const VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 bool QSqlTableModel_RemoveColumns(QSqlTableModel* self, int column, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
-    }
+    return self->removeColumns(static_cast<int>(column), static_cast<int>(count), *parent);
 }
 
 bool QSqlTableModel_RemoveRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->removeRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 bool QSqlTableModel_InsertRows(QSqlTableModel* self, int row, int count, const QModelIndex* parent) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    } else {
-        return ((VirtualQSqlTableModel*)self)->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
-    }
+    return self->insertRows(static_cast<int>(row), static_cast<int>(count), *parent);
 }
 
 bool QSqlTableModel_InsertRecord(QSqlTableModel* self, int row, const QSqlRecord* record) {
@@ -269,48 +179,23 @@ bool QSqlTableModel_SetRecord(QSqlTableModel* self, int row, const QSqlRecord* r
 }
 
 void QSqlTableModel_RevertRow(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->revertRow(static_cast<int>(row));
-    } else {
-        ((VirtualQSqlTableModel*)self)->revertRow(static_cast<int>(row));
-    }
+    self->revertRow(static_cast<int>(row));
 }
 
 bool QSqlTableModel_Select(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->select();
-    } else {
-        return ((VirtualQSqlTableModel*)self)->select();
-    }
+    return self->select();
 }
 
 bool QSqlTableModel_SelectRow(QSqlTableModel* self, int row) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->selectRow(static_cast<int>(row));
-    } else {
-        return ((VirtualQSqlTableModel*)self)->selectRow(static_cast<int>(row));
-    }
+    return self->selectRow(static_cast<int>(row));
 }
 
 bool QSqlTableModel_Submit(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        return self->submit();
-    } else {
-        return ((VirtualQSqlTableModel*)self)->submit();
-    }
+    return self->submit();
 }
 
 void QSqlTableModel_Revert(QSqlTableModel* self) {
-    auto* vqsqltablemodel = dynamic_cast<VirtualQSqlTableModel*>(self);
-    if (vqsqltablemodel && vqsqltablemodel->isVirtualQSqlTableModel) {
-        self->revert();
-    } else {
-        ((VirtualQSqlTableModel*)self)->revert();
-    }
+    self->revert();
 }
 
 bool QSqlTableModel_SubmitAll(QSqlTableModel* self) {

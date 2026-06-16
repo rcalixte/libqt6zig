@@ -24,30 +24,15 @@ QValidator* QValidator_new2(QObject* parent) {
 }
 
 QMetaObject* QValidator_MetaObject(const QValidator* self) {
-    auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQValidator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QValidator_Metacast(QValidator* self, const char* param1) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQValidator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QValidator_Metacall(QValidator* self, int param1, int param2, void** param3) {
-    auto* vqvalidator = dynamic_cast<VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QValidator_SetLocale(QValidator* self, const QLocale* locale) {
@@ -60,22 +45,12 @@ QLocale* QValidator_Locale(const QValidator* self) {
 
 int QValidator_Validate(const QValidator* self, libqt_string param1, int* param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        return static_cast<int>(vqvalidator->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
+    return static_cast<int>(self->validate(param1_QString, static_cast<int&>(*param2)));
 }
 
 void QValidator_Fixup(const QValidator* self, libqt_string param1) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqvalidator = dynamic_cast<const VirtualQValidator*>(self);
-    if (vqvalidator && vqvalidator->isVirtualQValidator) {
-        self->fixup(param1_QString);
-    } else {
-        ((VirtualQValidator*)self)->fixup(param1_QString);
-    }
+    self->fixup(param1_QString);
 }
 
 void QValidator_Changed(QValidator* self) {
@@ -526,50 +501,25 @@ QIntValidator* QIntValidator_new4(int bottom, int top, QObject* parent) {
 }
 
 QMetaObject* QIntValidator_MetaObject(const QIntValidator* self) {
-    auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQIntValidator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QIntValidator_Metacast(QIntValidator* self, const char* param1) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQIntValidator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QIntValidator_Metacall(QIntValidator* self, int param1, int param2, void** param3) {
-    auto* vqintvalidator = dynamic_cast<VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQIntValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QIntValidator_Validate(const QIntValidator* self, libqt_string param1, int* param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        return static_cast<int>(self->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQIntValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
+    return static_cast<int>(self->validate(param1_QString, static_cast<int&>(*param2)));
 }
 
 void QIntValidator_Fixup(const QIntValidator* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqintvalidator = dynamic_cast<const VirtualQIntValidator*>(self);
-    if (vqintvalidator && vqintvalidator->isVirtualQIntValidator) {
-        self->fixup(input_QString);
-    } else {
-        ((VirtualQIntValidator*)self)->fixup(input_QString);
-    }
+    self->fixup(input_QString);
 }
 
 void QIntValidator_SetBottom(QIntValidator* self, int bottom) {
@@ -1053,50 +1003,25 @@ QDoubleValidator* QDoubleValidator_new4(double bottom, double top, int decimals,
 }
 
 QMetaObject* QDoubleValidator_MetaObject(const QDoubleValidator* self) {
-    auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDoubleValidator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDoubleValidator_Metacast(QDoubleValidator* self, const char* param1) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDoubleValidator_Metacall(QDoubleValidator* self, int param1, int param2, void** param3) {
-    auto* vqdoublevalidator = dynamic_cast<VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDoubleValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QDoubleValidator_Validate(const QDoubleValidator* self, libqt_string param1, int* param2) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        return static_cast<int>(self->validate(param1_QString, static_cast<int&>(*param2)));
-    } else {
-        return static_cast<int>(((VirtualQDoubleValidator*)self)->validate(param1_QString, static_cast<int&>(*param2)));
-    }
+    return static_cast<int>(self->validate(param1_QString, static_cast<int&>(*param2)));
 }
 
 void QDoubleValidator_Fixup(const QDoubleValidator* self, libqt_string input) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqdoublevalidator = dynamic_cast<const VirtualQDoubleValidator*>(self);
-    if (vqdoublevalidator && vqdoublevalidator->isVirtualQDoubleValidator) {
-        self->fixup(input_QString);
-    } else {
-        ((VirtualQDoubleValidator*)self)->fixup(input_QString);
-    }
+    self->fixup(input_QString);
 }
 
 void QDoubleValidator_SetRange(QDoubleValidator* self, double bottom, double top, int decimals) {
@@ -1624,40 +1549,20 @@ QRegularExpressionValidator* QRegularExpressionValidator_new4(const QRegularExpr
 }
 
 QMetaObject* QRegularExpressionValidator_MetaObject(const QRegularExpressionValidator* self) {
-    auto* vqregularexpressionvalidator = dynamic_cast<const VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQRegularExpressionValidator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QRegularExpressionValidator_Metacast(QRegularExpressionValidator* self, const char* param1) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QRegularExpressionValidator_Metacall(QRegularExpressionValidator* self, int param1, int param2, void** param3) {
-    auto* vqregularexpressionvalidator = dynamic_cast<VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQRegularExpressionValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QRegularExpressionValidator_Validate(const QRegularExpressionValidator* self, libqt_string input, int* pos) {
     QString input_QString = QString::fromUtf8(input.data, input.len);
-    auto* vqregularexpressionvalidator = dynamic_cast<const VirtualQRegularExpressionValidator*>(self);
-    if (vqregularexpressionvalidator && vqregularexpressionvalidator->isVirtualQRegularExpressionValidator) {
-        return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualQRegularExpressionValidator*)self)->validate(input_QString, static_cast<int&>(*pos)));
-    }
+    return static_cast<int>(self->validate(input_QString, static_cast<int&>(*pos)));
 }
 
 QRegularExpression* QRegularExpressionValidator_RegularExpression(const QRegularExpressionValidator* self) {

@@ -63,30 +63,15 @@ QTextDocument* QTextDocument_new4(const libqt_string text, QObject* parent) {
 }
 
 QMetaObject* QTextDocument_MetaObject(const QTextDocument* self) {
-    auto* vqtextdocument = dynamic_cast<const VirtualQTextDocument*>(self);
-    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextDocument*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextDocument_Metacast(QTextDocument* self, const char* param1) {
-    auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
-    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextDocument*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextDocument_Metacall(QTextDocument* self, int param1, int param2, void** param3) {
-    auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
-    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextDocument*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QTextDocument* QTextDocument_Clone(const QTextDocument* self) {
@@ -98,12 +83,7 @@ bool QTextDocument_IsEmpty(const QTextDocument* self) {
 }
 
 void QTextDocument_Clear(QTextDocument* self) {
-    auto* vqtextdocument = dynamic_cast<VirtualQTextDocument*>(self);
-    if (vqtextdocument && vqtextdocument->isVirtualQTextDocument) {
-        self->clear();
-    } else {
-        ((VirtualQTextDocument*)self)->clear();
-    }
+    self->clear();
 }
 
 void QTextDocument_SetUndoRedoEnabled(QTextDocument* self, bool enable) {

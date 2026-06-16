@@ -107,7 +107,7 @@ typedef struct QSizeF QSizeF;
 typedef struct QVariant QVariant;
 #endif
 
-QDateTime* Poppler_ConvertDate(const char* param1);
+QDateTime* Poppler_ConvertDate(const char* dateString);
 bool Poppler_IsCmsAvailable();
 bool Poppler_IsOverprintPreviewAvailable();
 

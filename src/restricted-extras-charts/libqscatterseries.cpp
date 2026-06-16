@@ -24,57 +24,27 @@ QScatterSeries* QScatterSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QScatterSeries_MetaObject(const QScatterSeries* self) {
-    auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQScatterSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QScatterSeries_Metacast(QScatterSeries* self, const char* param1) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQScatterSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QScatterSeries_Metacall(QScatterSeries* self, int param1, int param2, void** param3) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQScatterSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QScatterSeries_Type(const QScatterSeries* self) {
-    auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQScatterSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QScatterSeries_SetPen(QScatterSeries* self, const QPen* pen) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        self->setPen(*pen);
-    } else {
-        ((VirtualQScatterSeries*)self)->setPen(*pen);
-    }
+    self->setPen(*pen);
 }
 
 void QScatterSeries_SetBrush(QScatterSeries* self, const QBrush* brush) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        self->setBrush(*brush);
-    } else {
-        ((VirtualQScatterSeries*)self)->setBrush(*brush);
-    }
+    self->setBrush(*brush);
 }
 
 QBrush* QScatterSeries_Brush(const QScatterSeries* self) {
@@ -82,21 +52,11 @@ QBrush* QScatterSeries_Brush(const QScatterSeries* self) {
 }
 
 void QScatterSeries_SetColor(QScatterSeries* self, const QColor* color) {
-    auto* vqscatterseries = dynamic_cast<VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        self->setColor(*color);
-    } else {
-        ((VirtualQScatterSeries*)self)->setColor(*color);
-    }
+    self->setColor(*color);
 }
 
 QColor* QScatterSeries_Color(const QScatterSeries* self) {
-    auto* vqscatterseries = dynamic_cast<const VirtualQScatterSeries*>(self);
-    if (vqscatterseries && vqscatterseries->isVirtualQScatterSeries) {
-        return new QColor(self->color());
-    } else {
-        return new QColor(((VirtualQScatterSeries*)self)->color());
-    }
+    return new QColor(self->color());
 }
 
 void QScatterSeries_SetBorderColor(QScatterSeries* self, const QColor* color) {

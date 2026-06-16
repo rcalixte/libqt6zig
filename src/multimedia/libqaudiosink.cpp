@@ -38,30 +38,15 @@ QAudioSink* QAudioSink_new6(const QAudioDevice* audioDeviceInfo, const QAudioFor
 }
 
 QMetaObject* QAudioSink_MetaObject(const QAudioSink* self) {
-    auto* vqaudiosink = dynamic_cast<const VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioSink*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioSink_Metacast(QAudioSink* self, const char* param1) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioSink*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioSink_Metacall(QAudioSink* self, int param1, int param2, void** param3) {
-    auto* vqaudiosink = dynamic_cast<VirtualQAudioSink*>(self);
-    if (vqaudiosink && vqaudiosink->isVirtualQAudioSink) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioSink*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QAudioSink_IsNull(const QAudioSink* self) {

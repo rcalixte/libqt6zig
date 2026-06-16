@@ -48,30 +48,15 @@ TextAddonsWidgets__SlideContainer* TextAddonsWidgets__SlideContainer_new2() {
 }
 
 QMetaObject* TextAddonsWidgets__SlideContainer_MetaObject(const TextAddonsWidgets__SlideContainer* self) {
-    auto* vtextaddonswidgets__slidecontainer = dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgets__slidecontainer && vtextaddonswidgets__slidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextAddonsWidgetsSlideContainer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextAddonsWidgets__SlideContainer_Metacast(TextAddonsWidgets__SlideContainer* self, const char* param1) {
-    auto* vtextaddonswidgets__slidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgets__slidecontainer && vtextaddonswidgets__slidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextAddonsWidgetsSlideContainer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextAddonsWidgets__SlideContainer_Metacall(TextAddonsWidgets__SlideContainer* self, int param1, int param2, void** param3) {
-    auto* vtextaddonswidgets__slidecontainer = dynamic_cast<VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgets__slidecontainer && vtextaddonswidgets__slidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextAddonsWidgetsSlideContainer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* TextAddonsWidgets__SlideContainer_Content(const TextAddonsWidgets__SlideContainer* self) {
@@ -83,21 +68,11 @@ void TextAddonsWidgets__SlideContainer_SetContent(TextAddonsWidgets__SlideContai
 }
 
 QSize* TextAddonsWidgets__SlideContainer_SizeHint(const TextAddonsWidgets__SlideContainer* self) {
-    auto* vtextaddonswidgets__slidecontainer = dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgets__slidecontainer && vtextaddonswidgets__slidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualTextAddonsWidgetsSlideContainer*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* TextAddonsWidgets__SlideContainer_MinimumSizeHint(const TextAddonsWidgets__SlideContainer* self) {
-    auto* vtextaddonswidgets__slidecontainer = dynamic_cast<const VirtualTextAddonsWidgetsSlideContainer*>(self);
-    if (vtextaddonswidgets__slidecontainer && vtextaddonswidgets__slidecontainer->isVirtualTextAddonsWidgetsSlideContainer) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualTextAddonsWidgetsSlideContainer*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int TextAddonsWidgets__SlideContainer_SlideHeight(const TextAddonsWidgets__SlideContainer* self) {

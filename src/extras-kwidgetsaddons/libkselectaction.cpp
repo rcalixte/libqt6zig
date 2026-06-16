@@ -31,30 +31,15 @@ KSelectAction* KSelectAction_new3(const QIcon* icon, const libqt_string text, QO
 }
 
 QMetaObject* KSelectAction_MetaObject(const KSelectAction* self) {
-    auto* vkselectaction = dynamic_cast<const VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSelectAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSelectAction_Metacast(KSelectAction* self, const char* param1) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSelectAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSelectAction_Metacall(KSelectAction* self, int param1, int param2, void** param3) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSelectAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KSelectAction_ToolBarMode(const KSelectAction* self) {
@@ -147,21 +132,11 @@ QAction* KSelectAction_AddAction3(KSelectAction* self, const QIcon* icon, const 
 }
 
 QAction* KSelectAction_RemoveAction(KSelectAction* self, QAction* action) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        return self->removeAction(action);
-    } else {
-        return ((VirtualKSelectAction*)self)->removeAction(action);
-    }
+    return self->removeAction(action);
 }
 
 void KSelectAction_InsertAction(KSelectAction* self, QAction* before, QAction* action) {
-    auto* vkselectaction = dynamic_cast<VirtualKSelectAction*>(self);
-    if (vkselectaction && vkselectaction->isVirtualKSelectAction) {
-        self->insertAction(before, action);
-    } else {
-        ((VirtualKSelectAction*)self)->insertAction(before, action);
-    }
+    self->insertAction(before, action);
 }
 
 void KSelectAction_SetItems(KSelectAction* self, const libqt_list /* of libqt_string */ lst) {

@@ -22,30 +22,15 @@ KTwoFingerTap* KTwoFingerTap_new2(QObject* parent) {
 }
 
 QMetaObject* KTwoFingerTap_MetaObject(const KTwoFingerTap* self) {
-    auto* vktwofingertap = dynamic_cast<const VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTwoFingerTap*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTwoFingerTap_Metacast(KTwoFingerTap* self, const char* param1) {
-    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTwoFingerTap*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTwoFingerTap_Metacall(KTwoFingerTap* self, int param1, int param2, void** param3) {
-    auto* vktwofingertap = dynamic_cast<VirtualKTwoFingerTap*>(self);
-    if (vktwofingertap && vktwofingertap->isVirtualKTwoFingerTap) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTwoFingerTap*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPointF* KTwoFingerTap_Pos(const KTwoFingerTap* self) {
@@ -457,21 +442,11 @@ KTwoFingerTapRecognizer* KTwoFingerTapRecognizer_new() {
 }
 
 QGesture* KTwoFingerTapRecognizer_Create(KTwoFingerTapRecognizer* self, QObject* target) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        return self->create(target);
-    } else {
-        return ((VirtualKTwoFingerTapRecognizer*)self)->create(target);
-    }
+    return self->create(target);
 }
 
 int KTwoFingerTapRecognizer_Recognize(KTwoFingerTapRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
-    auto* vktwofingertaprecognizer = dynamic_cast<VirtualKTwoFingerTapRecognizer*>(self);
-    if (vktwofingertaprecognizer && vktwofingertaprecognizer->isVirtualKTwoFingerTapRecognizer) {
-        return static_cast<int>(self->recognize(gesture, watched, event));
-    } else {
-        return static_cast<int>(((VirtualKTwoFingerTapRecognizer*)self)->recognize(gesture, watched, event));
-    }
+    return static_cast<int>(self->recognize(gesture, watched, event));
 }
 
 int KTwoFingerTapRecognizer_TapRadius(const KTwoFingerTapRecognizer* self) {

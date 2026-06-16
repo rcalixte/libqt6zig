@@ -46,65 +46,32 @@ QDesignerResourceBrowserInterface* QDesignerResourceBrowserInterface_new2() {
 }
 
 QMetaObject* QDesignerResourceBrowserInterface_MetaObject(const QDesignerResourceBrowserInterface* self) {
-    auto* vqdesignerresourcebrowserinterface = dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerResourceBrowserInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerResourceBrowserInterface_Metacast(QDesignerResourceBrowserInterface* self, const char* param1) {
-    auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerResourceBrowserInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerResourceBrowserInterface_Metacall(QDesignerResourceBrowserInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerResourceBrowserInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QDesignerResourceBrowserInterface_SetCurrentPath(QDesignerResourceBrowserInterface* self, const libqt_string filePath) {
     QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
-    auto* vqdesignerresourcebrowserinterface = dynamic_cast<VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
-        vqdesignerresourcebrowserinterface->setCurrentPath(filePath_QString);
-    } else {
-        ((VirtualQDesignerResourceBrowserInterface*)self)->setCurrentPath(filePath_QString);
-    }
+    self->setCurrentPath(filePath_QString);
 }
 
 libqt_string QDesignerResourceBrowserInterface_CurrentPath(const QDesignerResourceBrowserInterface* self) {
-    auto* vqdesignerresourcebrowserinterface = dynamic_cast<const VirtualQDesignerResourceBrowserInterface*>(self);
-    if (vqdesignerresourcebrowserinterface && vqdesignerresourcebrowserinterface->isVirtualQDesignerResourceBrowserInterface) {
-        auto _ret = vqdesignerresourcebrowserinterface->currentPath();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQDesignerResourceBrowserInterface*)self)->currentPath();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->currentPath();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QDesignerResourceBrowserInterface_CurrentPathChanged(QDesignerResourceBrowserInterface* self, const libqt_string filePath) {

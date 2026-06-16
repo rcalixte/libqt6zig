@@ -23,30 +23,15 @@ KEMailClientLauncherJob* KEMailClientLauncherJob_new2(QObject* parent) {
 }
 
 QMetaObject* KEMailClientLauncherJob_MetaObject(const KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<const VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKEMailClientLauncherJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KEMailClientLauncherJob_Metacast(KEMailClientLauncherJob* self, const char* param1) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KEMailClientLauncherJob_Metacall(KEMailClientLauncherJob* self, int param1, int param2, void** param3) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKEMailClientLauncherJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KEMailClientLauncherJob_SetTo(KEMailClientLauncherJob* self, const libqt_list /* of libqt_string */ to) {
@@ -108,12 +93,7 @@ void KEMailClientLauncherJob_SetStartupId(KEMailClientLauncherJob* self, const l
 }
 
 void KEMailClientLauncherJob_Start(KEMailClientLauncherJob* self) {
-    auto* vkemailclientlauncherjob = dynamic_cast<VirtualKEMailClientLauncherJob*>(self);
-    if (vkemailclientlauncherjob && vkemailclientlauncherjob->isVirtualKEMailClientLauncherJob) {
-        self->start();
-    } else {
-        ((VirtualKEMailClientLauncherJob*)self)->start();
-    }
+    self->start();
 }
 
 // Base class handler implementation

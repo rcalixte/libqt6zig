@@ -21,30 +21,15 @@ KKeySequenceRecorder* KKeySequenceRecorder_new2(QWindow* window, QObject* parent
 }
 
 QMetaObject* KKeySequenceRecorder_MetaObject(const KKeySequenceRecorder* self) {
-    auto* vkkeysequencerecorder = dynamic_cast<const VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKKeySequenceRecorder*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KKeySequenceRecorder_Metacast(KKeySequenceRecorder* self, const char* param1) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KKeySequenceRecorder_Metacall(KKeySequenceRecorder* self, int param1, int param2, void** param3) {
-    auto* vkkeysequencerecorder = dynamic_cast<VirtualKKeySequenceRecorder*>(self);
-    if (vkkeysequencerecorder && vkkeysequencerecorder->isVirtualKKeySequenceRecorder) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKKeySequenceRecorder*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KKeySequenceRecorder_StartRecording(KKeySequenceRecorder* self) {

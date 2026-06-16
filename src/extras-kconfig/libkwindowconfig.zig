@@ -19,98 +19,98 @@ pub const KWindowConfig = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    /// ` param3: flag of kconfigbase_enums.WriteConfigFlag `
+    /// ` options: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn SaveWindowSize(param1: anytype, param2: anytype, param3: i32) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param2)._is_KConfigGroup;
-        qtc.KWindowConfig_SaveWindowSize(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3));
+    pub fn SaveWindowSize(window: anytype, config: anytype, options: i32) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KWindowConfig_SaveWindowSize(@ptrCast(window.ptr), @ptrCast(config.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#hasSavedWindowSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn HasSavedWindowSize(param1: anytype) bool {
-        comptime _ = @TypeOf(param1)._is_KConfigGroup;
-        return qtc.KWindowConfig_HasSavedWindowSize(@ptrCast(param1.ptr));
+    pub fn HasSavedWindowSize(config: anytype) bool {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        return qtc.KWindowConfig_HasSavedWindowSize(@ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#restoreWindowSize)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn RestoreWindowSize(param1: anytype, param2: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param2)._is_KConfigGroup;
-        qtc.KWindowConfig_RestoreWindowSize(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
+    pub fn RestoreWindowSize(window: anytype, config: anytype) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KWindowConfig_RestoreWindowSize(@ptrCast(window.ptr), @ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#saveWindowPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    /// ` param3: flag of kconfigbase_enums.WriteConfigFlag `
+    /// ` options: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn SaveWindowPosition(param1: anytype, param2: anytype, param3: i32) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param2)._is_KConfigGroup;
-        qtc.KWindowConfig_SaveWindowPosition(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3));
+    pub fn SaveWindowPosition(window: anytype, config: anytype, options: i32) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KWindowConfig_SaveWindowPosition(@ptrCast(window.ptr), @ptrCast(config.ptr), @bitCast(options));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#hasSavedWindowPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn HasSavedWindowPosition(param1: anytype) bool {
-        comptime _ = @TypeOf(param1)._is_KConfigGroup;
-        return qtc.KWindowConfig_HasSavedWindowPosition(@ptrCast(param1.ptr));
+    pub fn HasSavedWindowPosition(config: anytype) bool {
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        return qtc.KWindowConfig_HasSavedWindowPosition(@ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#restoreWindowPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn RestoreWindowPosition(param1: anytype, param2: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param2)._is_KConfigGroup;
-        qtc.KWindowConfig_RestoreWindowPosition(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
+    pub fn RestoreWindowPosition(window: anytype, config: anytype) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KWindowConfig_RestoreWindowPosition(@ptrCast(window.ptr), @ptrCast(config.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kwindowconfig.html#restoreWindowScreenPosition)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QWindow `
+    /// ` window: QWindow `
     ///
-    /// ` param2: QScreen `
+    /// ` screen: QScreen `
     ///
-    /// ` param3: KConfigGroup `
+    /// ` config: KConfigGroup `
     ///
-    pub fn RestoreWindowScreenPosition(param1: anytype, param2: anytype, param3: anytype) void {
-        comptime _ = @TypeOf(param1)._is_QWindow;
-        comptime _ = @TypeOf(param2)._is_QScreen;
-        comptime _ = @TypeOf(param3)._is_KConfigGroup;
-        qtc.KWindowConfig_RestoreWindowScreenPosition(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @ptrCast(param3.ptr));
+    pub fn RestoreWindowScreenPosition(window: anytype, screen: anytype, config: anytype) void {
+        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(screen)._is_QScreen;
+        comptime _ = @TypeOf(config)._is_KConfigGroup;
+        qtc.KWindowConfig_RestoreWindowScreenPosition(@ptrCast(window.ptr), @ptrCast(screen.ptr), @ptrCast(config.ptr));
     }
 };

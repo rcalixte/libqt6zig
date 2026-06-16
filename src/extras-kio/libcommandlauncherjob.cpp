@@ -102,12 +102,7 @@ void KIO__CommandLauncherJob_SetProcessEnvironment(KIO__CommandLauncherJob* self
 }
 
 void KIO__CommandLauncherJob_Start(KIO__CommandLauncherJob* self) {
-    auto* vkio__commandlauncherjob = dynamic_cast<VirtualKIOCommandLauncherJob*>(self);
-    if (vkio__commandlauncherjob && vkio__commandlauncherjob->isVirtualKIOCommandLauncherJob) {
-        self->start();
-    } else {
-        ((VirtualKIOCommandLauncherJob*)self)->start();
-    }
+    self->start();
 }
 
 long long KIO__CommandLauncherJob_Pid(const KIO__CommandLauncherJob* self) {

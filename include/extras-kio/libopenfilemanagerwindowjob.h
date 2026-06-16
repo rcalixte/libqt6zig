@@ -131,7 +131,7 @@ void KIO__OpenFileManagerWindowJob_OnIsSignalConnected(const KIO__OpenFileManage
 bool KIO__OpenFileManagerWindowJob_SuperIsSignalConnected(const KIO__OpenFileManagerWindowJob* self, const QMetaMethod* signal);
 void KIO__OpenFileManagerWindowJob_Delete(KIO__OpenFileManagerWindowJob* self);
 
-KIO__OpenFileManagerWindowJob* KIO_HighlightInFileManager(const libqt_list /* of QUrl* */ param1, const libqt_string param2);
+KIO__OpenFileManagerWindowJob* KIO_HighlightInFileManager(const libqt_list /* of QUrl* */ urls, const libqt_string asn);
 
 #ifdef __cplusplus
 } /* extern C */

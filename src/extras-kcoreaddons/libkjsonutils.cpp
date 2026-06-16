@@ -6,15 +6,15 @@
 #include "libkjsonutils.h"
 #include "libkjsonutils.hxx"
 
-QJsonValue* KJsonUtils_ReadTranslatedValue(const QJsonObject* param1, const libqt_string param2, const QJsonValue* param3) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return new QJsonValue(KJsonUtils::readTranslatedValue(*param1, param2_QString, *param3));
+QJsonValue* KJsonUtils_ReadTranslatedValue(const QJsonObject* jo, const libqt_string key, const QJsonValue* defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return new QJsonValue(KJsonUtils::readTranslatedValue(*jo, key_QString, *defaultValue));
 }
 
-libqt_string KJsonUtils_ReadTranslatedString(const QJsonObject* param1, const libqt_string param2, const libqt_string param3) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    auto _ret = KJsonUtils::readTranslatedString(*param1, param2_QString, param3_QString);
+libqt_string KJsonUtils_ReadTranslatedString(const QJsonObject* jo, const libqt_string key, const libqt_string defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
+    auto _ret = KJsonUtils::readTranslatedString(*jo, key_QString, defaultValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

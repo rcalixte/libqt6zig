@@ -14,8 +14,8 @@
 #include "libkaboutdata.h"
 #include "libkaboutdata.hxx"
 
-void KCrash_DefaultCrashHandler(int param1) {
-    KCrash::defaultCrashHandler(static_cast<int>(param1));
+void KCrash_DefaultCrashHandler(int sig) {
+    KCrash::defaultCrashHandler(static_cast<int>(sig));
 }
 
 KAboutPerson* KAboutPerson_new() {

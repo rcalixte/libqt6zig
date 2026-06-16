@@ -131,30 +131,15 @@ KOpenWithDialog* KOpenWithDialog_new10(const libqt_list /* of QUrl* */ urls, con
 }
 
 QMetaObject* KOpenWithDialog_MetaObject(const KOpenWithDialog* self) {
-    auto* vkopenwithdialog = dynamic_cast<const VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKOpenWithDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KOpenWithDialog_Metacast(KOpenWithDialog* self, const char* param1) {
-    auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKOpenWithDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KOpenWithDialog_Metacall(KOpenWithDialog* self, int param1, int param2, void** param3) {
-    auto* vkopenwithdialog = dynamic_cast<VirtualKOpenWithDialog*>(self);
-    if (vkopenwithdialog && vkopenwithdialog->isVirtualKOpenWithDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKOpenWithDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KOpenWithDialog_Text(const KOpenWithDialog* self) {

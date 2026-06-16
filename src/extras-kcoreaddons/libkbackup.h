@@ -18,8 +18,8 @@ extern "C" {
 typedef struct KBackup KBackup;
 #endif
 
-bool KBackup_SimpleBackupFile(const libqt_string param1, const libqt_string param2, const libqt_string param3);
-bool KBackup_NumberedBackupFile(const libqt_string param1, const libqt_string param2, const libqt_string param3, const unsigned int param4);
+bool KBackup_SimpleBackupFile(const libqt_string filename, const libqt_string backupDir, const libqt_string backupExtension);
+bool KBackup_NumberedBackupFile(const libqt_string filename, const libqt_string backupDir, const libqt_string backupExtension, const unsigned int maxBackups);
 
 #ifdef __cplusplus
 } /* extern C */

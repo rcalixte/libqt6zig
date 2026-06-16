@@ -59,39 +59,19 @@ QAbstractItemView* QAbstractItemView_new2() {
 }
 
 QMetaObject* QAbstractItemView_MetaObject(const QAbstractItemView* self) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractItemView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractItemView_Metacast(QAbstractItemView* self, const char* param1) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractItemView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractItemView_Metacall(QAbstractItemView* self, int param1, int param2, void** param3) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractItemView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractItemView_SetModel(QAbstractItemView* self, QAbstractItemModel* model) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->setModel(model);
-    } else {
-        ((VirtualQAbstractItemView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 QAbstractItemModel* QAbstractItemView_Model(const QAbstractItemView* self) {
@@ -99,12 +79,7 @@ QAbstractItemModel* QAbstractItemView_Model(const QAbstractItemView* self) {
 }
 
 void QAbstractItemView_SetSelectionModel(QAbstractItemView* self, QItemSelectionModel* selectionModel) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQAbstractItemView*)self)->setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 QItemSelectionModel* QAbstractItemView_SelectionModel(const QAbstractItemView* self) {
@@ -265,39 +240,19 @@ int QAbstractItemView_TextElideMode(const QAbstractItemView* self) {
 
 void QAbstractItemView_KeyboardSearch(QAbstractItemView* self, const libqt_string search) {
     QString search_QString = QString::fromUtf8(search.data, search.len);
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->keyboardSearch(search_QString);
-    } else {
-        ((VirtualQAbstractItemView*)self)->keyboardSearch(search_QString);
-    }
+    self->keyboardSearch(search_QString);
 }
 
 QRect* QAbstractItemView_VisualRect(const QAbstractItemView* self, const QModelIndex* index) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return new QRect(vqabstractitemview->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQAbstractItemView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 void QAbstractItemView_ScrollTo(QAbstractItemView* self, const QModelIndex* index, int hint) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        vqabstractitemview->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQAbstractItemView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 QModelIndex* QAbstractItemView_IndexAt(const QAbstractItemView* self, const QPoint* point) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return new QModelIndex(vqabstractitemview->indexAt(*point));
-    } else {
-        return new QModelIndex(((VirtualQAbstractItemView*)self)->indexAt(*point));
-    }
+    return new QModelIndex(self->indexAt(*point));
 }
 
 QSize* QAbstractItemView_SizeHintForIndex(const QAbstractItemView* self, const QModelIndex* index) {
@@ -305,21 +260,11 @@ QSize* QAbstractItemView_SizeHintForIndex(const QAbstractItemView* self, const Q
 }
 
 int QAbstractItemView_SizeHintForRow(const QAbstractItemView* self, int row) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return self->sizeHintForRow(static_cast<int>(row));
-    } else {
-        return ((VirtualQAbstractItemView*)self)->sizeHintForRow(static_cast<int>(row));
-    }
+    return self->sizeHintForRow(static_cast<int>(row));
 }
 
 int QAbstractItemView_SizeHintForColumn(const QAbstractItemView* self, int column) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return self->sizeHintForColumn(static_cast<int>(column));
-    } else {
-        return ((VirtualQAbstractItemView*)self)->sizeHintForColumn(static_cast<int>(column));
-    }
+    return self->sizeHintForColumn(static_cast<int>(column));
 }
 
 void QAbstractItemView_OpenPersistentEditor(QAbstractItemView* self, const QModelIndex* index) {
@@ -363,57 +308,27 @@ QAbstractItemDelegate* QAbstractItemView_ItemDelegate2(const QAbstractItemView* 
 }
 
 QAbstractItemDelegate* QAbstractItemView_ItemDelegateForIndex(const QAbstractItemView* self, const QModelIndex* index) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return self->itemDelegateForIndex(*index);
-    } else {
-        return ((VirtualQAbstractItemView*)self)->itemDelegateForIndex(*index);
-    }
+    return self->itemDelegateForIndex(*index);
 }
 
 QVariant* QAbstractItemView_InputMethodQuery(const QAbstractItemView* self, int query) {
-    auto* vqabstractitemview = dynamic_cast<const VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQAbstractItemView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 void QAbstractItemView_Reset(QAbstractItemView* self) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->reset();
-    } else {
-        ((VirtualQAbstractItemView*)self)->reset();
-    }
+    self->reset();
 }
 
 void QAbstractItemView_SetRootIndex(QAbstractItemView* self, const QModelIndex* index) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->setRootIndex(*index);
-    } else {
-        ((VirtualQAbstractItemView*)self)->setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 void QAbstractItemView_DoItemsLayout(QAbstractItemView* self) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->doItemsLayout();
-    } else {
-        ((VirtualQAbstractItemView*)self)->doItemsLayout();
-    }
+    self->doItemsLayout();
 }
 
 void QAbstractItemView_SelectAll(QAbstractItemView* self) {
-    auto* vqabstractitemview = dynamic_cast<VirtualQAbstractItemView*>(self);
-    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        self->selectAll();
-    } else {
-        ((VirtualQAbstractItemView*)self)->selectAll();
-    }
+    self->selectAll();
 }
 
 void QAbstractItemView_Edit(QAbstractItemView* self, const QModelIndex* index) {

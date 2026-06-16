@@ -27,30 +27,15 @@ QBoxLayout* QBoxLayout_new2(int param1, QWidget* parent) {
 }
 
 QMetaObject* QBoxLayout_MetaObject(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBoxLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBoxLayout_Metacast(QBoxLayout* self, const char* param1) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBoxLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBoxLayout_Metacall(QBoxLayout* self, int param1, int param2, void** param3) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBoxLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QBoxLayout_Direction(const QBoxLayout* self) {
@@ -86,12 +71,7 @@ void QBoxLayout_AddStrut(QBoxLayout* self, int param1) {
 }
 
 void QBoxLayout_AddItem(QBoxLayout* self, QLayoutItem* param1) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        self->addItem(param1);
-    } else {
-        ((VirtualQBoxLayout*)self)->addItem(param1);
-    }
+    self->addItem(param1);
 }
 
 void QBoxLayout_InsertSpacing(QBoxLayout* self, int index, int size) {
@@ -119,21 +99,11 @@ void QBoxLayout_InsertItem(QBoxLayout* self, int index, QLayoutItem* param2) {
 }
 
 int QBoxLayout_Spacing(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->spacing();
-    } else {
-        return ((VirtualQBoxLayout*)self)->spacing();
-    }
+    return self->spacing();
 }
 
 void QBoxLayout_SetSpacing(QBoxLayout* self, int spacing) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        self->setSpacing(static_cast<int>(spacing));
-    } else {
-        ((VirtualQBoxLayout*)self)->setSpacing(static_cast<int>(spacing));
-    }
+    self->setSpacing(static_cast<int>(spacing));
 }
 
 bool QBoxLayout_SetStretchFactor(QBoxLayout* self, QWidget* w, int stretch) {
@@ -153,111 +123,51 @@ int QBoxLayout_Stretch(const QBoxLayout* self, int index) {
 }
 
 QSize* QBoxLayout_SizeHint(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQBoxLayout*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QBoxLayout_MinimumSize(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQBoxLayout*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QBoxLayout_MaximumSize(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return new QSize(self->maximumSize());
-    } else {
-        return new QSize(((VirtualQBoxLayout*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 bool QBoxLayout_HasHeightForWidth(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQBoxLayout*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 int QBoxLayout_HeightForWidth(const QBoxLayout* self, int param1) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQBoxLayout*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 int QBoxLayout_MinimumHeightForWidth(const QBoxLayout* self, int param1) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->minimumHeightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQBoxLayout*)self)->minimumHeightForWidth(static_cast<int>(param1));
-    }
+    return self->minimumHeightForWidth(static_cast<int>(param1));
 }
 
 int QBoxLayout_ExpandingDirections(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return static_cast<int>(self->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQBoxLayout*)self)->expandingDirections());
-    }
+    return static_cast<int>(self->expandingDirections());
 }
 
 void QBoxLayout_Invalidate(QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQBoxLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 QLayoutItem* QBoxLayout_ItemAt(const QBoxLayout* self, int param1) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->itemAt(static_cast<int>(param1));
-    } else {
-        return ((VirtualQBoxLayout*)self)->itemAt(static_cast<int>(param1));
-    }
+    return self->itemAt(static_cast<int>(param1));
 }
 
 QLayoutItem* QBoxLayout_TakeAt(QBoxLayout* self, int param1) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->takeAt(static_cast<int>(param1));
-    } else {
-        return ((VirtualQBoxLayout*)self)->takeAt(static_cast<int>(param1));
-    }
+    return self->takeAt(static_cast<int>(param1));
 }
 
 int QBoxLayout_Count(const QBoxLayout* self) {
-    auto* vqboxlayout = dynamic_cast<const VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        return self->count();
-    } else {
-        return ((VirtualQBoxLayout*)self)->count();
-    }
+    return self->count();
 }
 
 void QBoxLayout_SetGeometry(QBoxLayout* self, const QRect* geometry) {
-    auto* vqboxlayout = dynamic_cast<VirtualQBoxLayout*>(self);
-    if (vqboxlayout && vqboxlayout->isVirtualQBoxLayout) {
-        self->setGeometry(*geometry);
-    } else {
-        ((VirtualQBoxLayout*)self)->setGeometry(*geometry);
-    }
+    self->setGeometry(*geometry);
 }
 
 void QBoxLayout_AddStretch1(QBoxLayout* self, int stretch) {
@@ -1341,30 +1251,15 @@ QHBoxLayout* QHBoxLayout_new2() {
 }
 
 QMetaObject* QHBoxLayout_MetaObject(const QHBoxLayout* self) {
-    auto* vqhboxlayout = dynamic_cast<const VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHBoxLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHBoxLayout_Metacast(QHBoxLayout* self, const char* param1) {
-    auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHBoxLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHBoxLayout_Metacall(QHBoxLayout* self, int param1, int param2, void** param3) {
-    auto* vqhboxlayout = dynamic_cast<VirtualQHBoxLayout*>(self);
-    if (vqhboxlayout && vqhboxlayout->isVirtualQHBoxLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHBoxLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation
@@ -2566,30 +2461,15 @@ QVBoxLayout* QVBoxLayout_new2() {
 }
 
 QMetaObject* QVBoxLayout_MetaObject(const QVBoxLayout* self) {
-    auto* vqvboxlayout = dynamic_cast<const VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQVBoxLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QVBoxLayout_Metacast(QVBoxLayout* self, const char* param1) {
-    auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQVBoxLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QVBoxLayout_Metacall(QVBoxLayout* self, int param1, int param2, void** param3) {
-    auto* vqvboxlayout = dynamic_cast<VirtualQVBoxLayout*>(self);
-    if (vqvboxlayout && vqvboxlayout->isVirtualQVBoxLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQVBoxLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

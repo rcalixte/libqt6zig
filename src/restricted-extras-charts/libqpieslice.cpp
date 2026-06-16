@@ -34,30 +34,15 @@ QPieSlice* QPieSlice_new4(libqt_string label, double value, QObject* parent) {
 }
 
 QMetaObject* QPieSlice_MetaObject(const QPieSlice* self) {
-    auto* vqpieslice = dynamic_cast<const VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPieSlice*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPieSlice_Metacast(QPieSlice* self, const char* param1) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPieSlice*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPieSlice_Metacall(QPieSlice* self, int param1, int param2, void** param3) {
-    auto* vqpieslice = dynamic_cast<VirtualQPieSlice*>(self);
-    if (vqpieslice && vqpieslice->isVirtualQPieSlice) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPieSlice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPieSlice_SetLabel(QPieSlice* self, libqt_string label) {

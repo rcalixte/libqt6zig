@@ -46,30 +46,15 @@ QAbstractSlider* QAbstractSlider_new2() {
 }
 
 QMetaObject* QAbstractSlider_MetaObject(const QAbstractSlider* self) {
-    auto* vqabstractslider = dynamic_cast<const VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractSlider*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractSlider_Metacast(QAbstractSlider* self, const char* param1) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractSlider_Metacall(QAbstractSlider* self, int param1, int param2, void** param3) {
-    auto* vqabstractslider = dynamic_cast<VirtualQAbstractSlider*>(self);
-    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractSlider*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QAbstractSlider_Orientation(const QAbstractSlider* self) {

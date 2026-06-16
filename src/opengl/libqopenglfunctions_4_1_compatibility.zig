@@ -2164,16 +2164,16 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` stringVal: []const [:0]const u8 `
+    /// ` string: []const [:0]const u8 `
     ///
     /// ` length: []const i32 `
     ///
-    pub fn GlShaderSource(self: QOpenGLFunctions_4_1_Compatibility, allocator: std.mem.Allocator, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32) void {
-        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglfunctions_4_1_compatibility.GlShaderSource: Memory allocation failed");
-        defer allocator.free(stringVal_chararr);
-        for (stringVal, 0..stringVal.len) |str, i|
-            stringVal_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), stringVal_chararr.ptr, length.ptr);
+    pub fn GlShaderSource(self: QOpenGLFunctions_4_1_Compatibility, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
+        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglfunctions_4_1_compatibility.GlShaderSource: Memory allocation failed");
+        defer allocator.free(string_chararr);
+        for (string, 0..string.len) |str, i|
+            string_chararr[i] = @ptrCast(str.ptr);
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glLinkProgram)
@@ -7720,12 +7720,12 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_Compatibility `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []u16 `
     ///
-    pub fn GlGetPixelMapusv(self: QOpenGLFunctions_4_1_Compatibility, mapVal: u32, values: []u16) void {
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlGetPixelMapusv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapusv(self: QOpenGLFunctions_4_1_Compatibility, map: u32, values: []u16) void {
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlGetPixelMapusv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glGetPixelMapuiv)
@@ -7734,12 +7734,12 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_Compatibility `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []u32 `
     ///
-    pub fn GlGetPixelMapuiv(self: QOpenGLFunctions_4_1_Compatibility, mapVal: u32, values: []u32) void {
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlGetPixelMapuiv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapuiv(self: QOpenGLFunctions_4_1_Compatibility, map: u32, values: []u32) void {
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlGetPixelMapuiv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glGetPixelMapfv)
@@ -7748,12 +7748,12 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_Compatibility `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` values: []f32 `
     ///
-    pub fn GlGetPixelMapfv(self: QOpenGLFunctions_4_1_Compatibility, mapVal: u32, values: []f32) void {
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlGetPixelMapfv(@ptrCast(self.ptr), @bitCast(mapVal), values.ptr);
+    pub fn GlGetPixelMapfv(self: QOpenGLFunctions_4_1_Compatibility, map: u32, values: []f32) void {
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlGetPixelMapfv(@ptrCast(self.ptr), @bitCast(map), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glGetMaterialiv)
@@ -7928,14 +7928,14 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_Compatibility `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const u16 `
     ///
-    pub fn GlPixelMapusv(self: QOpenGLFunctions_4_1_Compatibility, mapVal: u32, mapsize: i32, values: []const u16) void {
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlPixelMapusv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapusv(self: QOpenGLFunctions_4_1_Compatibility, map: u32, mapsize: i32, values: []const u16) void {
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlPixelMapusv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glPixelMapuiv)
@@ -7944,14 +7944,14 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_Compatibility `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const u32 `
     ///
-    pub fn GlPixelMapuiv(self: QOpenGLFunctions_4_1_Compatibility, mapVal: u32, mapsize: i32, values: []const u32) void {
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlPixelMapuiv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapuiv(self: QOpenGLFunctions_4_1_Compatibility, map: u32, mapsize: i32, values: []const u32) void {
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlPixelMapuiv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glPixelMapfv)
@@ -7960,14 +7960,14 @@ pub const QOpenGLFunctions_4_1_Compatibility = extern struct {
     ///
     /// ` self: QOpenGLFunctions_4_1_Compatibility `
     ///
-    /// ` mapVal: u32 `
+    /// ` map: u32 `
     ///
     /// ` mapsize: i32 `
     ///
     /// ` values: []const f32 `
     ///
-    pub fn GlPixelMapfv(self: QOpenGLFunctions_4_1_Compatibility, mapVal: u32, mapsize: i32, values: []const f32) void {
-        qtc.QOpenGLFunctions_4_1_Compatibility_GlPixelMapfv(@ptrCast(self.ptr), @bitCast(mapVal), @bitCast(mapsize), values.ptr);
+    pub fn GlPixelMapfv(self: QOpenGLFunctions_4_1_Compatibility, map: u32, mapsize: i32, values: []const f32) void {
+        qtc.QOpenGLFunctions_4_1_Compatibility_GlPixelMapfv(@ptrCast(self.ptr), @bitCast(map), @bitCast(mapsize), values.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-4-1-compatibility.html#glPixelTransferi)

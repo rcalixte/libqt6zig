@@ -28,30 +28,15 @@ QAudioEngine* QAudioEngine_new4(int sampleRate, QObject* parent) {
 }
 
 QMetaObject* QAudioEngine_MetaObject(const QAudioEngine* self) {
-    auto* vqaudioengine = dynamic_cast<const VirtualQAudioEngine*>(self);
-    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAudioEngine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAudioEngine_Metacast(QAudioEngine* self, const char* param1) {
-    auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
-    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAudioEngine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAudioEngine_Metacall(QAudioEngine* self, int param1, int param2, void** param3) {
-    auto* vqaudioengine = dynamic_cast<VirtualQAudioEngine*>(self);
-    if (vqaudioengine && vqaudioengine->isVirtualQAudioEngine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAudioEngine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAudioEngine_SetOutputMode(QAudioEngine* self, int mode) {

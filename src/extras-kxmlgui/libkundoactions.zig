@@ -18,39 +18,39 @@ pub const KUndoActions = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUndoStack `
+    /// ` undoStack: QUndoStack `
     ///
-    /// ` param2: KActionCollection `
+    /// ` actionCollection: KActionCollection `
     ///
-    /// ` param3: []const u8 `
+    /// ` actionName: []const u8 `
     ///
-    pub fn CreateRedoAction(param1: anytype, param2: anytype, param3: []const u8) QAction {
-        comptime _ = @TypeOf(param1)._is_QUndoStack;
-        comptime _ = @TypeOf(param2)._is_KActionCollection;
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+    pub fn CreateRedoAction(undoStack: anytype, actionCollection: anytype, actionName: []const u8) QAction {
+        comptime _ = @TypeOf(undoStack)._is_QUndoStack;
+        comptime _ = @TypeOf(actionCollection)._is_KActionCollection;
+        const actionName_str = qtc.libqt_string{
+            .len = actionName.len,
+            .data = actionName.ptr,
         };
-        return .{ .ptr = qtc.KUndoActions_CreateRedoAction(@ptrCast(param1.ptr), @ptrCast(param2.ptr), param3_str) };
+        return .{ .ptr = qtc.KUndoActions_CreateRedoAction(@ptrCast(undoStack.ptr), @ptrCast(actionCollection.ptr), actionName_str) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kundoactions.html#createUndoAction)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUndoStack `
+    /// ` undoStack: QUndoStack `
     ///
-    /// ` param2: KActionCollection `
+    /// ` actionCollection: KActionCollection `
     ///
-    /// ` param3: []const u8 `
+    /// ` actionName: []const u8 `
     ///
-    pub fn CreateUndoAction(param1: anytype, param2: anytype, param3: []const u8) QAction {
-        comptime _ = @TypeOf(param1)._is_QUndoStack;
-        comptime _ = @TypeOf(param2)._is_KActionCollection;
-        const param3_str = qtc.libqt_string{
-            .len = param3.len,
-            .data = param3.ptr,
+    pub fn CreateUndoAction(undoStack: anytype, actionCollection: anytype, actionName: []const u8) QAction {
+        comptime _ = @TypeOf(undoStack)._is_QUndoStack;
+        comptime _ = @TypeOf(actionCollection)._is_KActionCollection;
+        const actionName_str = qtc.libqt_string{
+            .len = actionName.len,
+            .data = actionName.ptr,
         };
-        return .{ .ptr = qtc.KUndoActions_CreateUndoAction(@ptrCast(param1.ptr), @ptrCast(param2.ptr), param3_str) };
+        return .{ .ptr = qtc.KUndoActions_CreateUndoAction(@ptrCast(undoStack.ptr), @ptrCast(actionCollection.ptr), actionName_str) };
     }
 };

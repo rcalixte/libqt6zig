@@ -19,57 +19,28 @@ KIO__DndPopupMenuPlugin* KIO__DndPopupMenuPlugin_new(QObject* parent) {
 }
 
 QMetaObject* KIO__DndPopupMenuPlugin_MetaObject(const KIO__DndPopupMenuPlugin* self) {
-    auto* vkio__dndpopupmenuplugin = dynamic_cast<const VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIODndPopupMenuPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__DndPopupMenuPlugin_Metacast(KIO__DndPopupMenuPlugin* self, const char* param1) {
-    auto* vkio__dndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__DndPopupMenuPlugin_Metacall(KIO__DndPopupMenuPlugin* self, int param1, int param2, void** param3) {
-    auto* vkio__dndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIODndPopupMenuPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QAction* */ KIO__DndPopupMenuPlugin_Setup(KIO__DndPopupMenuPlugin* self, const KFileItemListProperties* popupMenuInfo, const QUrl* destination) {
-    auto* vkio__dndpopupmenuplugin = dynamic_cast<VirtualKIODndPopupMenuPlugin*>(self);
-    if (vkio__dndpopupmenuplugin && vkio__dndpopupmenuplugin->isVirtualKIODndPopupMenuPlugin) {
-        QList<QAction*> _ret = vkio__dndpopupmenuplugin->setup(*popupMenuInfo, *destination);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QAction*> _ret = ((VirtualKIODndPopupMenuPlugin*)self)->setup(*popupMenuInfo, *destination);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QAction*> _ret = self->setup(*popupMenuInfo, *destination);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 // Base class handler implementation

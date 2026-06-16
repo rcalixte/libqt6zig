@@ -81,30 +81,15 @@ QPlainTextEdit* QPlainTextEdit_new4(const libqt_string text, QWidget* parent) {
 }
 
 QMetaObject* QPlainTextEdit_MetaObject(const QPlainTextEdit* self) {
-    auto* vqplaintextedit = dynamic_cast<const VirtualQPlainTextEdit*>(self);
-    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlainTextEdit*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlainTextEdit_Metacast(QPlainTextEdit* self, const char* param1) {
-    auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
-    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlainTextEdit*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlainTextEdit_Metacall(QPlainTextEdit* self, int param1, int param2, void** param3) {
-    auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
-    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlainTextEdit*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPlainTextEdit_SetDocument(QPlainTextEdit* self, QTextDocument* document) {
@@ -267,12 +252,7 @@ void QPlainTextEdit_EnsureCursorVisible(QPlainTextEdit* self) {
 }
 
 QVariant* QPlainTextEdit_LoadResource(QPlainTextEdit* self, int typeVal, const QUrl* name) {
-    auto* vqplaintextedit = dynamic_cast<VirtualQPlainTextEdit*>(self);
-    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
-        return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualQPlainTextEdit*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 QMenu* QPlainTextEdit_CreateStandardContextMenu(QPlainTextEdit* self) {
@@ -371,12 +351,7 @@ int QPlainTextEdit_BlockCount(const QPlainTextEdit* self) {
 }
 
 QVariant* QPlainTextEdit_InputMethodQuery(const QPlainTextEdit* self, int property) {
-    auto* vqplaintextedit = dynamic_cast<const VirtualQPlainTextEdit*>(self);
-    if (vqplaintextedit && vqplaintextedit->isVirtualQPlainTextEdit) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    } else {
-        return new QVariant(((VirtualQPlainTextEdit*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
 }
 
 QVariant* QPlainTextEdit_InputMethodQuery2(const QPlainTextEdit* self, int query, QVariant* argument) {
@@ -2733,84 +2708,39 @@ QPlainTextDocumentLayout* QPlainTextDocumentLayout_new(QTextDocument* document) 
 }
 
 QMetaObject* QPlainTextDocumentLayout_MetaObject(const QPlainTextDocumentLayout* self) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlainTextDocumentLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlainTextDocumentLayout_Metacast(QPlainTextDocumentLayout* self, const char* param1) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlainTextDocumentLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlainTextDocumentLayout_Metacall(QPlainTextDocumentLayout* self, int param1, int param2, void** param3) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlainTextDocumentLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QPlainTextDocumentLayout_Draw(QPlainTextDocumentLayout* self, QPainter* param1, const QAbstractTextDocumentLayout__PaintContext* param2) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        self->draw(param1, *param2);
-    } else {
-        ((VirtualQPlainTextDocumentLayout*)self)->draw(param1, *param2);
-    }
+    self->draw(param1, *param2);
 }
 
 int QPlainTextDocumentLayout_HitTest(const QPlainTextDocumentLayout* self, const QPointF* param1, int param2) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return self->hitTest(*param1, static_cast<Qt::HitTestAccuracy>(param2));
-    } else {
-        return ((VirtualQPlainTextDocumentLayout*)self)->hitTest(*param1, static_cast<Qt::HitTestAccuracy>(param2));
-    }
+    return self->hitTest(*param1, static_cast<Qt::HitTestAccuracy>(param2));
 }
 
 int QPlainTextDocumentLayout_PageCount(const QPlainTextDocumentLayout* self) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return self->pageCount();
-    } else {
-        return ((VirtualQPlainTextDocumentLayout*)self)->pageCount();
-    }
+    return self->pageCount();
 }
 
 QSizeF* QPlainTextDocumentLayout_DocumentSize(const QPlainTextDocumentLayout* self) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return new QSizeF(self->documentSize());
-    } else {
-        return new QSizeF(((VirtualQPlainTextDocumentLayout*)self)->documentSize());
-    }
+    return new QSizeF(self->documentSize());
 }
 
 QRectF* QPlainTextDocumentLayout_FrameBoundingRect(const QPlainTextDocumentLayout* self, QTextFrame* param1) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return new QRectF(self->frameBoundingRect(param1));
-    } else {
-        return new QRectF(((VirtualQPlainTextDocumentLayout*)self)->frameBoundingRect(param1));
-    }
+    return new QRectF(self->frameBoundingRect(param1));
 }
 
 QRectF* QPlainTextDocumentLayout_BlockBoundingRect(const QPlainTextDocumentLayout* self, const QTextBlock* block) {
-    auto* vqplaintextdocumentlayout = dynamic_cast<const VirtualQPlainTextDocumentLayout*>(self);
-    if (vqplaintextdocumentlayout && vqplaintextdocumentlayout->isVirtualQPlainTextDocumentLayout) {
-        return new QRectF(self->blockBoundingRect(*block));
-    } else {
-        return new QRectF(((VirtualQPlainTextDocumentLayout*)self)->blockBoundingRect(*block));
-    }
+    return new QRectF(self->blockBoundingRect(*block));
 }
 
 void QPlainTextDocumentLayout_EnsureBlockLayout(const QPlainTextDocumentLayout* self, const QTextBlock* block) {

@@ -49,30 +49,15 @@ QAbstractPrintDialog* QAbstractPrintDialog_new2(QPrinter* printer, QWidget* pare
 }
 
 QMetaObject* QAbstractPrintDialog_MetaObject(const QAbstractPrintDialog* self) {
-    auto* vqabstractprintdialog = dynamic_cast<const VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractPrintDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractPrintDialog_Metacast(QAbstractPrintDialog* self, const char* param1) {
-    auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractPrintDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractPrintDialog_Metacall(QAbstractPrintDialog* self, int param1, int param2, void** param3) {
-    auto* vqabstractprintdialog = dynamic_cast<VirtualQAbstractPrintDialog*>(self);
-    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractPrintDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractPrintDialog_SetOptionTabs(QAbstractPrintDialog* self, const libqt_list /* of QWidget* */ tabs) {

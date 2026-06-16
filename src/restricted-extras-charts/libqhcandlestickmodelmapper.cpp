@@ -20,39 +20,19 @@ QHCandlestickModelMapper* QHCandlestickModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHCandlestickModelMapper_MetaObject(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<const VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHCandlestickModelMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHCandlestickModelMapper_Metacast(QHCandlestickModelMapper* self, const char* param1) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHCandlestickModelMapper_Metacall(QHCandlestickModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHCandlestickModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QHCandlestickModelMapper_Orientation(const QHCandlestickModelMapper* self) {
-    auto* vqhcandlestickmodelmapper = dynamic_cast<const VirtualQHCandlestickModelMapper*>(self);
-    if (vqhcandlestickmodelmapper && vqhcandlestickmodelmapper->isVirtualQHCandlestickModelMapper) {
-        return static_cast<int>(self->orientation());
-    } else {
-        return static_cast<int>(((VirtualQHCandlestickModelMapper*)self)->orientation());
-    }
+    return static_cast<int>(self->orientation());
 }
 
 void QHCandlestickModelMapper_SetTimestampColumn(QHCandlestickModelMapper* self, int timestampColumn) {

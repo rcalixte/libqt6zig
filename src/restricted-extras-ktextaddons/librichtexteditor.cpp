@@ -58,30 +58,15 @@ TextCustomEditor__RichTextEditor* TextCustomEditor__RichTextEditor_new2() {
 }
 
 QMetaObject* TextCustomEditor__RichTextEditor_MetaObject(const TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditor__richtexteditor = dynamic_cast<const VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorRichTextEditor*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__RichTextEditor_Metacast(TextCustomEditor__RichTextEditor* self, const char* param1) {
-    auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__RichTextEditor_Metacall(TextCustomEditor__RichTextEditor* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditor*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__RichTextEditor_SetSearchSupport(TextCustomEditor__RichTextEditor* self, bool b) {
@@ -131,21 +116,11 @@ libqt_string TextCustomEditor__RichTextEditor_SpellCheckingLanguage(const TextCu
 }
 
 void TextCustomEditor__RichTextEditor_SetReadOnly(TextCustomEditor__RichTextEditor* self, bool readOnly) {
-    auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        self->setReadOnly(readOnly);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->setReadOnly(readOnly);
-    }
+    self->setReadOnly(readOnly);
 }
 
 void TextCustomEditor__RichTextEditor_CreateHighlighter(TextCustomEditor__RichTextEditor* self) {
-    auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        self->createHighlighter();
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->createHighlighter();
-    }
+    self->createHighlighter();
 }
 
 bool TextCustomEditor__RichTextEditor_TextToSpeechSupport(const TextCustomEditor__RichTextEditor* self) {
@@ -220,12 +195,7 @@ void TextCustomEditor__RichTextEditor_AddIgnoreWords(TextCustomEditor__RichTextE
 }
 
 void TextCustomEditor__RichTextEditor_ForceAutoCorrection(TextCustomEditor__RichTextEditor* self, bool selectedText) {
-    auto* vtextcustomeditor__richtexteditor = dynamic_cast<VirtualTextCustomEditorRichTextEditor*>(self);
-    if (vtextcustomeditor__richtexteditor && vtextcustomeditor__richtexteditor->isVirtualTextCustomEditorRichTextEditor) {
-        self->forceAutoCorrection(selectedText);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditor*)self)->forceAutoCorrection(selectedText);
-    }
+    self->forceAutoCorrection(selectedText);
 }
 
 void TextCustomEditor__RichTextEditor_SetDefaultFontSize(TextCustomEditor__RichTextEditor* self, int val) {

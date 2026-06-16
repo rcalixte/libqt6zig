@@ -18,57 +18,27 @@ KTextEditor__Plugin* KTextEditor__Plugin_new(QObject* parent) {
 }
 
 QMetaObject* KTextEditor__Plugin_MetaObject(const KTextEditor__Plugin* self) {
-    auto* vktexteditor__plugin = dynamic_cast<const VirtualKTextEditorPlugin*>(self);
-    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__Plugin_Metacast(KTextEditor__Plugin* self, const char* param1) {
-    auto* vktexteditor__plugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__Plugin_Metacall(KTextEditor__Plugin* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__plugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QObject* KTextEditor__Plugin_CreateView(KTextEditor__Plugin* self, KTextEditor__MainWindow* mainWindow) {
-    auto* vktexteditor__plugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
-        return vktexteditor__plugin->createView(mainWindow);
-    } else {
-        return ((VirtualKTextEditorPlugin*)self)->createView(mainWindow);
-    }
+    return self->createView(mainWindow);
 }
 
 int KTextEditor__Plugin_ConfigPages(const KTextEditor__Plugin* self) {
-    auto* vktexteditor__plugin = dynamic_cast<const VirtualKTextEditorPlugin*>(self);
-    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
-        return self->configPages();
-    } else {
-        return ((VirtualKTextEditorPlugin*)self)->configPages();
-    }
+    return self->configPages();
 }
 
 KTextEditor__ConfigPage* KTextEditor__Plugin_ConfigPage(KTextEditor__Plugin* self, int number, QWidget* parent) {
-    auto* vktexteditor__plugin = dynamic_cast<VirtualKTextEditorPlugin*>(self);
-    if (vktexteditor__plugin && vktexteditor__plugin->isVirtualKTextEditorPlugin) {
-        return self->configPage(static_cast<int>(number), parent);
-    } else {
-        return ((VirtualKTextEditorPlugin*)self)->configPage(static_cast<int>(number), parent);
-    }
+    return self->configPage(static_cast<int>(number), parent);
 }
 
 // Base class handler implementation

@@ -38,30 +38,15 @@ QSharedMemory* QSharedMemory_new6(const libqt_string key, QObject* parent) {
 }
 
 QMetaObject* QSharedMemory_MetaObject(const QSharedMemory* self) {
-    auto* vqsharedmemory = dynamic_cast<const VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSharedMemory*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSharedMemory_Metacast(QSharedMemory* self, const char* param1) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSharedMemory*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSharedMemory_Metacall(QSharedMemory* self, int param1, int param2, void** param3) {
-    auto* vqsharedmemory = dynamic_cast<VirtualQSharedMemory*>(self);
-    if (vqsharedmemory && vqsharedmemory->isVirtualQSharedMemory) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSharedMemory*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSharedMemory_SetKey(QSharedMemory* self, const libqt_string key) {

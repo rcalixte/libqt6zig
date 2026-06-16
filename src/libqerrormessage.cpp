@@ -47,30 +47,15 @@ QErrorMessage* QErrorMessage_new2() {
 }
 
 QMetaObject* QErrorMessage_MetaObject(const QErrorMessage* self) {
-    auto* vqerrormessage = dynamic_cast<const VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQErrorMessage*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QErrorMessage_Metacast(QErrorMessage* self, const char* param1) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQErrorMessage*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QErrorMessage_Metacall(QErrorMessage* self, int param1, int param2, void** param3) {
-    auto* vqerrormessage = dynamic_cast<VirtualQErrorMessage*>(self);
-    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQErrorMessage*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QErrorMessage* QErrorMessage_QtHandler() {

@@ -16,30 +16,15 @@ KParts__FileInfoExtension* KParts__FileInfoExtension_new(KParts__ReadOnlyPart* p
 }
 
 QMetaObject* KParts__FileInfoExtension_MetaObject(const KParts__FileInfoExtension* self) {
-    auto* vkparts__fileinfoextension = dynamic_cast<const VirtualKPartsFileInfoExtension*>(self);
-    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsFileInfoExtension*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__FileInfoExtension_Metacast(KParts__FileInfoExtension* self, const char* param1) {
-    auto* vkparts__fileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__FileInfoExtension_Metacall(KParts__FileInfoExtension* self, int param1, int param2, void** param3) {
-    auto* vkparts__fileinfoextension = dynamic_cast<VirtualKPartsFileInfoExtension*>(self);
-    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KParts__FileInfoExtension* KParts__FileInfoExtension_ChildObject(QObject* obj) {
@@ -47,30 +32,15 @@ KParts__FileInfoExtension* KParts__FileInfoExtension_ChildObject(QObject* obj) {
 }
 
 bool KParts__FileInfoExtension_HasSelection(const KParts__FileInfoExtension* self) {
-    auto* vkparts__fileinfoextension = dynamic_cast<const VirtualKPartsFileInfoExtension*>(self);
-    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return self->hasSelection();
-    } else {
-        return ((VirtualKPartsFileInfoExtension*)self)->hasSelection();
-    }
+    return self->hasSelection();
 }
 
 int KParts__FileInfoExtension_SupportedQueryModes(const KParts__FileInfoExtension* self) {
-    auto* vkparts__fileinfoextension = dynamic_cast<const VirtualKPartsFileInfoExtension*>(self);
-    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return static_cast<int>(self->supportedQueryModes());
-    } else {
-        return static_cast<int>(((VirtualKPartsFileInfoExtension*)self)->supportedQueryModes());
-    }
+    return static_cast<int>(self->supportedQueryModes());
 }
 
 KFileItemList* KParts__FileInfoExtension_QueryFor(const KParts__FileInfoExtension* self, int mode) {
-    auto* vkparts__fileinfoextension = dynamic_cast<const VirtualKPartsFileInfoExtension*>(self);
-    if (vkparts__fileinfoextension && vkparts__fileinfoextension->isVirtualKPartsFileInfoExtension) {
-        return new KFileItemList(vkparts__fileinfoextension->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
-    } else {
-        return new KFileItemList(((VirtualKPartsFileInfoExtension*)self)->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
-    }
+    return new KFileItemList(self->queryFor(static_cast<KParts::FileInfoExtension::QueryMode>(mode)));
 }
 
 // Base class handler implementation

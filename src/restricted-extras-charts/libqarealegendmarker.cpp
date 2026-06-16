@@ -22,48 +22,23 @@ QAreaLegendMarker* QAreaLegendMarker_new2(QAreaSeries* series, QLegend* legend, 
 }
 
 QMetaObject* QAreaLegendMarker_MetaObject(const QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = dynamic_cast<const VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAreaLegendMarker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAreaLegendMarker_Metacast(QAreaLegendMarker* self, const char* param1) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAreaLegendMarker_Metacall(QAreaLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QAreaLegendMarker_Type(QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQAreaLegendMarker*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 QAreaSeries* QAreaLegendMarker_Series(QAreaLegendMarker* self) {
-    auto* vqarealegendmarker = dynamic_cast<VirtualQAreaLegendMarker*>(self);
-    if (vqarealegendmarker && vqarealegendmarker->isVirtualQAreaLegendMarker) {
-        return self->series();
-    } else {
-        return ((VirtualQAreaLegendMarker*)self)->series();
-    }
+    return self->series();
 }
 
 // Base class handler implementation

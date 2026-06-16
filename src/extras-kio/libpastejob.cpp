@@ -56,6 +56,6 @@ void KIO__PasteJob_Delete(KIO__PasteJob* self) {
     delete self;
 }
 
-KIO__PasteJob* KIO_Paste(const QMimeData* param1, const QUrl* param2, int param3) {
-    return KIO::paste(param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__PasteJob* KIO_Paste(const QMimeData* mimeData, const QUrl* destDir, int flags) {
+    return KIO::paste(mimeData, *destDir, static_cast<KIO::JobFlags>(flags));
 }

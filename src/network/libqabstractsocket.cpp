@@ -21,39 +21,19 @@ QAbstractSocket* QAbstractSocket_new(int socketType, QObject* parent) {
 }
 
 QMetaObject* QAbstractSocket_MetaObject(const QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<const VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAbstractSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAbstractSocket_Metacast(QAbstractSocket* self, const char* param1) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAbstractSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAbstractSocket_Metacall(QAbstractSocket* self, int param1, int param2, void** param3) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAbstractSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QAbstractSocket_Resume(QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        self->resume();
-    } else {
-        ((VirtualQAbstractSocket*)self)->resume();
-    }
+    self->resume();
 }
 
 int QAbstractSocket_PauseMode(const QAbstractSocket* self) {
@@ -65,12 +45,7 @@ void QAbstractSocket_SetPauseMode(QAbstractSocket* self, int pauseMode) {
 }
 
 bool QAbstractSocket_Bind(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    } else {
-        return ((VirtualQAbstractSocket*)self)->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
-    }
+    return self->bind(*address, static_cast<quint16>(port), static_cast<QFlags<QAbstractSocket::BindFlag>>(mode));
 }
 
 bool QAbstractSocket_Bind2(QAbstractSocket* self) {
@@ -79,12 +54,7 @@ bool QAbstractSocket_Bind2(QAbstractSocket* self) {
 
 void QAbstractSocket_ConnectToHost(QAbstractSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol) {
     QString hostName_QString = QString::fromUtf8(hostName.data, hostName.len);
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        self->connectToHost(hostName_QString, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
-    } else {
-        ((VirtualQAbstractSocket*)self)->connectToHost(hostName_QString, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
-    }
+    self->connectToHost(hostName_QString, static_cast<quint16>(port), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
 }
 
 void QAbstractSocket_ConnectToHost2(QAbstractSocket* self, const QHostAddress* address, uint16_t port) {
@@ -92,12 +62,7 @@ void QAbstractSocket_ConnectToHost2(QAbstractSocket* self, const QHostAddress* a
 }
 
 void QAbstractSocket_DisconnectFromHost(QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        self->disconnectFromHost();
-    } else {
-        ((VirtualQAbstractSocket*)self)->disconnectFromHost();
-    }
+    self->disconnectFromHost();
 }
 
 bool QAbstractSocket_IsValid(const QAbstractSocket* self) {
@@ -105,21 +70,11 @@ bool QAbstractSocket_IsValid(const QAbstractSocket* self) {
 }
 
 long long QAbstractSocket_BytesAvailable(const QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<const VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return static_cast<long long>(self->bytesAvailable());
-    } else {
-        return static_cast<long long>(((VirtualQAbstractSocket*)self)->bytesAvailable());
-    }
+    return static_cast<long long>(self->bytesAvailable());
 }
 
 long long QAbstractSocket_BytesToWrite(const QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<const VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return static_cast<long long>(self->bytesToWrite());
-    } else {
-        return static_cast<long long>(((VirtualQAbstractSocket*)self)->bytesToWrite());
-    }
+    return static_cast<long long>(self->bytesToWrite());
 }
 
 uint16_t QAbstractSocket_LocalPort(const QAbstractSocket* self) {
@@ -155,12 +110,7 @@ long long QAbstractSocket_ReadBufferSize(const QAbstractSocket* self) {
 }
 
 void QAbstractSocket_SetReadBufferSize(QAbstractSocket* self, long long size) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        self->setReadBufferSize(static_cast<qint64>(size));
-    } else {
-        ((VirtualQAbstractSocket*)self)->setReadBufferSize(static_cast<qint64>(size));
-    }
+    self->setReadBufferSize(static_cast<qint64>(size));
 }
 
 void QAbstractSocket_Abort(QAbstractSocket* self) {
@@ -168,41 +118,20 @@ void QAbstractSocket_Abort(QAbstractSocket* self) {
 }
 
 intptr_t QAbstractSocket_SocketDescriptor(const QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<const VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        qintptr _ret = self->socketDescriptor();
-        return (intptr_t)(_ret);
-    } else {
-        qintptr _ret = ((VirtualQAbstractSocket*)self)->socketDescriptor();
-        return (intptr_t)(_ret);
-    }
+    qintptr _ret = self->socketDescriptor();
+    return (intptr_t)(_ret);
 }
 
 bool QAbstractSocket_SetSocketDescriptor(QAbstractSocket* self, intptr_t socketDescriptor, int state, int openMode) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QAbstractSocket::SocketState>(state), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    } else {
-        return ((VirtualQAbstractSocket*)self)->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QAbstractSocket::SocketState>(state), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
-    }
+    return self->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QAbstractSocket::SocketState>(state), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 void QAbstractSocket_SetSocketOption(QAbstractSocket* self, int option, const QVariant* value) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        self->setSocketOption(static_cast<QAbstractSocket::SocketOption>(option), *value);
-    } else {
-        ((VirtualQAbstractSocket*)self)->setSocketOption(static_cast<QAbstractSocket::SocketOption>(option), *value);
-    }
+    self->setSocketOption(static_cast<QAbstractSocket::SocketOption>(option), *value);
 }
 
 QVariant* QAbstractSocket_SocketOption(QAbstractSocket* self, int option) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return new QVariant(self->socketOption(static_cast<QAbstractSocket::SocketOption>(option)));
-    } else {
-        return new QVariant(((VirtualQAbstractSocket*)self)->socketOption(static_cast<QAbstractSocket::SocketOption>(option)));
-    }
+    return new QVariant(self->socketOption(static_cast<QAbstractSocket::SocketOption>(option)));
 }
 
 int QAbstractSocket_SocketType(const QAbstractSocket* self) {
@@ -218,21 +147,11 @@ int QAbstractSocket_Error(const QAbstractSocket* self) {
 }
 
 void QAbstractSocket_Close(QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        self->close();
-    } else {
-        ((VirtualQAbstractSocket*)self)->close();
-    }
+    self->close();
 }
 
 bool QAbstractSocket_IsSequential(const QAbstractSocket* self) {
-    auto* vqabstractsocket = dynamic_cast<const VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->isSequential();
-    } else {
-        return ((VirtualQAbstractSocket*)self)->isSequential();
-    }
+    return self->isSequential();
 }
 
 bool QAbstractSocket_Flush(QAbstractSocket* self) {
@@ -240,39 +159,19 @@ bool QAbstractSocket_Flush(QAbstractSocket* self) {
 }
 
 bool QAbstractSocket_WaitForConnected(QAbstractSocket* self, int msecs) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->waitForConnected(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQAbstractSocket*)self)->waitForConnected(static_cast<int>(msecs));
-    }
+    return self->waitForConnected(static_cast<int>(msecs));
 }
 
 bool QAbstractSocket_WaitForReadyRead(QAbstractSocket* self, int msecs) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->waitForReadyRead(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQAbstractSocket*)self)->waitForReadyRead(static_cast<int>(msecs));
-    }
+    return self->waitForReadyRead(static_cast<int>(msecs));
 }
 
 bool QAbstractSocket_WaitForBytesWritten(QAbstractSocket* self, int msecs) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->waitForBytesWritten(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQAbstractSocket*)self)->waitForBytesWritten(static_cast<int>(msecs));
-    }
+    return self->waitForBytesWritten(static_cast<int>(msecs));
 }
 
 bool QAbstractSocket_WaitForDisconnected(QAbstractSocket* self, int msecs) {
-    auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
-    if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return self->waitForDisconnected(static_cast<int>(msecs));
-    } else {
-        return ((VirtualQAbstractSocket*)self)->waitForDisconnected(static_cast<int>(msecs));
-    }
+    return self->waitForDisconnected(static_cast<int>(msecs));
 }
 
 void QAbstractSocket_SetProxy(QAbstractSocket* self, const QNetworkProxy* networkProxy) {

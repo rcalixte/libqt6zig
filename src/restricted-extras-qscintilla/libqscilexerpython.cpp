@@ -23,30 +23,15 @@ QsciLexerPython* QsciLexerPython_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPython_MetaObject(const QsciLexerPython* self) {
-    auto* vqscilexerpython = dynamic_cast<const VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerPython*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerPython_Metacast(QsciLexerPython* self, const char* param1) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerPython*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerPython_Metacall(QsciLexerPython* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPython*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerPython_Language(const QsciLexerPython* self) {
@@ -107,12 +92,7 @@ QColor* QsciLexerPython_DefaultPaper(const QsciLexerPython* self, int style) {
 }
 
 int QsciLexerPython_IndentationGuideView(const QsciLexerPython* self) {
-    auto* vqscilexerpython = dynamic_cast<const VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        return self->indentationGuideView();
-    } else {
-        return ((VirtualQsciLexerPython*)self)->indentationGuideView();
-    }
+    return self->indentationGuideView();
 }
 
 const char* QsciLexerPython_Keywords(const QsciLexerPython* self, int set) {
@@ -196,30 +176,15 @@ bool QsciLexerPython_V3BytesAllowed(const QsciLexerPython* self) {
 }
 
 void QsciLexerPython_SetFoldComments(QsciLexerPython* self, bool fold) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPython*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerPython_SetFoldQuotes(QsciLexerPython* self, bool fold) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        self->setFoldQuotes(fold);
-    } else {
-        ((VirtualQsciLexerPython*)self)->setFoldQuotes(fold);
-    }
+    self->setFoldQuotes(fold);
 }
 
 void QsciLexerPython_SetIndentationWarning(QsciLexerPython* self, int warn) {
-    auto* vqscilexerpython = dynamic_cast<VirtualQsciLexerPython*>(self);
-    if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        self->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
-    } else {
-        ((VirtualQsciLexerPython*)self)->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
-    }
+    self->setIndentationWarning(static_cast<QsciLexerPython::IndentationWarning>(warn));
 }
 
 const char* QsciLexerPython_BlockStart1(const QsciLexerPython* self, int* style) {

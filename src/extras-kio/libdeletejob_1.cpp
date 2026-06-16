@@ -108,16 +108,16 @@ void KIO__DeleteJob_Delete(KIO__DeleteJob* self) {
     delete self;
 }
 
-KIO__DeleteJob* KIO_Del(const QUrl* param1, int param2) {
-    return KIO::del(*param1, static_cast<KIO::JobFlags>(param2));
+KIO__DeleteJob* KIO_Del(const QUrl* src, int flags) {
+    return KIO::del(*src, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__DeleteJob* KIO_Del2(const libqt_list /* of QUrl* */ param1, int param2) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__DeleteJob* KIO_Del2(const libqt_list /* of QUrl* */ src, int flags) {
+    QList<QUrl> src_QList;
+    src_QList.reserve(src.len);
+    QUrl** src_arr = static_cast<QUrl**>(src.data);
+    for (size_t i = 0; i < src.len; ++i) {
+        src_QList.push_back(*(src_arr[i]));
     }
-    return KIO::del(param1_QList, static_cast<KIO::JobFlags>(param2));
+    return KIO::del(src_QList, static_cast<KIO::JobFlags>(flags));
 }

@@ -21,30 +21,15 @@ QPlaceSearchSuggestionReply* QPlaceSearchSuggestionReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceSearchSuggestionReply_MetaObject(const QPlaceSearchSuggestionReply* self) {
-    auto* vqplacesearchsuggestionreply = dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceSearchSuggestionReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceSearchSuggestionReply_Metacast(QPlaceSearchSuggestionReply* self, const char* param1) {
-    auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceSearchSuggestionReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceSearchSuggestionReply_Metacall(QPlaceSearchSuggestionReply* self, int param1, int param2, void** param3) {
-    auto* vqplacesearchsuggestionreply = dynamic_cast<VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceSearchSuggestionReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QPlaceSearchSuggestionReply_Suggestions(const QPlaceSearchSuggestionReply* self) {
@@ -69,12 +54,7 @@ libqt_list /* of libqt_string */ QPlaceSearchSuggestionReply_Suggestions(const Q
 }
 
 int QPlaceSearchSuggestionReply_Type(const QPlaceSearchSuggestionReply* self) {
-    auto* vqplacesearchsuggestionreply = dynamic_cast<const VirtualQPlaceSearchSuggestionReply*>(self);
-    if (vqplacesearchsuggestionreply && vqplacesearchsuggestionreply->isVirtualQPlaceSearchSuggestionReply) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPlaceSearchSuggestionReply*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 // Base class handler implementation

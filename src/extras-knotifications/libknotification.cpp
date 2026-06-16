@@ -31,30 +31,15 @@ KNotificationAction* KNotificationAction_new3(QObject* parent) {
 }
 
 QMetaObject* KNotificationAction_MetaObject(const KNotificationAction* self) {
-    auto* vknotificationaction = dynamic_cast<const VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNotificationAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNotificationAction_Metacast(KNotificationAction* self, const char* param1) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNotificationAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNotificationAction_Metacall(KNotificationAction* self, int param1, int param2, void** param3) {
-    auto* vknotificationaction = dynamic_cast<VirtualKNotificationAction*>(self);
-    if (vknotificationaction && vknotificationaction->isVirtualKNotificationAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNotificationAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KNotificationAction_Label(const KNotificationAction* self) {
@@ -502,30 +487,15 @@ KNotification* KNotification_new3(const libqt_string eventId, int flags, QObject
 }
 
 QMetaObject* KNotification_MetaObject(const KNotification* self) {
-    auto* vknotification = dynamic_cast<const VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNotification*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNotification_Metacast(KNotification* self, const char* param1) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNotification*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNotification_Metacall(KNotification* self, int param1, int param2, void** param3) {
-    auto* vknotification = dynamic_cast<VirtualKNotification*>(self);
-    if (vknotification && vknotification->isVirtualKNotification) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNotification*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KNotification_EventId(const KNotification* self) {

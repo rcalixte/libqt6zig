@@ -26,30 +26,15 @@ KTextEditor__Message* KTextEditor__Message_new2(const libqt_string richtext, int
 }
 
 QMetaObject* KTextEditor__Message_MetaObject(const KTextEditor__Message* self) {
-    auto* vktexteditor__message = dynamic_cast<const VirtualKTextEditorMessage*>(self);
-    if (vktexteditor__message && vktexteditor__message->isVirtualKTextEditorMessage) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorMessage*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__Message_Metacast(KTextEditor__Message* self, const char* param1) {
-    auto* vktexteditor__message = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditor__message && vktexteditor__message->isVirtualKTextEditorMessage) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorMessage*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__Message_Metacall(KTextEditor__Message* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__message = dynamic_cast<VirtualKTextEditorMessage*>(self);
-    if (vktexteditor__message && vktexteditor__message->isVirtualKTextEditorMessage) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorMessage*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KTextEditor__Message_Text(const KTextEditor__Message* self) {

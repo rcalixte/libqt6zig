@@ -52,30 +52,15 @@ KNSWidgets__Dialog* KNSWidgets__Dialog_new2(const libqt_string configFile, QWidg
 }
 
 QMetaObject* KNSWidgets__Dialog_MetaObject(const KNSWidgets__Dialog* self) {
-    auto* vknswidgets__dialog = dynamic_cast<const VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgets__dialog && vknswidgets__dialog->isVirtualKNSWidgetsDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSWidgetsDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSWidgets__Dialog_Metacast(KNSWidgets__Dialog* self, const char* param1) {
-    auto* vknswidgets__dialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgets__dialog && vknswidgets__dialog->isVirtualKNSWidgetsDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSWidgetsDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSWidgets__Dialog_Metacall(KNSWidgets__Dialog* self, int param1, int param2, void** param3) {
-    auto* vknswidgets__dialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgets__dialog && vknswidgets__dialog->isVirtualKNSWidgetsDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSWidgetsDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KNSCore__EngineBase* KNSWidgets__Dialog_Engine(KNSWidgets__Dialog* self) {
@@ -96,12 +81,7 @@ libqt_list /* of KNSCore__Entry* */ KNSWidgets__Dialog_ChangedEntries(const KNSW
 }
 
 void KNSWidgets__Dialog_Open(KNSWidgets__Dialog* self) {
-    auto* vknswidgets__dialog = dynamic_cast<VirtualKNSWidgetsDialog*>(self);
-    if (vknswidgets__dialog && vknswidgets__dialog->isVirtualKNSWidgetsDialog) {
-        self->open();
-    } else {
-        ((VirtualKNSWidgetsDialog*)self)->open();
-    }
+    self->open();
 }
 
 // Base class handler implementation

@@ -64,30 +64,15 @@ QPrintPreviewDialog* QPrintPreviewDialog_new6(QPrinter* printer, QWidget* parent
 }
 
 QMetaObject* QPrintPreviewDialog_MetaObject(const QPrintPreviewDialog* self) {
-    auto* vqprintpreviewdialog = dynamic_cast<const VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPrintPreviewDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPrintPreviewDialog_Metacast(QPrintPreviewDialog* self, const char* param1) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPrintPreviewDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPrintPreviewDialog_Metacall(QPrintPreviewDialog* self, int param1, int param2, void** param3) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPrintPreviewDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPrinter* QPrintPreviewDialog_Printer(QPrintPreviewDialog* self) {
@@ -95,21 +80,11 @@ QPrinter* QPrintPreviewDialog_Printer(QPrintPreviewDialog* self) {
 }
 
 void QPrintPreviewDialog_SetVisible(QPrintPreviewDialog* self, bool visible) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQPrintPreviewDialog*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QPrintPreviewDialog_Done(QPrintPreviewDialog* self, int result) {
-    auto* vqprintpreviewdialog = dynamic_cast<VirtualQPrintPreviewDialog*>(self);
-    if (vqprintpreviewdialog && vqprintpreviewdialog->isVirtualQPrintPreviewDialog) {
-        self->done(static_cast<int>(result));
-    } else {
-        ((VirtualQPrintPreviewDialog*)self)->done(static_cast<int>(result));
-    }
+    self->done(static_cast<int>(result));
 }
 
 void QPrintPreviewDialog_PaintRequested(QPrintPreviewDialog* self, QPrinter* printer) {

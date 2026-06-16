@@ -31,30 +31,15 @@ KLinkItemSelectionModel* KLinkItemSelectionModel_new4(QObject* parent) {
 }
 
 QMetaObject* KLinkItemSelectionModel_MetaObject(const KLinkItemSelectionModel* self) {
-    auto* vklinkitemselectionmodel = dynamic_cast<const VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLinkItemSelectionModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLinkItemSelectionModel_Metacast(KLinkItemSelectionModel* self, const char* param1) {
-    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLinkItemSelectionModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLinkItemSelectionModel_Metacall(KLinkItemSelectionModel* self, int param1, int param2, void** param3) {
-    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLinkItemSelectionModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QItemSelectionModel* KLinkItemSelectionModel_LinkedItemSelectionModel(const KLinkItemSelectionModel* self) {
@@ -66,21 +51,11 @@ void KLinkItemSelectionModel_SetLinkedItemSelectionModel(KLinkItemSelectionModel
 }
 
 void KLinkItemSelectionModel_Select(KLinkItemSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
-        self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualKLinkItemSelectionModel*)self)->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 void KLinkItemSelectionModel_Select2(KLinkItemSelectionModel* self, const QItemSelection* selection, int command) {
-    auto* vklinkitemselectionmodel = dynamic_cast<VirtualKLinkItemSelectionModel*>(self);
-    if (vklinkitemselectionmodel && vklinkitemselectionmodel->isVirtualKLinkItemSelectionModel) {
-        self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualKLinkItemSelectionModel*)self)->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 void KLinkItemSelectionModel_LinkedItemSelectionModelChanged(KLinkItemSelectionModel* self) {

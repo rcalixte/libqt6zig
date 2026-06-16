@@ -20,111 +20,52 @@ KTextEditor__InlineNoteProvider* KTextEditor__InlineNoteProvider_new() {
 }
 
 QMetaObject* KTextEditor__InlineNoteProvider_MetaObject(const KTextEditor__InlineNoteProvider* self) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTextEditorInlineNoteProvider*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTextEditor__InlineNoteProvider_Metacast(KTextEditor__InlineNoteProvider* self, const char* param1) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTextEditorInlineNoteProvider*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTextEditor__InlineNoteProvider_Metacall(KTextEditor__InlineNoteProvider* self, int param1, int param2, void** param3) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTextEditorInlineNoteProvider*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of int */ KTextEditor__InlineNoteProvider_InlineNotes(const KTextEditor__InlineNoteProvider* self, int line) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        QList<int> _ret = vktexteditor__inlinenoteprovider->inlineNotes(static_cast<int>(line));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<int> _ret = ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNotes(static_cast<int>(line));
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<int> _ret = self->inlineNotes(static_cast<int>(line));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QSize* KTextEditor__InlineNoteProvider_InlineNoteSize(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        return new QSize(vktexteditor__inlinenoteprovider->inlineNoteSize(*note));
-    } else {
-        return new QSize(((VirtualKTextEditorInlineNoteProvider*)self)->inlineNoteSize(*note));
-    }
+    return new QSize(self->inlineNoteSize(*note));
 }
 
 void KTextEditor__InlineNoteProvider_PaintInlineNote(const KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, QPainter* painter, int direction) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        vktexteditor__inlinenoteprovider->paintInlineNote(*note, *painter, static_cast<Qt::LayoutDirection>(direction));
-    } else {
-        ((VirtualKTextEditorInlineNoteProvider*)self)->paintInlineNote(*note, *painter, static_cast<Qt::LayoutDirection>(direction));
-    }
+    self->paintInlineNote(*note, *painter, static_cast<Qt::LayoutDirection>(direction));
 }
 
 void KTextEditor__InlineNoteProvider_InlineNoteActivated(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, int buttons, const QPoint* globalPos) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        self->inlineNoteActivated(*note, static_cast<Qt::MouseButtons>(buttons), *globalPos);
-    } else {
-        ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNoteActivated(*note, static_cast<Qt::MouseButtons>(buttons), *globalPos);
-    }
+    self->inlineNoteActivated(*note, static_cast<Qt::MouseButtons>(buttons), *globalPos);
 }
 
 void KTextEditor__InlineNoteProvider_InlineNoteFocusInEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, const QPoint* globalPos) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        self->inlineNoteFocusInEvent(*note, *globalPos);
-    } else {
-        ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNoteFocusInEvent(*note, *globalPos);
-    }
+    self->inlineNoteFocusInEvent(*note, *globalPos);
 }
 
 void KTextEditor__InlineNoteProvider_InlineNoteFocusOutEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        self->inlineNoteFocusOutEvent(*note);
-    } else {
-        ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNoteFocusOutEvent(*note);
-    }
+    self->inlineNoteFocusOutEvent(*note);
 }
 
 void KTextEditor__InlineNoteProvider_InlineNoteMouseMoveEvent(KTextEditor__InlineNoteProvider* self, const KTextEditor__InlineNote* note, const QPoint* globalPos) {
-    auto* vktexteditor__inlinenoteprovider = dynamic_cast<VirtualKTextEditorInlineNoteProvider*>(self);
-    if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
-        self->inlineNoteMouseMoveEvent(*note, *globalPos);
-    } else {
-        ((VirtualKTextEditorInlineNoteProvider*)self)->inlineNoteMouseMoveEvent(*note, *globalPos);
-    }
+    self->inlineNoteMouseMoveEvent(*note, *globalPos);
 }
 
 void KTextEditor__InlineNoteProvider_InlineNotesReset(KTextEditor__InlineNoteProvider* self) {

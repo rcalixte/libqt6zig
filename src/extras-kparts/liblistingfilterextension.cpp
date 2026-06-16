@@ -17,30 +17,15 @@ KParts__ListingFilterExtension* KParts__ListingFilterExtension_new(KParts__ReadO
 }
 
 QMetaObject* KParts__ListingFilterExtension_MetaObject(const KParts__ListingFilterExtension* self) {
-    auto* vkparts__listingfilterextension = dynamic_cast<const VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsListingFilterExtension*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__ListingFilterExtension_Metacast(KParts__ListingFilterExtension* self, const char* param1) {
-    auto* vkparts__listingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsListingFilterExtension*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__ListingFilterExtension_Metacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3) {
-    auto* vkparts__listingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsListingFilterExtension*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KParts__ListingFilterExtension* KParts__ListingFilterExtension_ChildObject(QObject* obj) {
@@ -48,39 +33,19 @@ KParts__ListingFilterExtension* KParts__ListingFilterExtension_ChildObject(QObje
 }
 
 int KParts__ListingFilterExtension_SupportedFilterModes(const KParts__ListingFilterExtension* self) {
-    auto* vkparts__listingfilterextension = dynamic_cast<const VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        return static_cast<int>(self->supportedFilterModes());
-    } else {
-        return static_cast<int>(((VirtualKPartsListingFilterExtension*)self)->supportedFilterModes());
-    }
+    return static_cast<int>(self->supportedFilterModes());
 }
 
 bool KParts__ListingFilterExtension_SupportsMultipleFilters(const KParts__ListingFilterExtension* self, int mode) {
-    auto* vkparts__listingfilterextension = dynamic_cast<const VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        return self->supportsMultipleFilters(static_cast<KParts::ListingFilterExtension::FilterMode>(mode));
-    } else {
-        return ((VirtualKPartsListingFilterExtension*)self)->supportsMultipleFilters(static_cast<KParts::ListingFilterExtension::FilterMode>(mode));
-    }
+    return self->supportsMultipleFilters(static_cast<KParts::ListingFilterExtension::FilterMode>(mode));
 }
 
 QVariant* KParts__ListingFilterExtension_Filter(const KParts__ListingFilterExtension* self, int mode) {
-    auto* vkparts__listingfilterextension = dynamic_cast<const VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        return new QVariant(vkparts__listingfilterextension->filter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode)));
-    } else {
-        return new QVariant(((VirtualKPartsListingFilterExtension*)self)->filter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode)));
-    }
+    return new QVariant(self->filter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode)));
 }
 
 void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter) {
-    auto* vkparts__listingfilterextension = dynamic_cast<VirtualKPartsListingFilterExtension*>(self);
-    if (vkparts__listingfilterextension && vkparts__listingfilterextension->isVirtualKPartsListingFilterExtension) {
-        vkparts__listingfilterextension->setFilter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode), *filter);
-    } else {
-        ((VirtualKPartsListingFilterExtension*)self)->setFilter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode), *filter);
-    }
+    self->setFilter(static_cast<KParts::ListingFilterExtension::FilterMode>(mode), *filter);
 }
 
 // Base class handler implementation

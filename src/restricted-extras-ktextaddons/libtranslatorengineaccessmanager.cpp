@@ -20,30 +20,15 @@ TextTranslator__TranslatorEngineAccessManager* TextTranslator__TranslatorEngineA
 }
 
 QMetaObject* TextTranslator__TranslatorEngineAccessManager_MetaObject(const TextTranslator__TranslatorEngineAccessManager* self) {
-    auto* vtexttranslator__translatorengineaccessmanager = dynamic_cast<const VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslator__translatorengineaccessmanager && vtexttranslator__translatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextTranslator__TranslatorEngineAccessManager_Metacast(TextTranslator__TranslatorEngineAccessManager* self, const char* param1) {
-    auto* vtexttranslator__translatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslator__translatorengineaccessmanager && vtexttranslator__translatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextTranslator__TranslatorEngineAccessManager_Metacall(TextTranslator__TranslatorEngineAccessManager* self, int param1, int param2, void** param3) {
-    auto* vtexttranslator__translatorengineaccessmanager = dynamic_cast<VirtualTextTranslatorTranslatorEngineAccessManager*>(self);
-    if (vtexttranslator__translatorengineaccessmanager && vtexttranslator__translatorengineaccessmanager->isVirtualTextTranslatorTranslatorEngineAccessManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextTranslatorTranslatorEngineAccessManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextTranslator__TranslatorEngineAccessManager* TextTranslator__TranslatorEngineAccessManager_Self() {

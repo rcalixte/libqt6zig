@@ -25,30 +25,15 @@ QImageCapture* QImageCapture_new2(QObject* parent) {
 }
 
 QMetaObject* QImageCapture_MetaObject(const QImageCapture* self) {
-    auto* vqimagecapture = dynamic_cast<const VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQImageCapture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QImageCapture_Metacast(QImageCapture* self, const char* param1) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQImageCapture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QImageCapture_Metacall(QImageCapture* self, int param1, int param2, void** param3) {
-    auto* vqimagecapture = dynamic_cast<VirtualQImageCapture*>(self);
-    if (vqimagecapture && vqimagecapture->isVirtualQImageCapture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQImageCapture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QImageCapture_IsAvailable(const QImageCapture* self) {

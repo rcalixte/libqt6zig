@@ -18,14 +18,14 @@ pub const KLanguageName = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` code: []const u8 `
     ///
-    pub fn NameForCode(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn NameForCode(allocator: std.mem.Allocator, code: []const u8) []const u8 {
+        const code_str = qtc.libqt_string{
+            .len = code.len,
+            .data = code.ptr,
         };
-        var _str = qtc.KLanguageName_NameForCode(param1_str);
+        var _str = qtc.KLanguageName_NameForCode(code_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klanguagename.NameForCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -38,20 +38,20 @@ pub const KLanguageName = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: []const u8 `
+    /// ` code: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` outputLocale: []const u8 `
     ///
-    pub fn NameForCodeInLocale(allocator: std.mem.Allocator, param1: []const u8, param2: []const u8) []const u8 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn NameForCodeInLocale(allocator: std.mem.Allocator, code: []const u8, outputLocale: []const u8) []const u8 {
+        const code_str = qtc.libqt_string{
+            .len = code.len,
+            .data = code.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const outputLocale_str = qtc.libqt_string{
+            .len = outputLocale.len,
+            .data = outputLocale.ptr,
         };
-        var _str = qtc.KLanguageName_NameForCodeInLocale(param1_str, param2_str);
+        var _str = qtc.KLanguageName_NameForCodeInLocale(code_str, outputLocale_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klanguagename.NameForCodeInLocale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

@@ -10,12 +10,7 @@ QAbstractNativeEventFilter* QAbstractNativeEventFilter_new() {
 
 bool QAbstractNativeEventFilter_NativeEventFilter(QAbstractNativeEventFilter* self, const libqt_string eventType, void* message, intptr_t* result) {
     QByteArray eventType_QByteArray(eventType.data, eventType.len);
-    auto* vqabstractnativeeventfilter = dynamic_cast<VirtualQAbstractNativeEventFilter*>(self);
-    if (vqabstractnativeeventfilter && vqabstractnativeeventfilter->isVirtualQAbstractNativeEventFilter) {
-        return vqabstractnativeeventfilter->nativeEventFilter(eventType_QByteArray, message, (qintptr*)(result));
-    } else {
-        return ((VirtualQAbstractNativeEventFilter*)self)->nativeEventFilter(eventType_QByteArray, message, (qintptr*)(result));
-    }
+    return self->nativeEventFilter(eventType_QByteArray, message, (qintptr*)(result));
 }
 
 // Base class handler implementation

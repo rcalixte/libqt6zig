@@ -22,30 +22,15 @@ QMediaDevices* QMediaDevices_new2(QObject* parent) {
 }
 
 QMetaObject* QMediaDevices_MetaObject(const QMediaDevices* self) {
-    auto* vqmediadevices = dynamic_cast<const VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQMediaDevices*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QMediaDevices_Metacast(QMediaDevices* self, const char* param1) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQMediaDevices*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QMediaDevices_Metacall(QMediaDevices* self, int param1, int param2, void** param3) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQMediaDevices*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioInputs() {

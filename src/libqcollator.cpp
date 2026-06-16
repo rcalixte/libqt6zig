@@ -107,9 +107,9 @@ bool QCollator_OperatorCall2(const QCollator* self, libqt_string s1, libqt_strin
     return self->operator()(s1_QString, s2_QString);
 }
 
-QCollatorSortKey* QCollator_SortKey(const QCollator* self, const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QCollatorSortKey(self->sortKey(stringVal_QString));
+QCollatorSortKey* QCollator_SortKey(const QCollator* self, const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QCollatorSortKey(self->sortKey(string_QString));
 }
 
 int QCollator_DefaultCompare(libqt_string s1, libqt_string s2) {

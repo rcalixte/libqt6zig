@@ -30,30 +30,15 @@ KPageModel* KPageModel_new2(QObject* parent) {
 }
 
 QMetaObject* KPageModel_MetaObject(const KPageModel* self) {
-    auto* vkpagemodel = dynamic_cast<const VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPageModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPageModel_Metacast(KPageModel* self, const char* param1) {
-    auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPageModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPageModel_Metacall(KPageModel* self, int param1, int param2, void** param3) {
-    auto* vkpagemodel = dynamic_cast<VirtualKPageModel*>(self);
-    if (vkpagemodel && vkpagemodel->isVirtualKPageModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

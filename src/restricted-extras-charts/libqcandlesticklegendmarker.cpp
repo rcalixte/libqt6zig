@@ -22,48 +22,23 @@ QCandlestickLegendMarker* QCandlestickLegendMarker_new2(QCandlestickSeries* seri
 }
 
 QMetaObject* QCandlestickLegendMarker_MetaObject(const QCandlestickLegendMarker* self) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<const VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCandlestickLegendMarker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCandlestickLegendMarker_Metacast(QCandlestickLegendMarker* self, const char* param1) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCandlestickLegendMarker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCandlestickLegendMarker_Metacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCandlestickLegendMarker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCandlestickLegendMarker_Type(QCandlestickLegendMarker* self) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQCandlestickLegendMarker*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 QCandlestickSeries* QCandlestickLegendMarker_Series(QCandlestickLegendMarker* self) {
-    auto* vqcandlesticklegendmarker = dynamic_cast<VirtualQCandlestickLegendMarker*>(self);
-    if (vqcandlesticklegendmarker && vqcandlesticklegendmarker->isVirtualQCandlestickLegendMarker) {
-        return self->series();
-    } else {
-        return ((VirtualQCandlestickLegendMarker*)self)->series();
-    }
+    return self->series();
 }
 
 // Base class handler implementation

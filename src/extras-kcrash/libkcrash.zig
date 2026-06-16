@@ -26,20 +26,20 @@ pub const KCrash = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i32 `
+    /// ` signal: i32 `
     ///
-    pub fn DefaultCrashHandler(param1: i32) void {
-        qtc.KCrash_DefaultCrashHandler(@bitCast(param1));
+    pub fn DefaultCrashHandler(signal: i32) void {
+        qtc.KCrash_DefaultCrashHandler(@bitCast(signal));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setCrashHandler)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: *const fn (funcparam1: i32) callconv(.c) void `
+    /// ` handler: *const fn (funcparam1: i32) callconv(.c) void `
     ///
-    pub fn SetCrashHandler(param1: *const fn (i32) callconv(.c) void) void {
-        qtc.KCrash_SetCrashHandler(@bitCast(@intFromPtr(param1)));
+    pub fn SetCrashHandler(handler: *const fn (i32) callconv(.c) void) void {
+        qtc.KCrash_SetCrashHandler(@bitCast(@intFromPtr(handler)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#crashHandler)
@@ -56,10 +56,10 @@ pub const KCrash = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: *const fn (funcparam1: i32) callconv(.c) void `
+    /// ` saveFunction: *const fn (funcparam1: i32) callconv(.c) void `
     ///
-    pub fn SetEmergencySaveFunction(param1: *const fn (i32) callconv(.c) void) void {
-        qtc.KCrash_SetEmergencySaveFunction(@bitCast(@intFromPtr(param1)));
+    pub fn SetEmergencySaveFunction(saveFunction: *const fn (i32) callconv(.c) void) void {
+        qtc.KCrash_SetEmergencySaveFunction(@bitCast(@intFromPtr(saveFunction)));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#emergencySaveFunction)
@@ -76,20 +76,20 @@ pub const KCrash = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: flag of kcrash_enums.CrashFlag `
+    /// ` flags: flag of kcrash_enums.CrashFlag `
     ///
-    pub fn SetFlags(param1: i32) void {
-        qtc.KCrash_SetFlags(@bitCast(param1));
+    pub fn SetFlags(flags: i32) void {
+        qtc.KCrash_SetFlags(@bitCast(flags));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setDrKonqiEnabled)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: bool `
+    /// ` enabled: bool `
     ///
-    pub fn SetDrKonqiEnabled(param1: bool) void {
-        qtc.KCrash_SetDrKonqiEnabled(param1);
+    pub fn SetDrKonqiEnabled(enabled: bool) void {
+        qtc.KCrash_SetDrKonqiEnabled(enabled);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#isDrKonqiEnabled)
@@ -102,14 +102,14 @@ pub const KCrash = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` message: []const u8 `
     ///
-    pub fn SetErrorMessage(param1: []const u8) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn SetErrorMessage(message: []const u8) void {
+        const message_str = qtc.libqt_string{
+            .len = message.len,
+            .data = message.ptr,
         };
-        qtc.KCrash_SetErrorMessage(param1_str);
+        qtc.KCrash_SetErrorMessage(message_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorTags)
@@ -118,34 +118,34 @@ pub const KCrash = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: Map_constu8_constu8 `
+    /// ` details: Map_constu8_constu8 `
     ///
-    pub fn SetErrorTags(allocator: std.mem.Allocator, param1: Map_constu8_constu8) void {
-        const param1_count = param1.count();
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
-        defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
-        defer allocator.free(param1_values);
+    pub fn SetErrorTags(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
+        const details_count = details.count();
+        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
+        defer allocator.free(details_keys);
+        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
+        defer allocator.free(details_values);
         var i: usize = 0;
-        var param1_it = param1.iterator();
-        while (param1_it.next()) |it_entry| : (i += 1) {
-            const param1_key = it_entry.key_ptr.*;
-            param1_keys[i] = qtc.libqt_string{
-                .len = param1_key.len,
-                .data = param1_key.ptr,
+        var details_it = details.iterator();
+        while (details_it.next()) |it_entry| : (i += 1) {
+            const details_key = it_entry.key_ptr.*;
+            details_keys[i] = qtc.libqt_string{
+                .len = details_key.len,
+                .data = details_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            param1_values[i] = qtc.libqt_string{
+            details_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
-        const param1_map = qtc.libqt_map{
-            .len = param1_count,
-            .keys = @ptrCast(param1_keys.ptr),
-            .values = @ptrCast(param1_values.ptr),
+        const details_map = qtc.libqt_map{
+            .len = details_count,
+            .keys = @ptrCast(details_keys.ptr),
+            .values = @ptrCast(details_values.ptr),
         };
-        qtc.KCrash_SetErrorTags(param1_map);
+        qtc.KCrash_SetErrorTags(details_map);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setErrorExtraData)
@@ -154,34 +154,34 @@ pub const KCrash = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: Map_constu8_constu8 `
+    /// ` details: Map_constu8_constu8 `
     ///
-    pub fn SetErrorExtraData(allocator: std.mem.Allocator, param1: Map_constu8_constu8) void {
-        const param1_count = param1.count();
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
-        defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
-        defer allocator.free(param1_values);
+    pub fn SetErrorExtraData(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
+        const details_count = details.count();
+        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
+        defer allocator.free(details_keys);
+        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
+        defer allocator.free(details_values);
         var i: usize = 0;
-        var param1_it = param1.iterator();
-        while (param1_it.next()) |it_entry| : (i += 1) {
-            const param1_key = it_entry.key_ptr.*;
-            param1_keys[i] = qtc.libqt_string{
-                .len = param1_key.len,
-                .data = param1_key.ptr,
+        var details_it = details.iterator();
+        while (details_it.next()) |it_entry| : (i += 1) {
+            const details_key = it_entry.key_ptr.*;
+            details_keys[i] = qtc.libqt_string{
+                .len = details_key.len,
+                .data = details_key.ptr,
             };
             const value = it_entry.value_ptr.*;
-            param1_values[i] = qtc.libqt_string{
+            details_values[i] = qtc.libqt_string{
                 .len = value.len,
                 .data = value.ptr,
             };
         }
-        const param1_map = qtc.libqt_map{
-            .len = param1_count,
-            .keys = @ptrCast(param1_keys.ptr),
-            .values = @ptrCast(param1_values.ptr),
+        const details_map = qtc.libqt_map{
+            .len = details_count,
+            .keys = @ptrCast(details_keys.ptr),
+            .values = @ptrCast(details_values.ptr),
         };
-        qtc.KCrash_SetErrorExtraData(param1_map);
+        qtc.KCrash_SetErrorExtraData(details_map);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcrash.html#setGPUData)
@@ -190,30 +190,30 @@ pub const KCrash = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: Map_constu8_QVariant `
+    /// ` data: Map_constu8_QVariant `
     ///
-    pub fn SetGPUData(allocator: std.mem.Allocator, param1: Map_constu8_QVariant) void {
-        const param1_count = param1.count();
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
-        defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
-        defer allocator.free(param1_values);
+    pub fn SetGPUData(allocator: std.mem.Allocator, data: Map_constu8_QVariant) void {
+        const data_count = data.count();
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
+        defer allocator.free(data_keys);
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
+        defer allocator.free(data_values);
         var i: usize = 0;
-        var param1_it = param1.iterator();
-        while (param1_it.next()) |it_entry| : (i += 1) {
-            const param1_key = it_entry.key_ptr.*;
-            param1_keys[i] = qtc.libqt_string{
-                .len = param1_key.len,
-                .data = param1_key.ptr,
+        var data_it = data.iterator();
+        while (data_it.next()) |it_entry| : (i += 1) {
+            const data_key = it_entry.key_ptr.*;
+            data_keys[i] = qtc.libqt_string{
+                .len = data_key.len,
+                .data = data_key.ptr,
             };
-            param1_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            data_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
-        const param1_map = qtc.libqt_map{
-            .len = param1_count,
-            .keys = @ptrCast(param1_keys.ptr),
-            .values = @ptrCast(param1_values.ptr),
+        const data_map = qtc.libqt_map{
+            .len = data_count,
+            .keys = @ptrCast(data_keys.ptr),
+            .values = @ptrCast(data_values.ptr),
         };
-        qtc.KCrash_SetGPUData(param1_map);
+        qtc.KCrash_SetGPUData(data_map);
     }
 };
 

@@ -47,9 +47,9 @@ void KIO__StatJob_PermanentRedirection(KIO__StatJob* self, KIO__Job* job, const 
 void KIO__StatJob_Connect_PermanentRedirection(KIO__StatJob* self, intptr_t slot);
 void KIO__StatJob_Delete(KIO__StatJob* self);
 
-KIO__StatJob* KIO_Stat(const QUrl* param1, int param2);
-KIO__StatJob* KIO_Stat2(const QUrl* param1, int param2, int param3, int param4);
-KIO__StatJob* KIO_MostLocalUrl(const QUrl* param1, int param2);
+KIO__StatJob* KIO_Stat(const QUrl* url, int flags);
+KIO__StatJob* KIO_Stat2(const QUrl* url, int side, int details, int flags);
+KIO__StatJob* KIO_MostLocalUrl(const QUrl* url, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

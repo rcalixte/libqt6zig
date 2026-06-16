@@ -22,30 +22,15 @@ KTwoFingerSwipe* KTwoFingerSwipe_new2(QObject* parent) {
 }
 
 QMetaObject* KTwoFingerSwipe_MetaObject(const KTwoFingerSwipe* self) {
-    auto* vktwofingerswipe = dynamic_cast<const VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKTwoFingerSwipe*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KTwoFingerSwipe_Metacast(KTwoFingerSwipe* self, const char* param1) {
-    auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKTwoFingerSwipe*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KTwoFingerSwipe_Metacall(KTwoFingerSwipe* self, int param1, int param2, void** param3) {
-    auto* vktwofingerswipe = dynamic_cast<VirtualKTwoFingerSwipe*>(self);
-    if (vktwofingerswipe && vktwofingerswipe->isVirtualKTwoFingerSwipe) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKTwoFingerSwipe*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPointF* KTwoFingerSwipe_Pos(const KTwoFingerSwipe* self) {
@@ -465,21 +450,11 @@ KTwoFingerSwipeRecognizer* KTwoFingerSwipeRecognizer_new() {
 }
 
 QGesture* KTwoFingerSwipeRecognizer_Create(KTwoFingerSwipeRecognizer* self, QObject* target) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        return self->create(target);
-    } else {
-        return ((VirtualKTwoFingerSwipeRecognizer*)self)->create(target);
-    }
+    return self->create(target);
 }
 
 int KTwoFingerSwipeRecognizer_Recognize(KTwoFingerSwipeRecognizer* self, QGesture* gesture, QObject* watched, QEvent* event) {
-    auto* vktwofingerswiperecognizer = dynamic_cast<VirtualKTwoFingerSwipeRecognizer*>(self);
-    if (vktwofingerswiperecognizer && vktwofingerswiperecognizer->isVirtualKTwoFingerSwipeRecognizer) {
-        return static_cast<int>(self->recognize(gesture, watched, event));
-    } else {
-        return static_cast<int>(((VirtualKTwoFingerSwipeRecognizer*)self)->recognize(gesture, watched, event));
-    }
+    return static_cast<int>(self->recognize(gesture, watched, event));
 }
 
 int KTwoFingerSwipeRecognizer_MaxSwipeTime(const KTwoFingerSwipeRecognizer* self) {

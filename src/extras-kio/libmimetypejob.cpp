@@ -30,6 +30,6 @@ void KIO__MimetypeJob_Delete(KIO__MimetypeJob* self) {
     delete self;
 }
 
-KIO__MimetypeJob* KIO_Mimetype(const QUrl* param1, int param2) {
-    return KIO::mimetype(*param1, static_cast<KIO::JobFlags>(param2));
+KIO__MimetypeJob* KIO_Mimetype(const QUrl* url, int flags) {
+    return KIO::mimetype(*url, static_cast<KIO::JobFlags>(flags));
 }

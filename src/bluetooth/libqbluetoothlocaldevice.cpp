@@ -30,30 +30,15 @@ QBluetoothLocalDevice* QBluetoothLocalDevice_new4(const QBluetoothAddress* addre
 }
 
 QMetaObject* QBluetoothLocalDevice_MetaObject(const QBluetoothLocalDevice* self) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<const VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBluetoothLocalDevice*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBluetoothLocalDevice_Metacast(QBluetoothLocalDevice* self, const char* param1) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBluetoothLocalDevice_Metacall(QBluetoothLocalDevice* self, int param1, int param2, void** param3) {
-    auto* vqbluetoothlocaldevice = dynamic_cast<VirtualQBluetoothLocalDevice*>(self);
-    if (vqbluetoothlocaldevice && vqbluetoothlocaldevice->isVirtualQBluetoothLocalDevice) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBluetoothLocalDevice*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QBluetoothLocalDevice_IsValid(const QBluetoothLocalDevice* self) {

@@ -63,14 +63,14 @@ void KCharMacroExpander_OnExpandMacro(KCharMacroExpander* self, intptr_t slot);
 bool KCharMacroExpander_SuperExpandMacro(KCharMacroExpander* self, QChar* chr, libqt_list /* of libqt_string */ retVal);
 void KCharMacroExpander_Delete(KCharMacroExpander* self);
 
-libqt_string KMacroExpander_ExpandMacros(const libqt_string param1, const libqt_map /* of QChar* to libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacrosShellQuote(const libqt_string param1, const libqt_map /* of QChar* to libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacros2(const libqt_string param1, const libqt_map /* of libqt_string to libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string param1, const libqt_map /* of libqt_string to libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3);
-libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3);
+libqt_string KMacroExpander_ExpandMacros(const libqt_string str, const libqt_map /* of QChar* to libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacrosShellQuote(const libqt_string str, const libqt_map /* of QChar* to libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacros2(const libqt_string str, const libqt_map /* of libqt_string to libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string str, const libqt_map /* of libqt_string to libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacros3(const libqt_string str, const libqt_map /* of QChar* to libqt_list of libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacros4(const libqt_string str, const libqt_map /* of libqt_string to libqt_list of libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string str, const libqt_map /* of QChar* to libqt_list of libqt_string */ map, QChar* c);
+libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string str, const libqt_map /* of libqt_string to libqt_list of libqt_string */ map, QChar* c);
 
 #ifdef __cplusplus
 } /* extern C */

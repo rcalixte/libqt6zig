@@ -39,30 +39,15 @@ QCamera* QCamera_new6(int position, QObject* parent) {
 }
 
 QMetaObject* QCamera_MetaObject(const QCamera* self) {
-    auto* vqcamera = dynamic_cast<const VirtualQCamera*>(self);
-    if (vqcamera && vqcamera->isVirtualQCamera) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCamera*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCamera_Metacast(QCamera* self, const char* param1) {
-    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
-    if (vqcamera && vqcamera->isVirtualQCamera) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCamera*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCamera_Metacall(QCamera* self, int param1, int param2, void** param3) {
-    auto* vqcamera = dynamic_cast<VirtualQCamera*>(self);
-    if (vqcamera && vqcamera->isVirtualQCamera) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCamera*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QCamera_IsAvailable(const QCamera* self) {

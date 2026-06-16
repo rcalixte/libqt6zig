@@ -21,30 +21,15 @@ QPdfPageNavigator* QPdfPageNavigator_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfPageNavigator_MetaObject(const QPdfPageNavigator* self) {
-    auto* vqpdfpagenavigator = dynamic_cast<const VirtualQPdfPageNavigator*>(self);
-    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPdfPageNavigator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPdfPageNavigator_Metacast(QPdfPageNavigator* self, const char* param1) {
-    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
-    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPdfPageNavigator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPdfPageNavigator_Metacall(QPdfPageNavigator* self, int param1, int param2, void** param3) {
-    auto* vqpdfpagenavigator = dynamic_cast<VirtualQPdfPageNavigator*>(self);
-    if (vqpdfpagenavigator && vqpdfpagenavigator->isVirtualQPdfPageNavigator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfPageNavigator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QPdfPageNavigator_CurrentPage(const QPdfPageNavigator* self) {

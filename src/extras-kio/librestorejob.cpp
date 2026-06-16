@@ -41,12 +41,12 @@ void KIO__RestoreJob_Delete(KIO__RestoreJob* self) {
     delete self;
 }
 
-KIO__RestoreJob* KIO_RestoreFromTrash(const libqt_list /* of QUrl* */ param1, int param2) {
-    QList<QUrl> param1_QList;
-    param1_QList.reserve(param1.len);
-    QUrl** param1_arr = static_cast<QUrl**>(param1.data);
-    for (size_t i = 0; i < param1.len; ++i) {
-        param1_QList.push_back(*(param1_arr[i]));
+KIO__RestoreJob* KIO_RestoreFromTrash(const libqt_list /* of QUrl* */ urls, int flags) {
+    QList<QUrl> urls_QList;
+    urls_QList.reserve(urls.len);
+    QUrl** urls_arr = static_cast<QUrl**>(urls.data);
+    for (size_t i = 0; i < urls.len; ++i) {
+        urls_QList.push_back(*(urls_arr[i]));
     }
-    return KIO::restoreFromTrash(param1_QList, static_cast<KIO::JobFlags>(param2));
+    return KIO::restoreFromTrash(urls_QList, static_cast<KIO::JobFlags>(flags));
 }

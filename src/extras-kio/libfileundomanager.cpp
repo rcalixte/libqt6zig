@@ -169,30 +169,15 @@ QWidget* KIO__FileUndoManager__UiInterface_ParentWidget(const KIO__FileUndoManag
 }
 
 void KIO__FileUndoManager__UiInterface_JobError(KIO__FileUndoManager__UiInterface* self, KIO__Job* job) {
-    auto* vkio__fileundomanager__uiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
-    if (vkio__fileundomanager__uiinterface && vkio__fileundomanager__uiinterface->isVirtualKIOFileUndoManagerUiInterface) {
-        self->jobError(job);
-    } else {
-        ((VirtualKIOFileUndoManagerUiInterface*)self)->jobError(job);
-    }
+    self->jobError(job);
 }
 
 bool KIO__FileUndoManager__UiInterface_CopiedFileWasModified(KIO__FileUndoManager__UiInterface* self, const QUrl* src, const QUrl* dest, const QDateTime* srcTime, const QDateTime* destTime) {
-    auto* vkio__fileundomanager__uiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
-    if (vkio__fileundomanager__uiinterface && vkio__fileundomanager__uiinterface->isVirtualKIOFileUndoManagerUiInterface) {
-        return self->copiedFileWasModified(*src, *dest, *srcTime, *destTime);
-    } else {
-        return ((VirtualKIOFileUndoManagerUiInterface*)self)->copiedFileWasModified(*src, *dest, *srcTime, *destTime);
-    }
+    return self->copiedFileWasModified(*src, *dest, *srcTime, *destTime);
 }
 
 void KIO__FileUndoManager__UiInterface_VirtualHook(KIO__FileUndoManager__UiInterface* self, int id, void* data) {
-    auto* vkio__fileundomanager__uiinterface = dynamic_cast<VirtualKIOFileUndoManagerUiInterface*>(self);
-    if (vkio__fileundomanager__uiinterface && vkio__fileundomanager__uiinterface->isVirtualKIOFileUndoManagerUiInterface) {
-        self->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKIOFileUndoManagerUiInterface*)self)->virtual_hook(static_cast<int>(id), data);
-    }
+    self->virtual_hook(static_cast<int>(id), data);
 }
 
 // Base class handler implementation

@@ -42,6 +42,6 @@ void KIO__MkpathJob_Delete(KIO__MkpathJob* self) {
     delete self;
 }
 
-KIO__MkpathJob* KIO_Mkpath(const QUrl* param1, const QUrl* param2, int param3) {
-    return KIO::mkpath(*param1, *param2, static_cast<KIO::JobFlags>(param3));
+KIO__MkpathJob* KIO_Mkpath(const QUrl* url, const QUrl* baseUrl, int flags) {
+    return KIO::mkpath(*url, *baseUrl, static_cast<KIO::JobFlags>(flags));
 }

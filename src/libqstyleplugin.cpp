@@ -20,40 +20,20 @@ QStylePlugin* QStylePlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QStylePlugin_MetaObject(const QStylePlugin* self) {
-    auto* vqstyleplugin = dynamic_cast<const VirtualQStylePlugin*>(self);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQStylePlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QStylePlugin_Metacast(QStylePlugin* self, const char* param1) {
-    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQStylePlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QStylePlugin_Metacall(QStylePlugin* self, int param1, int param2, void** param3) {
-    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQStylePlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QStyle* QStylePlugin_Create(QStylePlugin* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
-    auto* vqstyleplugin = dynamic_cast<VirtualQStylePlugin*>(self);
-    if (vqstyleplugin && vqstyleplugin->isVirtualQStylePlugin) {
-        return vqstyleplugin->create(key_QString);
-    } else {
-        return ((VirtualQStylePlugin*)self)->create(key_QString);
-    }
+    return self->create(key_QString);
 }
 
 // Base class handler implementation

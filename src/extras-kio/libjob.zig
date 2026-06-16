@@ -19,16 +19,16 @@ pub const KIO = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: i32 `
+    /// ` errorCode: i32 `
     ///
-    /// ` param2: []const u8 `
+    /// ` errorText: []const u8 `
     ///
-    pub fn BuildErrorString(allocator: std.mem.Allocator, param1: i32, param2: []const u8) []const u8 {
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn BuildErrorString(allocator: std.mem.Allocator, errorCode: i32, errorText: []const u8) []const u8 {
+        const errorText_str = qtc.libqt_string{
+            .len = errorText.len,
+            .data = errorText.ptr,
         };
-        var _str = qtc.KIO_BuildErrorString(@bitCast(param1), param2_str);
+        var _str = qtc.KIO_BuildErrorString(@bitCast(errorCode), errorText_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.BuildErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -41,21 +41,21 @@ pub const KIO = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: i32 `
+    /// ` errorCode: i32 `
     ///
-    /// ` param2: []const u8 `
+    /// ` errorText: []const u8 `
     ///
-    /// ` param3: QUrl `
+    /// ` reqUrl: QUrl `
     ///
-    /// ` param4: i32 `
+    /// ` method: i32 `
     ///
-    pub fn RawErrorDetail(allocator: std.mem.Allocator, param1: i32, param2: []const u8, param3: anytype, param4: i32) []u8 {
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn RawErrorDetail(allocator: std.mem.Allocator, errorCode: i32, errorText: []const u8, reqUrl: anytype, method: i32) []u8 {
+        const errorText_str = qtc.libqt_string{
+            .len = errorText.len,
+            .data = errorText.ptr,
         };
-        comptime _ = @TypeOf(param3)._is_QUrl;
-        var _bytearray: qtc.libqt_string = qtc.KIO_RawErrorDetail(@bitCast(param1), param2_str, @ptrCast(param3.ptr), @bitCast(param4));
+        comptime _ = @TypeOf(reqUrl)._is_QUrl;
+        var _bytearray: qtc.libqt_string = qtc.KIO_RawErrorDetail(@bitCast(errorCode), errorText_str, @ptrCast(reqUrl.ptr), @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kio.RawErrorDetail: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

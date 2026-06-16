@@ -23,146 +23,68 @@ KUrlCompletion* KUrlCompletion_new2(int param1) {
 }
 
 QMetaObject* KUrlCompletion_MetaObject(const KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlCompletion*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlCompletion_Metacast(KUrlCompletion* self, const char* param1) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlCompletion*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlCompletion_Metacall(KUrlCompletion* self, int param1, int param2, void** param3) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlCompletion*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KUrlCompletion_MakeCompletion(KUrlCompletion* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        auto _ret = self->makeCompletion(text_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualKUrlCompletion*)self)->makeCompletion(text_QString);
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->makeCompletion(text_QString);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void KUrlCompletion_SetDir(KUrlCompletion* self, const QUrl* dir) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        self->setDir(*dir);
-    } else {
-        ((VirtualKUrlCompletion*)self)->setDir(*dir);
-    }
+    self->setDir(*dir);
 }
 
 QUrl* KUrlCompletion_Dir(const KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return new QUrl(self->dir());
-    } else {
-        return new QUrl(((VirtualKUrlCompletion*)self)->dir());
-    }
+    return new QUrl(self->dir());
 }
 
 bool KUrlCompletion_IsRunning(const KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return self->isRunning();
-    } else {
-        return ((VirtualKUrlCompletion*)self)->isRunning();
-    }
+    return self->isRunning();
 }
 
 void KUrlCompletion_Stop(KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        self->stop();
-    } else {
-        ((VirtualKUrlCompletion*)self)->stop();
-    }
+    self->stop();
 }
 
 int KUrlCompletion_Mode(const KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return static_cast<int>(self->mode());
-    } else {
-        return static_cast<int>(((VirtualKUrlCompletion*)self)->mode());
-    }
+    return static_cast<int>(self->mode());
 }
 
 void KUrlCompletion_SetMode(KUrlCompletion* self, int mode) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        self->setMode(static_cast<KUrlCompletion::Mode>(mode));
-    } else {
-        ((VirtualKUrlCompletion*)self)->setMode(static_cast<KUrlCompletion::Mode>(mode));
-    }
+    self->setMode(static_cast<KUrlCompletion::Mode>(mode));
 }
 
 bool KUrlCompletion_ReplaceEnv(const KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return self->replaceEnv();
-    } else {
-        return ((VirtualKUrlCompletion*)self)->replaceEnv();
-    }
+    return self->replaceEnv();
 }
 
 void KUrlCompletion_SetReplaceEnv(KUrlCompletion* self, bool replace) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        self->setReplaceEnv(replace);
-    } else {
-        ((VirtualKUrlCompletion*)self)->setReplaceEnv(replace);
-    }
+    self->setReplaceEnv(replace);
 }
 
 bool KUrlCompletion_ReplaceHome(const KUrlCompletion* self) {
-    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        return self->replaceHome();
-    } else {
-        return ((VirtualKUrlCompletion*)self)->replaceHome();
-    }
+    return self->replaceHome();
 }
 
 void KUrlCompletion_SetReplaceHome(KUrlCompletion* self, bool replace) {
-    auto* vkurlcompletion = dynamic_cast<VirtualKUrlCompletion*>(self);
-    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
-        self->setReplaceHome(replace);
-    } else {
-        ((VirtualKUrlCompletion*)self)->setReplaceHome(replace);
-    }
+    self->setReplaceHome(replace);
 }
 
 libqt_string KUrlCompletion_ReplacedPath(const KUrlCompletion* self, const libqt_string text) {

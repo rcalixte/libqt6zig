@@ -35,30 +35,15 @@ KFontAction* KFontAction_new4(const QIcon* icon, const libqt_string text, QObjec
 }
 
 QMetaObject* KFontAction_MetaObject(const KFontAction* self) {
-    auto* vkfontaction = dynamic_cast<const VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFontAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFontAction_Metacast(KFontAction* self, const char* param1) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFontAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFontAction_Metacall(KFontAction* self, int param1, int param2, void** param3) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KFontAction_Font(const KFontAction* self) {
@@ -79,12 +64,7 @@ void KFontAction_SetFont(KFontAction* self, const libqt_string family) {
 }
 
 QWidget* KFontAction_CreateWidget(KFontAction* self, QWidget* parent) {
-    auto* vkfontaction = dynamic_cast<VirtualKFontAction*>(self);
-    if (vkfontaction && vkfontaction->isVirtualKFontAction) {
-        return self->createWidget(parent);
-    } else {
-        return ((VirtualKFontAction*)self)->createWidget(parent);
-    }
+    return self->createWidget(parent);
 }
 
 // Base class handler implementation

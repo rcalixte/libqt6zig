@@ -54,30 +54,15 @@ KUrlNavigator* KUrlNavigator_new3(KFilePlacesModel* placesModel, const QUrl* url
 }
 
 QMetaObject* KUrlNavigator_MetaObject(const KUrlNavigator* self) {
-    auto* vkurlnavigator = dynamic_cast<const VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKUrlNavigator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KUrlNavigator_Metacast(KUrlNavigator* self, const char* param1) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KUrlNavigator_Metacall(KUrlNavigator* self, int param1, int param2, void** param3) {
-    auto* vkurlnavigator = dynamic_cast<VirtualKUrlNavigator*>(self);
-    if (vkurlnavigator && vkurlnavigator->isVirtualKUrlNavigator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKUrlNavigator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KUrlNavigator_LocationUrl(const KUrlNavigator* self) {

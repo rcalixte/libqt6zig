@@ -205,9 +205,9 @@ pub const KProcessList = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: i64 `
+    /// ` pid: i64 `
     ///
-    pub fn ProcessInfo(param1: i64) KProcessList__KProcessInfo {
-        return .{ .ptr = qtc.KProcessList_ProcessInfo(@bitCast(param1)) };
+    pub fn ProcessInfo(pid: i64) KProcessList__KProcessInfo {
+        return .{ .ptr = qtc.KProcessList_ProcessInfo(@bitCast(pid)) };
     }
 };

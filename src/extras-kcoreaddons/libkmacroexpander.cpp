@@ -408,17 +408,17 @@ void KCharMacroExpander_Delete(KCharMacroExpander* self) {
     delete self;
 }
 
-libqt_string KMacroExpander_ExpandMacros(const libqt_string param1, const libqt_map /* of QChar* to libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QChar, QString> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    QChar** param2_karr = static_cast<QChar**>(param2.keys);
-    libqt_string* param2_varr = static_cast<libqt_string*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_varr_i_QString = QString::fromUtf8(param2_varr[i].data, param2_varr[i].len);
-        param2_QHash[*(param2_karr[i])] = param2_varr_i_QString;
+libqt_string KMacroExpander_ExpandMacros(const libqt_string str, const libqt_map /* of QChar* to libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QChar, QString> map_QHash;
+    map_QHash.reserve(map.len);
+    QChar** map_karr = static_cast<QChar**>(map.keys);
+    libqt_string* map_varr = static_cast<libqt_string*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_varr_i_QString = QString::fromUtf8(map_varr[i].data, map_varr[i].len);
+        map_QHash[*(map_karr[i])] = map_varr_i_QString;
     }
-    auto _ret = KMacroExpander::expandMacros(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacros(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -429,17 +429,17 @@ libqt_string KMacroExpander_ExpandMacros(const libqt_string param1, const libqt_
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacrosShellQuote(const libqt_string param1, const libqt_map /* of QChar* to libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QChar, QString> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    QChar** param2_karr = static_cast<QChar**>(param2.keys);
-    libqt_string* param2_varr = static_cast<libqt_string*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_varr_i_QString = QString::fromUtf8(param2_varr[i].data, param2_varr[i].len);
-        param2_QHash[*(param2_karr[i])] = param2_varr_i_QString;
+libqt_string KMacroExpander_ExpandMacrosShellQuote(const libqt_string str, const libqt_map /* of QChar* to libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QChar, QString> map_QHash;
+    map_QHash.reserve(map.len);
+    QChar** map_karr = static_cast<QChar**>(map.keys);
+    libqt_string* map_varr = static_cast<libqt_string*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_varr_i_QString = QString::fromUtf8(map_varr[i].data, map_varr[i].len);
+        map_QHash[*(map_karr[i])] = map_varr_i_QString;
     }
-    auto _ret = KMacroExpander::expandMacrosShellQuote(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacrosShellQuote(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -450,18 +450,18 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote(const libqt_string param1, co
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacros2(const libqt_string param1, const libqt_map /* of libqt_string to libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QString, QString> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    libqt_string* param2_karr = static_cast<libqt_string*>(param2.keys);
-    libqt_string* param2_varr = static_cast<libqt_string*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_karr_i_QString = QString::fromUtf8(param2_karr[i].data, param2_karr[i].len);
-        QString param2_varr_i_QString = QString::fromUtf8(param2_varr[i].data, param2_varr[i].len);
-        param2_QHash[param2_karr_i_QString] = param2_varr_i_QString;
+libqt_string KMacroExpander_ExpandMacros2(const libqt_string str, const libqt_map /* of libqt_string to libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QString, QString> map_QHash;
+    map_QHash.reserve(map.len);
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    libqt_string* map_varr = static_cast<libqt_string*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        QString map_varr_i_QString = QString::fromUtf8(map_varr[i].data, map_varr[i].len);
+        map_QHash[map_karr_i_QString] = map_varr_i_QString;
     }
-    auto _ret = KMacroExpander::expandMacros(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacros(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -472,18 +472,18 @@ libqt_string KMacroExpander_ExpandMacros2(const libqt_string param1, const libqt
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string param1, const libqt_map /* of libqt_string to libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QString, QString> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    libqt_string* param2_karr = static_cast<libqt_string*>(param2.keys);
-    libqt_string* param2_varr = static_cast<libqt_string*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_karr_i_QString = QString::fromUtf8(param2_karr[i].data, param2_karr[i].len);
-        QString param2_varr_i_QString = QString::fromUtf8(param2_varr[i].data, param2_varr[i].len);
-        param2_QHash[param2_karr_i_QString] = param2_varr_i_QString;
+libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string str, const libqt_map /* of libqt_string to libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QString, QString> map_QHash;
+    map_QHash.reserve(map.len);
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    libqt_string* map_varr = static_cast<libqt_string*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        QString map_varr_i_QString = QString::fromUtf8(map_varr[i].data, map_varr[i].len);
+        map_QHash[map_karr_i_QString] = map_varr_i_QString;
     }
-    auto _ret = KMacroExpander::expandMacrosShellQuote(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacrosShellQuote(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -494,23 +494,23 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote2(const libqt_string param1, c
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QChar, QList<QString>> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    QChar** param2_karr = static_cast<QChar**>(param2.keys);
-    libqt_list /* of libqt_string */* param2_varr = static_cast<libqt_list /* of libqt_string */*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QList<QString> param2_varr_i_QList;
-        param2_varr_i_QList.reserve(param2_varr[i].len);
-        libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t j = 0; j < param2_varr[i].len; ++j) {
-            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
+libqt_string KMacroExpander_ExpandMacros3(const libqt_string str, const libqt_map /* of QChar* to libqt_list of libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QChar, QList<QString>> map_QHash;
+    map_QHash.reserve(map.len);
+    QChar** map_karr = static_cast<QChar**>(map.keys);
+    libqt_list /* of libqt_string */* map_varr = static_cast<libqt_list /* of libqt_string */*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QList<QString> map_varr_i_QList;
+        map_varr_i_QList.reserve(map_varr[i].len);
+        libqt_string* map_varr_i_arr = static_cast<libqt_string*>(map_varr[i].data);
+        for (size_t j = 0; j < map_varr[i].len; ++j) {
+            QString map_varr_i_arr_j_QString = QString::fromUtf8(map_varr_i_arr[j].data, map_varr_i_arr[j].len);
+            map_varr_i_QList.push_back(map_varr_i_arr_j_QString);
         }
-        param2_QHash[*(param2_karr[i])] = param2_varr_i_QList;
+        map_QHash[*(map_karr[i])] = map_varr_i_QList;
     }
-    auto _ret = KMacroExpander::expandMacros(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacros(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -521,24 +521,24 @@ libqt_string KMacroExpander_ExpandMacros3(const libqt_string param1, const libqt
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QString, QList<QString>> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    libqt_string* param2_karr = static_cast<libqt_string*>(param2.keys);
-    libqt_list /* of libqt_string */* param2_varr = static_cast<libqt_list /* of libqt_string */*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_karr_i_QString = QString::fromUtf8(param2_karr[i].data, param2_karr[i].len);
-        QList<QString> param2_varr_i_QList;
-        param2_varr_i_QList.reserve(param2_varr[i].len);
-        libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t j = 0; j < param2_varr[i].len; ++j) {
-            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
+libqt_string KMacroExpander_ExpandMacros4(const libqt_string str, const libqt_map /* of libqt_string to libqt_list of libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QString, QList<QString>> map_QHash;
+    map_QHash.reserve(map.len);
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    libqt_list /* of libqt_string */* map_varr = static_cast<libqt_list /* of libqt_string */*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        QList<QString> map_varr_i_QList;
+        map_varr_i_QList.reserve(map_varr[i].len);
+        libqt_string* map_varr_i_arr = static_cast<libqt_string*>(map_varr[i].data);
+        for (size_t j = 0; j < map_varr[i].len; ++j) {
+            QString map_varr_i_arr_j_QString = QString::fromUtf8(map_varr_i_arr[j].data, map_varr_i_arr[j].len);
+            map_varr_i_QList.push_back(map_varr_i_arr_j_QString);
         }
-        param2_QHash[param2_karr_i_QString] = param2_varr_i_QList;
+        map_QHash[map_karr_i_QString] = map_varr_i_QList;
     }
-    auto _ret = KMacroExpander::expandMacros(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacros(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -549,23 +549,23 @@ libqt_string KMacroExpander_ExpandMacros4(const libqt_string param1, const libqt
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, const libqt_map /* of QChar* to libqt_list of libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QChar, QList<QString>> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    QChar** param2_karr = static_cast<QChar**>(param2.keys);
-    libqt_list /* of libqt_string */* param2_varr = static_cast<libqt_list /* of libqt_string */*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QList<QString> param2_varr_i_QList;
-        param2_varr_i_QList.reserve(param2_varr[i].len);
-        libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t j = 0; j < param2_varr[i].len; ++j) {
-            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
+libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string str, const libqt_map /* of QChar* to libqt_list of libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QChar, QList<QString>> map_QHash;
+    map_QHash.reserve(map.len);
+    QChar** map_karr = static_cast<QChar**>(map.keys);
+    libqt_list /* of libqt_string */* map_varr = static_cast<libqt_list /* of libqt_string */*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QList<QString> map_varr_i_QList;
+        map_varr_i_QList.reserve(map_varr[i].len);
+        libqt_string* map_varr_i_arr = static_cast<libqt_string*>(map_varr[i].data);
+        for (size_t j = 0; j < map_varr[i].len; ++j) {
+            QString map_varr_i_arr_j_QString = QString::fromUtf8(map_varr_i_arr[j].data, map_varr_i_arr[j].len);
+            map_varr_i_QList.push_back(map_varr_i_arr_j_QString);
         }
-        param2_QHash[*(param2_karr[i])] = param2_varr_i_QList;
+        map_QHash[*(map_karr[i])] = map_varr_i_QList;
     }
-    auto _ret = KMacroExpander::expandMacrosShellQuote(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacrosShellQuote(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -576,24 +576,24 @@ libqt_string KMacroExpander_ExpandMacrosShellQuote3(const libqt_string param1, c
     return _str;
 }
 
-libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string param1, const libqt_map /* of libqt_string to libqt_list of libqt_string */ param2, QChar* param3) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    QHash<QString, QList<QString>> param2_QHash;
-    param2_QHash.reserve(param2.len);
-    libqt_string* param2_karr = static_cast<libqt_string*>(param2.keys);
-    libqt_list /* of libqt_string */* param2_varr = static_cast<libqt_list /* of libqt_string */*>(param2.values);
-    for (size_t i = 0; i < param2.len; ++i) {
-        QString param2_karr_i_QString = QString::fromUtf8(param2_karr[i].data, param2_karr[i].len);
-        QList<QString> param2_varr_i_QList;
-        param2_varr_i_QList.reserve(param2_varr[i].len);
-        libqt_string* param2_varr_i_arr = static_cast<libqt_string*>(param2_varr[i].data);
-        for (size_t j = 0; j < param2_varr[i].len; ++j) {
-            QString param2_varr_i_arr_j_QString = QString::fromUtf8(param2_varr_i_arr[j].data, param2_varr_i_arr[j].len);
-            param2_varr_i_QList.push_back(param2_varr_i_arr_j_QString);
+libqt_string KMacroExpander_ExpandMacrosShellQuote4(const libqt_string str, const libqt_map /* of libqt_string to libqt_list of libqt_string */ map, QChar* c) {
+    QString str_QString = QString::fromUtf8(str.data, str.len);
+    QHash<QString, QList<QString>> map_QHash;
+    map_QHash.reserve(map.len);
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    libqt_list /* of libqt_string */* map_varr = static_cast<libqt_list /* of libqt_string */*>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        QList<QString> map_varr_i_QList;
+        map_varr_i_QList.reserve(map_varr[i].len);
+        libqt_string* map_varr_i_arr = static_cast<libqt_string*>(map_varr[i].data);
+        for (size_t j = 0; j < map_varr[i].len; ++j) {
+            QString map_varr_i_arr_j_QString = QString::fromUtf8(map_varr_i_arr[j].data, map_varr_i_arr[j].len);
+            map_varr_i_QList.push_back(map_varr_i_arr_j_QString);
         }
-        param2_QHash[param2_karr_i_QString] = param2_varr_i_QList;
+        map_QHash[map_karr_i_QString] = map_varr_i_QList;
     }
-    auto _ret = KMacroExpander::expandMacrosShellQuote(param1_QString, param2_QHash, *param3);
+    auto _ret = KMacroExpander::expandMacrosShellQuote(str_QString, map_QHash, *c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

@@ -134,24 +134,24 @@ QVariant* QVariant_new21(const QLocale* locale) {
     return new QVariant(*locale);
 }
 
-QVariant* QVariant_new22(const libqt_map /* of libqt_string to QVariant* */ mapVal) {
-    QMap<QString, QVariant> mapVal_QMap;
-    libqt_string* mapVal_karr = static_cast<libqt_string*>(mapVal.keys);
-    QVariant** mapVal_varr = static_cast<QVariant**>(mapVal.values);
-    for (size_t i = 0; i < mapVal.len; ++i) {
-        QString mapVal_karr_i_QString = QString::fromUtf8(mapVal_karr[i].data, mapVal_karr[i].len);
-        mapVal_QMap[mapVal_karr_i_QString] = *(mapVal_varr[i]);
+QVariant* QVariant_new22(const libqt_map /* of libqt_string to QVariant* */ map) {
+    QMap<QString, QVariant> map_QMap;
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    QVariant** map_varr = static_cast<QVariant**>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        map_QMap[map_karr_i_QString] = *(map_varr[i]);
     }
-    return new QVariant(mapVal_QMap);
+    return new QVariant(map_QMap);
 }
 
 QVariant* QVariant_new23(const QRegularExpression* re) {
     return new QVariant(*re);
 }
 
-QVariant* QVariant_new24(const libqt_string stringVal) {
-    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
-    return new QVariant(stringVal_QString);
+QVariant* QVariant_new24(const libqt_string string) {
+    QString string_QString = QString::fromUtf8(string.data, string.len);
+    return new QVariant(string_QString);
 }
 
 QVariant* QVariant_new25(const libqt_list /* of libqt_string */ stringlist) {
@@ -229,9 +229,9 @@ QVariant* QVariant_new41(const char* str) {
     return new QVariant(str);
 }
 
-QVariant* QVariant_new42(libqt_string stringVal) {
-    QLatin1StringView stringVal_QLatin1StringView(stringVal.data, stringVal.len);
-    return new QVariant(stringVal_QLatin1StringView);
+QVariant* QVariant_new42(libqt_string string) {
+    QLatin1StringView string_QLatin1StringView(string.data, string.len);
+    return new QVariant(string_QLatin1StringView);
 }
 
 QVariant* QVariant_new43(int typeVal) {

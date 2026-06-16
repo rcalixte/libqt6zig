@@ -62,6 +62,6 @@ void KIO__MkdirJob_Delete(KIO__MkdirJob* self) {
     delete self;
 }
 
-KIO__MkdirJob* KIO_Mkdir(const QUrl* param1, int param2) {
-    return KIO::mkdir(*param1, static_cast<int>(param2));
+KIO__MkdirJob* KIO_Mkdir(const QUrl* url, int permissions) {
+    return KIO::mkdir(*url, static_cast<int>(permissions));
 }

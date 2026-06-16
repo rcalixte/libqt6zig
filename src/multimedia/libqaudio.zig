@@ -16,14 +16,14 @@ pub const QAudio = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: f32 `
+    /// ` volume: f32 `
     ///
-    /// ` param2: qaudio_enums.VolumeScale `
+    /// ` from: qaudio_enums.VolumeScale `
     ///
-    /// ` param3: qaudio_enums.VolumeScale `
+    /// ` to: qaudio_enums.VolumeScale `
     ///
-    pub fn ConvertVolume(param1: f32, param2: i32, param3: i32) f32 {
-        return qtc.QAudio_ConvertVolume(@bitCast(param1), @bitCast(param2), @bitCast(param3));
+    pub fn ConvertVolume(volume: f32, from: i32, to: i32) f32 {
+        return qtc.QAudio_ConvertVolume(@bitCast(volume), @bitCast(from), @bitCast(to));
     }
 };
 

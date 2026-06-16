@@ -60,48 +60,23 @@ KSqueezedTextLabel* KSqueezedTextLabel_new4(const libqt_string text, QWidget* pa
 }
 
 QMetaObject* KSqueezedTextLabel_MetaObject(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<const VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSqueezedTextLabel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSqueezedTextLabel_Metacast(KSqueezedTextLabel* self, const char* param1) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSqueezedTextLabel_Metacall(KSqueezedTextLabel* self, int param1, int param2, void** param3) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSqueezedTextLabel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* KSqueezedTextLabel_MinimumSizeHint(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<const VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKSqueezedTextLabel*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 QSize* KSqueezedTextLabel_SizeHint(const KSqueezedTextLabel* self) {
-    auto* vksqueezedtextlabel = dynamic_cast<const VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualKSqueezedTextLabel*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void KSqueezedTextLabel_SetIndent(KSqueezedTextLabel* self, int indent) {
@@ -113,12 +88,7 @@ void KSqueezedTextLabel_SetMargin(KSqueezedTextLabel* self, int margin) {
 }
 
 void KSqueezedTextLabel_SetAlignment(KSqueezedTextLabel* self, int alignment) {
-    auto* vksqueezedtextlabel = dynamic_cast<VirtualKSqueezedTextLabel*>(self);
-    if (vksqueezedtextlabel && vksqueezedtextlabel->isVirtualKSqueezedTextLabel) {
-        self->setAlignment(static_cast<Qt::Alignment>(alignment));
-    } else {
-        ((VirtualKSqueezedTextLabel*)self)->setAlignment(static_cast<Qt::Alignment>(alignment));
-    }
+    self->setAlignment(static_cast<Qt::Alignment>(alignment));
 }
 
 int KSqueezedTextLabel_TextElideMode(const KSqueezedTextLabel* self) {

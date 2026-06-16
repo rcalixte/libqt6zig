@@ -20,30 +20,15 @@ TextEditTextToSpeech__TextToSpeechInterface* TextEditTextToSpeech__TextToSpeechI
 }
 
 QMetaObject* TextEditTextToSpeech__TextToSpeechInterface_MetaObject(const TextEditTextToSpeech__TextToSpeechInterface* self) {
-    auto* vtextedittexttospeech__texttospeechinterface = dynamic_cast<const VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeech__texttospeechinterface && vtextedittexttospeech__texttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEditTextToSpeech__TextToSpeechInterface_Metacast(TextEditTextToSpeech__TextToSpeechInterface* self, const char* param1) {
-    auto* vtextedittexttospeech__texttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeech__texttospeechinterface && vtextedittexttospeech__texttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEditTextToSpeech__TextToSpeechInterface_Metacall(TextEditTextToSpeech__TextToSpeechInterface* self, int param1, int param2, void** param3) {
-    auto* vtextedittexttospeech__texttospeechinterface = dynamic_cast<VirtualTextEditTextToSpeechTextToSpeechInterface*>(self);
-    if (vtextedittexttospeech__texttospeechinterface && vtextedittexttospeech__texttospeechinterface->isVirtualTextEditTextToSpeechTextToSpeechInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEditTextToSpeechTextToSpeechInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool TextEditTextToSpeech__TextToSpeechInterface_IsReady(const TextEditTextToSpeech__TextToSpeechInterface* self) {

@@ -876,30 +876,30 @@ pub const QCborMap = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` mapVal: ArrayMap_constu8_QVariant `
+    /// ` map: ArrayMap_constu8_QVariant `
     ///
-    pub fn FromVariantMap(allocator: std.mem.Allocator, mapVal: ArrayMap_constu8_QVariant) QCborMap {
-        const mapVal_count = mapVal.count();
-        const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
-        defer allocator.free(mapVal_keys);
-        const mapVal_values = allocator.alloc(QtC.QVariant, mapVal_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
-        defer allocator.free(mapVal_values);
+    pub fn FromVariantMap(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QCborMap {
+        const map_count = map.count();
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
+        defer allocator.free(map_keys);
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
+        defer allocator.free(map_values);
         var i: usize = 0;
-        var mapVal_it = mapVal.iterator();
-        while (mapVal_it.next()) |it_entry| : (i += 1) {
-            const mapVal_key = it_entry.key_ptr.*;
-            mapVal_keys[i] = qtc.libqt_string{
-                .len = mapVal_key.len,
-                .data = mapVal_key.ptr,
+        var map_it = map.iterator();
+        while (map_it.next()) |it_entry| : (i += 1) {
+            const map_key = it_entry.key_ptr.*;
+            map_keys[i] = qtc.libqt_string{
+                .len = map_key.len,
+                .data = map_key.ptr,
             };
-            mapVal_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
+            map_values[i] = @ptrCast(it_entry.value_ptr.*.ptr);
         }
-        const mapVal_map = qtc.libqt_map{
-            .len = mapVal_count,
-            .keys = @ptrCast(mapVal_keys.ptr),
-            .values = @ptrCast(mapVal_values.ptr),
+        const map_map = qtc.libqt_map{
+            .len = map_count,
+            .keys = @ptrCast(map_keys.ptr),
+            .values = @ptrCast(map_values.ptr),
         };
-        return .{ .ptr = qtc.QCborMap_FromVariantMap(mapVal_map) };
+        return .{ .ptr = qtc.QCborMap_FromVariantMap(map_map) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#fromVariantHash)

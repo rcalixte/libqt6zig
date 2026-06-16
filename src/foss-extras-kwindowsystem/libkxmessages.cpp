@@ -23,30 +23,15 @@ KXMessages* KXMessages_new3(const char* accept_broadcast, QObject* parent) {
 }
 
 QMetaObject* KXMessages_MetaObject(const KXMessages* self) {
-    auto* vkxmessages = dynamic_cast<const VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKXMessages*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KXMessages_Metacast(KXMessages* self, const char* param1) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKXMessages*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KXMessages_Metacall(KXMessages* self, int param1, int param2, void** param3) {
-    auto* vkxmessages = dynamic_cast<VirtualKXMessages*>(self);
-    if (vkxmessages && vkxmessages->isVirtualKXMessages) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKXMessages*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KXMessages_BroadcastMessage(KXMessages* self, const char* msg_type, const libqt_string message) {

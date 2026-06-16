@@ -23,30 +23,15 @@ QsciLexerPascal* QsciLexerPascal_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerPascal_MetaObject(const QsciLexerPascal* self) {
-    auto* vqscilexerpascal = dynamic_cast<const VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerPascal*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerPascal_Metacast(QsciLexerPascal* self, const char* param1) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerPascal*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerPascal_Metacall(QsciLexerPascal* self, int param1, int param2, void** param3) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerPascal*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerPascal_Language(const QsciLexerPascal* self) {
@@ -151,30 +136,15 @@ bool QsciLexerPascal_SmartHighlighting(const QsciLexerPascal* self) {
 }
 
 void QsciLexerPascal_SetFoldComments(QsciLexerPascal* self, bool fold) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerPascal*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerPascal_SetFoldCompact(QsciLexerPascal* self, bool fold) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerPascal*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 void QsciLexerPascal_SetFoldPreprocessor(QsciLexerPascal* self, bool fold) {
-    auto* vqscilexerpascal = dynamic_cast<VirtualQsciLexerPascal*>(self);
-    if (vqscilexerpascal && vqscilexerpascal->isVirtualQsciLexerPascal) {
-        self->setFoldPreprocessor(fold);
-    } else {
-        ((VirtualQsciLexerPascal*)self)->setFoldPreprocessor(fold);
-    }
+    self->setFoldPreprocessor(fold);
 }
 
 const char* QsciLexerPascal_BlockEnd1(const QsciLexerPascal* self, int* style) {

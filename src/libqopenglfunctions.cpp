@@ -440,8 +440,8 @@ void QOpenGLFunctions_GlShaderBinary(QOpenGLFunctions* self, int32_t n, const ui
     self->glShaderBinary(static_cast<GLint>(n), static_cast<const GLuint*>(shaders), static_cast<GLenum>(binaryformat), binary, static_cast<GLint>(length));
 }
 
-void QOpenGLFunctions_GlShaderSource(QOpenGLFunctions* self, uint32_t shader, int32_t count, const char** stringVal, const int32_t* length) {
-    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), stringVal, static_cast<const GLint*>(length));
+void QOpenGLFunctions_GlShaderSource(QOpenGLFunctions* self, uint32_t shader, int32_t count, const char** string, const int32_t* length) {
+    self->glShaderSource(static_cast<GLuint>(shader), static_cast<GLsizei>(count), string, static_cast<const GLint*>(length));
 }
 
 void QOpenGLFunctions_GlStencilFuncSeparate(QOpenGLFunctions* self, uint32_t face, uint32_t func, int32_t ref, uint32_t mask) {

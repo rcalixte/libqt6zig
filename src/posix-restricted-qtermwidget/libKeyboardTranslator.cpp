@@ -197,8 +197,8 @@ void Konsole__KeyboardTranslatorManager_Delete(Konsole__KeyboardTranslatorManage
     delete self;
 }
 
-int Konsole_OneOrZero(int param1) {
-    return Konsole::oneOrZero(static_cast<int>(param1));
+int Konsole_OneOrZero(int value) {
+    return Konsole::oneOrZero(static_cast<int>(value));
 }
 
 Konsole__KeyboardTranslator__Entry* Konsole__KeyboardTranslator__Entry_new() {

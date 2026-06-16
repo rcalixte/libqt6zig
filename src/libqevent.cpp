@@ -76,12 +76,7 @@ QInputEvent* QInputEvent_new2(int typeVal, const QInputDevice* m_dev, int modifi
 }
 
 QInputEvent* QInputEvent_Clone(const QInputEvent* self) {
-    auto* vqinputevent = dynamic_cast<const VirtualQInputEvent*>(self);
-    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQInputEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QInputDevice* QInputEvent_Device(const QInputEvent* self) {
@@ -105,12 +100,7 @@ unsigned long long QInputEvent_Timestamp(const QInputEvent* self) {
 }
 
 void QInputEvent_SetTimestamp(QInputEvent* self, unsigned long long timestamp) {
-    auto* vqinputevent = dynamic_cast<VirtualQInputEvent*>(self);
-    if (vqinputevent && vqinputevent->isVirtualQInputEvent) {
-        self->setTimestamp(static_cast<quint64>(timestamp));
-    } else {
-        ((VirtualQInputEvent*)self)->setTimestamp(static_cast<quint64>(timestamp));
-    }
+    self->setTimestamp(static_cast<quint64>(timestamp));
 }
 
 // Base class handler implementation
@@ -203,12 +193,7 @@ QPointerEvent* QPointerEvent_new3(int typeVal, const QPointingDevice* dev, int m
 }
 
 QPointerEvent* QPointerEvent_Clone(const QPointerEvent* self) {
-    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQPointerEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPointingDevice* QPointerEvent_PointingDevice(const QPointerEvent* self) {
@@ -220,12 +205,7 @@ int QPointerEvent_PointerType(const QPointerEvent* self) {
 }
 
 void QPointerEvent_SetTimestamp(QPointerEvent* self, unsigned long long timestamp) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        self->setTimestamp(static_cast<quint64>(timestamp));
-    } else {
-        ((VirtualQPointerEvent*)self)->setTimestamp(static_cast<quint64>(timestamp));
-    }
+    self->setTimestamp(static_cast<quint64>(timestamp));
 }
 
 ptrdiff_t QPointerEvent_PointCount(const QPointerEvent* self) {
@@ -260,30 +240,15 @@ bool QPointerEvent_AllPointsGrabbed(const QPointerEvent* self) {
 }
 
 bool QPointerEvent_IsBeginEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return self->isBeginEvent();
-    } else {
-        return ((VirtualQPointerEvent*)self)->isBeginEvent();
-    }
+    return self->isBeginEvent();
 }
 
 bool QPointerEvent_IsUpdateEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return self->isUpdateEvent();
-    } else {
-        return ((VirtualQPointerEvent*)self)->isUpdateEvent();
-    }
+    return self->isUpdateEvent();
 }
 
 bool QPointerEvent_IsEndEvent(const QPointerEvent* self) {
-    auto* vqpointerevent = dynamic_cast<const VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        return self->isEndEvent();
-    } else {
-        return ((VirtualQPointerEvent*)self)->isEndEvent();
-    }
+    return self->isEndEvent();
 }
 
 bool QPointerEvent_AllPointsAccepted(const QPointerEvent* self) {
@@ -291,12 +256,7 @@ bool QPointerEvent_AllPointsAccepted(const QPointerEvent* self) {
 }
 
 void QPointerEvent_SetAccepted(QPointerEvent* self, bool accepted) {
-    auto* vqpointerevent = dynamic_cast<VirtualQPointerEvent*>(self);
-    if (vqpointerevent && vqpointerevent->isVirtualQPointerEvent) {
-        self->setAccepted(accepted);
-    } else {
-        ((VirtualQPointerEvent*)self)->setAccepted(accepted);
-    }
+    self->setAccepted(accepted);
 }
 
 QObject* QPointerEvent_ExclusiveGrabber(const QPointerEvent* self, const QEventPoint* point) {
@@ -494,12 +454,7 @@ QEnterEvent* QEnterEvent_new2(const QPointF* localPos, const QPointF* scenePos, 
 }
 
 QEnterEvent* QEnterEvent_Clone(const QEnterEvent* self) {
-    auto* vqenterevent = dynamic_cast<const VirtualQEnterEvent*>(self);
-    if (vqenterevent && vqenterevent->isVirtualQEnterEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQEnterEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QEnterEvent_Pos(const QEnterEvent* self) {
@@ -739,12 +694,7 @@ QMouseEvent* QMouseEvent_new8(int typeVal, const QPointF* localPos, const QPoint
 }
 
 QMouseEvent* QMouseEvent_Clone(const QMouseEvent* self) {
-    auto* vqmouseevent = dynamic_cast<const VirtualQMouseEvent*>(self);
-    if (vqmouseevent && vqmouseevent->isVirtualQMouseEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQMouseEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QMouseEvent_Pos(const QMouseEvent* self) {
@@ -984,12 +934,7 @@ QHoverEvent* QHoverEvent_new6(int typeVal, const QPointF* pos, const QPointF* ol
 }
 
 QHoverEvent* QHoverEvent_Clone(const QHoverEvent* self) {
-    auto* vqhoverevent = dynamic_cast<const VirtualQHoverEvent*>(self);
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQHoverEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QHoverEvent_Pos(const QHoverEvent* self) {
@@ -1001,12 +946,7 @@ QPointF* QHoverEvent_PosF(const QHoverEvent* self) {
 }
 
 bool QHoverEvent_IsUpdateEvent(const QHoverEvent* self) {
-    auto* vqhoverevent = dynamic_cast<const VirtualQHoverEvent*>(self);
-    if (vqhoverevent && vqhoverevent->isVirtualQHoverEvent) {
-        return self->isUpdateEvent();
-    } else {
-        return ((VirtualQHoverEvent*)self)->isUpdateEvent();
-    }
+    return self->isUpdateEvent();
 }
 
 QPoint* QHoverEvent_OldPos(const QHoverEvent* self) {
@@ -1188,12 +1128,7 @@ QWheelEvent* QWheelEvent_new3(const QPointF* pos, const QPointF* globalPos, QPoi
 }
 
 QWheelEvent* QWheelEvent_Clone(const QWheelEvent* self) {
-    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQWheelEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QWheelEvent_PixelDelta(const QWheelEvent* self) {
@@ -1221,30 +1156,15 @@ bool QWheelEvent_HasPixelDelta(const QWheelEvent* self) {
 }
 
 bool QWheelEvent_IsBeginEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return self->isBeginEvent();
-    } else {
-        return ((VirtualQWheelEvent*)self)->isBeginEvent();
-    }
+    return self->isBeginEvent();
 }
 
 bool QWheelEvent_IsUpdateEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return self->isUpdateEvent();
-    } else {
-        return ((VirtualQWheelEvent*)self)->isUpdateEvent();
-    }
+    return self->isUpdateEvent();
 }
 
 bool QWheelEvent_IsEndEvent(const QWheelEvent* self) {
-    auto* vqwheelevent = dynamic_cast<const VirtualQWheelEvent*>(self);
-    if (vqwheelevent && vqwheelevent->isVirtualQWheelEvent) {
-        return self->isEndEvent();
-    } else {
-        return ((VirtualQWheelEvent*)self)->isEndEvent();
-    }
+    return self->isEndEvent();
 }
 
 int QWheelEvent_Source(const QWheelEvent* self) {
@@ -1394,12 +1314,7 @@ QTabletEvent* QTabletEvent_new(int t, const QPointingDevice* device, const QPoin
 }
 
 QTabletEvent* QTabletEvent_Clone(const QTabletEvent* self) {
-    auto* vqtabletevent = dynamic_cast<const VirtualQTabletEvent*>(self);
-    if (vqtabletevent && vqtabletevent->isVirtualQTabletEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQTabletEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QTabletEvent_Pos(const QTabletEvent* self) {
@@ -1651,12 +1566,7 @@ QNativeGestureEvent* QNativeGestureEvent_new3(int typeVal, const QPointingDevice
 }
 
 QNativeGestureEvent* QNativeGestureEvent_Clone(const QNativeGestureEvent* self) {
-    auto* vqnativegestureevent = dynamic_cast<const VirtualQNativeGestureEvent*>(self);
-    if (vqnativegestureevent && vqnativegestureevent->isVirtualQNativeGestureEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQNativeGestureEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QNativeGestureEvent_GestureType(const QNativeGestureEvent* self) {
@@ -1907,12 +1817,7 @@ QKeyEvent* QKeyEvent_new9(int typeVal, int key, int modifiers, unsigned int nati
 }
 
 QKeyEvent* QKeyEvent_Clone(const QKeyEvent* self) {
-    auto* vqkeyevent = dynamic_cast<const VirtualQKeyEvent*>(self);
-    if (vqkeyevent && vqkeyevent->isVirtualQKeyEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQKeyEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QKeyEvent_Key(const QKeyEvent* self) {
@@ -2053,12 +1958,7 @@ QFocusEvent* QFocusEvent_new2(int typeVal, int reason) {
 }
 
 QFocusEvent* QFocusEvent_Clone(const QFocusEvent* self) {
-    auto* vqfocusevent = dynamic_cast<const VirtualQFocusEvent*>(self);
-    if (vqfocusevent && vqfocusevent->isVirtualQFocusEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQFocusEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 bool QFocusEvent_GotFocus(const QFocusEvent* self) {
@@ -2134,12 +2034,7 @@ QPaintEvent* QPaintEvent_new2(const QRect* paintRect) {
 }
 
 QPaintEvent* QPaintEvent_Clone(const QPaintEvent* self) {
-    auto* vqpaintevent = dynamic_cast<const VirtualQPaintEvent*>(self);
-    if (vqpaintevent && vqpaintevent->isVirtualQPaintEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQPaintEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QRect* QPaintEvent_Rect(const QPaintEvent* self) {
@@ -2211,12 +2106,7 @@ QMoveEvent* QMoveEvent_new(const QPoint* pos, const QPoint* oldPos) {
 }
 
 QMoveEvent* QMoveEvent_Clone(const QMoveEvent* self) {
-    auto* vqmoveevent = dynamic_cast<const VirtualQMoveEvent*>(self);
-    if (vqmoveevent && vqmoveevent->isVirtualQMoveEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQMoveEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QMoveEvent_Pos(const QMoveEvent* self) {
@@ -2288,12 +2178,7 @@ QExposeEvent* QExposeEvent_new(const QRegion* m_region) {
 }
 
 QExposeEvent* QExposeEvent_Clone(const QExposeEvent* self) {
-    auto* vqexposeevent = dynamic_cast<const VirtualQExposeEvent*>(self);
-    if (vqexposeevent && vqexposeevent->isVirtualQExposeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQExposeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QRegion* QExposeEvent_Region(const QExposeEvent* self) {
@@ -2359,12 +2244,7 @@ QPlatformSurfaceEvent* QPlatformSurfaceEvent_new(int surfaceEventType) {
 }
 
 QPlatformSurfaceEvent* QPlatformSurfaceEvent_Clone(const QPlatformSurfaceEvent* self) {
-    auto* vqplatformsurfaceevent = dynamic_cast<const VirtualQPlatformSurfaceEvent*>(self);
-    if (vqplatformsurfaceevent && vqplatformsurfaceevent->isVirtualQPlatformSurfaceEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQPlatformSurfaceEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QPlatformSurfaceEvent_SurfaceEventType(const QPlatformSurfaceEvent* self) {
@@ -2428,12 +2308,7 @@ QResizeEvent* QResizeEvent_new(const QSize* size, const QSize* oldSize) {
 }
 
 QResizeEvent* QResizeEvent_Clone(const QResizeEvent* self) {
-    auto* vqresizeevent = dynamic_cast<const VirtualQResizeEvent*>(self);
-    if (vqresizeevent && vqresizeevent->isVirtualQResizeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQResizeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QSize* QResizeEvent_Size(const QResizeEvent* self) {
@@ -2505,12 +2380,7 @@ QCloseEvent* QCloseEvent_new() {
 }
 
 QCloseEvent* QCloseEvent_Clone(const QCloseEvent* self) {
-    auto* vqcloseevent = dynamic_cast<const VirtualQCloseEvent*>(self);
-    if (vqcloseevent && vqcloseevent->isVirtualQCloseEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQCloseEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
@@ -2570,12 +2440,7 @@ QIconDragEvent* QIconDragEvent_new() {
 }
 
 QIconDragEvent* QIconDragEvent_Clone(const QIconDragEvent* self) {
-    auto* vqicondragevent = dynamic_cast<const VirtualQIconDragEvent*>(self);
-    if (vqicondragevent && vqicondragevent->isVirtualQIconDragEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQIconDragEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
@@ -2635,12 +2500,7 @@ QShowEvent* QShowEvent_new() {
 }
 
 QShowEvent* QShowEvent_Clone(const QShowEvent* self) {
-    auto* vqshowevent = dynamic_cast<const VirtualQShowEvent*>(self);
-    if (vqshowevent && vqshowevent->isVirtualQShowEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQShowEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
@@ -2700,12 +2560,7 @@ QHideEvent* QHideEvent_new() {
 }
 
 QHideEvent* QHideEvent_Clone(const QHideEvent* self) {
-    auto* vqhideevent = dynamic_cast<const VirtualQHideEvent*>(self);
-    if (vqhideevent && vqhideevent->isVirtualQHideEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQHideEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
@@ -2773,12 +2628,7 @@ QContextMenuEvent* QContextMenuEvent_new3(int reason, const QPoint* pos, const Q
 }
 
 QContextMenuEvent* QContextMenuEvent_Clone(const QContextMenuEvent* self) {
-    auto* vqcontextmenuevent = dynamic_cast<const VirtualQContextMenuEvent*>(self);
-    if (vqcontextmenuevent && vqcontextmenuevent->isVirtualQContextMenuEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQContextMenuEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QContextMenuEvent_X(const QContextMenuEvent* self) {
@@ -2910,12 +2760,7 @@ QInputMethodEvent* QInputMethodEvent_new2(const libqt_string preeditText, const 
 }
 
 QInputMethodEvent* QInputMethodEvent_Clone(const QInputMethodEvent* self) {
-    auto* vqinputmethodevent = dynamic_cast<const VirtualQInputMethodEvent*>(self);
-    if (vqinputmethodevent && vqinputmethodevent->isVirtualQInputMethodEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQInputMethodEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 void QInputMethodEvent_SetCommitString(QInputMethodEvent* self, const libqt_string commitString) {
@@ -3035,12 +2880,7 @@ QInputMethodQueryEvent* QInputMethodQueryEvent_new(int queries) {
 }
 
 QInputMethodQueryEvent* QInputMethodQueryEvent_Clone(const QInputMethodQueryEvent* self) {
-    auto* vqinputmethodqueryevent = dynamic_cast<const VirtualQInputMethodQueryEvent*>(self);
-    if (vqinputmethodqueryevent && vqinputmethodqueryevent->isVirtualQInputMethodQueryEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQInputMethodQueryEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QInputMethodQueryEvent_Queries(const QInputMethodQueryEvent* self) {
@@ -3116,12 +2956,7 @@ QDropEvent* QDropEvent_new2(const QPointF* pos, int actions, const QMimeData* da
 }
 
 QDropEvent* QDropEvent_Clone(const QDropEvent* self) {
-    auto* vqdropevent = dynamic_cast<const VirtualQDropEvent*>(self);
-    if (vqdropevent && vqdropevent->isVirtualQDropEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQDropEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPoint* QDropEvent_Pos(const QDropEvent* self) {
@@ -3241,12 +3076,7 @@ QDragMoveEvent* QDragMoveEvent_new2(const QPoint* pos, int actions, const QMimeD
 }
 
 QDragMoveEvent* QDragMoveEvent_Clone(const QDragMoveEvent* self) {
-    auto* vqdragmoveevent = dynamic_cast<const VirtualQDragMoveEvent*>(self);
-    if (vqdragmoveevent && vqdragmoveevent->isVirtualQDragMoveEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQDragMoveEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QRect* QDragMoveEvent_AnswerRect(const QDragMoveEvent* self) {
@@ -3326,12 +3156,7 @@ QDragEnterEvent* QDragEnterEvent_new(const QPoint* pos, int actions, const QMime
 }
 
 QDragEnterEvent* QDragEnterEvent_Clone(const QDragEnterEvent* self) {
-    auto* vqdragenterevent = dynamic_cast<const VirtualQDragEnterEvent*>(self);
-    if (vqdragenterevent && vqdragenterevent->isVirtualQDragEnterEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQDragEnterEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
@@ -3391,12 +3216,7 @@ QDragLeaveEvent* QDragLeaveEvent_new() {
 }
 
 QDragLeaveEvent* QDragLeaveEvent_Clone(const QDragLeaveEvent* self) {
-    auto* vqdragleaveevent = dynamic_cast<const VirtualQDragLeaveEvent*>(self);
-    if (vqdragleaveevent && vqdragleaveevent->isVirtualQDragLeaveEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQDragLeaveEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 // Base class handler implementation
@@ -3456,12 +3276,7 @@ QHelpEvent* QHelpEvent_new(int typeVal, const QPoint* pos, const QPoint* globalP
 }
 
 QHelpEvent* QHelpEvent_Clone(const QHelpEvent* self) {
-    auto* vqhelpevent = dynamic_cast<const VirtualQHelpEvent*>(self);
-    if (vqhelpevent && vqhelpevent->isVirtualQHelpEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQHelpEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QHelpEvent_X(const QHelpEvent* self) {
@@ -3550,12 +3365,7 @@ QStatusTipEvent* QStatusTipEvent_new(const libqt_string tip) {
 }
 
 QStatusTipEvent* QStatusTipEvent_Clone(const QStatusTipEvent* self) {
-    auto* vqstatustipevent = dynamic_cast<const VirtualQStatusTipEvent*>(self);
-    if (vqstatustipevent && vqstatustipevent->isVirtualQStatusTipEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQStatusTipEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 libqt_string QStatusTipEvent_Tip(const QStatusTipEvent* self) {
@@ -3628,12 +3438,7 @@ QWhatsThisClickedEvent* QWhatsThisClickedEvent_new(const libqt_string href) {
 }
 
 QWhatsThisClickedEvent* QWhatsThisClickedEvent_Clone(const QWhatsThisClickedEvent* self) {
-    auto* vqwhatsthisclickedevent = dynamic_cast<const VirtualQWhatsThisClickedEvent*>(self);
-    if (vqwhatsthisclickedevent && vqwhatsthisclickedevent->isVirtualQWhatsThisClickedEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQWhatsThisClickedEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 libqt_string QWhatsThisClickedEvent_Href(const QWhatsThisClickedEvent* self) {
@@ -3709,12 +3514,7 @@ QActionEvent* QActionEvent_new2(int typeVal, QAction* action, QAction* before) {
 }
 
 QActionEvent* QActionEvent_Clone(const QActionEvent* self) {
-    auto* vqactionevent = dynamic_cast<const VirtualQActionEvent*>(self);
-    if (vqactionevent && vqactionevent->isVirtualQActionEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQActionEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QAction* QActionEvent_Action(const QActionEvent* self) {
@@ -3787,12 +3587,7 @@ QFileOpenEvent* QFileOpenEvent_new2(const QUrl* url) {
 }
 
 QFileOpenEvent* QFileOpenEvent_Clone(const QFileOpenEvent* self) {
-    auto* vqfileopenevent = dynamic_cast<const VirtualQFileOpenEvent*>(self);
-    if (vqfileopenevent && vqfileopenevent->isVirtualQFileOpenEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQFileOpenEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 libqt_string QFileOpenEvent_File(const QFileOpenEvent* self) {
@@ -3872,12 +3667,7 @@ QToolBarChangeEvent* QToolBarChangeEvent_new(bool t) {
 }
 
 QToolBarChangeEvent* QToolBarChangeEvent_Clone(const QToolBarChangeEvent* self) {
-    auto* vqtoolbarchangeevent = dynamic_cast<const VirtualQToolBarChangeEvent*>(self);
-    if (vqtoolbarchangeevent && vqtoolbarchangeevent->isVirtualQToolBarChangeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQToolBarChangeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 bool QToolBarChangeEvent_Toggle(const QToolBarChangeEvent* self) {
@@ -3957,12 +3747,7 @@ QShortcutEvent* QShortcutEvent_new5(const QKeySequence* key, const QShortcut* sh
 }
 
 QShortcutEvent* QShortcutEvent_Clone(const QShortcutEvent* self) {
-    auto* vqshortcutevent = dynamic_cast<const VirtualQShortcutEvent*>(self);
-    if (vqshortcutevent && vqshortcutevent->isVirtualQShortcutEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQShortcutEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QKeySequence* QShortcutEvent_Key(const QShortcutEvent* self) {
@@ -4040,12 +3825,7 @@ QWindowStateChangeEvent* QWindowStateChangeEvent_new2(int oldState, bool isOverr
 }
 
 QWindowStateChangeEvent* QWindowStateChangeEvent_Clone(const QWindowStateChangeEvent* self) {
-    auto* vqwindowstatechangeevent = dynamic_cast<const VirtualQWindowStateChangeEvent*>(self);
-    if (vqwindowstatechangeevent && vqwindowstatechangeevent->isVirtualQWindowStateChangeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQWindowStateChangeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QWindowStateChangeEvent_OldState(const QWindowStateChangeEvent* self) {
@@ -4145,12 +3925,7 @@ QTouchEvent* QTouchEvent_new6(int eventType, const QPointingDevice* device, int 
 }
 
 QTouchEvent* QTouchEvent_Clone(const QTouchEvent* self) {
-    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQTouchEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QObject* QTouchEvent_Target(const QTouchEvent* self) {
@@ -4175,30 +3950,15 @@ libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self
 }
 
 bool QTouchEvent_IsBeginEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return self->isBeginEvent();
-    } else {
-        return ((VirtualQTouchEvent*)self)->isBeginEvent();
-    }
+    return self->isBeginEvent();
 }
 
 bool QTouchEvent_IsUpdateEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return self->isUpdateEvent();
-    } else {
-        return ((VirtualQTouchEvent*)self)->isUpdateEvent();
-    }
+    return self->isUpdateEvent();
 }
 
 bool QTouchEvent_IsEndEvent(const QTouchEvent* self) {
-    auto* vqtouchevent = dynamic_cast<const VirtualQTouchEvent*>(self);
-    if (vqtouchevent && vqtouchevent->isVirtualQTouchEvent) {
-        return self->isEndEvent();
-    } else {
-        return ((VirtualQTouchEvent*)self)->isEndEvent();
-    }
+    return self->isEndEvent();
 }
 
 // Base class handler implementation
@@ -4344,12 +4104,7 @@ QScrollPrepareEvent* QScrollPrepareEvent_new(const QPointF* startPos) {
 }
 
 QScrollPrepareEvent* QScrollPrepareEvent_Clone(const QScrollPrepareEvent* self) {
-    auto* vqscrollprepareevent = dynamic_cast<const VirtualQScrollPrepareEvent*>(self);
-    if (vqscrollprepareevent && vqscrollprepareevent->isVirtualQScrollPrepareEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQScrollPrepareEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPointF* QScrollPrepareEvent_StartPos(const QScrollPrepareEvent* self) {
@@ -4437,12 +4192,7 @@ QScrollEvent* QScrollEvent_new(const QPointF* contentPos, const QPointF* oversho
 }
 
 QScrollEvent* QScrollEvent_Clone(const QScrollEvent* self) {
-    auto* vqscrollevent = dynamic_cast<const VirtualQScrollEvent*>(self);
-    if (vqscrollevent && vqscrollevent->isVirtualQScrollEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQScrollEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QPointF* QScrollEvent_ContentPos(const QScrollEvent* self) {
@@ -4514,12 +4264,7 @@ QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_new(QScreen* screen
 }
 
 QScreenOrientationChangeEvent* QScreenOrientationChangeEvent_Clone(const QScreenOrientationChangeEvent* self) {
-    auto* vqscreenorientationchangeevent = dynamic_cast<const VirtualQScreenOrientationChangeEvent*>(self);
-    if (vqscreenorientationchangeevent && vqscreenorientationchangeevent->isVirtualQScreenOrientationChangeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQScreenOrientationChangeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QScreen* QScreenOrientationChangeEvent_Screen(const QScreenOrientationChangeEvent* self) {
@@ -4587,12 +4332,7 @@ QApplicationStateChangeEvent* QApplicationStateChangeEvent_new(int state) {
 }
 
 QApplicationStateChangeEvent* QApplicationStateChangeEvent_Clone(const QApplicationStateChangeEvent* self) {
-    auto* vqapplicationstatechangeevent = dynamic_cast<const VirtualQApplicationStateChangeEvent*>(self);
-    if (vqapplicationstatechangeevent && vqapplicationstatechangeevent->isVirtualQApplicationStateChangeEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQApplicationStateChangeEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 int QApplicationStateChangeEvent_ApplicationState(const QApplicationStateChangeEvent* self) {
@@ -4656,12 +4396,7 @@ QChildWindowEvent* QChildWindowEvent_new(int typeVal, QWindow* childWindow) {
 }
 
 QChildWindowEvent* QChildWindowEvent_Clone(const QChildWindowEvent* self) {
-    auto* vqchildwindowevent = dynamic_cast<const VirtualQChildWindowEvent*>(self);
-    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
-        return self->clone();
-    } else {
-        return ((VirtualQChildWindowEvent*)self)->clone();
-    }
+    return self->clone();
 }
 
 QWindow* QChildWindowEvent_Child(const QChildWindowEvent* self) {

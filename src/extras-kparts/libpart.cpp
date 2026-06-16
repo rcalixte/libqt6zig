@@ -35,48 +35,23 @@ KParts__Part* KParts__Part_new3(QObject* parent, const KPluginMetaData* data) {
 }
 
 QMetaObject* KParts__Part_MetaObject(const KParts__Part* self) {
-    auto* vkparts__part = dynamic_cast<const VirtualKPartsPart*>(self);
-    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsPart*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__Part_Metacast(KParts__Part* self, const char* param1) {
-    auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
-    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsPart*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__Part_Metacall(KParts__Part* self, int param1, int param2, void** param3) {
-    auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
-    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsPart*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* KParts__Part_Widget(KParts__Part* self) {
-    auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
-    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
-        return self->widget();
-    } else {
-        return ((VirtualKPartsPart*)self)->widget();
-    }
+    return self->widget();
 }
 
 void KParts__Part_SetManager(KParts__Part* self, KParts__PartManager* manager) {
-    auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
-    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
-        self->setManager(manager);
-    } else {
-        ((VirtualKPartsPart*)self)->setManager(manager);
-    }
+    self->setManager(manager);
 }
 
 KParts__PartManager* KParts__Part_Manager(const KParts__Part* self) {
@@ -92,12 +67,7 @@ void KParts__Part_SetAutoDeletePart(KParts__Part* self, bool autoDeletePart) {
 }
 
 KParts__Part* KParts__Part_HitTest(KParts__Part* self, QWidget* widget, const QPoint* globalPos) {
-    auto* vkparts__part = dynamic_cast<VirtualKPartsPart*>(self);
-    if (vkparts__part && vkparts__part->isVirtualKPartsPart) {
-        return self->hitTest(widget, *globalPos);
-    } else {
-        return ((VirtualKPartsPart*)self)->hitTest(widget, *globalPos);
-    }
+    return self->hitTest(widget, *globalPos);
 }
 
 KPluginMetaData* KParts__Part_MetaData(const KParts__Part* self) {

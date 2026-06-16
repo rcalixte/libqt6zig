@@ -55,30 +55,15 @@ KCapacityBar* KCapacityBar_new4(int drawTextMode, QWidget* parent) {
 }
 
 QMetaObject* KCapacityBar_MetaObject(const KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<const VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKCapacityBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KCapacityBar_Metacast(KCapacityBar* self, const char* param1) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKCapacityBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KCapacityBar_Metacall(KCapacityBar* self, int param1, int param2, void** param3) {
-    auto* vkcapacitybar = dynamic_cast<VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKCapacityBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KCapacityBar_SetValue(KCapacityBar* self, int value) {
@@ -155,12 +140,7 @@ void KCapacityBar_DrawCapacityBar2(const KCapacityBar* self, QPainter* p, const 
 }
 
 QSize* KCapacityBar_MinimumSizeHint(const KCapacityBar* self) {
-    auto* vkcapacitybar = dynamic_cast<const VirtualKCapacityBar*>(self);
-    if (vkcapacitybar && vkcapacitybar->isVirtualKCapacityBar) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualKCapacityBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void KCapacityBar_PaintEvent(KCapacityBar* self, QPaintEvent* event) {

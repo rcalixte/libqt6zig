@@ -21,30 +21,15 @@ QScreenCapture* QScreenCapture_new2(QObject* parent) {
 }
 
 QMetaObject* QScreenCapture_MetaObject(const QScreenCapture* self) {
-    auto* vqscreencapture = dynamic_cast<const VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQScreenCapture*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QScreenCapture_Metacast(QScreenCapture* self, const char* param1) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQScreenCapture*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QScreenCapture_Metacall(QScreenCapture* self, int param1, int param2, void** param3) {
-    auto* vqscreencapture = dynamic_cast<VirtualQScreenCapture*>(self);
-    if (vqscreencapture && vqscreencapture->isVirtualQScreenCapture) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQScreenCapture*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QMediaCaptureSession* QScreenCapture_CaptureSession(const QScreenCapture* self) {

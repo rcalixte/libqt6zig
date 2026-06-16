@@ -21,30 +21,15 @@ KWindowStateSaver* KWindowStateSaver_new2(QWindow* window, const libqt_string co
 }
 
 QMetaObject* KWindowStateSaver_MetaObject(const KWindowStateSaver* self) {
-    auto* vkwindowstatesaver = dynamic_cast<const VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKWindowStateSaver*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KWindowStateSaver_Metacast(KWindowStateSaver* self, const char* param1) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KWindowStateSaver_Metacall(KWindowStateSaver* self, int param1, int param2, void** param3) {
-    auto* vkwindowstatesaver = dynamic_cast<VirtualKWindowStateSaver*>(self);
-    if (vkwindowstatesaver && vkwindowstatesaver->isVirtualKWindowStateSaver) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKWindowStateSaver*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 // Base class handler implementation

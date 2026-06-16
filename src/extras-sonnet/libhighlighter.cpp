@@ -37,30 +37,15 @@ Sonnet__Highlighter* Sonnet__Highlighter_new4(QPlainTextEdit* textEdit, const QC
 }
 
 QMetaObject* Sonnet__Highlighter_MetaObject(const Sonnet__Highlighter* self) {
-    auto* vsonnet__highlighter = dynamic_cast<const VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSonnetHighlighter*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Sonnet__Highlighter_Metacast(Sonnet__Highlighter* self, const char* param1) {
-    auto* vsonnet__highlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Sonnet__Highlighter_Metacall(Sonnet__Highlighter* self, int param1, int param2, void** param3) {
-    auto* vsonnet__highlighter = dynamic_cast<VirtualSonnetHighlighter*>(self);
-    if (vsonnet__highlighter && vsonnet__highlighter->isVirtualSonnetHighlighter) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSonnetHighlighter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool Sonnet__Highlighter_SpellCheckerFound(const Sonnet__Highlighter* self) {

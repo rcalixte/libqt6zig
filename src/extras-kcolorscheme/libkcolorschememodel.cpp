@@ -31,48 +31,23 @@ KColorSchemeModel* KColorSchemeModel_new2(QObject* parent) {
 }
 
 QMetaObject* KColorSchemeModel_MetaObject(const KColorSchemeModel* self) {
-    auto* vkcolorschememodel = dynamic_cast<const VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKColorSchemeModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KColorSchemeModel_Metacast(KColorSchemeModel* self, const char* param1) {
-    auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKColorSchemeModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KColorSchemeModel_Metacall(KColorSchemeModel* self, int param1, int param2, void** param3) {
-    auto* vkcolorschememodel = dynamic_cast<VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKColorSchemeModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVariant* KColorSchemeModel_Data(const KColorSchemeModel* self, const QModelIndex* index, int role) {
-    auto* vkcolorschememodel = dynamic_cast<const VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKColorSchemeModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int KColorSchemeModel_RowCount(const KColorSchemeModel* self, const QModelIndex* parent) {
-    auto* vkcolorschememodel = dynamic_cast<const VirtualKColorSchemeModel*>(self);
-    if (vkcolorschememodel && vkcolorschememodel->isVirtualKColorSchemeModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKColorSchemeModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 // Base class handler implementation

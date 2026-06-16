@@ -147,7 +147,7 @@ void QOpenGLFunctions_3_1_GlUniform3f(QOpenGLFunctions_3_1* self, int32_t locati
 void QOpenGLFunctions_3_1_GlUniform2f(QOpenGLFunctions_3_1* self, int32_t location, float v0, float v1);
 void QOpenGLFunctions_3_1_GlUniform1f(QOpenGLFunctions_3_1* self, int32_t location, float v0);
 void QOpenGLFunctions_3_1_GlUseProgram(QOpenGLFunctions_3_1* self, uint32_t program);
-void QOpenGLFunctions_3_1_GlShaderSource(QOpenGLFunctions_3_1* self, uint32_t shader, int32_t count, const GLchar** stringVal, const int32_t* length);
+void QOpenGLFunctions_3_1_GlShaderSource(QOpenGLFunctions_3_1* self, uint32_t shader, int32_t count, const GLchar** string, const int32_t* length);
 void QOpenGLFunctions_3_1_GlLinkProgram(QOpenGLFunctions_3_1* self, uint32_t program);
 unsigned char QOpenGLFunctions_3_1_GlIsShader(QOpenGLFunctions_3_1* self, uint32_t shader);
 unsigned char QOpenGLFunctions_3_1_GlIsProgram(QOpenGLFunctions_3_1* self, uint32_t program);

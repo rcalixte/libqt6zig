@@ -288,10 +288,10 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn FromString(stringVal: []const u8) QUuid {
-        return .{ .ptr = qtc.QUuid_FromString(stringVal.ptr) };
+    pub fn FromString(string: []const u8) QUuid {
+        return .{ .ptr = qtc.QUuid_FromString(string.ptr) };
     }
 
     /// Inherited from QUuid

@@ -28,30 +28,15 @@ QSocketNotifier* QSocketNotifier_new4(intptr_t socket, int param2, QObject* pare
 }
 
 QMetaObject* QSocketNotifier_MetaObject(const QSocketNotifier* self) {
-    auto* vqsocketnotifier = dynamic_cast<const VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSocketNotifier*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSocketNotifier_Metacast(QSocketNotifier* self, const char* param1) {
-    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSocketNotifier*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSocketNotifier_Metacall(QSocketNotifier* self, int param1, int param2, void** param3) {
-    auto* vqsocketnotifier = dynamic_cast<VirtualQSocketNotifier*>(self);
-    if (vqsocketnotifier && vqsocketnotifier->isVirtualQSocketNotifier) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSocketNotifier*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSocketNotifier_SetSocket(QSocketNotifier* self, intptr_t socket) {

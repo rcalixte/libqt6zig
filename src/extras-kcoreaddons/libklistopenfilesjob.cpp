@@ -19,39 +19,19 @@ KListOpenFilesJob* KListOpenFilesJob_new(const libqt_string path) {
 }
 
 QMetaObject* KListOpenFilesJob_MetaObject(const KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<const VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKListOpenFilesJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KListOpenFilesJob_Metacast(KListOpenFilesJob* self, const char* param1) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KListOpenFilesJob_Metacall(KListOpenFilesJob* self, int param1, int param2, void** param3) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKListOpenFilesJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KListOpenFilesJob_Start(KListOpenFilesJob* self) {
-    auto* vklistopenfilesjob = dynamic_cast<VirtualKListOpenFilesJob*>(self);
-    if (vklistopenfilesjob && vklistopenfilesjob->isVirtualKListOpenFilesJob) {
-        self->start();
-    } else {
-        ((VirtualKListOpenFilesJob*)self)->start();
-    }
+    self->start();
 }
 
 libqt_list /* of KProcessList__KProcessInfo* */ KListOpenFilesJob_ProcessInfoList(const KListOpenFilesJob* self) {

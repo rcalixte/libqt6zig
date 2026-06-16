@@ -42,16 +42,16 @@ void KIO__SimpleJob_SetRedirectionHandlingEnabled(KIO__SimpleJob* self, bool han
 void KIO__SimpleJob_SlotError(KIO__SimpleJob* self, int param1, const libqt_string param2);
 void KIO__SimpleJob_Delete(KIO__SimpleJob* self);
 
-KIO__SimpleJob* KIO_Rmdir(const QUrl* param1);
-KIO__SimpleJob* KIO_Chown(const QUrl* param1, const libqt_string param2, const libqt_string param3);
-KIO__SimpleJob* KIO_SetModificationTime(const QUrl* param1, const QDateTime* param2);
-KIO__SimpleJob* KIO_Rename(const QUrl* param1, const QUrl* param2, int param3);
-KIO__SimpleJob* KIO_Symlink(const libqt_string param1, const QUrl* param2, int param3);
-KIO__SimpleJob* KIO_Special(const QUrl* param1, const libqt_string param2, int param3);
-KIO__SimpleJob* KIO_Mount(bool param1, const libqt_string param2, const libqt_string param3, const libqt_string param4, int param5);
-KIO__SimpleJob* KIO_Unmount(const libqt_string param1, int param2);
-KIO__SimpleJob* KIO_HttpUpdateCache(const QUrl* param1, bool param2, const QDateTime* param3);
-KIO__SimpleJob* KIO_FileDelete(const QUrl* param1, int param2);
+KIO__SimpleJob* KIO_Rmdir(const QUrl* url);
+KIO__SimpleJob* KIO_Chown(const QUrl* url, const libqt_string owner, const libqt_string group);
+KIO__SimpleJob* KIO_SetModificationTime(const QUrl* url, const QDateTime* mtime);
+KIO__SimpleJob* KIO_Rename(const QUrl* src, const QUrl* dest, int flags);
+KIO__SimpleJob* KIO_Symlink(const libqt_string target, const QUrl* dest, int flags);
+KIO__SimpleJob* KIO_Special(const QUrl* url, const libqt_string data, int flags);
+KIO__SimpleJob* KIO_Mount(bool ro, const libqt_string fstype, const libqt_string dev, const libqt_string point, int flags);
+KIO__SimpleJob* KIO_Unmount(const libqt_string point, int flags);
+KIO__SimpleJob* KIO_HttpUpdateCache(const QUrl* url, bool no_cache, const QDateTime* expireDate);
+KIO__SimpleJob* KIO_FileDelete(const QUrl* src, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

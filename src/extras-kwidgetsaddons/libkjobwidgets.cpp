@@ -6,26 +6,26 @@
 #include "libkjobwidgets.h"
 #include "libkjobwidgets.hxx"
 
-void KJobWidgets_SetWindow(QObject* param1, QWidget* param2) {
-    KJobWidgets::setWindow(param1, param2);
+void KJobWidgets_SetWindow(QObject* job, QWidget* widget) {
+    KJobWidgets::setWindow(job, widget);
 }
 
-void KJobWidgets_SetWindowHandle(QObject* param1, QWindow* param2) {
-    KJobWidgets::setWindowHandle(param1, param2);
+void KJobWidgets_SetWindowHandle(QObject* job, QWindow* window) {
+    KJobWidgets::setWindowHandle(job, window);
 }
 
-QWidget* KJobWidgets_Window(QObject* param1) {
-    return KJobWidgets::window(param1);
+QWidget* KJobWidgets_Window(QObject* job) {
+    return KJobWidgets::window(job);
 }
 
-QWindow* KJobWidgets_WindowHandle(QObject* param1) {
-    return KJobWidgets::windowHandle(param1);
+QWindow* KJobWidgets_WindowHandle(QObject* job) {
+    return KJobWidgets::windowHandle(job);
 }
 
-void KJobWidgets_UpdateUserTimestamp(QObject* param1, unsigned long param2) {
-    KJobWidgets::updateUserTimestamp(param1, static_cast<unsigned long>(param2));
+void KJobWidgets_UpdateUserTimestamp(QObject* job, unsigned long time) {
+    KJobWidgets::updateUserTimestamp(job, static_cast<unsigned long>(time));
 }
 
-unsigned long KJobWidgets_UserTimestamp(QObject* param1) {
-    return KJobWidgets::userTimestamp(param1);
+unsigned long KJobWidgets_UserTimestamp(QObject* job) {
+    return KJobWidgets::userTimestamp(job);
 }

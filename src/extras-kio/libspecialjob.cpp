@@ -29,30 +29,15 @@ KIO__SpecialJob* KIO__SpecialJob_new2(const QUrl* url, const libqt_string data) 
 }
 
 QMetaObject* KIO__SpecialJob_MetaObject(const KIO__SpecialJob* self) {
-    auto* vkio__specialjob = dynamic_cast<const VirtualKIOSpecialJob*>(self);
-    if (vkio__specialjob && vkio__specialjob->isVirtualKIOSpecialJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOSpecialJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__SpecialJob_Metacast(KIO__SpecialJob* self, const char* param1) {
-    auto* vkio__specialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkio__specialjob && vkio__specialjob->isVirtualKIOSpecialJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__SpecialJob_Metacall(KIO__SpecialJob* self, int param1, int param2, void** param3) {
-    auto* vkio__specialjob = dynamic_cast<VirtualKIOSpecialJob*>(self);
-    if (vkio__specialjob && vkio__specialjob->isVirtualKIOSpecialJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOSpecialJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__SpecialJob_SetArguments(KIO__SpecialJob* self, const libqt_string data) {

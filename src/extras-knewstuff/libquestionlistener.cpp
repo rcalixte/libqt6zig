@@ -20,39 +20,19 @@ KNSCore__QuestionListener* KNSCore__QuestionListener_new2(QObject* parent) {
 }
 
 QMetaObject* KNSCore__QuestionListener_MetaObject(const KNSCore__QuestionListener* self) {
-    auto* vknscore__questionlistener = dynamic_cast<const VirtualKNSCoreQuestionListener*>(self);
-    if (vknscore__questionlistener && vknscore__questionlistener->isVirtualKNSCoreQuestionListener) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSCoreQuestionListener*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSCore__QuestionListener_Metacast(KNSCore__QuestionListener* self, const char* param1) {
-    auto* vknscore__questionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscore__questionlistener && vknscore__questionlistener->isVirtualKNSCoreQuestionListener) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSCore__QuestionListener_Metacall(KNSCore__QuestionListener* self, int param1, int param2, void** param3) {
-    auto* vknscore__questionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscore__questionlistener && vknscore__questionlistener->isVirtualKNSCoreQuestionListener) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSCoreQuestionListener*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KNSCore__QuestionListener_AskQuestion(KNSCore__QuestionListener* self, KNSCore__Question* question) {
-    auto* vknscore__questionlistener = dynamic_cast<VirtualKNSCoreQuestionListener*>(self);
-    if (vknscore__questionlistener && vknscore__questionlistener->isVirtualKNSCoreQuestionListener) {
-        vknscore__questionlistener->askQuestion(question);
-    } else {
-        ((VirtualKNSCoreQuestionListener*)self)->askQuestion(question);
-    }
+    self->askQuestion(question);
 }
 
 // Base class handler implementation

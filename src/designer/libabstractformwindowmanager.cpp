@@ -27,48 +27,23 @@ QDesignerFormWindowManagerInterface* QDesignerFormWindowManagerInterface_new2(QO
 }
 
 QMetaObject* QDesignerFormWindowManagerInterface_MetaObject(const QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDesignerFormWindowManagerInterface*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDesignerFormWindowManagerInterface_Metacast(QDesignerFormWindowManagerInterface* self, const char* param1) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDesignerFormWindowManagerInterface_Metacall(QDesignerFormWindowManagerInterface* self, int param1, int param2, void** param3) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAction* QDesignerFormWindowManagerInterface_Action(const QDesignerFormWindowManagerInterface* self, int action) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->action(static_cast<QDesignerFormWindowManagerInterface::Action>(action));
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->action(static_cast<QDesignerFormWindowManagerInterface::Action>(action));
-    }
+    return self->action(static_cast<QDesignerFormWindowManagerInterface::Action>(action));
 }
 
 QActionGroup* QDesignerFormWindowManagerInterface_ActionGroup(const QDesignerFormWindowManagerInterface* self, int actionGroup) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->actionGroup(static_cast<QDesignerFormWindowManagerInterface::ActionGroup>(actionGroup));
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->actionGroup(static_cast<QDesignerFormWindowManagerInterface::ActionGroup>(actionGroup));
-    }
+    return self->actionGroup(static_cast<QDesignerFormWindowManagerInterface::ActionGroup>(actionGroup));
 }
 
 QAction* QDesignerFormWindowManagerInterface_ActionCut(const QDesignerFormWindowManagerInterface* self) {
@@ -144,48 +119,23 @@ QAction* QDesignerFormWindowManagerInterface_ActionSimplifyLayout(const QDesigne
 }
 
 QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_ActiveFormWindow(const QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->activeFormWindow();
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->activeFormWindow();
-    }
+    return self->activeFormWindow();
 }
 
 int QDesignerFormWindowManagerInterface_FormWindowCount(const QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->formWindowCount();
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->formWindowCount();
-    }
+    return self->formWindowCount();
 }
 
 QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_FormWindow(const QDesignerFormWindowManagerInterface* self, int index) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->formWindow(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->formWindow(static_cast<int>(index));
-    }
+    return self->formWindow(static_cast<int>(index));
 }
 
 QDesignerFormWindowInterface* QDesignerFormWindowManagerInterface_CreateFormWindow(QDesignerFormWindowManagerInterface* self, QWidget* parentWidget, int flags) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->createFormWindow(parentWidget, static_cast<Qt::WindowFlags>(flags));
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->createFormWindow(parentWidget, static_cast<Qt::WindowFlags>(flags));
-    }
+    return self->createFormWindow(parentWidget, static_cast<Qt::WindowFlags>(flags));
 }
 
 QDesignerFormEditorInterface* QDesignerFormWindowManagerInterface_Core(const QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return vqdesignerformwindowmanagerinterface->core();
-    } else {
-        return ((VirtualQDesignerFormWindowManagerInterface*)self)->core();
-    }
+    return self->core();
 }
 
 void QDesignerFormWindowManagerInterface_DragItems(QDesignerFormWindowManagerInterface* self, const libqt_list /* of QDesignerDnDItemInterface* */ item_list) {
@@ -195,21 +145,11 @@ void QDesignerFormWindowManagerInterface_DragItems(QDesignerFormWindowManagerInt
     for (size_t i = 0; i < item_list.len; ++i) {
         item_list_QList.push_back(item_list_arr[i]);
     }
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->dragItems(item_list_QList);
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->dragItems(item_list_QList);
-    }
+    self->dragItems(item_list_QList);
 }
 
 QPixmap* QDesignerFormWindowManagerInterface_CreatePreviewPixmap(const QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<const VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        return new QPixmap(vqdesignerformwindowmanagerinterface->createPreviewPixmap());
-    } else {
-        return new QPixmap(((VirtualQDesignerFormWindowManagerInterface*)self)->createPreviewPixmap());
-    }
+    return new QPixmap(self->createPreviewPixmap());
 }
 
 void QDesignerFormWindowManagerInterface_FormWindowAdded(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow) {
@@ -261,57 +201,27 @@ void QDesignerFormWindowManagerInterface_Connect_FormWindowSettingsChanged(QDesi
 }
 
 void QDesignerFormWindowManagerInterface_AddFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->addFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->addFormWindow(formWindow);
-    }
+    self->addFormWindow(formWindow);
 }
 
 void QDesignerFormWindowManagerInterface_RemoveFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->removeFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->removeFormWindow(formWindow);
-    }
+    self->removeFormWindow(formWindow);
 }
 
 void QDesignerFormWindowManagerInterface_SetActiveFormWindow(QDesignerFormWindowManagerInterface* self, QDesignerFormWindowInterface* formWindow) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->setActiveFormWindow(formWindow);
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->setActiveFormWindow(formWindow);
-    }
+    self->setActiveFormWindow(formWindow);
 }
 
 void QDesignerFormWindowManagerInterface_ShowPreview(QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->showPreview();
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->showPreview();
-    }
+    self->showPreview();
 }
 
 void QDesignerFormWindowManagerInterface_CloseAllPreviews(QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->closeAllPreviews();
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->closeAllPreviews();
-    }
+    self->closeAllPreviews();
 }
 
 void QDesignerFormWindowManagerInterface_ShowPluginDialog(QDesignerFormWindowManagerInterface* self) {
-    auto* vqdesignerformwindowmanagerinterface = dynamic_cast<VirtualQDesignerFormWindowManagerInterface*>(self);
-    if (vqdesignerformwindowmanagerinterface && vqdesignerformwindowmanagerinterface->isVirtualQDesignerFormWindowManagerInterface) {
-        vqdesignerformwindowmanagerinterface->showPluginDialog();
-    } else {
-        ((VirtualQDesignerFormWindowManagerInterface*)self)->showPluginDialog();
-    }
+    self->showPluginDialog();
 }
 
 // Base class handler implementation

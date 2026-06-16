@@ -22,30 +22,15 @@ KToolBarPopupAction* KToolBarPopupAction_new(const QIcon* icon, const libqt_stri
 }
 
 QMetaObject* KToolBarPopupAction_MetaObject(const KToolBarPopupAction* self) {
-    auto* vktoolbarpopupaction = dynamic_cast<const VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToolBarPopupAction*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToolBarPopupAction_Metacast(KToolBarPopupAction* self, const char* param1) {
-    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToolBarPopupAction*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToolBarPopupAction_Metacall(KToolBarPopupAction* self, int param1, int param2, void** param3) {
-    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToolBarPopupAction*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QMenu* KToolBarPopupAction_PopupMenu(const KToolBarPopupAction* self) {
@@ -61,12 +46,7 @@ void KToolBarPopupAction_SetPopupMode(KToolBarPopupAction* self, int popupMode) 
 }
 
 QWidget* KToolBarPopupAction_CreateWidget(KToolBarPopupAction* self, QWidget* parent) {
-    auto* vktoolbarpopupaction = dynamic_cast<VirtualKToolBarPopupAction*>(self);
-    if (vktoolbarpopupaction && vktoolbarpopupaction->isVirtualKToolBarPopupAction) {
-        return self->createWidget(parent);
-    } else {
-        return ((VirtualKToolBarPopupAction*)self)->createWidget(parent);
-    }
+    return self->createWidget(parent);
 }
 
 // Base class handler implementation

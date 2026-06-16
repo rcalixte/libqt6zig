@@ -25,48 +25,23 @@ QLayout* QLayout_new2() {
 }
 
 QMetaObject* QLayout_MetaObject(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLayout_Metacast(QLayout* self, const char* param1) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLayout_Metacall(QLayout* self, int param1, int param2, void** param3) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QLayout_Spacing(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->spacing();
-    } else {
-        return ((VirtualQLayout*)self)->spacing();
-    }
+    return self->spacing();
 }
 
 void QLayout_SetSpacing(QLayout* self, int spacing) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        self->setSpacing(static_cast<int>(spacing));
-    } else {
-        ((VirtualQLayout*)self)->setSpacing(static_cast<int>(spacing));
-    }
+    self->setSpacing(static_cast<int>(spacing));
 }
 
 void QLayout_SetContentsMargins(QLayout* self, int left, int top, int right, int bottom) {
@@ -122,21 +97,11 @@ QWidget* QLayout_ParentWidget(const QLayout* self) {
 }
 
 void QLayout_Invalidate(QLayout* self) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 QRect* QLayout_Geometry(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return new QRect(self->geometry());
-    } else {
-        return new QRect(((VirtualQLayout*)self)->geometry());
-    }
+    return new QRect(self->geometry());
 }
 
 bool QLayout_Activate(QLayout* self) {
@@ -152,12 +117,7 @@ void QLayout_AddWidget(QLayout* self, QWidget* w) {
 }
 
 void QLayout_AddItem(QLayout* self, QLayoutItem* param1) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->addItem(param1);
-    } else {
-        ((VirtualQLayout*)self)->addItem(param1);
-    }
+    self->addItem(param1);
 }
 
 void QLayout_RemoveWidget(QLayout* self, QWidget* w) {
@@ -169,111 +129,51 @@ void QLayout_RemoveItem(QLayout* self, QLayoutItem* param1) {
 }
 
 int QLayout_ExpandingDirections(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return static_cast<int>(self->expandingDirections());
-    } else {
-        return static_cast<int>(((VirtualQLayout*)self)->expandingDirections());
-    }
+    return static_cast<int>(self->expandingDirections());
 }
 
 QSize* QLayout_MinimumSize(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return new QSize(self->minimumSize());
-    } else {
-        return new QSize(((VirtualQLayout*)self)->minimumSize());
-    }
+    return new QSize(self->minimumSize());
 }
 
 QSize* QLayout_MaximumSize(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return new QSize(self->maximumSize());
-    } else {
-        return new QSize(((VirtualQLayout*)self)->maximumSize());
-    }
+    return new QSize(self->maximumSize());
 }
 
 void QLayout_SetGeometry(QLayout* self, const QRect* geometry) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        self->setGeometry(*geometry);
-    } else {
-        ((VirtualQLayout*)self)->setGeometry(*geometry);
-    }
+    self->setGeometry(*geometry);
 }
 
 QLayoutItem* QLayout_ItemAt(const QLayout* self, int index) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQLayout*)self)->itemAt(static_cast<int>(index));
-    }
+    return self->itemAt(static_cast<int>(index));
 }
 
 QLayoutItem* QLayout_TakeAt(QLayout* self, int index) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQLayout*)self)->takeAt(static_cast<int>(index));
-    }
+    return self->takeAt(static_cast<int>(index));
 }
 
 int QLayout_IndexOf(const QLayout* self, const QWidget* param1) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->indexOf(param1);
-    } else {
-        return ((VirtualQLayout*)self)->indexOf(param1);
-    }
+    return self->indexOf(param1);
 }
 
 int QLayout_IndexOf2(const QLayout* self, const QLayoutItem* param1) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->indexOf(param1);
-    } else {
-        return ((VirtualQLayout*)self)->indexOf(param1);
-    }
+    return self->indexOf(param1);
 }
 
 int QLayout_Count(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return vqlayout->count();
-    } else {
-        return ((VirtualQLayout*)self)->count();
-    }
+    return self->count();
 }
 
 bool QLayout_IsEmpty(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->isEmpty();
-    } else {
-        return ((VirtualQLayout*)self)->isEmpty();
-    }
+    return self->isEmpty();
 }
 
 int QLayout_ControlTypes(const QLayout* self) {
-    auto* vqlayout = dynamic_cast<const VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return static_cast<int>(self->controlTypes());
-    } else {
-        return static_cast<int>(((VirtualQLayout*)self)->controlTypes());
-    }
+    return static_cast<int>(self->controlTypes());
 }
 
 QLayoutItem* QLayout_ReplaceWidget(QLayout* self, QWidget* from, QWidget* to, int options) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    } else {
-        return ((VirtualQLayout*)self)->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
-    }
+    return self->replaceWidget(from, to, static_cast<Qt::FindChildOptions>(options));
 }
 
 int QLayout_TotalMinimumHeightForWidth(const QLayout* self, int w) {
@@ -297,12 +197,7 @@ QSize* QLayout_TotalSizeHint(const QLayout* self) {
 }
 
 QLayout* QLayout_Layout(QLayout* self) {
-    auto* vqlayout = dynamic_cast<VirtualQLayout*>(self);
-    if (vqlayout && vqlayout->isVirtualQLayout) {
-        return self->layout();
-    } else {
-        return ((VirtualQLayout*)self)->layout();
-    }
+    return self->layout();
 }
 
 void QLayout_SetEnabled(QLayout* self, bool enabled) {

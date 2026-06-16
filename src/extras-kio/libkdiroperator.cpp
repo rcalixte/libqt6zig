@@ -64,39 +64,19 @@ KDirOperator* KDirOperator_new3(const QUrl* urlName, QWidget* parent) {
 }
 
 QMetaObject* KDirOperator_MetaObject(const KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<const VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKDirOperator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KDirOperator_Metacast(KDirOperator* self, const char* param1) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKDirOperator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KDirOperator_Metacall(KDirOperator* self, int param1, int param2, void** param3) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKDirOperator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KDirOperator_SetShowHiddenFiles(KDirOperator* self, bool s) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setShowHiddenFiles(s);
-    } else {
-        ((VirtualKDirOperator*)self)->setShowHiddenFiles(s);
-    }
+    self->setShowHiddenFiles(s);
 }
 
 bool KDirOperator_ShowHiddenFiles(const KDirOperator* self) {
@@ -201,12 +181,7 @@ QUrl* KDirOperator_Url(const KDirOperator* self) {
 }
 
 void KDirOperator_SetUrl(KDirOperator* self, const QUrl* url, bool clearforward) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setUrl(*url, clearforward);
-    } else {
-        ((VirtualKDirOperator*)self)->setUrl(*url, clearforward);
-    }
+    self->setUrl(*url, clearforward);
 }
 
 void KDirOperator_SetCurrentItem(KDirOperator* self, const QUrl* url) {
@@ -264,12 +239,7 @@ QProgressBar* KDirOperator_ProgressBar(const KDirOperator* self) {
 }
 
 void KDirOperator_SetMode(KDirOperator* self, int m) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setMode(static_cast<KFile::Modes>(m));
-    } else {
-        ((VirtualKDirOperator*)self)->setMode(static_cast<KFile::Modes>(m));
-    }
+    self->setMode(static_cast<KFile::Modes>(m));
 }
 
 int KDirOperator_Mode(const KDirOperator* self) {
@@ -277,12 +247,7 @@ int KDirOperator_Mode(const KDirOperator* self) {
 }
 
 void KDirOperator_SetPreviewWidget(KDirOperator* self, KPreviewWidgetBase* w) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setPreviewWidget(w);
-    } else {
-        ((VirtualKDirOperator*)self)->setPreviewWidget(w);
-    }
+    self->setPreviewWidget(w);
 }
 
 KFileItemList* KDirOperator_SelectedItems(const KDirOperator* self) {
@@ -327,12 +292,7 @@ libqt_list /* of QAction* */ KDirOperator_AllActions(const KDirOperator* self) {
 }
 
 void KDirOperator_SetViewConfig(KDirOperator* self, KConfigGroup* configGroup) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setViewConfig(*configGroup);
-    } else {
-        ((VirtualKDirOperator*)self)->setViewConfig(*configGroup);
-    }
+    self->setViewConfig(*configGroup);
 }
 
 KConfigGroup* KDirOperator_ViewConfigGroup(const KDirOperator* self) {
@@ -340,21 +300,11 @@ KConfigGroup* KDirOperator_ViewConfigGroup(const KDirOperator* self) {
 }
 
 void KDirOperator_ReadConfig(KDirOperator* self, const KConfigGroup* configGroup) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->readConfig(*configGroup);
-    } else {
-        ((VirtualKDirOperator*)self)->readConfig(*configGroup);
-    }
+    self->readConfig(*configGroup);
 }
 
 void KDirOperator_WriteConfig(KDirOperator* self, KConfigGroup* configGroup) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->writeConfig(*configGroup);
-    } else {
-        ((VirtualKDirOperator*)self)->writeConfig(*configGroup);
-    }
+    self->writeConfig(*configGroup);
 }
 
 void KDirOperator_SetOnlyDoubleClickSelectsFiles(KDirOperator* self, bool enable) {
@@ -382,12 +332,7 @@ bool KDirOperator_FollowSelectedDirectories(const KDirOperator* self) {
 }
 
 KIO__DeleteJob* KDirOperator_Del(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return self->del(*items, parent, ask, showProgress);
-    } else {
-        return ((VirtualKDirOperator*)self)->del(*items, parent, ask, showProgress);
-    }
+    return self->del(*items, parent, ask, showProgress);
 }
 
 void KDirOperator_ClearHistory(KDirOperator* self) {
@@ -395,12 +340,7 @@ void KDirOperator_ClearHistory(KDirOperator* self) {
 }
 
 void KDirOperator_SetEnableDirHighlighting(KDirOperator* self, bool enable) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setEnableDirHighlighting(enable);
-    } else {
-        ((VirtualKDirOperator*)self)->setEnableDirHighlighting(enable);
-    }
+    self->setEnableDirHighlighting(enable);
 }
 
 bool KDirOperator_DirHighlighting(const KDirOperator* self) {
@@ -420,30 +360,15 @@ void KDirOperator_SetupMenu(KDirOperator* self, int whichActions) {
 }
 
 void KDirOperator_SetAcceptDrops(KDirOperator* self, bool b) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setAcceptDrops(b);
-    } else {
-        ((VirtualKDirOperator*)self)->setAcceptDrops(b);
-    }
+    self->setAcceptDrops(b);
 }
 
 void KDirOperator_SetDropOptions(KDirOperator* self, int options) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->setDropOptions(static_cast<int>(options));
-    } else {
-        ((VirtualKDirOperator*)self)->setDropOptions(static_cast<int>(options));
-    }
+    self->setDropOptions(static_cast<int>(options));
 }
 
 KIO__CopyJob* KDirOperator_Trash(KDirOperator* self, const KFileItemList* items, QWidget* parent, bool ask, bool showProgress) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        return self->trash(*items, parent, ask, showProgress);
-    } else {
-        return ((VirtualKDirOperator*)self)->trash(*items, parent, ask, showProgress);
-    }
+    return self->trash(*items, parent, ask, showProgress);
 }
 
 KFilePreviewGenerator* KDirOperator_PreviewGenerator(const KDirOperator* self) {
@@ -552,39 +477,19 @@ bool KDirOperator_EventFilter(KDirOperator* self, QObject* watched, QEvent* even
 }
 
 void KDirOperator_Back(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->back();
-    } else {
-        ((VirtualKDirOperator*)self)->back();
-    }
+    self->back();
 }
 
 void KDirOperator_Forward(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->forward();
-    } else {
-        ((VirtualKDirOperator*)self)->forward();
-    }
+    self->forward();
 }
 
 void KDirOperator_Home(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->home();
-    } else {
-        ((VirtualKDirOperator*)self)->home();
-    }
+    self->home();
 }
 
 void KDirOperator_CdUp(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->cdUp();
-    } else {
-        ((VirtualKDirOperator*)self)->cdUp();
-    }
+    self->cdUp();
 }
 
 void KDirOperator_UpdateDir(KDirOperator* self) {
@@ -592,30 +497,15 @@ void KDirOperator_UpdateDir(KDirOperator* self) {
 }
 
 void KDirOperator_RereadDir(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->rereadDir();
-    } else {
-        ((VirtualKDirOperator*)self)->rereadDir();
-    }
+    self->rereadDir();
 }
 
 void KDirOperator_Mkdir(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->mkdir();
-    } else {
-        ((VirtualKDirOperator*)self)->mkdir();
-    }
+    self->mkdir();
 }
 
 void KDirOperator_DeleteSelected(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->deleteSelected();
-    } else {
-        ((VirtualKDirOperator*)self)->deleteSelected();
-    }
+    self->deleteSelected();
 }
 
 void KDirOperator_UpdateSelectionDependentActions(KDirOperator* self) {
@@ -653,12 +543,7 @@ void KDirOperator_RenameSelected(KDirOperator* self) {
 }
 
 void KDirOperator_TrashSelected(KDirOperator* self) {
-    auto* vkdiroperator = dynamic_cast<VirtualKDirOperator*>(self);
-    if (vkdiroperator && vkdiroperator->isVirtualKDirOperator) {
-        self->trashSelected();
-    } else {
-        ((VirtualKDirOperator*)self)->trashSelected();
-    }
+    self->trashSelected();
 }
 
 void KDirOperator_SetIconSize(KDirOperator* self, int value) {

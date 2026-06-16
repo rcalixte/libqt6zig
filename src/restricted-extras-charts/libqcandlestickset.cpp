@@ -37,30 +37,15 @@ QCandlestickSet* QCandlestickSet_new6(double open, double high, double low, doub
 }
 
 QMetaObject* QCandlestickSet_MetaObject(const QCandlestickSet* self) {
-    auto* vqcandlestickset = dynamic_cast<const VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCandlestickSet*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCandlestickSet_Metacast(QCandlestickSet* self, const char* param1) {
-    auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCandlestickSet*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCandlestickSet_Metacall(QCandlestickSet* self, int param1, int param2, void** param3) {
-    auto* vqcandlestickset = dynamic_cast<VirtualQCandlestickSet*>(self);
-    if (vqcandlestickset && vqcandlestickset->isVirtualQCandlestickSet) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCandlestickSet*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QCandlestickSet_SetTimestamp(QCandlestickSet* self, double timestamp) {

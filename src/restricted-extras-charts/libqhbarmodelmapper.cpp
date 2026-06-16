@@ -22,30 +22,15 @@ QHBarModelMapper* QHBarModelMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QHBarModelMapper_MetaObject(const QHBarModelMapper* self) {
-    auto* vqhbarmodelmapper = dynamic_cast<const VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHBarModelMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHBarModelMapper_Metacast(QHBarModelMapper* self, const char* param1) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHBarModelMapper_Metacall(QHBarModelMapper* self, int param1, int param2, void** param3) {
-    auto* vqhbarmodelmapper = dynamic_cast<VirtualQHBarModelMapper*>(self);
-    if (vqhbarmodelmapper && vqhbarmodelmapper->isVirtualQHBarModelMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHBarModelMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QAbstractItemModel* QHBarModelMapper_Model(const QHBarModelMapper* self) {

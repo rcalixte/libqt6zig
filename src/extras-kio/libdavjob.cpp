@@ -40,26 +40,26 @@ void KIO__DavJob_Delete(KIO__DavJob* self) {
     delete self;
 }
 
-KIO__DavJob* KIO_DavPropFind(const QUrl* param1, const libqt_string param2, const libqt_string param3, int param4) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    return KIO::davPropFind(*param1, param2_QString, param3_QString, static_cast<KIO::JobFlags>(param4));
+KIO__DavJob* KIO_DavPropFind(const QUrl* url, const libqt_string properties, const libqt_string depth, int flags) {
+    QString properties_QString = QString::fromUtf8(properties.data, properties.len);
+    QString depth_QString = QString::fromUtf8(depth.data, depth.len);
+    return KIO::davPropFind(*url, properties_QString, depth_QString, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__DavJob* KIO_DavPropPatch(const QUrl* param1, const libqt_string param2, int param3) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    return KIO::davPropPatch(*param1, param2_QString, static_cast<KIO::JobFlags>(param3));
+KIO__DavJob* KIO_DavPropPatch(const QUrl* url, const libqt_string properties, int flags) {
+    QString properties_QString = QString::fromUtf8(properties.data, properties.len);
+    return KIO::davPropPatch(*url, properties_QString, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__DavJob* KIO_DavSearch(const QUrl* param1, const libqt_string param2, const libqt_string param3, const libqt_string param4, int param5) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    QString param4_QString = QString::fromUtf8(param4.data, param4.len);
-    return KIO::davSearch(*param1, param2_QString, param3_QString, param4_QString, static_cast<KIO::JobFlags>(param5));
+KIO__DavJob* KIO_DavSearch(const QUrl* url, const libqt_string nsURI, const libqt_string qName, const libqt_string query, int flags) {
+    QString nsURI_QString = QString::fromUtf8(nsURI.data, nsURI.len);
+    QString qName_QString = QString::fromUtf8(qName.data, qName.len);
+    QString query_QString = QString::fromUtf8(query.data, query.len);
+    return KIO::davSearch(*url, nsURI_QString, qName_QString, query_QString, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__DavJob* KIO_DavReport(const QUrl* param1, const libqt_string param2, const libqt_string param3, int param4) {
-    QString param2_QString = QString::fromUtf8(param2.data, param2.len);
-    QString param3_QString = QString::fromUtf8(param3.data, param3.len);
-    return KIO::davReport(*param1, param2_QString, param3_QString, static_cast<KIO::JobFlags>(param4));
+KIO__DavJob* KIO_DavReport(const QUrl* url, const libqt_string report, const libqt_string depth, int flags) {
+    QString report_QString = QString::fromUtf8(report.data, report.len);
+    QString depth_QString = QString::fromUtf8(depth.data, depth.len);
+    return KIO::davReport(*url, report_QString, depth_QString, static_cast<KIO::JobFlags>(flags));
 }

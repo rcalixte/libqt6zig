@@ -22,30 +22,15 @@ KModelIndexProxyMapper* KModelIndexProxyMapper_new2(const QAbstractItemModel* le
 }
 
 QMetaObject* KModelIndexProxyMapper_MetaObject(const KModelIndexProxyMapper* self) {
-    auto* vkmodelindexproxymapper = dynamic_cast<const VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKModelIndexProxyMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KModelIndexProxyMapper_Metacast(KModelIndexProxyMapper* self, const char* param1) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KModelIndexProxyMapper_Metacall(KModelIndexProxyMapper* self, int param1, int param2, void** param3) {
-    auto* vkmodelindexproxymapper = dynamic_cast<VirtualKModelIndexProxyMapper*>(self);
-    if (vkmodelindexproxymapper && vkmodelindexproxymapper->isVirtualKModelIndexProxyMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKModelIndexProxyMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QModelIndex* KModelIndexProxyMapper_MapLeftToRight(const KModelIndexProxyMapper* self, const QModelIndex* index) {

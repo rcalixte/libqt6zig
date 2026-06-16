@@ -20,50 +20,25 @@ KEmailValidator* KEmailValidator_new2(QObject* parent) {
 }
 
 QMetaObject* KEmailValidator_MetaObject(const KEmailValidator* self) {
-    auto* vkemailvalidator = dynamic_cast<const VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKEmailValidator*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KEmailValidator_Metacast(KEmailValidator* self, const char* param1) {
-    auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKEmailValidator*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KEmailValidator_Metacall(KEmailValidator* self, int param1, int param2, void** param3) {
-    auto* vkemailvalidator = dynamic_cast<VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKEmailValidator*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KEmailValidator_Validate(const KEmailValidator* self, libqt_string str, int* pos) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    auto* vkemailvalidator = dynamic_cast<const VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
-        return static_cast<int>(self->validate(str_QString, static_cast<int&>(*pos)));
-    } else {
-        return static_cast<int>(((VirtualKEmailValidator*)self)->validate(str_QString, static_cast<int&>(*pos)));
-    }
+    return static_cast<int>(self->validate(str_QString, static_cast<int&>(*pos)));
 }
 
 void KEmailValidator_Fixup(const KEmailValidator* self, libqt_string str) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    auto* vkemailvalidator = dynamic_cast<const VirtualKEmailValidator*>(self);
-    if (vkemailvalidator && vkemailvalidator->isVirtualKEmailValidator) {
-        self->fixup(str_QString);
-    } else {
-        ((VirtualKEmailValidator*)self)->fixup(str_QString);
-    }
+    self->fixup(str_QString);
 }
 
 // Base class handler implementation

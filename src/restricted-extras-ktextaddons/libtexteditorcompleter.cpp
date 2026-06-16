@@ -23,30 +23,15 @@ TextCustomEditor__TextEditorCompleter* TextCustomEditor__TextEditorCompleter_new
 }
 
 QMetaObject* TextCustomEditor__TextEditorCompleter_MetaObject(const TextCustomEditor__TextEditorCompleter* self) {
-    auto* vtextcustomeditor__texteditorcompleter = dynamic_cast<const VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditor__texteditorcompleter && vtextcustomeditor__texteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorTextEditorCompleter*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__TextEditorCompleter_Metacast(TextCustomEditor__TextEditorCompleter* self, const char* param1) {
-    auto* vtextcustomeditor__texteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditor__texteditorcompleter && vtextcustomeditor__texteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorTextEditorCompleter*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__TextEditorCompleter_Metacall(TextCustomEditor__TextEditorCompleter* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__texteditorcompleter = dynamic_cast<VirtualTextCustomEditorTextEditorCompleter*>(self);
-    if (vtextcustomeditor__texteditorcompleter && vtextcustomeditor__texteditorcompleter->isVirtualTextCustomEditorTextEditorCompleter) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorTextEditorCompleter*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__TextEditorCompleter_SetCompleterStringList(TextCustomEditor__TextEditorCompleter* self, const libqt_list /* of libqt_string */ list) {

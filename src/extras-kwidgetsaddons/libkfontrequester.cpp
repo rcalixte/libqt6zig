@@ -53,30 +53,15 @@ KFontRequester* KFontRequester_new3(QWidget* parent, bool onlyFixed) {
 }
 
 QMetaObject* KFontRequester_MetaObject(const KFontRequester* self) {
-    auto* vkfontrequester = dynamic_cast<const VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFontRequester*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFontRequester_Metacast(KFontRequester* self, const char* param1) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFontRequester*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFontRequester_Metacall(KFontRequester* self, int param1, int param2, void** param3) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFontRequester*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QFont* KFontRequester_Font(const KFontRequester* self) {
@@ -120,32 +105,17 @@ QPushButton* KFontRequester_Button(const KFontRequester* self) {
 }
 
 void KFontRequester_SetFont(KFontRequester* self, const QFont* font, bool onlyFixed) {
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        self->setFont(*font, onlyFixed);
-    } else {
-        ((VirtualKFontRequester*)self)->setFont(*font, onlyFixed);
-    }
+    self->setFont(*font, onlyFixed);
 }
 
 void KFontRequester_SetSampleText(KFontRequester* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        self->setSampleText(text_QString);
-    } else {
-        ((VirtualKFontRequester*)self)->setSampleText(text_QString);
-    }
+    self->setSampleText(text_QString);
 }
 
 void KFontRequester_SetTitle(KFontRequester* self, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
-    auto* vkfontrequester = dynamic_cast<VirtualKFontRequester*>(self);
-    if (vkfontrequester && vkfontrequester->isVirtualKFontRequester) {
-        self->setTitle(title_QString);
-    } else {
-        ((VirtualKFontRequester*)self)->setTitle(title_QString);
-    }
+    self->setTitle(title_QString);
 }
 
 void KFontRequester_FontSelected(KFontRequester* self, const QFont* font) {

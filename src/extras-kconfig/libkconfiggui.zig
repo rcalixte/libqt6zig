@@ -22,20 +22,20 @@ pub const KConfigGui = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` id: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` key: []const u8 `
     ///
-    pub fn SetSessionConfig(param1: []const u8, param2: []const u8) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn SetSessionConfig(id: []const u8, key: []const u8) void {
+        const id_str = qtc.libqt_string{
+            .len = id.len,
+            .data = id.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
         };
-        qtc.KConfigGui_SetSessionConfig(param1_str, param2_str);
+        qtc.KConfigGui_SetSessionConfig(id_str, key_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kconfiggui.html#hasSessionConfig)

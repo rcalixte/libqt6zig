@@ -25,66 +25,31 @@ KParts__NavigationExtension* KParts__NavigationExtension_new(KParts__ReadOnlyPar
 }
 
 QMetaObject* KParts__NavigationExtension_MetaObject(const KParts__NavigationExtension* self) {
-    auto* vkparts__navigationextension = dynamic_cast<const VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPartsNavigationExtension*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KParts__NavigationExtension_Metacast(KParts__NavigationExtension* self, const char* param1) {
-    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPartsNavigationExtension*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KParts__NavigationExtension_Metacall(KParts__NavigationExtension* self, int param1, int param2, void** param3) {
-    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPartsNavigationExtension*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int KParts__NavigationExtension_XOffset(KParts__NavigationExtension* self) {
-    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        return self->xOffset();
-    } else {
-        return ((VirtualKPartsNavigationExtension*)self)->xOffset();
-    }
+    return self->xOffset();
 }
 
 int KParts__NavigationExtension_YOffset(KParts__NavigationExtension* self) {
-    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        return self->yOffset();
-    } else {
-        return ((VirtualKPartsNavigationExtension*)self)->yOffset();
-    }
+    return self->yOffset();
 }
 
 void KParts__NavigationExtension_SaveState(KParts__NavigationExtension* self, QDataStream* stream) {
-    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        self->saveState(*stream);
-    } else {
-        ((VirtualKPartsNavigationExtension*)self)->saveState(*stream);
-    }
+    self->saveState(*stream);
 }
 
 void KParts__NavigationExtension_RestoreState(KParts__NavigationExtension* self, QDataStream* stream) {
-    auto* vkparts__navigationextension = dynamic_cast<VirtualKPartsNavigationExtension*>(self);
-    if (vkparts__navigationextension && vkparts__navigationextension->isVirtualKPartsNavigationExtension) {
-        self->restoreState(*stream);
-    } else {
-        ((VirtualKPartsNavigationExtension*)self)->restoreState(*stream);
-    }
+    self->restoreState(*stream);
 }
 
 bool KParts__NavigationExtension_IsURLDropHandlingEnabled(const KParts__NavigationExtension* self) {

@@ -47,8 +47,8 @@ void KIO__ListJob_PermanentRedirection(KIO__ListJob* self, KIO__Job* job, const 
 void KIO__ListJob_Connect_PermanentRedirection(KIO__ListJob* self, intptr_t slot);
 void KIO__ListJob_Delete(KIO__ListJob* self);
 
-KIO__ListJob* KIO_ListDir(const QUrl* param1, int param2, int param3);
-KIO__ListJob* KIO_ListRecursive(const QUrl* param1, int param2, int param3);
+KIO__ListJob* KIO_ListDir(const QUrl* url, int flags, int listFlags);
+KIO__ListJob* KIO_ListRecursive(const QUrl* url, int flags, int listFlags);
 
 #ifdef __cplusplus
 } /* extern C */

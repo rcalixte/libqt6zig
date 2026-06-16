@@ -28,30 +28,15 @@ QApplication* QApplication_new2(int* argc, char** argv, int param3) {
 }
 
 QMetaObject* QApplication_MetaObject(const QApplication* self) {
-    auto* vqapplication = dynamic_cast<const VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQApplication*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QApplication_Metacast(QApplication* self, const char* param1) {
-    auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQApplication*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QApplication_Metacall(QApplication* self, int param1, int param2, void** param3) {
-    auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQApplication*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QStyle* QApplication_Style() {
@@ -230,12 +215,7 @@ int QApplication_Exec() {
 }
 
 bool QApplication_Notify(QApplication* self, QObject* param1, QEvent* param2) {
-    auto* vqapplication = dynamic_cast<VirtualQApplication*>(self);
-    if (vqapplication && vqapplication->isVirtualQApplication) {
-        return self->notify(param1, param2);
-    } else {
-        return ((VirtualQApplication*)self)->notify(param1, param2);
-    }
+    return self->notify(param1, param2);
 }
 
 void QApplication_FocusChanged(QApplication* self, QWidget* old, QWidget* now) {

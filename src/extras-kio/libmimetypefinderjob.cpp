@@ -23,30 +23,15 @@ KIO__MimeTypeFinderJob* KIO__MimeTypeFinderJob_new2(const QUrl* url, QObject* pa
 }
 
 QMetaObject* KIO__MimeTypeFinderJob_MetaObject(const KIO__MimeTypeFinderJob* self) {
-    auto* vkio__mimetypefinderjob = dynamic_cast<const VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIOMimeTypeFinderJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__MimeTypeFinderJob_Metacast(KIO__MimeTypeFinderJob* self, const char* param1) {
-    auto* vkio__mimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIOMimeTypeFinderJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__MimeTypeFinderJob_Metacall(KIO__MimeTypeFinderJob* self, int param1, int param2, void** param3) {
-    auto* vkio__mimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIOMimeTypeFinderJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__MimeTypeFinderJob_SetFollowRedirections(KIO__MimeTypeFinderJob* self, bool b) {
@@ -79,12 +64,7 @@ bool KIO__MimeTypeFinderJob_IsAuthenticationPromptEnabled(const KIO__MimeTypeFin
 }
 
 void KIO__MimeTypeFinderJob_Start(KIO__MimeTypeFinderJob* self) {
-    auto* vkio__mimetypefinderjob = dynamic_cast<VirtualKIOMimeTypeFinderJob*>(self);
-    if (vkio__mimetypefinderjob && vkio__mimetypefinderjob->isVirtualKIOMimeTypeFinderJob) {
-        self->start();
-    } else {
-        ((VirtualKIOMimeTypeFinderJob*)self)->start();
-    }
+    self->start();
 }
 
 libqt_string KIO__MimeTypeFinderJob_MimeType(const KIO__MimeTypeFinderJob* self) {

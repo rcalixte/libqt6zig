@@ -22,30 +22,15 @@ QTcpServer* QTcpServer_new2(QObject* parent) {
 }
 
 QMetaObject* QTcpServer_MetaObject(const QTcpServer* self) {
-    auto* vqtcpserver = dynamic_cast<const VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTcpServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTcpServer_Metacast(QTcpServer* self, const char* param1) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTcpServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTcpServer_Metacall(QTcpServer* self, int param1, int param2, void** param3) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTcpServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QTcpServer_Listen(QTcpServer* self) {
@@ -98,21 +83,11 @@ bool QTcpServer_WaitForNewConnection(QTcpServer* self) {
 }
 
 bool QTcpServer_HasPendingConnections(const QTcpServer* self) {
-    auto* vqtcpserver = dynamic_cast<const VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return self->hasPendingConnections();
-    } else {
-        return ((VirtualQTcpServer*)self)->hasPendingConnections();
-    }
+    return self->hasPendingConnections();
 }
 
 QTcpSocket* QTcpServer_NextPendingConnection(QTcpServer* self) {
-    auto* vqtcpserver = dynamic_cast<VirtualQTcpServer*>(self);
-    if (vqtcpserver && vqtcpserver->isVirtualQTcpServer) {
-        return self->nextPendingConnection();
-    } else {
-        return ((VirtualQTcpServer*)self)->nextPendingConnection();
-    }
+    return self->nextPendingConnection();
 }
 
 int QTcpServer_ServerError(const QTcpServer* self) {

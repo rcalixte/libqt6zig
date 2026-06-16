@@ -62,30 +62,15 @@ TextCustomEditor__PlainTextEditor* TextCustomEditor__PlainTextEditor_new2() {
 }
 
 QMetaObject* TextCustomEditor__PlainTextEditor_MetaObject(const TextCustomEditor__PlainTextEditor* self) {
-    auto* vtextcustomeditor__plaintexteditor = dynamic_cast<const VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditor__plaintexteditor && vtextcustomeditor__plaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorPlainTextEditor*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__PlainTextEditor_Metacast(TextCustomEditor__PlainTextEditor* self, const char* param1) {
-    auto* vtextcustomeditor__plaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditor__plaintexteditor && vtextcustomeditor__plaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorPlainTextEditor*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__PlainTextEditor_Metacall(TextCustomEditor__PlainTextEditor* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__plaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditor__plaintexteditor && vtextcustomeditor__plaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorPlainTextEditor*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextCustomEditor__PlainTextEditor_SetSearchSupport(TextCustomEditor__PlainTextEditor* self, bool b) {
@@ -105,12 +90,7 @@ void TextCustomEditor__PlainTextEditor_SetSpellCheckingSupport(TextCustomEditor_
 }
 
 void TextCustomEditor__PlainTextEditor_SetReadOnly(TextCustomEditor__PlainTextEditor* self, bool readOnly) {
-    auto* vtextcustomeditor__plaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditor__plaintexteditor && vtextcustomeditor__plaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
-        self->setReadOnly(readOnly);
-    } else {
-        ((VirtualTextCustomEditorPlainTextEditor*)self)->setReadOnly(readOnly);
-    }
+    self->setReadOnly(readOnly);
 }
 
 void TextCustomEditor__PlainTextEditor_SetTextToSpeechSupport(TextCustomEditor__PlainTextEditor* self, bool b) {
@@ -130,12 +110,7 @@ bool TextCustomEditor__PlainTextEditor_WebShortcutSupport(const TextCustomEditor
 }
 
 void TextCustomEditor__PlainTextEditor_CreateHighlighter(TextCustomEditor__PlainTextEditor* self) {
-    auto* vtextcustomeditor__plaintexteditor = dynamic_cast<VirtualTextCustomEditorPlainTextEditor*>(self);
-    if (vtextcustomeditor__plaintexteditor && vtextcustomeditor__plaintexteditor->isVirtualTextCustomEditorPlainTextEditor) {
-        self->createHighlighter();
-    } else {
-        ((VirtualTextCustomEditorPlainTextEditor*)self)->createHighlighter();
-    }
+    self->createHighlighter();
 }
 
 void TextCustomEditor__PlainTextEditor_AddIgnoreWords(TextCustomEditor__PlainTextEditor* self, const libqt_list /* of libqt_string */ lst) {

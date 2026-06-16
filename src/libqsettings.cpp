@@ -90,30 +90,15 @@ QSettings* QSettings_new15(int scope, QObject* parent) {
 }
 
 QMetaObject* QSettings_MetaObject(const QSettings* self) {
-    auto* vqsettings = dynamic_cast<const VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSettings*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSettings_Metacast(QSettings* self, const char* param1) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSettings*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSettings_Metacall(QSettings* self, int param1, int param2, void** param3) {
-    auto* vqsettings = dynamic_cast<VirtualQSettings*>(self);
-    if (vqsettings && vqsettings->isVirtualQSettings) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSettings*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSettings_Clear(QSettings* self) {

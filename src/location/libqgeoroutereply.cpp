@@ -24,30 +24,15 @@ QGeoRouteReply* QGeoRouteReply_new2(int errorVal, const libqt_string errorString
 }
 
 QMetaObject* QGeoRouteReply_MetaObject(const QGeoRouteReply* self) {
-    auto* vqgeoroutereply = dynamic_cast<const VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoRouteReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoRouteReply_Metacast(QGeoRouteReply* self, const char* param1) {
-    auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoRouteReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoRouteReply_Metacall(QGeoRouteReply* self, int param1, int param2, void** param3) {
-    auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoRouteReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QGeoRouteReply_IsFinished(const QGeoRouteReply* self) {
@@ -88,12 +73,7 @@ libqt_list /* of QGeoRoute* */ QGeoRouteReply_Routes(const QGeoRouteReply* self)
 }
 
 void QGeoRouteReply_Abort(QGeoRouteReply* self) {
-    auto* vqgeoroutereply = dynamic_cast<VirtualQGeoRouteReply*>(self);
-    if (vqgeoroutereply && vqgeoroutereply->isVirtualQGeoRouteReply) {
-        self->abort();
-    } else {
-        ((VirtualQGeoRouteReply*)self)->abort();
-    }
+    self->abort();
 }
 
 void QGeoRouteReply_Finished(QGeoRouteReply* self) {

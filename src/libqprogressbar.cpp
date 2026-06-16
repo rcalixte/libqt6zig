@@ -47,30 +47,15 @@ QProgressBar* QProgressBar_new2() {
 }
 
 QMetaObject* QProgressBar_MetaObject(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQProgressBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QProgressBar_Metacast(QProgressBar* self, const char* param1) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQProgressBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QProgressBar_Metacall(QProgressBar* self, int param1, int param2, void** param3) {
-    auto* vqprogressbar = dynamic_cast<VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQProgressBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QProgressBar_Minimum(const QProgressBar* self) {
@@ -86,28 +71,15 @@ int QProgressBar_Value(const QProgressBar* self) {
 }
 
 libqt_string QProgressBar_Text(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        auto _ret = self->text();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    } else {
-        auto _ret = ((VirtualQProgressBar*)self)->text();
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray _b = _ret.toUtf8();
-        libqt_string _str;
-        _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc(_str.len + 1));
-        memcpy((void*)_str.data, _b.data(), _str.len);
-        ((char*)_str.data)[_str.len] = '\0';
-        return _str;
-    }
+    auto _ret = self->text();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QProgressBar_SetTextVisible(QProgressBar* self, bool visible) {
@@ -127,21 +99,11 @@ void QProgressBar_SetAlignment(QProgressBar* self, int alignment) {
 }
 
 QSize* QProgressBar_SizeHint(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQProgressBar*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QProgressBar_MinimumSizeHint(const QProgressBar* self) {
-    auto* vqprogressbar = dynamic_cast<const VirtualQProgressBar*>(self);
-    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQProgressBar*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 int QProgressBar_Orientation(const QProgressBar* self) {

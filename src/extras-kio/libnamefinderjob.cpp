@@ -20,39 +20,19 @@ KIO__NameFinderJob* KIO__NameFinderJob_new(const QUrl* baseUrl, const libqt_stri
 }
 
 QMetaObject* KIO__NameFinderJob_MetaObject(const KIO__NameFinderJob* self) {
-    auto* vkio__namefinderjob = dynamic_cast<const VirtualKIONameFinderJob*>(self);
-    if (vkio__namefinderjob && vkio__namefinderjob->isVirtualKIONameFinderJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIONameFinderJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__NameFinderJob_Metacast(KIO__NameFinderJob* self, const char* param1) {
-    auto* vkio__namefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkio__namefinderjob && vkio__namefinderjob->isVirtualKIONameFinderJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__NameFinderJob_Metacall(KIO__NameFinderJob* self, int param1, int param2, void** param3) {
-    auto* vkio__namefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkio__namefinderjob && vkio__namefinderjob->isVirtualKIONameFinderJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIONameFinderJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__NameFinderJob_Start(KIO__NameFinderJob* self) {
-    auto* vkio__namefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
-    if (vkio__namefinderjob && vkio__namefinderjob->isVirtualKIONameFinderJob) {
-        self->start();
-    } else {
-        ((VirtualKIONameFinderJob*)self)->start();
-    }
+    self->start();
 }
 
 QUrl* KIO__NameFinderJob_FinalUrl(const KIO__NameFinderJob* self) {

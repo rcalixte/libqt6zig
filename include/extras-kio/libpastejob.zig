@@ -1950,15 +1950,15 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QMimeData `
+    /// ` mimeData: QMimeData `
     ///
-    /// ` param2: QUrl `
+    /// ` destDir: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Paste(param1: anytype, param2: anytype, param3: i32) KIO__PasteJob {
-        comptime _ = @TypeOf(param1)._is_QMimeData;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Paste(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Paste(mimeData: anytype, destDir: anytype, flags: i32) KIO__PasteJob {
+        comptime _ = @TypeOf(mimeData)._is_QMimeData;
+        comptime _ = @TypeOf(destDir)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Paste(@ptrCast(mimeData.ptr), @ptrCast(destDir.ptr), @bitCast(flags)) };
     }
 };

@@ -19,20 +19,20 @@ typedef struct KIO KIO;
 typedef struct QUrl QUrl;
 #endif
 
-libqt_string KIO_ConvertSize(unsigned long long param1);
-libqt_string KIO_Number(unsigned long long param1);
-libqt_string KIO_ConvertSizeFromKiB(unsigned long long param1);
-unsigned int KIO_CalculateRemainingSeconds(unsigned long long param1, unsigned long long param2, unsigned long long param3);
-libqt_string KIO_ConvertSeconds(unsigned int param1);
-libqt_string KIO_ItemsSummaryString(unsigned int param1, unsigned int param2, unsigned int param3, unsigned long long param4, bool param5);
-libqt_string KIO_EncodeFileName(const libqt_string param1);
-libqt_string KIO_DecodeFileName(const libqt_string param1);
-int KIO_ParseCacheControl(const libqt_string param1);
-libqt_string KIO_GetCacheControlString(int param1);
-libqt_string KIO_FavIconForUrl(const QUrl* param1);
-int KIO_ConvertPermissions(int param1);
-libqt_string KIO_IconNameForUrl(const QUrl* param1);
-QUrl* KIO_UpUrl(const QUrl* param1);
+libqt_string KIO_ConvertSize(unsigned long long size);
+libqt_string KIO_Number(unsigned long long size);
+libqt_string KIO_ConvertSizeFromKiB(unsigned long long kibSize);
+unsigned int KIO_CalculateRemainingSeconds(unsigned long long totalSize, unsigned long long processedSize, unsigned long long speed);
+libqt_string KIO_ConvertSeconds(unsigned int seconds);
+libqt_string KIO_ItemsSummaryString(unsigned int items, unsigned int files, unsigned int dirs, unsigned long long size, bool showSize);
+libqt_string KIO_EncodeFileName(const libqt_string str);
+libqt_string KIO_DecodeFileName(const libqt_string str);
+int KIO_ParseCacheControl(const libqt_string cacheControl);
+libqt_string KIO_GetCacheControlString(int cacheControl);
+libqt_string KIO_FavIconForUrl(const QUrl* url);
+int KIO_ConvertPermissions(int permissions);
+libqt_string KIO_IconNameForUrl(const QUrl* url);
+QUrl* KIO_UpUrl(const QUrl* url);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -51,48 +51,23 @@ QCalendarWidget* QCalendarWidget_new2() {
 }
 
 QMetaObject* QCalendarWidget_MetaObject(const QCalendarWidget* self) {
-    auto* vqcalendarwidget = dynamic_cast<const VirtualQCalendarWidget*>(self);
-    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCalendarWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCalendarWidget_Metacast(QCalendarWidget* self, const char* param1) {
-    auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
-    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCalendarWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCalendarWidget_Metacall(QCalendarWidget* self, int param1, int param2, void** param3) {
-    auto* vqcalendarwidget = dynamic_cast<VirtualQCalendarWidget*>(self);
-    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCalendarWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QCalendarWidget_SizeHint(const QCalendarWidget* self) {
-    auto* vqcalendarwidget = dynamic_cast<const VirtualQCalendarWidget*>(self);
-    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQCalendarWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QCalendarWidget_MinimumSizeHint(const QCalendarWidget* self) {
-    auto* vqcalendarwidget = dynamic_cast<const VirtualQCalendarWidget*>(self);
-    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQCalendarWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 QDate* QCalendarWidget_SelectedDate(const QCalendarWidget* self) {

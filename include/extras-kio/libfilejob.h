@@ -59,7 +59,7 @@ void KIO__FileJob_Truncated(KIO__FileJob* self, KIO__Job* job, unsigned long lon
 void KIO__FileJob_Connect_Truncated(KIO__FileJob* self, intptr_t slot);
 void KIO__FileJob_Delete(KIO__FileJob* self);
 
-KIO__FileJob* KIO_Open(const QUrl* param1, int param2);
+KIO__FileJob* KIO_Open(const QUrl* url, int mode);
 
 #ifdef __cplusplus
 } /* extern C */

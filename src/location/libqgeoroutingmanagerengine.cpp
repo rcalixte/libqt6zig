@@ -40,30 +40,15 @@ QGeoRoutingManagerEngine* QGeoRoutingManagerEngine_new2(const libqt_map /* of li
 }
 
 QMetaObject* QGeoRoutingManagerEngine_MetaObject(const QGeoRoutingManagerEngine* self) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<const VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGeoRoutingManagerEngine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGeoRoutingManagerEngine_Metacast(QGeoRoutingManagerEngine* self, const char* param1) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGeoRoutingManagerEngine_Metacall(QGeoRoutingManagerEngine* self, int param1, int param2, void** param3) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QGeoRoutingManagerEngine_ManagerName(const QGeoRoutingManagerEngine* self) {
@@ -83,21 +68,11 @@ int QGeoRoutingManagerEngine_ManagerVersion(const QGeoRoutingManagerEngine* self
 }
 
 QGeoRouteReply* QGeoRoutingManagerEngine_CalculateRoute(QGeoRoutingManagerEngine* self, const QGeoRouteRequest* request) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return vqgeoroutingmanagerengine->calculateRoute(*request);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->calculateRoute(*request);
-    }
+    return self->calculateRoute(*request);
 }
 
 QGeoRouteReply* QGeoRoutingManagerEngine_UpdateRoute(QGeoRoutingManagerEngine* self, const QGeoRoute* route, const QGeoCoordinate* position) {
-    auto* vqgeoroutingmanagerengine = dynamic_cast<VirtualQGeoRoutingManagerEngine*>(self);
-    if (vqgeoroutingmanagerengine && vqgeoroutingmanagerengine->isVirtualQGeoRoutingManagerEngine) {
-        return self->updateRoute(*route, *position);
-    } else {
-        return ((VirtualQGeoRoutingManagerEngine*)self)->updateRoute(*route, *position);
-    }
+    return self->updateRoute(*route, *position);
 }
 
 int QGeoRoutingManagerEngine_SupportedTravelModes(const QGeoRoutingManagerEngine* self) {

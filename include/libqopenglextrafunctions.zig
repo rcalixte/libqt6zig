@@ -5414,16 +5414,16 @@ pub const QOpenGLExtraFunctions = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` stringVal: []const [:0]const u8 `
+    /// ` string: []const [:0]const u8 `
     ///
     /// ` length: []const i32 `
     ///
-    pub fn GlShaderSource(self: QOpenGLExtraFunctions, allocator: std.mem.Allocator, shader: u32, count: i32, stringVal: []const [:0]const u8, length: []const i32) void {
-        const stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglextrafunctions.GlShaderSource: Memory allocation failed");
-        defer allocator.free(stringVal_chararr);
-        for (stringVal, 0..stringVal.len) |str, i|
-            stringVal_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), stringVal_chararr.ptr, length.ptr);
+    pub fn GlShaderSource(self: QOpenGLExtraFunctions, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
+        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglextrafunctions.GlShaderSource: Memory allocation failed");
+        defer allocator.free(string_chararr);
+        for (string, 0..string.len) |str, i|
+            string_chararr[i] = @ptrCast(str.ptr);
+        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
     }
 
     /// Inherited from QOpenGLFunctions

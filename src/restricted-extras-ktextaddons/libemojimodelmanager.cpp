@@ -22,30 +22,15 @@ TextEmoticonsCore__EmojiModelManager* TextEmoticonsCore__EmojiModelManager_new2(
 }
 
 QMetaObject* TextEmoticonsCore__EmojiModelManager_MetaObject(const TextEmoticonsCore__EmojiModelManager* self) {
-    auto* vtextemoticonscore__emojimodelmanager = dynamic_cast<const VirtualTextEmoticonsCoreEmojiModelManager*>(self);
-    if (vtextemoticonscore__emojimodelmanager && vtextemoticonscore__emojimodelmanager->isVirtualTextEmoticonsCoreEmojiModelManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextEmoticonsCoreEmojiModelManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextEmoticonsCore__EmojiModelManager_Metacast(TextEmoticonsCore__EmojiModelManager* self, const char* param1) {
-    auto* vtextemoticonscore__emojimodelmanager = dynamic_cast<VirtualTextEmoticonsCoreEmojiModelManager*>(self);
-    if (vtextemoticonscore__emojimodelmanager && vtextemoticonscore__emojimodelmanager->isVirtualTextEmoticonsCoreEmojiModelManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiModelManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextEmoticonsCore__EmojiModelManager_Metacall(TextEmoticonsCore__EmojiModelManager* self, int param1, int param2, void** param3) {
-    auto* vtextemoticonscore__emojimodelmanager = dynamic_cast<VirtualTextEmoticonsCoreEmojiModelManager*>(self);
-    if (vtextemoticonscore__emojimodelmanager && vtextemoticonscore__emojimodelmanager->isVirtualTextEmoticonsCoreEmojiModelManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextEmoticonsCoreEmojiModelManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextEmoticonsCore__EmojiModelManager* TextEmoticonsCore__EmojiModelManager_Self() {

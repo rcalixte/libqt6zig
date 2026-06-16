@@ -27,30 +27,15 @@ QUdpSocket* QUdpSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QUdpSocket_MetaObject(const QUdpSocket* self) {
-    auto* vqudpsocket = dynamic_cast<const VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQUdpSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QUdpSocket_Metacast(QUdpSocket* self, const char* param1) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQUdpSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QUdpSocket_Metacall(QUdpSocket* self, int param1, int param2, void** param3) {
-    auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
-    if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQUdpSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QUdpSocket_Bind(QUdpSocket* self, int addr) {

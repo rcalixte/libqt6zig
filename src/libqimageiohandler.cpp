@@ -49,120 +49,55 @@ libqt_string QImageIOHandler_Format(const QImageIOHandler* self) {
 }
 
 bool QImageIOHandler_CanRead(const QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return vqimageiohandler->canRead();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->canRead();
-    }
+    return self->canRead();
 }
 
 bool QImageIOHandler_Read(QImageIOHandler* self, QImage* image) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return vqimageiohandler->read(image);
-    } else {
-        return ((VirtualQImageIOHandler*)self)->read(image);
-    }
+    return self->read(image);
 }
 
 bool QImageIOHandler_Write(QImageIOHandler* self, const QImage* image) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->write(*image);
-    } else {
-        return ((VirtualQImageIOHandler*)self)->write(*image);
-    }
+    return self->write(*image);
 }
 
 QVariant* QImageIOHandler_Option(const QImageIOHandler* self, int option) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return new QVariant(self->option(static_cast<QImageIOHandler::ImageOption>(option)));
-    } else {
-        return new QVariant(((VirtualQImageIOHandler*)self)->option(static_cast<QImageIOHandler::ImageOption>(option)));
-    }
+    return new QVariant(self->option(static_cast<QImageIOHandler::ImageOption>(option)));
 }
 
 void QImageIOHandler_SetOption(QImageIOHandler* self, int option, const QVariant* value) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        self->setOption(static_cast<QImageIOHandler::ImageOption>(option), *value);
-    } else {
-        ((VirtualQImageIOHandler*)self)->setOption(static_cast<QImageIOHandler::ImageOption>(option), *value);
-    }
+    self->setOption(static_cast<QImageIOHandler::ImageOption>(option), *value);
 }
 
 bool QImageIOHandler_SupportsOption(const QImageIOHandler* self, int option) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
-    } else {
-        return ((VirtualQImageIOHandler*)self)->supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
-    }
+    return self->supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
 }
 
 bool QImageIOHandler_JumpToNextImage(QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->jumpToNextImage();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->jumpToNextImage();
-    }
+    return self->jumpToNextImage();
 }
 
 bool QImageIOHandler_JumpToImage(QImageIOHandler* self, int imageNumber) {
-    auto* vqimageiohandler = dynamic_cast<VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->jumpToImage(static_cast<int>(imageNumber));
-    } else {
-        return ((VirtualQImageIOHandler*)self)->jumpToImage(static_cast<int>(imageNumber));
-    }
+    return self->jumpToImage(static_cast<int>(imageNumber));
 }
 
 int QImageIOHandler_LoopCount(const QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->loopCount();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->loopCount();
-    }
+    return self->loopCount();
 }
 
 int QImageIOHandler_ImageCount(const QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->imageCount();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->imageCount();
-    }
+    return self->imageCount();
 }
 
 int QImageIOHandler_NextImageDelay(const QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->nextImageDelay();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->nextImageDelay();
-    }
+    return self->nextImageDelay();
 }
 
 int QImageIOHandler_CurrentImageNumber(const QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return self->currentImageNumber();
-    } else {
-        return ((VirtualQImageIOHandler*)self)->currentImageNumber();
-    }
+    return self->currentImageNumber();
 }
 
 QRect* QImageIOHandler_CurrentImageRect(const QImageIOHandler* self) {
-    auto* vqimageiohandler = dynamic_cast<const VirtualQImageIOHandler*>(self);
-    if (vqimageiohandler && vqimageiohandler->isVirtualQImageIOHandler) {
-        return new QRect(self->currentImageRect());
-    } else {
-        return new QRect(((VirtualQImageIOHandler*)self)->currentImageRect());
-    }
+    return new QRect(self->currentImageRect());
 }
 
 bool QImageIOHandler_AllocateImage(QSize* size, int format, QImage* image) {
@@ -429,50 +364,25 @@ QImageIOPlugin* QImageIOPlugin_new2(QObject* parent) {
 }
 
 QMetaObject* QImageIOPlugin_MetaObject(const QImageIOPlugin* self) {
-    auto* vqimageioplugin = dynamic_cast<const VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQImageIOPlugin*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QImageIOPlugin_Metacast(QImageIOPlugin* self, const char* param1) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QImageIOPlugin_Metacall(QImageIOPlugin* self, int param1, int param2, void** param3) {
-    auto* vqimageioplugin = dynamic_cast<VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QImageIOPlugin_Capabilities(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
-    auto* vqimageioplugin = dynamic_cast<const VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return static_cast<int>(vqimageioplugin->capabilities(device, format_QByteArray));
-    } else {
-        return static_cast<int>(((VirtualQImageIOPlugin*)self)->capabilities(device, format_QByteArray));
-    }
+    return static_cast<int>(self->capabilities(device, format_QByteArray));
 }
 
 QImageIOHandler* QImageIOPlugin_Create(const QImageIOPlugin* self, QIODevice* device, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
-    auto* vqimageioplugin = dynamic_cast<const VirtualQImageIOPlugin*>(self);
-    if (vqimageioplugin && vqimageioplugin->isVirtualQImageIOPlugin) {
-        return vqimageioplugin->create(device, format_QByteArray);
-    } else {
-        return ((VirtualQImageIOPlugin*)self)->create(device, format_QByteArray);
-    }
+    return self->create(device, format_QByteArray);
 }
 
 // Base class handler implementation

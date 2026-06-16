@@ -21,30 +21,15 @@ KHamburgerMenu* KHamburgerMenu_new(QObject* parent) {
 }
 
 QMetaObject* KHamburgerMenu_MetaObject(const KHamburgerMenu* self) {
-    auto* vkhamburgermenu = dynamic_cast<const VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKHamburgerMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KHamburgerMenu_Metacast(KHamburgerMenu* self, const char* param1) {
-    auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKHamburgerMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KHamburgerMenu_Metacall(KHamburgerMenu* self, int param1, int param2, void** param3) {
-    auto* vkhamburgermenu = dynamic_cast<VirtualKHamburgerMenu*>(self);
-    if (vkhamburgermenu && vkhamburgermenu->isVirtualKHamburgerMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKHamburgerMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KHamburgerMenu_SetMenuBar(KHamburgerMenu* self, QMenuBar* menuBar) {

@@ -36,30 +36,15 @@ KPageWidgetItem* KPageWidgetItem_new2(QWidget* widget, const libqt_string name) 
 }
 
 QMetaObject* KPageWidgetItem_MetaObject(const KPageWidgetItem* self) {
-    auto* vkpagewidgetitem = dynamic_cast<const VirtualKPageWidgetItem*>(self);
-    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPageWidgetItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPageWidgetItem_Metacast(KPageWidgetItem* self, const char* param1) {
-    auto* vkpagewidgetitem = dynamic_cast<VirtualKPageWidgetItem*>(self);
-    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPageWidgetItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPageWidgetItem_Metacall(KPageWidgetItem* self, int param1, int param2, void** param3) {
-    auto* vkpagewidgetitem = dynamic_cast<VirtualKPageWidgetItem*>(self);
-    if (vkpagewidgetitem && vkpagewidgetitem->isVirtualKPageWidgetItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageWidgetItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QWidget* KPageWidgetItem_Widget(const KPageWidgetItem* self) {
@@ -586,30 +571,15 @@ KPageWidgetModel* KPageWidgetModel_new2(QObject* parent) {
 }
 
 QMetaObject* KPageWidgetModel_MetaObject(const KPageWidgetModel* self) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKPageWidgetModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KPageWidgetModel_Metacast(KPageWidgetModel* self, const char* param1) {
-    auto* vkpagewidgetmodel = dynamic_cast<VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKPageWidgetModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KPageWidgetModel_Metacall(KPageWidgetModel* self, int param1, int param2, void** param3) {
-    auto* vkpagewidgetmodel = dynamic_cast<VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKPageWidgetModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KPageWidgetItem* KPageWidgetModel_AddPage(KPageWidgetModel* self, QWidget* widget, const libqt_string name) {
@@ -644,66 +614,31 @@ void KPageWidgetModel_RemovePage(KPageWidgetModel* self, KPageWidgetItem* item) 
 }
 
 int KPageWidgetModel_ColumnCount(const KPageWidgetModel* self, const QModelIndex* parent) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualKPageWidgetModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QVariant* KPageWidgetModel_Data(const KPageWidgetModel* self, const QModelIndex* index, int role) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKPageWidgetModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 bool KPageWidgetModel_SetData(KPageWidgetModel* self, const QModelIndex* index, const QVariant* value, int role) {
-    auto* vkpagewidgetmodel = dynamic_cast<VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return self->setData(*index, *value, static_cast<int>(role));
-    } else {
-        return ((VirtualKPageWidgetModel*)self)->setData(*index, *value, static_cast<int>(role));
-    }
+    return self->setData(*index, *value, static_cast<int>(role));
 }
 
 int KPageWidgetModel_Flags(const KPageWidgetModel* self, const QModelIndex* index) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKPageWidgetModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 QModelIndex* KPageWidgetModel_Index(const KPageWidgetModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKPageWidgetModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* KPageWidgetModel_Parent(const KPageWidgetModel* self, const QModelIndex* index) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return new QModelIndex(self->parent(*index));
-    } else {
-        return new QModelIndex(((VirtualKPageWidgetModel*)self)->parent(*index));
-    }
+    return new QModelIndex(self->parent(*index));
 }
 
 int KPageWidgetModel_RowCount(const KPageWidgetModel* self, const QModelIndex* parent) {
-    auto* vkpagewidgetmodel = dynamic_cast<const VirtualKPageWidgetModel*>(self);
-    if (vkpagewidgetmodel && vkpagewidgetmodel->isVirtualKPageWidgetModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKPageWidgetModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 KPageWidgetItem* KPageWidgetModel_Item(const KPageWidgetModel* self, const QModelIndex* index) {

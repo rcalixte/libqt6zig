@@ -4,10 +4,10 @@
 #include "libqpassworddigestor.h"
 #include "libqpassworddigestor.hxx"
 
-libqt_string QPasswordDigestor_DeriveKeyPbkdf1(int param1, const libqt_string param2, const libqt_string param3, int param4, unsigned long long param5) {
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    QByteArray param3_QByteArray(param3.data, param3.len);
-    QByteArray _qb = QPasswordDigestor::deriveKeyPbkdf1(static_cast<QCryptographicHash::Algorithm>(param1), param2_QByteArray, param3_QByteArray, static_cast<int>(param4), static_cast<quint64>(param5));
+libqt_string QPasswordDigestor_DeriveKeyPbkdf1(int algorithm, const libqt_string password, const libqt_string salt, int iterations, unsigned long long dkLen) {
+    QByteArray password_QByteArray(password.data, password.len);
+    QByteArray salt_QByteArray(salt.data, salt.len);
+    QByteArray _qb = QPasswordDigestor::deriveKeyPbkdf1(static_cast<QCryptographicHash::Algorithm>(algorithm), password_QByteArray, salt_QByteArray, static_cast<int>(iterations), static_cast<quint64>(dkLen));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -15,10 +15,10 @@ libqt_string QPasswordDigestor_DeriveKeyPbkdf1(int param1, const libqt_string pa
     return _str;
 }
 
-libqt_string QPasswordDigestor_DeriveKeyPbkdf2(int param1, const libqt_string param2, const libqt_string param3, int param4, unsigned long long param5) {
-    QByteArray param2_QByteArray(param2.data, param2.len);
-    QByteArray param3_QByteArray(param3.data, param3.len);
-    QByteArray _qb = QPasswordDigestor::deriveKeyPbkdf2(static_cast<QCryptographicHash::Algorithm>(param1), param2_QByteArray, param3_QByteArray, static_cast<int>(param4), static_cast<quint64>(param5));
+libqt_string QPasswordDigestor_DeriveKeyPbkdf2(int algorithm, const libqt_string password, const libqt_string salt, int iterations, unsigned long long dkLen) {
+    QByteArray password_QByteArray(password.data, password.len);
+    QByteArray salt_QByteArray(salt.data, salt.len);
+    QByteArray _qb = QPasswordDigestor::deriveKeyPbkdf2(static_cast<QCryptographicHash::Algorithm>(algorithm), password_QByteArray, salt_QByteArray, static_cast<int>(iterations), static_cast<quint64>(dkLen));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));

@@ -29,30 +29,15 @@ QDtlsClientVerifier* QDtlsClientVerifier_new2(QObject* parent) {
 }
 
 QMetaObject* QDtlsClientVerifier_MetaObject(const QDtlsClientVerifier* self) {
-    auto* vqdtlsclientverifier = dynamic_cast<const VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDtlsClientVerifier*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDtlsClientVerifier_Metacast(QDtlsClientVerifier* self, const char* param1) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDtlsClientVerifier_Metacall(QDtlsClientVerifier* self, int param1, int param2, void** param3) {
-    auto* vqdtlsclientverifier = dynamic_cast<VirtualQDtlsClientVerifier*>(self);
-    if (vqdtlsclientverifier && vqdtlsclientverifier->isVirtualQDtlsClientVerifier) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDtlsClientVerifier*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QDtlsClientVerifier_SetCookieGeneratorParameters(QDtlsClientVerifier* self, const QDtlsClientVerifier__GeneratorParameters* params) {
@@ -482,30 +467,15 @@ QDtls* QDtls_new2(int mode, QObject* parent) {
 }
 
 QMetaObject* QDtls_MetaObject(const QDtls* self) {
-    auto* vqdtls = dynamic_cast<const VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDtls*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDtls_Metacast(QDtls* self, const char* param1) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDtls*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDtls_Metacall(QDtls* self, int param1, int param2, void** param3) {
-    auto* vqdtls = dynamic_cast<VirtualQDtls*>(self);
-    if (vqdtls && vqdtls->isVirtualQDtls) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDtls*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QDtls_SetPeer(QDtls* self, const QHostAddress* address, uint16_t port) {

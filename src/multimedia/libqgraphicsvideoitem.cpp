@@ -38,30 +38,15 @@ QGraphicsVideoItem* QGraphicsVideoItem_new2(QGraphicsItem* parent) {
 }
 
 QMetaObject* QGraphicsVideoItem_MetaObject(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsVideoItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsVideoItem_Metacast(QGraphicsVideoItem* self, const char* param1) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsVideoItem_Metacall(QGraphicsVideoItem* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QVideoSink* QGraphicsVideoItem_VideoSink(const QGraphicsVideoItem* self) {
@@ -97,30 +82,15 @@ QSizeF* QGraphicsVideoItem_NativeSize(const QGraphicsVideoItem* self) {
 }
 
 QRectF* QGraphicsVideoItem_BoundingRect(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return new QRectF(self->boundingRect());
-    } else {
-        return new QRectF(((VirtualQGraphicsVideoItem*)self)->boundingRect());
-    }
+    return new QRectF(self->boundingRect());
 }
 
 void QGraphicsVideoItem_Paint(QGraphicsVideoItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) {
-    auto* vqgraphicsvideoitem = dynamic_cast<VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        self->paint(painter, option, widget);
-    } else {
-        ((VirtualQGraphicsVideoItem*)self)->paint(painter, option, widget);
-    }
+    self->paint(painter, option, widget);
 }
 
 int QGraphicsVideoItem_Type(const QGraphicsVideoItem* self) {
-    auto* vqgraphicsvideoitem = dynamic_cast<const VirtualQGraphicsVideoItem*>(self);
-    if (vqgraphicsvideoitem && vqgraphicsvideoitem->isVirtualQGraphicsVideoItem) {
-        return self->type();
-    } else {
-        return ((VirtualQGraphicsVideoItem*)self)->type();
-    }
+    return self->type();
 }
 
 void QGraphicsVideoItem_NativeSizeChanged(QGraphicsVideoItem* self, const QSizeF* size) {

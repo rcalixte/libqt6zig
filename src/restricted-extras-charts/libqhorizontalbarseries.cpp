@@ -21,39 +21,19 @@ QHorizontalBarSeries* QHorizontalBarSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QHorizontalBarSeries_MetaObject(const QHorizontalBarSeries* self) {
-    auto* vqhorizontalbarseries = dynamic_cast<const VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQHorizontalBarSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QHorizontalBarSeries_Metacast(QHorizontalBarSeries* self, const char* param1) {
-    auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQHorizontalBarSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QHorizontalBarSeries_Metacall(QHorizontalBarSeries* self, int param1, int param2, void** param3) {
-    auto* vqhorizontalbarseries = dynamic_cast<VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQHorizontalBarSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QHorizontalBarSeries_Type(const QHorizontalBarSeries* self) {
-    auto* vqhorizontalbarseries = dynamic_cast<const VirtualQHorizontalBarSeries*>(self);
-    if (vqhorizontalbarseries && vqhorizontalbarseries->isVirtualQHorizontalBarSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQHorizontalBarSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 // Base class handler implementation

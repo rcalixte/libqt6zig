@@ -73,39 +73,19 @@ QWidget* QWidget_new3(QWidget* parent, int f) {
 }
 
 QMetaObject* QWidget_MetaObject(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWidget_Metacast(QWidget* self, const char* param1) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWidget_Metacall(QWidget* self, int param1, int param2, void** param3) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QWidget_DevType(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return self->devType();
-    } else {
-        return ((VirtualQWidget*)self)->devType();
-    }
+    return self->devType();
 }
 
 uintptr_t QWidget_WinId(const QWidget* self) {
@@ -873,12 +853,7 @@ void QWidget_Repaint4(QWidget* self, const QRegion* param1) {
 }
 
 void QWidget_SetVisible(QWidget* self, bool visible) {
-    auto* vqwidget = dynamic_cast<VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        self->setVisible(visible);
-    } else {
-        ((VirtualQWidget*)self)->setVisible(visible);
-    }
+    self->setVisible(visible);
 }
 
 void QWidget_SetHidden(QWidget* self, bool hidden) {
@@ -1004,21 +979,11 @@ void QWidget_OverrideWindowState(QWidget* self, int state) {
 }
 
 QSize* QWidget_SizeHint(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQWidget*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QWidget_MinimumSizeHint(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQWidget*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 QSizePolicy* QWidget_SizePolicy(const QWidget* self) {
@@ -1034,21 +999,11 @@ void QWidget_SetSizePolicy2(QWidget* self, int horizontal, int vertical) {
 }
 
 int QWidget_HeightForWidth(const QWidget* self, int param1) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQWidget*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 bool QWidget_HasHeightForWidth(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return self->hasHeightForWidth();
-    } else {
-        return ((VirtualQWidget*)self)->hasHeightForWidth();
-    }
+    return self->hasHeightForWidth();
 }
 
 QRegion* QWidget_VisibleRegion(const QWidget* self) {
@@ -1233,12 +1188,7 @@ bool QWidget_TestAttribute(const QWidget* self, int param1) {
 }
 
 QPaintEngine* QWidget_PaintEngine(const QWidget* self) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return self->paintEngine();
-    } else {
-        return ((VirtualQWidget*)self)->paintEngine();
-    }
+    return self->paintEngine();
 }
 
 void QWidget_EnsurePolished(const QWidget* self) {
@@ -1578,12 +1528,7 @@ void QWidget_InputMethodEvent(QWidget* self, QInputMethodEvent* param1) {
 }
 
 QVariant* QWidget_InputMethodQuery(const QWidget* self, int param1) {
-    auto* vqwidget = dynamic_cast<const VirtualQWidget*>(self);
-    if (vqwidget && vqwidget->isVirtualQWidget) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQWidget*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 int QWidget_InputMethodHints(const QWidget* self) {

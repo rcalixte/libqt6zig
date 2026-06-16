@@ -95,48 +95,23 @@ double QGraphicsAnchorLayout_VerticalSpacing(const QGraphicsAnchorLayout* self) 
 }
 
 void QGraphicsAnchorLayout_RemoveAt(QGraphicsAnchorLayout* self, int index) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        self->removeAt(static_cast<int>(index));
-    } else {
-        ((VirtualQGraphicsAnchorLayout*)self)->removeAt(static_cast<int>(index));
-    }
+    self->removeAt(static_cast<int>(index));
 }
 
 void QGraphicsAnchorLayout_SetGeometry(QGraphicsAnchorLayout* self, const QRectF* rect) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQGraphicsAnchorLayout*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 int QGraphicsAnchorLayout_Count(const QGraphicsAnchorLayout* self) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        return self->count();
-    } else {
-        return ((VirtualQGraphicsAnchorLayout*)self)->count();
-    }
+    return self->count();
 }
 
 QGraphicsLayoutItem* QGraphicsAnchorLayout_ItemAt(const QGraphicsAnchorLayout* self, int index) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<const VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        return self->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQGraphicsAnchorLayout*)self)->itemAt(static_cast<int>(index));
-    }
+    return self->itemAt(static_cast<int>(index));
 }
 
 void QGraphicsAnchorLayout_Invalidate(QGraphicsAnchorLayout* self) {
-    auto* vqgraphicsanchorlayout = dynamic_cast<VirtualQGraphicsAnchorLayout*>(self);
-    if (vqgraphicsanchorlayout && vqgraphicsanchorlayout->isVirtualQGraphicsAnchorLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQGraphicsAnchorLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 QSizeF* QGraphicsAnchorLayout_SizeHint(const QGraphicsAnchorLayout* self, int which, const QSizeF* constraint) {

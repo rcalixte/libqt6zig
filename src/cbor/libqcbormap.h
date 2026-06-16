@@ -107,7 +107,7 @@ QCborMap__Iterator* QCborMap_Insert2(QCborMap* self, libqt_string key, const QCb
 QCborMap__Iterator* QCborMap_Insert3(QCborMap* self, const libqt_string key, const QCborValue* value_);
 QCborMap__Iterator* QCborMap_Insert4(QCborMap* self, const QCborValue* key, const QCborValue* value_);
 QCborMap__Iterator* QCborMap_Insert5(QCborMap* self, pair_qcborvalue_qcborvalue /* tuple of QCborValue* and QCborValue* */ v);
-QCborMap* QCborMap_FromVariantMap(const libqt_map /* of libqt_string to QVariant* */ mapVal);
+QCborMap* QCborMap_FromVariantMap(const libqt_map /* of libqt_string to QVariant* */ map);
 QCborMap* QCborMap_FromVariantHash(const libqt_map /* of libqt_string to QVariant* */ hash);
 QCborMap* QCborMap_FromJsonObject(const QJsonObject* o);
 libqt_map /* of libqt_string to QVariant* */ QCborMap_ToVariantMap(const QCborMap* self);

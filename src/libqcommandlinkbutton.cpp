@@ -71,30 +71,15 @@ QCommandLinkButton* QCommandLinkButton_new6(const libqt_string text, const libqt
 }
 
 QMetaObject* QCommandLinkButton_MetaObject(const QCommandLinkButton* self) {
-    auto* vqcommandlinkbutton = dynamic_cast<const VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCommandLinkButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCommandLinkButton_Metacast(QCommandLinkButton* self, const char* param1) {
-    auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCommandLinkButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCommandLinkButton_Metacall(QCommandLinkButton* self, int param1, int param2, void** param3) {
-    auto* vqcommandlinkbutton = dynamic_cast<VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCommandLinkButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QCommandLinkButton_Description(const QCommandLinkButton* self) {
@@ -115,39 +100,19 @@ void QCommandLinkButton_SetDescription(QCommandLinkButton* self, const libqt_str
 }
 
 QSize* QCommandLinkButton_SizeHint(const QCommandLinkButton* self) {
-    auto* vqcommandlinkbutton = dynamic_cast<const VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQCommandLinkButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 int QCommandLinkButton_HeightForWidth(const QCommandLinkButton* self, int param1) {
-    auto* vqcommandlinkbutton = dynamic_cast<const VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        return self->heightForWidth(static_cast<int>(param1));
-    } else {
-        return ((VirtualQCommandLinkButton*)self)->heightForWidth(static_cast<int>(param1));
-    }
+    return self->heightForWidth(static_cast<int>(param1));
 }
 
 QSize* QCommandLinkButton_MinimumSizeHint(const QCommandLinkButton* self) {
-    auto* vqcommandlinkbutton = dynamic_cast<const VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQCommandLinkButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QCommandLinkButton_InitStyleOption(const QCommandLinkButton* self, QStyleOptionButton* option) {
-    auto* vqcommandlinkbutton = dynamic_cast<const VirtualQCommandLinkButton*>(self);
-    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
-        self->initStyleOption(option);
-    } else {
-        ((VirtualQCommandLinkButton*)self)->initStyleOption(option);
-    }
+    self->initStyleOption(option);
 }
 
 bool QCommandLinkButton_Event(QCommandLinkButton* self, QEvent* e) {

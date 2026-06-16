@@ -30,30 +30,15 @@ KBreadcrumbSelectionModel* KBreadcrumbSelectionModel_new4(QItemSelectionModel* s
 }
 
 QMetaObject* KBreadcrumbSelectionModel_MetaObject(const KBreadcrumbSelectionModel* self) {
-    auto* vkbreadcrumbselectionmodel = dynamic_cast<const VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBreadcrumbSelectionModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBreadcrumbSelectionModel_Metacast(KBreadcrumbSelectionModel* self, const char* param1) {
-    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBreadcrumbSelectionModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBreadcrumbSelectionModel_Metacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3) {
-    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBreadcrumbSelectionModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KBreadcrumbSelectionModel_IsActualSelectionIncluded(const KBreadcrumbSelectionModel* self) {
@@ -73,21 +58,11 @@ void KBreadcrumbSelectionModel_SetBreadcrumbLength(KBreadcrumbSelectionModel* se
 }
 
 void KBreadcrumbSelectionModel_Select(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command) {
-    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
-        self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualKBreadcrumbSelectionModel*)self)->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->select(*index, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 void KBreadcrumbSelectionModel_Select2(KBreadcrumbSelectionModel* self, const QItemSelection* selection, int command) {
-    auto* vkbreadcrumbselectionmodel = dynamic_cast<VirtualKBreadcrumbSelectionModel*>(self);
-    if (vkbreadcrumbselectionmodel && vkbreadcrumbselectionmodel->isVirtualKBreadcrumbSelectionModel) {
-        self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    } else {
-        ((VirtualKBreadcrumbSelectionModel*)self)->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
-    }
+    self->select(*selection, static_cast<QItemSelectionModel::SelectionFlags>(command));
 }
 
 // Base class handler implementation

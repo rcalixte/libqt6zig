@@ -17,30 +17,15 @@ KSycoca* KSycoca_new() {
 }
 
 QMetaObject* KSycoca_MetaObject(const KSycoca* self) {
-    auto* vksycoca = dynamic_cast<const VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKSycoca*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KSycoca_Metacast(KSycoca* self, const char* param1) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKSycoca*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KSycoca_Metacall(KSycoca* self, int param1, int param2, void** param3) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKSycoca*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 KSycoca* KSycoca_Self() {
@@ -97,12 +82,7 @@ libqt_list /* of libqt_string */ KSycoca_AllResourceDirs(KSycoca* self) {
 }
 
 bool KSycoca_IsBuilding(KSycoca* self) {
-    auto* vksycoca = dynamic_cast<VirtualKSycoca*>(self);
-    if (vksycoca && vksycoca->isVirtualKSycoca) {
-        return self->isBuilding();
-    } else {
-        return ((VirtualKSycoca*)self)->isBuilding();
-    }
+    return self->isBuilding();
 }
 
 void KSycoca_DisableAutoRebuild() {

@@ -36,30 +36,15 @@ QDBusServiceWatcher* QDBusServiceWatcher_new5(const libqt_string service, const 
 }
 
 QMetaObject* QDBusServiceWatcher_MetaObject(const QDBusServiceWatcher* self) {
-    auto* vqdbusservicewatcher = dynamic_cast<const VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQDBusServiceWatcher*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QDBusServiceWatcher_Metacast(QDBusServiceWatcher* self, const char* param1) {
-    auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQDBusServiceWatcher*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QDBusServiceWatcher_Metacall(QDBusServiceWatcher* self, int param1, int param2, void** param3) {
-    auto* vqdbusservicewatcher = dynamic_cast<VirtualQDBusServiceWatcher*>(self);
-    if (vqdbusservicewatcher && vqdbusservicewatcher->isVirtualQDBusServiceWatcher) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQDBusServiceWatcher*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of libqt_string */ QDBusServiceWatcher_WatchedServices(const QDBusServiceWatcher* self) {

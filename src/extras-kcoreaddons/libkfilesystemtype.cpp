@@ -4,13 +4,13 @@
 #include "libkfilesystemtype.h"
 #include "libkfilesystemtype.hxx"
 
-int KFileSystemType_FileSystemType(const libqt_string param1) {
-    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return static_cast<int>(KFileSystemType::fileSystemType(param1_QString));
+int KFileSystemType_FileSystemType(const libqt_string path) {
+    QString path_QString = QString::fromUtf8(path.data, path.len);
+    return static_cast<int>(KFileSystemType::fileSystemType(path_QString));
 }
 
-libqt_string KFileSystemType_FileSystemName(int param1) {
-    auto _ret = KFileSystemType::fileSystemName(static_cast<KFileSystemType::Type>(param1));
+libqt_string KFileSystemType_FileSystemName(int type) {
+    auto _ret = KFileSystemType::fileSystemName(static_cast<KFileSystemType::Type>(type));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

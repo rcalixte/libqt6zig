@@ -52,8 +52,8 @@ void KIO__DropJob_Connect_PopupMenuAboutToShow(KIO__DropJob* self, intptr_t slot
 void KIO__DropJob_ShowMenu2(KIO__DropJob* self, const QPoint* p, QAction* atAction);
 void KIO__DropJob_Delete(KIO__DropJob* self);
 
-KIO__DropJob* KIO_Drop(const QDropEvent* param1, const QUrl* param2, int param3);
-KIO__DropJob* KIO_Drop2(const QDropEvent* param1, const QUrl* param2, int param3, int param4);
+KIO__DropJob* KIO_Drop(const QDropEvent* dropEvent, const QUrl* destUrl, int flags);
+KIO__DropJob* KIO_Drop2(const QDropEvent* dropEvent, const QUrl* destUrl, int dropjobFlags, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

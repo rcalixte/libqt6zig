@@ -24,30 +24,15 @@ QsciLexerAsm* QsciLexerAsm_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerAsm_MetaObject(const QsciLexerAsm* self) {
-    auto* vqscilexerasm = dynamic_cast<const VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerAsm*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerAsm_Metacast(QsciLexerAsm* self, const char* param1) {
-    auto* vqscilexerasm = dynamic_cast<VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerAsm*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerAsm_Metacall(QsciLexerAsm* self, int param1, int param2, void** param3) {
-    auto* vqscilexerasm = dynamic_cast<VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerAsm*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* QsciLexerAsm_DefaultColor(const QsciLexerAsm* self, int style) {
@@ -103,39 +88,19 @@ bool QsciLexerAsm_FoldSyntaxBased(const QsciLexerAsm* self) {
 }
 
 void QsciLexerAsm_SetFoldComments(QsciLexerAsm* self, bool fold) {
-    auto* vqscilexerasm = dynamic_cast<VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        self->setFoldComments(fold);
-    } else {
-        ((VirtualQsciLexerAsm*)self)->setFoldComments(fold);
-    }
+    self->setFoldComments(fold);
 }
 
 void QsciLexerAsm_SetFoldCompact(QsciLexerAsm* self, bool fold) {
-    auto* vqscilexerasm = dynamic_cast<VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerAsm*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 void QsciLexerAsm_SetCommentDelimiter(QsciLexerAsm* self, QChar* delimeter) {
-    auto* vqscilexerasm = dynamic_cast<VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        self->setCommentDelimiter(*delimeter);
-    } else {
-        ((VirtualQsciLexerAsm*)self)->setCommentDelimiter(*delimeter);
-    }
+    self->setCommentDelimiter(*delimeter);
 }
 
 void QsciLexerAsm_SetFoldSyntaxBased(QsciLexerAsm* self, bool syntax_based) {
-    auto* vqscilexerasm = dynamic_cast<VirtualQsciLexerAsm*>(self);
-    if (vqscilexerasm && vqscilexerasm->isVirtualQsciLexerAsm) {
-        self->setFoldSyntaxBased(syntax_based);
-    } else {
-        ((VirtualQsciLexerAsm*)self)->setFoldSyntaxBased(syntax_based);
-    }
+    self->setFoldSyntaxBased(syntax_based);
 }
 
 // Base class handler implementation

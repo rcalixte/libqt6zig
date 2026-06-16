@@ -31,30 +31,15 @@ KNumberModel* KNumberModel_new2(QObject* parent) {
 }
 
 QMetaObject* KNumberModel_MetaObject(const KNumberModel* self) {
-    auto* vknumbermodel = dynamic_cast<const VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNumberModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNumberModel_Metacast(KNumberModel* self, const char* param1) {
-    auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNumberModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNumberModel_Metacall(KNumberModel* self, int param1, int param2, void** param3) {
-    auto* vknumbermodel = dynamic_cast<VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNumberModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KNumberModel_SetMinimumValue(KNumberModel* self, double minimumValue) {
@@ -94,68 +79,34 @@ double KNumberModel_Value(const KNumberModel* self, const QModelIndex* index) {
 }
 
 int KNumberModel_RowCount(const KNumberModel* self, const QModelIndex* index) {
-    auto* vknumbermodel = dynamic_cast<const VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
-        return self->rowCount(*index);
-    } else {
-        return ((VirtualKNumberModel*)self)->rowCount(*index);
-    }
+    return self->rowCount(*index);
 }
 
 QVariant* KNumberModel_Data(const KNumberModel* self, const QModelIndex* index, int role) {
-    auto* vknumbermodel = dynamic_cast<const VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKNumberModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 libqt_map /* of int to libqt_string */ KNumberModel_RoleNames(const KNumberModel* self) {
-    auto* vknumbermodel = dynamic_cast<const VirtualKNumberModel*>(self);
-    if (vknumbermodel && vknumbermodel->isVirtualKNumberModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKNumberModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 void KNumberModel_MinimumValueChanged(KNumberModel* self) {

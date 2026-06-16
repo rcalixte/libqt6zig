@@ -23,30 +23,15 @@ KConfigViewStateSaver* KConfigViewStateSaver_new2(QObject* parent) {
 }
 
 QMetaObject* KConfigViewStateSaver_MetaObject(const KConfigViewStateSaver* self) {
-    auto* vkconfigviewstatesaver = dynamic_cast<const VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKConfigViewStateSaver*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KConfigViewStateSaver_Metacast(KConfigViewStateSaver* self, const char* param1) {
-    auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKConfigViewStateSaver*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KConfigViewStateSaver_Metacall(KConfigViewStateSaver* self, int param1, int param2, void** param3) {
-    auto* vkconfigviewstatesaver = dynamic_cast<VirtualKConfigViewStateSaver*>(self);
-    if (vkconfigviewstatesaver && vkconfigviewstatesaver->isVirtualKConfigViewStateSaver) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKConfigViewStateSaver*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KConfigViewStateSaver_SaveState(KConfigViewStateSaver* self, KConfigGroup* configGroup) {

@@ -39,7 +39,7 @@ unsigned long long KIO__FileSystemFreeSpaceJob_Size(const KIO__FileSystemFreeSpa
 unsigned long long KIO__FileSystemFreeSpaceJob_AvailableSize(const KIO__FileSystemFreeSpaceJob* self);
 void KIO__FileSystemFreeSpaceJob_Delete(KIO__FileSystemFreeSpaceJob* self);
 
-KIO__FileSystemFreeSpaceJob* KIO_FileSystemFreeSpace(const QUrl* param1);
+KIO__FileSystemFreeSpaceJob* KIO_FileSystemFreeSpace(const QUrl* url);
 
 #ifdef __cplusplus
 } /* extern C */

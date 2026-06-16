@@ -26,21 +26,11 @@ void QAbstractFormBuilder_SetWorkingDirectory(QAbstractFormBuilder* self, const 
 }
 
 QWidget* QAbstractFormBuilder_Load(QAbstractFormBuilder* self, QIODevice* dev, QWidget* parentWidget) {
-    auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
-        return self->load(dev, parentWidget);
-    } else {
-        return ((VirtualQAbstractFormBuilder*)self)->load(dev, parentWidget);
-    }
+    return self->load(dev, parentWidget);
 }
 
 void QAbstractFormBuilder_Save(QAbstractFormBuilder* self, QIODevice* dev, QWidget* widget) {
-    auto* vqabstractformbuilder = dynamic_cast<VirtualQAbstractFormBuilder*>(self);
-    if (vqabstractformbuilder && vqabstractformbuilder->isVirtualQAbstractFormBuilder) {
-        self->save(dev, widget);
-    } else {
-        ((VirtualQAbstractFormBuilder*)self)->save(dev, widget);
-    }
+    self->save(dev, widget);
 }
 
 libqt_string QAbstractFormBuilder_ErrorString(const QAbstractFormBuilder* self) {

@@ -50,6 +50,6 @@ void QWebEngineGlobalSettings__DnsMode_Delete(QWebEngineGlobalSettings__DnsMode*
     delete self;
 }
 
-bool QWebEngineGlobalSettings_SetDnsMode(QWebEngineGlobalSettings__DnsMode* param1) {
-    return QWebEngineGlobalSettings::setDnsMode(*param1);
+bool QWebEngineGlobalSettings_SetDnsMode(QWebEngineGlobalSettings__DnsMode* dnsMode) {
+    return QWebEngineGlobalSettings::setDnsMode(*dnsMode);
 }

@@ -100,30 +100,15 @@ KReplaceDialog* KReplaceDialog_new6(QWidget* parent, long options, const libqt_l
 }
 
 QMetaObject* KReplaceDialog_MetaObject(const KReplaceDialog* self) {
-    auto* vkreplacedialog = dynamic_cast<const VirtualKReplaceDialog*>(self);
-    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKReplaceDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KReplaceDialog_Metacast(KReplaceDialog* self, const char* param1) {
-    auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
-    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKReplaceDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KReplaceDialog_Metacall(KReplaceDialog* self, int param1, int param2, void** param3) {
-    auto* vkreplacedialog = dynamic_cast<VirtualKReplaceDialog*>(self);
-    if (vkreplacedialog && vkreplacedialog->isVirtualKReplaceDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKReplaceDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KReplaceDialog_SetReplacementHistory(KReplaceDialog* self, const libqt_list /* of libqt_string */ history) {

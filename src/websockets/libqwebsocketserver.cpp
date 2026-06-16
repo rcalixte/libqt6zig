@@ -31,30 +31,15 @@ QWebSocketServer* QWebSocketServer_new2(const libqt_string serverName, int secur
 }
 
 QMetaObject* QWebSocketServer_MetaObject(const QWebSocketServer* self) {
-    auto* vqwebsocketserver = dynamic_cast<const VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQWebSocketServer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QWebSocketServer_Metacast(QWebSocketServer* self, const char* param1) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQWebSocketServer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QWebSocketServer_Metacall(QWebSocketServer* self, int param1, int param2, void** param3) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQWebSocketServer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QWebSocketServer_Listen(QWebSocketServer* self) {
@@ -133,12 +118,7 @@ bool QWebSocketServer_HasPendingConnections(const QWebSocketServer* self) {
 }
 
 QWebSocket* QWebSocketServer_NextPendingConnection(QWebSocketServer* self) {
-    auto* vqwebsocketserver = dynamic_cast<VirtualQWebSocketServer*>(self);
-    if (vqwebsocketserver && vqwebsocketserver->isVirtualQWebSocketServer) {
-        return self->nextPendingConnection();
-    } else {
-        return ((VirtualQWebSocketServer*)self)->nextPendingConnection();
-    }
+    return self->nextPendingConnection();
 }
 
 int QWebSocketServer_Error(const QWebSocketServer* self) {

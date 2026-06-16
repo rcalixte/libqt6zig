@@ -25,30 +25,15 @@ QCandlestickSeries* QCandlestickSeries_new2(QObject* parent) {
 }
 
 QMetaObject* QCandlestickSeries_MetaObject(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = dynamic_cast<const VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCandlestickSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCandlestickSeries_Metacast(QCandlestickSeries* self, const char* param1) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCandlestickSeries_Metacall(QCandlestickSeries* self, int param1, int param2, void** param3) {
-    auto* vqcandlestickseries = dynamic_cast<VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCandlestickSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QCandlestickSeries_Append(QCandlestickSeries* self, QCandlestickSet* set) {
@@ -109,12 +94,7 @@ int QCandlestickSeries_Count(const QCandlestickSeries* self) {
 }
 
 int QCandlestickSeries_Type(const QCandlestickSeries* self) {
-    auto* vqcandlestickseries = dynamic_cast<const VirtualQCandlestickSeries*>(self);
-    if (vqcandlestickseries && vqcandlestickseries->isVirtualQCandlestickSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQCandlestickSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QCandlestickSeries_SetMaximumColumnWidth(QCandlestickSeries* self, double maximumColumnWidth) {

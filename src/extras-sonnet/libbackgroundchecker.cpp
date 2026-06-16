@@ -29,30 +29,15 @@ Sonnet__BackgroundChecker* Sonnet__BackgroundChecker_new4(const Sonnet__Speller*
 }
 
 QMetaObject* Sonnet__BackgroundChecker_MetaObject(const Sonnet__BackgroundChecker* self) {
-    auto* vsonnet__backgroundchecker = dynamic_cast<const VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualSonnetBackgroundChecker*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* Sonnet__BackgroundChecker_Metacast(Sonnet__BackgroundChecker* self, const char* param1) {
-    auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int Sonnet__BackgroundChecker_Metacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3) {
-    auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualSonnetBackgroundChecker*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void Sonnet__BackgroundChecker_SetText(Sonnet__BackgroundChecker* self, const libqt_string text) {
@@ -138,21 +123,11 @@ void Sonnet__BackgroundChecker_SetAutoDetectLanguageDisabled(Sonnet__BackgroundC
 }
 
 void Sonnet__BackgroundChecker_Start(Sonnet__BackgroundChecker* self) {
-    auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        self->start();
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->start();
-    }
+    self->start();
 }
 
 void Sonnet__BackgroundChecker_Stop(Sonnet__BackgroundChecker* self) {
-    auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        self->stop();
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->stop();
-    }
+    self->stop();
 }
 
 void Sonnet__BackgroundChecker_Replace(Sonnet__BackgroundChecker* self, int start, const libqt_string oldText, const libqt_string newText) {
@@ -167,12 +142,7 @@ void Sonnet__BackgroundChecker_ChangeLanguage(Sonnet__BackgroundChecker* self, c
 }
 
 void Sonnet__BackgroundChecker_ContinueChecking(Sonnet__BackgroundChecker* self) {
-    auto* vsonnet__backgroundchecker = dynamic_cast<VirtualSonnetBackgroundChecker*>(self);
-    if (vsonnet__backgroundchecker && vsonnet__backgroundchecker->isVirtualSonnetBackgroundChecker) {
-        self->continueChecking();
-    } else {
-        ((VirtualSonnetBackgroundChecker*)self)->continueChecking();
-    }
+    self->continueChecking();
 }
 
 void Sonnet__BackgroundChecker_Misspelling(Sonnet__BackgroundChecker* self, const libqt_string word, int start) {

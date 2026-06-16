@@ -22,30 +22,15 @@ KNewFileMenu* KNewFileMenu_new(QObject* parent) {
 }
 
 QMetaObject* KNewFileMenu_MetaObject(const KNewFileMenu* self) {
-    auto* vknewfilemenu = dynamic_cast<const VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNewFileMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNewFileMenu_Metacast(KNewFileMenu* self, const char* param1) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNewFileMenu_Metacall(KNewFileMenu* self, int param1, int param2, void** param3) {
-    auto* vknewfilemenu = dynamic_cast<VirtualKNewFileMenu*>(self);
-    if (vknewfilemenu && vknewfilemenu->isVirtualKNewFileMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNewFileMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool KNewFileMenu_IsModal(const KNewFileMenu* self) {

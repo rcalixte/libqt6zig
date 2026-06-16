@@ -21,60 +21,30 @@ QExtensionManager* QExtensionManager_new2(QObject* parent) {
 }
 
 QMetaObject* QExtensionManager_MetaObject(const QExtensionManager* self) {
-    auto* vqextensionmanager = dynamic_cast<const VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQExtensionManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QExtensionManager_Metacast(QExtensionManager* self, const char* param1) {
-    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQExtensionManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QExtensionManager_Metacall(QExtensionManager* self, int param1, int param2, void** param3) {
-    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQExtensionManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QExtensionManager_RegisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid) {
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
-    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
-        self->registerExtensions(factory, iid_QString);
-    } else {
-        ((VirtualQExtensionManager*)self)->registerExtensions(factory, iid_QString);
-    }
+    self->registerExtensions(factory, iid_QString);
 }
 
 void QExtensionManager_UnregisterExtensions(QExtensionManager* self, QAbstractExtensionFactory* factory, const libqt_string iid) {
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
-    auto* vqextensionmanager = dynamic_cast<VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
-        self->unregisterExtensions(factory, iid_QString);
-    } else {
-        ((VirtualQExtensionManager*)self)->unregisterExtensions(factory, iid_QString);
-    }
+    self->unregisterExtensions(factory, iid_QString);
 }
 
 QObject* QExtensionManager_Extension(const QExtensionManager* self, QObject* object, const libqt_string iid) {
     QString iid_QString = QString::fromUtf8(iid.data, iid.len);
-    auto* vqextensionmanager = dynamic_cast<const VirtualQExtensionManager*>(self);
-    if (vqextensionmanager && vqextensionmanager->isVirtualQExtensionManager) {
-        return self->extension(object, iid_QString);
-    } else {
-        return ((VirtualQExtensionManager*)self)->extension(object, iid_QString);
-    }
+    return self->extension(object, iid_QString);
 }
 
 // Base class handler implementation

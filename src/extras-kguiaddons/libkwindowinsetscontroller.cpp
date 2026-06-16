@@ -20,30 +20,15 @@ KWindowInsetsController* KWindowInsetsController_new2(QObject* parent) {
 }
 
 QMetaObject* KWindowInsetsController_MetaObject(const KWindowInsetsController* self) {
-    auto* vkwindowinsetscontroller = dynamic_cast<const VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKWindowInsetsController*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KWindowInsetsController_Metacast(KWindowInsetsController* self, const char* param1) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KWindowInsetsController_Metacall(KWindowInsetsController* self, int param1, int param2, void** param3) {
-    auto* vkwindowinsetscontroller = dynamic_cast<VirtualKWindowInsetsController*>(self);
-    if (vkwindowinsetscontroller && vkwindowinsetscontroller->isVirtualKWindowInsetsController) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKWindowInsetsController*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* KWindowInsetsController_StatusBarBackgroundColor(const KWindowInsetsController* self) {

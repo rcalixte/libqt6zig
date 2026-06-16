@@ -17,12 +17,12 @@ pub const KTimeZone = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: f32 `
+    /// ` latitude: f32 `
     ///
-    /// ` param2: f32 `
+    /// ` longitude: f32 `
     ///
-    pub fn FromLocation(param1: f32, param2: f32) [:0]const u8 {
-        const _ret = qtc.KTimeZone_FromLocation(@bitCast(param1), @bitCast(param2));
+    pub fn FromLocation(latitude: f32, longitude: f32) [:0]const u8 {
+        const _ret = qtc.KTimeZone_FromLocation(@bitCast(latitude), @bitCast(longitude));
         return std.mem.span(_ret);
     }
 
@@ -30,10 +30,10 @@ pub const KTimeZone = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: [:0]const u8 `
+    /// ` ianaId: [:0]const u8 `
     ///
-    pub fn Country(param1: [:0]const u8) KCountry {
-        const param1_Cstring = param1.ptr;
-        return .{ .ptr = qtc.KTimeZone_Country(param1_Cstring) };
+    pub fn Country(ianaId: [:0]const u8) KCountry {
+        const ianaId_Cstring = ianaId.ptr;
+        return .{ .ptr = qtc.KTimeZone_Country(ianaId_Cstring) };
     }
 };

@@ -12,123 +12,58 @@ QDesignerFormWindowCursorInterface* QDesignerFormWindowCursorInterface_new() {
 }
 
 QDesignerFormWindowInterface* QDesignerFormWindowCursorInterface_FormWindow(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->formWindow();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->formWindow();
-    }
+    return self->formWindow();
 }
 
 bool QDesignerFormWindowCursorInterface_MovePosition(QDesignerFormWindowCursorInterface* self, int op, int mode) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->movePosition(static_cast<QDesignerFormWindowCursorInterface::MoveOperation>(op), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->movePosition(static_cast<QDesignerFormWindowCursorInterface::MoveOperation>(op), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    }
+    return self->movePosition(static_cast<QDesignerFormWindowCursorInterface::MoveOperation>(op), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
 }
 
 int QDesignerFormWindowCursorInterface_Position(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->position();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->position();
-    }
+    return self->position();
 }
 
 void QDesignerFormWindowCursorInterface_SetPosition(QDesignerFormWindowCursorInterface* self, int pos, int mode) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setPosition(static_cast<int>(pos), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->setPosition(static_cast<int>(pos), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
-    }
+    self->setPosition(static_cast<int>(pos), static_cast<QDesignerFormWindowCursorInterface::MoveMode>(mode));
 }
 
 QWidget* QDesignerFormWindowCursorInterface_Current(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->current();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->current();
-    }
+    return self->current();
 }
 
 int QDesignerFormWindowCursorInterface_WidgetCount(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->widgetCount();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->widgetCount();
-    }
+    return self->widgetCount();
 }
 
 QWidget* QDesignerFormWindowCursorInterface_Widget(const QDesignerFormWindowCursorInterface* self, int index) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->widget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->widget(static_cast<int>(index));
-    }
+    return self->widget(static_cast<int>(index));
 }
 
 bool QDesignerFormWindowCursorInterface_HasSelection(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->hasSelection();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->hasSelection();
-    }
+    return self->hasSelection();
 }
 
 int QDesignerFormWindowCursorInterface_SelectedWidgetCount(const QDesignerFormWindowCursorInterface* self) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->selectedWidgetCount();
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->selectedWidgetCount();
-    }
+    return self->selectedWidgetCount();
 }
 
 QWidget* QDesignerFormWindowCursorInterface_SelectedWidget(const QDesignerFormWindowCursorInterface* self, int index) {
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<const VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        return vqdesignerformwindowcursorinterface->selectedWidget(static_cast<int>(index));
-    } else {
-        return ((VirtualQDesignerFormWindowCursorInterface*)self)->selectedWidget(static_cast<int>(index));
-    }
+    return self->selectedWidget(static_cast<int>(index));
 }
 
 void QDesignerFormWindowCursorInterface_SetProperty(QDesignerFormWindowCursorInterface* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setProperty(name_QString, *value);
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->setProperty(name_QString, *value);
-    }
+    self->setProperty(name_QString, *value);
 }
 
 void QDesignerFormWindowCursorInterface_SetWidgetProperty(QDesignerFormWindowCursorInterface* self, QWidget* widget, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->setWidgetProperty(widget, name_QString, *value);
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->setWidgetProperty(widget, name_QString, *value);
-    }
+    self->setWidgetProperty(widget, name_QString, *value);
 }
 
 void QDesignerFormWindowCursorInterface_ResetWidgetProperty(QDesignerFormWindowCursorInterface* self, QWidget* widget, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqdesignerformwindowcursorinterface = dynamic_cast<VirtualQDesignerFormWindowCursorInterface*>(self);
-    if (vqdesignerformwindowcursorinterface && vqdesignerformwindowcursorinterface->isVirtualQDesignerFormWindowCursorInterface) {
-        vqdesignerformwindowcursorinterface->resetWidgetProperty(widget, name_QString);
-    } else {
-        ((VirtualQDesignerFormWindowCursorInterface*)self)->resetWidgetProperty(widget, name_QString);
-    }
+    self->resetWidgetProperty(widget, name_QString);
 }
 
 bool QDesignerFormWindowCursorInterface_IsWidgetSelected(const QDesignerFormWindowCursorInterface* self, QWidget* widget) {

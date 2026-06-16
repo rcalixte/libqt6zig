@@ -19,30 +19,15 @@ QPlaceReply* QPlaceReply_new2(QObject* parent) {
 }
 
 QMetaObject* QPlaceReply_MetaObject(const QPlaceReply* self) {
-    auto* vqplacereply = dynamic_cast<const VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPlaceReply*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPlaceReply_Metacast(QPlaceReply* self, const char* param1) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPlaceReply*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPlaceReply_Metacall(QPlaceReply* self, int param1, int param2, void** param3) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPlaceReply*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QPlaceReply_IsFinished(const QPlaceReply* self) {
@@ -50,12 +35,7 @@ bool QPlaceReply_IsFinished(const QPlaceReply* self) {
 }
 
 int QPlaceReply_Type(const QPlaceReply* self) {
-    auto* vqplacereply = dynamic_cast<const VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQPlaceReply*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 libqt_string QPlaceReply_ErrorString(const QPlaceReply* self) {
@@ -75,12 +55,7 @@ int QPlaceReply_Error(const QPlaceReply* self) {
 }
 
 void QPlaceReply_Abort(QPlaceReply* self) {
-    auto* vqplacereply = dynamic_cast<VirtualQPlaceReply*>(self);
-    if (vqplacereply && vqplacereply->isVirtualQPlaceReply) {
-        self->abort();
-    } else {
-        ((VirtualQPlaceReply*)self)->abort();
-    }
+    self->abort();
 }
 
 void QPlaceReply_Finished(QPlaceReply* self) {

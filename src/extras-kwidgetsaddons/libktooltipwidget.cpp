@@ -48,30 +48,15 @@ KToolTipWidget* KToolTipWidget_new2() {
 }
 
 QMetaObject* KToolTipWidget_MetaObject(const KToolTipWidget* self) {
-    auto* vktooltipwidget = dynamic_cast<const VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKToolTipWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KToolTipWidget_Metacast(KToolTipWidget* self, const char* param1) {
-    auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKToolTipWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KToolTipWidget_Metacall(KToolTipWidget* self, int param1, int param2, void** param3) {
-    auto* vktooltipwidget = dynamic_cast<VirtualKToolTipWidget*>(self);
-    if (vktooltipwidget && vktooltipwidget->isVirtualKToolTipWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKToolTipWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KToolTipWidget_ShowAt(KToolTipWidget* self, const QPoint* pos, QWidget* content, QWindow* transientParent) {

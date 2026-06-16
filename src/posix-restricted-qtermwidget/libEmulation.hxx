@@ -313,10 +313,10 @@ class VirtualKonsoleEmulation : public Konsole::Emulation {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void sendString(const char* stringVal, int length) override {
+    virtual void sendString(const char* string, int length) override {
         auto sendstring_cb = konsole__emulation_sendstring_callback;
         if (sendstring_cb) {
-            const char* cbval1 = (const char*)stringVal;
+            const char* cbval1 = (const char*)string;
             int cbval2 = length;
             sendstring_cb(this, cbval1, cbval2);
         }

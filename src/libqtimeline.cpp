@@ -24,30 +24,15 @@ QTimeLine* QTimeLine_new3(int duration, QObject* parent) {
 }
 
 QMetaObject* QTimeLine_MetaObject(const QTimeLine* self) {
-    auto* vqtimeline = dynamic_cast<const VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTimeLine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTimeLine_Metacast(QTimeLine* self, const char* param1) {
-    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTimeLine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTimeLine_Metacall(QTimeLine* self, int param1, int param2, void** param3) {
-    auto* vqtimeline = dynamic_cast<VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTimeLine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QTimeLine_State(const QTimeLine* self) {
@@ -131,12 +116,7 @@ int QTimeLine_FrameForTime(const QTimeLine* self, int msec) {
 }
 
 double QTimeLine_ValueForTime(const QTimeLine* self, int msec) {
-    auto* vqtimeline = dynamic_cast<const VirtualQTimeLine*>(self);
-    if (vqtimeline && vqtimeline->isVirtualQTimeLine) {
-        return static_cast<double>(self->valueForTime(static_cast<int>(msec)));
-    } else {
-        return static_cast<double>(((VirtualQTimeLine*)self)->valueForTime(static_cast<int>(msec)));
-    }
+    return static_cast<double>(self->valueForTime(static_cast<int>(msec)));
 }
 
 void QTimeLine_Start(QTimeLine* self) {

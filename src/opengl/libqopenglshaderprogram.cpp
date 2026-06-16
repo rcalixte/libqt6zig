@@ -33,30 +33,15 @@ QOpenGLShader* QOpenGLShader_new2(int typeVal, QObject* parent) {
 }
 
 QMetaObject* QOpenGLShader_MetaObject(const QOpenGLShader* self) {
-    auto* vqopenglshader = dynamic_cast<const VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQOpenGLShader*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QOpenGLShader_Metacast(QOpenGLShader* self, const char* param1) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQOpenGLShader*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QOpenGLShader_Metacall(QOpenGLShader* self, int param1, int param2, void** param3) {
-    auto* vqopenglshader = dynamic_cast<VirtualQOpenGLShader*>(self);
-    if (vqopenglshader && vqopenglshader->isVirtualQOpenGLShader) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQOpenGLShader*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QOpenGLShader_ShaderType(const QOpenGLShader* self) {
@@ -508,30 +493,15 @@ QOpenGLShaderProgram* QOpenGLShaderProgram_new2(QObject* parent) {
 }
 
 QMetaObject* QOpenGLShaderProgram_MetaObject(const QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = dynamic_cast<const VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQOpenGLShaderProgram*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QOpenGLShaderProgram_Metacast(QOpenGLShaderProgram* self, const char* param1) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QOpenGLShaderProgram_Metacall(QOpenGLShaderProgram* self, int param1, int param2, void** param3) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QOpenGLShaderProgram_AddShader(QOpenGLShaderProgram* self, QOpenGLShader* shader) {
@@ -598,12 +568,7 @@ void QOpenGLShaderProgram_RemoveAllShaders(QOpenGLShaderProgram* self) {
 }
 
 bool QOpenGLShaderProgram_Link(QOpenGLShaderProgram* self) {
-    auto* vqopenglshaderprogram = dynamic_cast<VirtualQOpenGLShaderProgram*>(self);
-    if (vqopenglshaderprogram && vqopenglshaderprogram->isVirtualQOpenGLShaderProgram) {
-        return self->link();
-    } else {
-        return ((VirtualQOpenGLShaderProgram*)self)->link();
-    }
+    return self->link();
 }
 
 bool QOpenGLShaderProgram_IsLinked(const QOpenGLShaderProgram* self) {

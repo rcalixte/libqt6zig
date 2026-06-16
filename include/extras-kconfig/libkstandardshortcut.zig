@@ -20,10 +20,10 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Shortcut(allocator: std.mem.Allocator, param1: i32) []QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KStandardShortcut_Shortcut(@bitCast(param1));
+    pub fn Shortcut(allocator: std.mem.Allocator, id: i32) []QKeySequence {
+        const _arr: qtc.libqt_list = qtc.KStandardShortcut_Shortcut(@bitCast(id));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kstandardshortcut.Shortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -38,10 +38,10 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Name(allocator: std.mem.Allocator, param1: i32) []const u8 {
-        var _str = qtc.KStandardShortcut_Name(@bitCast(param1));
+    pub fn Name(allocator: std.mem.Allocator, id: i32) []const u8 {
+        var _str = qtc.KStandardShortcut_Name(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardshortcut.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -54,10 +54,10 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Label(allocator: std.mem.Allocator, param1: i32) []const u8 {
-        var _str = qtc.KStandardShortcut_Label(@bitCast(param1));
+    pub fn Label(allocator: std.mem.Allocator, id: i32) []const u8 {
+        var _str = qtc.KStandardShortcut_Label(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardshortcut.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -70,10 +70,10 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn WhatsThis(allocator: std.mem.Allocator, param1: i32) []const u8 {
-        var _str = qtc.KStandardShortcut_WhatsThis(@bitCast(param1));
+    pub fn WhatsThis(allocator: std.mem.Allocator, id: i32) []const u8 {
+        var _str = qtc.KStandardShortcut_WhatsThis(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardshortcut.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -84,33 +84,33 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QKeySequence `
+    /// ` keySeq: QKeySequence `
     ///
     /// ## Returns:
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn Find(param1: anytype) i32 {
-        comptime _ = @TypeOf(param1)._is_QKeySequence;
-        return qtc.KStandardShortcut_Find(@ptrCast(param1.ptr));
+    pub fn Find(keySeq: anytype) i32 {
+        comptime _ = @TypeOf(keySeq)._is_QKeySequence;
+        return qtc.KStandardShortcut_Find(@ptrCast(keySeq.ptr));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#findByName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` name: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn FindByName(param1: []const u8) i32 {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn FindByName(name: []const u8) i32 {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
         };
-        return qtc.KStandardShortcut_FindByName(param1_str);
+        return qtc.KStandardShortcut_FindByName(name_str);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#hardcodedDefaultShortcut)
@@ -119,10 +119,10 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    pub fn HardcodedDefaultShortcut(allocator: std.mem.Allocator, param1: i32) []QKeySequence {
-        const _arr: qtc.libqt_list = qtc.KStandardShortcut_HardcodedDefaultShortcut(@bitCast(param1));
+    pub fn HardcodedDefaultShortcut(allocator: std.mem.Allocator, id: i32) []QKeySequence {
+        const _arr: qtc.libqt_list = qtc.KStandardShortcut_HardcodedDefaultShortcut(@bitCast(id));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kstandardshortcut.HardcodedDefaultShortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -135,30 +135,30 @@ pub const KStandardShortcut = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
-    /// ` param2: []QKeySequence `
+    /// ` newShortcut: []QKeySequence `
     ///
-    pub fn SaveShortcut(param1: i32, param2: []QKeySequence) void {
-        const param2_list = qtc.libqt_list{
-            .len = param2.len,
-            .data = @ptrCast(param2.ptr),
+    pub fn SaveShortcut(id: i32, newShortcut: []QKeySequence) void {
+        const newShortcut_list = qtc.libqt_list{
+            .len = newShortcut.len,
+            .data = @ptrCast(newShortcut.ptr),
         };
-        qtc.KStandardShortcut_SaveShortcut(@bitCast(param1), param2_list);
+        qtc.KStandardShortcut_SaveShortcut(@bitCast(id), newShortcut_list);
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#category)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: kstandardshortcut_enums.StandardShortcut `
+    /// ` id: kstandardshortcut_enums.StandardShortcut `
     ///
     /// ## Returns:
     ///
     /// ` kstandardshortcut_enums.Category `
     ///
-    pub fn Category(param1: i32) i32 {
-        return qtc.KStandardShortcut_Category(@bitCast(param1));
+    pub fn Category(id: i32) i32 {
+        return qtc.KStandardShortcut_Category(@bitCast(id));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardshortcut.html#open)

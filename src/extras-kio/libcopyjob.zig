@@ -2294,182 +2294,182 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Copy(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Copy(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Copy(src: anytype, dest: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Copy(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#copyAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn CopyAs(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_CopyAs(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn CopyAs(src: anytype, dest: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_CopyAs(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#copy)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Copy2(param1: []QUrl, param2: anytype, param3: i32) KIO__CopyJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn Copy2(src: []QUrl, dest: anytype, flags: i32) KIO__CopyJob {
+        const src_list = qtc.libqt_list{
+            .len = src.len,
+            .data = @ptrCast(src.ptr),
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Copy2(param1_list, @ptrCast(param2.ptr), @bitCast(param3)) };
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Copy2(src_list, @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Move(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Move(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Move(src: anytype, dest: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Move(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#moveAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn MoveAs(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_MoveAs(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn MoveAs(src: anytype, dest: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_MoveAs(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#move)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Move2(param1: []QUrl, param2: anytype, param3: i32) KIO__CopyJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn Move2(src: []QUrl, dest: anytype, flags: i32) KIO__CopyJob {
+        const src_list = qtc.libqt_list{
+            .len = src.len,
+            .data = @ptrCast(src.ptr),
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Move2(param1_list, @ptrCast(param2.ptr), @bitCast(param3)) };
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Move2(src_list, @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#link)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` destDir: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Link(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Link(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn Link(src: anytype, destDir: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(destDir)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Link(@ptrCast(src.ptr), @ptrCast(destDir.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#link)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` destDir: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Link2(param1: []QUrl, param2: anytype, param3: i32) KIO__CopyJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn Link2(src: []QUrl, destDir: anytype, flags: i32) KIO__CopyJob {
+        const src_list = qtc.libqt_list{
+            .len = src.len,
+            .data = @ptrCast(src.ptr),
         };
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Link2(param1_list, @ptrCast(param2.ptr), @bitCast(param3)) };
+        comptime _ = @TypeOf(destDir)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Link2(src_list, @ptrCast(destDir.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#linkAs)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: QUrl `
+    /// ` dest: QUrl `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn LinkAs(param1: anytype, param2: anytype, param3: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QUrl;
-        return .{ .ptr = qtc.KIO_LinkAs(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3)) };
+    pub fn LinkAs(src: anytype, dest: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        comptime _ = @TypeOf(dest)._is_QUrl;
+        return .{ .ptr = qtc.KIO_LinkAs(@ptrCast(src.ptr), @ptrCast(dest.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#trash)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` src: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Trash(param1: anytype, param2: i32) KIO__CopyJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Trash(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn Trash(src: anytype, flags: i32) KIO__CopyJob {
+        comptime _ = @TypeOf(src)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Trash(@ptrCast(src.ptr), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#trash)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []QUrl `
+    /// ` src: []QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Trash2(param1: []QUrl, param2: i32) KIO__CopyJob {
-        const param1_list = qtc.libqt_list{
-            .len = param1.len,
-            .data = @ptrCast(param1.ptr),
+    pub fn Trash2(src: []QUrl, flags: i32) KIO__CopyJob {
+        const src_list = qtc.libqt_list{
+            .len = src.len,
+            .data = @ptrCast(src.ptr),
         };
-        return .{ .ptr = qtc.KIO_Trash2(param1_list, @bitCast(param2)) };
+        return .{ .ptr = qtc.KIO_Trash2(src_list, @bitCast(flags)) };
     }
 };
 

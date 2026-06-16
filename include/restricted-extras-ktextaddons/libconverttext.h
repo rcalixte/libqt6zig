@@ -18,11 +18,11 @@ extern "C" {
 typedef struct QTextCursor QTextCursor;
 #endif
 
-libqt_string TextUtils__ConvertText_Normalize(libqt_string param1);
-void TextUtils__ConvertText_UpperCase(QTextCursor* param1);
-void TextUtils__ConvertText_LowerCase(QTextCursor* param1);
-void TextUtils__ConvertText_SentenceCase(QTextCursor* param1);
-void TextUtils__ConvertText_ReverseCase(QTextCursor* param1);
+libqt_string TextUtils__ConvertText_Normalize(libqt_string str);
+void TextUtils__ConvertText_UpperCase(QTextCursor* cursor);
+void TextUtils__ConvertText_LowerCase(QTextCursor* cursor);
+void TextUtils__ConvertText_SentenceCase(QTextCursor* cursor);
+void TextUtils__ConvertText_ReverseCase(QTextCursor* cursor);
 
 #ifdef __cplusplus
 } /* extern C */

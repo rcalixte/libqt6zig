@@ -163,20 +163,20 @@ const char* QCP_GetEnumName13(int param1) {
     return (const char*)QCP::qt_getEnumName(static_cast<QCP::SelectionType>(param1));
 }
 
-bool QCP_IsInvalidData(double param1) {
-    return QCP::isInvalidData(static_cast<double>(param1));
+bool QCP_IsInvalidData(double value) {
+    return QCP::isInvalidData(static_cast<double>(value));
 }
 
-bool QCP_IsInvalidData2(double param1, double param2) {
-    return QCP::isInvalidData(static_cast<double>(param1), static_cast<double>(param2));
+bool QCP_IsInvalidData2(double value1, double value2) {
+    return QCP::isInvalidData(static_cast<double>(value1), static_cast<double>(value2));
 }
 
-void QCP_SetMarginValue(QMargins* param1, int param2, int param3) {
-    QCP::setMarginValue(*param1, static_cast<QCP::MarginSide>(param2), static_cast<int>(param3));
+void QCP_SetMarginValue(QMargins* margins, int side, int value) {
+    QCP::setMarginValue(*margins, static_cast<QCP::MarginSide>(side), static_cast<int>(value));
 }
 
-int QCP_GetMarginValue(const QMargins* param1, int param2) {
-    return QCP::getMarginValue(*param1, static_cast<QCP::MarginSide>(param2));
+int QCP_GetMarginValue(const QMargins* margins, int side) {
+    return QCP::getMarginValue(*margins, static_cast<QCP::MarginSide>(side));
 }
 
 QCPVector2D* QCPVector2D_new(const QCPVector2D* other) {
@@ -424,39 +424,19 @@ void QCPAbstractPaintBuffer_SetDevicePixelRatio(QCPAbstractPaintBuffer* self, do
 }
 
 QCPPainter* QCPAbstractPaintBuffer_StartPainting(QCPAbstractPaintBuffer* self) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
-        return vqcpabstractpaintbuffer->startPainting();
-    } else {
-        return ((VirtualQCPAbstractPaintBuffer*)self)->startPainting();
-    }
+    return self->startPainting();
 }
 
 void QCPAbstractPaintBuffer_DonePainting(QCPAbstractPaintBuffer* self) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
-        self->donePainting();
-    } else {
-        ((VirtualQCPAbstractPaintBuffer*)self)->donePainting();
-    }
+    self->donePainting();
 }
 
 void QCPAbstractPaintBuffer_Draw(const QCPAbstractPaintBuffer* self, QCPPainter* painter) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<const VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
-        vqcpabstractpaintbuffer->draw(painter);
-    } else {
-        ((VirtualQCPAbstractPaintBuffer*)self)->draw(painter);
-    }
+    self->draw(painter);
 }
 
 void QCPAbstractPaintBuffer_Clear(QCPAbstractPaintBuffer* self, const QColor* color) {
-    auto* vqcpabstractpaintbuffer = dynamic_cast<VirtualQCPAbstractPaintBuffer*>(self);
-    if (vqcpabstractpaintbuffer && vqcpabstractpaintbuffer->isVirtualQCPAbstractPaintBuffer) {
-        vqcpabstractpaintbuffer->clear(*color);
-    } else {
-        ((VirtualQCPAbstractPaintBuffer*)self)->clear(*color);
-    }
+    self->clear(*color);
 }
 
 void QCPAbstractPaintBuffer_ReallocateBuffer(QCPAbstractPaintBuffer* self) {
@@ -607,30 +587,15 @@ QCPPaintBufferPixmap* QCPPaintBufferPixmap_new2(const QCPPaintBufferPixmap* para
 }
 
 QCPPainter* QCPPaintBufferPixmap_StartPainting(QCPPaintBufferPixmap* self) {
-    auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
-    if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
-        return self->startPainting();
-    } else {
-        return ((VirtualQCPPaintBufferPixmap*)self)->startPainting();
-    }
+    return self->startPainting();
 }
 
 void QCPPaintBufferPixmap_Draw(const QCPPaintBufferPixmap* self, QCPPainter* painter) {
-    auto* vqcppaintbufferpixmap = dynamic_cast<const VirtualQCPPaintBufferPixmap*>(self);
-    if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
-        self->draw(painter);
-    } else {
-        ((VirtualQCPPaintBufferPixmap*)self)->draw(painter);
-    }
+    self->draw(painter);
 }
 
 void QCPPaintBufferPixmap_Clear(QCPPaintBufferPixmap* self, const QColor* color) {
-    auto* vqcppaintbufferpixmap = dynamic_cast<VirtualQCPPaintBufferPixmap*>(self);
-    if (vqcppaintbufferpixmap && vqcppaintbufferpixmap->isVirtualQCPPaintBufferPixmap) {
-        self->clear(*color);
-    } else {
-        ((VirtualQCPPaintBufferPixmap*)self)->clear(*color);
-    }
+    self->clear(*color);
 }
 
 void QCPPaintBufferPixmap_ReallocateBuffer(QCPPaintBufferPixmap* self) {
@@ -784,30 +749,15 @@ QCPLayer* QCPLayer_new(QCustomPlot* parentPlot, const libqt_string layerName) {
 }
 
 QMetaObject* QCPLayer_MetaObject(const QCPLayer* self) {
-    auto* vqcplayer = dynamic_cast<const VirtualQCPLayer*>(self);
-    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLayer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLayer_Metacast(QCPLayer* self, const char* param1) {
-    auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
-    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLayer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLayer_Metacall(QCPLayer* self, int param1, int param2, void** param3) {
-    auto* vqcplayer = dynamic_cast<VirtualQCPLayer*>(self);
-    if (vqcplayer && vqcplayer->isVirtualQCPLayer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLayer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCustomPlot* QCPLayer_ParentPlot(const QCPLayer* self) {
@@ -1374,30 +1324,15 @@ QCPLayerable* QCPLayerable_new3(QCustomPlot* plot, libqt_string targetLayer, QCP
 }
 
 QMetaObject* QCPLayerable_MetaObject(const QCPLayerable* self) {
-    auto* vqcplayerable = dynamic_cast<const VirtualQCPLayerable*>(self);
-    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLayerable*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLayerable_Metacast(QCPLayerable* self, const char* param1) {
-    auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
-    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLayerable*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLayerable_Metacall(QCPLayerable* self, int param1, int param2, void** param3) {
-    auto* vqcplayerable = dynamic_cast<VirtualQCPLayerable*>(self);
-    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLayerable*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QCPLayerable_Visible(const QCPLayerable* self) {
@@ -1438,12 +1373,7 @@ void QCPLayerable_SetAntialiased(QCPLayerable* self, bool enabled) {
 }
 
 double QCPLayerable_SelectTest(const QCPLayerable* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcplayerable = dynamic_cast<const VirtualQCPLayerable*>(self);
-    if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPLayerable*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 bool QCPLayerable_RealVisibility(const QCPLayerable* self) {
@@ -2644,30 +2574,15 @@ QCPSelectionRect* QCPSelectionRect_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPSelectionRect_MetaObject(const QCPSelectionRect* self) {
-    auto* vqcpselectionrect = dynamic_cast<const VirtualQCPSelectionRect*>(self);
-    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPSelectionRect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPSelectionRect_Metacast(QCPSelectionRect* self, const char* param1) {
-    auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
-    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPSelectionRect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPSelectionRect_Metacall(QCPSelectionRect* self, int param1, int param2, void** param3) {
-    auto* vqcpselectionrect = dynamic_cast<VirtualQCPSelectionRect*>(self);
-    if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPSelectionRect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRect* QCPSelectionRect_Rect(const QCPSelectionRect* self) {
@@ -3733,30 +3648,15 @@ QCPMarginGroup* QCPMarginGroup_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPMarginGroup_MetaObject(const QCPMarginGroup* self) {
-    auto* vqcpmargingroup = dynamic_cast<const VirtualQCPMarginGroup*>(self);
-    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPMarginGroup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPMarginGroup_Metacast(QCPMarginGroup* self, const char* param1) {
-    auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
-    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPMarginGroup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPMarginGroup_Metacall(QCPMarginGroup* self, int param1, int param2, void** param3) {
-    auto* vqcpmargingroup = dynamic_cast<VirtualQCPMarginGroup*>(self);
-    if (vqcpmargingroup && vqcpmargingroup->isVirtualQCPMarginGroup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPMarginGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_list /* of QCPLayoutElement* */ QCPMarginGroup_Elements(const QCPMarginGroup* self, int side) {
@@ -4254,30 +4154,15 @@ QCPLayoutElement* QCPLayoutElement_new2(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPLayoutElement_MetaObject(const QCPLayoutElement* self) {
-    auto* vqcplayoutelement = dynamic_cast<const VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLayoutElement*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLayoutElement_Metacast(QCPLayoutElement* self, const char* param1) {
-    auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLayoutElement*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLayoutElement_Metacall(QCPLayoutElement* self, int param1, int param2, void** param3) {
-    auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLayoutElement*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPLayout* QCPLayoutElement_Layout(const QCPLayoutElement* self) {
@@ -4379,66 +4264,32 @@ void QCPLayoutElement_SetMarginGroup(QCPLayoutElement* self, int sides, QCPMargi
 }
 
 void QCPLayoutElement_Update(QCPLayoutElement* self, int phase) {
-    auto* vqcplayoutelement = dynamic_cast<VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    } else {
-        ((VirtualQCPLayoutElement*)self)->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    }
+    self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
 }
 
 QSize* QCPLayoutElement_MinimumOuterSizeHint(const QCPLayoutElement* self) {
-    auto* vqcplayoutelement = dynamic_cast<const VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        return new QSize(self->minimumOuterSizeHint());
-    } else {
-        return new QSize(((VirtualQCPLayoutElement*)self)->minimumOuterSizeHint());
-    }
+    return new QSize(self->minimumOuterSizeHint());
 }
 
 QSize* QCPLayoutElement_MaximumOuterSizeHint(const QCPLayoutElement* self) {
-    auto* vqcplayoutelement = dynamic_cast<const VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        return new QSize(self->maximumOuterSizeHint());
-    } else {
-        return new QSize(((VirtualQCPLayoutElement*)self)->maximumOuterSizeHint());
-    }
+    return new QSize(self->maximumOuterSizeHint());
 }
 
 libqt_list /* of QCPLayoutElement* */ QCPLayoutElement_Elements(const QCPLayoutElement* self, bool recursive) {
-    auto* vqcplayoutelement = dynamic_cast<const VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        QList<QCPLayoutElement*> _ret = self->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QCPLayoutElement*> _ret = ((VirtualQCPLayoutElement*)self)->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QCPLayoutElement*> _ret = self->elements(recursive);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 double QCPLayoutElement_SelectTest(const QCPLayoutElement* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcplayoutelement = dynamic_cast<const VirtualQCPLayoutElement*>(self);
-    if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPLayoutElement*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 int QCPLayoutElement_CalculateAutoMargin(QCPLayoutElement* self, int side) {
@@ -5445,111 +5296,52 @@ QCPLayout* QCPLayout_new() {
 }
 
 QMetaObject* QCPLayout_MetaObject(const QCPLayout* self) {
-    auto* vqcplayout = dynamic_cast<const VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLayout*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLayout_Metacast(QCPLayout* self, const char* param1) {
-    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLayout*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLayout_Metacall(QCPLayout* self, int param1, int param2, void** param3) {
-    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLayout*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QCPLayout_Update(QCPLayout* self, int phase) {
-    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    } else {
-        ((VirtualQCPLayout*)self)->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    }
+    self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
 }
 
 libqt_list /* of QCPLayoutElement* */ QCPLayout_Elements(const QCPLayout* self, bool recursive) {
-    auto* vqcplayout = dynamic_cast<const VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        QList<QCPLayoutElement*> _ret = self->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QCPLayoutElement*> _ret = ((VirtualQCPLayout*)self)->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QCPLayoutElement*> _ret = self->elements(recursive);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 int QCPLayout_ElementCount(const QCPLayout* self) {
-    auto* vqcplayout = dynamic_cast<const VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return vqcplayout->elementCount();
-    } else {
-        return ((VirtualQCPLayout*)self)->elementCount();
-    }
+    return self->elementCount();
 }
 
 QCPLayoutElement* QCPLayout_ElementAt(const QCPLayout* self, int index) {
-    auto* vqcplayout = dynamic_cast<const VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return vqcplayout->elementAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPLayout*)self)->elementAt(static_cast<int>(index));
-    }
+    return self->elementAt(static_cast<int>(index));
 }
 
 QCPLayoutElement* QCPLayout_TakeAt(QCPLayout* self, int index) {
-    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return vqcplayout->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPLayout*)self)->takeAt(static_cast<int>(index));
-    }
+    return self->takeAt(static_cast<int>(index));
 }
 
 bool QCPLayout_Take(QCPLayout* self, QCPLayoutElement* element) {
-    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        return vqcplayout->take(element);
-    } else {
-        return ((VirtualQCPLayout*)self)->take(element);
-    }
+    return self->take(element);
 }
 
 void QCPLayout_Simplify(QCPLayout* self) {
-    auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
-    if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
-        self->simplify();
-    } else {
-        ((VirtualQCPLayout*)self)->simplify();
-    }
+    self->simplify();
 }
 
 bool QCPLayout_RemoveAt(QCPLayout* self, int index) {
@@ -6921,30 +6713,15 @@ QCPLayoutGrid* QCPLayoutGrid_new() {
 }
 
 QMetaObject* QCPLayoutGrid_MetaObject(const QCPLayoutGrid* self) {
-    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLayoutGrid*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLayoutGrid_Metacast(QCPLayoutGrid* self, const char* param1) {
-    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLayoutGrid*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLayoutGrid_Metacall(QCPLayoutGrid* self, int param1, int param2, void** param3) {
-    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLayoutGrid*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCPLayoutGrid_RowCount(const QCPLayoutGrid* self) {
@@ -7042,102 +6819,48 @@ void QCPLayoutGrid_SetFillOrder(QCPLayoutGrid* self, int order) {
 }
 
 void QCPLayoutGrid_UpdateLayout(QCPLayoutGrid* self) {
-    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        self->updateLayout();
-    } else {
-        ((VirtualQCPLayoutGrid*)self)->updateLayout();
-    }
+    self->updateLayout();
 }
 
 int QCPLayoutGrid_ElementCount(const QCPLayoutGrid* self) {
-    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return self->elementCount();
-    } else {
-        return ((VirtualQCPLayoutGrid*)self)->elementCount();
-    }
+    return self->elementCount();
 }
 
 QCPLayoutElement* QCPLayoutGrid_ElementAt(const QCPLayoutGrid* self, int index) {
-    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return self->elementAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPLayoutGrid*)self)->elementAt(static_cast<int>(index));
-    }
+    return self->elementAt(static_cast<int>(index));
 }
 
 QCPLayoutElement* QCPLayoutGrid_TakeAt(QCPLayoutGrid* self, int index) {
-    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return self->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPLayoutGrid*)self)->takeAt(static_cast<int>(index));
-    }
+    return self->takeAt(static_cast<int>(index));
 }
 
 bool QCPLayoutGrid_Take(QCPLayoutGrid* self, QCPLayoutElement* element) {
-    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return self->take(element);
-    } else {
-        return ((VirtualQCPLayoutGrid*)self)->take(element);
-    }
+    return self->take(element);
 }
 
 libqt_list /* of QCPLayoutElement* */ QCPLayoutGrid_Elements(const QCPLayoutGrid* self, bool recursive) {
-    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        QList<QCPLayoutElement*> _ret = self->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QCPLayoutElement*> _ret = ((VirtualQCPLayoutGrid*)self)->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QCPLayoutElement*> _ret = self->elements(recursive);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QCPLayoutGrid_Simplify(QCPLayoutGrid* self) {
-    auto* vqcplayoutgrid = dynamic_cast<VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        self->simplify();
-    } else {
-        ((VirtualQCPLayoutGrid*)self)->simplify();
-    }
+    self->simplify();
 }
 
 QSize* QCPLayoutGrid_MinimumOuterSizeHint(const QCPLayoutGrid* self) {
-    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return new QSize(self->minimumOuterSizeHint());
-    } else {
-        return new QSize(((VirtualQCPLayoutGrid*)self)->minimumOuterSizeHint());
-    }
+    return new QSize(self->minimumOuterSizeHint());
 }
 
 QSize* QCPLayoutGrid_MaximumOuterSizeHint(const QCPLayoutGrid* self) {
-    auto* vqcplayoutgrid = dynamic_cast<const VirtualQCPLayoutGrid*>(self);
-    if (vqcplayoutgrid && vqcplayoutgrid->isVirtualQCPLayoutGrid) {
-        return new QSize(self->maximumOuterSizeHint());
-    } else {
-        return new QSize(((VirtualQCPLayoutGrid*)self)->maximumOuterSizeHint());
-    }
+    return new QSize(self->maximumOuterSizeHint());
 }
 
 QCPLayoutElement* QCPLayoutGrid_Element(const QCPLayoutGrid* self, int row, int column) {
@@ -8626,30 +8349,15 @@ QCPLayoutInset* QCPLayoutInset_new() {
 }
 
 QMetaObject* QCPLayoutInset_MetaObject(const QCPLayoutInset* self) {
-    auto* vqcplayoutinset = dynamic_cast<const VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLayoutInset*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLayoutInset_Metacast(QCPLayoutInset* self, const char* param1) {
-    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLayoutInset_Metacall(QCPLayoutInset* self, int param1, int param2, void** param3) {
-    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCPLayoutInset_InsetPlacement(const QCPLayoutInset* self, int index) {
@@ -8677,66 +8385,31 @@ void QCPLayoutInset_SetInsetRect(QCPLayoutInset* self, int index, const QRectF* 
 }
 
 void QCPLayoutInset_UpdateLayout(QCPLayoutInset* self) {
-    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        self->updateLayout();
-    } else {
-        ((VirtualQCPLayoutInset*)self)->updateLayout();
-    }
+    self->updateLayout();
 }
 
 int QCPLayoutInset_ElementCount(const QCPLayoutInset* self) {
-    auto* vqcplayoutinset = dynamic_cast<const VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->elementCount();
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->elementCount();
-    }
+    return self->elementCount();
 }
 
 QCPLayoutElement* QCPLayoutInset_ElementAt(const QCPLayoutInset* self, int index) {
-    auto* vqcplayoutinset = dynamic_cast<const VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->elementAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->elementAt(static_cast<int>(index));
-    }
+    return self->elementAt(static_cast<int>(index));
 }
 
 QCPLayoutElement* QCPLayoutInset_TakeAt(QCPLayoutInset* self, int index) {
-    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->takeAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->takeAt(static_cast<int>(index));
-    }
+    return self->takeAt(static_cast<int>(index));
 }
 
 bool QCPLayoutInset_Take(QCPLayoutInset* self, QCPLayoutElement* element) {
-    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->take(element);
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->take(element);
-    }
+    return self->take(element);
 }
 
 void QCPLayoutInset_Simplify(QCPLayoutInset* self) {
-    auto* vqcplayoutinset = dynamic_cast<VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        self->simplify();
-    } else {
-        ((VirtualQCPLayoutInset*)self)->simplify();
-    }
+    self->simplify();
 }
 
 double QCPLayoutInset_SelectTest(const QCPLayoutInset* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcplayoutinset = dynamic_cast<const VirtualQCPLayoutInset*>(self);
-    if (vqcplayoutinset && vqcplayoutinset->isVirtualQCPLayoutInset) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPLayoutInset*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 void QCPLayoutInset_AddElement(QCPLayoutInset* self, QCPLayoutElement* element, int alignment) {
@@ -10260,12 +9933,7 @@ void QCPAxisTicker_Generate(QCPAxisTicker* self, const QCPRange* range, const QL
         QString tickLabels_arr_i_QString = QString::fromUtf8(tickLabels_arr[i].data, tickLabels_arr[i].len);
         tickLabels_QVector.push_back(tickLabels_arr_i_QString);
     }
-    auto* vqcpaxisticker = dynamic_cast<VirtualQCPAxisTicker*>(self);
-    if (vqcpaxisticker && vqcpaxisticker->isVirtualQCPAxisTicker) {
-        self->generate(*range, *locale, *formatChar, static_cast<int>(precision), ticks_QVector, &subTicks_QVector, &tickLabels_QVector);
-    } else {
-        ((VirtualQCPAxisTicker*)self)->generate(*range, *locale, *formatChar, static_cast<int>(precision), ticks_QVector, &subTicks_QVector, &tickLabels_QVector);
-    }
+    self->generate(*range, *locale, *formatChar, static_cast<int>(precision), ticks_QVector, &subTicks_QVector, &tickLabels_QVector);
 }
 
 double QCPAxisTicker_GetTickStep(QCPAxisTicker* self, const QCPRange* range) {
@@ -14774,30 +14442,15 @@ QCPGrid* QCPGrid_new(QCPAxis* parentAxis) {
 }
 
 QMetaObject* QCPGrid_MetaObject(const QCPGrid* self) {
-    auto* vqcpgrid = dynamic_cast<const VirtualQCPGrid*>(self);
-    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPGrid*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPGrid_Metacast(QCPGrid* self, const char* param1) {
-    auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
-    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPGrid*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPGrid_Metacall(QCPGrid* self, int param1, int param2, void** param3) {
-    auto* vqcpgrid = dynamic_cast<VirtualQCPGrid*>(self);
-    if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPGrid*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QCPGrid_SubGridVisible(const QCPGrid* self) {
@@ -15776,30 +15429,15 @@ QCPAxis* QCPAxis_new(QCPAxisRect* parent, int typeVal) {
 }
 
 QMetaObject* QCPAxis_MetaObject(const QCPAxis* self) {
-    auto* vqcpaxis = dynamic_cast<const VirtualQCPAxis*>(self);
-    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPAxis*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPAxis_Metacast(QCPAxis* self, const char* param1) {
-    auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
-    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPAxis*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPAxis_Metacall(QCPAxis* self, int param1, int param2, void** param3) {
-    auto* vqcpaxis = dynamic_cast<VirtualQCPAxis*>(self);
-    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPAxis*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCPAxis_AxisType(const QCPAxis* self) {
@@ -16187,12 +15825,7 @@ void QCPAxis_SetUpperEnding(QCPAxis* self, const QCPLineEnding* ending) {
 }
 
 double QCPAxis_SelectTest(const QCPAxis* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpaxis = dynamic_cast<const VirtualQCPAxis*>(self);
-    if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPAxis*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 int QCPAxis_Orientation(const QCPAxis* self) {
@@ -17575,21 +17208,11 @@ QCPScatterStyle* QCPSelectionDecorator_GetFinalScatterStyle(const QCPSelectionDe
 }
 
 void QCPSelectionDecorator_CopyFrom(QCPSelectionDecorator* self, const QCPSelectionDecorator* other) {
-    auto* vqcpselectiondecorator = dynamic_cast<VirtualQCPSelectionDecorator*>(self);
-    if (vqcpselectiondecorator && vqcpselectiondecorator->isVirtualQCPSelectionDecorator) {
-        self->copyFrom(other);
-    } else {
-        ((VirtualQCPSelectionDecorator*)self)->copyFrom(other);
-    }
+    self->copyFrom(other);
 }
 
 void QCPSelectionDecorator_DrawDecoration(QCPSelectionDecorator* self, QCPPainter* painter, QCPDataSelection* selection) {
-    auto* vqcpselectiondecorator = dynamic_cast<VirtualQCPSelectionDecorator*>(self);
-    if (vqcpselectiondecorator && vqcpselectiondecorator->isVirtualQCPSelectionDecorator) {
-        self->drawDecoration(painter, *selection);
-    } else {
-        ((VirtualQCPSelectionDecorator*)self)->drawDecoration(painter, *selection);
-    }
+    self->drawDecoration(painter, *selection);
 }
 
 bool QCPSelectionDecorator_RegisterWithPlottable(QCPSelectionDecorator* self, QCPAbstractPlottable* plottable) {
@@ -17670,30 +17293,15 @@ QCPAbstractPlottable* QCPAbstractPlottable_new(QCPAxis* keyAxis, QCPAxis* valueA
 }
 
 QMetaObject* QCPAbstractPlottable_MetaObject(const QCPAbstractPlottable* self) {
-    auto* vqcpabstractplottable = dynamic_cast<const VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPAbstractPlottable*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPAbstractPlottable_Metacast(QCPAbstractPlottable* self, const char* param1) {
-    auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPAbstractPlottable*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPAbstractPlottable_Metacall(QCPAbstractPlottable* self, int param1, int param2, void** param3) {
-    auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPAbstractPlottable*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QCPAbstractPlottable_Name(const QCPAbstractPlottable* self) {
@@ -17790,39 +17398,19 @@ void QCPAbstractPlottable_SetSelectionDecorator(QCPAbstractPlottable* self, QCPS
 }
 
 double QCPAbstractPlottable_SelectTest(const QCPAbstractPlottable* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpabstractplottable = dynamic_cast<const VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return vqcpabstractplottable->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPAbstractPlottable*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPPlottableInterface1D* QCPAbstractPlottable_Interface1D(QCPAbstractPlottable* self) {
-    auto* vqcpabstractplottable = dynamic_cast<VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return self->interface1D();
-    } else {
-        return ((VirtualQCPAbstractPlottable*)self)->interface1D();
-    }
+    return self->interface1D();
 }
 
 QCPRange* QCPAbstractPlottable_GetKeyRange(const QCPAbstractPlottable* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpabstractplottable = dynamic_cast<const VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return new QCPRange(vqcpabstractplottable->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPAbstractPlottable*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPAbstractPlottable_GetValueRange(const QCPAbstractPlottable* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpabstractplottable = dynamic_cast<const VirtualQCPAbstractPlottable*>(self);
-    if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
-        return new QCPRange(vqcpabstractplottable->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPAbstractPlottable*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPAbstractPlottable_CoordsToPixels(const QCPAbstractPlottable* self, double key, double value, double* x, double* y) {
@@ -18907,12 +18495,7 @@ libqt_string QCPItemAnchor_Name(const QCPItemAnchor* self) {
 }
 
 QPointF* QCPItemAnchor_PixelPosition(const QCPItemAnchor* self) {
-    auto* vqcpitemanchor = dynamic_cast<const VirtualQCPItemAnchor*>(self);
-    if (vqcpitemanchor && vqcpitemanchor->isVirtualQCPItemAnchor) {
-        return new QPointF(self->pixelPosition());
-    } else {
-        return new QPointF(((VirtualQCPItemAnchor*)self)->pixelPosition());
-    }
+    return new QPointF(self->pixelPosition());
 }
 
 QCPItemPosition* QCPItemAnchor_ToQCPItemPosition(QCPItemAnchor* self) {
@@ -19135,12 +18718,7 @@ QCPAxisRect* QCPItemPosition_AxisRect(const QCPItemPosition* self) {
 }
 
 QPointF* QCPItemPosition_PixelPosition(const QCPItemPosition* self) {
-    auto* vqcpitemposition = dynamic_cast<const VirtualQCPItemPosition*>(self);
-    if (vqcpitemposition && vqcpitemposition->isVirtualQCPItemPosition) {
-        return new QPointF(self->pixelPosition());
-    } else {
-        return new QPointF(((VirtualQCPItemPosition*)self)->pixelPosition());
-    }
+    return new QPointF(self->pixelPosition());
 }
 
 void QCPItemPosition_SetType(QCPItemPosition* self, int typeVal) {
@@ -19370,30 +18948,15 @@ QCPAbstractItem* QCPAbstractItem_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPAbstractItem_MetaObject(const QCPAbstractItem* self) {
-    auto* vqcpabstractitem = dynamic_cast<const VirtualQCPAbstractItem*>(self);
-    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPAbstractItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPAbstractItem_Metacast(QCPAbstractItem* self, const char* param1) {
-    auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
-    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPAbstractItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPAbstractItem_Metacall(QCPAbstractItem* self, int param1, int param2, void** param3) {
-    auto* vqcpabstractitem = dynamic_cast<VirtualQCPAbstractItem*>(self);
-    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPAbstractItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QCPAbstractItem_ClipToAxisRect(const QCPAbstractItem* self) {
@@ -19429,12 +18992,7 @@ void QCPAbstractItem_SetSelected(QCPAbstractItem* self, bool selected) {
 }
 
 double QCPAbstractItem_SelectTest(const QCPAbstractItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpabstractitem = dynamic_cast<const VirtualQCPAbstractItem*>(self);
-    if (vqcpabstractitem && vqcpabstractitem->isVirtualQCPAbstractItem) {
-        return vqcpabstractitem->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPAbstractItem*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 libqt_list /* of QCPItemPosition* */ QCPAbstractItem_Positions(const QCPAbstractItem* self) {
@@ -20474,30 +20032,15 @@ QCustomPlot* QCustomPlot_new2() {
 }
 
 QMetaObject* QCustomPlot_MetaObject(const QCustomPlot* self) {
-    auto* vqcustomplot = dynamic_cast<const VirtualQCustomPlot*>(self);
-    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCustomPlot*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCustomPlot_Metacast(QCustomPlot* self, const char* param1) {
-    auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
-    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCustomPlot*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCustomPlot_Metacall(QCustomPlot* self, int param1, int param2, void** param3) {
-    auto* vqcustomplot = dynamic_cast<VirtualQCustomPlot*>(self);
-    if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCustomPlot*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QRect* QCustomPlot_Viewport(const QCustomPlot* self) {
@@ -24016,21 +23559,11 @@ void QCPSelectionDecoratorBracket_SetTangentAverage(QCPSelectionDecoratorBracket
 }
 
 void QCPSelectionDecoratorBracket_DrawBracket(const QCPSelectionDecoratorBracket* self, QCPPainter* painter, int direction) {
-    auto* vqcpselectiondecoratorbracket = dynamic_cast<const VirtualQCPSelectionDecoratorBracket*>(self);
-    if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
-        self->drawBracket(painter, static_cast<int>(direction));
-    } else {
-        ((VirtualQCPSelectionDecoratorBracket*)self)->drawBracket(painter, static_cast<int>(direction));
-    }
+    self->drawBracket(painter, static_cast<int>(direction));
 }
 
 void QCPSelectionDecoratorBracket_DrawDecoration(QCPSelectionDecoratorBracket* self, QCPPainter* painter, QCPDataSelection* selection) {
-    auto* vqcpselectiondecoratorbracket = dynamic_cast<VirtualQCPSelectionDecoratorBracket*>(self);
-    if (vqcpselectiondecoratorbracket && vqcpselectiondecoratorbracket->isVirtualQCPSelectionDecoratorBracket) {
-        self->drawDecoration(painter, *selection);
-    } else {
-        ((VirtualQCPSelectionDecoratorBracket*)self)->drawDecoration(painter, *selection);
-    }
+    self->drawDecoration(painter, *selection);
 }
 
 // Base class handler implementation
@@ -24198,30 +23731,15 @@ QCPAxisRect* QCPAxisRect_new2(QCustomPlot* parentPlot, bool setupDefaultAxes) {
 }
 
 QMetaObject* QCPAxisRect_MetaObject(const QCPAxisRect* self) {
-    auto* vqcpaxisrect = dynamic_cast<const VirtualQCPAxisRect*>(self);
-    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPAxisRect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPAxisRect_Metacast(QCPAxisRect* self, const char* param1) {
-    auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
-    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPAxisRect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPAxisRect_Metacall(QCPAxisRect* self, int param1, int param2, void** param3) {
-    auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
-    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPAxisRect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPixmap* QCPAxisRect_Background(const QCPAxisRect* self) {
@@ -24547,39 +24065,20 @@ QPoint* QCPAxisRect_Center(const QCPAxisRect* self) {
 }
 
 void QCPAxisRect_Update(QCPAxisRect* self, int phase) {
-    auto* vqcpaxisrect = dynamic_cast<VirtualQCPAxisRect*>(self);
-    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
-        self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    } else {
-        ((VirtualQCPAxisRect*)self)->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    }
+    self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
 }
 
 libqt_list /* of QCPLayoutElement* */ QCPAxisRect_Elements(const QCPAxisRect* self, bool recursive) {
-    auto* vqcpaxisrect = dynamic_cast<const VirtualQCPAxisRect*>(self);
-    if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
-        QList<QCPLayoutElement*> _ret = self->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QCPLayoutElement*> _ret = ((VirtualQCPAxisRect*)self)->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QCPLayoutElement*> _ret = self->elements(recursive);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QCPAxisRect_ApplyDefaultAntialiasingHint(const QCPAxisRect* self, QCPPainter* painter) {
@@ -25681,30 +25180,15 @@ QCPAbstractLegendItem* QCPAbstractLegendItem_new(QCPLegend* parent) {
 }
 
 QMetaObject* QCPAbstractLegendItem_MetaObject(const QCPAbstractLegendItem* self) {
-    auto* vqcpabstractlegenditem = dynamic_cast<const VirtualQCPAbstractLegendItem*>(self);
-    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPAbstractLegendItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPAbstractLegendItem_Metacast(QCPAbstractLegendItem* self, const char* param1) {
-    auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
-    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPAbstractLegendItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPAbstractLegendItem_Metacall(QCPAbstractLegendItem* self, int param1, int param2, void** param3) {
-    auto* vqcpabstractlegenditem = dynamic_cast<VirtualQCPAbstractLegendItem*>(self);
-    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPAbstractLegendItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPLegend* QCPAbstractLegendItem_ParentLegend(const QCPAbstractLegendItem* self) {
@@ -25760,12 +25244,7 @@ void QCPAbstractLegendItem_SetSelected(QCPAbstractLegendItem* self, bool selecte
 }
 
 double QCPAbstractLegendItem_SelectTest(const QCPAbstractLegendItem* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpabstractlegenditem = dynamic_cast<const VirtualQCPAbstractLegendItem*>(self);
-    if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPAbstractLegendItem*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 void QCPAbstractLegendItem_SelectionChanged(QCPAbstractLegendItem* self, bool selected) {
@@ -26853,30 +26332,15 @@ QCPPlottableLegendItem* QCPPlottableLegendItem_new(QCPLegend* parent, QCPAbstrac
 }
 
 QMetaObject* QCPPlottableLegendItem_MetaObject(const QCPPlottableLegendItem* self) {
-    auto* vqcpplottablelegenditem = dynamic_cast<const VirtualQCPPlottableLegendItem*>(self);
-    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPPlottableLegendItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPPlottableLegendItem_Metacast(QCPPlottableLegendItem* self, const char* param1) {
-    auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
-    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPPlottableLegendItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPPlottableLegendItem_Metacall(QCPPlottableLegendItem* self, int param1, int param2, void** param3) {
-    auto* vqcpplottablelegenditem = dynamic_cast<VirtualQCPPlottableLegendItem*>(self);
-    if (vqcpplottablelegenditem && vqcpplottablelegenditem->isVirtualQCPPlottableLegendItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPPlottableLegendItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPAbstractPlottable* QCPPlottableLegendItem_Plottable(QCPPlottableLegendItem* self) {
@@ -28044,30 +27508,15 @@ QCPLegend* QCPLegend_new() {
 }
 
 QMetaObject* QCPLegend_MetaObject(const QCPLegend* self) {
-    auto* vqcplegend = dynamic_cast<const VirtualQCPLegend*>(self);
-    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPLegend*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPLegend_Metacast(QCPLegend* self, const char* param1) {
-    auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
-    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPLegend*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPLegend_Metacall(QCPLegend* self, int param1, int param2, void** param3) {
-    auto* vqcplegend = dynamic_cast<VirtualQCPLegend*>(self);
-    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPLegend*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPLegend_BorderPen(const QCPLegend* self) {
@@ -28187,12 +27636,7 @@ void QCPLegend_SetSelectedTextColor(QCPLegend* self, const QColor* color) {
 }
 
 double QCPLegend_SelectTest(const QCPLegend* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcplegend = dynamic_cast<const VirtualQCPLegend*>(self);
-    if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPLegend*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPAbstractLegendItem* QCPLegend_Item(const QCPLegend* self, int index) {
@@ -29870,30 +29314,15 @@ QCPTextElement* QCPTextElement_new5(QCustomPlot* parentPlot, const libqt_string 
 }
 
 QMetaObject* QCPTextElement_MetaObject(const QCPTextElement* self) {
-    auto* vqcptextelement = dynamic_cast<const VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPTextElement*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPTextElement_Metacast(QCPTextElement* self, const char* param1) {
-    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPTextElement*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPTextElement_Metacall(QCPTextElement* self, int param1, int param2, void** param3) {
-    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPTextElement*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QCPTextElement_Text(const QCPTextElement* self) {
@@ -29970,39 +29399,19 @@ void QCPTextElement_SetSelected(QCPTextElement* self, bool selected) {
 }
 
 double QCPTextElement_SelectTest(const QCPTextElement* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcptextelement = dynamic_cast<const VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPTextElement*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 void QCPTextElement_MousePressEvent(QCPTextElement* self, QMouseEvent* event, const QVariant* details) {
-    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        self->mousePressEvent(event, *details);
-    } else {
-        ((VirtualQCPTextElement*)self)->mousePressEvent(event, *details);
-    }
+    self->mousePressEvent(event, *details);
 }
 
 void QCPTextElement_MouseReleaseEvent(QCPTextElement* self, QMouseEvent* event, const QPointF* startPos) {
-    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        self->mouseReleaseEvent(event, *startPos);
-    } else {
-        ((VirtualQCPTextElement*)self)->mouseReleaseEvent(event, *startPos);
-    }
+    self->mouseReleaseEvent(event, *startPos);
 }
 
 void QCPTextElement_MouseDoubleClickEvent(QCPTextElement* self, QMouseEvent* event, const QVariant* details) {
-    auto* vqcptextelement = dynamic_cast<VirtualQCPTextElement*>(self);
-    if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
-        self->mouseDoubleClickEvent(event, *details);
-    } else {
-        ((VirtualQCPTextElement*)self)->mouseDoubleClickEvent(event, *details);
-    }
+    self->mouseDoubleClickEvent(event, *details);
 }
 
 void QCPTextElement_SelectionChanged(QCPTextElement* self, bool selected) {
@@ -31135,30 +30544,15 @@ QCPColorScale* QCPColorScale_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPColorScale_MetaObject(const QCPColorScale* self) {
-    auto* vqcpcolorscale = dynamic_cast<const VirtualQCPColorScale*>(self);
-    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPColorScale*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPColorScale_Metacast(QCPColorScale* self, const char* param1) {
-    auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
-    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPColorScale*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPColorScale_Metacall(QCPColorScale* self, int param1, int param2, void** param3) {
-    auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
-    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPColorScale*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPAxis* QCPColorScale_Axis(const QCPColorScale* self) {
@@ -31256,12 +30650,7 @@ void QCPColorScale_RescaleDataRange(QCPColorScale* self, bool onlyVisibleMaps) {
 }
 
 void QCPColorScale_Update(QCPColorScale* self, int phase) {
-    auto* vqcpcolorscale = dynamic_cast<VirtualQCPColorScale*>(self);
-    if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
-        self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    } else {
-        ((VirtualQCPColorScale*)self)->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    }
+    self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
 }
 
 void QCPColorScale_DataRangeChanged(QCPColorScale* self, const QCPRange* newRange) {
@@ -32437,30 +31826,15 @@ QCPGraph* QCPGraph_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPGraph_MetaObject(const QCPGraph* self) {
-    auto* vqcpgraph = dynamic_cast<const VirtualQCPGraph*>(self);
-    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPGraph*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPGraph_Metacast(QCPGraph* self, const char* param1) {
-    auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
-    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPGraph*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPGraph_Metacall(QCPGraph* self, int param1, int param2, void** param3) {
-    auto* vqcpgraph = dynamic_cast<VirtualQCPGraph*>(self);
-    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPGraph*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCPGraph_LineStyle(const QCPGraph* self) {
@@ -32540,30 +31914,15 @@ void QCPGraph_AddData2(QCPGraph* self, double key, double value) {
 }
 
 double QCPGraph_SelectTest(const QCPGraph* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpgraph = dynamic_cast<const VirtualQCPGraph*>(self);
-    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPGraph*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPRange* QCPGraph_GetKeyRange(const QCPGraph* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpgraph = dynamic_cast<const VirtualQCPGraph*>(self);
-    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPGraph*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPGraph_GetValueRange(const QCPGraph* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpgraph = dynamic_cast<const VirtualQCPGraph*>(self);
-    if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPGraph*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPGraph_Draw(QCPGraph* self, QCPPainter* painter) {
@@ -35031,30 +34390,15 @@ QCPCurve* QCPCurve_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPCurve_MetaObject(const QCPCurve* self) {
-    auto* vqcpcurve = dynamic_cast<const VirtualQCPCurve*>(self);
-    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPCurve*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPCurve_Metacast(QCPCurve* self, const char* param1) {
-    auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
-    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPCurve*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPCurve_Metacall(QCPCurve* self, int param1, int param2, void** param3) {
-    auto* vqcpcurve = dynamic_cast<VirtualQCPCurve*>(self);
-    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPCurve*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPScatterStyle* QCPCurve_ScatterStyle(const QCPCurve* self) {
@@ -35166,30 +34510,15 @@ void QCPCurve_AddData4(QCPCurve* self, double key, double value) {
 }
 
 double QCPCurve_SelectTest(const QCPCurve* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpcurve = dynamic_cast<const VirtualQCPCurve*>(self);
-    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPCurve*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPRange* QCPCurve_GetKeyRange(const QCPCurve* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpcurve = dynamic_cast<const VirtualQCPCurve*>(self);
-    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPCurve*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPCurve_GetValueRange(const QCPCurve* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpcurve = dynamic_cast<const VirtualQCPCurve*>(self);
-    if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPCurve*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPCurve_Draw(QCPCurve* self, QCPPainter* painter) {
@@ -36930,30 +36259,15 @@ QCPBarsGroup* QCPBarsGroup_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPBarsGroup_MetaObject(const QCPBarsGroup* self) {
-    auto* vqcpbarsgroup = dynamic_cast<const VirtualQCPBarsGroup*>(self);
-    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPBarsGroup*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPBarsGroup_Metacast(QCPBarsGroup* self, const char* param1) {
-    auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
-    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPBarsGroup*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPBarsGroup_Metacall(QCPBarsGroup* self, int param1, int param2, void** param3) {
-    auto* vqcpbarsgroup = dynamic_cast<VirtualQCPBarsGroup*>(self);
-    if (vqcpbarsgroup && vqcpbarsgroup->isVirtualQCPBarsGroup) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPBarsGroup*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCPBarsGroup_SpacingType(const QCPBarsGroup* self) {
@@ -37590,30 +36904,15 @@ QCPBars* QCPBars_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPBars_MetaObject(const QCPBars* self) {
-    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPBars*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPBars_Metacast(QCPBars* self, const char* param1) {
-    auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPBars*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPBars_Metacall(QCPBars* self, int param1, int param2, void** param3) {
-    auto* vqcpbars = dynamic_cast<VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPBars*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 double QCPBars_Width(const QCPBars* self) {
@@ -37709,48 +37008,23 @@ void QCPBars_MoveAbove(QCPBars* self, QCPBars* bars) {
 }
 
 QCPDataSelection* QCPBars_SelectTestRect(const QCPBars* self, const QRectF* rect, bool onlySelectable) {
-    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
-    } else {
-        return new QCPDataSelection(((VirtualQCPBars*)self)->selectTestRect(*rect, onlySelectable));
-    }
+    return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
 }
 
 double QCPBars_SelectTest(const QCPBars* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPBars*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPRange* QCPBars_GetKeyRange(const QCPBars* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPBars*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPBars_GetValueRange(const QCPBars* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPBars*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 QPointF* QCPBars_DataPixelPosition(const QCPBars* self, int index) {
-    auto* vqcpbars = dynamic_cast<const VirtualQCPBars*>(self);
-    if (vqcpbars && vqcpbars->isVirtualQCPBars) {
-        return new QPointF(self->dataPixelPosition(static_cast<int>(index)));
-    } else {
-        return new QPointF(((VirtualQCPBars*)self)->dataPixelPosition(static_cast<int>(index)));
-    }
+    return new QPointF(self->dataPixelPosition(static_cast<int>(index)));
 }
 
 void QCPBars_Draw(QCPBars* self, QCPPainter* painter) {
@@ -39304,30 +38578,15 @@ QCPStatisticalBox* QCPStatisticalBox_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPStatisticalBox_MetaObject(const QCPStatisticalBox* self) {
-    auto* vqcpstatisticalbox = dynamic_cast<const VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPStatisticalBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPStatisticalBox_Metacast(QCPStatisticalBox* self, const char* param1) {
-    auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPStatisticalBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPStatisticalBox_Metacall(QCPStatisticalBox* self, int param1, int param2, void** param3) {
-    auto* vqcpstatisticalbox = dynamic_cast<VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPStatisticalBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 double QCPStatisticalBox_Width(const QCPStatisticalBox* self) {
@@ -39471,39 +38730,19 @@ void QCPStatisticalBox_AddData2(QCPStatisticalBox* self, double key, double mini
 }
 
 QCPDataSelection* QCPStatisticalBox_SelectTestRect(const QCPStatisticalBox* self, const QRectF* rect, bool onlySelectable) {
-    auto* vqcpstatisticalbox = dynamic_cast<const VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
-    } else {
-        return new QCPDataSelection(((VirtualQCPStatisticalBox*)self)->selectTestRect(*rect, onlySelectable));
-    }
+    return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
 }
 
 double QCPStatisticalBox_SelectTest(const QCPStatisticalBox* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpstatisticalbox = dynamic_cast<const VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPStatisticalBox*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPRange* QCPStatisticalBox_GetKeyRange(const QCPStatisticalBox* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpstatisticalbox = dynamic_cast<const VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPStatisticalBox*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPStatisticalBox_GetValueRange(const QCPStatisticalBox* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpstatisticalbox = dynamic_cast<const VirtualQCPStatisticalBox*>(self);
-    if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPStatisticalBox*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPStatisticalBox_Draw(QCPStatisticalBox* self, QCPPainter* painter) {
@@ -41006,30 +40245,15 @@ QCPColorMap* QCPColorMap_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPColorMap_MetaObject(const QCPColorMap* self) {
-    auto* vqcpcolormap = dynamic_cast<const VirtualQCPColorMap*>(self);
-    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPColorMap*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPColorMap_Metacast(QCPColorMap* self, const char* param1) {
-    auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
-    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPColorMap*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPColorMap_Metacall(QCPColorMap* self, int param1, int param2, void** param3) {
-    auto* vqcpcolormap = dynamic_cast<VirtualQCPColorMap*>(self);
-    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPColorMap*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPColorMapData* QCPColorMap_Data(const QCPColorMap* self) {
@@ -41097,30 +40321,15 @@ void QCPColorMap_UpdateLegendIcon(QCPColorMap* self) {
 }
 
 double QCPColorMap_SelectTest(const QCPColorMap* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpcolormap = dynamic_cast<const VirtualQCPColorMap*>(self);
-    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPColorMap*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPRange* QCPColorMap_GetKeyRange(const QCPColorMap* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpcolormap = dynamic_cast<const VirtualQCPColorMap*>(self);
-    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPColorMap*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPColorMap_GetValueRange(const QCPColorMap* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpcolormap = dynamic_cast<const VirtualQCPColorMap*>(self);
-    if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPColorMap*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPColorMap_DataRangeChanged(QCPColorMap* self, const QCPRange* newRange) {
@@ -42315,30 +41524,15 @@ QCPFinancial* QCPFinancial_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPFinancial_MetaObject(const QCPFinancial* self) {
-    auto* vqcpfinancial = dynamic_cast<const VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPFinancial*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPFinancial_Metacast(QCPFinancial* self, const char* param1) {
-    auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPFinancial*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPFinancial_Metacall(QCPFinancial* self, int param1, int param2, void** param3) {
-    auto* vqcpfinancial = dynamic_cast<VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPFinancial*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QCPFinancial_ChartStyle(const QCPFinancial* self) {
@@ -42478,39 +41672,19 @@ void QCPFinancial_AddData2(QCPFinancial* self, double key, double open, double h
 }
 
 QCPDataSelection* QCPFinancial_SelectTestRect(const QCPFinancial* self, const QRectF* rect, bool onlySelectable) {
-    auto* vqcpfinancial = dynamic_cast<const VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
-    } else {
-        return new QCPDataSelection(((VirtualQCPFinancial*)self)->selectTestRect(*rect, onlySelectable));
-    }
+    return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
 }
 
 double QCPFinancial_SelectTest(const QCPFinancial* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpfinancial = dynamic_cast<const VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPFinancial*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPRange* QCPFinancial_GetKeyRange(const QCPFinancial* self, bool* foundRange, int inSignDomain) {
-    auto* vqcpfinancial = dynamic_cast<const VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPFinancial*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPFinancial_GetValueRange(const QCPFinancial* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcpfinancial = dynamic_cast<const VirtualQCPFinancial*>(self);
-    if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPFinancial*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPFinancial_Draw(QCPFinancial* self, QCPPainter* painter) {
@@ -43956,30 +43130,15 @@ QCPErrorBars* QCPErrorBars_new(QCPAxis* keyAxis, QCPAxis* valueAxis) {
 }
 
 QMetaObject* QCPErrorBars_MetaObject(const QCPErrorBars* self) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPErrorBars*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPErrorBars_Metacast(QCPErrorBars* self, const char* param1) {
-    auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPErrorBars*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPErrorBars_Metacall(QCPErrorBars* self, int param1, int param2, void** param3) {
-    auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPErrorBars*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPAbstractPlottable* QCPErrorBars_DataPlottable(const QCPErrorBars* self) {
@@ -44075,111 +43234,51 @@ void QCPErrorBars_AddData4(QCPErrorBars* self, double errorMinus, double errorPl
 }
 
 int QCPErrorBars_DataCount(const QCPErrorBars* self) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->dataCount();
-    } else {
-        return ((VirtualQCPErrorBars*)self)->dataCount();
-    }
+    return self->dataCount();
 }
 
 double QCPErrorBars_DataMainKey(const QCPErrorBars* self, int index) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->dataMainKey(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPErrorBars*)self)->dataMainKey(static_cast<int>(index));
-    }
+    return self->dataMainKey(static_cast<int>(index));
 }
 
 double QCPErrorBars_DataSortKey(const QCPErrorBars* self, int index) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->dataSortKey(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPErrorBars*)self)->dataSortKey(static_cast<int>(index));
-    }
+    return self->dataSortKey(static_cast<int>(index));
 }
 
 double QCPErrorBars_DataMainValue(const QCPErrorBars* self, int index) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->dataMainValue(static_cast<int>(index));
-    } else {
-        return ((VirtualQCPErrorBars*)self)->dataMainValue(static_cast<int>(index));
-    }
+    return self->dataMainValue(static_cast<int>(index));
 }
 
 QCPRange* QCPErrorBars_DataValueRange(const QCPErrorBars* self, int index) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return new QCPRange(self->dataValueRange(static_cast<int>(index)));
-    } else {
-        return new QCPRange(((VirtualQCPErrorBars*)self)->dataValueRange(static_cast<int>(index)));
-    }
+    return new QCPRange(self->dataValueRange(static_cast<int>(index)));
 }
 
 QPointF* QCPErrorBars_DataPixelPosition(const QCPErrorBars* self, int index) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return new QPointF(self->dataPixelPosition(static_cast<int>(index)));
-    } else {
-        return new QPointF(((VirtualQCPErrorBars*)self)->dataPixelPosition(static_cast<int>(index)));
-    }
+    return new QPointF(self->dataPixelPosition(static_cast<int>(index)));
 }
 
 bool QCPErrorBars_SortKeyIsMainKey(const QCPErrorBars* self) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->sortKeyIsMainKey();
-    } else {
-        return ((VirtualQCPErrorBars*)self)->sortKeyIsMainKey();
-    }
+    return self->sortKeyIsMainKey();
 }
 
 QCPDataSelection* QCPErrorBars_SelectTestRect(const QCPErrorBars* self, const QRectF* rect, bool onlySelectable) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
-    } else {
-        return new QCPDataSelection(((VirtualQCPErrorBars*)self)->selectTestRect(*rect, onlySelectable));
-    }
+    return new QCPDataSelection(self->selectTestRect(*rect, onlySelectable));
 }
 
 int QCPErrorBars_FindBegin(const QCPErrorBars* self, double sortKey, bool expandedRange) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->findBegin(static_cast<double>(sortKey), expandedRange);
-    } else {
-        return ((VirtualQCPErrorBars*)self)->findBegin(static_cast<double>(sortKey), expandedRange);
-    }
+    return self->findBegin(static_cast<double>(sortKey), expandedRange);
 }
 
 int QCPErrorBars_FindEnd(const QCPErrorBars* self, double sortKey, bool expandedRange) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->findEnd(static_cast<double>(sortKey), expandedRange);
-    } else {
-        return ((VirtualQCPErrorBars*)self)->findEnd(static_cast<double>(sortKey), expandedRange);
-    }
+    return self->findEnd(static_cast<double>(sortKey), expandedRange);
 }
 
 double QCPErrorBars_SelectTest(const QCPErrorBars* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcperrorbars = dynamic_cast<const VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPErrorBars*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPPlottableInterface1D* QCPErrorBars_Interface1D(QCPErrorBars* self) {
-    auto* vqcperrorbars = dynamic_cast<VirtualQCPErrorBars*>(self);
-    if (vqcperrorbars && vqcperrorbars->isVirtualQCPErrorBars) {
-        return self->interface1D();
-    } else {
-        return ((VirtualQCPErrorBars*)self)->interface1D();
-    }
+    return self->interface1D();
 }
 
 void QCPErrorBars_Draw(QCPErrorBars* self, QCPPainter* painter) {
@@ -45501,30 +44600,15 @@ QCPItemStraightLine* QCPItemStraightLine_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemStraightLine_MetaObject(const QCPItemStraightLine* self) {
-    auto* vqcpitemstraightline = dynamic_cast<const VirtualQCPItemStraightLine*>(self);
-    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemStraightLine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemStraightLine_Metacast(QCPItemStraightLine* self, const char* param1) {
-    auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
-    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemStraightLine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemStraightLine_Metacall(QCPItemStraightLine* self, int param1, int param2, void** param3) {
-    auto* vqcpitemstraightline = dynamic_cast<VirtualQCPItemStraightLine*>(self);
-    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemStraightLine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemStraightLine_Pen(const QCPItemStraightLine* self) {
@@ -45544,12 +44628,7 @@ void QCPItemStraightLine_SetSelectedPen(QCPItemStraightLine* self, const QPen* p
 }
 
 double QCPItemStraightLine_SelectTest(const QCPItemStraightLine* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemstraightline = dynamic_cast<const VirtualQCPItemStraightLine*>(self);
-    if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemStraightLine*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemStraightLine_Point1(const QCPItemStraightLine* self) {
@@ -46595,30 +45674,15 @@ QCPItemLine* QCPItemLine_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemLine_MetaObject(const QCPItemLine* self) {
-    auto* vqcpitemline = dynamic_cast<const VirtualQCPItemLine*>(self);
-    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemLine*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemLine_Metacast(QCPItemLine* self, const char* param1) {
-    auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
-    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemLine*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemLine_Metacall(QCPItemLine* self, int param1, int param2, void** param3) {
-    auto* vqcpitemline = dynamic_cast<VirtualQCPItemLine*>(self);
-    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemLine*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemLine_Pen(const QCPItemLine* self) {
@@ -46654,12 +45718,7 @@ void QCPItemLine_SetTail(QCPItemLine* self, const QCPLineEnding* tail) {
 }
 
 double QCPItemLine_SelectTest(const QCPItemLine* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemline = dynamic_cast<const VirtualQCPItemLine*>(self);
-    if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemLine*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemLine_Start(const QCPItemLine* self) {
@@ -47705,30 +46764,15 @@ QCPItemCurve* QCPItemCurve_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemCurve_MetaObject(const QCPItemCurve* self) {
-    auto* vqcpitemcurve = dynamic_cast<const VirtualQCPItemCurve*>(self);
-    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemCurve*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemCurve_Metacast(QCPItemCurve* self, const char* param1) {
-    auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
-    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemCurve*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemCurve_Metacall(QCPItemCurve* self, int param1, int param2, void** param3) {
-    auto* vqcpitemcurve = dynamic_cast<VirtualQCPItemCurve*>(self);
-    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemCurve*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemCurve_Pen(const QCPItemCurve* self) {
@@ -47764,12 +46808,7 @@ void QCPItemCurve_SetTail(QCPItemCurve* self, const QCPLineEnding* tail) {
 }
 
 double QCPItemCurve_SelectTest(const QCPItemCurve* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemcurve = dynamic_cast<const VirtualQCPItemCurve*>(self);
-    if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemCurve*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemCurve_Start(const QCPItemCurve* self) {
@@ -48796,30 +47835,15 @@ QCPItemRect* QCPItemRect_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemRect_MetaObject(const QCPItemRect* self) {
-    auto* vqcpitemrect = dynamic_cast<const VirtualQCPItemRect*>(self);
-    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemRect*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemRect_Metacast(QCPItemRect* self, const char* param1) {
-    auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
-    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemRect*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemRect_Metacall(QCPItemRect* self, int param1, int param2, void** param3) {
-    auto* vqcpitemrect = dynamic_cast<VirtualQCPItemRect*>(self);
-    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemRect*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemRect_Pen(const QCPItemRect* self) {
@@ -48855,12 +47879,7 @@ void QCPItemRect_SetSelectedBrush(QCPItemRect* self, const QBrush* brush) {
 }
 
 double QCPItemRect_SelectTest(const QCPItemRect* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemrect = dynamic_cast<const VirtualQCPItemRect*>(self);
-    if (vqcpitemrect && vqcpitemrect->isVirtualQCPItemRect) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemRect*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemRect_TopLeft(const QCPItemRect* self) {
@@ -49929,30 +48948,15 @@ QCPItemText* QCPItemText_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemText_MetaObject(const QCPItemText* self) {
-    auto* vqcpitemtext = dynamic_cast<const VirtualQCPItemText*>(self);
-    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemText*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemText_Metacast(QCPItemText* self, const char* param1) {
-    auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
-    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemText*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemText_Metacall(QCPItemText* self, int param1, int param2, void** param3) {
-    auto* vqcpitemtext = dynamic_cast<VirtualQCPItemText*>(self);
-    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemText*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QColor* QCPItemText_Color(const QCPItemText* self) {
@@ -50069,12 +49073,7 @@ void QCPItemText_SetPadding(QCPItemText* self, const QMargins* padding) {
 }
 
 double QCPItemText_SelectTest(const QCPItemText* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemtext = dynamic_cast<const VirtualQCPItemText*>(self);
-    if (vqcpitemtext && vqcpitemtext->isVirtualQCPItemText) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemText*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemText_Position(const QCPItemText* self) {
@@ -51228,30 +50227,15 @@ QCPItemEllipse* QCPItemEllipse_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemEllipse_MetaObject(const QCPItemEllipse* self) {
-    auto* vqcpitemellipse = dynamic_cast<const VirtualQCPItemEllipse*>(self);
-    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemEllipse*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemEllipse_Metacast(QCPItemEllipse* self, const char* param1) {
-    auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
-    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemEllipse*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemEllipse_Metacall(QCPItemEllipse* self, int param1, int param2, void** param3) {
-    auto* vqcpitemellipse = dynamic_cast<VirtualQCPItemEllipse*>(self);
-    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemEllipse*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemEllipse_Pen(const QCPItemEllipse* self) {
@@ -51287,12 +50271,7 @@ void QCPItemEllipse_SetSelectedBrush(QCPItemEllipse* self, const QBrush* brush) 
 }
 
 double QCPItemEllipse_SelectTest(const QCPItemEllipse* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemellipse = dynamic_cast<const VirtualQCPItemEllipse*>(self);
-    if (vqcpitemellipse && vqcpitemellipse->isVirtualQCPItemEllipse) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemEllipse*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemEllipse_TopLeft(const QCPItemEllipse* self) {
@@ -52373,30 +51352,15 @@ QCPItemPixmap* QCPItemPixmap_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemPixmap_MetaObject(const QCPItemPixmap* self) {
-    auto* vqcpitempixmap = dynamic_cast<const VirtualQCPItemPixmap*>(self);
-    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemPixmap*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemPixmap_Metacast(QCPItemPixmap* self, const char* param1) {
-    auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
-    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemPixmap*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemPixmap_Metacall(QCPItemPixmap* self, int param1, int param2, void** param3) {
-    auto* vqcpitempixmap = dynamic_cast<VirtualQCPItemPixmap*>(self);
-    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemPixmap*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPixmap* QCPItemPixmap_Pixmap(const QCPItemPixmap* self) {
@@ -52440,12 +51404,7 @@ void QCPItemPixmap_SetSelectedPen(QCPItemPixmap* self, const QPen* pen) {
 }
 
 double QCPItemPixmap_SelectTest(const QCPItemPixmap* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitempixmap = dynamic_cast<const VirtualQCPItemPixmap*>(self);
-    if (vqcpitempixmap && vqcpitempixmap->isVirtualQCPItemPixmap) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemPixmap*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemPixmap_TopLeft(const QCPItemPixmap* self) {
@@ -53692,30 +52651,15 @@ QCPItemTracer* QCPItemTracer_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemTracer_MetaObject(const QCPItemTracer* self) {
-    auto* vqcpitemtracer = dynamic_cast<const VirtualQCPItemTracer*>(self);
-    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemTracer*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemTracer_Metacast(QCPItemTracer* self, const char* param1) {
-    auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
-    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemTracer*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemTracer_Metacall(QCPItemTracer* self, int param1, int param2, void** param3) {
-    auto* vqcpitemtracer = dynamic_cast<VirtualQCPItemTracer*>(self);
-    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemTracer*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemTracer_Pen(const QCPItemTracer* self) {
@@ -53791,12 +52735,7 @@ void QCPItemTracer_SetInterpolating(QCPItemTracer* self, bool enabled) {
 }
 
 double QCPItemTracer_SelectTest(const QCPItemTracer* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitemtracer = dynamic_cast<const VirtualQCPItemTracer*>(self);
-    if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemTracer*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 void QCPItemTracer_UpdatePosition(QCPItemTracer* self) {
@@ -54842,30 +53781,15 @@ QCPItemBracket* QCPItemBracket_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPItemBracket_MetaObject(const QCPItemBracket* self) {
-    auto* vqcpitembracket = dynamic_cast<const VirtualQCPItemBracket*>(self);
-    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPItemBracket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPItemBracket_Metacast(QCPItemBracket* self, const char* param1) {
-    auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
-    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPItemBracket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPItemBracket_Metacall(QCPItemBracket* self, int param1, int param2, void** param3) {
-    auto* vqcpitembracket = dynamic_cast<VirtualQCPItemBracket*>(self);
-    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPItemBracket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPen* QCPItemBracket_Pen(const QCPItemBracket* self) {
@@ -54901,12 +53825,7 @@ void QCPItemBracket_SetStyle(QCPItemBracket* self, int style) {
 }
 
 double QCPItemBracket_SelectTest(const QCPItemBracket* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcpitembracket = dynamic_cast<const VirtualQCPItemBracket*>(self);
-    if (vqcpitembracket && vqcpitembracket->isVirtualQCPItemBracket) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPItemBracket*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPItemPosition* QCPItemBracket_Left(const QCPItemBracket* self) {
@@ -55928,30 +54847,15 @@ QCPPolarAxisRadial* QCPPolarAxisRadial_new(QCPPolarAxisAngular* parent) {
 }
 
 QMetaObject* QCPPolarAxisRadial_MetaObject(const QCPPolarAxisRadial* self) {
-    auto* vqcppolaraxisradial = dynamic_cast<const VirtualQCPPolarAxisRadial*>(self);
-    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPPolarAxisRadial*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPPolarAxisRadial_Metacast(QCPPolarAxisRadial* self, const char* param1) {
-    auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
-    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPPolarAxisRadial*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPPolarAxisRadial_Metacall(QCPPolarAxisRadial* self, int param1, int param2, void** param3) {
-    auto* vqcppolaraxisradial = dynamic_cast<VirtualQCPPolarAxisRadial*>(self);
-    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPPolarAxisRadial*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QCPPolarAxisRadial_RangeDrag(const QCPPolarAxisRadial* self) {
@@ -56352,12 +55256,7 @@ void QCPPolarAxisRadial_SetSelectedParts(QCPPolarAxisRadial* self, const int* se
 }
 
 double QCPPolarAxisRadial_SelectTest(const QCPPolarAxisRadial* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcppolaraxisradial = dynamic_cast<const VirtualQCPPolarAxisRadial*>(self);
-    if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPPolarAxisRadial*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 void QCPPolarAxisRadial_MoveRange(QCPPolarAxisRadial* self, double diff) {
@@ -57515,30 +56414,15 @@ QCPPolarAxisAngular* QCPPolarAxisAngular_new(QCustomPlot* parentPlot) {
 }
 
 QMetaObject* QCPPolarAxisAngular_MetaObject(const QCPPolarAxisAngular* self) {
-    auto* vqcppolaraxisangular = dynamic_cast<const VirtualQCPPolarAxisAngular*>(self);
-    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPPolarAxisAngular*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPPolarAxisAngular_Metacast(QCPPolarAxisAngular* self, const char* param1) {
-    auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
-    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPPolarAxisAngular*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPPolarAxisAngular_Metacall(QCPPolarAxisAngular* self, int param1, int param2, void** param3) {
-    auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
-    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPPolarAxisAngular*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPixmap* QCPPolarAxisAngular_Background(const QCPPolarAxisAngular* self) {
@@ -57946,48 +56830,24 @@ void QCPPolarAxisAngular_SetSelectedParts(QCPPolarAxisAngular* self, const int* 
 }
 
 double QCPPolarAxisAngular_SelectTest(const QCPPolarAxisAngular* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcppolaraxisangular = dynamic_cast<const VirtualQCPPolarAxisAngular*>(self);
-    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPPolarAxisAngular*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 void QCPPolarAxisAngular_Update(QCPPolarAxisAngular* self, int phase) {
-    auto* vqcppolaraxisangular = dynamic_cast<VirtualQCPPolarAxisAngular*>(self);
-    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
-        self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    } else {
-        ((VirtualQCPPolarAxisAngular*)self)->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
-    }
+    self->update(static_cast<QCPLayoutElement::UpdatePhase>(phase));
 }
 
 libqt_list /* of QCPLayoutElement* */ QCPPolarAxisAngular_Elements(const QCPPolarAxisAngular* self, bool recursive) {
-    auto* vqcppolaraxisangular = dynamic_cast<const VirtualQCPPolarAxisAngular*>(self);
-    if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
-        QList<QCPLayoutElement*> _ret = self->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QCPLayoutElement*> _ret = ((VirtualQCPPolarAxisAngular*)self)->elements(recursive);
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            _arr[i] = _ret[i];
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QCPLayoutElement*> _ret = self->elements(recursive);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QCPLayoutElement** _arr = static_cast<QCPLayoutElement**>(malloc(sizeof(QCPLayoutElement*) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        _arr[i] = _ret[i];
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 bool QCPPolarAxisAngular_RemoveGraph(QCPPolarAxisAngular* self, QCPPolarGraph* graph) {
@@ -59453,30 +58313,15 @@ QCPPolarGrid* QCPPolarGrid_new(QCPPolarAxisAngular* parentAxis) {
 }
 
 QMetaObject* QCPPolarGrid_MetaObject(const QCPPolarGrid* self) {
-    auto* vqcppolargrid = dynamic_cast<const VirtualQCPPolarGrid*>(self);
-    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPPolarGrid*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPPolarGrid_Metacast(QCPPolarGrid* self, const char* param1) {
-    auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
-    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPPolarGrid*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPPolarGrid_Metacall(QCPPolarGrid* self, int param1, int param2, void** param3) {
-    auto* vqcppolargrid = dynamic_cast<VirtualQCPPolarGrid*>(self);
-    if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPPolarGrid*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPPolarAxisRadial* QCPPolarGrid_RadialAxis(const QCPPolarGrid* self) {
@@ -60552,30 +59397,15 @@ QCPPolarLegendItem* QCPPolarLegendItem_new(QCPLegend* parent, QCPPolarGraph* gra
 }
 
 QMetaObject* QCPPolarLegendItem_MetaObject(const QCPPolarLegendItem* self) {
-    auto* vqcppolarlegenditem = dynamic_cast<const VirtualQCPPolarLegendItem*>(self);
-    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPPolarLegendItem*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPPolarLegendItem_Metacast(QCPPolarLegendItem* self, const char* param1) {
-    auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
-    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPPolarLegendItem*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPPolarLegendItem_Metacall(QCPPolarLegendItem* self, int param1, int param2, void** param3) {
-    auto* vqcppolarlegenditem = dynamic_cast<VirtualQCPPolarLegendItem*>(self);
-    if (vqcppolarlegenditem && vqcppolarlegenditem->isVirtualQCPPolarLegendItem) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPPolarLegendItem*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QCPPolarGraph* QCPPolarLegendItem_PolarGraph(QCPPolarLegendItem* self) {
@@ -61743,30 +60573,15 @@ QCPPolarGraph* QCPPolarGraph_new(QCPPolarAxisAngular* keyAxis, QCPPolarAxisRadia
 }
 
 QMetaObject* QCPPolarGraph_MetaObject(const QCPPolarGraph* self) {
-    auto* vqcppolargraph = dynamic_cast<const VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQCPPolarGraph*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QCPPolarGraph_Metacast(QCPPolarGraph* self, const char* param1) {
-    auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQCPPolarGraph*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QCPPolarGraph_Metacall(QCPPolarGraph* self, int param1, int param2, void** param3) {
-    auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQCPPolarGraph*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string QCPPolarGraph_Name(const QCPPolarGraph* self) {
@@ -61959,39 +60774,19 @@ bool QCPPolarGraph_RemoveFromLegend2(const QCPPolarGraph* self) {
 }
 
 double QCPPolarGraph_SelectTest(const QCPPolarGraph* self, const QPointF* pos, bool onlySelectable, QVariant* details) {
-    auto* vqcppolargraph = dynamic_cast<const VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return self->selectTest(*pos, onlySelectable, details);
-    } else {
-        return ((VirtualQCPPolarGraph*)self)->selectTest(*pos, onlySelectable, details);
-    }
+    return self->selectTest(*pos, onlySelectable, details);
 }
 
 QCPPlottableInterface1D* QCPPolarGraph_Interface1D(QCPPolarGraph* self) {
-    auto* vqcppolargraph = dynamic_cast<VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return self->interface1D();
-    } else {
-        return ((VirtualQCPPolarGraph*)self)->interface1D();
-    }
+    return self->interface1D();
 }
 
 QCPRange* QCPPolarGraph_GetKeyRange(const QCPPolarGraph* self, bool* foundRange, int inSignDomain) {
-    auto* vqcppolargraph = dynamic_cast<const VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    } else {
-        return new QCPRange(((VirtualQCPPolarGraph*)self)->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
-    }
+    return new QCPRange(self->getKeyRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain)));
 }
 
 QCPRange* QCPPolarGraph_GetValueRange(const QCPPolarGraph* self, bool* foundRange, int inSignDomain, const QCPRange* inKeyRange) {
-    auto* vqcppolargraph = dynamic_cast<const VirtualQCPPolarGraph*>(self);
-    if (vqcppolargraph && vqcppolargraph->isVirtualQCPPolarGraph) {
-        return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    } else {
-        return new QCPRange(((VirtualQCPPolarGraph*)self)->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
-    }
+    return new QCPRange(self->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
 }
 
 void QCPPolarGraph_SelectionChanged(QCPPolarGraph* self, bool selected) {

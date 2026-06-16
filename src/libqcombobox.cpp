@@ -56,30 +56,15 @@ QComboBox* QComboBox_new2() {
 }
 
 QMetaObject* QComboBox_MetaObject(const QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQComboBox*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QComboBox_Metacast(QComboBox* self, const char* param1) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQComboBox*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QComboBox_Metacall(QComboBox* self, int param1, int param2, void** param3) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQComboBox*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QComboBox_MaxVisibleItems(const QComboBox* self) {
@@ -221,12 +206,7 @@ QAbstractItemModel* QComboBox_Model(const QComboBox* self) {
 }
 
 void QComboBox_SetModel(QComboBox* self, QAbstractItemModel* model) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        self->setModel(model);
-    } else {
-        ((VirtualQComboBox*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 QModelIndex* QComboBox_RootModelIndex(const QComboBox* self) {
@@ -357,57 +337,27 @@ void QComboBox_SetView(QComboBox* self, QAbstractItemView* itemView) {
 }
 
 QSize* QComboBox_SizeHint(const QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQComboBox*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QComboBox_MinimumSizeHint(const QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQComboBox*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QComboBox_ShowPopup(QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        self->showPopup();
-    } else {
-        ((VirtualQComboBox*)self)->showPopup();
-    }
+    self->showPopup();
 }
 
 void QComboBox_HidePopup(QComboBox* self) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        self->hidePopup();
-    } else {
-        ((VirtualQComboBox*)self)->hidePopup();
-    }
+    self->hidePopup();
 }
 
 bool QComboBox_Event(QComboBox* self, QEvent* event) {
-    auto* vqcombobox = dynamic_cast<VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return self->event(event);
-    } else {
-        return ((VirtualQComboBox*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 QVariant* QComboBox_InputMethodQuery(const QComboBox* self, int param1) {
-    auto* vqcombobox = dynamic_cast<const VirtualQComboBox*>(self);
-    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQComboBox*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
 }
 
 QVariant* QComboBox_InputMethodQuery2(const QComboBox* self, int query, const QVariant* argument) {

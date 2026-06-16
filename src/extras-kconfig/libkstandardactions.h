@@ -20,10 +20,10 @@ typedef struct QAction QAction;
 typedef struct QObject QObject;
 #endif
 
-QAction* KStandardActions_KguiCreateInternal(int param1, QObject* param2);
-libqt_string KStandardActions_Name(int param1);
+QAction* KStandardActions_KguiCreateInternal(int id, QObject* parent);
+libqt_string KStandardActions_Name(int id);
 libqt_list /* of int */ KStandardActions_ActionIds();
-int KStandardActions_ShortcutForActionId(int param1);
+int KStandardActions_ShortcutForActionId(int id);
 
 #ifdef __cplusplus
 } /* extern C */

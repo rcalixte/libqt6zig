@@ -50,30 +50,15 @@ TextGrammarCheck__GrammalecteConfigWidget* TextGrammarCheck__GrammalecteConfigWi
 }
 
 QMetaObject* TextGrammarCheck__GrammalecteConfigWidget_MetaObject(const TextGrammarCheck__GrammalecteConfigWidget* self) {
-    auto* vtextgrammarcheck__grammalecteconfigwidget = dynamic_cast<const VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheck__grammalecteconfigwidget && vtextgrammarcheck__grammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__GrammalecteConfigWidget_Metacast(TextGrammarCheck__GrammalecteConfigWidget* self, const char* param1) {
-    auto* vtextgrammarcheck__grammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheck__grammalecteconfigwidget && vtextgrammarcheck__grammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__GrammalecteConfigWidget_Metacall(TextGrammarCheck__GrammalecteConfigWidget* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__grammalecteconfigwidget = dynamic_cast<VirtualTextGrammarCheckGrammalecteConfigWidget*>(self);
-    if (vtextgrammarcheck__grammalecteconfigwidget && vtextgrammarcheck__grammalecteconfigwidget->isVirtualTextGrammarCheckGrammalecteConfigWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckGrammalecteConfigWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void TextGrammarCheck__GrammalecteConfigWidget_LoadSettings(TextGrammarCheck__GrammalecteConfigWidget* self) {

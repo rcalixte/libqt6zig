@@ -24,30 +24,15 @@ QTcpSocket* QTcpSocket_new2(QObject* parent) {
 }
 
 QMetaObject* QTcpSocket_MetaObject(const QTcpSocket* self) {
-    auto* vqtcpsocket = dynamic_cast<const VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTcpSocket*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTcpSocket_Metacast(QTcpSocket* self, const char* param1) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTcpSocket*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTcpSocket_Metacall(QTcpSocket* self, int param1, int param2, void** param3) {
-    auto* vqtcpsocket = dynamic_cast<VirtualQTcpSocket*>(self);
-    if (vqtcpsocket && vqtcpsocket->isVirtualQTcpSocket) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTcpSocket*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QTcpSocket_Bind(QTcpSocket* self, int addr) {

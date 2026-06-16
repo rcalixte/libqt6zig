@@ -18,21 +18,11 @@ QMaskGenerator* QMaskGenerator_new2(QObject* parent) {
 }
 
 bool QMaskGenerator_Seed(QMaskGenerator* self) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return vqmaskgenerator->seed();
-    } else {
-        return ((VirtualQMaskGenerator*)self)->seed();
-    }
+    return self->seed();
 }
 
 unsigned int QMaskGenerator_NextMask(QMaskGenerator* self) {
-    auto* vqmaskgenerator = dynamic_cast<VirtualQMaskGenerator*>(self);
-    if (vqmaskgenerator && vqmaskgenerator->isVirtualQMaskGenerator) {
-        return static_cast<unsigned int>(vqmaskgenerator->nextMask());
-    } else {
-        return static_cast<unsigned int>(((VirtualQMaskGenerator*)self)->nextMask());
-    }
+    return static_cast<unsigned int>(self->nextMask());
 }
 
 // Base class handler implementation

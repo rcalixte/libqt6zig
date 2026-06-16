@@ -53,30 +53,15 @@ KNSWidgets__Button* KNSWidgets__Button_new2(const libqt_string text, const libqt
 }
 
 QMetaObject* KNSWidgets__Button_MetaObject(const KNSWidgets__Button* self) {
-    auto* vknswidgets__button = dynamic_cast<const VirtualKNSWidgetsButton*>(self);
-    if (vknswidgets__button && vknswidgets__button->isVirtualKNSWidgetsButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKNSWidgetsButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KNSWidgets__Button_Metacast(KNSWidgets__Button* self, const char* param1) {
-    auto* vknswidgets__button = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgets__button && vknswidgets__button->isVirtualKNSWidgetsButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKNSWidgetsButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KNSWidgets__Button_Metacall(KNSWidgets__Button* self, int param1, int param2, void** param3) {
-    auto* vknswidgets__button = dynamic_cast<VirtualKNSWidgetsButton*>(self);
-    if (vknswidgets__button && vknswidgets__button->isVirtualKNSWidgetsButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKNSWidgetsButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KNSWidgets__Button_SetConfigFile(KNSWidgets__Button* self, const libqt_string configFile) {

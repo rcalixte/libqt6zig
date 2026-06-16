@@ -81,14 +81,14 @@ void KIO__StatJob_Delete(KIO__StatJob* self) {
     delete self;
 }
 
-KIO__StatJob* KIO_Stat(const QUrl* param1, int param2) {
-    return KIO::stat(*param1, static_cast<KIO::JobFlags>(param2));
+KIO__StatJob* KIO_Stat(const QUrl* url, int flags) {
+    return KIO::stat(*url, static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__StatJob* KIO_Stat2(const QUrl* param1, int param2, int param3, int param4) {
-    return KIO::stat(*param1, static_cast<KIO::StatJob::StatSide>(param2), static_cast<KIO::StatDetails>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__StatJob* KIO_Stat2(const QUrl* url, int side, int details, int flags) {
+    return KIO::stat(*url, static_cast<KIO::StatJob::StatSide>(side), static_cast<KIO::StatDetails>(details), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__StatJob* KIO_MostLocalUrl(const QUrl* param1, int param2) {
-    return KIO::mostLocalUrl(*param1, static_cast<KIO::JobFlags>(param2));
+KIO__StatJob* KIO_MostLocalUrl(const QUrl* url, int flags) {
+    return KIO::mostLocalUrl(*url, static_cast<KIO::JobFlags>(flags));
 }

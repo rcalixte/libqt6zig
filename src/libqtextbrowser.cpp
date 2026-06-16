@@ -55,30 +55,15 @@ QTextBrowser* QTextBrowser_new2() {
 }
 
 QMetaObject* QTextBrowser_MetaObject(const QTextBrowser* self) {
-    auto* vqtextbrowser = dynamic_cast<const VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQTextBrowser*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QTextBrowser_Metacast(QTextBrowser* self, const char* param1) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQTextBrowser*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QTextBrowser_Metacall(QTextBrowser* self, int param1, int param2, void** param3) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQTextBrowser*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* QTextBrowser_Source(const QTextBrowser* self) {
@@ -122,12 +107,7 @@ void QTextBrowser_SetSearchPaths(QTextBrowser* self, const libqt_list /* of libq
 }
 
 QVariant* QTextBrowser_LoadResource(QTextBrowser* self, int typeVal, const QUrl* name) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
-    } else {
-        return new QVariant(((VirtualQTextBrowser*)self)->loadResource(static_cast<int>(typeVal), *name));
-    }
+    return new QVariant(self->loadResource(static_cast<int>(typeVal), *name));
 }
 
 bool QTextBrowser_IsBackwardAvailable(const QTextBrowser* self) {
@@ -187,39 +167,19 @@ void QTextBrowser_SetSource(QTextBrowser* self, const QUrl* name) {
 }
 
 void QTextBrowser_Backward(QTextBrowser* self) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        self->backward();
-    } else {
-        ((VirtualQTextBrowser*)self)->backward();
-    }
+    self->backward();
 }
 
 void QTextBrowser_Forward(QTextBrowser* self) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        self->forward();
-    } else {
-        ((VirtualQTextBrowser*)self)->forward();
-    }
+    self->forward();
 }
 
 void QTextBrowser_Home(QTextBrowser* self) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        self->home();
-    } else {
-        ((VirtualQTextBrowser*)self)->home();
-    }
+    self->home();
 }
 
 void QTextBrowser_Reload(QTextBrowser* self) {
-    auto* vqtextbrowser = dynamic_cast<VirtualQTextBrowser*>(self);
-    if (vqtextbrowser && vqtextbrowser->isVirtualQTextBrowser) {
-        self->reload();
-    } else {
-        ((VirtualQTextBrowser*)self)->reload();
-    }
+    self->reload();
 }
 
 void QTextBrowser_BackwardAvailable(QTextBrowser* self, bool param1) {

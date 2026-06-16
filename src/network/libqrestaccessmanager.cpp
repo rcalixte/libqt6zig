@@ -28,30 +28,15 @@ QRestAccessManager* QRestAccessManager_new2(QNetworkAccessManager* manager, QObj
 }
 
 QMetaObject* QRestAccessManager_MetaObject(const QRestAccessManager* self) {
-    auto* vqrestaccessmanager = dynamic_cast<const VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQRestAccessManager*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QRestAccessManager_Metacast(QRestAccessManager* self, const char* param1) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQRestAccessManager*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QRestAccessManager_Metacall(QRestAccessManager* self, int param1, int param2, void** param3) {
-    auto* vqrestaccessmanager = dynamic_cast<VirtualQRestAccessManager*>(self);
-    if (vqrestaccessmanager && vqrestaccessmanager->isVirtualQRestAccessManager) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQRestAccessManager*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QNetworkAccessManager* QRestAccessManager_NetworkAccessManager(const QRestAccessManager* self) {

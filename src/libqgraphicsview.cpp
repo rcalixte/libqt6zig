@@ -68,39 +68,19 @@ QGraphicsView* QGraphicsView_new4(QGraphicsScene* scene, QWidget* parent) {
 }
 
 QMetaObject* QGraphicsView_MetaObject(const QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<const VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQGraphicsView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QGraphicsView_Metacast(QGraphicsView* self, const char* param1) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQGraphicsView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QGraphicsView_Metacall(QGraphicsView* self, int param1, int param2, void** param3) {
-    auto* vqgraphicsview = dynamic_cast<VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQGraphicsView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QGraphicsView_SizeHint(const QGraphicsView* self) {
-    auto* vqgraphicsview = dynamic_cast<const VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQGraphicsView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 int QGraphicsView_RenderHints(const QGraphicsView* self) {
@@ -406,12 +386,7 @@ QPoint* QGraphicsView_MapFromScene5(const QGraphicsView* self, double x, double 
 }
 
 QVariant* QGraphicsView_InputMethodQuery(const QGraphicsView* self, int query) {
-    auto* vqgraphicsview = dynamic_cast<const VirtualQGraphicsView*>(self);
-    if (vqgraphicsview && vqgraphicsview->isVirtualQGraphicsView) {
-        return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    } else {
-        return new QVariant(((VirtualQGraphicsView*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
-    }
+    return new QVariant(self->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
 }
 
 QBrush* QGraphicsView_BackgroundBrush(const QGraphicsView* self) {

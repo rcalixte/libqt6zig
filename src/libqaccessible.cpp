@@ -921,12 +921,7 @@ int QAccessibleEvent_Child(const QAccessibleEvent* self) {
 }
 
 QAccessibleInterface* QAccessibleEvent_AccessibleInterface(const QAccessibleEvent* self) {
-    auto* vqaccessibleevent = dynamic_cast<const VirtualQAccessibleEvent*>(self);
-    if (vqaccessibleevent && vqaccessibleevent->isVirtualQAccessibleEvent) {
-        return self->accessibleInterface();
-    } else {
-        return ((VirtualQAccessibleEvent*)self)->accessibleInterface();
-    }
+    return self->accessibleInterface();
 }
 
 // Base class handler implementation

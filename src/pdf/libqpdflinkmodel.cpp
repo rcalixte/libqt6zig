@@ -34,30 +34,15 @@ QPdfLinkModel* QPdfLinkModel_new2(QObject* parent) {
 }
 
 QMetaObject* QPdfLinkModel_MetaObject(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPdfLinkModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPdfLinkModel_Metacast(QPdfLinkModel* self, const char* param1) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPdfLinkModel_Metacall(QPdfLinkModel* self, int param1, int param2, void** param3) {
-    auto* vqpdflinkmodel = dynamic_cast<VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QPdfDocument* QPdfLinkModel_Document(const QPdfLinkModel* self) {
@@ -65,68 +50,34 @@ QPdfDocument* QPdfLinkModel_Document(const QPdfLinkModel* self) {
 }
 
 libqt_map /* of int to libqt_string */ QPdfLinkModel_RoleNames(const QPdfLinkModel* self) {
-    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualQPdfLinkModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 int QPdfLinkModel_RowCount(const QPdfLinkModel* self, const QModelIndex* parent) {
-    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualQPdfLinkModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 QVariant* QPdfLinkModel_Data(const QPdfLinkModel* self, const QModelIndex* index, int role) {
-    auto* vqpdflinkmodel = dynamic_cast<const VirtualQPdfLinkModel*>(self);
-    if (vqpdflinkmodel && vqpdflinkmodel->isVirtualQPdfLinkModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualQPdfLinkModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 int QPdfLinkModel_Page(const QPdfLinkModel* self) {

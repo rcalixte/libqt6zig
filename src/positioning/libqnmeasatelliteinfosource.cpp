@@ -25,30 +25,15 @@ QNmeaSatelliteInfoSource* QNmeaSatelliteInfoSource_new2(int mode, QObject* paren
 }
 
 QMetaObject* QNmeaSatelliteInfoSource_MetaObject(const QNmeaSatelliteInfoSource* self) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQNmeaSatelliteInfoSource*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QNmeaSatelliteInfoSource_Metacast(QNmeaSatelliteInfoSource* self, const char* param1) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQNmeaSatelliteInfoSource*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QNmeaSatelliteInfoSource_Metacall(QNmeaSatelliteInfoSource* self, int param1, int param2, void** param3) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQNmeaSatelliteInfoSource*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QNmeaSatelliteInfoSource_UpdateMode(const QNmeaSatelliteInfoSource* self) {
@@ -64,77 +49,37 @@ QIODevice* QNmeaSatelliteInfoSource_Device(const QNmeaSatelliteInfoSource* self)
 }
 
 void QNmeaSatelliteInfoSource_SetUpdateInterval(QNmeaSatelliteInfoSource* self, int msec) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        self->setUpdateInterval(static_cast<int>(msec));
-    } else {
-        ((VirtualQNmeaSatelliteInfoSource*)self)->setUpdateInterval(static_cast<int>(msec));
-    }
+    self->setUpdateInterval(static_cast<int>(msec));
 }
 
 int QNmeaSatelliteInfoSource_MinimumUpdateInterval(const QNmeaSatelliteInfoSource* self) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return self->minimumUpdateInterval();
-    } else {
-        return ((VirtualQNmeaSatelliteInfoSource*)self)->minimumUpdateInterval();
-    }
+    return self->minimumUpdateInterval();
 }
 
 int QNmeaSatelliteInfoSource_Error(const QNmeaSatelliteInfoSource* self) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return static_cast<int>(self->error());
-    } else {
-        return static_cast<int>(((VirtualQNmeaSatelliteInfoSource*)self)->error());
-    }
+    return static_cast<int>(self->error());
 }
 
 bool QNmeaSatelliteInfoSource_SetBackendProperty(QNmeaSatelliteInfoSource* self, const libqt_string name, const QVariant* value) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return self->setBackendProperty(name_QString, *value);
-    } else {
-        return ((VirtualQNmeaSatelliteInfoSource*)self)->setBackendProperty(name_QString, *value);
-    }
+    return self->setBackendProperty(name_QString, *value);
 }
 
 QVariant* QNmeaSatelliteInfoSource_BackendProperty(const QNmeaSatelliteInfoSource* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    auto* vqnmeasatelliteinfosource = dynamic_cast<const VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        return new QVariant(self->backendProperty(name_QString));
-    } else {
-        return new QVariant(((VirtualQNmeaSatelliteInfoSource*)self)->backendProperty(name_QString));
-    }
+    return new QVariant(self->backendProperty(name_QString));
 }
 
 void QNmeaSatelliteInfoSource_StartUpdates(QNmeaSatelliteInfoSource* self) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        self->startUpdates();
-    } else {
-        ((VirtualQNmeaSatelliteInfoSource*)self)->startUpdates();
-    }
+    self->startUpdates();
 }
 
 void QNmeaSatelliteInfoSource_StopUpdates(QNmeaSatelliteInfoSource* self) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        self->stopUpdates();
-    } else {
-        ((VirtualQNmeaSatelliteInfoSource*)self)->stopUpdates();
-    }
+    self->stopUpdates();
 }
 
 void QNmeaSatelliteInfoSource_RequestUpdate(QNmeaSatelliteInfoSource* self, int timeout) {
-    auto* vqnmeasatelliteinfosource = dynamic_cast<VirtualQNmeaSatelliteInfoSource*>(self);
-    if (vqnmeasatelliteinfosource && vqnmeasatelliteinfosource->isVirtualQNmeaSatelliteInfoSource) {
-        self->requestUpdate(static_cast<int>(timeout));
-    } else {
-        ((VirtualQNmeaSatelliteInfoSource*)self)->requestUpdate(static_cast<int>(timeout));
-    }
+    self->requestUpdate(static_cast<int>(timeout));
 }
 
 int QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea(QNmeaSatelliteInfoSource* self, const char* data, int size, libqt_list /* of int */ pnrsInUse) {

@@ -56,30 +56,15 @@ QLCDNumber* QLCDNumber_new4(unsigned int numDigits, QWidget* parent) {
 }
 
 QMetaObject* QLCDNumber_MetaObject(const QLCDNumber* self) {
-    auto* vqlcdnumber = dynamic_cast<const VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQLCDNumber*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QLCDNumber_Metacast(QLCDNumber* self, const char* param1) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQLCDNumber*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QLCDNumber_Metacall(QLCDNumber* self, int param1, int param2, void** param3) {
-    auto* vqlcdnumber = dynamic_cast<VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQLCDNumber*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QLCDNumber_SmallDecimalPoint(const QLCDNumber* self) {
@@ -127,12 +112,7 @@ int QLCDNumber_IntValue(const QLCDNumber* self) {
 }
 
 QSize* QLCDNumber_SizeHint(const QLCDNumber* self) {
-    auto* vqlcdnumber = dynamic_cast<const VirtualQLCDNumber*>(self);
-    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQLCDNumber*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 void QLCDNumber_Display(QLCDNumber* self, const libqt_string str) {

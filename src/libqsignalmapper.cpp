@@ -19,30 +19,15 @@ QSignalMapper* QSignalMapper_new2(QObject* parent) {
 }
 
 QMetaObject* QSignalMapper_MetaObject(const QSignalMapper* self) {
-    auto* vqsignalmapper = dynamic_cast<const VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSignalMapper*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSignalMapper_Metacast(QSignalMapper* self, const char* param1) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSignalMapper*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSignalMapper_Metacall(QSignalMapper* self, int param1, int param2, void** param3) {
-    auto* vqsignalmapper = dynamic_cast<VirtualQSignalMapper*>(self);
-    if (vqsignalmapper && vqsignalmapper->isVirtualQSignalMapper) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSignalMapper*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QSignalMapper_SetMapping(QSignalMapper* self, QObject* sender, int id) {

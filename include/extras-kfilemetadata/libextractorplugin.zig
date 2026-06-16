@@ -321,14 +321,14 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn ContactsFromString(allocator: std.mem.Allocator, stringVal: []const u8) []const []const u8 {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn ContactsFromString(allocator: std.mem.Allocator, string: []const u8) []const []const u8 {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorPlugin_ContactsFromString(stringVal_str);
+        const _arr: qtc.libqt_list = qtc.KFileMetaData__ExtractorPlugin_ContactsFromString(string_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i|
@@ -370,8 +370,6 @@ pub const KFileMetaData__ExtractorPlugin = extern struct {
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractorplugin.html#getSupportedMimeType)
     ///
     /// Allows for overriding the related default method
-    ///
-    /// **Warning:** Memory for the returned type of the callback must be allocated using `std.heap.c_allocator` or `std.c.malloc`, as the library handles deallocation.
     ///
     /// ## Parameters:
     ///

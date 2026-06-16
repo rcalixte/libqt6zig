@@ -5,12 +5,12 @@
 #include "libpaste.h"
 #include "libpaste.hxx"
 
-bool KIO_CanPasteMimeData(const QMimeData* param1) {
-    return KIO::canPasteMimeData(param1);
+bool KIO_CanPasteMimeData(const QMimeData* data) {
+    return KIO::canPasteMimeData(data);
 }
 
-libqt_string KIO_PasteActionText(const QMimeData* param1, bool* param2, const KFileItem* param3) {
-    auto _ret = KIO::pasteActionText(param1, param2, *param3);
+libqt_string KIO_PasteActionText(const QMimeData* mimeData, bool* enable, const KFileItem* destItem) {
+    auto _ret = KIO::pasteActionText(mimeData, enable, *destItem);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -21,10 +21,10 @@ libqt_string KIO_PasteActionText(const QMimeData* param1, bool* param2, const KF
     return _str;
 }
 
-void KIO_SetClipboardDataCut(QMimeData* param1, bool param2) {
-    KIO::setClipboardDataCut(param1, param2);
+void KIO_SetClipboardDataCut(QMimeData* mimeData, bool cut) {
+    KIO::setClipboardDataCut(mimeData, cut);
 }
 
-bool KIO_IsClipboardDataCut(const QMimeData* param1) {
-    return KIO::isClipboardDataCut(param1);
+bool KIO_IsClipboardDataCut(const QMimeData* mimeData) {
+    return KIO::isClipboardDataCut(mimeData);
 }

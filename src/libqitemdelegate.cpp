@@ -34,30 +34,15 @@ QItemDelegate* QItemDelegate_new2(QObject* parent) {
 }
 
 QMetaObject* QItemDelegate_MetaObject(const QItemDelegate* self) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQItemDelegate*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QItemDelegate_Metacast(QItemDelegate* self, const char* param1) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQItemDelegate*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QItemDelegate_Metacall(QItemDelegate* self, int param1, int param2, void** param3) {
-    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQItemDelegate*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QItemDelegate_HasClipping(const QItemDelegate* self) {
@@ -69,57 +54,27 @@ void QItemDelegate_SetClipping(QItemDelegate* self, bool clip) {
 }
 
 void QItemDelegate_Paint(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        self->paint(painter, *option, *index);
-    } else {
-        ((VirtualQItemDelegate*)self)->paint(painter, *option, *index);
-    }
+    self->paint(painter, *option, *index);
 }
 
 QSize* QItemDelegate_SizeHint(const QItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return new QSize(self->sizeHint(*option, *index));
-    } else {
-        return new QSize(((VirtualQItemDelegate*)self)->sizeHint(*option, *index));
-    }
+    return new QSize(self->sizeHint(*option, *index));
 }
 
 QWidget* QItemDelegate_CreateEditor(const QItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        return self->createEditor(parent, *option, *index);
-    } else {
-        return ((VirtualQItemDelegate*)self)->createEditor(parent, *option, *index);
-    }
+    return self->createEditor(parent, *option, *index);
 }
 
 void QItemDelegate_SetEditorData(const QItemDelegate* self, QWidget* editor, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        self->setEditorData(editor, *index);
-    } else {
-        ((VirtualQItemDelegate*)self)->setEditorData(editor, *index);
-    }
+    self->setEditorData(editor, *index);
 }
 
 void QItemDelegate_SetModelData(const QItemDelegate* self, QWidget* editor, QAbstractItemModel* model, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        self->setModelData(editor, model, *index);
-    } else {
-        ((VirtualQItemDelegate*)self)->setModelData(editor, model, *index);
-    }
+    self->setModelData(editor, model, *index);
 }
 
 void QItemDelegate_UpdateEditorGeometry(const QItemDelegate* self, QWidget* editor, const QStyleOptionViewItem* option, const QModelIndex* index) {
-    auto* vqitemdelegate = dynamic_cast<const VirtualQItemDelegate*>(self);
-    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
-        self->updateEditorGeometry(editor, *option, *index);
-    } else {
-        ((VirtualQItemDelegate*)self)->updateEditorGeometry(editor, *option, *index);
-    }
+    self->updateEditorGeometry(editor, *option, *index);
 }
 
 QItemEditorFactory* QItemDelegate_ItemEditorFactory(const QItemDelegate* self) {

@@ -15,19 +15,19 @@ pub const KHelpClient = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: []const u8 `
+    /// ` anchor: []const u8 `
     ///
-    /// ` param2: []const u8 `
+    /// ` appname: []const u8 `
     ///
-    pub fn InvokeHelp(param1: []const u8, param2: []const u8) void {
-        const param1_str = qtc.libqt_string{
-            .len = param1.len,
-            .data = param1.ptr,
+    pub fn InvokeHelp(anchor: []const u8, appname: []const u8) void {
+        const anchor_str = qtc.libqt_string{
+            .len = anchor.len,
+            .data = anchor.ptr,
         };
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+        const appname_str = qtc.libqt_string{
+            .len = appname.len,
+            .data = appname.ptr,
         };
-        qtc.KHelpClient_InvokeHelp(param1_str, param2_str);
+        qtc.KHelpClient_InvokeHelp(anchor_str, appname_str);
     }
 };

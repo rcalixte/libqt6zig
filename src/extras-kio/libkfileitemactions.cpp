@@ -24,30 +24,15 @@ KFileItemActions* KFileItemActions_new2(QObject* parent) {
 }
 
 QMetaObject* KFileItemActions_MetaObject(const KFileItemActions* self) {
-    auto* vkfileitemactions = dynamic_cast<const VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFileItemActions*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFileItemActions_Metacast(KFileItemActions* self, const char* param1) {
-    auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFileItemActions*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFileItemActions_Metacall(KFileItemActions* self, int param1, int param2, void** param3) {
-    auto* vkfileitemactions = dynamic_cast<VirtualKFileItemActions*>(self);
-    if (vkfileitemactions && vkfileitemactions->isVirtualKFileItemActions) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFileItemActions*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KFileItemActions_SetItemListProperties(KFileItemActions* self, const KFileItemListProperties* itemList) {

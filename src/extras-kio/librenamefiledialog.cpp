@@ -46,30 +46,15 @@ KIO__RenameFileDialog* KIO__RenameFileDialog_new(const KFileItemList* items, QWi
 }
 
 QMetaObject* KIO__RenameFileDialog_MetaObject(const KIO__RenameFileDialog* self) {
-    auto* vkio__renamefiledialog = dynamic_cast<const VirtualKIORenameFileDialog*>(self);
-    if (vkio__renamefiledialog && vkio__renamefiledialog->isVirtualKIORenameFileDialog) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKIORenameFileDialog*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KIO__RenameFileDialog_Metacast(KIO__RenameFileDialog* self, const char* param1) {
-    auto* vkio__renamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkio__renamefiledialog && vkio__renamefiledialog->isVirtualKIORenameFileDialog) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKIORenameFileDialog*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KIO__RenameFileDialog_Metacall(KIO__RenameFileDialog* self, int param1, int param2, void** param3) {
-    auto* vkio__renamefiledialog = dynamic_cast<VirtualKIORenameFileDialog*>(self);
-    if (vkio__renamefiledialog && vkio__renamefiledialog->isVirtualKIORenameFileDialog) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKIORenameFileDialog*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KIO__RenameFileDialog_RenamingFinished(KIO__RenameFileDialog* self, const libqt_list /* of QUrl* */ urls) {

@@ -109,12 +109,7 @@ Poppler__Link* Poppler__Link_new(const QRectF* linkArea) {
 }
 
 int Poppler__Link_LinkType(const Poppler__Link* self) {
-    auto* vpoppler__link = dynamic_cast<const VirtualPopplerLink*>(self);
-    if (vpoppler__link && vpoppler__link->isVirtualPopplerLink) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLink*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 QRectF* Poppler__Link_LinkArea(const Poppler__Link* self) {
@@ -183,12 +178,7 @@ Poppler__LinkDestination* Poppler__LinkGoto_Destination(const Poppler__LinkGoto*
 }
 
 int Poppler__LinkGoto_LinkType(const Poppler__LinkGoto* self) {
-    auto* vpoppler__linkgoto = dynamic_cast<const VirtualPopplerLinkGoto*>(self);
-    if (vpoppler__linkgoto && vpoppler__linkgoto->isVirtualPopplerLinkGoto) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLinkGoto*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 // Base class handler implementation
@@ -245,12 +235,7 @@ libqt_string Poppler__LinkExecute_Parameters(const Poppler__LinkExecute* self) {
 }
 
 int Poppler__LinkExecute_LinkType(const Poppler__LinkExecute* self) {
-    auto* vpoppler__linkexecute = dynamic_cast<const VirtualPopplerLinkExecute*>(self);
-    if (vpoppler__linkexecute && vpoppler__linkexecute->isVirtualPopplerLinkExecute) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLinkExecute*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 // Base class handler implementation
@@ -294,12 +279,7 @@ libqt_string Poppler__LinkBrowse_Url(const Poppler__LinkBrowse* self) {
 }
 
 int Poppler__LinkBrowse_LinkType(const Poppler__LinkBrowse* self) {
-    auto* vpoppler__linkbrowse = dynamic_cast<const VirtualPopplerLinkBrowse*>(self);
-    if (vpoppler__linkbrowse && vpoppler__linkbrowse->isVirtualPopplerLinkBrowse) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLinkBrowse*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 // Base class handler implementation
@@ -334,12 +314,7 @@ int Poppler__LinkAction_ActionType(const Poppler__LinkAction* self) {
 }
 
 int Poppler__LinkAction_LinkType(const Poppler__LinkAction* self) {
-    auto* vpoppler__linkaction = dynamic_cast<const VirtualPopplerLinkAction*>(self);
-    if (vpoppler__linkaction && vpoppler__linkaction->isVirtualPopplerLinkAction) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLinkAction*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 // Base class handler implementation
@@ -370,12 +345,7 @@ Poppler__LinkSound* Poppler__LinkSound_new(const QRectF* linkArea, double volume
 }
 
 int Poppler__LinkSound_LinkType(const Poppler__LinkSound* self) {
-    auto* vpoppler__linksound = dynamic_cast<const VirtualPopplerLinkSound*>(self);
-    if (vpoppler__linksound && vpoppler__linksound->isVirtualPopplerLinkSound) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLinkSound*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 double Poppler__LinkSound_Volume(const Poppler__LinkSound* self) {
@@ -459,12 +429,7 @@ Poppler__LinkJavaScript* Poppler__LinkJavaScript_new(const QRectF* linkArea, con
 }
 
 int Poppler__LinkJavaScript_LinkType(const Poppler__LinkJavaScript* self) {
-    auto* vpoppler__linkjavascript = dynamic_cast<const VirtualPopplerLinkJavaScript*>(self);
-    if (vpoppler__linkjavascript && vpoppler__linkjavascript->isVirtualPopplerLinkJavaScript) {
-        return static_cast<int>(self->linkType());
-    } else {
-        return static_cast<int>(((VirtualPopplerLinkJavaScript*)self)->linkType());
-    }
+    return static_cast<int>(self->linkType());
 }
 
 libqt_string Poppler__LinkJavaScript_Script(const Poppler__LinkJavaScript* self) {

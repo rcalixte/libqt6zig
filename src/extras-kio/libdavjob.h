@@ -42,10 +42,10 @@ int KIO__DavJob_Metacall(KIO__DavJob* self, int param1, int param2, void** param
 libqt_string KIO__DavJob_ResponseData(const KIO__DavJob* self);
 void KIO__DavJob_Delete(KIO__DavJob* self);
 
-KIO__DavJob* KIO_DavPropFind(const QUrl* param1, const libqt_string param2, const libqt_string param3, int param4);
-KIO__DavJob* KIO_DavPropPatch(const QUrl* param1, const libqt_string param2, int param3);
-KIO__DavJob* KIO_DavSearch(const QUrl* param1, const libqt_string param2, const libqt_string param3, const libqt_string param4, int param5);
-KIO__DavJob* KIO_DavReport(const QUrl* param1, const libqt_string param2, const libqt_string param3, int param4);
+KIO__DavJob* KIO_DavPropFind(const QUrl* url, const libqt_string properties, const libqt_string depth, int flags);
+KIO__DavJob* KIO_DavPropPatch(const QUrl* url, const libqt_string properties, int flags);
+KIO__DavJob* KIO_DavSearch(const QUrl* url, const libqt_string nsURI, const libqt_string qName, const libqt_string query, int flags);
+KIO__DavJob* KIO_DavReport(const QUrl* url, const libqt_string report, const libqt_string depth, int flags);
 
 #ifdef __cplusplus
 } /* extern C */

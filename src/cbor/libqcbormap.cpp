@@ -303,15 +303,15 @@ QCborMap__Iterator* QCborMap_Insert5(QCborMap* self, pair_qcborvalue_qcborvalue 
     return new QCborMap::Iterator(self->insert(v_QPair));
 }
 
-QCborMap* QCborMap_FromVariantMap(const libqt_map /* of libqt_string to QVariant* */ mapVal) {
-    QMap<QString, QVariant> mapVal_QMap;
-    libqt_string* mapVal_karr = static_cast<libqt_string*>(mapVal.keys);
-    QVariant** mapVal_varr = static_cast<QVariant**>(mapVal.values);
-    for (size_t i = 0; i < mapVal.len; ++i) {
-        QString mapVal_karr_i_QString = QString::fromUtf8(mapVal_karr[i].data, mapVal_karr[i].len);
-        mapVal_QMap[mapVal_karr_i_QString] = *(mapVal_varr[i]);
+QCborMap* QCborMap_FromVariantMap(const libqt_map /* of libqt_string to QVariant* */ map) {
+    QMap<QString, QVariant> map_QMap;
+    libqt_string* map_karr = static_cast<libqt_string*>(map.keys);
+    QVariant** map_varr = static_cast<QVariant**>(map.values);
+    for (size_t i = 0; i < map.len; ++i) {
+        QString map_karr_i_QString = QString::fromUtf8(map_karr[i].data, map_karr[i].len);
+        map_QMap[map_karr_i_QString] = *(map_varr[i]);
     }
-    return new QCborMap(QCborMap::fromVariantMap(mapVal_QMap));
+    return new QCborMap(QCborMap::fromVariantMap(map_QMap));
 }
 
 QCborMap* QCborMap_FromVariantHash(const libqt_map /* of libqt_string to QVariant* */ hash) {

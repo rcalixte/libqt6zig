@@ -39,8 +39,8 @@ unsigned long long KIO__DirectorySizeJob_TotalFiles(const KIO__DirectorySizeJob*
 unsigned long long KIO__DirectorySizeJob_TotalSubdirs(const KIO__DirectorySizeJob* self);
 void KIO__DirectorySizeJob_Delete(KIO__DirectorySizeJob* self);
 
-KIO__DirectorySizeJob* KIO_DirectorySize(const QUrl* param1);
-KIO__DirectorySizeJob* KIO_DirectorySize2(const KFileItemList* param1);
+KIO__DirectorySizeJob* KIO_DirectorySize(const QUrl* directory);
+KIO__DirectorySizeJob* KIO_DirectorySize2(const KFileItemList* lstItems);
 
 #ifdef __cplusplus
 } /* extern C */

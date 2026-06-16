@@ -20,30 +20,15 @@ TextGrammarCheck__LanguageToolGetListOfLanguageJob* TextGrammarCheck__LanguageTo
 }
 
 QMetaObject* TextGrammarCheck__LanguageToolGetListOfLanguageJob_MetaObject(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {
-    auto* vtextgrammarcheck__languagetoolgetlistoflanguagejob = dynamic_cast<const VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarcheck__languagetoolgetlistoflanguagejob && vtextgrammarcheck__languagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacast(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, const char* param1) {
-    auto* vtextgrammarcheck__languagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarcheck__languagetoolgetlistoflanguagejob && vtextgrammarcheck__languagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextGrammarCheck__LanguageToolGetListOfLanguageJob_Metacall(TextGrammarCheck__LanguageToolGetListOfLanguageJob* self, int param1, int param2, void** param3) {
-    auto* vtextgrammarcheck__languagetoolgetlistoflanguagejob = dynamic_cast<VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*>(self);
-    if (vtextgrammarcheck__languagetoolgetlistoflanguagejob && vtextgrammarcheck__languagetoolgetlistoflanguagejob->isVirtualTextGrammarCheckLanguageToolGetListOfLanguageJob) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextGrammarCheckLanguageToolGetListOfLanguageJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool TextGrammarCheck__LanguageToolGetListOfLanguageJob_CanStart(const TextGrammarCheck__LanguageToolGetListOfLanguageJob* self) {

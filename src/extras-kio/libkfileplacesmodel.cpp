@@ -35,30 +35,15 @@ KFilePlacesModel* KFilePlacesModel_new2(QObject* parent) {
 }
 
 QMetaObject* KFilePlacesModel_MetaObject(const KFilePlacesModel* self) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKFilePlacesModel*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KFilePlacesModel_Metacast(KFilePlacesModel* self, const char* param1) {
-    auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKFilePlacesModel*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KFilePlacesModel_Metacall(KFilePlacesModel* self, int param1, int param2, void** param3) {
-    auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKFilePlacesModel*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QUrl* KFilePlacesModel_Url(const KFilePlacesModel* self, const QModelIndex* index) {
@@ -208,95 +193,46 @@ int KFilePlacesModel_HiddenCount(const KFilePlacesModel* self) {
 }
 
 QVariant* KFilePlacesModel_Data(const KFilePlacesModel* self, const QModelIndex* index, int role) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return new QVariant(self->data(*index, static_cast<int>(role)));
-    } else {
-        return new QVariant(((VirtualKFilePlacesModel*)self)->data(*index, static_cast<int>(role)));
-    }
+    return new QVariant(self->data(*index, static_cast<int>(role)));
 }
 
 QModelIndex* KFilePlacesModel_Index(const KFilePlacesModel* self, int row, int column, const QModelIndex* parent) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    } else {
-        return new QModelIndex(((VirtualKFilePlacesModel*)self)->index(static_cast<int>(row), static_cast<int>(column), *parent));
-    }
+    return new QModelIndex(self->index(static_cast<int>(row), static_cast<int>(column), *parent));
 }
 
 QModelIndex* KFilePlacesModel_Parent(const KFilePlacesModel* self, const QModelIndex* child) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return new QModelIndex(self->parent(*child));
-    } else {
-        return new QModelIndex(((VirtualKFilePlacesModel*)self)->parent(*child));
-    }
+    return new QModelIndex(self->parent(*child));
 }
 
 libqt_map /* of int to libqt_string */ KFilePlacesModel_RoleNames(const KFilePlacesModel* self) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        QHash<int, QByteArray> _ret = self->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
-    } else {
-        QHash<int, QByteArray> _ret = ((VirtualKFilePlacesModel*)self)->roleNames();
-        // Convert QHash<> from C++ memory to manually-managed C memory
-        int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-        libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        int _ctr = 0;
-        for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
-            _karr[_ctr] = _itr->first;
-            QByteArray _hashval_qb = _itr->second;
-            libqt_string _hashval_str;
-            _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
-            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _varr[_ctr] = _hashval_str;
-            _ctr++;
-        }
-        libqt_map _out;
-        _out.len = _ret.size();
-        _out.keys = static_cast<void*>(_karr);
-        _out.values = static_cast<void*>(_varr);
-        return _out;
+    QHash<int, QByteArray> _ret = self->roleNames();
+    // Convert QHash<> from C++ memory to manually-managed C memory
+    int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    int _ctr = 0;
+    for (auto _itr = _ret.keyValueBegin(); _itr != _ret.keyValueEnd(); ++_itr) {
+        _karr[_ctr] = _itr->first;
+        QByteArray _hashval_qb = _itr->second;
+        libqt_string _hashval_str;
+        _hashval_str.len = _hashval_qb.length();
+        _hashval_str.data = static_cast<char*>(malloc(_hashval_str.len));
+        memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+        _varr[_ctr] = _hashval_str;
+        _ctr++;
     }
+    libqt_map _out;
+    _out.len = _ret.size();
+    _out.keys = static_cast<void*>(_karr);
+    _out.values = static_cast<void*>(_varr);
+    return _out;
 }
 
 int KFilePlacesModel_RowCount(const KFilePlacesModel* self, const QModelIndex* parent) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return self->rowCount(*parent);
-    } else {
-        return ((VirtualKFilePlacesModel*)self)->rowCount(*parent);
-    }
+    return self->rowCount(*parent);
 }
 
 int KFilePlacesModel_ColumnCount(const KFilePlacesModel* self, const QModelIndex* parent) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return self->columnCount(*parent);
-    } else {
-        return ((VirtualKFilePlacesModel*)self)->columnCount(*parent);
-    }
+    return self->columnCount(*parent);
 }
 
 QModelIndex* KFilePlacesModel_ClosestItem(const KFilePlacesModel* self, const QUrl* url) {
@@ -304,64 +240,32 @@ QModelIndex* KFilePlacesModel_ClosestItem(const KFilePlacesModel* self, const QU
 }
 
 int KFilePlacesModel_SupportedDropActions(const KFilePlacesModel* self) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return static_cast<int>(self->supportedDropActions());
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesModel*)self)->supportedDropActions());
-    }
+    return static_cast<int>(self->supportedDropActions());
 }
 
 int KFilePlacesModel_Flags(const KFilePlacesModel* self, const QModelIndex* index) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return static_cast<int>(self->flags(*index));
-    } else {
-        return static_cast<int>(((VirtualKFilePlacesModel*)self)->flags(*index));
-    }
+    return static_cast<int>(self->flags(*index));
 }
 
 libqt_list /* of libqt_string */ KFilePlacesModel_MimeTypes(const KFilePlacesModel* self) {
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        QList<QString> _ret = self->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
-    } else {
-        QList<QString> _ret = ((VirtualKFilePlacesModel*)self)->mimeTypes();
-        // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
-        for (qsizetype i = 0; i < _ret.size(); ++i) {
-            auto _lv_ret = _ret[i];
-            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-            QByteArray _lv_b = _lv_ret.toUtf8();
-            libqt_string _lv_str;
-            _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
-            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
-            ((char*)_lv_str.data)[_lv_str.len] = '\0';
-            _arr[i] = _lv_str;
-        }
-        libqt_list _out;
-        _out.len = _ret.size();
-        _out.data = static_cast<void*>(_arr);
-        return _out;
+    QList<QString> _ret = self->mimeTypes();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
+        auto _lv_ret = _ret[i];
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _lv_b = _lv_ret.toUtf8();
+        libqt_string _lv_str;
+        _lv_str.len = _lv_b.length();
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
+        _arr[i] = _lv_str;
     }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QMimeData* KFilePlacesModel_MimeData(const KFilePlacesModel* self, const libqt_list /* of QModelIndex* */ indexes) {
@@ -371,21 +275,11 @@ QMimeData* KFilePlacesModel_MimeData(const KFilePlacesModel* self, const libqt_l
     for (size_t i = 0; i < indexes.len; ++i) {
         indexes_QList.push_back(*(indexes_arr[i]));
     }
-    auto* vkfileplacesmodel = dynamic_cast<const VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return self->mimeData(indexes_QList);
-    } else {
-        return ((VirtualKFilePlacesModel*)self)->mimeData(indexes_QList);
-    }
+    return self->mimeData(indexes_QList);
 }
 
 bool KFilePlacesModel_DropMimeData(KFilePlacesModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent) {
-    auto* vkfileplacesmodel = dynamic_cast<VirtualKFilePlacesModel*>(self);
-    if (vkfileplacesmodel && vkfileplacesmodel->isVirtualKFilePlacesModel) {
-        return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    } else {
-        return ((VirtualKFilePlacesModel*)self)->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
-    }
+    return self->dropMimeData(data, static_cast<Qt::DropAction>(action), static_cast<int>(row), static_cast<int>(column), *parent);
 }
 
 void KFilePlacesModel_Refresh(const KFilePlacesModel* self) {

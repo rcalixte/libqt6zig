@@ -56,48 +56,23 @@ QSlider* QSlider_new4(int orientation, QWidget* parent) {
 }
 
 QMetaObject* QSlider_MetaObject(const QSlider* self) {
-    auto* vqslider = dynamic_cast<const VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQSlider*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QSlider_Metacast(QSlider* self, const char* param1) {
-    auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQSlider*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QSlider_Metacall(QSlider* self, int param1, int param2, void** param3) {
-    auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQSlider*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QSlider_SizeHint(const QSlider* self) {
-    auto* vqslider = dynamic_cast<const VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQSlider*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QSlider_MinimumSizeHint(const QSlider* self) {
-    auto* vqslider = dynamic_cast<const VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQSlider*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 void QSlider_SetTickPosition(QSlider* self, int position) {
@@ -117,12 +92,7 @@ int QSlider_TickInterval(const QSlider* self) {
 }
 
 bool QSlider_Event(QSlider* self, QEvent* event) {
-    auto* vqslider = dynamic_cast<VirtualQSlider*>(self);
-    if (vqslider && vqslider->isVirtualQSlider) {
-        return self->event(event);
-    } else {
-        return ((VirtualQSlider*)self)->event(event);
-    }
+    return self->event(event);
 }
 
 void QSlider_PaintEvent(QSlider* self, QPaintEvent* ev) {

@@ -170,30 +170,15 @@ QGraphicsLayoutItem* QGraphicsGridLayout_ItemAt(const QGraphicsGridLayout* self,
 }
 
 int QGraphicsGridLayout_Count(const QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = dynamic_cast<const VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        return self->count();
-    } else {
-        return ((VirtualQGraphicsGridLayout*)self)->count();
-    }
+    return self->count();
 }
 
 QGraphicsLayoutItem* QGraphicsGridLayout_ItemAt2(const QGraphicsGridLayout* self, int index) {
-    auto* vqgraphicsgridlayout = dynamic_cast<const VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        return self->itemAt(static_cast<int>(index));
-    } else {
-        return ((VirtualQGraphicsGridLayout*)self)->itemAt(static_cast<int>(index));
-    }
+    return self->itemAt(static_cast<int>(index));
 }
 
 void QGraphicsGridLayout_RemoveAt(QGraphicsGridLayout* self, int index) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        self->removeAt(static_cast<int>(index));
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->removeAt(static_cast<int>(index));
-    }
+    self->removeAt(static_cast<int>(index));
 }
 
 void QGraphicsGridLayout_RemoveItem(QGraphicsGridLayout* self, QGraphicsLayoutItem* item) {
@@ -201,30 +186,15 @@ void QGraphicsGridLayout_RemoveItem(QGraphicsGridLayout* self, QGraphicsLayoutIt
 }
 
 void QGraphicsGridLayout_Invalidate(QGraphicsGridLayout* self) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        self->invalidate();
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->invalidate();
-    }
+    self->invalidate();
 }
 
 void QGraphicsGridLayout_SetGeometry(QGraphicsGridLayout* self, const QRectF* rect) {
-    auto* vqgraphicsgridlayout = dynamic_cast<VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        self->setGeometry(*rect);
-    } else {
-        ((VirtualQGraphicsGridLayout*)self)->setGeometry(*rect);
-    }
+    self->setGeometry(*rect);
 }
 
 QSizeF* QGraphicsGridLayout_SizeHint(const QGraphicsGridLayout* self, int which, const QSizeF* constraint) {
-    auto* vqgraphicsgridlayout = dynamic_cast<const VirtualQGraphicsGridLayout*>(self);
-    if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        return new QSizeF(self->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    } else {
-        return new QSizeF(((VirtualQGraphicsGridLayout*)self)->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
-    }
+    return new QSizeF(self->sizeHint(static_cast<Qt::SizeHint>(which), *constraint));
 }
 
 void QGraphicsGridLayout_AddItem6(QGraphicsGridLayout* self, QGraphicsLayoutItem* item, int row, int column, int rowSpan, int columnSpan, int alignment) {

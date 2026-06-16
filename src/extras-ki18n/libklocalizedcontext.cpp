@@ -20,30 +20,15 @@ KLocalizedContext* KLocalizedContext_new2(QObject* parent) {
 }
 
 QMetaObject* KLocalizedContext_MetaObject(const KLocalizedContext* self) {
-    auto* vklocalizedcontext = dynamic_cast<const VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKLocalizedContext*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KLocalizedContext_Metacast(KLocalizedContext* self, const char* param1) {
-    auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKLocalizedContext*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KLocalizedContext_Metacall(KLocalizedContext* self, int param1, int param2, void** param3) {
-    auto* vklocalizedcontext = dynamic_cast<VirtualKLocalizedContext*>(self);
-    if (vklocalizedcontext && vklocalizedcontext->isVirtualKLocalizedContext) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKLocalizedContext*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 libqt_string KLocalizedContext_TranslationDomain(const KLocalizedContext* self) {

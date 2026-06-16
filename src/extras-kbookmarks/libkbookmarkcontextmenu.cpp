@@ -52,39 +52,19 @@ KBookmarkContextMenu* KBookmarkContextMenu_new2(const KBookmark* bm, KBookmarkMa
 }
 
 QMetaObject* KBookmarkContextMenu_MetaObject(const KBookmarkContextMenu* self) {
-    auto* vkbookmarkcontextmenu = dynamic_cast<const VirtualKBookmarkContextMenu*>(self);
-    if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualKBookmarkContextMenu*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* KBookmarkContextMenu_Metacast(KBookmarkContextMenu* self, const char* param1) {
-    auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
-    if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualKBookmarkContextMenu*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int KBookmarkContextMenu_Metacall(KBookmarkContextMenu* self, int param1, int param2, void** param3) {
-    auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
-    if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualKBookmarkContextMenu*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void KBookmarkContextMenu_AddActions(KBookmarkContextMenu* self) {
-    auto* vkbookmarkcontextmenu = dynamic_cast<VirtualKBookmarkContextMenu*>(self);
-    if (vkbookmarkcontextmenu && vkbookmarkcontextmenu->isVirtualKBookmarkContextMenu) {
-        self->addActions();
-    } else {
-        ((VirtualKBookmarkContextMenu*)self)->addActions();
-    }
+    self->addActions();
 }
 
 void KBookmarkContextMenu_SetBrowserMode(KBookmarkContextMenu* self, bool browserMode) {

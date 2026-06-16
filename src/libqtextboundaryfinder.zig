@@ -37,14 +37,14 @@ pub const QTextBoundaryFinder = extern struct {
     ///
     /// ` typeVal: qtextboundaryfinder_enums.BoundaryType `
     ///
-    /// ` stringVal: []const u8 `
+    /// ` string: []const u8 `
     ///
-    pub fn New3(typeVal: i32, stringVal: []const u8) QTextBoundaryFinder {
-        const stringVal_str = qtc.libqt_string{
-            .len = stringVal.len,
-            .data = stringVal.ptr,
+    pub fn New3(typeVal: i32, string: []const u8) QTextBoundaryFinder {
+        const string_str = qtc.libqt_string{
+            .len = string.len,
+            .data = string.ptr,
         };
-        return .{ .ptr = qtc.QTextBoundaryFinder_new3(@bitCast(typeVal), stringVal_str) };
+        return .{ .ptr = qtc.QTextBoundaryFinder_new3(@bitCast(typeVal), string_str) };
     }
 
     /// New4 constructs a new QTextBoundaryFinder object.

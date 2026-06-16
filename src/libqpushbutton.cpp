@@ -70,48 +70,23 @@ QPushButton* QPushButton_new6(const QIcon* icon, const libqt_string text, QWidge
 }
 
 QMetaObject* QPushButton_MetaObject(const QPushButton* self) {
-    auto* vqpushbutton = dynamic_cast<const VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQPushButton*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QPushButton_Metacast(QPushButton* self, const char* param1) {
-    auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQPushButton*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QPushButton_Metacall(QPushButton* self, int param1, int param2, void** param3) {
-    auto* vqpushbutton = dynamic_cast<VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQPushButton*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 QSize* QPushButton_SizeHint(const QPushButton* self) {
-    auto* vqpushbutton = dynamic_cast<const VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQPushButton*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QSize* QPushButton_MinimumSizeHint(const QPushButton* self) {
-    auto* vqpushbutton = dynamic_cast<const VirtualQPushButton*>(self);
-    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
-        return new QSize(self->minimumSizeHint());
-    } else {
-        return new QSize(((VirtualQPushButton*)self)->minimumSizeHint());
-    }
+    return new QSize(self->minimumSizeHint());
 }
 
 bool QPushButton_AutoDefault(const QPushButton* self) {

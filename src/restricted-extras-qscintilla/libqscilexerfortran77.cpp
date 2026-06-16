@@ -23,30 +23,15 @@ QsciLexerFortran77* QsciLexerFortran77_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerFortran77_MetaObject(const QsciLexerFortran77* self) {
-    auto* vqscilexerfortran77 = dynamic_cast<const VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerFortran77*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerFortran77_Metacast(QsciLexerFortran77* self, const char* param1) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerFortran77_Metacall(QsciLexerFortran77* self, int param1, int param2, void** param3) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerFortran77*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerFortran77_Language(const QsciLexerFortran77* self) {
@@ -102,12 +87,7 @@ bool QsciLexerFortran77_FoldCompact(const QsciLexerFortran77* self) {
 }
 
 void QsciLexerFortran77_SetFoldCompact(QsciLexerFortran77* self, bool fold) {
-    auto* vqscilexerfortran77 = dynamic_cast<VirtualQsciLexerFortran77*>(self);
-    if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        self->setFoldCompact(fold);
-    } else {
-        ((VirtualQsciLexerFortran77*)self)->setFoldCompact(fold);
-    }
+    self->setFoldCompact(fold);
 }
 
 // Base class handler implementation

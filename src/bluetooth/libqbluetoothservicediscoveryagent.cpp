@@ -31,30 +31,15 @@ QBluetoothServiceDiscoveryAgent* QBluetoothServiceDiscoveryAgent_new4(const QBlu
 }
 
 QMetaObject* QBluetoothServiceDiscoveryAgent_MetaObject(const QBluetoothServiceDiscoveryAgent* self) {
-    auto* vqbluetoothservicediscoveryagent = dynamic_cast<const VirtualQBluetoothServiceDiscoveryAgent*>(self);
-    if (vqbluetoothservicediscoveryagent && vqbluetoothservicediscoveryagent->isVirtualQBluetoothServiceDiscoveryAgent) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQBluetoothServiceDiscoveryAgent*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QBluetoothServiceDiscoveryAgent_Metacast(QBluetoothServiceDiscoveryAgent* self, const char* param1) {
-    auto* vqbluetoothservicediscoveryagent = dynamic_cast<VirtualQBluetoothServiceDiscoveryAgent*>(self);
-    if (vqbluetoothservicediscoveryagent && vqbluetoothservicediscoveryagent->isVirtualQBluetoothServiceDiscoveryAgent) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQBluetoothServiceDiscoveryAgent*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QBluetoothServiceDiscoveryAgent_Metacall(QBluetoothServiceDiscoveryAgent* self, int param1, int param2, void** param3) {
-    auto* vqbluetoothservicediscoveryagent = dynamic_cast<VirtualQBluetoothServiceDiscoveryAgent*>(self);
-    if (vqbluetoothservicediscoveryagent && vqbluetoothservicediscoveryagent->isVirtualQBluetoothServiceDiscoveryAgent) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQBluetoothServiceDiscoveryAgent*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool QBluetoothServiceDiscoveryAgent_IsActive(const QBluetoothServiceDiscoveryAgent* self) {

@@ -34,39 +34,19 @@ QAreaSeries* QAreaSeries_new4(QLineSeries* upperSeries, QLineSeries* lowerSeries
 }
 
 QMetaObject* QAreaSeries_MetaObject(const QAreaSeries* self) {
-    auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQAreaSeries*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QAreaSeries_Metacast(QAreaSeries* self, const char* param1) {
-    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQAreaSeries*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QAreaSeries_Metacall(QAreaSeries* self, int param1, int param2, void** param3) {
-    auto* vqareaseries = dynamic_cast<VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQAreaSeries*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 int QAreaSeries_Type(const QAreaSeries* self) {
-    auto* vqareaseries = dynamic_cast<const VirtualQAreaSeries*>(self);
-    if (vqareaseries && vqareaseries->isVirtualQAreaSeries) {
-        return static_cast<int>(self->type());
-    } else {
-        return static_cast<int>(((VirtualQAreaSeries*)self)->type());
-    }
+    return static_cast<int>(self->type());
 }
 
 void QAreaSeries_SetUpperSeries(QAreaSeries* self, QLineSeries* series) {

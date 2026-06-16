@@ -55,30 +55,15 @@ TextCustomEditor__PlainTextEditorWidget* TextCustomEditor__PlainTextEditorWidget
 }
 
 QMetaObject* TextCustomEditor__PlainTextEditorWidget_MetaObject(const TextCustomEditor__PlainTextEditorWidget* self) {
-    auto* vtextcustomeditor__plaintexteditorwidget = dynamic_cast<const VirtualTextCustomEditorPlainTextEditorWidget*>(self);
-    if (vtextcustomeditor__plaintexteditorwidget && vtextcustomeditor__plaintexteditorwidget->isVirtualTextCustomEditorPlainTextEditorWidget) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorPlainTextEditorWidget*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__PlainTextEditorWidget_Metacast(TextCustomEditor__PlainTextEditorWidget* self, const char* param1) {
-    auto* vtextcustomeditor__plaintexteditorwidget = dynamic_cast<VirtualTextCustomEditorPlainTextEditorWidget*>(self);
-    if (vtextcustomeditor__plaintexteditorwidget && vtextcustomeditor__plaintexteditorwidget->isVirtualTextCustomEditorPlainTextEditorWidget) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorPlainTextEditorWidget*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__PlainTextEditorWidget_Metacall(TextCustomEditor__PlainTextEditorWidget* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__plaintexteditorwidget = dynamic_cast<VirtualTextCustomEditorPlainTextEditorWidget*>(self);
-    if (vtextcustomeditor__plaintexteditorwidget && vtextcustomeditor__plaintexteditorwidget->isVirtualTextCustomEditorPlainTextEditorWidget) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorPlainTextEditorWidget*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 TextCustomEditor__PlainTextEditor* TextCustomEditor__PlainTextEditorWidget_Editor(const TextCustomEditor__PlainTextEditorWidget* self) {

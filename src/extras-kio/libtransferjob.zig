@@ -2247,79 +2247,79 @@ pub const KIO = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: job_base_enums.LoadType `
+    /// ` reload: job_base_enums.LoadType `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Get(param1: anytype, param2: i32, param3: i32) KIO__TransferJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Get(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+    pub fn Get(url: anytype, reload: i32, flags: i32) KIO__TransferJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Get(@ptrCast(url.ptr), @bitCast(reload), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#put)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: i32 `
+    /// ` permissions: i32 `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn Put(param1: anytype, param2: i32, param3: i32) KIO__TransferJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_Put(@ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3)) };
+    pub fn Put(url: anytype, permissions: i32, flags: i32) KIO__TransferJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_Put(@ptrCast(url.ptr), @bitCast(permissions), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#http_post)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: []u8 `
+    /// ` postData: []u8 `
     ///
-    /// ` param3: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn HttpPost(param1: anytype, param2: []u8, param3: i32) KIO__TransferJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        const param2_str = qtc.libqt_string{
-            .len = param2.len,
-            .data = param2.ptr,
+    pub fn HttpPost(url: anytype, postData: []u8, flags: i32) KIO__TransferJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        const postData_str = qtc.libqt_string{
+            .len = postData.len,
+            .data = postData.ptr,
         };
-        return .{ .ptr = qtc.KIO_HttpPost(@ptrCast(param1.ptr), param2_str, @bitCast(param3)) };
+        return .{ .ptr = qtc.KIO_HttpPost(@ptrCast(url.ptr), postData_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#http_post)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: QIODevice `
+    /// ` device: QIODevice `
     ///
-    /// ` param3: i64 `
+    /// ` size: i64 `
     ///
-    /// ` param4: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn HttpPost2(param1: anytype, param2: anytype, param3: i64, param4: i32) KIO__TransferJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        comptime _ = @TypeOf(param2)._is_QIODevice;
-        return .{ .ptr = qtc.KIO_HttpPost2(@ptrCast(param1.ptr), @ptrCast(param2.ptr), @bitCast(param3), @bitCast(param4)) };
+    pub fn HttpPost2(url: anytype, device: anytype, size: i64, flags: i32) KIO__TransferJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        comptime _ = @TypeOf(device)._is_QIODevice;
+        return .{ .ptr = qtc.KIO_HttpPost2(@ptrCast(url.ptr), @ptrCast(device.ptr), @bitCast(size), @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio.html#http_delete)
     ///
     /// ## Parameter(s):
     ///
-    /// ` param1: QUrl `
+    /// ` url: QUrl `
     ///
-    /// ` param2: flag of job_base_enums.JobFlag `
+    /// ` flags: flag of job_base_enums.JobFlag `
     ///
-    pub fn HttpDelete(param1: anytype, param2: i32) KIO__TransferJob {
-        comptime _ = @TypeOf(param1)._is_QUrl;
-        return .{ .ptr = qtc.KIO_HttpDelete(@ptrCast(param1.ptr), @bitCast(param2)) };
+    pub fn HttpDelete(url: anytype, flags: i32) KIO__TransferJob {
+        comptime _ = @TypeOf(url)._is_QUrl;
+        return .{ .ptr = qtc.KIO_HttpDelete(@ptrCast(url.ptr), @bitCast(flags)) };
     }
 };

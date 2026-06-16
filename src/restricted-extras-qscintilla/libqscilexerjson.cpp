@@ -23,30 +23,15 @@ QsciLexerJSON* QsciLexerJSON_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerJSON_MetaObject(const QsciLexerJSON* self) {
-    auto* vqscilexerjson = dynamic_cast<const VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerJSON*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerJSON_Metacast(QsciLexerJSON* self, const char* param1) {
-    auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerJSON*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerJSON_Metacall(QsciLexerJSON* self, int param1, int param2, void** param3) {
-    auto* vqscilexerjson = dynamic_cast<VirtualQsciLexerJSON*>(self);
-    if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerJSON*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerJSON_Language(const QsciLexerJSON* self) {

@@ -79,10 +79,10 @@ void KIO__FileCopyJob_Delete(KIO__FileCopyJob* self) {
     delete self;
 }
 
-KIO__FileCopyJob* KIO_FileCopy(const QUrl* param1, const QUrl* param2, int param3, int param4) {
-    return KIO::file_copy(*param1, *param2, static_cast<int>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__FileCopyJob* KIO_FileCopy(const QUrl* src, const QUrl* dest, int permissions, int flags) {
+    return KIO::file_copy(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags));
 }
 
-KIO__FileCopyJob* KIO_FileMove(const QUrl* param1, const QUrl* param2, int param3, int param4) {
-    return KIO::file_move(*param1, *param2, static_cast<int>(param3), static_cast<KIO::JobFlags>(param4));
+KIO__FileCopyJob* KIO_FileMove(const QUrl* src, const QUrl* dest, int permissions, int flags) {
+    return KIO::file_move(*src, *dest, static_cast<int>(permissions), static_cast<KIO::JobFlags>(flags));
 }

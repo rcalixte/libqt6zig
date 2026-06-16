@@ -49,30 +49,15 @@ TextCustomEditor__RichTextEditFindBar* TextCustomEditor__RichTextEditFindBar_new
 }
 
 QMetaObject* TextCustomEditor__RichTextEditFindBar_MetaObject(const TextCustomEditor__RichTextEditFindBar* self) {
-    auto* vtextcustomeditor__richtexteditfindbar = dynamic_cast<const VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditor__richtexteditfindbar && vtextcustomeditor__richtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualTextCustomEditorRichTextEditFindBar*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* TextCustomEditor__RichTextEditFindBar_Metacast(TextCustomEditor__RichTextEditFindBar* self, const char* param1) {
-    auto* vtextcustomeditor__richtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditor__richtexteditfindbar && vtextcustomeditor__richtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditFindBar*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int TextCustomEditor__RichTextEditFindBar_Metacall(TextCustomEditor__RichTextEditFindBar* self, int param1, int param2, void** param3) {
-    auto* vtextcustomeditor__richtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditor__richtexteditfindbar && vtextcustomeditor__richtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualTextCustomEditorRichTextEditFindBar*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 bool TextCustomEditor__RichTextEditFindBar_ViewIsReadOnly(const TextCustomEditor__RichTextEditFindBar* self) {
@@ -116,12 +101,7 @@ void TextCustomEditor__RichTextEditFindBar_AutoSearchMoveCursor(TextCustomEditor
 }
 
 void TextCustomEditor__RichTextEditFindBar_SlotSearchText(TextCustomEditor__RichTextEditFindBar* self, bool backward, bool isAutoSearch) {
-    auto* vtextcustomeditor__richtexteditfindbar = dynamic_cast<VirtualTextCustomEditorRichTextEditFindBar*>(self);
-    if (vtextcustomeditor__richtexteditfindbar && vtextcustomeditor__richtexteditfindbar->isVirtualTextCustomEditorRichTextEditFindBar) {
-        self->slotSearchText(backward, isAutoSearch);
-    } else {
-        ((VirtualTextCustomEditorRichTextEditFindBar*)self)->slotSearchText(backward, isAutoSearch);
-    }
+    self->slotSearchText(backward, isAutoSearch);
 }
 
 // Base class handler implementation

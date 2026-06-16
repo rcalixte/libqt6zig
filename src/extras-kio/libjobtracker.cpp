@@ -7,6 +7,6 @@ KJobTrackerInterface* KIO_GetJobTracker() {
     return KIO::getJobTracker();
 }
 
-void KIO_SetJobTracker(KJobTrackerInterface* param1) {
-    KIO::setJobTracker(param1);
+void KIO_SetJobTracker(KJobTrackerInterface* tracker) {
+    KIO::setJobTracker(tracker);
 }

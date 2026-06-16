@@ -60,30 +60,15 @@ QColumnView* QColumnView_new2() {
 }
 
 QMetaObject* QColumnView_MetaObject(const QColumnView* self) {
-    auto* vqcolumnview = dynamic_cast<const VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQColumnView*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QColumnView_Metacast(QColumnView* self, const char* param1) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQColumnView*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QColumnView_Metacall(QColumnView* self, int param1, int param2, void** param3) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQColumnView*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 void QColumnView_UpdatePreviewWidget(QColumnView* self, const QModelIndex* index) {
@@ -101,75 +86,35 @@ void QColumnView_Connect_UpdatePreviewWidget(QColumnView* self, intptr_t slot) {
 }
 
 QModelIndex* QColumnView_IndexAt(const QColumnView* self, const QPoint* point) {
-    auto* vqcolumnview = dynamic_cast<const VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        return new QModelIndex(self->indexAt(*point));
-    } else {
-        return new QModelIndex(((VirtualQColumnView*)self)->indexAt(*point));
-    }
+    return new QModelIndex(self->indexAt(*point));
 }
 
 void QColumnView_ScrollTo(QColumnView* self, const QModelIndex* index, int hint) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    } else {
-        ((VirtualQColumnView*)self)->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
-    }
+    self->scrollTo(*index, static_cast<QAbstractItemView::ScrollHint>(hint));
 }
 
 QSize* QColumnView_SizeHint(const QColumnView* self) {
-    auto* vqcolumnview = dynamic_cast<const VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        return new QSize(self->sizeHint());
-    } else {
-        return new QSize(((VirtualQColumnView*)self)->sizeHint());
-    }
+    return new QSize(self->sizeHint());
 }
 
 QRect* QColumnView_VisualRect(const QColumnView* self, const QModelIndex* index) {
-    auto* vqcolumnview = dynamic_cast<const VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        return new QRect(self->visualRect(*index));
-    } else {
-        return new QRect(((VirtualQColumnView*)self)->visualRect(*index));
-    }
+    return new QRect(self->visualRect(*index));
 }
 
 void QColumnView_SetModel(QColumnView* self, QAbstractItemModel* model) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        self->setModel(model);
-    } else {
-        ((VirtualQColumnView*)self)->setModel(model);
-    }
+    self->setModel(model);
 }
 
 void QColumnView_SetSelectionModel(QColumnView* self, QItemSelectionModel* selectionModel) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        self->setSelectionModel(selectionModel);
-    } else {
-        ((VirtualQColumnView*)self)->setSelectionModel(selectionModel);
-    }
+    self->setSelectionModel(selectionModel);
 }
 
 void QColumnView_SetRootIndex(QColumnView* self, const QModelIndex* index) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        self->setRootIndex(*index);
-    } else {
-        ((VirtualQColumnView*)self)->setRootIndex(*index);
-    }
+    self->setRootIndex(*index);
 }
 
 void QColumnView_SelectAll(QColumnView* self) {
-    auto* vqcolumnview = dynamic_cast<VirtualQColumnView*>(self);
-    if (vqcolumnview && vqcolumnview->isVirtualQColumnView) {
-        self->selectAll();
-    } else {
-        ((VirtualQColumnView*)self)->selectAll();
-    }
+    self->selectAll();
 }
 
 void QColumnView_SetResizeGripsVisible(QColumnView* self, bool visible) {

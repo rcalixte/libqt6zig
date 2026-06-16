@@ -18,8 +18,8 @@ extern "C" {
 typedef struct QPasswordDigestor QPasswordDigestor;
 #endif
 
-libqt_string QPasswordDigestor_DeriveKeyPbkdf1(int param1, const libqt_string param2, const libqt_string param3, int param4, unsigned long long param5);
-libqt_string QPasswordDigestor_DeriveKeyPbkdf2(int param1, const libqt_string param2, const libqt_string param3, int param4, unsigned long long param5);
+libqt_string QPasswordDigestor_DeriveKeyPbkdf1(int algorithm, const libqt_string password, const libqt_string salt, int iterations, unsigned long long dkLen);
+libqt_string QPasswordDigestor_DeriveKeyPbkdf2(int algorithm, const libqt_string password, const libqt_string salt, int iterations, unsigned long long dkLen);
 
 #ifdef __cplusplus
 } /* extern C */

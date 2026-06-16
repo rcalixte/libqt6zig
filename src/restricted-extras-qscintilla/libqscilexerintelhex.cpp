@@ -23,30 +23,15 @@ QsciLexerIntelHex* QsciLexerIntelHex_new2(QObject* parent) {
 }
 
 QMetaObject* QsciLexerIntelHex_MetaObject(const QsciLexerIntelHex* self) {
-    auto* vqscilexerintelhex = dynamic_cast<const VirtualQsciLexerIntelHex*>(self);
-    if (vqscilexerintelhex && vqscilexerintelhex->isVirtualQsciLexerIntelHex) {
-        return (QMetaObject*)self->metaObject();
-    } else {
-        return (QMetaObject*)((VirtualQsciLexerIntelHex*)self)->metaObject();
-    }
+    return (QMetaObject*)self->metaObject();
 }
 
 void* QsciLexerIntelHex_Metacast(QsciLexerIntelHex* self, const char* param1) {
-    auto* vqscilexerintelhex = dynamic_cast<VirtualQsciLexerIntelHex*>(self);
-    if (vqscilexerintelhex && vqscilexerintelhex->isVirtualQsciLexerIntelHex) {
-        return self->qt_metacast(param1);
-    } else {
-        return ((VirtualQsciLexerIntelHex*)self)->qt_metacast(param1);
-    }
+    return self->qt_metacast(param1);
 }
 
 int QsciLexerIntelHex_Metacall(QsciLexerIntelHex* self, int param1, int param2, void** param3) {
-    auto* vqscilexerintelhex = dynamic_cast<VirtualQsciLexerIntelHex*>(self);
-    if (vqscilexerintelhex && vqscilexerintelhex->isVirtualQsciLexerIntelHex) {
-        return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    } else {
-        return ((VirtualQsciLexerIntelHex*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-    }
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
 const char* QsciLexerIntelHex_Language(const QsciLexerIntelHex* self) {
