@@ -2297,10 +2297,16 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 						emptyReturn = ifv(!m.ReturnType.Void(), "return {};\n", "")
 					}
 
-					cClassName := strings.ReplaceAll(c.ClassName, "::", "")
-					virtualStart = "auto* " + vVar + " = dynamic_cast<" + maybeConst + "Virtual" + cClassName + "*>(self);\n"
-					virtualStart += "if (" + vVar + " && " + vVar + "->isVirtual" + cClassName + ") {\n"
-					virtualClose = maybeElse + baseClose + "}\n"
+					if m.IsVirtual && !m.IsPrivate && !m.IsProtected {
+						maybeElse = ""
+						baseClose = ""
+						returnCallTarget = "self->" + m.CppCallTarget() + "(" + forwarding + ")"
+					} else {
+						cClassName := strings.ReplaceAll(c.ClassName, "::", "")
+						virtualStart = "auto* " + vVar + " = dynamic_cast<" + maybeConst + "Virtual" + cClassName + "*>(self);\n"
+						virtualStart += "if (" + vVar + " && " + vVar + "->isVirtual" + cClassName + ") {\n"
+						virtualClose = maybeElse + baseClose + "}\n"
+					}
 				}
 
 			writeString:
