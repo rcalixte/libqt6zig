@@ -146,7 +146,7 @@ nextTopLevel:
 					continue nextTopLevel
 				}
 
-				method := fn.createMethod()
+				method := fn.createMethod(node["inner"].([]any))
 				if err := addMethodToClass(&ret.Classes, className, method); err != nil {
 					continue nextTopLevel
 				}
@@ -887,7 +887,7 @@ nextEnumEntry:
 		}
 
 		kind, _ := entry["kind"].(string)
-		if kind == "DeprecatedAttr" || kind == "FullComment" {
+		if kind == "DeprecatedAttr" || kind == "FullComment" || kind == "VisibilityAttr" {
 			continue nextEnumEntry // skip
 		} else if kind == "EnumConstantDecl" {
 			// allow
@@ -1468,9 +1468,17 @@ func shouldSkipClass(className string) bool {
 // createMethod creates a CppMethod from a functionInfo
 // FunctionDecls often do not have the parameter information, so we need to
 // substitute it.
-func (fn *functionInfo) createMethod() CppMethod {
+func (fn *functionInfo) createMethod(inner []any) CppMethod {
 	for i := range fn.params {
-		fn.params[i].ParameterName = "param" + strconv.Itoa(i+1)
+		if fn.params[i].ParameterName == "" {
+			if node, ok := inner[i].(map[string]any); ok {
+				if name, ok := node["name"].(string); ok {
+					fn.params[i].ParameterName = name
+				} else {
+					fn.params[i].ParameterName = "param" + strconv.Itoa(i+1)
+				}
+			}
+		}
 	}
 
 	return CppMethod{
