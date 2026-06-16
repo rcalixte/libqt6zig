@@ -2,6 +2,8 @@ const std = @import("std");
 const host_os = @import("builtin").target.os.tag;
 const host_arch = @import("builtin").target.cpu.arch;
 
+pub const configureQtExeRootModule = @import("exports.zig").configureQtExeRootModule;
+
 var linux_isystem: std.ArrayList([]const u8) = .empty;
 var cpp_flags: std.ArrayList([]const u8) = .empty;
 var cpp_sources: std.ArrayList([]const u8) = .empty;
