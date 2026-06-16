@@ -547,7 +547,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			ret.WriteString("ui." + targetName + ".SetFont(" + fontVal + maybeOnlyFixed + ");\n")
 
 		} else if prop.Name == "iconSize" {
-			ret.WriteString("const " + targetName + "_size" + strconv.Itoa(SizeCounter) + " = qt6.qsize.New4(" + fmt.Sprintf("%d, %d", prop.SizeVal.Width, prop.SizeVal.Height) + ");\n")
+			ret.WriteString("const " + targetName + "_size" + strconv.Itoa(SizeCounter) + " = qt6.QSize.New4(" + fmt.Sprintf("%d, %d", prop.SizeVal.Width, prop.SizeVal.Height) + ");\n")
 			ret.WriteString("defer " + targetName + "_size" + strconv.Itoa(SizeCounter) + ".Delete();\n")
 			ret.WriteString("ui." + targetName + ".SetIconSize(" + targetName + "_size" + strconv.Itoa(SizeCounter) + ");\n")
 			SizeCounter++
@@ -564,7 +564,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 		} else if prop.UrlVal != nil {
 			// "url"
 			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
-				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + "_url = qt6.qurl.New3(" + strconv.Quote(prop.UrlVal.StringVal.Value) + ");\n")
+				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + "_url = qt6.QUrl.New3(" + strconv.Quote(prop.UrlVal.StringVal.Value) + ");\n")
 				ret.WriteString("defer " + urlVariantName + strconv.Itoa(VariantCounter) + "_url.Delete();\n")
 				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New26(" + urlVariantName + strconv.Itoa(VariantCounter) + "_url);\n")
 				ret.WriteString("defer " + urlVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
@@ -754,7 +754,7 @@ func writeLayoutAttributes(ret *strings.Builder, prop, method string) {
 		propVals := strings.Split(prop, ",")
 		for i, propVal := range propVals {
 			if propVal != "0" {
-				ret.WriteString(method + ", " + strconv.Itoa(i) + ", " + propVal + ");\n")
+				ret.WriteString(method + strconv.Itoa(i) + ", " + propVal + ");\n")
 			}
 		}
 	}
@@ -908,7 +908,9 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 	wClassZig := "qt6." + strings.ReplaceAll(wClass, "::", "__")
 	ctor := wClassZig + ".New"
 
-	if parentName == "" || parentClass == "QDockWidget" || parentClass == "QScrollArea" ||
+	if w.Class == "QDockWidget" && parentName == "" {
+		ret.WriteString("\nui." + w.Name + " = " + ctor + "3();\n")
+	} else if parentName == "" || parentClass == "QDockWidget" || parentClass == "QScrollArea" ||
 		parentClass == "QStackedWidget" || parentClass == "QTabWidget" ||
 		parentClass == "QToolBox" || parentClass == "QWizard" {
 		ret.WriteString("\nui." + w.Name + " = " + ctor + "2();\n")
@@ -1025,12 +1027,12 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				ret.WriteString("_ = ui." + w.Name + ".Header().SetProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else {
-				ret.WriteString("(ui." + w.Name + ".Header().Set" + attrName + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
+				ret.WriteString("ui." + w.Name + ".Header().Set" + attrName + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
 			}
 
 		} else if (wClass == "QTreeWidget" || wClass == "QTreeView") && attr.NumberVal != nil {
 			attrName := strings.TrimPrefix(attr.Name, "header")
-			ret.WriteString("(ui." + w.Name + ".Header().Set" + attrName + "(" + *attr.NumberVal + ");\n")
+			ret.WriteString("ui." + w.Name + ".Header().Set" + attrName + "(" + *attr.NumberVal + ");\n")
 
 		} else if attr.Name == "toolTip" {
 			ret.WriteString(writtenString("ui."+w.Name+".SetToolTip(", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
