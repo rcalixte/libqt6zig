@@ -1,4 +1,9 @@
 
+### 6.8.2 rev78 (16 June 2026)
+
+* Add build system export and use upstream parameter names when possible (#149)
+* Support QProcess on Windows (#148)
+
 ### 6.8.2 rev77 (3 June 2026)
 
 * Fix helper method cross-platform support (#146)
