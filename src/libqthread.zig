@@ -576,6 +576,46 @@ pub const QThread = extern struct {
         return qtc.QThread_SuperExec(@ptrCast(self.ptr));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QThread `
+    ///
+    pub fn SetTerminationEnabled(self: QThread) void {
+        qtc.QThread_SetTerminationEnabled(@ptrCast(self.ptr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QThread `
+    ///
+    /// ` callback: *const fn () callconv(.c) void `
+    ///
+    pub fn OnSetTerminationEnabled(self: QThread, callback: *const fn () callconv(.c) void) void {
+        qtc.QThread_OnSetTerminationEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperSetTerminationEnabled` instead
+    ///
+    pub const QBaseSetTerminationEnabled = SuperSetTerminationEnabled;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QThread `
+    ///
+    pub fn SuperSetTerminationEnabled(self: QThread) void {
+        qtc.QThread_SuperSetTerminationEnabled(@ptrCast(self.ptr));
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ## Parameter(s):
@@ -653,6 +693,50 @@ pub const QThread = extern struct {
     pub fn Wait1(self: QThread, deadline: anytype) bool {
         comptime _ = @TypeOf(deadline)._is_QDeadlineTimer;
         return qtc.QThread_Wait1(@ptrCast(self.ptr), @ptrCast(deadline.ptr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QThread `
+    ///
+    /// ` enabled: bool `
+    ///
+    pub fn SetTerminationEnabled1(self: QThread, enabled: bool) void {
+        qtc.QThread_SetTerminationEnabled1(@ptrCast(self.ptr), enabled);
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QThread `
+    ///
+    /// ` callback: *const fn (self: QThread, enabled: bool) callconv(.c) void `
+    ///
+    pub fn OnSetTerminationEnabled1(self: QThread, callback: *const fn (QThread, bool) callconv(.c) void) void {
+        qtc.QThread_OnSetTerminationEnabled1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperSetTerminationEnabled1` instead
+    ///
+    pub const QBaseSetTerminationEnabled1 = SuperSetTerminationEnabled1;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qthread.html#setTerminationEnabled)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QThread `
+    ///
+    /// ` enabled: bool `
+    ///
+    pub fn SuperSetTerminationEnabled1(self: QThread, enabled: bool) void {
+        qtc.QThread_SuperSetTerminationEnabled1(@ptrCast(self.ptr), enabled);
     }
 
     /// Inherited from QObject

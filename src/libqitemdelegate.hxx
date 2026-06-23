@@ -46,6 +46,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     using QItemDelegate_Rect_Callback = QRect* (*)(const QItemDelegate*, QStyleOptionViewItem*, QModelIndex*, int);
     using QItemDelegate_SetOptions_Callback = QStyleOptionViewItem* (*)(const QItemDelegate*, QModelIndex*, QStyleOptionViewItem*);
     using QItemDelegate_Decoration_Callback = QPixmap* (*)(const QItemDelegate*, QStyleOptionViewItem*, QVariant*);
+    using QItemDelegate_SelectedPixmap_Callback = QPixmap* (*)(QItemDelegate*, QPixmap*, QPalette*, bool);
     using QItemDelegate_DoCheck_Callback = QRect* (*)(const QItemDelegate*, QStyleOptionViewItem*, QRect*, QVariant*);
     using QItemDelegate_TextRectangle_Callback = QRect* (*)(const QItemDelegate*, QPainter*, QRect*, QFont*, const char*);
     using QItemDelegate_Sender_Callback = QObject* (*)();
@@ -84,6 +85,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     QItemDelegate_Rect_Callback qitemdelegate_rect_callback = nullptr;
     QItemDelegate_SetOptions_Callback qitemdelegate_setoptions_callback = nullptr;
     QItemDelegate_Decoration_Callback qitemdelegate_decoration_callback = nullptr;
+    QItemDelegate_SelectedPixmap_Callback qitemdelegate_selectedpixmap_callback = nullptr;
     QItemDelegate_DoCheck_Callback qitemdelegate_docheck_callback = nullptr;
     QItemDelegate_TextRectangle_Callback qitemdelegate_textrectangle_callback = nullptr;
     QItemDelegate_Sender_Callback qitemdelegate_sender_callback = nullptr;
@@ -121,6 +123,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     mutable bool qitemdelegate_rect_isbase = false;
     mutable bool qitemdelegate_setoptions_isbase = false;
     mutable bool qitemdelegate_decoration_isbase = false;
+    mutable bool qitemdelegate_selectedpixmap_isbase = false;
     mutable bool qitemdelegate_docheck_isbase = false;
     mutable bool qitemdelegate_textrectangle_isbase = false;
     mutable bool qitemdelegate_sender_isbase = false;
@@ -162,6 +165,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     inline void setQItemDelegate_Rect_Callback(QItemDelegate_Rect_Callback cb) { qitemdelegate_rect_callback = cb; }
     inline void setQItemDelegate_SetOptions_Callback(QItemDelegate_SetOptions_Callback cb) { qitemdelegate_setoptions_callback = cb; }
     inline void setQItemDelegate_Decoration_Callback(QItemDelegate_Decoration_Callback cb) { qitemdelegate_decoration_callback = cb; }
+    inline void setQItemDelegate_SelectedPixmap_Callback(QItemDelegate_SelectedPixmap_Callback cb) { qitemdelegate_selectedpixmap_callback = cb; }
     inline void setQItemDelegate_DoCheck_Callback(QItemDelegate_DoCheck_Callback cb) { qitemdelegate_docheck_callback = cb; }
     inline void setQItemDelegate_TextRectangle_Callback(QItemDelegate_TextRectangle_Callback cb) { qitemdelegate_textrectangle_callback = cb; }
     inline void setQItemDelegate_Sender_Callback(QItemDelegate_Sender_Callback cb) { qitemdelegate_sender_callback = cb; }
@@ -199,6 +203,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     inline void setQItemDelegate_Rect_IsBase(bool value) const { qitemdelegate_rect_isbase = value; }
     inline void setQItemDelegate_SetOptions_IsBase(bool value) const { qitemdelegate_setoptions_isbase = value; }
     inline void setQItemDelegate_Decoration_IsBase(bool value) const { qitemdelegate_decoration_isbase = value; }
+    inline void setQItemDelegate_SelectedPixmap_IsBase(bool value) const { qitemdelegate_selectedpixmap_isbase = value; }
     inline void setQItemDelegate_DoCheck_IsBase(bool value) const { qitemdelegate_docheck_isbase = value; }
     inline void setQItemDelegate_TextRectangle_IsBase(bool value) const { qitemdelegate_textrectangle_isbase = value; }
     inline void setQItemDelegate_Sender_IsBase(bool value) const { qitemdelegate_sender_isbase = value; }
@@ -790,6 +795,29 @@ class VirtualQItemDelegate final : public QItemDelegate {
     }
 
     // Virtual method for C ABI access and custom callback
+    QPixmap selectedPixmap(const QPixmap& pixmap, const QPalette& palette, bool enabled) {
+        if (qitemdelegate_selectedpixmap_isbase) {
+            qitemdelegate_selectedpixmap_isbase = false;
+            return QItemDelegate::selectedPixmap(pixmap, palette, enabled);
+        }
+        auto selectedpixmap_cb = qitemdelegate_selectedpixmap_callback;
+        if (selectedpixmap_cb) {
+            const QPixmap& pixmap_ret = pixmap;
+            // Cast returned reference into pointer
+            QPixmap* cbval1 = const_cast<QPixmap*>(&pixmap_ret);
+            const QPalette& palette_ret = palette;
+            // Cast returned reference into pointer
+            QPalette* cbval2 = const_cast<QPalette*>(&palette_ret);
+            bool cbval3 = enabled;
+            QPixmap* callback_ret = selectedpixmap_cb(this, cbval1, cbval2, cbval3);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
+        }
+        return QItemDelegate::selectedPixmap(pixmap, palette, enabled);
+    }
+
+    // Virtual method for C ABI access and custom callback
     QRect doCheck(const QStyleOptionViewItem& option, const QRect& bounding, const QVariant& variant) const {
         if (qitemdelegate_docheck_isbase) {
             qitemdelegate_docheck_isbase = false;
@@ -939,6 +967,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     friend QStyleOptionViewItem* QItemDelegate_SuperSetOptions(const QItemDelegate* self, const QModelIndex* index, const QStyleOptionViewItem* option);
     friend QPixmap* QItemDelegate_Decoration(const QItemDelegate* self, const QStyleOptionViewItem* option, const QVariant* variant);
     friend QPixmap* QItemDelegate_SuperDecoration(const QItemDelegate* self, const QStyleOptionViewItem* option, const QVariant* variant);
+    friend QPixmap* QItemDelegate_SelectedPixmap(QItemDelegate* self, const QPixmap* pixmap, const QPalette* palette, bool enabled);
+    friend QPixmap* QItemDelegate_SuperSelectedPixmap(QItemDelegate* self, const QPixmap* pixmap, const QPalette* palette, bool enabled);
     friend QRect* QItemDelegate_DoCheck(const QItemDelegate* self, const QStyleOptionViewItem* option, const QRect* bounding, const QVariant* variant);
     friend QRect* QItemDelegate_SuperDoCheck(const QItemDelegate* self, const QStyleOptionViewItem* option, const QRect* bounding, const QVariant* variant);
     friend QRect* QItemDelegate_TextRectangle(const QItemDelegate* self, QPainter* painter, const QRect* rect, const QFont* font, const libqt_string text);

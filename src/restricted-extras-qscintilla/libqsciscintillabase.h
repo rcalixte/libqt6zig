@@ -296,6 +296,12 @@ void QsciScintillaBase_SuperDisconnectNotify(QsciScintillaBase* self, const QMet
 void QsciScintillaBase_SetScrollBars(QsciScintillaBase* self);
 void QsciScintillaBase_OnSetScrollBars(QsciScintillaBase* self, intptr_t slot);
 void QsciScintillaBase_SuperSetScrollBars(QsciScintillaBase* self);
+libqt_string QsciScintillaBase_TextAsBytes(const QsciScintillaBase* self, const libqt_string text);
+void QsciScintillaBase_OnTextAsBytes(const QsciScintillaBase* self, intptr_t slot);
+libqt_string QsciScintillaBase_SuperTextAsBytes(const QsciScintillaBase* self, const libqt_string text);
+libqt_string QsciScintillaBase_BytesAsText(const QsciScintillaBase* self, const char* bytes, int size);
+void QsciScintillaBase_OnBytesAsText(const QsciScintillaBase* self, intptr_t slot);
+libqt_string QsciScintillaBase_SuperBytesAsText(const QsciScintillaBase* self, const char* bytes, int size);
 bool QsciScintillaBase_ContextMenuNeeded(const QsciScintillaBase* self, int x, int y);
 void QsciScintillaBase_OnContextMenuNeeded(const QsciScintillaBase* self, intptr_t slot);
 bool QsciScintillaBase_SuperContextMenuNeeded(const QsciScintillaBase* self, int x, int y);

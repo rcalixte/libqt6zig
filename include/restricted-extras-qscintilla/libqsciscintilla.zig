@@ -16118,6 +16118,148 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: []const u8 `
+    ///
+    pub fn TextAsBytes(self: QsciScintilla, allocator: std.mem.Allocator, text: []const u8) []u8 {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_TextAsBytes(@ptrCast(self.ptr), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `SuperTextAsBytes` instead
+    ///
+    pub const QBaseTextAsBytes = SuperTextAsBytes;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: []const u8 `
+    ///
+    pub fn SuperTextAsBytes(self: QsciScintilla, allocator: std.mem.Allocator, text: []const u8) []u8 {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.QsciScintilla_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla`
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
+    ///
+    pub fn OnTextAsBytes(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
+        qtc.QsciScintilla_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` bytes: [:0]const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    pub fn BytesAsText(self: QsciScintilla, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        var _str = qtc.QsciScintilla_BytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `SuperBytesAsText` instead
+    ///
+    pub const QBaseBytesAsText = SuperBytesAsText;
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintilla `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` bytes: [:0]const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    pub fn SuperBytesAsText(self: QsciScintilla, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        var _str = qtc.QsciScintilla_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintilla`
+    ///
+    /// ` callback: *const fn (self: QsciScintilla, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
+    ///
+    pub fn OnBytesAsText(self: QsciScintilla, callback: *const fn (QsciScintilla, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciScintilla_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintilla `
+    ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `

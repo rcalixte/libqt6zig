@@ -14,6 +14,7 @@ const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QModelIndex = @import("libqt6").QModelIndex;
 const QObject = @import("libqt6").QObject;
 const QPainter = @import("libqt6").QPainter;
+const QPalette = @import("libqt6").QPalette;
 const QPixmap = @import("libqt6").QPixmap;
 const QRect = @import("libqt6").QRect;
 const QSize = @import("libqt6").QSize;
@@ -1242,6 +1243,64 @@ pub const QItemDelegate = extern struct {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_SuperDecoration(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(variant.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QItemDelegate `
+    ///
+    /// ` pixmap: QPixmap `
+    ///
+    /// ` palette: QPalette `
+    ///
+    /// ` enabled: bool `
+    ///
+    pub fn SelectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        return .{ .ptr = qtc.QItemDelegate_SelectedPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @ptrCast(palette.ptr), enabled) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QItemDelegate `
+    ///
+    /// ` callback: *const fn (self: QItemDelegate, pixmap: QPixmap, palette: QPalette, enabled: bool) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn OnSelectedPixmap(self: QItemDelegate, callback: *const fn (QItemDelegate, QPixmap, QPalette, bool) callconv(.c) QPixmap) void {
+        qtc.QItemDelegate_OnSelectedPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperSelectedPixmap` instead
+    ///
+    pub const QBaseSelectedPixmap = SuperSelectedPixmap;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QItemDelegate `
+    ///
+    /// ` pixmap: QPixmap `
+    ///
+    /// ` palette: QPalette `
+    ///
+    /// ` enabled: bool `
+    ///
+    pub fn SuperSelectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
+        comptime _ = @TypeOf(pixmap)._is_QPixmap;
+        comptime _ = @TypeOf(palette)._is_QPalette;
+        return .{ .ptr = qtc.QItemDelegate_SuperSelectedPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @ptrCast(palette.ptr), enabled) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)

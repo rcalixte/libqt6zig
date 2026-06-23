@@ -462,6 +462,64 @@ void QThread_OnExec(QThread* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+void QThread_SetTerminationEnabled(QThread* self) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setTerminationEnabled();
+    } else {
+        ((VirtualQThread*)self)->setTerminationEnabled();
+    }
+}
+
+// Base class handler implementation
+void QThread_SuperSetTerminationEnabled(QThread* self) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_SetTerminationEnabled_IsBase(true);
+        vqthread->setTerminationEnabled();
+    } else {
+        ((VirtualQThread*)self)->setTerminationEnabled();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThread_OnSetTerminationEnabled(QThread* self, intptr_t slot) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_SetTerminationEnabled_Callback(reinterpret_cast<VirtualQThread::QThread_SetTerminationEnabled_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void QThread_SetTerminationEnabled1(QThread* self, bool enabled) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setTerminationEnabled(enabled);
+    } else {
+        ((VirtualQThread*)self)->setTerminationEnabled(enabled);
+    }
+}
+
+// Base class handler implementation
+void QThread_SuperSetTerminationEnabled1(QThread* self, bool enabled) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_SetTerminationEnabled1_IsBase(true);
+        vqthread->setTerminationEnabled(enabled);
+    } else {
+        ((VirtualQThread*)self)->setTerminationEnabled(enabled);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QThread_OnSetTerminationEnabled1(QThread* self, intptr_t slot) {
+    auto* vqthread = dynamic_cast<VirtualQThread*>(self);
+    if (vqthread && vqthread->isVirtualQThread) {
+        vqthread->setQThread_SetTerminationEnabled1_Callback(reinterpret_cast<VirtualQThread::QThread_SetTerminationEnabled1_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 QObject* QThread_Sender(const QThread* self) {
     auto* vqthread = const_cast<VirtualQThread*>(dynamic_cast<const VirtualQThread*>(self));
     if (vqthread && vqthread->isVirtualQThread) {

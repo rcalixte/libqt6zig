@@ -159,6 +159,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_ConnectNotify_Callback = void (*)(QsciScintilla*, QMetaMethod*);
     using QsciScintilla_DisconnectNotify_Callback = void (*)(QsciScintilla*, QMetaMethod*);
     using QsciScintilla_SetScrollBars_Callback = void (*)();
+    using QsciScintilla_TextAsBytes_Callback = libqt_string (*)(const QsciScintilla*, const char*);
+    using QsciScintilla_BytesAsText_Callback = const char* (*)(const QsciScintilla*, const char*, int);
     using QsciScintilla_ContextMenuNeeded_Callback = bool (*)(const QsciScintilla*, int, int);
     using QsciScintilla_SetViewportMargins_Callback = void (*)(QsciScintilla*, int, int, int, int);
     using QsciScintilla_ViewportMargins_Callback = QMargins* (*)();
@@ -318,6 +320,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     QsciScintilla_ConnectNotify_Callback qsciscintilla_connectnotify_callback = nullptr;
     QsciScintilla_DisconnectNotify_Callback qsciscintilla_disconnectnotify_callback = nullptr;
     QsciScintilla_SetScrollBars_Callback qsciscintilla_setscrollbars_callback = nullptr;
+    QsciScintilla_TextAsBytes_Callback qsciscintilla_textasbytes_callback = nullptr;
+    QsciScintilla_BytesAsText_Callback qsciscintilla_bytesastext_callback = nullptr;
     QsciScintilla_ContextMenuNeeded_Callback qsciscintilla_contextmenuneeded_callback = nullptr;
     QsciScintilla_SetViewportMargins_Callback qsciscintilla_setviewportmargins_callback = nullptr;
     QsciScintilla_ViewportMargins_Callback qsciscintilla_viewportmargins_callback = nullptr;
@@ -476,6 +480,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     mutable bool qsciscintilla_connectnotify_isbase = false;
     mutable bool qsciscintilla_disconnectnotify_isbase = false;
     mutable bool qsciscintilla_setscrollbars_isbase = false;
+    mutable bool qsciscintilla_textasbytes_isbase = false;
+    mutable bool qsciscintilla_bytesastext_isbase = false;
     mutable bool qsciscintilla_contextmenuneeded_isbase = false;
     mutable bool qsciscintilla_setviewportmargins_isbase = false;
     mutable bool qsciscintilla_viewportmargins_isbase = false;
@@ -638,6 +644,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_ConnectNotify_Callback(QsciScintilla_ConnectNotify_Callback cb) { qsciscintilla_connectnotify_callback = cb; }
     inline void setQsciScintilla_DisconnectNotify_Callback(QsciScintilla_DisconnectNotify_Callback cb) { qsciscintilla_disconnectnotify_callback = cb; }
     inline void setQsciScintilla_SetScrollBars_Callback(QsciScintilla_SetScrollBars_Callback cb) { qsciscintilla_setscrollbars_callback = cb; }
+    inline void setQsciScintilla_TextAsBytes_Callback(QsciScintilla_TextAsBytes_Callback cb) { qsciscintilla_textasbytes_callback = cb; }
+    inline void setQsciScintilla_BytesAsText_Callback(QsciScintilla_BytesAsText_Callback cb) { qsciscintilla_bytesastext_callback = cb; }
     inline void setQsciScintilla_ContextMenuNeeded_Callback(QsciScintilla_ContextMenuNeeded_Callback cb) { qsciscintilla_contextmenuneeded_callback = cb; }
     inline void setQsciScintilla_SetViewportMargins_Callback(QsciScintilla_SetViewportMargins_Callback cb) { qsciscintilla_setviewportmargins_callback = cb; }
     inline void setQsciScintilla_ViewportMargins_Callback(QsciScintilla_ViewportMargins_Callback cb) { qsciscintilla_viewportmargins_callback = cb; }
@@ -796,6 +804,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_ConnectNotify_IsBase(bool value) const { qsciscintilla_connectnotify_isbase = value; }
     inline void setQsciScintilla_DisconnectNotify_IsBase(bool value) const { qsciscintilla_disconnectnotify_isbase = value; }
     inline void setQsciScintilla_SetScrollBars_IsBase(bool value) const { qsciscintilla_setscrollbars_isbase = value; }
+    inline void setQsciScintilla_TextAsBytes_IsBase(bool value) const { qsciscintilla_textasbytes_isbase = value; }
+    inline void setQsciScintilla_BytesAsText_IsBase(bool value) const { qsciscintilla_bytesastext_isbase = value; }
     inline void setQsciScintilla_ContextMenuNeeded_IsBase(bool value) const { qsciscintilla_contextmenuneeded_isbase = value; }
     inline void setQsciScintilla_SetViewportMargins_IsBase(bool value) const { qsciscintilla_setviewportmargins_isbase = value; }
     inline void setQsciScintilla_ViewportMargins_IsBase(bool value) const { qsciscintilla_viewportmargins_isbase = value; }
@@ -3200,6 +3210,47 @@ class VirtualQsciScintilla final : public QsciScintilla {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qsciscintilla_textasbytes_isbase) {
+            qsciscintilla_textasbytes_isbase = false;
+            return QsciScintilla::textAsBytes(text);
+        }
+        auto textasbytes_cb = qsciscintilla_textasbytes_callback;
+        if (textasbytes_cb) {
+            const auto text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            auto text_str_len = text_b.length();
+            const char* text_str = static_cast<const char*>(malloc(text_str_len + 1));
+            memcpy((void*)text_str, text_b.data(), text_str_len);
+            ((char*)text_str)[text_str_len] = '\0';
+            const char* cbval1 = text_str;
+            libqt_string callback_ret = textasbytes_cb(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            libqt_free(text_str);
+            return callback_ret_QByteArray;
+        }
+        return QsciScintilla::textAsBytes(text);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qsciscintilla_bytesastext_isbase) {
+            qsciscintilla_bytesastext_isbase = false;
+            return QsciScintilla::bytesAsText(bytes, size);
+        }
+        auto bytesastext_cb = qsciscintilla_bytesastext_callback;
+        if (bytesastext_cb) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+            const char* callback_ret = bytesastext_cb(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
+            return callback_ret_QString;
+        }
+        return QsciScintilla::bytesAsText(bytes, size);
+    }
+
+    // Virtual method for C ABI access and custom callback
     bool contextMenuNeeded(int x, int y) const {
         if (qsciscintilla_contextmenuneeded_isbase) {
             qsciscintilla_contextmenuneeded_isbase = false;
@@ -3512,6 +3563,10 @@ class VirtualQsciScintilla final : public QsciScintilla {
     friend void QsciScintilla_SuperDisconnectNotify(QsciScintilla* self, const QMetaMethod* signal);
     friend void QsciScintilla_SetScrollBars(QsciScintilla* self);
     friend void QsciScintilla_SuperSetScrollBars(QsciScintilla* self);
+    friend libqt_string QsciScintilla_TextAsBytes(const QsciScintilla* self, const libqt_string text);
+    friend libqt_string QsciScintilla_SuperTextAsBytes(const QsciScintilla* self, const libqt_string text);
+    friend libqt_string QsciScintilla_BytesAsText(const QsciScintilla* self, const char* bytes, int size);
+    friend libqt_string QsciScintilla_SuperBytesAsText(const QsciScintilla* self, const char* bytes, int size);
     friend bool QsciScintilla_ContextMenuNeeded(const QsciScintilla* self, int x, int y);
     friend bool QsciScintilla_SuperContextMenuNeeded(const QsciScintilla* self, int x, int y);
     friend void QsciScintilla_SetViewportMargins(QsciScintilla* self, int left, int top, int right, int bottom);

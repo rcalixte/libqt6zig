@@ -1928,6 +1928,118 @@ void QsciScintillaBase_OnSetScrollBars(QsciScintillaBase* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+libqt_string QsciScintillaBase_TextAsBytes(const QsciScintillaBase* self, const libqt_string text) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        QByteArray _qb = vqsciscintillabase->textAsBytes(text_QString);
+        libqt_string _str;
+        _str.len = _qb.length();
+        _str.data = static_cast<char*>(malloc(_str.len));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        return _str;
+    } else {
+        QByteArray _qb = ((VirtualQsciScintillaBase*)self)->textAsBytes(text_QString);
+        libqt_string _str;
+        _str.len = _qb.length();
+        _str.data = static_cast<char*>(malloc(_str.len));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        return _str;
+    }
+}
+
+// Base class handler implementation
+libqt_string QsciScintillaBase_SuperTextAsBytes(const QsciScintillaBase* self, const libqt_string text) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    QString text_QString = QString::fromUtf8(text.data, text.len);
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_TextAsBytes_IsBase(true);
+        QByteArray _qb = vqsciscintillabase->textAsBytes(text_QString);
+        libqt_string _str;
+        _str.len = _qb.length();
+        _str.data = static_cast<char*>(malloc(_str.len));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        return _str;
+    } else {
+        QByteArray _qb = ((VirtualQsciScintillaBase*)self)->textAsBytes(text_QString);
+        libqt_string _str;
+        _str.len = _qb.length();
+        _str.data = static_cast<char*>(malloc(_str.len));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        return _str;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintillaBase_OnTextAsBytes(const QsciScintillaBase* self, intptr_t slot) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_TextAsBytes_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_TextAsBytes_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+libqt_string QsciScintillaBase_BytesAsText(const QsciScintillaBase* self, const char* bytes, int size) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        auto _ret = vqsciscintillabase->bytesAsText(bytes, static_cast<int>(size));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        auto _ret = ((VirtualQsciScintillaBase*)self)->bytesAsText(bytes, static_cast<int>(size));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Base class handler implementation
+libqt_string QsciScintillaBase_SuperBytesAsText(const QsciScintillaBase* self, const char* bytes, int size) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_BytesAsText_IsBase(true);
+        auto _ret = vqsciscintillabase->bytesAsText(bytes, static_cast<int>(size));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    } else {
+        auto _ret = ((VirtualQsciScintillaBase*)self)->bytesAsText(bytes, static_cast<int>(size));
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        QByteArray _b = _ret.toUtf8();
+        libqt_string _str;
+        _str.len = _b.length();
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
+        return _str;
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintillaBase_OnBytesAsText(const QsciScintillaBase* self, intptr_t slot) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_BytesAsText_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_BytesAsText_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 bool QsciScintillaBase_ContextMenuNeeded(const QsciScintillaBase* self, int x, int y) {
     auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
     if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {

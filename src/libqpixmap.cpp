@@ -505,6 +505,60 @@ void QPixmap_OnSharedPainter(const QPixmap* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+QPixmap* QPixmap_FromImageInPlace(QPixmap* self, QImage* image) {
+    auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
+    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+        return new QPixmap(vqpixmap->fromImageInPlace(*image));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QPixmap* QPixmap_SuperFromImageInPlace(QPixmap* self, QImage* image) {
+    auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
+    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+        vqpixmap->setQPixmap_FromImageInPlace_IsBase(true);
+        return new QPixmap(vqpixmap->fromImageInPlace(*image));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPixmap_OnFromImageInPlace(QPixmap* self, intptr_t slot) {
+    auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
+    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+        vqpixmap->setQPixmap_FromImageInPlace_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_FromImageInPlace_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+QPixmap* QPixmap_FromImageInPlace2(QPixmap* self, QImage* image, int flags) {
+    auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
+    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+        return new QPixmap(vqpixmap->fromImageInPlace(*image, static_cast<Qt::ImageConversionFlags>(flags)));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QPixmap* QPixmap_SuperFromImageInPlace2(QPixmap* self, QImage* image, int flags) {
+    auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
+    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+        vqpixmap->setQPixmap_FromImageInPlace2_IsBase(true);
+        return new QPixmap(vqpixmap->fromImageInPlace(*image, static_cast<Qt::ImageConversionFlags>(flags)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPixmap_OnFromImageInPlace2(QPixmap* self, intptr_t slot) {
+    auto* vqpixmap = dynamic_cast<VirtualQPixmap*>(self);
+    if (vqpixmap && vqpixmap->isVirtualQPixmap) {
+        vqpixmap->setQPixmap_FromImageInPlace2_Callback(reinterpret_cast<VirtualQPixmap::QPixmap_FromImageInPlace2_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 double QPixmap_GetDecodedMetricF(const QPixmap* self, int metricA, int metricB) {
     auto* vqpixmap = const_cast<VirtualQPixmap*>(dynamic_cast<const VirtualQPixmap*>(self));
     if (vqpixmap && vqpixmap->isVirtualQPixmap) {
