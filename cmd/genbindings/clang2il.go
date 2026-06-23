@@ -297,16 +297,6 @@ const (
 	VsPrivate   visibilityState = 3
 )
 
-var (
-	bruteForceMethods = map[string]struct{}{
-		"QItemDelegate_selectedPixmap":  {},
-		"QPixmap_fromImageInPlace":      {},
-		"QThread_setTerminationEnabled": {},
-		"QsciScintillaBase_bytesAsText": {},
-		"QsciScintillaBase_textAsBytes": {},
-	}
-)
-
 // Returns true if this method is required as part of the class's virtual interface
 func (c *CppClass) IsRequiredProtectedMethod(m *CppMethod) bool {
 	if !m.IsProtected || m.IsVirtual {
@@ -327,11 +317,6 @@ func (c *CppClass) IsRequiredProtectedMethod(m *CppMethod) bool {
 		}
 	}
 	if !hasVirtual {
-		return false
-	}
-
-	// Brute force the removal of certain methods
-	if _, ok := bruteForceMethods[c.ClassName+"_"+m.MethodName]; ok {
 		return false
 	}
 
