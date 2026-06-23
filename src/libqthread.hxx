@@ -29,6 +29,8 @@ class VirtualQThread final : public QThread {
     using QThread_ConnectNotify_Callback = void (*)(QThread*, QMetaMethod*);
     using QThread_DisconnectNotify_Callback = void (*)(QThread*, QMetaMethod*);
     using QThread_Exec_Callback = int (*)();
+    using QThread_SetTerminationEnabled_Callback = void (*)();
+    using QThread_SetTerminationEnabled1_Callback = void (*)(QThread*, bool);
     using QThread_Sender_Callback = QObject* (*)();
     using QThread_SenderSignalIndex_Callback = int (*)();
     using QThread_Receivers_Callback = int (*)(const QThread*, const char*);
@@ -48,6 +50,8 @@ class VirtualQThread final : public QThread {
     QThread_ConnectNotify_Callback qthread_connectnotify_callback = nullptr;
     QThread_DisconnectNotify_Callback qthread_disconnectnotify_callback = nullptr;
     QThread_Exec_Callback qthread_exec_callback = nullptr;
+    QThread_SetTerminationEnabled_Callback qthread_setterminationenabled_callback = nullptr;
+    QThread_SetTerminationEnabled1_Callback qthread_setterminationenabled1_callback = nullptr;
     QThread_Sender_Callback qthread_sender_callback = nullptr;
     QThread_SenderSignalIndex_Callback qthread_sendersignalindex_callback = nullptr;
     QThread_Receivers_Callback qthread_receivers_callback = nullptr;
@@ -66,6 +70,8 @@ class VirtualQThread final : public QThread {
     mutable bool qthread_connectnotify_isbase = false;
     mutable bool qthread_disconnectnotify_isbase = false;
     mutable bool qthread_exec_isbase = false;
+    mutable bool qthread_setterminationenabled_isbase = false;
+    mutable bool qthread_setterminationenabled1_isbase = false;
     mutable bool qthread_sender_isbase = false;
     mutable bool qthread_sendersignalindex_isbase = false;
     mutable bool qthread_receivers_isbase = false;
@@ -88,6 +94,8 @@ class VirtualQThread final : public QThread {
     inline void setQThread_ConnectNotify_Callback(QThread_ConnectNotify_Callback cb) { qthread_connectnotify_callback = cb; }
     inline void setQThread_DisconnectNotify_Callback(QThread_DisconnectNotify_Callback cb) { qthread_disconnectnotify_callback = cb; }
     inline void setQThread_Exec_Callback(QThread_Exec_Callback cb) { qthread_exec_callback = cb; }
+    inline void setQThread_SetTerminationEnabled_Callback(QThread_SetTerminationEnabled_Callback cb) { qthread_setterminationenabled_callback = cb; }
+    inline void setQThread_SetTerminationEnabled1_Callback(QThread_SetTerminationEnabled1_Callback cb) { qthread_setterminationenabled1_callback = cb; }
     inline void setQThread_Sender_Callback(QThread_Sender_Callback cb) { qthread_sender_callback = cb; }
     inline void setQThread_SenderSignalIndex_Callback(QThread_SenderSignalIndex_Callback cb) { qthread_sendersignalindex_callback = cb; }
     inline void setQThread_Receivers_Callback(QThread_Receivers_Callback cb) { qthread_receivers_callback = cb; }
@@ -106,6 +114,8 @@ class VirtualQThread final : public QThread {
     inline void setQThread_ConnectNotify_IsBase(bool value) const { qthread_connectnotify_isbase = value; }
     inline void setQThread_DisconnectNotify_IsBase(bool value) const { qthread_disconnectnotify_isbase = value; }
     inline void setQThread_Exec_IsBase(bool value) const { qthread_exec_isbase = value; }
+    inline void setQThread_SetTerminationEnabled_IsBase(bool value) const { qthread_setterminationenabled_isbase = value; }
+    inline void setQThread_SetTerminationEnabled1_IsBase(bool value) const { qthread_setterminationenabled1_isbase = value; }
     inline void setQThread_Sender_IsBase(bool value) const { qthread_sender_isbase = value; }
     inline void setQThread_SenderSignalIndex_IsBase(bool value) const { qthread_sendersignalindex_isbase = value; }
     inline void setQThread_Receivers_IsBase(bool value) const { qthread_receivers_isbase = value; }
@@ -302,6 +312,37 @@ class VirtualQThread final : public QThread {
     }
 
     // Virtual method for C ABI access and custom callback
+    void setTerminationEnabled() {
+        if (qthread_setterminationenabled_isbase) {
+            qthread_setterminationenabled_isbase = false;
+            QThread::setTerminationEnabled();
+            return;
+        }
+        auto setterminationenabled_cb = qthread_setterminationenabled_callback;
+        if (setterminationenabled_cb) {
+            setterminationenabled_cb();
+            return;
+        }
+        QThread::setTerminationEnabled();
+    }
+
+    // Virtual method for C ABI access and custom callback
+    void setTerminationEnabled(bool enabled) {
+        if (qthread_setterminationenabled1_isbase) {
+            qthread_setterminationenabled1_isbase = false;
+            QThread::setTerminationEnabled(enabled);
+            return;
+        }
+        auto setterminationenabled1_cb = qthread_setterminationenabled1_callback;
+        if (setterminationenabled1_cb) {
+            bool cbval1 = enabled;
+            setterminationenabled1_cb(this, cbval1);
+            return;
+        }
+        QThread::setTerminationEnabled(enabled);
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qthread_sender_isbase) {
             qthread_sender_isbase = false;
@@ -376,6 +417,10 @@ class VirtualQThread final : public QThread {
     friend void QThread_SuperDisconnectNotify(QThread* self, const QMetaMethod* signal);
     friend int QThread_Exec(QThread* self);
     friend int QThread_SuperExec(QThread* self);
+    friend void QThread_SetTerminationEnabled(QThread* self);
+    friend void QThread_SuperSetTerminationEnabled(QThread* self);
+    friend void QThread_SetTerminationEnabled1(QThread* self, bool enabled);
+    friend void QThread_SuperSetTerminationEnabled1(QThread* self, bool enabled);
     friend QObject* QThread_Sender(const QThread* self);
     friend QObject* QThread_SuperSender(const QThread* self);
     friend int QThread_SenderSignalIndex(const QThread* self);

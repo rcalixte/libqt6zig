@@ -13,6 +13,7 @@
 #include <QModelIndex>
 #include <QObject>
 #include <QPainter>
+#include <QPalette>
 #include <QPixmap>
 #include <QRect>
 #include <QSize>
@@ -849,6 +850,33 @@ void QItemDelegate_OnDecoration(const QItemDelegate* self, intptr_t slot) {
     auto* vqitemdelegate = const_cast<VirtualQItemDelegate*>(dynamic_cast<const VirtualQItemDelegate*>(self));
     if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
         vqitemdelegate->setQItemDelegate_Decoration_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_Decoration_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+QPixmap* QItemDelegate_SelectedPixmap(QItemDelegate* self, const QPixmap* pixmap, const QPalette* palette, bool enabled) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        return new QPixmap(vqitemdelegate->selectedPixmap(*pixmap, *palette, enabled));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QPixmap* QItemDelegate_SuperSelectedPixmap(QItemDelegate* self, const QPixmap* pixmap, const QPalette* palette, bool enabled) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SelectedPixmap_IsBase(true);
+        return new QPixmap(vqitemdelegate->selectedPixmap(*pixmap, *palette, enabled));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QItemDelegate_OnSelectedPixmap(QItemDelegate* self, intptr_t slot) {
+    auto* vqitemdelegate = dynamic_cast<VirtualQItemDelegate*>(self);
+    if (vqitemdelegate && vqitemdelegate->isVirtualQItemDelegate) {
+        vqitemdelegate->setQItemDelegate_SelectedPixmap_Callback(reinterpret_cast<VirtualQItemDelegate::QItemDelegate_SelectedPixmap_Callback>(slot));
     }
 }
 

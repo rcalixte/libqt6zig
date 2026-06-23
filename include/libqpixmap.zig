@@ -786,6 +786,54 @@ pub const QPixmap = extern struct {
         return qtc.QPixmap_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPixmap `
+    ///
+    /// ` image: QImage `
+    ///
+    pub fn FromImageInPlace(self: QPixmap, image: anytype) QPixmap {
+        comptime _ = @TypeOf(image)._is_QImage;
+        return .{ .ptr = qtc.QPixmap_FromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QPixmap `
+    ///
+    /// ` callback: *const fn (self: QPixmap, image: QImage) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn OnFromImageInPlace(self: QPixmap, callback: *const fn (QPixmap, QImage) callconv(.c) QPixmap) void {
+        qtc.QPixmap_OnFromImageInPlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperFromImageInPlace` instead
+    ///
+    pub const QBaseFromImageInPlace = SuperFromImageInPlace;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPixmap `
+    ///
+    /// ` image: QImage `
+    ///
+    pub fn SuperFromImageInPlace(self: QPixmap, image: anytype) QPixmap {
+        comptime _ = @TypeOf(image)._is_QImage;
+        return .{ .ptr = qtc.QPixmap_SuperFromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fill)
     ///
     /// ## Parameter(s):
@@ -1222,6 +1270,58 @@ pub const QPixmap = extern struct {
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(exposed)._is_QRegion;
         qtc.QPixmap_Scroll4(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(rect.ptr), @ptrCast(exposed.ptr));
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPixmap `
+    ///
+    /// ` image: QImage `
+    ///
+    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
+    ///
+    pub fn FromImageInPlace2(self: QPixmap, image: anytype, flags: i32) QPixmap {
+        comptime _ = @TypeOf(image)._is_QImage;
+        return .{ .ptr = qtc.QPixmap_FromImageInPlace2(@ptrCast(self.ptr), @ptrCast(image.ptr), @bitCast(flags)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QPixmap `
+    ///
+    /// ` callback: *const fn (self: QPixmap, image: QImage, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn OnFromImageInPlace2(self: QPixmap, callback: *const fn (QPixmap, QImage, i32) callconv(.c) QPixmap) void {
+        qtc.QPixmap_OnFromImageInPlace2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperFromImageInPlace2` instead
+    ///
+    pub const QBaseFromImageInPlace2 = SuperFromImageInPlace2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPixmap `
+    ///
+    /// ` image: QImage `
+    ///
+    /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
+    ///
+    pub fn SuperFromImageInPlace2(self: QPixmap, image: anytype, flags: i32) QPixmap {
+        comptime _ = @TypeOf(image)._is_QImage;
+        return .{ .ptr = qtc.QPixmap_SuperFromImageInPlace2(@ptrCast(self.ptr), @ptrCast(image.ptr), @bitCast(flags)) };
     }
 
     /// Inherited from QPaintDevice

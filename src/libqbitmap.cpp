@@ -262,6 +262,33 @@ void QBitmap_OnSharedPainter(const QBitmap* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+QPixmap* QBitmap_FromImageInPlace(QBitmap* self, QImage* image) {
+    auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
+    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+        return new QPixmap(vqbitmap->fromImageInPlace(*image));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QPixmap* QBitmap_SuperFromImageInPlace(QBitmap* self, QImage* image) {
+    auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
+    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+        vqbitmap->setQBitmap_FromImageInPlace_IsBase(true);
+        return new QPixmap(vqbitmap->fromImageInPlace(*image));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QBitmap_OnFromImageInPlace(QBitmap* self, intptr_t slot) {
+    auto* vqbitmap = dynamic_cast<VirtualQBitmap*>(self);
+    if (vqbitmap && vqbitmap->isVirtualQBitmap) {
+        vqbitmap->setQBitmap_FromImageInPlace_Callback(reinterpret_cast<VirtualQBitmap::QBitmap_FromImageInPlace_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 double QBitmap_GetDecodedMetricF(const QBitmap* self, int metricA, int metricB) {
     auto* vqbitmap = const_cast<VirtualQBitmap*>(dynamic_cast<const VirtualQBitmap*>(self));
     if (vqbitmap && vqbitmap->isVirtualQBitmap) {

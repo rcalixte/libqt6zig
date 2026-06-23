@@ -2113,6 +2113,132 @@ pub const QsciScintillaBase = extern struct {
     ///
     /// ` self: QsciScintillaBase `
     ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: []const u8 `
+    ///
+    pub fn TextAsBytes(self: QsciScintillaBase, allocator: std.mem.Allocator, text: []const u8) []u8 {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.QsciScintillaBase_TextAsBytes(@ptrCast(self.ptr), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintillabase.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
+    /// ` callback: *const fn (self: QsciScintillaBase, text: [*:0]const u8) callconv(.c) qtc.libqt_string `
+    ///
+    pub fn OnTextAsBytes(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, [*:0]const u8) callconv(.c) qtc.libqt_string) void {
+        qtc.QsciScintillaBase_OnTextAsBytes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperTextAsBytes` instead
+    ///
+    pub const QBaseTextAsBytes = SuperTextAsBytes;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` text: []const u8 `
+    ///
+    pub fn SuperTextAsBytes(self: QsciScintillaBase, allocator: std.mem.Allocator, text: []const u8) []u8 {
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.QsciScintillaBase_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintillabase.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` bytes: [:0]const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    pub fn BytesAsText(self: QsciScintillaBase, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        var _str = qtc.QsciScintillaBase_BytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintillabase.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
+    /// ` callback: *const fn (self: QsciScintillaBase, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 `
+    ///
+    pub fn OnBytesAsText(self: QsciScintillaBase, callback: *const fn (QsciScintillaBase, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciScintillaBase_OnBytesAsText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperBytesAsText` instead
+    ///
+    pub const QBaseBytesAsText = SuperBytesAsText;
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    /// ` bytes: [:0]const u8 `
+    ///
+    /// ` size: i32 `
+    ///
+    pub fn SuperBytesAsText(self: QsciScintillaBase, allocator: std.mem.Allocator, bytes: [:0]const u8, size: i32) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        var _str = qtc.QsciScintillaBase_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintillabase.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QsciScintillaBase `
+    ///
     /// ` x: i32 `
     ///
     /// ` y: i32 `

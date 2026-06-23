@@ -23,6 +23,8 @@ class VirtualQPixmap final : public QPixmap {
     using QPixmap_InitPainter_Callback = void (*)(const QPixmap*, QPainter*);
     using QPixmap_Redirected_Callback = QPaintDevice* (*)(const QPixmap*, QPoint*);
     using QPixmap_SharedPainter_Callback = QPainter* (*)();
+    using QPixmap_FromImageInPlace_Callback = QPixmap* (*)(QPixmap*, QImage*);
+    using QPixmap_FromImageInPlace2_Callback = QPixmap* (*)(QPixmap*, QImage*, int);
     using QPixmap_GetDecodedMetricF_Callback = double (*)(const QPixmap*, int, int);
 
   protected:
@@ -33,6 +35,8 @@ class VirtualQPixmap final : public QPixmap {
     QPixmap_InitPainter_Callback qpixmap_initpainter_callback = nullptr;
     QPixmap_Redirected_Callback qpixmap_redirected_callback = nullptr;
     QPixmap_SharedPainter_Callback qpixmap_sharedpainter_callback = nullptr;
+    QPixmap_FromImageInPlace_Callback qpixmap_fromimageinplace_callback = nullptr;
+    QPixmap_FromImageInPlace2_Callback qpixmap_fromimageinplace2_callback = nullptr;
     QPixmap_GetDecodedMetricF_Callback qpixmap_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
@@ -42,6 +46,8 @@ class VirtualQPixmap final : public QPixmap {
     mutable bool qpixmap_initpainter_isbase = false;
     mutable bool qpixmap_redirected_isbase = false;
     mutable bool qpixmap_sharedpainter_isbase = false;
+    mutable bool qpixmap_fromimageinplace_isbase = false;
+    mutable bool qpixmap_fromimageinplace2_isbase = false;
     mutable bool qpixmap_getdecodedmetricf_isbase = false;
 
   public:
@@ -61,6 +67,8 @@ class VirtualQPixmap final : public QPixmap {
     inline void setQPixmap_InitPainter_Callback(QPixmap_InitPainter_Callback cb) { qpixmap_initpainter_callback = cb; }
     inline void setQPixmap_Redirected_Callback(QPixmap_Redirected_Callback cb) { qpixmap_redirected_callback = cb; }
     inline void setQPixmap_SharedPainter_Callback(QPixmap_SharedPainter_Callback cb) { qpixmap_sharedpainter_callback = cb; }
+    inline void setQPixmap_FromImageInPlace_Callback(QPixmap_FromImageInPlace_Callback cb) { qpixmap_fromimageinplace_callback = cb; }
+    inline void setQPixmap_FromImageInPlace2_Callback(QPixmap_FromImageInPlace2_Callback cb) { qpixmap_fromimageinplace2_callback = cb; }
     inline void setQPixmap_GetDecodedMetricF_Callback(QPixmap_GetDecodedMetricF_Callback cb) { qpixmap_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
@@ -70,6 +78,8 @@ class VirtualQPixmap final : public QPixmap {
     inline void setQPixmap_InitPainter_IsBase(bool value) const { qpixmap_initpainter_isbase = value; }
     inline void setQPixmap_Redirected_IsBase(bool value) const { qpixmap_redirected_isbase = value; }
     inline void setQPixmap_SharedPainter_IsBase(bool value) const { qpixmap_sharedpainter_isbase = value; }
+    inline void setQPixmap_FromImageInPlace_IsBase(bool value) const { qpixmap_fromimageinplace_isbase = value; }
+    inline void setQPixmap_FromImageInPlace2_IsBase(bool value) const { qpixmap_fromimageinplace2_isbase = value; }
     inline void setQPixmap_GetDecodedMetricF_IsBase(bool value) const { qpixmap_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
@@ -161,6 +171,45 @@ class VirtualQPixmap final : public QPixmap {
     }
 
     // Virtual method for C ABI access and custom callback
+    QPixmap fromImageInPlace(QImage& image) {
+        if (qpixmap_fromimageinplace_isbase) {
+            qpixmap_fromimageinplace_isbase = false;
+            return QPixmap::fromImageInPlace(image);
+        }
+        auto fromimageinplace_cb = qpixmap_fromimageinplace_callback;
+        if (fromimageinplace_cb) {
+            QImage& image_ret = image;
+            // Cast returned reference into pointer
+            QImage* cbval1 = &image_ret;
+            QPixmap* callback_ret = fromimageinplace_cb(this, cbval1);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
+        }
+        return QPixmap::fromImageInPlace(image);
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QPixmap fromImageInPlace(QImage& image, Qt::ImageConversionFlags flags) {
+        if (qpixmap_fromimageinplace2_isbase) {
+            qpixmap_fromimageinplace2_isbase = false;
+            return QPixmap::fromImageInPlace(image, flags);
+        }
+        auto fromimageinplace2_cb = qpixmap_fromimageinplace2_callback;
+        if (fromimageinplace2_cb) {
+            QImage& image_ret = image;
+            // Cast returned reference into pointer
+            QImage* cbval1 = &image_ret;
+            int cbval2 = static_cast<int>(flags);
+            QPixmap* callback_ret = fromimageinplace2_cb(this, cbval1, cbval2);
+            auto callback_ret_Value = std::move(*callback_ret);
+            delete callback_ret;
+            return callback_ret_Value;
+        }
+        return QPixmap::fromImageInPlace(image, flags);
+    }
+
+    // Virtual method for C ABI access and custom callback
     double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
         if (qpixmap_getdecodedmetricf_isbase) {
             qpixmap_getdecodedmetricf_isbase = false;
@@ -185,6 +234,10 @@ class VirtualQPixmap final : public QPixmap {
     friend QPaintDevice* QPixmap_SuperRedirected(const QPixmap* self, QPoint* offset);
     friend QPainter* QPixmap_SharedPainter(const QPixmap* self);
     friend QPainter* QPixmap_SuperSharedPainter(const QPixmap* self);
+    friend QPixmap* QPixmap_FromImageInPlace(QPixmap* self, QImage* image);
+    friend QPixmap* QPixmap_SuperFromImageInPlace(QPixmap* self, QImage* image);
+    friend QPixmap* QPixmap_FromImageInPlace2(QPixmap* self, QImage* image, int flags);
+    friend QPixmap* QPixmap_SuperFromImageInPlace2(QPixmap* self, QImage* image, int flags);
     friend double QPixmap_GetDecodedMetricF(const QPixmap* self, int metricA, int metricB);
     friend double QPixmap_SuperGetDecodedMetricF(const QPixmap* self, int metricA, int metricB);
 };

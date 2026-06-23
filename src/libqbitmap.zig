@@ -1701,6 +1701,62 @@ pub const QBitmap = extern struct {
         qtc.QBitmap_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// Inherited from QPixmap
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBitmap `
+    ///
+    /// ` image: QImage `
+    ///
+    pub fn FromImageInPlace(self: QBitmap, image: anytype) QPixmap {
+        comptime _ = @TypeOf(image)._is_QImage;
+        return .{ .ptr = qtc.QBitmap_FromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `SuperFromImageInPlace` instead
+    ///
+    pub const QBaseFromImageInPlace = SuperFromImageInPlace;
+
+    /// Inherited from QPixmap
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBitmap `
+    ///
+    /// ` image: QImage `
+    ///
+    pub fn SuperFromImageInPlace(self: QBitmap, image: anytype) QPixmap {
+        comptime _ = @TypeOf(image)._is_QImage;
+        return .{ .ptr = qtc.QBitmap_SuperFromImageInPlace(@ptrCast(self.ptr), @ptrCast(image.ptr)) };
+    }
+
+    /// Inherited from QPixmap
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#fromImageInPlace)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: QBitmap`
+    ///
+    /// ` callback: *const fn (self: QBitmap, image: QImage) callconv(.c) QPixmap `
+    ///
+    /// **Warning:** Memory for the returned type of the callback is freed by the library.
+    ///
+    pub fn OnFromImageInPlace(self: QBitmap, callback: *const fn (QBitmap, QImage) callconv(.c) QPixmap) void {
+        qtc.QBitmap_OnFromImageInPlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)

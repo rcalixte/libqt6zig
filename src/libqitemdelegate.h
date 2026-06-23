@@ -29,6 +29,7 @@ typedef struct QMetaObject QMetaObject;
 typedef struct QModelIndex QModelIndex;
 typedef struct QObject QObject;
 typedef struct QPainter QPainter;
+typedef struct QPalette QPalette;
 typedef struct QPixmap QPixmap;
 typedef struct QRect QRect;
 typedef struct QSize QSize;
@@ -131,6 +132,9 @@ QStyleOptionViewItem* QItemDelegate_SuperSetOptions(const QItemDelegate* self, c
 QPixmap* QItemDelegate_Decoration(const QItemDelegate* self, const QStyleOptionViewItem* option, const QVariant* variant);
 void QItemDelegate_OnDecoration(const QItemDelegate* self, intptr_t slot);
 QPixmap* QItemDelegate_SuperDecoration(const QItemDelegate* self, const QStyleOptionViewItem* option, const QVariant* variant);
+QPixmap* QItemDelegate_SelectedPixmap(QItemDelegate* self, const QPixmap* pixmap, const QPalette* palette, bool enabled);
+void QItemDelegate_OnSelectedPixmap(QItemDelegate* self, intptr_t slot);
+QPixmap* QItemDelegate_SuperSelectedPixmap(QItemDelegate* self, const QPixmap* pixmap, const QPalette* palette, bool enabled);
 QRect* QItemDelegate_DoCheck(const QItemDelegate* self, const QStyleOptionViewItem* option, const QRect* bounding, const QVariant* variant);
 void QItemDelegate_OnDoCheck(const QItemDelegate* self, intptr_t slot);
 QRect* QItemDelegate_SuperDoCheck(const QItemDelegate* self, const QStyleOptionViewItem* option, const QRect* bounding, const QVariant* variant);
