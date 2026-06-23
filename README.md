@@ -235,7 +235,7 @@ sudo dnf install gcc libstdc++-devel qt6-qtbase-devel qt6-qtcharts-devel qt6-qtc
 #### Arch-based distributions
 
 ```bash
-sudo pacman -S gcc qt6-base qt6-charts qt6-connectivity qt6-location qt6-multimedia qt6-positioning qt6-scxml qt6-speech qt6-svg qt6-webchannel qt6-webengine qt6-websockets qt6-tools attica karchive kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kfilemetadata kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice kstatusnotifieritem ksvg ktextaddons ktexteditor ktextwidgets kunitconversion kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 poppler-qt6 qcustomplot-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
+sudo pacman -S gcc qt6-base qt6-charts qt6-connectivity qt6-location qt6-multimedia qt6-positioning qt6-scxml qt6-speech qt6-svg qt6-webchannel qt6-webengine qt6-websockets qt6-tools attica karchive kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kfilemetadata kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice kstatusnotifieritem ksvg ktextaddons ktexteditor ktextwidgets kunitconversion kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 poppler-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
 ```
 
 Users of Arch-based distributions need to __make sure that all packages are up-to-date__.
