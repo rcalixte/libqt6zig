@@ -149,7 +149,7 @@ fn onClicked(self: QPushButton) callconv(.c) void {
 }
 ```
 
-Full examples are available in the [`libqt6zig-examples`](https://github.com/rcalixte/libqt6zig-examples) repository.
+Full examples are available in the [`libqt6zig-examples`](https://github.com/rcalixte/libqt6zig-examples) repository. An [overview of the examples](https://github.com/rcalixte/libqt6zig-examples/blob/master/OVERVIEW.md) is also available for a simpler/quicker glance.
 
 Building
 --------
